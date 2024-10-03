@@ -1,0 +1,101 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_name__",
+  "short_name": "Turn Off the Lights",
+  "version": "4.4.1.0",
+  "description": "__MSG_descriptionshort__",
+  "author": "Stefan vd",
+  "homepage_url": "https://www.turnoffthelights.com/support/",
+  "omnibox": { "keyword" : "totl" },
+  "icons": {
+      "16": "icons/icon16.png",
+      "24": "icons/icon24.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "96": "icons/icon96.png",
+      "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "action": {
+      "default_title": "__MSG_pageatitle__",
+      "default_icon": {
+        "19": "icons/iconstick19safari.png",
+        "38": "icons/iconstick38safari.png"
+      }
+  },
+  "background": {
+    "service_worker": "js/background.js",
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/constants.js", "js/content.js", "js/eco.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "css" : ["css/light.css"],
+      "run_at": "document_end",
+      "all_frames": true,
+      "match_about_blank": true
+    },
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["js/fps.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/autostop.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    },
+    {
+      "matches": ["*://*.youtube.com/*"], 
+      "css" : ["css/youtube.css"]
+    }
+  ],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L",
+        "mac": "MacCtrl+Shift+L"
+      }
+    },
+    "toggle-feature-nightmode": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+N",
+        "mac": "MacCtrl+Shift+N"
+      },
+      "description": "__MSG_titelnighttheme__"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "web_accessible_resources": [{
+    "resources": ["/js/fps-block.js", "/js/hd-quality.js"],
+    "matches": ["*://www.youtube.com/*"],
+    "use_dynamic_url": true
+  },
+  {
+    "resources": ["/js/video-player-status.js"],
+    "matches": ["<all_urls>"],
+    "use_dynamic_url": true
+  }],
+  "offline_enabled": true,
+  "storage": {
+    "managed_schema": "schema.json"
+  },
+  "permissions": ["contextMenus", "tabs", "storage", "webNavigation", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "browser_specific_settings": {
+    "safari": {
+      "strict_min_version": "15.4"
+    }
+  }
+}

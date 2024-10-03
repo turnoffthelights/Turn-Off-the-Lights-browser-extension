@@ -1,0 +1,120 @@
+
+/* Class = "UILabel"; text = "There is so much more you can do. And everything can be customized on the Turn Off the Lights Options page, so it matches your personal style and preferences."; ObjectID = "0OB-Fg-auw"; */
+"0OB-Fg-auw.text" = "There is so much more you can do. And everything can be customized on the Turn Off the Lights Options page, so it matches your personal style and preferences.";
+
+/* Class = "UILabel"; text = "Activate"; ObjectID = "3Cj-kM-e8I"; */
+"3Cj-kM-e8I.text" = "Activate";
+
+/* Class = "UILabel"; text = "Turn Off the Lights"; ObjectID = "B4r-RH-XgV"; */
+"B4r-RH-XgV.text" = "Turn Off the Lights";
+
+/* Class = "UILabel"; text = "The last profile is the \"Eye Protection\" which dims the web page and adds this dark layer to all newly opened websites and will not remove the layer unless you tap the lamp button again."; ObjectID = "BLb-B0-RK2"; */
+"BLb-B0-RK2.text" = "The last profile is the \"Eye Protection\" which dims the web page and adds this dark layer to all newly opened websites and will not remove the layer unless you tap the lamp button again.";
+
+/* Class = "UIButton"; configuration.title = "Watch Video"; ObjectID = "Ddt-xO-PNb"; */
+"Ddt-xO-PNb.configuration.title" = "Watch Video";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Ddt-xO-PNb"; */
+"Ddt-xO-PNb.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "The 2nd action you can choose is the Night Owl profile. That makes it possible to convert any website to your personal dark mode theme."; ObjectID = "E6O-Jw-gSV"; */
+"E6O-Jw-gSV.text" = "The 2nd action you can choose is the Night Owl profile. That makes it possible to convert any website to your personal dark mode theme.";
+
+/* Class = "UILabel"; text = "Customizable"; ObjectID = "FVh-6P-PDh"; */
+"FVh-6P-PDh.text" = "Customizable";
+
+/* Class = "UILabel"; text = "Options page"; ObjectID = "Ggd-gi-wol"; */
+"Ggd-gi-wol.text" = "Options page";
+
+/* Class = "UIButton"; configuration.title = "OK"; ObjectID = "IN9-yT-dQQ"; */
+"IN9-yT-dQQ.configuration.title" = "OK";
+
+/* Class = "UIButton"; configuration.title = "Watch Video"; ObjectID = "Imp-Os-wOD"; */
+"Imp-Os-wOD.configuration.title" = "Watch Video";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Imp-Os-wOD"; */
+"Imp-Os-wOD.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Leave this app"; ObjectID = "KLJ-NO-6JP"; */
+"KLJ-NO-6JP.text" = "Leave this app";
+
+/* Class = "UILabel"; text = "Let us walk you through the awesome Turn Off the Lights Safari extension features."; ObjectID = "Khk-p9-ex7"; */
+"Khk-p9-ex7.text" = "Let us walk you through the awesome Turn Off the Lights Safari extension features.";
+
+/* Class = "UIButton"; configuration.title = "4"; ObjectID = "Li8-95-iL8"; */
+"Li8-95-iL8.configuration.title" = "4";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Li8-95-iL8"; */
+"Li8-95-iL8.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Video Lover Profile"; ObjectID = "O1s-ZN-JTo"; */
+"O1s-ZN-JTo.text" = "Video Lover Profile";
+
+/* Class = "UILabel"; text = "Turn Off the Lights"; ObjectID = "OWs-Lg-34j"; */
+"OWs-Lg-34j.text" = "Turn Off the Lights";
+
+/* Class = "UILabel"; text = "Turn Off the Lights"; ObjectID = "PJs-v5-LSN"; */
+"PJs-v5-LSN.text" = "Turn Off the Lights";
+
+/* Class = "UIButton"; configuration.title = "2"; ObjectID = "QUA-an-ILC"; */
+"QUA-an-ILC.configuration.title" = "2";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "QUA-an-ILC"; */
+"QUA-an-ILC.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Easy to set this up"; ObjectID = "TlZ-Hv-ZZ1"; */
+"TlZ-Hv-ZZ1.text" = "Easy to set this up";
+
+/* Class = "UILabel"; text = "Night Owl Profile"; ObjectID = "XlO-PQ-sJ3"; */
+"XlO-PQ-sJ3.text" = "Night Owl Profile";
+
+/* Class = "UILabel"; text = "Eye Protection Profile"; ObjectID = "aNm-VO-d5h"; */
+"aNm-VO-d5h.text" = "Eye Protection Profile";
+
+/* Class = "UIButton"; configuration.title = "Watch Video"; ObjectID = "b5Q-cU-SYm"; */
+"b5Q-cU-SYm.configuration.title" = "Watch Video";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "b5Q-cU-SYm"; */
+"b5Q-cU-SYm.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Turn Off the Lights"; ObjectID = "c0N-xl-bA1"; */
+"c0N-xl-bA1.text" = "Turn Off the Lights";
+
+/* Class = "UIButton"; configuration.title = "3"; ObjectID = "e2Y-OR-G7m"; */
+"e2Y-OR-G7m.configuration.title" = "3";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "e2Y-OR-G7m"; */
+"e2Y-OR-G7m.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Search and tap on Safari, tap then on Extensions"; ObjectID = "i0A-Dg-a92"; */
+"i0A-Dg-a92.text" = "Search and tap on Safari, tap then on Extensions";
+
+/* Class = "UILabel"; text = "Enable Turn Off the Lights"; ObjectID = "j8t-bB-hiC"; */
+"j8t-bB-hiC.text" = "Enable Turn Off the Lights";
+
+/* Class = "UILabel"; text = "Welcome"; ObjectID = "kSN-m6-Tb4"; */
+"kSN-m6-Tb4.text" = "Welcome";
+
+/* Class = "UILabel"; text = "You can set 3 types of button actions for the lamp button. The default action is the Video Lover profile, which will dim the web page and highlight the video player if available."; ObjectID = "lLD-al-AhY"; */
+"lLD-al-AhY.text" = "You can set 3 types of button actions for the lamp button. The default action is the Video Lover profile, which will dim the web page and highlight the video player if available.";
+
+/* Class = "UIButton"; configuration.title = "1"; ObjectID = "lOv-lD-98t"; */
+"lOv-lD-98t.configuration.title" = "1";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lOv-lD-98t"; */
+"lOv-lD-98t.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Turn Off the Lights"; ObjectID = "mqJ-SP-Haf"; */
+"mqJ-SP-Haf.text" = "Turn Off the Lights";
+
+/* Class = "UILabel"; text = "Button Action"; ObjectID = "nb0-q9-EJC"; */
+"nb0-q9-EJC.text" = "Button Action";
+
+/* Class = "UILabel"; text = "Button Action"; ObjectID = "omB-dZ-yzT"; */
+"omB-dZ-yzT.text" = "Button Action";
+
+/* Class = "UILabel"; text = "Open the Settings app on your device"; ObjectID = "opu-Bg-yF6"; */
+"opu-Bg-yF6.text" = "Open the Settings app on your device";
+
+/* Class = "UILabel"; text = "Button Action"; ObjectID = "z9V-ho-vtZ"; */
+"z9V-ho-vtZ.text" = "Button Action";

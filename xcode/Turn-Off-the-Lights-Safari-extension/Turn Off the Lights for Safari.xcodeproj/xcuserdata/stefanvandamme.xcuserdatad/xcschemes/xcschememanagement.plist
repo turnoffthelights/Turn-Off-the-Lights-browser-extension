@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>TOtL-iOS-UITest.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>TOtL-iOS-test.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Turn Off the Lights for Safari (iOS).xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Turn Off the Lights for Safari (macOS).xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>Turn Off the Lights for Safari Extension (iOS).xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Turn Off the Lights for Safari Extension (macOS).xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Turn Off the Lights for Safari.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1E4CB209268CC77900015282</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1E4CB216268CC79300015282</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1E4CB223268CDC2300015282</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1E4CB230268CDC6D00015282</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1E54226928423578003B4F50</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1E70C9F626726F380064A939</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1E70CA0826726F380064A939</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1E70CA1526726F380064A939</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1E70CA1F26726F380064A939</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

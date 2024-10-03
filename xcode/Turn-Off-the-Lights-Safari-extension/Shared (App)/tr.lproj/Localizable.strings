@@ -1,0 +1,55 @@
+/*
+  Localizable.strings
+  Turn Off the Lights for Safari
+
+  Created by Stefan Van Damme on 17/06/2021.
+  
+*/
+
+"lbleasytosetup" = "Ayarlaması kolay";
+"lblturnoffthelights" = "Turn Off the Lights";
+"lblactivate" = "Etkinleştir";
+"lblwatchvideo" = "Videoyu İzle";
+"lblstep1" = "Bu uygulamadan ayrıl";
+"lblstep2a" = "Aç";
+"lblstep2b" = "Ayarlar";
+"lblstep2c" = "cihazınızdaki uygulama";
+"lblstep3a" = "Ara ve üzerine tıkla";
+"lblstep3b" = "Safari";
+"lblstep3c" = "daha sonra üzerine tıkla";
+"lblstep3d" = "Eklentiler";
+"lblstep4a" = "Etkinleştir";
+"lblstep4b" = "Turn Off the Lights";
+"lblplaceholder" = "Turn Off the Lights Safari uzantısı";
+"lblemailsubject" = "ÜCRETSİZ Turn Off the Lights Safari uzantısı";
+"lblsharetwitter" = "Tüm web sitelerinde Karanlık Modu etkinleştirmek için ücretsiz Turn Off the Lights Safari uzantısını indirin. Kendiniz deneyin! @TurnOfftheLight aracılığıyla #iOS15";
+"lblshareregular" = "Ücretsiz Turn Off the Lights Safari uzantısını yükledim, tüm web sitelerinde Karanlık Modu etkinleştirmek için en sevdiğim Safari uzantısıdır. Kendiniz deneyin!";
+"lblsafariextensionstatus" = "Safari Eklentisi";
+"lblsafariextensionenable" = "Açık";
+"lblsafariextensiondisable" = "Devre dışı";
+"lblquickoptions" = "Ayarları aç";
+"lblactionok" = "Tamam Anladım";
+"bannerstep1a" = "Aç";
+"bannerstep1b" = "Ayarlar";
+"bannerstep1c" = "uygulama";
+"bannerstep2a" = "Kaydır";
+"bannerstep2b" = "Safari";
+"bannerstep3a" = "Seç";
+"bannerstep3b" = "Eklentiler";
+"bannerstep4a" = "Aç";
+"bannerstep4b" = "Turn Off the Lights";
+"bannerstep5a" = "Aç";
+"bannerstep5b" = "Safari";
+"bannerstep5c" = "web tarayıcısı";
+"lblactionskip" = "ATLA";
+"lblactionnext" = "SONRAKİ";
+"strfindout" = "Daha fazla bul";
+"strworldpremiere" = "DÜNYA GALASI";
+"strdesworldpremiere" = "Tarayıcı Uzantısı, daha iyi Gizlilik, Performans ve Güvenlik için Manifest V3'ü kullanır.";
+"strtranslator" = "ÇEVİRMEN TOPLULUĞU";
+"strdestranslator" = "Yardım Edin ve Tarayıcı Uzantısını Çevirin!";
+"strdeveloper" = "GELİŞTİRİCİ TOPLULUĞU";
+"strdesdeveloper" = "Sorunları Bulun ve Bildirin!";
+"strsocial" = "SOSYAL TOPLULUK";
+"strdessocial" = "Takip edin ve diğer üyelerle etkileşim kurun!";
+"strnewsloading" = "Yükleniyor…";

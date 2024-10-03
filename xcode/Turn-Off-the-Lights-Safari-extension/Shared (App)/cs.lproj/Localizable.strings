@@ -1,0 +1,55 @@
+/* 
+  Localizable.strings
+  Turn Off the Lights for Safari
+
+  Created by Stefan Van Damme on 17/06/2021.
+  
+*/
+
+"lbleasytosetup" = "Easy to set this up";
+"lblturnoffthelights" = "Turn Off the Lights";
+"lblactivate" = "Activate";
+"lblwatchvideo" = "Watch Video";
+"lblstep1" = "Leave this app";
+"lblstep2a" = "Open the";
+"lblstep2b" = "Settings";
+"lblstep2c" = "app on your device";
+"lblstep3a" = "Search and tap on";
+"lblstep3b" = "Safari";
+"lblstep3c" = ", tap then on";
+"lblstep3d" = "Extensions";
+"lblstep4a" = "Enable";
+"lblstep4b" = "Turn Off the Lights";
+"lblplaceholder" = "Turn Off the Lights Safari extension";
+"lblemailsubject" = "FREE Turn Off the Lights Safari extension";
+"lblsharetwitter" = "Download the free Turn Off the Lights Safari extension to get Dark Mode on all websites. Try it yourself! #iOS15 via @TurnOfftheLight";
+"lblshareregular" = "I just installed this free Turn Off the Lights Safari extension, it is my favorite Safari extension to get Dark Mode on all websites. Try it yourself!";
+"lblsafariextensionstatus" = "Safari Extension is";
+"lblsafariextensionenable" = "Enabled";
+"lblsafariextensiondisable" = "Disabled";
+"lblquickoptions" = "Open Options page";
+"lblactionok" = "OK, Got it";
+"bannerstep1a" = "Open the";
+"bannerstep1b" = "Settings";
+"bannerstep1c" = "app";
+"bannerstep2a" = "Scroll to";
+"bannerstep2b" = "Safari";
+"bannerstep3a" = "Select";
+"bannerstep3b" = "Extensions";
+"bannerstep4a" = "Turn on";
+"bannerstep4b" = "Turn Off the Lights";
+"bannerstep5a" = "Open the";
+"bannerstep5b" = "Safari";
+"bannerstep5c" = "web browser";
+"lblactionskip" = "SKIP";
+"lblactionnext" = "NEXT";
+"strfindout" = "Find out more";
+"strworldpremiere" = "WORLD PREMIERE";
+"strdesworldpremiere" = "Browser Extension use Manifest V3 for better Privacy, Performance, and Security.";
+"strtranslator" = "TRANSLATOR COMMUNITY";
+"strdestranslator" = "Help Translate our Browser Extension!";
+"strdeveloper" = "DEVELOPER COMMUNITY";
+"strdesdeveloper" = "Find, and Report Issues!";
+"strsocial" = "SOCIAL COMMUNITY";
+"strdessocial" = "Follow and interact with other members!";
+"strnewsloading" = "Loading…";

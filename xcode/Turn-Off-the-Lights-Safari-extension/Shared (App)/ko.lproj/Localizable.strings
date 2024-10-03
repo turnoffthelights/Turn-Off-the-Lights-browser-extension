@@ -1,0 +1,55 @@
+/*
+  Localizable.strings
+  Turn Off the Lights for Safari
+
+  Created by Stefan Van Damme on 17/06/2021.
+  
+*/
+
+"lbleasytosetup" = "설정하기 쉽습니다";
+"lblturnoffthelights" = "Turn Off the Lights";
+"lblactivate" = "활성화";
+"lblwatchvideo" = "동영상 시청";
+"lblstep1" = "이 앱 닫기";
+"lblstep2a" = "열다";
+"lblstep2b" = "설정";
+"lblstep2c" = "장치의 앱";
+"lblstep3a" = "검색하고 누릅니다";
+"lblstep3b" = "Safari";
+"lblstep3c" = "누르고 켭니다";
+"lblstep3d" = "확장 기능";
+"lblstep4a" = "가능하게 하다";
+"lblstep4b" = "Turn Off the Lights";
+"lblplaceholder" = "Turn Off the Lights Safari 확장 기능";
+"lblemailsubject" = "무료 Turn Off the Lights Safari 확장 기능";
+"lblsharetwitter" = "모든 웹사이트에서 다크 모드를 켜기 위해 무료 Turn Off the Lights Safari 확장 기능을 다운로드하세요. 직접 해보세요! #iOS15 via @TurnOfftheLight";
+"lblshareregular" = "방금 무료 Turn Off the Lights Safari 확장 기능을 설치했는데, 모든 웹 사이트에서 다크 모드를 사용하는 것이 가장 마음에 드는 Safari 확장 기능입니다. 직접 해보세요!";
+"lblsafariextensionstatus" = "사파리 확장기능";
+"lblsafariextensionenable" = "활성화됨";
+"lblsafariextensiondisable" = "비활성화";
+"lblquickoptions" = "옵션 페이지 열기";
+"lblactionok" = "OK, Got it";
+"bannerstep1a" = "Open the";
+"bannerstep1b" = "Settings";
+"bannerstep1c" = "app";
+"bannerstep2a" = "Scroll to";
+"bannerstep2b" = "Safari";
+"bannerstep3a" = "Select";
+"bannerstep3b" = "Extensions";
+"bannerstep4a" = "Turn on";
+"bannerstep4b" = "Turn Off the Lights";
+"bannerstep5a" = "Open the";
+"bannerstep5b" = "Safari";
+"bannerstep5c" = "web browser";
+"lblactionskip" = "SKIP";
+"lblactionnext" = "NEXT";
+"strfindout" = "Find out more";
+"strworldpremiere" = "WORLD PREMIERE";
+"strdesworldpremiere" = "Browser Extension use Manifest V3 for better Privacy, Performance, and Security.";
+"strtranslator" = "TRANSLATOR COMMUNITY";
+"strdestranslator" = "Help Translate our Browser Extension!";
+"strdeveloper" = "DEVELOPER COMMUNITY";
+"strdesdeveloper" = "Find, and Report Issues!";
+"strsocial" = "SOCIAL COMMUNITY";
+"strdessocial" = "Follow and interact with other members!";
+"strnewsloading" = "Loading…";

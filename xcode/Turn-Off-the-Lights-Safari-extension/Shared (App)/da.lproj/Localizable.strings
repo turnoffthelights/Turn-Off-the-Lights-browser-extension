@@ -1,0 +1,55 @@
+/*
+  Localizable.strings
+  Turn Off the Lights for Safari
+
+  Created by Stefan Van Damme on 17/06/2021.
+  
+*/
+
+"lbleasytosetup" = "Nemt at opsætte dette";
+"lblturnoffthelights" = "Turn Off the Lights";
+"lblactivate" = "Aktivér";
+"lblwatchvideo" = "Kig video";
+"lblstep1" = "Forlad denne app";
+"lblstep2a" = "Åbn";
+"lblstep2b" = "Indstillinger";
+"lblstep2c" = "appen på enheden";
+"lblstep3a" = "Søg og tryk på";
+"lblstep3b" = "Safari";
+"lblstep3c" = ", tryk derefter på";
+"lblstep3d" = "Udvidelser";
+"lblstep4a" = "Aktivér";
+"lblstep4b" = "Turn Off the Lights";
+"lblplaceholder" = "Turn Off the Lights Safari-udvidelse";
+"lblemailsubject" = "GRATIS Turn Off the Lights Safari-udvidelse";
+"lblsharetwitter" = "Download den gratis Turn Off the Lights Safari-udvidelse for at få Mørk Tilstand på alle websteder. Prøv det selv! #iOS15 via @TurnOfftheLight";
+"lblshareregular" = "Jeg har netop installeret denne gratis Turn Off the Lights Safari-udvidelse, det er min foretrukne Safari-udvidelse for at få Mørk Tilstand på alle websteder. Prøv det selv!";
+"lblsafariextensionstatus" = "Safari-udvidelsen er";
+"lblsafariextensionenable" = "Aktiveret";
+"lblsafariextensiondisable" = "Deaktiveret";
+"lblquickoptions" = "Åbn Indstillingsside";
+"lblactionok" = "OK, forstået";
+"bannerstep1a" = "Åbn";
+"bannerstep1b" = "Indstillinger";
+"bannerstep1c" = "app";
+"bannerstep2a" = "Rul til";
+"bannerstep2b" = "Safari";
+"bannerstep3a" = "Vælg";
+"bannerstep3b" = "Udvidelser";
+"bannerstep4a" = "Slå til";
+"bannerstep4b" = "Turn Off the Lights";
+"bannerstep5a" = "Åbn";
+"bannerstep5b" = "Safari";
+"bannerstep5c" = "webbrowser";
+"lblactionskip" = "OVERSPRING";
+"lblactionnext" = "NÆSTE";
+"strfindout" = "Find ud af mere";
+"strworldpremiere" = "VERDENSPREMIERE";
+"strdesworldpremiere" = "Browser-udvidelsen bruger Manifest V3 for bedre Fortrolighed, Ydelse og Sikkerhed.";
+"strtranslator" = "OVERSÆTTERFÆLLESSKAB";
+"strdestranslator" = "Hjælp med at oversætte vores Browserudvidelse!";
+"strdeveloper" = "UDVIKLERFÆLLESSKAB";
+"strdesdeveloper" = "Find og anmeld problematikker!";
+"strsocial" = "SOCIALT FÆLLESSKAB";
+"strdessocial" = "Følg og interagér med andre medlemmer!";
+"strnewsloading" = "Indlæser…";

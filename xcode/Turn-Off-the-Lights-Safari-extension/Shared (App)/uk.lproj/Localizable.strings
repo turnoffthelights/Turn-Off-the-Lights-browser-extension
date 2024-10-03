@@ -1,0 +1,55 @@
+/*
+  Localizable.strings
+  Turn Off the Lights for Safari
+
+  Created by Stefan Van Damme on 17/06/2021.
+  
+*/
+
+"lbleasytosetup" = "Так легко встановити";
+"lblturnoffthelights" = "Turn Off the Lights";
+"lblactivate" = "Активувати";
+"lblwatchvideo" = "Дивитися Відео";
+"lblstep1" = "Згорніть цей додаток";
+"lblstep2a" = "Відкрийте";
+"lblstep2b" = "Налаштування";
+"lblstep2c" = "застосунок на вашому прийстрої";
+"lblstep3a" = "Знайдіть і натисніть на";
+"lblstep3b" = "Safari";
+"lblstep3c" = ", потім натисніть на";
+"lblstep3d" = "Розширення";
+"lblstep4a" = "Увімкнено";
+"lblstep4b" = "Turn Off the Lights";
+"lblplaceholder" = "Розширення Turn Off the Lights для Safari";
+"lblemailsubject" = "БЕЗКОШТОВНЕ розширення Turn Off the Lights для Safari";
+"lblsharetwitter" = "Завантажте безкоштовне розширення Turn Off the Lights для Safari, щоб отримати Темний режим на всіх веб-сайтах. Спробуйте самі! #iOS15 через @TurnOfftheLight";
+"lblshareregular" = "Я щойно встановив безкоштовне розширення Turn Off the Lights для Safari, це моє улюблене розширення Safari, щоб отримати Темний режим на всі веб-сайтах. Спробуйте самі!";
+"lblsafariextensionstatus" = "Додаток для Safari";
+"lblsafariextensionenable" = "Ввімкнено";
+"lblsafariextensiondisable" = "Вимкнено";
+"lblquickoptions" = "Відкрити сторінку налаштувань";
+"lblactionok" = "OK, Got it";
+"bannerstep1a" = "Open the";
+"bannerstep1b" = "Settings";
+"bannerstep1c" = "app";
+"bannerstep2a" = "Scroll to";
+"bannerstep2b" = "Safari";
+"bannerstep3a" = "Select";
+"bannerstep3b" = "Extensions";
+"bannerstep4a" = "Turn on";
+"bannerstep4b" = "Turn Off the Lights";
+"bannerstep5a" = "Open the";
+"bannerstep5b" = "Safari";
+"bannerstep5c" = "web browser";
+"lblactionskip" = "SKIP";
+"lblactionnext" = "NEXT";
+"strfindout" = "Find out more";
+"strworldpremiere" = "WORLD PREMIERE";
+"strdesworldpremiere" = "Browser Extension use Manifest V3 for better Privacy, Performance, and Security.";
+"strtranslator" = "TRANSLATOR COMMUNITY";
+"strdestranslator" = "Help Translate our Browser Extension!";
+"strdeveloper" = "DEVELOPER COMMUNITY";
+"strdesdeveloper" = "Find, and Report Issues!";
+"strsocial" = "SOCIAL COMMUNITY";
+"strdessocial" = "Follow and interact with other members!";
+"strnewsloading" = "Loading…";

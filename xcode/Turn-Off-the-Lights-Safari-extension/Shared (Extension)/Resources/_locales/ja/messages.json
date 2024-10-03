@@ -1,0 +1,1646 @@
+{
+    "descriptionshort": {
+        "message": "ページ全体が次第に暗くなる為、まるで映画館の様な気分でビデオを鑑賞できます。"
+    },
+    "pagehelp": {
+        "message": "ヘルプ"
+    },
+    "titelimage": {
+        "message": "背景画像"
+    },
+    "shortcutalllights": {
+        "message": "開いたタブすべてでライトのオン・オフを切り替え"
+    },
+    "lastchecked": {
+        "message": "最新バージョンをチェックした日付：　"
+    },
+    "visualeffects": {
+        "message": "視覚効果"
+    },
+    "titelshortcutlight": {
+        "message": "ショートカットキー"
+    },
+    "titledonatebutton": {
+        "message": "寄付する"
+    },
+    "titellikebar": {
+        "message": "「いいね!」バー"
+    },
+    "desmousespotlightt": {
+        "message": "画面が暗い時にハイパーリンクのクリックを有効にする"
+    },
+    "desmousespotlights": {
+        "message": "画面を暗くする。ハイパーリンクはクリック可能"
+    },
+    "desambilight4color": {
+        "message": "ビデオ画面の外枠は初期設定で4色"
+    },
+    "lockentername": {
+        "message": "パスワードを入力してください"
+    },
+    "desnoflash": {
+        "message": "この機能を使いません"
+    },
+    "desdynamicblocks": {
+        "message": "ブロック"
+    },
+    "titeleye": {
+        "message": "目の保護機能"
+    },
+    "titelcinemaontop": {
+        "message": "映画館モード: ウインドウの上部だけに「消灯」のレイヤーを表示"
+    },
+    "desmousespotlightc": {
+        "message": "ライトがオフのとき、画面のエリアを選択して明るくする"
+    },
+    "titelrememberpage": {
+        "message": "確認ページ"
+    },
+    "desmousespotlighta": {
+        "message": "ライトがオフのとき、マウス カーソルにスポット ライトを当てる"
+    },
+    "desmousespotlighto": {
+        "message": "通常の使い方 (以下のマウス設定は無効)"
+    },
+    "desplaylist": {
+        "message": "YouTube のプレイリストを表示"
+    },
+    "desambilightfixcolor": {
+        "message": "1色のみ"
+    },
+    "desuntil": {
+        "message": "以前"
+    },
+    "desconfirmpassword": {
+        "message": "パスワードの確認"
+    },
+    "desautodimonly": {
+        "message": "次の動画サイトでのみ画面を暗くする："
+    },
+    "helpeyeprotection": {
+        "message": "「目の保護」を有効にすると、「自動再生」機能は自動的に無効になります。"
+    },
+    "skipremember": {
+        "message": "スキップし、オプション ページへ移動"
+    },
+    "optiontimesaved": {
+        "message": "時間の設定が完了しました ！"
+    },
+    "titelvideoheadline": {
+        "message": "動画のタイトル"
+    },
+    "translateme": {
+        "message": "翻訳を手伝う"
+    },
+    "despassword": {
+        "message": "ライトをもう一度つけるには、パスワードの入力が必要です。"
+    },
+    "helpautodim": {
+        "message": "「目の保護」機能は有効です。以下の機能を利用するには、このオプションを無効にしてください。"
+    },
+    "name": {
+        "message": "Turn Off the Lights"
+    },
+    "changelog": {
+        "message": "更新履歴"
+    },
+    "optionpagetitle": {
+        "message": "Turn Off the Lights - オプション"
+    },
+    "optionpasswordsaved": {
+        "message": "パスワードは正常に保存されました ！"
+    },
+    "desdynamicspace": {
+        "message": "宇宙"
+    },
+    "deseastereggs": {
+        "message": "Tキーを押すと、暗いレイヤーに劇場の幕を表示"
+    },
+    "settings": {
+        "message": "設定"
+    },
+    "desspotlightradius": {
+        "message": "スポットライトの直径:"
+    },
+    "titelsync": {
+        "message": "同期"
+    },
+    "right": {
+        "message": "右側"
+    },
+    "titeldynamic": {
+        "message": "動く壁紙"
+    },
+    "deslikebutton": {
+        "message": "この動画について YouTube の「好き/嫌い」ボタンを表示する。"
+    },
+    "titelmouse": {
+        "message": "マウス"
+    },
+    "titellessmore": {
+        "message": "メニューを短縮"
+    },
+    "desshortcutlight": {
+        "message": "下記のキーボード ショートカットを有効にする"
+    },
+    "titelinfobar": {
+        "message": "情報バー"
+    },
+    "descontextmenus": {
+        "message": "コンテキスト メニューを表示してフォーカスする項目を選択"
+    },
+    "titelcontextmenus": {
+        "message": "コンテキストメニュー"
+    },
+    "titelplaylist": {
+        "message": "プレイリスト"
+    },
+    "desatmosphereonly": {
+        "message": "照明効果機能を有効にする動画サイトを限定する:"
+    },
+    "rectext": {
+        "message": "推奨"
+    },
+    "desenterpassword": {
+        "message": "下のボックスにパスワードを入力してください："
+    },
+    "titelblurradius": {
+        "message": "ぼかしの範囲:"
+    },
+    "version": {
+        "message": "バージョン"
+    },
+    "shortcutdark": {
+        "message": "画面を暗くする (不透明度を増加)"
+    },
+    "dessharebutton": {
+        "message": "YouTube の再生画面にある共有ボタンを表示"
+    },
+    "shortcutbright": {
+        "message": "画面を明るくする (不透明度を減少)"
+    },
+    "titelalllightsoff": {
+        "message": "開いたタブすべて"
+    },
+    "desreadera": {
+        "message": "ライトが消えたときは必ず、暗さ調節バーを表示します。"
+    },
+    "rememberrate": {
+        "message": "評価する"
+    },
+    "desautodim": {
+        "message": "再生ボタンを押したときに自動的に背景を暗くする"
+    },
+    "titelscreen": {
+        "message": "画面"
+    },
+    "desflash": {
+        "message": "すべてのマルチメディアオブジェクトを表示"
+    },
+    "titelhead": {
+        "message": "チャンネル"
+    },
+    "pageatitle": {
+        "message": "Turn Off the Lights"
+    },
+    "desaddvideobutton": {
+        "message": "YouTube 動画の保存ボタンを表示"
+    },
+    "shortcuteyeprotection": {
+        "message": "目の保護機能のオン・オフ切り替え"
+    },
+    "titelfadein": {
+        "message": "だんだん明るくなる"
+    },
+    "desreadern": {
+        "message": "暗さ調節バーは常に非表示にします。"
+    },
+    "titelmaxqualityyoutube": {
+        "message": "解像度レベルを自動設定します："
+    },
+    "desambilightrangespreadradius": {
+        "message": "数字のプラスマイナスで、影のサイズを大きくしたり小さくしたり変化させます。"
+    },
+    "titelon": {
+        "message": "オン"
+    },
+    "videotitle": {
+        "message": "動画にフォーカスする"
+    },
+    "warningtextambilight": {
+        "message": "ウェブサイトのセキュリティルールのため映像データを受信できないときは、画面はユーザ設定の単色に変わります。"
+    },
+    "desdynamiccloud": {
+        "message": "雲のアニメ"
+    },
+    "desconfirmtimesaver": {
+        "message": "スクリーン セーバーに切り替える時間を確認"
+    },
+    "deslikebar": {
+        "message": "YouTube の動画の下に、「好き/嫌い」バーを表示します。"
+    },
+    "titelautodim": {
+        "message": "自動再生"
+    },
+    "top": {
+        "message": "上部"
+    },
+    "titelspreadradius": {
+        "message": "拡散の範囲:"
+    },
+    "installadblocker": {
+        "message": "広告を表示したくない場合は、広告ブロック拡張機能を使用してください。"
+    },
+    "titelsharebutton": {
+        "message": "共有ボタン"
+    },
+    "titelcolor": {
+        "message": "色"
+    },
+    "titeldownloadbutton": {
+        "message": "この更新をダウンロード！"
+    },
+    "pagetitle": {
+        "message": "このページを暗くする"
+    },
+    "titelambilight": {
+        "message": "照明効果"
+    },
+    "titelshowmore": {
+        "message": "もっと見る"
+    },
+    "desviewcount": {
+        "message": "この動画のビュー数を表示"
+    },
+    "titelautowidthyoutube": {
+        "message": "自動的に YouTube プレーヤーを拡大。"
+    },
+    "desconfirmtime": {
+        "message": "時間の確認"
+    },
+    "titelupgrade": {
+        "message": "更新"
+    },
+    "lockwrongpassword": {
+        "message": "パスワードが間違っています。もう一度入力してください。"
+    },
+    "titelsyncbrowser": {
+        "message": "他のブラウザーの拡張機能の設定と同期。"
+    },
+    "deletebutton": {
+        "message": "削除"
+    },
+    "eyedivon": {
+        "message": "オン"
+    },
+    "eyedivoff": {
+        "message": "オフ"
+    },
+    "deshead": {
+        "message": "YouTube のチャンネルバーもしくは名前を表示します。"
+    },
+    "shortcutsavingopacity": {
+        "message": "で不透明度の値を保存"
+    },
+    "desinfobar": {
+        "message": "動画の概要を表示"
+    },
+    "titellamp": {
+        "message": "電球"
+    },
+    "desambilightvarcolor": {
+        "message": "動画から色を抽出"
+    },
+    "showremember": {
+        "message": "設定を開くたび、この確認ページを表示しない"
+    },
+    "donatepromotext": {
+        "message": "寄付の金額が大きくても小さくても、あなたのサポートはとてもありがたいです。"
+    },
+    "titelblur": {
+        "message": "ライトがオフの部分をぼかす"
+    },
+    "desdynamicraindrops": {
+        "message": "雨粒"
+    },
+    "desalllightsoff": {
+        "message": "ランプボタンをクリックすると、開いているタブ全てのライトをオン・オフ切り替え"
+    },
+    "optionecosaversaved": {
+        "message": "秒数の保存が完了ました ！"
+    },
+    "titelreader": {
+        "message": "暗さ調節バー"
+    },
+    "deseyen": {
+        "message": "通常の使用 (ランプアイコンをクリックすると、ライトをオフ)"
+    },
+    "enjoyshare": {
+        "message": "この拡張機能をお楽しみください。もしよければ、この拡張機能を喜んでくれそうな人と共有してください。"
+    },
+    "shortcuttotl": {
+        "message": "ライトのオンとオフを切り替え"
+    },
+    "deseyea": {
+        "message": "ウェブページを開くと自動的に背景を暗くする"
+    },
+    "basicsettings": {
+        "message": "基本"
+    },
+    "hoveroptionapply": {
+        "message": "適用"
+    },
+    "reportbug": {
+        "message": "問題を報告"
+    },
+    "destime": {
+        "message": "ライトをオフする時間帯の設定："
+    },
+    "guide": {
+        "message": "TOtL ようこそガイド"
+    },
+    "deseyealist": {
+        "message": "自動的に背景を暗くするサイトの指定:"
+    },
+    "titellikebutton": {
+        "message": "評価ボタン"
+    },
+    "titelpageaction": {
+        "message": "電球マークを表示しない"
+    },
+    "friendlyremember": {
+        "message": "もしよろしければ..."
+    },
+    "desfadein": {
+        "message": "だんだん明るくする"
+    },
+    "warning": {
+        "message": "警告 ！"
+    },
+    "deseyetimesaver": {
+        "message": "ページがアクティブでない (マウスやキーボード入力がない) とき、指定した時間を過ぎると自動的にライトをオフ。"
+    },
+    "titelsuggestions": {
+        "message": "おすすめ"
+    },
+    "advancedoptions": {
+        "message": "詳細オプション"
+    },
+    "dessuggestions": {
+        "message": "YouTubeおすすめ動画を表示"
+    },
+    "titelmultimedia": {
+        "message": "マルチメディア検出"
+    },
+    "desambilight": {
+        "message": "再生中のビデオの雰囲気照明効果を追加"
+    },
+    "productshare": {
+        "message": "シェア"
+    },
+    "addbutton": {
+        "message": "追加"
+    },
+    "reportlist": {
+        "message": "全ての改訂履歴を見る"
+    },
+    "desdynamicfishtank": {
+        "message": "さかなの水槽"
+    },
+    "longdonatetext": {
+        "message": "新しく使い始める人のため、このブラウザ拡張機能を維持したいのですが、寄付をお願いできないでしょうか。 $$1 でも $$100 でもかまいません。どうぞよろしくお願いします！"
+    },
+    "deshardflash": {
+        "message": "URL フィルターを無効にして、すべての マルチメディア素材を表示。一部のビデオプレーヤーが非表示になる問題は解決するものの、広告も表示します。"
+    },
+    "desfadeout": {
+        "message": "だんだん暗くする"
+    },
+    "optionwrongimg": {
+        "message": "無効な画像ファイルです！"
+    },
+    "desvideoheadline": {
+        "message": "動画タイトルの色を反転する。"
+    },
+    "desrememberpage": {
+        "message": "確認ページを非表示"
+    },
+    "description": {
+        "message": "画面全体が暗くなり映画館にいる気分。YouTube™ ほか動画サイトでもOK。"
+    },
+    "titelviewcount": {
+        "message": "ビューの数"
+    },
+    "titelopacity": {
+        "message": "透明度"
+    },
+    "titelqualityyoutube": {
+        "message": "YouTube の動画の画質を自動設定"
+    },
+    "shortcutopacity": {
+        "message": "暗さ (不透明度) の設定を初期化"
+    },
+    "desambilightrangeblurradius": {
+        "message": "値を小さくすると画面が鮮明に、大きくするとぼやける。"
+    },
+    "titeladdvideobutton": {
+        "message": "保存ボタン"
+    },
+    "titelpassword": {
+        "message": "パスワード保護"
+    },
+    "titeldownloadupgrade": {
+        "message": "更新すると、選択した画像を強調表示する機能がサポートされ、サイト上の画像のギャラリーを表示します。"
+    },
+    "titelfadeout": {
+        "message": "たんだん暗くなる"
+    },
+    "eastereggsquestion": {
+        "message": "本物の映画館にいる気分は好きですか？"
+    },
+    "bottom": {
+        "message": "下部"
+    },
+    "dessaver": {
+        "message": "スクリーン セーバー:"
+    },
+    "hoveroptiondyn5": {
+        "message": "機内モード"
+    },
+    "pagestillloading": {
+        "message": "ページの読み込みが終わりませんか？"
+    },
+    "titeloff": {
+        "message": "オフ"
+    },
+    "titeleastereggs": {
+        "message": "秘密のメッセージ"
+    },
+    "textfoot": {
+        "message": "このソフトウェアは、CC-GNU GPL の下でライセンスされています。以下に規約を公開しています。"
+    },
+    "left": {
+        "message": "左側"
+    },
+    "titelnighttheme": {
+        "message": "ナイトモード"
+    },
+    "desnighttheme": {
+        "message": "ウェブページの下にナイトスイッチボタンを表示し、暗くしたり明るくしたりする"
+    },
+    "nightoptions": {
+        "message": "ナイトモード"
+    },
+    "desnightonly": {
+        "message": "ナイトモードを使うサイトの指定：　"
+    },
+    "desnightenabletheme": {
+        "message": "新しく開いたページを、自動でナイトモードに設定する。"
+    },
+    "titellampregular": {
+        "message": "電球マークを常に URL バーの omnibox に表示"
+    },
+    "titellampvideo": {
+        "message": "動画プレーヤーを検知したときだけ、電球マークを表示"
+    },
+    "ratetitle": {
+        "message": "Turn Off the Light を使用していただきありがとうございます"
+    },
+    "ratedes": {
+        "message": "ストアでこの拡張機能の評価をお願いできないでしょうか。感想も書いてもらえるととても助かります。"
+    },
+    "rateitema": {
+        "message": "5つ星の評価"
+    },
+    "titelreset": {
+        "message": "設定をリセット"
+    },
+    "resetbrowserextension": {
+        "message": "Turn Off the Lights を初期設定に戻す"
+    },
+    "desautodimdelay": {
+        "message": "動画再生が終了したら、再び背景を明るくする"
+    },
+    "desautodimdelayend": {
+        "message": "秒数"
+    },
+    "motionoptions": {
+        "message": "カメラ操作モード"
+    },
+    "desmotion": {
+        "message": "カメラ操作モードを有効にする"
+    },
+    "desspeech": {
+        "message": "音声認識をオンにする"
+    },
+    "trymotion": {
+        "message": "自分で試してみてください！"
+    },
+    "destrymotion": {
+        "message": "こんなにすばらしい上、あれでもこれでも機能するのです。Youtube でも、ニュースサイトなどでも。"
+    },
+    "howworkmotion": {
+        "message": "どんなアプリなんですか？"
+    },
+    "nightstep1description": {
+        "message": "夜モード機能をオンにします。"
+    },
+    "nightstep2description": {
+        "message": "任意の webサイトを開くと、この夜モード用スイッチが表示されます。"
+    },
+    "nightstep3description": {
+        "message": "ウェブページを暗いテーマに切り替えるには、スイッチをクリックします。"
+    },
+    "speechstep1description": {
+        "message": "音声認識機能をオンにします。"
+    },
+    "speechstep2description": {
+        "message": "この機能をオンにすると、以下のコマンドを使って音声で指示ができます:"
+    },
+    "camstep1description": {
+        "message": "カメラ操作モードをオンにします。"
+    },
+    "camstep2description": {
+        "message": "片手（または握った手）を画面の上から下へスワイプ。"
+    },
+    "camstep3description": {
+        "message": "暗転したレイヤーは自動的に上から下へ消える。"
+    },
+    "desmotionChecklist": {
+        "message": "チェックリスト："
+    },
+    "des1checkmotion": {
+        "message": "部屋が暗すぎず、明るさが十分なことを確かめてください。"
+    },
+    "des2checkmotion": {
+        "message": "カメラに直射日光を当てないように注意しましょう。"
+    },
+    "des3checkmotion": {
+        "message": "自分撮りカメラを使います。"
+    },
+    "titellinear": {
+        "message": "リニア"
+    },
+    "titelcolora": {
+        "message": "A色:"
+    },
+    "titelcolorb": {
+        "message": "B色:"
+    },
+    "speechoption": {
+        "message": "音声認識"
+    },
+    "titelspeech": {
+        "message": "スピーチ"
+    },
+    "desspeech1command": {
+        "message": "ライトを消す"
+    },
+    "desspeech2command": {
+        "message": "ライトをつける"
+    },
+    "desspeech3command": {
+        "message": "動画を再生"
+    },
+    "desspeech4command": {
+        "message": "動画の一時停止"
+    },
+    "desspeechdialect": {
+        "message": "使う言語を選んでください："
+    },
+    "desatmosvivid": {
+        "message": "鮮やかな照明効果"
+    },
+    "help": {
+        "message": "ヘルプ"
+    },
+    "about": {
+        "message": "このアプリについて"
+    },
+    "desspeechonly": {
+        "message": "音声認識機能を使うサイトの指定："
+    },
+    "descammotiononly": {
+        "message": "カメラ操作モードを使うサイトの指定："
+    },
+    "titelcamera": {
+        "message": "カメラ"
+    },
+    "titeldownloadthemeupgrade": {
+        "message": "ブラウザーに濃い色のテーマを付けて、ドレスアップしませんか。ブラウザー画面を、濃い色のテーマが囲います。"
+    },
+    "desbrowsersupport": {
+        "message": "ブラウザーは、この機能をまだサポートしていません。パソコンに最新版のブラウザーがインストールされているか、確認してください。"
+    },
+    "titelsupportatmos": {
+        "message": "HTML5 <video> プレイヤーのみサポート。ご使用の機器のGPUを使用します。"
+    },
+    "titelseeonline": {
+        "message": "ウェブサイトでほかの例を見る"
+    },
+    "titelvideosample": {
+        "message": "サンプル動画"
+    },
+    "titelwebsite": {
+        "message": "ウェブサイト"
+    },
+    "titeldeveloper": {
+        "message": "開発者"
+    },
+    "titelrightsreserved": {
+        "message": "一部の権利は保護されています。"
+    },
+    "desbrowserextension": {
+        "message": "ブラウザーの拡張機能"
+    },
+    "desapitext": {
+        "message": "ウェブ開発者向けの Wiki API"
+    },
+    "desbrowsertheme": {
+        "message": "ブラウザーのテーマ"
+    },
+    "desproject": {
+        "message": "プロジェクト"
+    },
+    "titelapideveloper": {
+        "message": "API 開発者"
+    },
+    "titelwikiatmos": {
+        "message": "環境照明の機能用 Wiki"
+    },
+    "sharemenusharetitle": {
+        "message": "共有する"
+    },
+    "sharemenuwelcomeguidetitle": {
+        "message": "はじめに"
+    },
+    "sharemenutellafriend": {
+        "message": "友達に教える"
+    },
+    "sharemenusendatweet": {
+        "message": "つぶやく"
+    },
+    "sharemenupostonfacebook": {
+        "message": "Facebook に投稿"
+    },
+    "sharemenuratetitle": {
+        "message": "この拡張機能を評価"
+    },
+    "sharemenudonatetitle": {
+        "message": "開発をサポートする"
+    },
+    "titelautostop": {
+        "message": "自動停止"
+    },
+    "desautostop": {
+        "message": "Web ページを開いたときに自動的にビデオ再生を停止"
+    },
+    "areyouhappy": {
+        "message": "Turn Off the Lights の使いごこちはいかがですか？"
+    },
+    "tellothers": {
+        "message": "あなたの意見を大切にします"
+    },
+    "nothanks": {
+        "message": "いらない"
+    },
+    "writeareview": {
+        "message": "レビューを書く"
+    },
+    "desauroraplayer": {
+        "message": "照明効果機能はお使いのコンピュータで使用できます。"
+    },
+    "downloadtheapp": {
+        "message": "アプリを今すぐダウンロード"
+    },
+    "titeldownloadupgradezoom": {
+        "message": "ズームボタンを使用してウェブコンテンツを拡大縮小すると、より快適に文章を読み取れます。"
+    },
+    "titeldownloadupgradepropermenubar": {
+        "message": "Google のウェブサイトに黒いメニューバーを復元。"
+    },
+    "titeldownloadupgradefinancetoolbar": {
+        "message": "株式市場の情報をリアルタイムに表示。"
+    },
+    "titelnightmodeposition": {
+        "message": "スイッチの位置"
+    },
+    "nmtopleft": {
+        "message": "左上"
+    },
+    "nmtopright": {
+        "message": "右上"
+    },
+    "nmbottomright": {
+        "message": "右下"
+    },
+    "nmbottomleft": {
+        "message": "左下"
+    },
+    "nmcustom": {
+        "message": "ユーザ設定 (クリックしたまま、スイッチを好きな位置へ移動)"
+    },
+    "desnighthover": {
+        "message": "ウェブページ上に透明のスイッチを表示"
+    },
+    "desautostoponly": {
+        "message": "動画の自動再生停止を有効にするサイトを指定:"
+    },
+    "desnightactivetime": {
+        "message": "スイッチを表示する時間帯の指定:"
+    },
+    "deslampandnightmode": {
+        "message": "ランプボタンがグレーのときにクリックすると「ナイトモード」オプションを有効にします。"
+    },
+    "desspeech5command": {
+        "message": "ブラウザーランプ"
+    },
+    "html5andyoutube": {
+        "message": "HTML5およびYouTube™ビデオ"
+    },
+    "flashembedobject": {
+        "message": "対応: <object>、 <embed>、 <applet>、<iframe>"
+    },
+    "titelnightmodebck": {
+        "message": "背景の色"
+    },
+    "titelnightmodetxt": {
+        "message": "文字の色"
+    },
+    "desdynamicsmoke": {
+        "message": "スモーク"
+    },
+    "desdynamicdotscolor": {
+        "message": "カラフルな水玉"
+    },
+    "desdynamicstorm": {
+        "message": "ストーム"
+    },
+    "desdynamictriangulation": {
+        "message": "三角模様"
+    },
+    "desdynamicstars": {
+        "message": "評価"
+    },
+    "desmobileapp": {
+        "message": "Turn Off the Lights はモバイル端末でもご利用いただけます。"
+    },
+    "titel360youtube": {
+        "message": "全360度の YouTube の動画を1つのフレームに表示"
+    },
+    "titelvideotool": {
+        "message": "動画ツールバー"
+    },
+    "desvideotool": {
+        "message": "ツールバーを画面下に表示して、ビデオプレイヤーをカスタマイズ"
+    },
+    "vtoolfullscreen": {
+        "message": "ビデオプレイヤーを全画面表示するボタン"
+    },
+    "vtoolfilter": {
+        "message": "ビデオプレイヤーにフィルターを追加するボタン"
+    },
+    "vtoolreplay": {
+        "message": "いまの動画をリプレイするボタン"
+    },
+    "vtoolscreenshot": {
+        "message": "動画のスクリーンショットを撮る"
+    },
+    "vtoolalign": {
+        "message": "画面中央に動画プレーヤーを配置"
+    },
+    "titelvideotoolgrayscale": {
+        "message": "グレースケール"
+    },
+    "titelvideotoolsepia": {
+        "message": "セピア"
+    },
+    "titelvideotoolinvert": {
+        "message": "反転"
+    },
+    "titelvideotoolcontrast": {
+        "message": "コントラスト"
+    },
+    "titelvideotoolsaturate": {
+        "message": "彩度"
+    },
+    "titelvideotoolhueroration": {
+        "message": "色相90度回転"
+    },
+    "titelvideotoolbrightness": {
+        "message": "明るさ"
+    },
+    "titelvideotoolnormal": {
+        "message": "通常モード"
+    },
+    "titelvideotoollike": {
+        "message": "お気に入り"
+    },
+    "titelvideotoolsubscribe": {
+        "message": "定期的な寄付"
+    },
+    "titelvideotoolrepeat": {
+        "message": "リピート再生"
+    },
+    "titelvideotoolfilter": {
+        "message": "フィルター"
+    },
+    "titelvideotoolfullwindow": {
+        "message": "全画面"
+    },
+    "titelvideotoolscreenshot": {
+        "message": "スクリーンショットを撮る"
+    },
+    "titelreflection": {
+        "message": "リフレクション"
+    },
+    "desreflection": {
+        "message": "すべての動画のリフレクション効果を表示"
+    },
+    "desvideotoolonly": {
+        "message": "動画のツールバーを有効にするサイトを指定:"
+    },
+    "titelnightmodehyperlink": {
+        "message": "ハイパーリンクの色"
+    },
+    "titelblock60fps": {
+        "message": "60 fps をブロック"
+    },
+    "titelvolume": {
+        "message": "動画の音量バー"
+    },
+    "desvideovolume": {
+        "message": "表示中の動画プレーヤーの音量をマウス スクロールで調節"
+    },
+    "desvideovolumecolor": {
+        "message": "バーの色設定"
+    },
+    "desvolumelabel": {
+        "message": "音量バーを表示 (サイズの選択肢:)"
+    },
+    "desvolumesteps": {
+        "message": "ホイールのスクロール1目盛りと、ボリュームの増減 (%)"
+    },
+    "sharetexta": {
+        "message": "このクールなブラウザ拡張機能 Turn Off the Light を入手"
+    },
+    "sharetextb": {
+        "message": "こんにちは、これ、すごくよかったです。ブラウザに Turn Off the Lights を入れて正解でした "
+    },
+    "sharetextc": {
+        "message": "ブラウザ拡張機能で最高に「使える」のは Turn Off the Lights"
+    },
+    "sharetextd": {
+        "message": "YouTube 見るなら Turn Off the Lights 拡張機能が最適。ぜひダウンロードして試してみてください!"
+    },
+    "titelsharethis": {
+        "message": "シェアする:"
+    },
+    "titellampchoose": {
+        "message": "お気に入りのランプのタイプを選択"
+    },
+    "titeldoesntwork": {
+        "message": "Turn Off the Lights はこのページでは動作しません。別のページをお試しください。"
+    },
+    "titelpopupvideo": {
+        "message": "YouTube"
+    },
+    "titelpopupwelcomeguide": {
+        "message": "はじめに"
+    },
+    "titelpopupsupport": {
+        "message": "サポート"
+    },
+    "titelpopupoptions": {
+        "message": "オプション"
+    },
+    "titelpopupratestars": {
+        "message": "5つ星の評価"
+    },
+    "titelvisenable": {
+        "message": "音声視覚効果を有効/無効にする"
+    },
+    "titelvischoose": {
+        "message": "音声視覚効果を選択してください"
+    },
+    "titelvisblocks": {
+        "message": "ブロック"
+    },
+    "titelvisfrequency": {
+        "message": "発光間隔"
+    },
+    "titelvistunnel": {
+        "message": "トンネル効果"
+    },
+    "titelvisualization": {
+        "message": "音声視覚効果"
+    },
+    "desvisopacity": {
+        "message": "音声視覚効果の壁紙の不透明度の値"
+    },
+    "vtoolvisualization": {
+        "message": "使用中のビディオ プレーヤーの音声視覚効果の表示ボタン"
+    },
+    "desvideotoolcolor": {
+        "message": "ツールバーの色"
+    },
+    "titelhovervideo": {
+        "message": "カーソルを当てて操作"
+    },
+    "deshovervideo": {
+        "message": "数秒間、カーソルを動画に当てると動画だけ残して、周りが暗くなる"
+    },
+    "promotitle": {
+        "message": "今日のヒント"
+    },
+    "desremyoutube": {
+        "message": "YouTube チャンネルを登録する"
+    },
+    "desremfacebook": {
+        "message": "Facebookでシェア"
+    },
+    "titleuserprofile": {
+        "message": "グレーの電球マークをクリックした時の機能を選ぶ。好きなタイプの設置に切り替え。"
+    },
+    "titleregularuser": {
+        "message": "ビデオマニア"
+    },
+    "titlenightowl": {
+        "message": "ナイトウルフ"
+    },
+    "titlescreenprotection": {
+        "message": "目の保護機能"
+    },
+    "desregularuser": {
+        "message": "初めてこのアプリを使うときはこの通常モードになります。グレーの電球のボタンをクリックすると、そのとき表示しているブラウザーの画面はこの効果に変わります。"
+    },
+    "desnightowl": {
+        "message": "クリックでナイトモードのオンとオフを切り替えます。どちらでもリンクは有効です。"
+    },
+    "desscreenprotection": {
+        "message": "電球ボタンをクリックすると、目に優しいモードのオンとオフを切り替えます。開いているタブはすべて、表示が変更されます。"
+    },
+    "titleprofilevideofocus": {
+        "message": "動画画面の優先をオン"
+    },
+    "titleprofilenovideofocus": {
+        "message": "動画画面の優先をオフ"
+    },
+    "titleprofilealwaysscreentab": {
+        "message": "常にすべてのタブにこの機能を使う"
+    },
+    "titleprofilescreenclick": {
+        "message": "画面が暗い時にハイパーリンクのクリックを有効にする"
+    },
+    "titleprofilesubmit": {
+        "message": "この機能を選択"
+    },
+    "titlelearnmore": {
+        "message": "もっと詳しく"
+    },
+    "optionprofilesaved": {
+        "message": "電球ボタンに新しい機能が設定されました!"
+    },
+    "desaplay": {
+        "message": "再生"
+    },
+    "desapause": {
+        "message": "一時停止"
+    },
+    "desastop": {
+        "message": "停止"
+    },
+    "desvideozoom": {
+        "message": "ズームボタンを使って動画を拡大・縮小"
+    },
+    "titlevideoplayrate": {
+        "message": "動画の再生スピード"
+    },
+    "desplayrate": {
+        "message": "既定の再生スピード"
+    },
+    "desspeedtoolbar": {
+        "message": "現在のビデオプレイヤーに再生ツールバーを表示"
+    },
+    "desatmosontotlmode": {
+        "message": "Turn On the Light が有効な場合のみ照明効果をオンにする"
+    },
+    "desdarkbrowsertheme": {
+        "message": "ブラウザを暗いテーマに切り替え"
+    },
+    "desautostopfeaturewhite": {
+        "message": "以下の一覧のウェブサイトはブロックし、その他のサイトでは自動再生します。"
+    },
+    "desautostopfeatureblack": {
+        "message": "以下の一覧のウェブサイトでは自動再生し、その他のサイトではブロックします。"
+    },
+    "autostopbannerred": {
+        "message": "赤バナーの表示"
+    },
+    "autostopbannertrans": {
+        "message": "透過バナーを表示"
+    },
+    "titleanalytics": {
+        "message": "統計"
+    },
+    "desbadgeanalytics": {
+        "message": "ページを暗くしたクリックの回数のバッジを表示する"
+    },
+    "shareanalyticenergy": {
+        "message": "Turn Off the Lights のおかげで$energyvalue$ kWh も節約できました",
+        "placeholders": {
+            "energyvalue": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "shareanalyticenergyWh": {
+        "message": "Turn Off the Lights のおかげで$energyvalue$ Wh も節約できました",
+        "placeholders": {
+            "energyvalue": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "analyticsoption": {
+        "message": "統計"
+    },
+    "activelayertoday": {
+        "message": "本日のクリック数"
+    },
+    "totalenergysaved": {
+        "message": "総節約電力"
+    },
+    "resetlampanalytic": {
+        "message": "Turn Off the Lightsの統計データをリセット"
+    },
+    "titlesiteengagement": {
+        "message": "サイト閲覧履歴"
+    },
+    "titleorigin": {
+        "message": "URL"
+    },
+    "titletime": {
+        "message": "時間 (分)"
+    },
+    "titleavgdayschedule": {
+        "message": "一日の平均スケジュール"
+    },
+    "titlesharestats": {
+        "message": "統計情報を共有"
+    },
+    "btnsharestats": {
+        "message": "統計を共有"
+    },
+    "charttitletotaltime": {
+        "message": "ダークレイヤーが有効だった合計時間(分)"
+    },
+    "charttitlelayeractive": {
+        "message": "ダークレイヤーが有効(#)"
+    },
+    "charttitleavgday": {
+        "message": "一日の平均スケジュール(頻繁に画面を暗くする時間)"
+    },
+    "charttitle30dayssaved": {
+        "message": "ここ30日間で節約したエネルギー"
+    },
+    "charttitlelblwebsiteused": {
+        "message": "ここ30日間に使用したウェブサイト"
+    },
+    "charttitlelblenergytotal": {
+        "message": "総使用エネルギー"
+    },
+    "charttitlelblenergysaved": {
+        "message": "総節約エネルギー"
+    },
+    "titlelanalyticprivacy": {
+        "message": "Turn Off the Lights ブラウザー拡張機能はあなたのプライバシーを非常に真剣に考えています。 このページに表示されている Turn Off the Lights の分析は、お使いのコンピューターにのみ保存されています。 お客様の個人サイトの閲覧情報は、関連のない第三者に販売および譲渡されることはありません。"
+    },
+    "shareanalyticlove": {
+        "message": "私が一番好きなウェブサイトは、Turn Off the Lightsを使って閲覧する$websiteurl$です",
+        "placeholders": {
+            "websiteurl": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "desvolumeposa": {
+        "message": "音量をビデオ画面の中央に表示"
+    },
+    "desvolumeposb": {
+        "message": "音量をビデオ画面の左上に表示"
+    },
+    "desvolumeposc": {
+        "message": "音量をビデオ画面の右上に表示"
+    },
+    "desvideovolumhold": {
+        "message": "左右どちらかのマウスボタンを押したままマウスを動かして音量調節"
+    },
+    "desvideovolumalt": {
+        "message": "Alt キーを押した場合のみ"
+    },
+    "speechheybrowser": {
+        "message": "ヘイ、ブラウザー"
+    },
+    "speechokbrowser": {
+        "message": "OK、ブラウザー"
+    },
+    "functionactive": {
+        "message": "タブの切り替えや画面の再読み込みをすると起動します。ただし15秒間で自動的に停止します。"
+    },
+    "cardtexsubscribe": {
+        "message": "今すぐ登録!"
+    },
+    "cardtextfavdayweek": {
+        "message": "好きな曜日"
+    },
+    "cardtextyestime": {
+        "message": "昨日の合計時間 (単位: 分)"
+    },
+    "cardavgprevweektime": {
+        "message": "先週の合計時間 (単位: 分)"
+    },
+    "sunday": {
+        "message": "日曜"
+    },
+    "monday": {
+        "message": "月曜日"
+    },
+    "tuesday": {
+        "message": "火曜日"
+    },
+    "wednesday": {
+        "message": "水曜日"
+    },
+    "thursday": {
+        "message": "木曜日"
+    },
+    "friday": {
+        "message": "金曜日"
+    },
+    "saturday": {
+        "message": "土曜日"
+    },
+    "titlemultiopacity": {
+        "message": "サイトごとに異なる透明度を適用"
+    },
+    "desmultiopacitynormal": {
+        "message": "全サイトに同じ透明度を適用"
+    },
+    "desmultiopacitysel": {
+        "message": "以下のウェブサイトには固有の透明度が設定されています"
+    },
+    "desmultiopacitynot": {
+        "message": "ウェブサイトがリストに無い場合、デフォルト透明度が適用されます。"
+    },
+    "titleok": {
+        "message": "OK"
+    },
+    "titlecancel": {
+        "message": "キャンセル"
+    },
+    "titledarkmodeon": {
+        "message": "ダークモード ON"
+    },
+    "titledarkmodeoff": {
+        "message": "ダークモード OFF"
+    },
+    "titledarkmodeauto": {
+        "message": "端末の外観を使用"
+    },
+    "titlelprivacy": {
+        "message": "プライバシー ポリシー"
+    },
+    "titleprofile": {
+        "message": "プロフィール"
+    },
+    "descolorfixcolor": {
+        "message": "ダークレイヤーカラーを選択"
+    },
+    "desatmossolidcolor": {
+        "message": "ソリッドグローエフェクトカラーを選択"
+    },
+    "titlelratenow": {
+        "message": "今すぐ評価する！"
+    },
+    "titleratelater": {
+        "message": "また後で"
+    },
+    "desremrate": {
+        "message": "もしTurn Off the Lights™を気に入っていただけたのなら、ぜひ、躊躇せずに五つ星をつけてください。そうしていただくことが我々のモチベーションとなり、この製品を継続して維持、改善していくことができます。必須ではありませんが、レビューも書いていただけるとうれしいです。もしレビューを書く時間がないのでしたら、匿名で星をつけていただくだけでかまいません。★★★★★をつけていただくことがとても重要です。よろしくお願いします。"
+    },
+    "titelnightmodedomain": {
+        "message": "ドメイン"
+    },
+    "titelnightmodepage": {
+        "message": "Web ページ"
+    },
+    "titelintroduce": {
+        "message": "新しい Turn Off the Lights の紹介"
+    },
+    "desintroduce": {
+        "message": "お馴染みの機能が、全く新しい見た目と印象で、あなた向けにカスタマイズされます。"
+    },
+    "econothingthisyear": {
+        "message": "今年はゼロ。明かりを消して節電しよう"
+    },
+    "ecothirtyminutes": {
+        "message": "30分ぶんの照明を節約しました"
+    },
+    "ecowatchtvfortwo": {
+        "message": "2時間の TV 視聴"
+    },
+    "ecotoastermaking": {
+        "message": "トースターで2枚のパンを焼く"
+    },
+    "ecochargeiphone": {
+        "message": "iPhone の充電"
+    },
+    "ecobrewsomecoffee": {
+        "message": "コーヒーを1ポット淹れる"
+    },
+    "ecoplayingxbox": {
+        "message": "1時間 Xbox 360 で遊ぶ"
+    },
+    "ecovacuumingfor": {
+        "message": "掃除機 15分間"
+    },
+    "ecoblowdrying": {
+        "message": "10分間ドライヤーをかける電力に相当"
+    },
+    "ecowashingclothes": {
+        "message": "服を冷水すすぎ洗いする電力に相当"
+    },
+    "ecowififoraday": {
+        "message": "1日分のWi-Fiに相当"
+    },
+    "ecorunningdishwasher": {
+        "message": "省エネモードで食器洗い機を動かす電力に相当"
+    },
+    "ecochargelaptop": {
+        "message": "ノートPCの充電に相当"
+    },
+    "ecokeeplightonforsix": {
+        "message": "電灯を6時間付けっぱなしにするのに相当"
+    },
+    "ecokeepfridgeday": {
+        "message": "冷蔵庫を1日動かす電力に相当"
+    },
+    "ecoloadlaundry": {
+        "message": "乾燥機を一回動かす電力に相当"
+    },
+    "ecoheatingtenshower": {
+        "message": "10分間のシャワーに使う水を沸かす電力に相当"
+    },
+    "ecotwentyfourghome": {
+        "message": "Google Homeを24時間稼働できる程度"
+    },
+    "ecochargeteslacar": {
+        "message": "電気自動車を32㎞分充電する電力に相当"
+    },
+    "ecochargeteslacarhundred": {
+        "message": "電気自動車を完全に充電する電力に相当"
+    },
+    "ecochargeteslathreetimes": {
+        "message": "電気自動車の充電3回分に相当"
+    },
+    "ecopowerhawaiimonth": {
+        "message": "ハワイで1か月に使用される電力に相当"
+    },
+    "ecopowernwymonth": {
+        "message": "ニューヨークで1か月に使用される電力に相当"
+    },
+    "ecopowercamonth": {
+        "message": "カリフォルニアで1か月に使用される電力に相当"
+    },
+    "ecopowerbaseballgame": {
+        "message": "野球の電光得点板が1試合に使う電力に相当"
+    },
+    "ecopowereiffeltower": {
+        "message": "エッフェル塔のイルミネーション1日分に相当"
+    },
+    "ecopowereurostar": {
+        "message": "ユーロスターでブリュッセルからロンドンへ行くのに相当"
+    },
+    "ecopowereurostarparis": {
+        "message": "ユーロスターでパリからロンドンへ行くのに相当"
+    },
+    "ecoeiffeltoweryear": {
+        "message": "エッフェル塔のイルミネーション1年分に相当"
+    },
+    "ecosfoyear": {
+        "message": "サンフランシスコで1年に使用するエネルギーに相当"
+    },
+    "ecolayear": {
+        "message": "ロサンゼルスで1年に使用するエネルギーに相当"
+    },
+    "ecoplanetearth": {
+        "message": "地球を救えるくらい"
+    },
+    "autostopdetails": {
+        "message": "詳細"
+    },
+    "autostopblocked": {
+        "message": "Turn Off the Lights™ によってブロックしました - www.turnoffthelights.com"
+    },
+    "autostopclickme": {
+        "message": "このHTML5動画を再生するにはここをクリックしてください"
+    },
+    "autostopenabled": {
+        "message": "自動停止が有効になりました"
+    },
+    "searchplaceholder": {
+        "message": "検索"
+    },
+    "scoregame": {
+        "message": "Turn Off the Lights ブラウザー拡張機能で秘密の イースターエッグゲームをやったら、びっくりするような$scorevalue$ハイスコア。ぜひあなたも試してみてください！",
+        "placeholders": {
+            "scorevalue": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "permissionoption": {
+        "message": "この機能を使うには承認が必要です。"
+    },
+    "titelpermission": {
+        "message": "権限"
+    },
+    "despermissiontab": {
+        "message": "タブの権限を除去"
+    },
+    "wpermissionremoved": {
+        "message": "権限を除去しました。"
+    },
+    "wpermissionnotremoved": {
+        "message": "権限はすでに除去されています。"
+    },
+    "desnightmodegesture": {
+        "message": "表示中のウィンドウを長押しして、明るさを調整"
+    },
+    "omninightmode": {
+        "message": "ナイトモード"
+    },
+    "omnidaymode": {
+        "message": "日中モード"
+    },
+    "omnilightoff": {
+        "message": "ライトを消す"
+    },
+    "omnilighton": {
+        "message": "ライトを点灯"
+    },
+    "omnihelp": {
+        "message": "ヘルプ"
+    },
+    "permissionrequired": {
+        "message": "現状で有効な権限"
+    },
+    "permissionactivetab": {
+        "message": "タブのみ現在、開いているウェブサイトのみ暗めにします。"
+    },
+    "permissiontabs": {
+        "message": "これは以下の機能のために必要です。ようこそページとガイドページの表示、再生中の HTML5 動画の検出とスクショの撮影、オプションページの閲覧。"
+    },
+    "permissioncontextmenu": {
+        "message": "これはウェブブラウザのコンテキストメニューに「このページを暗くする」メニューを追加します。"
+    },
+    "permissionstorage": {
+        "message": "これは設定をローカルのコンピュータに保存し、ウェブブラウザのアカウントと同期します。"
+    },
+    "permissionallurl": {
+        "message": "http、https、file、ftp を採用するすべてのブラウザで、電球ボタンをコントロールします。"
+    },
+    "permissiontheme": {
+        "message": "これはウェブブラウザの UI のテーマをダークもしくは明るいモードに切り替えます。"
+    },
+    "desnightmodeswitchhide": {
+        "message": "指定した秒数の経過後、ナイトスイッチを非表示にします。"
+    },
+    "destrythiswebsite": {
+        "message": "このウェブページをお試しください"
+    },
+    "desatmosfpsmanual": {
+        "message": "手動で"
+    },
+    "desatmosfpsauto": {
+        "message": "最善の努力としてフレームレートを画面上で再生されるビデオと同期しました"
+    },
+    "desvideovolumeonly": {
+        "message": "次のサイト限定でマウスの音量スクロールを有効にします。"
+    },
+    "titelwhitelist": {
+        "message": "ホワイトリスト"
+    },
+    "titelblacklist": {
+        "message": "ブラックリスト"
+    },
+    "desvolumescrolla": {
+        "message": "現在のオペレーティングシステムに応じてスクロール方向を自動的に調整します"
+    },
+    "desvolumescrollb": {
+        "message": "スクロールアップすると音が大きくなります"
+    },
+    "desvolumescrollc": {
+        "message": "下にスクロールすると音が小さくなります"
+    },
+    "desvolumeposd": {
+        "message": "現在のビデオプレーヤーの左上に音量メーターを表示"
+    },
+    "desvolumepose": {
+        "message": "現在のビデオプレーヤーの右上に音量メーターを表示"
+    },
+    "titelpipvideo": {
+        "message": "現在のビデオ"
+    },
+    "titelpipvisual": {
+        "message": "Music Visualization"
+    },
+    "titelpip": {
+        "message": "ピクチャー・イン・ピクチャー"
+    },
+    "despip": {
+        "message": "ピクチャー・イン・ピクチャーを使うと、フローティングビデオウィンドウを作成し、常に他のウィンドウより前面に表示させます。"
+    },
+    "titelpiperror": {
+        "message": "現在のウェブページにはビデオが見つかりませんでした。別のウェブページをお試しください。"
+    },
+    "titelnightmodebutton": {
+        "message": "ボタンの色"
+    },
+    "dessitewhitelist": {
+        "message": "このサイトをホワイトリストに登録しますか？"
+    },
+    "handytip": {
+        "message": "便利なヒント..."
+    },
+    "titletipok": {
+        "message": "了解"
+    },
+    "desscrolltip": {
+        "message": "上部ナビゲーション・バーもカラーバーもスクロールします。上下方向にスクロールすると、バーに複数のボタンが表示されます。"
+    },
+    "titleyoutube": {
+        "message": "Turn Off the Lights チャンネルに参加しましょう。"
+    },
+    "desyoutube": {
+        "message": "Turn Off the Lights ブラウザ拡張機能のパワーを発見しませんか。YouTube で今すぐご覧ください。"
+    },
+    "titlesub": {
+        "message": "今すぐ登録!"
+    },
+    "titlelater": {
+        "message": "また後で"
+    },
+    "gamepadoption": {
+        "message": "ゲームコントローラ"
+    },
+    "titlegamepad": {
+        "message": "コントローラ"
+    },
+    "desgamepad": {
+        "message": "マルチメディアの制御をゲームコントローラでする"
+    },
+    "desstickplaystation": {
+        "message": "プレイステーションのジョイスティック"
+    },
+    "desstickxbox": {
+        "message": "Xbox 版ジョイスティック"
+    },
+    "desactions": {
+        "message": "Actions"
+    },
+    "desleftstick": {
+        "message": "左スティック"
+    },
+    "desrightstick": {
+        "message": "右スティック"
+    },
+    "desbuttonps": {
+        "message": "プレイステーションのボタン"
+    },
+    "desbuttonxb": {
+        "message": "Xbox のボタン"
+    },
+    "desgamepadsquare": {
+        "message": "四角形"
+    },
+    "desgamepadtriangle": {
+        "message": "三角形"
+    },
+    "desgamepadshowaddress": {
+        "message": "アドレス バーを表示"
+    },
+    "desgamepadshare": {
+        "message": "シェア"
+    },
+    "desgamepadshowmenu": {
+        "message": "メニューを表示"
+    },
+    "desgamepadoptions": {
+        "message": "オプション"
+    },
+    "desgamepadleftstickpress": {
+        "message": "左スティックが押されました"
+    },
+    "desgamepadrightstickpress": {
+        "message": "右スティックが押されました"
+    },
+    "desgamepaddirup": {
+        "message": "上へ"
+    },
+    "desgamepaddirdown": {
+        "message": "下へ"
+    },
+    "desgamepaddirleft": {
+        "message": "左へ"
+    },
+    "desgamepaddirright": {
+        "message": "右へ"
+    },
+    "desgamepadxboxlogo": {
+        "message": "Xbox ロゴ"
+    },
+    "desgamepadpslogo": {
+        "message": "PlayStation のロゴ"
+    },
+    "desgpbuttonzoominout": {
+        "message": "拡大または縮小"
+    },
+    "desgpbuttonzoompos": {
+        "message": "ズーム位置"
+    },
+    "desgpbuttonbackwardsmall": {
+        "message": "1秒前に戻って再生"
+    },
+    "desgpbuttonbackwardbig": {
+        "message": "play back 3 seconds"
+    },
+    "desgpbuttonforwardsmall": {
+        "message": "play forward 1 second"
+    },
+    "desgpbuttonforwardbig": {
+        "message": "play forward 3 seconds"
+    },
+    "desgpbuttonhome": {
+        "message": "Gamepad video test page"
+    },
+    "desgpbuttondirup": {
+        "message": "Move the view up"
+    },
+    "desgpbuttondirdown": {
+        "message": "Move the view down"
+    },
+    "desgpbuttondirleft": {
+        "message": "Move the view left"
+    },
+    "desgpbuttondirright": {
+        "message": "Move the view right"
+    },
+    "desgpbuttondirreset": {
+        "message": "Reset the zoom view"
+    },
+    "desgpbuttonshare": {
+        "message": "Exit Zoom Edit"
+    },
+    "desgpbuttonplaypause": {
+        "message": "Play/Pause the current video"
+    },
+    "desgpbuttonvolumeincrease": {
+        "message": "Increase volume"
+    },
+    "desgpbuttonvolumedecrease": {
+        "message": "Decrease volume"
+    },
+    "desgpbuttonnextvideo": {
+        "message": "Play next YouTube video"
+    },
+    "desgpbuttonprevvideo": {
+        "message": "Play previous YouTube video"
+    },
+    "titelgpconnect": {
+        "message": "Connected"
+    },
+    "titelgpdisconnect": {
+        "message": "Disconnected"
+    },
+    "desnightmodeos": {
+        "message": "Automatically switch the current web page to Night Mode if the OS appearance is set to Dark"
+    },
+    "titelonoff": {
+        "message": "ON/OFF"
+    },
+    "titelnightmodeborder": {
+        "message": "Border color"
+    },
+    "titleinfobx": {
+        "message": "情報"
+    },
+    "permissionwebnav": {
+        "message": "This is to add the Night Mode immediately before the web page loads."
+    }
+}

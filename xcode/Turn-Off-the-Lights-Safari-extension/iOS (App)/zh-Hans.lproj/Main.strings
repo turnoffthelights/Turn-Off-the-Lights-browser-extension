@@ -1,0 +1,143 @@
+/* Class = "UILabel"; text = "Share this app"; ObjectID = "0xC-8g-1Gv"; */
+"0xC-8g-1Gv.text" = "分享此应用";
+
+/* Class = "UITableViewSection"; headerTitle = "Help"; ObjectID = "0xj-1s-361"; */
+"0xj-1s-361.headerTitle" = "帮助";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "2ar-iz-Fme"; */
+"2ar-iz-Fme.text" = "描述";
+
+/* Class = "UINavigationItem"; title = "Turn Off the Lights"; ObjectID = "3YG-8K-hfa"; */
+"3YG-8K-hfa.title" = "关灯看视频";
+
+/* Class = "UILabel"; text = "Other apps"; ObjectID = "49d-ST-IOy"; */
+"49d-ST-IOy.text" = "其他应用";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "4vK-K6-lwU"; */
+"4vK-K6-lwU.text" = "Label";
+
+/* Class = "UITableViewSection"; headerTitle = "About"; ObjectID = "4vm-f2-vCa"; */
+"4vm-f2-vCa.headerTitle" = "关于";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "5hQ-UE-ILr"; */
+"5hQ-UE-ILr.text" = "日期";
+
+/* Class = "UILabel"; text = "Please check your internet connection and try again."; ObjectID = "6NF-tT-Pe3"; */
+"6NF-tT-Pe3.text" = "请检查您的网络连接，然后再试一次。";
+
+/* Class = "UIButton"; normalTitle = "Download"; ObjectID = "9bl-uF-mzm"; */
+"9bl-uF-mzm.normalTitle" = "下载";
+
+/* Class = "UILabel"; text = "My Christmas Tree"; ObjectID = "A6q-Gs-Cay"; */
+"A6q-Gs-Cay.text" = "我的圣诞树";
+
+/* Class = "UITableViewSection"; headerTitle = "Browser Extension"; ObjectID = "B30-5t-0qX"; */
+"B30-5t-0qX.headerTitle" = "浏览器扩展";
+
+/* Class = "UITableViewSection"; headerTitle = "Guide"; ObjectID = "Bou-rk-djw"; */
+"Bou-rk-djw.headerTitle" = "指南";
+
+/* Class = "UILabel"; text = "Hard Disk"; ObjectID = "CNU-C9-Jvh"; */
+"CNU-C9-Jvh.text" = "硬盘";
+
+/* Class = "UIButton"; normalTitle = "Manage Options"; ObjectID = "Cqc-uS-erT"; */
+"Cqc-uS-erT.normalTitle" = "管理选项";
+
+/* Class = "UILabel"; text = "Version"; ObjectID = "EpI-DN-Nyv"; */
+"EpI-DN-Nyv.text" = "版本";
+
+/* Class = "UILabel"; text = "No Connection"; ObjectID = "JOQ-kt-hRG"; */
+"JOQ-kt-hRG.text" = "无连接";
+
+/* Class = "UIButton"; normalTitle = "Translate the Safari extension in your local language"; ObjectID = "LNZ-Yg-yKq"; */
+"LNZ-Yg-yKq.normalTitle" = "将Safari扩展翻译为您的语言。";
+
+/* Class = "UITabBarItem"; title = "More"; ObjectID = "Lu9-5p-UCh"; */
+"Lu9-5p-UCh.title" = "更多";
+
+/* Class = "UINavigationItem"; title = "Licenses"; ObjectID = "NkB-2u-MNe"; */
+"NkB-2u-MNe.title" = "许可";
+
+/* Class = "UIButton"; normalTitle = "Download"; ObjectID = "Nrc-aT-Cwd"; */
+"Nrc-aT-Cwd.normalTitle" = "下载";
+
+/* Class = "UIButton"; normalTitle = "Love Safari Extension? Leave a review"; ObjectID = "Q4p-cT-4RD"; */
+"Q4p-cT-4RD.normalTitle" = "喜欢Safari扩展吗？请写下您的评论";
+
+/* Class = "UILabel"; text = "Welcome Guide"; ObjectID = "S2c-YZ-JXQ"; */
+"S2c-YZ-JXQ.text" = "使用指南";
+
+/* Class = "UITableViewSection"; headerTitle = "Apps"; ObjectID = "Tqz-Ju-1iE"; */
+"Tqz-Ju-1iE.headerTitle" = "应用";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "Wsi-fF-NJs"; */
+"Wsi-fF-NJs.title" = "主页";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "ZPh-Rl-hsg"; */
+"ZPh-Rl-hsg.text" = "Title";
+
+/* Class = "UILabel"; text = "Safari extension"; ObjectID = "cCD-St-9Ia"; */
+"cCD-St-9Ia.text" = "Safari扩展";
+
+/* Class = "UITableViewSection"; headerTitle = "You and Us"; ObjectID = "fKR-DI-C8W"; */
+"fKR-DI-C8W.headerTitle" = "您和我们";
+
+/* Class = "UINavigationItem"; title = "News"; ObjectID = "frC-PM-qni"; */
+"frC-PM-qni.title" = "新闻";
+
+/* Class = "UINavigationItem"; title = "More"; ObjectID = "igU-nL-56n"; */
+"igU-nL-56n.title" = "更多";
+
+/* Class = "UILabel"; text = "Sunrise"; ObjectID = "mO9-8h-XKt"; */
+"mO9-8h-XKt.text" = "日出";
+
+/* Class = "UINavigationItem"; title = "Turn Off the Lights"; ObjectID = "mQt-zK-kYM"; */
+"mQt-zK-kYM.title" = "关灯看视频";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "pGy-U3-sEB"; */
+"pGy-U3-sEB.text" = "1";
+
+/* Class = "UINavigationItem"; title = "Videos"; ObjectID = "pJZ-9Y-hHw"; */
+"pJZ-9Y-hHw.title" = "视频";
+
+/* Class = "UILabel"; text = "Check out Turn Off the Lights other projects"; ObjectID = "pak-Cb-lcw"; */
+"pak-Cb-lcw.text" = "查看Turn Off the Lights其他项目";
+
+/* Class = "UILabel"; text = "Need help or Feedback?"; ObjectID = "pmS-Sl-ylc"; */
+"pmS-Sl-ylc.text" = "需要帮助或反馈？";
+
+/* Class = "UILabel"; text = "Rate & Review this app"; ObjectID = "rAA-3y-XKh"; */
+"rAA-3y-XKh.text" = "给这个应用打分";
+
+/* Class = "UIButton"; normalTitle = "Download"; ObjectID = "rMi-b3-qqh"; */
+"rMi-b3-qqh.normalTitle" = "下载";
+
+/* Class = "UIButton"; normalTitle = "Download"; ObjectID = "rsF-Ny-q8I"; */
+"rsF-Ny-q8I.normalTitle" = "下载";
+
+/* Class = "UILabel"; text = "Help spread the word!"; ObjectID = "sq1-qS-Z1a"; */
+"sq1-qS-Z1a.text" = "请帮我们宣传！";
+
+/* Class = "UILabel"; text = "Licenses"; ObjectID = "tME-ct-sBk"; */
+"tME-ct-sBk.text" = "许可";
+
+/* Class = "UINavigationItem"; title = "Other apps"; ObjectID = "udT-Mh-cjM"; */
+"udT-Mh-cjM.title" = "其他应用";
+
+/* Class = "UILabel"; text = "GPL 2.0"; ObjectID = "v3E-8P-XQW"; */
+"v3E-8P-XQW.text" = "GPL 2.0";
+
+/* Class = "UITabBarItem"; title = "Videos"; ObjectID = "vXJ-o3-xot"; */
+"vXJ-o3-xot.title" = "视频";
+
+/* Class = "UILabel"; text = "Date Today"; ObjectID = "xDo-Ei-vQD"; */
+"xDo-Ei-vQD.text" = "今天的日期";
+
+/* Class = "UITabBarItem"; title = "News"; ObjectID = "yBg-ic-sw9"; */
+"yBg-ic-sw9.title" = "新闻";
+
+/* Class = "UIButton"; configuration.title = "Share"; ObjectID = "yR6-ag-wTG"; */
+"yR6-ag-wTG.configuration.title" = "分享";
+
+/* Class = "UIButton"; normalTitle = "Share"; ObjectID = "yR6-ag-wTG"; */
+"yR6-ag-wTG.normalTitle" = "分享";

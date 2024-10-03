@@ -1,0 +1,144 @@
+
+/* Class = "UILabel"; text = "Share this app"; ObjectID = "0xC-8g-1Gv"; */
+"0xC-8g-1Gv.text" = "Share this app";
+
+/* Class = "UITableViewSection"; headerTitle = "Help"; ObjectID = "0xj-1s-361"; */
+"0xj-1s-361.headerTitle" = "Help";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "2ar-iz-Fme"; */
+"2ar-iz-Fme.text" = "Description";
+
+/* Class = "UINavigationItem"; title = "Turn Off the Lights"; ObjectID = "3YG-8K-hfa"; */
+"3YG-8K-hfa.title" = "Turn Off the Lights";
+
+/* Class = "UILabel"; text = "Other apps"; ObjectID = "49d-ST-IOy"; */
+"49d-ST-IOy.text" = "Other apps";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "4vK-K6-lwU"; */
+"4vK-K6-lwU.text" = "Label";
+
+/* Class = "UITableViewSection"; headerTitle = "About"; ObjectID = "4vm-f2-vCa"; */
+"4vm-f2-vCa.headerTitle" = "About";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "5hQ-UE-ILr"; */
+"5hQ-UE-ILr.text" = "Date";
+
+/* Class = "UILabel"; text = "Please check your internet connection and try again."; ObjectID = "6NF-tT-Pe3"; */
+"6NF-tT-Pe3.text" = "Please check your internet connection and try again.";
+
+/* Class = "UIButton"; normalTitle = "Download"; ObjectID = "9bl-uF-mzm"; */
+"9bl-uF-mzm.normalTitle" = "Download";
+
+/* Class = "UILabel"; text = "My Christmas Tree"; ObjectID = "A6q-Gs-Cay"; */
+"A6q-Gs-Cay.text" = "My Christmas Tree";
+
+/* Class = "UITableViewSection"; headerTitle = "Browser Extension"; ObjectID = "B30-5t-0qX"; */
+"B30-5t-0qX.headerTitle" = "Browser Extension";
+
+/* Class = "UITableViewSection"; headerTitle = "Guide"; ObjectID = "Bou-rk-djw"; */
+"Bou-rk-djw.headerTitle" = "Guide";
+
+/* Class = "UILabel"; text = "Hard Disk"; ObjectID = "CNU-C9-Jvh"; */
+"CNU-C9-Jvh.text" = "Hard Disk";
+
+/* Class = "UIButton"; normalTitle = "Manage Options"; ObjectID = "Cqc-uS-erT"; */
+"Cqc-uS-erT.normalTitle" = "Manage Options";
+
+/* Class = "UILabel"; text = "Version"; ObjectID = "EpI-DN-Nyv"; */
+"EpI-DN-Nyv.text" = "Version";
+
+/* Class = "UILabel"; text = "No Connection"; ObjectID = "JOQ-kt-hRG"; */
+"JOQ-kt-hRG.text" = "No Connection";
+
+/* Class = "UIButton"; normalTitle = "Translate the Safari extension in your local language"; ObjectID = "LNZ-Yg-yKq"; */
+"LNZ-Yg-yKq.normalTitle" = "Translate the Safari extension in your local language";
+
+/* Class = "UITabBarItem"; title = "More"; ObjectID = "Lu9-5p-UCh"; */
+"Lu9-5p-UCh.title" = "More";
+
+/* Class = "UINavigationItem"; title = "Licenses"; ObjectID = "NkB-2u-MNe"; */
+"NkB-2u-MNe.title" = "Licenses";
+
+/* Class = "UIButton"; normalTitle = "Download"; ObjectID = "Nrc-aT-Cwd"; */
+"Nrc-aT-Cwd.normalTitle" = "Download";
+
+/* Class = "UIButton"; normalTitle = "Love Safari Extension? Leave a review"; ObjectID = "Q4p-cT-4RD"; */
+"Q4p-cT-4RD.normalTitle" = "Love Safari Extension? Leave a review";
+
+/* Class = "UILabel"; text = "Welcome Guide"; ObjectID = "S2c-YZ-JXQ"; */
+"S2c-YZ-JXQ.text" = "Welcome Guide";
+
+/* Class = "UITableViewSection"; headerTitle = "Apps"; ObjectID = "Tqz-Ju-1iE"; */
+"Tqz-Ju-1iE.headerTitle" = "Apps";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "Wsi-fF-NJs"; */
+"Wsi-fF-NJs.title" = "Home";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "ZPh-Rl-hsg"; */
+"ZPh-Rl-hsg.text" = "Title";
+
+/* Class = "UILabel"; text = "Safari extension"; ObjectID = "cCD-St-9Ia"; */
+"cCD-St-9Ia.text" = "Safari extension";
+
+/* Class = "UITableViewSection"; headerTitle = "You and Us"; ObjectID = "fKR-DI-C8W"; */
+"fKR-DI-C8W.headerTitle" = "You and Us";
+
+/* Class = "UINavigationItem"; title = "News"; ObjectID = "frC-PM-qni"; */
+"frC-PM-qni.title" = "News";
+
+/* Class = "UINavigationItem"; title = "More"; ObjectID = "igU-nL-56n"; */
+"igU-nL-56n.title" = "More";
+
+/* Class = "UILabel"; text = "Sunrise"; ObjectID = "mO9-8h-XKt"; */
+"mO9-8h-XKt.text" = "Sunrise";
+
+/* Class = "UINavigationItem"; title = "Turn Off the Lights"; ObjectID = "mQt-zK-kYM"; */
+"mQt-zK-kYM.title" = "Turn Off the Lights";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "pGy-U3-sEB"; */
+"pGy-U3-sEB.text" = "1";
+
+/* Class = "UINavigationItem"; title = "Videos"; ObjectID = "pJZ-9Y-hHw"; */
+"pJZ-9Y-hHw.title" = "Videos";
+
+/* Class = "UILabel"; text = "Check out Turn Off the Lights other projects"; ObjectID = "pak-Cb-lcw"; */
+"pak-Cb-lcw.text" = "Check out Turn Off the Lights other projects";
+
+/* Class = "UILabel"; text = "Need help or Feedback?"; ObjectID = "pmS-Sl-ylc"; */
+"pmS-Sl-ylc.text" = "Need help or Feedback?";
+
+/* Class = "UILabel"; text = "Rate & Review this app"; ObjectID = "rAA-3y-XKh"; */
+"rAA-3y-XKh.text" = "Rate & Review this app";
+
+/* Class = "UIButton"; normalTitle = "Download"; ObjectID = "rMi-b3-qqh"; */
+"rMi-b3-qqh.normalTitle" = "Download";
+
+/* Class = "UIButton"; normalTitle = "Download"; ObjectID = "rsF-Ny-q8I"; */
+"rsF-Ny-q8I.normalTitle" = "Download";
+
+/* Class = "UILabel"; text = "Help spread the word!"; ObjectID = "sq1-qS-Z1a"; */
+"sq1-qS-Z1a.text" = "Help spread the word!";
+
+/* Class = "UILabel"; text = "Licenses"; ObjectID = "tME-ct-sBk"; */
+"tME-ct-sBk.text" = "Licenses";
+
+/* Class = "UINavigationItem"; title = "Other apps"; ObjectID = "udT-Mh-cjM"; */
+"udT-Mh-cjM.title" = "Other apps";
+
+/* Class = "UILabel"; text = "GPL 2.0"; ObjectID = "v3E-8P-XQW"; */
+"v3E-8P-XQW.text" = "GPL 2.0";
+
+/* Class = "UITabBarItem"; title = "Videos"; ObjectID = "vXJ-o3-xot"; */
+"vXJ-o3-xot.title" = "Videos";
+
+/* Class = "UILabel"; text = "Date Today"; ObjectID = "xDo-Ei-vQD"; */
+"xDo-Ei-vQD.text" = "Date Today";
+
+/* Class = "UITabBarItem"; title = "News"; ObjectID = "yBg-ic-sw9"; */
+"yBg-ic-sw9.title" = "News";
+
+/* Class = "UIButton"; configuration.title = "Share"; ObjectID = "yR6-ag-wTG"; */
+"yR6-ag-wTG.configuration.title" = "Share";
+
+/* Class = "UIButton"; normalTitle = "Share"; ObjectID = "yR6-ag-wTG"; */
+"yR6-ag-wTG.normalTitle" = "Share";

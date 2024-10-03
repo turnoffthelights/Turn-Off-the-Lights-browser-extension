@@ -1,0 +1,55 @@
+/*
+  Localizable.strings
+  Turn Off the Lights for Safari
+
+  Created by Stefan Van Damme on 17/06/2021.
+  
+*/
+
+"lbleasytosetup" = "Facile da configurare";
+"lblturnoffthelights" = "Turn Off the Lights";
+"lblactivate" = "Attiva";
+"lblwatchvideo" = "Guarda il video";
+"lblstep1" = "Lascia questa app";
+"lblstep2a" = "Apri il";
+"lblstep2b" = "Impostazioni";
+"lblstep2c" = "app sul tuo dispositivo";
+"lblstep3a" = "Cerca e tocca";
+"lblstep3b" = "Safari";
+"lblstep3c" = ", poi tocca su";
+"lblstep3d" = "Estensioni";
+"lblstep4a" = "Attiva";
+"lblstep4b" = "Turn Off the Lights";
+"lblplaceholder" = "Estensione Safari Turn Off the Lights";
+"lblemailsubject" = "Estensione Safari Turn Off the Lights GRATIS";
+"lblsharetwitter" = "Scarica l'estensione gratuita di Safari Turn Off the Lights per ottenere la Modalità Scura su tutti i siti web. Prova tu stesso! #iOS15 via @TurnOfftheLight";
+"lblshareregular" = "Ho appena installato questa estensione gratuita per Safari Turn Off the Lights, è la mia estensione preferita di Safari per avere la modalità scura su tutti i siti web. Provala anche tu!";
+"lblsafariextensionstatus" = "L'estensione Safari è";
+"lblsafariextensionenable" = "Abilitata";
+"lblsafariextensiondisable" = "Disabilitato";
+"lblquickoptions" = "Aprire Opzione Pagina";
+"lblactionok" = "OK, Got it";
+"bannerstep1a" = "Open the";
+"bannerstep1b" = "Settings";
+"bannerstep1c" = "app";
+"bannerstep2a" = "Scroll to";
+"bannerstep2b" = "Safari";
+"bannerstep3a" = "Select";
+"bannerstep3b" = "Extensions";
+"bannerstep4a" = "Turn on";
+"bannerstep4b" = "Turn Off the Lights";
+"bannerstep5a" = "Open the";
+"bannerstep5b" = "Safari";
+"bannerstep5c" = "web browser";
+"lblactionskip" = "SKIP";
+"lblactionnext" = "NEXT";
+"strfindout" = "Find out more";
+"strworldpremiere" = "WORLD PREMIERE";
+"strdesworldpremiere" = "Browser Extension use Manifest V3 for better Privacy, Performance, and Security.";
+"strtranslator" = "TRANSLATOR COMMUNITY";
+"strdestranslator" = "Help Translate our Browser Extension!";
+"strdeveloper" = "DEVELOPER COMMUNITY";
+"strdesdeveloper" = "Find, and Report Issues!";
+"strsocial" = "SOCIAL COMMUNITY";
+"strdessocial" = "Follow and interact with other members!";
+"strnewsloading" = "Loading…";

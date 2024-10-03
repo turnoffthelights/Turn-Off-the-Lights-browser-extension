@@ -1,0 +1,1646 @@
+{
+    "descriptionshort": {
+        "message": "Toàn bộ trang web sẽ tối dần, vì thế bạn có thể xem các video giống như khi bạn xem trong rạp chiếu phim."
+    },
+    "pagehelp": {
+        "message": "trợ giúp"
+    },
+    "titelimage": {
+        "message": "Hình ảnh nền"
+    },
+    "shortcutalllights": {
+        "message": "để bật/tắt đèn cho tất cả các tab đang mở"
+    },
+    "lastchecked": {
+        "message": "Phiên bản mới nhất đã được kiểm tra lúc"
+    },
+    "visualeffects": {
+        "message": "Hiệu ứng trực quan"
+    },
+    "titelshortcutlight": {
+        "message": "Phím tắt"
+    },
+    "titledonatebutton": {
+        "message": "Quyên góp"
+    },
+    "titellikebar": {
+        "message": "Thanh thích"
+    },
+    "desmousespotlightt": {
+        "message": "Cho phép nhấp vào siêu liên kết khi màn hình tối"
+    },
+    "desmousespotlights": {
+        "message": "Sử bóng màn hình, với khả năng bấm vào các siêu liên kết"
+    },
+    "desambilight4color": {
+        "message": "Viền màu bao quanh video"
+    },
+    "lockentername": {
+        "message": "Vui lòng nhập mật khẩu của bạn"
+    },
+    "desnoflash": {
+        "message": "Không được sử dụng tính năng này"
+    },
+    "desdynamicblocks": {
+        "message": "Khối"
+    },
+    "titeleye": {
+        "message": "Bảo vệ mắt"
+    },
+    "titelcinemaontop": {
+        "message": "Chế độ nhà hát phim: nó chỉ hiện lớp 'đèn tắt' trên đỉnh cửa sổ"
+    },
+    "desmousespotlightc": {
+        "message": "Cho phép lựa chọn khu vực để tập trung vào một vật khi ánh sáng bị tắt"
+    },
+    "titelrememberpage": {
+        "message": "Nhắc nhở trang"
+    },
+    "desmousespotlighta": {
+        "message": "Khi tất cả ánh sáng bị tắt, xung quanh con trỏ chuột sẽ hiển thị một ánh sáng nổi bật."
+    },
+    "desmousespotlighto": {
+        "message": "Sử dụng bình thường (vô hiệu hóa thiết đặt chuột bên dưới)"
+    },
+    "desplaylist": {
+        "message": "Hiện playlist trên Youtube."
+    },
+    "desambilightfixcolor": {
+        "message": "Chỉ chọn 1 màu"
+    },
+    "desuntil": {
+        "message": "cho đến khi"
+    },
+    "desconfirmpassword": {
+        "message": "Xác nhận mật khẩu"
+    },
+    "desautodimonly": {
+        "message": "Chỉ làm mờ (những) trang web video sau đây:"
+    },
+    "helpeyeprotection": {
+        "message": "Kích hoạt 'Bảo vệ mắt' sẽ tự động tắt tính năng 'Tự động xem'."
+    },
+    "skipremember": {
+        "message": "Bỏ qua điều này, và mở trang tuỳ chọn bây giờ"
+    },
+    "optiontimesaved": {
+        "message": "Tiết kiệm thời gian thành công!"
+    },
+    "titelvideoheadline": {
+        "message": "Tiêu đề Video"
+    },
+    "translateme": {
+        "message": "Giúp chúng tôi dịch"
+    },
+    "despassword": {
+        "message": "Yêu cầu nhập một mật khẩu trước khi bật đèn trở lại."
+    },
+    "helpautodim": {
+        "message": "'Bảo vệ mắt' đã được kích hoạt. Để sử dụng tính năng dưới đây, vô hiệu hóa tùy chọn 'Bảo vệ mắt'."
+    },
+    "name": {
+        "message": "Tắt đèn"
+    },
+    "changelog": {
+        "message": "Nhật ký thay đổi"
+    },
+    "optionpagetitle": {
+        "message": "Tùy trọn tên trang"
+    },
+    "optionpasswordsaved": {
+        "message": "Mật khẩu được lưu thành công!"
+    },
+    "desdynamicspace": {
+        "message": "Space"
+    },
+    "deseastereggs": {
+        "message": "Nhấn phím T thêm một bức màn sân khấu vào lớp tối"
+    },
+    "settings": {
+        "message": "Thiết đặt"
+    },
+    "desspotlightradius": {
+        "message": "Đường kính của đèn chiếu:"
+    },
+    "titelsync": {
+        "message": "Đồng bộ"
+    },
+    "right": {
+        "message": "Bên phải"
+    },
+    "titeldynamic": {
+        "message": "Năng động nền"
+    },
+    "deslikebutton": {
+        "message": "Hiện nút like & dislike cho video này."
+    },
+    "titelmouse": {
+        "message": "Chuột"
+    },
+    "titellessmore": {
+        "message": "Hiển thị ít hơn"
+    },
+    "desshortcutlight": {
+        "message": "Cho phép các phím tắt bàn phím bên dưới"
+    },
+    "titelinfobar": {
+        "message": "Thanh thông tin"
+    },
+    "descontextmenus": {
+        "message": "Hiển thị menu để tập trung vào một mục."
+    },
+    "titelcontextmenus": {
+        "message": "Trình đơn ngữ cảnh"
+    },
+    "titelplaylist": {
+        "message": "Danh sách bài hát"
+    },
+    "desatmosphereonly": {
+        "message": "Sử dụng hiệu ứng ánh sáng bắt mắt trên trang web video sau đây:"
+    },
+    "rectext": {
+        "message": "Khuyến cáo"
+    },
+    "desenterpassword": {
+        "message": "Nhập mật khẩu của bạn vào hộp dưới đây:"
+    },
+    "titelblurradius": {
+        "message": "Bán kính mờ:"
+    },
+    "version": {
+        "message": "Phiên bản"
+    },
+    "shortcutdark": {
+        "message": "để làm tối màn hình (tăng độ mờ)"
+    },
+    "dessharebutton": {
+        "message": "Hiện nút Share cho video này."
+    },
+    "shortcutbright": {
+        "message": "để làm sáng màn hình (giảm độ mờ)"
+    },
+    "titelalllightsoff": {
+        "message": "Tất cả các tab mở"
+    },
+    "desreadera": {
+        "message": "Luôn hiện cấp độ mờ dần khi đèn bị tắt."
+    },
+    "rememberrate": {
+        "message": "Xếp hạng"
+    },
+    "desautodim": {
+        "message": "Tự động mờ dần khi nhấn nút play và ngược lại"
+    },
+    "titelscreen": {
+        "message": "Màn hình"
+    },
+    "desflash": {
+        "message": "Hiển thị tất cả các đối tượng đa phương tiện"
+    },
+    "titelhead": {
+        "message": "Kênh"
+    },
+    "pageatitle": {
+        "message": "Tắt đèn"
+    },
+    "desaddvideobutton": {
+        "message": "Hiện nút lưu từ video của YouTube"
+    },
+    "shortcuteyeprotection": {
+        "message": "để bật/tắt tính năng bảo vệ mắt"
+    },
+    "titelfadein": {
+        "message": "Rõ dần"
+    },
+    "desreadern": {
+        "message": "Không bao giờ hiện thanh cấp độ mờ dần."
+    },
+    "titelmaxqualityyoutube": {
+        "message": "Tự động thiết lập để giải quyết này:"
+    },
+    "desambilightrangespreadradius": {
+        "message": "Tích cực giá trị tăng kích thước của bóng tối, tiêu cực giá trị giảm kích thước."
+    },
+    "titelon": {
+        "message": "Bật"
+    },
+    "videotitle": {
+        "message": "Tập trung vào video này"
+    },
+    "warningtextambilight": {
+        "message": "Khi không thể nhận được dữ liệu video vì một quy tắc bảo mật web, màu đặc đã chọn sẽ được dùng để thay thế."
+    },
+    "desdynamiccloud": {
+        "message": "Đám mây hoạt hình"
+    },
+    "desconfirmtimesaver": {
+        "message": "Xác nhận màn hình tiết kiệm thời gian"
+    },
+    "deslikebar": {
+        "message": "Hiển thị các giống như/không thích thanh theo YouTube video"
+    },
+    "titelautodim": {
+        "message": "Phát tự động"
+    },
+    "top": {
+        "message": "Trên đầu"
+    },
+    "titelspreadradius": {
+        "message": "Bán kính lan tỏa:"
+    },
+    "installadblocker": {
+        "message": "Nếu bạn không muốn xem quảng cáo, sử dụng một phần mở rộng chặn quảng cáo."
+    },
+    "titelsharebutton": {
+        "message": "Nút chia sẻ"
+    },
+    "titelcolor": {
+        "message": "Màu nền"
+    },
+    "titeldownloadbutton": {
+        "message": "Tải về nâng cấp này!"
+    },
+    "pagetitle": {
+        "message": "Làm tối trang này"
+    },
+    "titelambilight": {
+        "message": "Chiếu sáng bầu khí quyển"
+    },
+    "titelshowmore": {
+        "message": "Hiển thị thêm"
+    },
+    "desviewcount": {
+        "message": "Hiện số lượng xem cho video này."
+    },
+    "titelautowidthyoutube": {
+        "message": "Tự động thiết lập trình phát YouTube để kích thước lớn hơn"
+    },
+    "desconfirmtime": {
+        "message": "Xác nhận thời gian"
+    },
+    "titelupgrade": {
+        "message": "Nâng cấp"
+    },
+    "lockwrongpassword": {
+        "message": "Sai mật khẩu, xin hãy thử lại."
+    },
+    "titelsyncbrowser": {
+        "message": "Đồng bộ các thiết lập tiện ích mở rộng với các trình duyệt khác của bạn"
+    },
+    "deletebutton": {
+        "message": "Xóa"
+    },
+    "eyedivon": {
+        "message": "BẬT"
+    },
+    "eyedivoff": {
+        "message": "TẮT"
+    },
+    "deshead": {
+        "message": "Hiện thanh Youtube Channel hoặc tên."
+    },
+    "shortcutsavingopacity": {
+        "message": "để tiết kiệm giá trị opacity này"
+    },
+    "desinfobar": {
+        "message": "Hiện mô tả về video."
+    },
+    "titellamp": {
+        "message": "Bóng đèn"
+    },
+    "desambilightvarcolor": {
+        "message": "Trích xuất màu từ video"
+    },
+    "showremember": {
+        "message": "Không hiển thị trang nhắc nhở này nữa khi tôi mở các tùy chọn"
+    },
+    "donatepromotext": {
+        "message": "Nếu bạn có thể ủng hộ cho tôi một số tiền cho tính năng này, tôi vô cùng cảm kích!"
+    },
+    "titelblur": {
+        "message": "Mờ phần còn lại"
+    },
+    "desdynamicraindrops": {
+        "message": "Giọt mưa"
+    },
+    "desalllightsoff": {
+        "message": "Nhấp vào nút đèn sẽ bật/tắt đèn trên tất cả các thẻ đang mở"
+    },
+    "optionecosaversaved": {
+        "message": "Giây được lưu thành công!"
+    },
+    "titelreader": {
+        "message": "Cấp độ mờ dần"
+    },
+    "deseyen": {
+        "message": "Sử dụng bình thường (đèn tắt khi bạn nhấp vào biểu tượng đèn)"
+    },
+    "enjoyshare": {
+        "message": "Thưởng thức phần mở rộng này và chia sẻ nó với những người khác những người bạn nghĩ rằng sẽ đánh giá cao nó."
+    },
+    "shortcuttotl": {
+        "message": "để bật/tắt đèn"
+    },
+    "deseyea": {
+        "message": "Tự động làm mờ nền khi mở một trang web"
+    },
+    "basicsettings": {
+        "message": "Khái niệm cơ bản"
+    },
+    "hoveroptionapply": {
+        "message": "áp dụng"
+    },
+    "reportbug": {
+        "message": "Báo lỗi"
+    },
+    "destime": {
+        "message": "Đèn tắt giữa các lần sau:"
+    },
+    "guide": {
+        "message": "Chào mừng bạn đến TOtL hướng dẫn"
+    },
+    "deseyealist": {
+        "message": "Tự động làm mờ nền trên (những) trang web sau:"
+    },
+    "titellikebutton": {
+        "message": "Nút Like & Dislike"
+    },
+    "titelpageaction": {
+        "message": "Ẩn biểu tượng đèn"
+    },
+    "friendlyremember": {
+        "message": "Nhắc nhở thân thiện..."
+    },
+    "desfadein": {
+        "message": "Hiện hiệu ứng rõ dần."
+    },
+    "warning": {
+        "message": "Cảnh báo!"
+    },
+    "deseyetimesaver": {
+        "message": "Khi một trang là không hoạt động (không có chuột hoặc nhập bàn phím) trong thời gian được chỉ ra dưới đây, nó tự động làm tối."
+    },
+    "titelsuggestions": {
+        "message": "Gợi ý"
+    },
+    "advancedoptions": {
+        "message": "Tùy chọn Nâng cao"
+    },
+    "dessuggestions": {
+        "message": "Hiển thị các gợi ý của Youtube."
+    },
+    "titelmultimedia": {
+        "message": "Phát hiện đa phương tiện"
+    },
+    "desambilight": {
+        "message": "Hiển thị bạn hiệu quả chiếu sáng bầu khí quyển của playing video hiện tại"
+    },
+    "productshare": {
+        "message": "Chia sẻ"
+    },
+    "addbutton": {
+        "message": "Thêm"
+    },
+    "reportlist": {
+        "message": "Xem danh sách lỗi"
+    },
+    "desdynamicfishtank": {
+        "message": "Bể cá"
+    },
+    "longdonatetext": {
+        "message": "Tôi thực sự đánh giá cao nếu bạn có thể tặng tôi để giữ cho phần mở rộng trình duyệt này còn tồn tại cho người dùng mới khác. Cho dù đó là 1$ hoặc 100$, hỗ trợ của bạn được đánh giá cao vô cùng!"
+    },
+    "deshardflash": {
+        "message": "Hiển thị tất cả các đối tượng đa phương tiện, bỏ qua các bộ lọc URL. Điều này sẽ sửa chữa các vấn đề với một số trình phát video được ẩn, nhưng cũng sẽ hiển thị quảng cáo."
+    },
+    "desfadeout": {
+        "message": "Hiện hiệu ứng mờ dần."
+    },
+    "optionwrongimg": {
+        "message": "Tập tin hình ảnh không hợp lệ!"
+    },
+    "desvideoheadline": {
+        "message": "Hiển thị và đảo ngược màu sắc của các tiêu đề video."
+    },
+    "desrememberpage": {
+        "message": "Không hiển thị lời nhắc nhở trang"
+    },
+    "description": {
+        "message": "Toàn bộ trang sẽ được làm tối dần, nên bạn có thể xem video như thể bạn đang ở trong rạp chiếu phim. Hoạt động tốt trên YouTube™ và một số ứng dụng riêng biệt."
+    },
+    "titelviewcount": {
+        "message": "Số lần xem"
+    },
+    "titelopacity": {
+        "message": "Độ mờ"
+    },
+    "titelqualityyoutube": {
+        "message": "Tự động đặt chất lượng video YouTube"
+    },
+    "shortcutopacity": {
+        "message": "để khôi phục lại thiết đặt bóng tối (độ mờ) đã đặt"
+    },
+    "desambilightrangeblurradius": {
+        "message": "Giá trị thấp hơn sẽ làm sắc nét bóng tối, giá trị cao hơn sẽ làm cho chúng bị mờ hơn."
+    },
+    "titeladdvideobutton": {
+        "message": "Nút Lưu"
+    },
+    "titelpassword": {
+        "message": "Bảo vệ mật khẩu"
+    },
+    "titeldownloadupgrade": {
+        "message": "Nâng cấp thêm hỗ trợ cho tập trung hình ảnh được chọn, và sẽ hiển thị một bộ sưu tập các hình ảnh trên trang web."
+    },
+    "titelfadeout": {
+        "message": "Mờ dần"
+    },
+    "eastereggsquestion": {
+        "message": "Bạn có thích một rạp chiếu phim thực sự?"
+    },
+    "bottom": {
+        "message": "Bên dưới"
+    },
+    "dessaver": {
+        "message": "Bộ bảo vệ màn hình:"
+    },
+    "hoveroptiondyn5": {
+        "message": "bay"
+    },
+    "pagestillloading": {
+        "message": "Trang đang tải vẫn?"
+    },
+    "titeloff": {
+        "message": "Tắt"
+    },
+    "titeleastereggs": {
+        "message": "Trứng Phục Sinh"
+    },
+    "textfoot": {
+        "message": "Phần mềm này được cấp phép theo CC-GNU GPL. Để xem một bản sao của giấy phép này, xem"
+    },
+    "left": {
+        "message": "Bên trái"
+    },
+    "titelnighttheme": {
+        "message": "Chế độ ban đêm"
+    },
+    "desnighttheme": {
+        "message": "Hiển thị nút chuyển đổi đêm bên dưới trang web để làm cho trang tối hoặc ánh sáng"
+    },
+    "nightoptions": {
+        "message": "Chế độ ban đêm"
+    },
+    "desnightonly": {
+        "message": "Hiển thị chế độ ban đêm chỉ là các trang web sau đây:"
+    },
+    "desnightenabletheme": {
+        "message": "Khi bạn mở một trang mới nó đi tự động đến chế độ ban đêm"
+    },
+    "titellampregular": {
+        "message": "Luôn hiện biểu tượng đèn trong thanh địa chỉ"
+    },
+    "titellampvideo": {
+        "message": "Chỉ hiển thị biểu tượng đèn nếu bạn tìm thấy một trình chơi video"
+    },
+    "ratetitle": {
+        "message": "Cảm ơn bạn đã sử dụng Turn Off the Lights"
+    },
+    "ratedes": {
+        "message": "Hãy đánh giá và review tính năng này trên Store. Chúng tôi thực sự cảm kích vì sự hỗ trợ tuyệt vời của bạn."
+    },
+    "rateitema": {
+        "message": "Đánh giá 5 sao"
+    },
+    "titelreset": {
+        "message": "Đặt lại thiết đặt"
+    },
+    "resetbrowserextension": {
+        "message": "Đặt lại các thiết đặt Turn Off the Lights"
+    },
+    "desautodimdelay": {
+        "message": "Làm sáng nền trở lại khi video đã kết thúc sau"
+    },
+    "desautodimdelayend": {
+        "message": "vài giây"
+    },
+    "motionoptions": {
+        "message": "Chuyển động camera"
+    },
+    "desmotion": {
+        "message": "Kích hoạt Chuyển động Camera"
+    },
+    "desspeech": {
+        "message": "Kích hoạt phân tích giọng nói"
+    },
+    "trymotion": {
+        "message": "Tự thử nó!"
+    },
+    "destrymotion": {
+        "message": "Đó chỉ là tuyệt vời, và tốt nhất của tất cả là nó hoạt động ở khắp mọi nơi. Thậm chí trên YouTube, trang web tin tức, vv."
+    },
+    "howworkmotion": {
+        "message": "Nó hoạt động như thế nào?"
+    },
+    "nightstep1description": {
+        "message": "Kích hoạt tính năng chế độ ban đêm"
+    },
+    "nightstep2description": {
+        "message": "Mở bất kì trang web nào đó, và bạn sẽ cảm nhận được"
+    },
+    "nightstep3description": {
+        "message": "Bấm vào để chuyển chế độ tối nền khi xem trang web"
+    },
+    "speechstep1description": {
+        "message": "Kích hoạt tính năng phân tích giọng nói"
+    },
+    "speechstep2description": {
+        "message": "Khi bạn kích hoạt chức năng này, bạn có thể giao tiếp với đèn nền trình duyệt bằng các câu lệnh sau đây:"
+    },
+    "camstep1description": {
+        "message": "Enable the Camera Motion feature."
+    },
+    "camstep2description": {
+        "message": "Di chuyển bàn tay của bạn (hoặc nắm tay) từ trên xuống."
+    },
+    "camstep3description": {
+        "message": "Lớp màu đen sẽ tự động trượt xuống."
+    },
+    "desmotionChecklist": {
+        "message": "Kiểm tra danh sách:"
+    },
+    "des1checkmotion": {
+        "message": "Đảm bảo căn phòng của bạn không phải là bóng tối và rằng nó có đủ ánh sáng."
+    },
+    "des2checkmotion": {
+        "message": "Máy ảnh của bạn không nhận được ánh sáng mặt trời trực tiếp."
+    },
+    "des3checkmotion": {
+        "message": "Bạn sử dụng một mặt trước của máy ảnh."
+    },
+    "titellinear": {
+        "message": "Tuyến tính"
+    },
+    "titelcolora": {
+        "message": "Màu A:"
+    },
+    "titelcolorb": {
+        "message": "Màu B:"
+    },
+    "speechoption": {
+        "message": "Nhận dạng tiếng nói"
+    },
+    "titelspeech": {
+        "message": "Lời nói"
+    },
+    "desspeech1command": {
+        "message": "tắt đèn"
+    },
+    "desspeech2command": {
+        "message": "bật đèn"
+    },
+    "desspeech3command": {
+        "message": "chơi video"
+    },
+    "desspeech4command": {
+        "message": "tạm dừng video"
+    },
+    "desspeechdialect": {
+        "message": "Chọn ngôn ngữ nói của bạn:"
+    },
+    "desatmosvivid": {
+        "message": "Hiệu ứng ánh sáng sinh động"
+    },
+    "help": {
+        "message": "Trợ giúp"
+    },
+    "about": {
+        "message": "Giới thiệu"
+    },
+    "desspeechonly": {
+        "message": "Kích hoạt nhận dạng tiếng nói chỉ là các trang web sau đây:"
+    },
+    "descammotiononly": {
+        "message": "Kích hoạt chuyển động máy ảnh chỉ trên các trang web sau đây:"
+    },
+    "titelcamera": {
+        "message": "Máy ảnh"
+    },
+    "titeldownloadthemeupgrade": {
+        "message": "Thêm một chủ đề tối để trình duyệt của bạn để mang nó lên. Chủ đề xuất hiện xung quanh viền của trình duyệt."
+    },
+    "desbrowsersupport": {
+        "message": "Trình duyệt này hiện không hỗ trợ tính năng này. Đảm bảo rằng bạn có phiên bản trình duyệt mới nhất được cài đặt trên máy tính của bạn."
+    },
+    "titelsupportatmos": {
+        "message": "Chỉ hỗ trợ trình phát <video> HTML5. Nó cũng đồng thời sử dụng GPU từ thiết bị của bạn."
+    },
+    "titelseeonline": {
+        "message": "Xem trực tuyến cho các ví dụ"
+    },
+    "titelvideosample": {
+        "message": "Video mẫu"
+    },
+    "titelwebsite": {
+        "message": "Trang mạng"
+    },
+    "titeldeveloper": {
+        "message": "Nhà phát triển"
+    },
+    "titelrightsreserved": {
+        "message": "Một số quyền."
+    },
+    "desbrowserextension": {
+        "message": "tiện ích của trình duyệt"
+    },
+    "desapitext": {
+        "message": "Wiki API cho phát triển trang web"
+    },
+    "desbrowsertheme": {
+        "message": "chủ đề trình duyệt"
+    },
+    "desproject": {
+        "message": "dự án"
+    },
+    "titelapideveloper": {
+        "message": "Nhà phát triển API"
+    },
+    "titelwikiatmos": {
+        "message": "Wiki về các tính năng chiếu sáng bầu không khí"
+    },
+    "sharemenusharetitle": {
+        "message": "Chia sẻ điều này"
+    },
+    "sharemenuwelcomeguidetitle": {
+        "message": "Chào mừng bạn đến với mục hướng dẫn"
+    },
+    "sharemenutellafriend": {
+        "message": "Giới thiệu với bạn bè"
+    },
+    "sharemenusendatweet": {
+        "message": "Gửi một Tweet"
+    },
+    "sharemenupostonfacebook": {
+        "message": "Đăng trên Facebook"
+    },
+    "sharemenuratetitle": {
+        "message": "Đánh giá tiện ích mở rộng này"
+    },
+    "sharemenudonatetitle": {
+        "message": "Hỗ trợ người phát triển"
+    },
+    "titelautostop": {
+        "message": "Tự động dừng"
+    },
+    "desautostop": {
+        "message": "Tự động dừng phát video khi tôi mở một trang web"
+    },
+    "areyouhappy": {
+        "message": "Bạn có hài lòng về Turn Off the Lights?"
+    },
+    "tellothers": {
+        "message": "Đảm bảo ý kiến của bạn được quan tâm"
+    },
+    "nothanks": {
+        "message": "Không, cảm ơn"
+    },
+    "writeareview": {
+        "message": "Viết đánh giá"
+    },
+    "desauroraplayer": {
+        "message": "Trình phát ánh sáng mô trường xung quanh cũng khả dụng cho máy tính này."
+    },
+    "downloadtheapp": {
+        "message": "Tải ứng dụng bây giờ"
+    },
+    "titeldownloadupgradezoom": {
+        "message": "Phóng lớn hoặc nhỏ trên nội dung web bằng nút thu phóng để đọc thoải mái hơn."
+    },
+    "titeldownloadupgradepropermenubar": {
+        "message": "Thêm lại thanh menu đen trên website Google."
+    },
+    "titeldownloadupgradefinancetoolbar": {
+        "message": "Điều này cho thấy bạn thông tin thị trường chứng khoán thời gian thực."
+    },
+    "titelnightmodeposition": {
+        "message": "Vị trí của công tắc"
+    },
+    "nmtopleft": {
+        "message": "Trên cùng bên trái"
+    },
+    "nmtopright": {
+        "message": "Trên cùng bên phải"
+    },
+    "nmbottomright": {
+        "message": "Dưới cùng bên phải"
+    },
+    "nmbottomleft": {
+        "message": "Dưới cùng bên trái"
+    },
+    "nmcustom": {
+        "message": "Tuỳ chỉnh (nhấp, giữ và di chuyển chuyển đổi sang vị trí màn hình mong muốn)"
+    },
+    "desnighthover": {
+        "message": "Hiển thị chuyển đổi minh bạch trên trang web"
+    },
+    "desautostoponly": {
+        "message": "Chỉ kích hoạt dừng phát video tự động trên (các) trang web sau:"
+    },
+    "desnightactivetime": {
+        "message": "Việc chuyển đổi sẽ được hiển thị giữa các lần sau:"
+    },
+    "deslampandnightmode": {
+        "message": "Kích hoạt tùy chọn 'Chế độ Đêm' khi bạn nhấp vào nút đèn màu xám"
+    },
+    "desspeech5command": {
+        "message": "đèn trình duyệt"
+    },
+    "html5andyoutube": {
+        "message": "Video HTML5 & YouTube ™"
+    },
+    "flashembedobject": {
+        "message": "Hỗ trợ: <object>, <embed>, <applet>, <iframe>."
+    },
+    "titelnightmodebck": {
+        "message": "Màu nền"
+    },
+    "titelnightmodetxt": {
+        "message": "Màu chữ"
+    },
+    "desdynamicsmoke": {
+        "message": "Hút thuốc"
+    },
+    "desdynamicdotscolor": {
+        "message": "Điểm màu"
+    },
+    "desdynamicstorm": {
+        "message": "Cơn bão"
+    },
+    "desdynamictriangulation": {
+        "message": "Triangulation"
+    },
+    "desdynamicstars": {
+        "message": "Sao"
+    },
+    "desmobileapp": {
+        "message": "Tắt đèn cũng có sẵn cho thiết bị di động của bạn."
+    },
+    "titel360youtube": {
+        "message": "Hiển thị video toàn cảnh 360 độ YouTube trong một khung"
+    },
+    "titelvideotool": {
+        "message": "Thanh công cụ video"
+    },
+    "desvideotool": {
+        "message": "Hiển thị thanh công cụ bên dưới màn hình của bạn để tùy chỉnh trình phát video hiện tại"
+    },
+    "vtoolfullscreen": {
+        "message": "Một nút để thiết lập trình phát video với kích thước cửa sổ đầy đủ"
+    },
+    "vtoolfilter": {
+        "message": "Nút để thêm bộ lọc trong trình phát video hiện tại"
+    },
+    "vtoolreplay": {
+        "message": "Nút để thêm bộ lọc trong trình phát video hiện tại"
+    },
+    "vtoolscreenshot": {
+        "message": "Nút để thêm bộ lọc trong trình phát video hiện tại"
+    },
+    "vtoolalign": {
+        "message": "Nút để căn giữa trình phát video trong cửa sổ trình duyệt của bạn"
+    },
+    "titelvideotoolgrayscale": {
+        "message": "màu xám"
+    },
+    "titelvideotoolsepia": {
+        "message": "nâu đỏ"
+    },
+    "titelvideotoolinvert": {
+        "message": "đảo ngược"
+    },
+    "titelvideotoolcontrast": {
+        "message": "độ tương phản"
+    },
+    "titelvideotoolsaturate": {
+        "message": "độ bão hoà"
+    },
+    "titelvideotoolhueroration": {
+        "message": "sự luân chuyển màu"
+    },
+    "titelvideotoolbrightness": {
+        "message": "độ sáng"
+    },
+    "titelvideotoolnormal": {
+        "message": "bình thường"
+    },
+    "titelvideotoollike": {
+        "message": "Thích"
+    },
+    "titelvideotoolsubscribe": {
+        "message": "Đăng ký"
+    },
+    "titelvideotoolrepeat": {
+        "message": "Lặp lại"
+    },
+    "titelvideotoolfilter": {
+        "message": "Bộ lọc"
+    },
+    "titelvideotoolfullwindow": {
+        "message": "Bật toàn màn hình"
+    },
+    "titelvideotoolscreenshot": {
+        "message": "Chụp ảnh màn hình"
+    },
+    "titelreflection": {
+        "message": "Phản ánh"
+    },
+    "desreflection": {
+        "message": "Hiển thị hiệu ứng phản chiếu trên tất cả các video"
+    },
+    "desvideotoolonly": {
+        "message": "Kích hoạt chuyển động máy ảnh chỉ trên các trang web sau đây:"
+    },
+    "titelnightmodehyperlink": {
+        "message": "Màu của Hyperlink"
+    },
+    "titelblock60fps": {
+        "message": "Chặn 60 khung hình / giây"
+    },
+    "titelvolume": {
+        "message": "Thanh âm lượng video"
+    },
+    "desvideovolume": {
+        "message": "Kiểm soát âm lượng của trình phát video hiện tại bằng một cuộn chuột"
+    },
+    "desvideovolumecolor": {
+        "message": "Màu của thanh"
+    },
+    "desvolumelabel": {
+        "message": "Hiện thanh âm lượng (bước nhảy:)"
+    },
+    "desvolumesteps": {
+        "message": "Số (%) cho mỗi nấc cuộn trỏ chuột"
+    },
+    "sharetexta": {
+        "message": "Hãy nhận Turn Off the Lights Trình duyệt Mở rộng tuyệt vời này"
+    },
+    "sharetextb": {
+        "message": "Này, điều này thật là tuyệt vời! Tôi đã thử Turn Off the Lights trình duyệt mở rộng mới ngày hôm nay."
+    },
+    "sharetextc": {
+        "message": "Turn Off the Lights trình duyệt mở rộng tốt nhất và tuyệt vời nhất"
+    },
+    "sharetextd": {
+        "message": "Turn Off the Lights trình duyệt mở rộng là công cụ tốt nhất để sử dụng trên YouTube. Tải về nó và thử nó cho mình!"
+    },
+    "titelsharethis": {
+        "message": "Chia sẻ điều này:"
+    },
+    "titellampchoose": {
+        "message": "Chọn trò chơi yêu thích ngay bây giờ"
+    },
+    "titeldoesntwork": {
+        "message": "Tắt Đèn không hoạt động trên trang web này. Hãy thử một trang khác."
+    },
+    "titelpopupvideo": {
+        "message": "YouTube"
+    },
+    "titelpopupwelcomeguide": {
+        "message": "Chào mừng bạn đến với mục hướng dẫn"
+    },
+    "titelpopupsupport": {
+        "message": "Hỗ trợ"
+    },
+    "titelpopupoptions": {
+        "message": "Tùy chọn"
+    },
+    "titelpopupratestars": {
+        "message": "Đánh giá 5 sao"
+    },
+    "titelvisenable": {
+        "message": "Bật / tắt Visualization Âm thanh"
+    },
+    "titelvischoose": {
+        "message": "Chọn hiện thị âm thanh của bạn"
+    },
+    "titelvisblocks": {
+        "message": "Khối"
+    },
+    "titelvisfrequency": {
+        "message": "Tần suất"
+    },
+    "titelvistunnel": {
+        "message": "Đường hầm âm nhạc"
+    },
+    "titelvisualization": {
+        "message": "Hình ảnh minh hoạ"
+    },
+    "desvisopacity": {
+        "message": "Giá trị độ mờ đục của nền hiển thị âm thanh"
+    },
+    "vtoolvisualization": {
+        "message": "Nút hiển thị âm thanh cho trình phát video hiện tại"
+    },
+    "desvideotoolcolor": {
+        "message": "Màu của thanh trượt"
+    },
+    "titelhovervideo": {
+        "message": "Di chuột video"
+    },
+    "deshovervideo": {
+        "message": "Di chuột qua phần tử video trong một số giây nhất định, sau đó trang web sẽ tự động làm mờ"
+    },
+    "promotitle": {
+        "message": "Ứng dụng của Ngày"
+    },
+    "desremyoutube": {
+        "message": "Đăng ký kênh Youtube của chúng tôi"
+    },
+    "desremfacebook": {
+        "message": "Đề nghị trên Facebook"
+    },
+    "titleuserprofile": {
+        "message": "Bên dưới, chọn cài đặt bạn muốn sử dụng khi nhấp vào nút đèn màu xám. Mỗi tiểu sử đều có các tính năng riêng."
+    },
+    "titleregularuser": {
+        "message": "Di chuột video"
+    },
+    "titlenightowl": {
+        "message": "Cú đêm"
+    },
+    "titlescreenprotection": {
+        "message": "Bảo vệ mắt"
+    },
+    "desregularuser": {
+        "message": "Đây là cài đặt mặc định và thường xuyên cho người dùng mới. Khi nhấp vào nút đèn màu xám, kiểu này sẽ được áp dụng cho trang web hiện tại."
+    },
+    "desnightowl": {
+        "message": "Một cú nhấp chuột sẽ chuyển đổi trang trực tiếp thành một chủ đề ban đêm với một liên kết có thể nhấp. Nhấp lại lần nữa để trở lại màn hình bình thường. Nhấp vào nút đèn một lần nữa để tắt tính năng này."
+    },
+    "desscreenprotection": {
+        "message": "Một cú nhấp chuột sẽ làm cho trang này trở nên màu cam nhẹ nhàng để giảm căng thẳng mắt cho tất cả các tab đang mở. Nhấp vào nút đèn một lần nữa để vô hiệu hóa này tính năng."
+    },
+    "titleprofilevideofocus": {
+        "message": "ビデオプレーヤーを検出する"
+    },
+    "titleprofilenovideofocus": {
+        "message": "動画を表示しない"
+    },
+    "titleprofilealwaysscreentab": {
+        "message": "Luôn bật cho tất cả các tab đang mở"
+    },
+    "titleprofilescreenclick": {
+        "message": "Cho phép nhấp vào siêu liên kết khi màn hình tối"
+    },
+    "titleprofilesubmit": {
+        "message": "Chọn cài đặt này"
+    },
+    "titlelearnmore": {
+        "message": "Tìm hiểu thêm"
+    },
+    "optionprofilesaved": {
+        "message": "Hành động của đèn mới được lưu thành công!"
+    },
+    "desaplay": {
+        "message": "play"
+    },
+    "desapause": {
+        "message": "tạm ngừng"
+    },
+    "desastop": {
+        "message": "dừng lại"
+    },
+    "desvideozoom": {
+        "message": "Phóng to hoặc thu nhỏ nội dung video bằng cách sử dụng nút thu phóng"
+    },
+    "titlevideoplayrate": {
+        "message": "Tốc độ video"
+    },
+    "desplayrate": {
+        "message": "Tốc độ phát video mặc định"
+    },
+    "desspeedtoolbar": {
+        "message": "Hiển thị thanh công cụ phát video trong trình phát video hiện tại"
+    },
+    "desatmosontotlmode": {
+        "message": "Chỉ hiện thị hiệu ứng chiếu sáng chỉ khi chế độ TOtL được kích hoạt"
+    },
+    "desdarkbrowsertheme": {
+        "message": "Chuyển trình duyệt sang nền tối"
+    },
+    "desautostopfeaturewhite": {
+        "message": "CHẶN những trang web dưới đây, nhưng CHO PHÉP tự động phát trên các trang web khác."
+    },
+    "desautostopfeatureblack": {
+        "message": "CHO PHÉP các trang web dưới đây, nhưng CHẶN tự động phát trên các trang web khác."
+    },
+    "autostopbannerred": {
+        "message": "Hiện banner màu đỏ"
+    },
+    "autostopbannertrans": {
+        "message": "Hiện banner trong suốt"
+    },
+    "titleanalytics": {
+        "message": "Phân tích - Thống kê"
+    },
+    "desbadgeanalytics": {
+        "message": "Hiện thị hiển huy hiệu với số lần nhấp chuột bạn đã làm mờ trang web"
+    },
+    "shareanalyticenergy": {
+        "message": "Tôi đã tiết kiệm được $energyvalue$ kWh nhờ vào Turn Off the Lights",
+        "placeholders": {
+            "energyvalue": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "shareanalyticenergyWh": {
+        "message": "Tôi đã tiết kiệm được $energyvalue$ Wh nhờ vào Turn Off the Lights",
+        "placeholders": {
+            "energyvalue": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "analyticsoption": {
+        "message": "Phân tích - Thống kê"
+    },
+    "activelayertoday": {
+        "message": "Số lần click hôm nay"
+    },
+    "totalenergysaved": {
+        "message": "Tổng số điện năng được tiết kiệm"
+    },
+    "resetlampanalytic": {
+        "message": "Đặt lại phân tích thống kê dữ liệu của bạn"
+    },
+    "titlesiteengagement": {
+        "message": "Tham gia trang web"
+    },
+    "titleorigin": {
+        "message": "Nguồn"
+    },
+    "titletime": {
+        "message": "Thời gian (bằng phút)"
+    },
+    "titleavgdayschedule": {
+        "message": "Lịch trình trung bình hàng ngày"
+    },
+    "titlesharestats": {
+        "message": "Chia sẻ số liệu của bạn"
+    },
+    "btnsharestats": {
+        "message": "Chia sẻ số liệu"
+    },
+    "charttitletotaltime": {
+        "message": "Tổng số thời gian lớp nền tối hoạt động (bằng phút)"
+    },
+    "charttitlelayeractive": {
+        "message": "Lớp nền tối hoạt động (#)"
+    },
+    "charttitleavgday": {
+        "message": "Lịch trình hàng ngày trung bình (khi đèn tắt thường xuyên)"
+    },
+    "charttitle30dayssaved": {
+        "message": "Năng lượng lưu trữ cái này trong 30 ngày qua"
+    },
+    "charttitlelblwebsiteused": {
+        "message": "Trang web sử dụng 30 ngày"
+    },
+    "charttitlelblenergytotal": {
+        "message": "Tổng số đã sử dụng năng lượng"
+    },
+    "charttitlelblenergysaved": {
+        "message": "Tổng số đã sử dụng năng lượng"
+    },
+    "titlelanalyticprivacy": {
+        "message": "Turn Off the Lights trình duyệt mở rộng coi trọng quyền riêng tư của bạn rất nghiêm túc. Mục Phân tích Turn Off the Lights bạn đang thấy trên trình duyệt này chỉ được lưu trự cục bộ trên máy tính của bạn. Thông tin cá nhân của bạn về việc tham gia các trang mạng sẽ không được bán và sẽ không được chuyển giao cho các bên thứ ba không liên quan."
+    },
+    "shareanalyticlove": {
+        "message": "Trang web mà tôi thích nhất là $websiteurl$ với Turn Off the Lights",
+        "placeholders": {
+            "websiteurl": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "desvolumeposa": {
+        "message": "Hiển thị đo khối lượng tại tâm của trình phát video hiện tại"
+    },
+    "desvolumeposb": {
+        "message": "Hiển thị lượng âm thanh bên trên góc trái của trình phát video hiện tại"
+    },
+    "desvolumeposc": {
+        "message": "Hiển thị lượng âm thanh bên trên góc phải của trình phát video hiện tại"
+    },
+    "desvideovolumhold": {
+        "message": "Giữ nút chuột trái hoặc phải, và di chuyển chuột của bạn để thay đổi âm lượng"
+    },
+    "desvideovolumalt": {
+        "message": "Nếu nhấn phím alt"
+    },
+    "speechheybrowser": {
+        "message": "Hey trình duyệt"
+    },
+    "speechokbrowser": {
+        "message": "ok trình duyệt"
+    },
+    "functionactive": {
+        "message": "Chức năng này được kích hoạt khi bạn bấm vào một tab, hoặc khi bạn làm mới trang web. Tuy nhiên, chức năng này dừng lại sau 15 giây."
+    },
+    "cardtexsubscribe": {
+        "message": "Đăng ký ngay!"
+    },
+    "cardtextfavdayweek": {
+        "message": "Ngày yêu thích trong tuần"
+    },
+    "cardtextyestime": {
+        "message": "Vào ngày hôm nay tất cả các thời gian (trong vài phút)"
+    },
+    "cardavgprevweektime": {
+        "message": "Tuần trước, tất cả thời gian (trong vài phút)"
+    },
+    "sunday": {
+        "message": "Chủ Nhật"
+    },
+    "monday": {
+        "message": "Thứ Hai"
+    },
+    "tuesday": {
+        "message": "Thứ Ba"
+    },
+    "wednesday": {
+        "message": "Thứ Tư"
+    },
+    "thursday": {
+        "message": "Thứ Năm"
+    },
+    "friday": {
+        "message": "Thứ Sáu"
+    },
+    "saturday": {
+        "message": "Thứ Bảy"
+    },
+    "titlemultiopacity": {
+        "message": "Mỗi trang web, opacity của riêng mình"
+    },
+    "desmultiopacitynormal": {
+        "message": "Tất cả các trang web có cùng một giá trị opacity"
+    },
+    "desmultiopacitysel": {
+        "message": "Các trang web trong danh sách ở đây dưới đây có chọn opacities"
+    },
+    "desmultiopacitynot": {
+        "message": "Nếu một trang web đó không có trong danh sách, giá trị opacity mặc định sẽ áp dụng."
+    },
+    "titleok": {
+        "message": "Đồng ý"
+    },
+    "titlecancel": {
+        "message": "Hủy bỏ"
+    },
+    "titledarkmodeon": {
+        "message": "Chế độ tối màn hình BẬT"
+    },
+    "titledarkmodeoff": {
+        "message": "Chế độ tối màn hình TẮT"
+    },
+    "titledarkmodeauto": {
+        "message": "Sử dụng màn hình thiết bị"
+    },
+    "titlelprivacy": {
+        "message": "Chính sách riêng tư"
+    },
+    "titleprofile": {
+        "message": "Cấu hình"
+    },
+    "descolorfixcolor": {
+        "message": "Chọn màu sắc tối lớp của bạn"
+    },
+    "desatmossolidcolor": {
+        "message": "Chọn hiệu ứng màu phát quang đồng nhất của bạn"
+    },
+    "titlelratenow": {
+        "message": "Đánh giá ngay!"
+    },
+    "titleratelater": {
+        "message": "Sau"
+    },
+    "desremrate": {
+        "message": "Nếu bạn thích Turn Off the Lights™, xin đừng ngần ngại để đánh giá mở rộng này 5 sao ngay bây giờ. Điều này giúp chúng tôi có thêm động lực để tiếp tục phát triển sản phẩm này cho bạn. Bạn có thể viết một bài đánh giá, nhưng điều này là không bắt buộc. Nếu bạn không có thời gian để viết một bài đánh giá, bạn có thể đánh giá nó ẩn danh. Nó rất quan trọng để cho nó ★★★★★. Cảm ơn bạn!"
+    },
+    "titelnightmodedomain": {
+        "message": "Miền"
+    },
+    "titelnightmodepage": {
+        "message": "Trang web"
+    },
+    "titelintroduce": {
+        "message": "Giới thiệu Turn Off the Lights mới!"
+    },
+    "desintroduce": {
+        "message": "Với mọi tính năng bạn từng có, với một vẻ nhìn mới, và được cá nhân hóa cho bạn."
+    },
+    "econothingthisyear": {
+        "message": "Không có gì trong năm nay. Giữ đèn tắt để tiết kiệm năng lượng"
+    },
+    "ecothirtyminutes": {
+        "message": "30 phút của ánh sáng đã lưu"
+    },
+    "ecowatchtvfortwo": {
+        "message": "Xem truyền hình trong 2 giờ"
+    },
+    "ecotoastermaking": {
+        "message": "Lò nướng đang làm hai ổ bánh mì"
+    },
+    "ecochargeiphone": {
+        "message": "Thay đổi iPhone của bạn"
+    },
+    "ecobrewsomecoffee": {
+        "message": "Đun một ít cà phê, đang đun một bình cà phê"
+    },
+    "ecoplayingxbox": {
+        "message": "Chơi trên Xbox 360 trong 1 giờ"
+    },
+    "ecovacuumingfor": {
+        "message": "Hút bụi trong 15 phút"
+    },
+    "ecoblowdrying": {
+        "message": "Sấy tóc của bạn trong 10 phút dùng khoảng"
+    },
+    "ecowashingclothes": {
+        "message": "Giặt đồ của bạn trong một chu kì rửa bằng nước lạnh dùng khoảng"
+    },
+    "ecowififoraday": {
+        "message": "Wi-Fi cho một ngày"
+    },
+    "ecorunningdishwasher": {
+        "message": "Chạy máy rửa chén của bạn trong chế độ tiết kiệm điện sẽ sử dụng"
+    },
+    "ecochargelaptop": {
+        "message": "Sạc laptop của bạn"
+    },
+    "ecokeeplightonforsix": {
+        "message": "Giữ Đèn sáng trong 6 giờ"
+    },
+    "ecokeepfridgeday": {
+        "message": "Giữ cho tủ lạnh chạy trong 1 ngày"
+    },
+    "ecoloadlaundry": {
+        "message": "Một đống đồ trong máy sấy đồ"
+    },
+    "ecoheatingtenshower": {
+        "message": "Đun nóng một lượng nước nóng đủ cho một lần tắm 10 phút"
+    },
+    "ecotwentyfourghome": {
+        "message": "Đủ để chạy Google Home trong 24 giờ"
+    },
+    "ecochargeteslacar": {
+        "message": "Sạc đủ cho chiếc xe Tesla của bạn chạy 32Km"
+    },
+    "ecochargeteslacarhundred": {
+        "message": "Sạc chiếc xe Tesla của bạn lên 100%"
+    },
+    "ecochargeteslathreetimes": {
+        "message": "Sạc chiếc xe Tesla của bạn lên 100% 3 lần"
+    },
+    "ecopowerhawaiimonth": {
+        "message": "Đủ điện để dùng cho Hawaii trong 1 tháng"
+    },
+    "ecopowernwymonth": {
+        "message": "Đủ điện để dùng cho New York trong 1 tháng"
+    },
+    "ecopowercamonth": {
+        "message": "Đủ điện để dùng cho California trong 1 tháng"
+    },
+    "ecopowerbaseballgame": {
+        "message": "Đủ để cấp điện cho một tivi cỡ siêu lớn cho một trận bóng chay"
+    },
+    "ecopowereiffeltower": {
+        "message": "Để thắp sáng tháp Eiffel trong 1 ngày"
+    },
+    "ecopowereurostar": {
+        "message": "Cho một chuyến tàu Eurostar từ Brussels tới London"
+    },
+    "ecopowereurostarparis": {
+        "message": "Cho một chuyến tàu Eurostar từ Paris tới London"
+    },
+    "ecoeiffeltoweryear": {
+        "message": "Để thắp sáng tháp Eiffel trong 1 năm"
+    },
+    "ecosfoyear": {
+        "message": "Để cung cấp điện cho San Francisco trong 1 năm"
+    },
+    "ecolayear": {
+        "message": "Để cung cấp điện cho Los Angeles trong 1 năm"
+    },
+    "ecoplanetearth": {
+        "message": "Sẵn sàng để cứu Trái đất"
+    },
+    "autostopdetails": {
+        "message": "CHI TIẾT"
+    },
+    "autostopblocked": {
+        "message": "Bị chặn bởi Turn Off the Lights™ - www.turnoffthelights.com"
+    },
+    "autostopclickme": {
+        "message": "Nhấp vào tôi để phát video HTML5 này"
+    },
+    "autostopenabled": {
+        "message": "Dừng Tự Động được kích hoạt!"
+    },
+    "searchplaceholder": {
+        "message": "Tìm kiếm"
+    },
+    "scoregame": {
+        "message": "Điểm của tôi $scorevalue$ rất cao ở trò chơi easter egg Ẩn trong tiện tích trình duyệt mở rộng Turn Off the Lights. Hãy chơi thử đi!",
+        "placeholders": {
+            "scorevalue": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "permissionoption": {
+        "message": "Phải bật quyền cho phép mới sử dụng được tính năng này."
+    },
+    "titelpermission": {
+        "message": "Quyền"
+    },
+    "despermissiontab": {
+        "message": "Loại bỏ tab quyền cho phép"
+    },
+    "wpermissionremoved": {
+        "message": "Quyền cho phép đã được loại bỏ."
+    },
+    "wpermissionnotremoved": {
+        "message": "Quyền cho phép đã được loại bỏ rồi"
+    },
+    "desnightmodegesture": {
+        "message": "Làm cho trang tối đi hoặc sáng lên bằng cách bấm lâu vào trang web hiện tại"
+    },
+    "omninightmode": {
+        "message": "chế độ ban đêm"
+    },
+    "omnidaymode": {
+        "message": "chế độ ban ngày"
+    },
+    "omnilightoff": {
+        "message": "tắt đèn"
+    },
+    "omnilighton": {
+        "message": "bật đèn"
+    },
+    "omnihelp": {
+        "message": "trợ giúp"
+    },
+    "permissionrequired": {
+        "message": "Quyền cho phép hoạt động hiện tại"
+    },
+    "permissionactivetab": {
+        "message": "Nó sẽ chỉ làm mờ trang web trên tab trang web mở hiện tại."
+    },
+    "permissiontabs": {
+        "message": "Cái này cần cho những tính năng kèm theo như: trình bày bạn trang chào mừng và hướng dẫn sử dụng, phát hiện video HTML5 đang phát hiện tại, chụp màn hình cho video HTML5, và để mở Cài đặt cho trang."
+    },
+    "permissioncontextmenu": {
+        "message": "Cái này để thêm menu \"Làm tối trang web\" trong menu bối cảnh của trình duyệt web."
+    },
+    "permissionstorage": {
+        "message": "Cái này để lưu cài đặt trên máy tính cục bộ của bạn, và để đồng bộ hóa cho tài khoản trình duyệt web của bạn."
+    },
+    "permissionallurl": {
+        "message": "Cái này để điều khiển nút đèn trên tất cả các website bao gồm http, https, tệp, và ftp."
+    },
+    "permissiontheme": {
+        "message": "Cái này để thay đổi giao diện người dùng trình duyệt web trong chủ đề tối hoặc sáng."
+    },
+    "desnightmodeswitchhide": {
+        "message": "Tự động dấu công tắc ban đêm sau những giây lựa chọn của bạn"
+    },
+    "destrythiswebsite": {
+        "message": "Hãy thử trang web này"
+    },
+    "desatmosfpsmanual": {
+        "message": "Một cách thủ công"
+    },
+    "desatmosfpsauto": {
+        "message": "Đồng bộ hóa một cách cố gắng nhất với khung hình của video đang phát trên màn hình"
+    },
+    "desvideovolumeonly": {
+        "message": "Kích hoạt Cuộn Chuột Âm lượng chỉ trên (các) trang sau đây:"
+    },
+    "titelwhitelist": {
+        "message": "Danh sách trắng"
+    },
+    "titelblacklist": {
+        "message": "Danh sách đen"
+    },
+    "desvolumescrolla": {
+        "message": "Tự động điều chỉnh hướng cuộn tùy vào hệ điều hành hiện tại"
+    },
+    "desvolumescrollb": {
+        "message": "Cuộn lên để tăng âm lượng"
+    },
+    "desvolumescrollc": {
+        "message": "Cuộn xuống để tăng âm lượng"
+    },
+    "desvolumeposd": {
+        "message": "Hiển thị mức âm lượng bên trên góc trái của trình phát video hiện tại"
+    },
+    "desvolumepose": {
+        "message": "Hiển thị mức âm lượng bên trên góc phải của trình phát video hiện tại"
+    },
+    "titelpipvideo": {
+        "message": "Video hiện tại"
+    },
+    "titelpipvisual": {
+        "message": "Âm thanh minh hoạ"
+    },
+    "titelpip": {
+        "message": "Hình trong Ảnh"
+    },
+    "despip": {
+        "message": "Hình trong Ảnh cho phép bạn tạo một cửa sổ video nổi mà nó luôn ở trên cùng các cửa sổ khác."
+    },
+    "titelpiperror": {
+        "message": "Không video nào được tìm thấy trên trang web hiện tại. Xin hãy thử một trang web khác."
+    },
+    "titelnightmodebutton": {
+        "message": "Màu nút"
+    },
+    "dessitewhitelist": {
+        "message": "Đưa trang này vào danh sách trắng?"
+    },
+    "handytip": {
+        "message": "Mẹo Hữu ích..."
+    },
+    "titletipok": {
+        "message": "Đã hiểu"
+    },
+    "desscrolltip": {
+        "message": "Bạn có thể cuộn trong thanh điều hướng trên cùng và thanh màu. Khi bạn cuộn theo chiều ngang, bạn có thể thấy nhiều nút hơn trong thanh này."
+    },
+    "titleyoutube": {
+        "message": "Tham gia Kênh Tắt Đèn."
+    },
+    "desyoutube": {
+        "message": "Khám phá sức mạnh của tiện ích mở rộng trình duyệt Tắt Đèn. Xem nó ngay trên YouTube."
+    },
+    "titlesub": {
+        "message": "Đăng ký ngay!"
+    },
+    "titlelater": {
+        "message": "Sau"
+    },
+    "gamepadoption": {
+        "message": "Tay Cầm Chơi Game"
+    },
+    "titlegamepad": {
+        "message": "Trình điều khiển"
+    },
+    "desgamepad": {
+        "message": "Kiểm soát đa phương tiện cùng tay cầm chơi game của bạn"
+    },
+    "desstickplaystation": {
+        "message": "Cần điều khiển trên PlayStation"
+    },
+    "desstickxbox": {
+        "message": "Cần điều khiển trên Xbox"
+    },
+    "desactions": {
+        "message": "Tác vụ"
+    },
+    "desleftstick": {
+        "message": "Cần trái"
+    },
+    "desrightstick": {
+        "message": "Cần phải"
+    },
+    "desbuttonps": {
+        "message": "Nút trên PlayStation"
+    },
+    "desbuttonxb": {
+        "message": "Nút trên Xbox"
+    },
+    "desgamepadsquare": {
+        "message": "Hình vuông"
+    },
+    "desgamepadtriangle": {
+        "message": "Hình tam giác"
+    },
+    "desgamepadshowaddress": {
+        "message": "Hiển thị Thanh Địa chỉ"
+    },
+    "desgamepadshare": {
+        "message": "Chia sẻ"
+    },
+    "desgamepadshowmenu": {
+        "message": "Hiển thị Danh mục"
+    },
+    "desgamepadoptions": {
+        "message": "Tùy chọn"
+    },
+    "desgamepadleftstickpress": {
+        "message": "Cần Trái Đã được bấm"
+    },
+    "desgamepadrightstickpress": {
+        "message": "Cần Phải Đã được bấm"
+    },
+    "desgamepaddirup": {
+        "message": "Hướng Lên"
+    },
+    "desgamepaddirdown": {
+        "message": "Hướng Xuống"
+    },
+    "desgamepaddirleft": {
+        "message": "Hướng Trái"
+    },
+    "desgamepaddirright": {
+        "message": "Hướng Phải"
+    },
+    "desgamepadxboxlogo": {
+        "message": "Logo Xbox"
+    },
+    "desgamepadpslogo": {
+        "message": "Logo PlayStation"
+    },
+    "desgpbuttonzoominout": {
+        "message": "Thu nhỏ hoặc phóng to"
+    },
+    "desgpbuttonzoompos": {
+        "message": "Vị trí thu phóng"
+    },
+    "desgpbuttonbackwardsmall": {
+        "message": "tua ngược 1 giây"
+    },
+    "desgpbuttonbackwardbig": {
+        "message": "tua ngược 3 giây"
+    },
+    "desgpbuttonforwardsmall": {
+        "message": "tua thêm 1 giây"
+    },
+    "desgpbuttonforwardbig": {
+        "message": "tua thêm 3 giây"
+    },
+    "desgpbuttonhome": {
+        "message": "Trang kiểm tra video gamepad"
+    },
+    "desgpbuttondirup": {
+        "message": "Chuyển góc nhìn lên trên"
+    },
+    "desgpbuttondirdown": {
+        "message": "Chuyển góc nhìn xuống dưới"
+    },
+    "desgpbuttondirleft": {
+        "message": "Chuyển góc nhìn sang trái"
+    },
+    "desgpbuttondirright": {
+        "message": "Chuyển góc nhìn sang phải"
+    },
+    "desgpbuttondirreset": {
+        "message": "Đặt lại góc nhìn thu phóng"
+    },
+    "desgpbuttonshare": {
+        "message": "Thoát Điều chỉnh Thu phóng"
+    },
+    "desgpbuttonplaypause": {
+        "message": "Phát/Tạm dừng video hiện tại"
+    },
+    "desgpbuttonvolumeincrease": {
+        "message": "Tăng âm lượng"
+    },
+    "desgpbuttonvolumedecrease": {
+        "message": "Giảm âm lượng"
+    },
+    "desgpbuttonnextvideo": {
+        "message": "Phát video YouTube tiếp theo"
+    },
+    "desgpbuttonprevvideo": {
+        "message": "Phát video YouTube trước đó"
+    },
+    "titelgpconnect": {
+        "message": "Đã kết nối"
+    },
+    "titelgpdisconnect": {
+        "message": "Đã ngắt kết nối"
+    },
+    "desnightmodeos": {
+        "message": "Tự động chuyển trang web hiện tại sang Chế độ Ban đêm nếu màn hình Hệ Điều hành được chỉnh về Tối"
+    },
+    "titelonoff": {
+        "message": "BẬT/TẮT"
+    },
+    "titelnightmodeborder": {
+        "message": "Màu viền"
+    },
+    "titleinfobx": {
+        "message": "Thông tin"
+    },
+    "permissionwebnav": {
+        "message": "Cái này để thêm Chế độ Ban đêm ngay lập tức trước khi tải trang web."
+    }
+}

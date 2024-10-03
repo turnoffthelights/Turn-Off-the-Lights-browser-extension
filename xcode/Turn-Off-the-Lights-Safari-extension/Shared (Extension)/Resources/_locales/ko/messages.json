@@ -1,0 +1,1649 @@
+{
+    "descriptionshort": {
+        "message": "전체 페이지가 어두워지게 함으로써, 여러분이 극장에 있는 듯한 느낌으로 동영상을 시청할 수 있습니다."
+    },
+    "pagehelp": {
+        "message": "도움말"
+    },
+    "titelimage": {
+        "message": "배경 이미지"
+    },
+    "shortcutalllights": {
+        "message": "열려있는 모든 탭 조명 켜기/끄기"
+    },
+    "lastchecked": {
+        "message": "최신 버전 확인"
+    },
+    "visualeffects": {
+        "message": "시각 효과"
+    },
+    "titelshortcutlight": {
+        "message": "단축키"
+    },
+    "titledonatebutton": {
+        "message": "후원하기"
+    },
+    "titellikebar": {
+        "message": "Youtube Like 바"
+    },
+    "desmousespotlightt": {
+        "message": "어두운 화면에서 하이퍼링크를 클릭할 수 있도록 허용"
+    },
+    "desmousespotlights": {
+        "message": "하이퍼 링크를 클릭할 수 있는 화면 사용"
+    },
+    "desambilight4color": {
+        "message": "비디오 주위에 표시될 4가지 색상"
+    },
+    "lockentername": {
+        "message": "비밀번호를 입력해주세요"
+    },
+    "desnoflash": {
+        "message": "이 기능을 사용하지 않습니다"
+    },
+    "desdynamicblocks": {
+        "message": "블록"
+    },
+    "titeleye": {
+        "message": "눈 보호"
+    },
+    "titelcinemaontop": {
+        "message": "영화관 모드: 화면 상단에만 조명 끄기 레이어가 보여집니다"
+    },
+    "desmousespotlightc": {
+        "message": "불을 끈 상태에서 초점을 맞출 영역을 선택할 수 있습니다."
+    },
+    "titelrememberpage": {
+        "message": "알림 페이지"
+    },
+    "desmousespotlighta": {
+        "message": "불을 꼈을 때 마우스 커서에 스포트라이트 효과 적용"
+    },
+    "desmousespotlighto": {
+        "message": "기본값 사용(아래의 마우스 설정을 비활성화합니다.)"
+    },
+    "desplaylist": {
+        "message": "YouTube 사이트에서 재생목록이 보이도록 합니다."
+    },
+    "desambilightfixcolor": {
+        "message": "하나의 색만"
+    },
+    "desuntil": {
+        "message": "까지"
+    },
+    "desconfirmpassword": {
+        "message": "비밀번호 확인"
+    },
+    "desautodimonly": {
+        "message": "다음 사이트에서만 어둡게 하기:"
+    },
+    "helpeyeprotection": {
+        "message": "시력 보호 기능 사용시 자동 재생 기능은 자동으로 비활성화 됩니다."
+    },
+    "skipremember": {
+        "message": "건너뛰고 바로 설정 열기"
+    },
+    "optiontimesaved": {
+        "message": "시간이 성공적으로 저장되었습니다."
+    },
+    "titelvideoheadline": {
+        "message": "동영상 제목"
+    },
+    "translateme": {
+        "message": "번역 돕기"
+    },
+    "despassword": {
+        "message": "불을 다시 켜기 전에 비밀번호 요구"
+    },
+    "helpautodim": {
+        "message": "'시력 보호'가 활성화되었습니다. 아래의 기능을 사용하려면 눈 보호를 비활성화해주세요."
+    },
+    "name": {
+        "message": "Turn Off the Lights"
+    },
+    "changelog": {
+        "message": "변경내역"
+    },
+    "optionpagetitle": {
+        "message": "Turn Off the Lights - 설정"
+    },
+    "optionpasswordsaved": {
+        "message": "비밀번호 저장 성공"
+    },
+    "desdynamicspace": {
+        "message": "우주"
+    },
+    "deseastereggs": {
+        "message": "T 키를 누르면 어두운 레이어에 무대막이 추가됩니다"
+    },
+    "settings": {
+        "message": "설정"
+    },
+    "desspotlightradius": {
+        "message": "스포트라이트 직경:"
+    },
+    "titelsync": {
+        "message": "동기화"
+    },
+    "right": {
+        "message": "오른쪽"
+    },
+    "titeldynamic": {
+        "message": "애니메이션"
+    },
+    "deslikebutton": {
+        "message": "Youtube의 좋아요 버튼과 싫어요 버튼을 봅니다."
+    },
+    "titelmouse": {
+        "message": "마우스"
+    },
+    "titellessmore": {
+        "message": "축소"
+    },
+    "desshortcutlight": {
+        "message": "아래의 키보드 단축키를 활성화 합니다."
+    },
+    "titelinfobar": {
+        "message": "정보창"
+    },
+    "descontextmenus": {
+        "message": "컨텍스트 메뉴를 봅니다."
+    },
+    "titelcontextmenus": {
+        "message": "컨텍스트 메뉴"
+    },
+    "titelplaylist": {
+        "message": "재생목록"
+    },
+    "desatmosphereonly": {
+        "message": "다음 비디오 웹 사이트에서만 분위기 조명 기능을 사용합니다:"
+    },
+    "rectext": {
+        "message": "추천"
+    },
+    "desenterpassword": {
+        "message": "아래 상자에 암호를 입력합니다."
+    },
+    "titelblurradius": {
+        "message": "블러 범위:"
+    },
+    "version": {
+        "message": "버전"
+    },
+    "shortcutdark": {
+        "message": "화면 어둡게 하기(불투명도 증가)"
+    },
+    "dessharebutton": {
+        "message": "영상 공유 버튼을 봅니다."
+    },
+    "shortcutbright": {
+        "message": "화면 밝게 하기(불투명도 감소)"
+    },
+    "titelalllightsoff": {
+        "message": "열려있는 모든 탭"
+    },
+    "desreadera": {
+        "message": "불을 껐을 때 항상 밝기 조절 바를 표시합니다."
+    },
+    "rememberrate": {
+        "message": "평가하기"
+    },
+    "desautodim": {
+        "message": "영상이 재생될때 자동으로 화면을 어둡게, 멈출때는 자동으로 화면을 밝게 합니다."
+    },
+    "titelscreen": {
+        "message": "화면"
+    },
+    "desflash": {
+        "message": "모든 멀티미디어 오브젝트 보이기"
+    },
+    "titelhead": {
+        "message": "채널"
+    },
+    "pageatitle": {
+        "message": "Turn Off the Lights"
+    },
+    "desaddvideobutton": {
+        "message": "YouTube 영상 저장 버튼을 표시하기"
+    },
+    "shortcuteyeprotection": {
+        "message": "시력 보호 기능 활성화/비활성화"
+    },
+    "titelfadein": {
+        "message": "페이드 인"
+    },
+    "desreadern": {
+        "message": "밝기 조절 바를 표시하지 않습니다."
+    },
+    "titelmaxqualityyoutube": {
+        "message": "이 해상도로 자동 설정:"
+    },
+    "desambilightrangespreadradius": {
+        "message": "그림자의 크기는 양수 값으로 늘어나고, 음수 값으로 줄어듭니다."
+    },
+    "titelon": {
+        "message": "켜짐"
+    },
+    "videotitle": {
+        "message": "동영상에 초점을 맞춥니다."
+    },
+    "warningtextambilight": {
+        "message": "웹 사이트의 보안 규칙으로 인해 동영상 데이터를 받을 수 없는 경우, 선택한 단색이 대신 사용됩니다."
+    },
+    "desdynamiccloud": {
+        "message": "움직이는 구름"
+    },
+    "desconfirmtimesaver": {
+        "message": "화면 보호기 시간 확인"
+    },
+    "deslikebar": {
+        "message": "YouTube 영상 아래의 좋아요/싫어요 바를 표시합니다."
+    },
+    "titelautodim": {
+        "message": "자동 재생"
+    },
+    "top": {
+        "message": "상단"
+    },
+    "titelspreadradius": {
+        "message": "확산 범위:"
+    },
+    "installadblocker": {
+        "message": "광고를 보지 않으려면 adblocker 확장 기능을 사용하세요."
+    },
+    "titelsharebutton": {
+        "message": "공유 버튼"
+    },
+    "titelcolor": {
+        "message": "색상"
+    },
+    "titeldownloadbutton": {
+        "message": "업그레이드 버전을 다운로드하세요!"
+    },
+    "pagetitle": {
+        "message": "화면 어둡게 하기"
+    },
+    "titelambilight": {
+        "message": "분위기 조명"
+    },
+    "titelshowmore": {
+        "message": "더 보기"
+    },
+    "desviewcount": {
+        "message": "동영상의 조회수를 표시합니다."
+    },
+    "titelautowidthyoutube": {
+        "message": "YouTube 플레이어를 자동으로 크게 설정."
+    },
+    "desconfirmtime": {
+        "message": "시간 확인"
+    },
+    "titelupgrade": {
+        "message": "업그레이드"
+    },
+    "lockwrongpassword": {
+        "message": "비밀번호를 잘못 입력하였습니다. 다시 시도해 주세요."
+    },
+    "titelsyncbrowser": {
+        "message": "이 확장 기능 설정을 다른 브라우저에 동기화합니다."
+    },
+    "deletebutton": {
+        "message": "삭제"
+    },
+    "eyedivon": {
+        "message": "켜짐"
+    },
+    "eyedivoff": {
+        "message": "꺼짐"
+    },
+    "deshead": {
+        "message": "YouTube에서 채널 바와 채널 이름을 표시합니다."
+    },
+    "shortcutsavingopacity": {
+        "message": "현재 투명도 값 저장"
+    },
+    "desinfobar": {
+        "message": "영상 하단의 정보창을 봅니다."
+    },
+    "titellamp": {
+        "message": "전구"
+    },
+    "desambilightvarcolor": {
+        "message": "비디오에서 색상 추출"
+    },
+    "showremember": {
+        "message": "설정 페이지를 다시 열었을 때 이 알림을 표시하지 않기"
+    },
+    "donatepromotext": {
+        "message": "이 확장 기능을 유용하게 사용하고 계신가요? 개발자에게 기부해보시는 건 어떨까요?"
+    },
+    "titelblur": {
+        "message": "나머지를 흐리게 하기"
+    },
+    "desdynamicraindrops": {
+        "message": "빗방울"
+    },
+    "desalllightsoff": {
+        "message": "램프 버튼을 클릭하면 열려 있는 모든 탭의 조명을 켜고 끌 수 있습니다."
+    },
+    "optionecosaversaved": {
+        "message": "초를 성공적으로 저장하였습니다!"
+    },
+    "titelreader": {
+        "message": "밝기 조절 바"
+    },
+    "deseyen": {
+        "message": "일반적인 경우(램프 버튼을 눌렀을 때 화면이 어두워집니다)"
+    },
+    "enjoyshare": {
+        "message": "이 확장 기능을 좋아할 만한 사람들과 공유하세요."
+    },
+    "shortcuttotl": {
+        "message": "조명 켜기/끄기"
+    },
+    "deseyea": {
+        "message": "웹 페이지를 열 때 자동으로 배경 흐리게 하기"
+    },
+    "basicsettings": {
+        "message": "기본설정"
+    },
+    "hoveroptionapply": {
+        "message": "적용"
+    },
+    "reportbug": {
+        "message": "문제 보고 하기"
+    },
+    "destime": {
+        "message": "다음 시간 사이에는 자동으로 불을 끕니다."
+    },
+    "guide": {
+        "message": "Turn Off the LIghts 환영 가이드"
+    },
+    "deseyealist": {
+        "message": "다음 사이트(들)의 배경을 자동으로 어둡게 하기:"
+    },
+    "titellikebutton": {
+        "message": "좋아요 버튼과 싫어요 버튼"
+    },
+    "titelpageaction": {
+        "message": "주소창의 램프 아이콘 숨기기"
+    },
+    "friendlyremember": {
+        "message": "잊지 마세요..."
+    },
+    "desfadein": {
+        "message": "Fade in 효과를 사용합니다."
+    },
+    "warning": {
+        "message": "경고!"
+    },
+    "deseyetimesaver": {
+        "message": "페이지가 아래 설정된 시간 동안 비활성 상태(마우스나 키보드 입력이 없는 상태)일 때, 자동으로 어두워집니다."
+    },
+    "titelsuggestions": {
+        "message": "추천 영상"
+    },
+    "advancedoptions": {
+        "message": "고급 옵션"
+    },
+    "dessuggestions": {
+        "message": "YouTube 추천 영상을 표시합니다."
+    },
+    "titelmultimedia": {
+        "message": "멀티미디어 탐지"
+    },
+    "desambilight": {
+        "message": "현재 재생 중인 비디오의 분위기 조명 효과 표시"
+    },
+    "productshare": {
+        "message": "가젯"
+    },
+    "addbutton": {
+        "message": "추가"
+    },
+    "reportlist": {
+        "message": "(목록 표시)"
+    },
+    "desdynamicfishtank": {
+        "message": "어항"
+    },
+    "longdonatetext": {
+        "message": "이 확장 프로그램을 새 유저들을 위해 유지할 수 있도록 기부해주신다면 정말 감사하겠습니다. 1달러든 100달러든 상관없이 당신의 지원에 정말 감사할 것입니다!"
+    },
+    "deshardflash": {
+        "message": "URL 필터를 건너뛰고 모든 멀티미디어 개체를 표시합니다. 이렇게 하면 일부 비디오 플레이어가 숨겨지는 문제가 해결되지만 광고도 표시됩니다."
+    },
+    "desfadeout": {
+        "message": "Fade out 효과를 사용합니다."
+    },
+    "optionwrongimg": {
+        "message": "잘못된 이미지 파일입니다!"
+    },
+    "desvideoheadline": {
+        "message": "동영상 제목의 색상을 반전시킵니다."
+    },
+    "desrememberpage": {
+        "message": "알림 페이지를 표시하지 않음"
+    },
+    "description": {
+        "message": "페이지의 배경 전체가 어둡게 변하여 마치 영화관에서 영상을 감상하는 것처럼 보이게 합니다."
+    },
+    "titelviewcount": {
+        "message": "조회수"
+    },
+    "titelopacity": {
+        "message": "투명도"
+    },
+    "titelqualityyoutube": {
+        "message": "자동으로 YouTube 동영상의 품질을 설정합니다."
+    },
+    "shortcutopacity": {
+        "message": "저장된 밝기(투명도) 값으로 복원"
+    },
+    "desambilightrangeblurradius": {
+        "message": "값을 낮추면 그림자가 선명해지고, 값을 높이면 흐려집니다."
+    },
+    "titeladdvideobutton": {
+        "message": "저장 버튼"
+    },
+    "titelpassword": {
+        "message": "비밀번호 보호"
+    },
+    "titeldownloadupgrade": {
+        "message": "기능 업그레이드는 선택된 이미지의 확대 기능을 추가하고, 사이트에 존재하는 이미지의 갤러리를 표시합니다."
+    },
+    "titelfadeout": {
+        "message": "페이드 아웃"
+    },
+    "eastereggsquestion": {
+        "message": "영화관을 좋아하시나요?"
+    },
+    "bottom": {
+        "message": "하단"
+    },
+    "dessaver": {
+        "message": "화면 보호기:"
+    },
+    "hoveroptiondyn5": {
+        "message": "비행 중에"
+    },
+    "pagestillloading": {
+        "message": "페이지가 여전히 로딩중인가요?"
+    },
+    "titeloff": {
+        "message": "끄기"
+    },
+    "titeleastereggs": {
+        "message": "이스터 에그:"
+    },
+    "textfoot": {
+        "message": "이 소프트웨어에는 CC-GNU GPL 라이센스가 적용됩니다. 자세한 내용은 다음 링크를 참고하세요:"
+    },
+    "left": {
+        "message": "왼쪽"
+    },
+    "titelnighttheme": {
+        "message": "야간 모드"
+    },
+    "desnighttheme": {
+        "message": "웹페이지 하단에 페이지 밝기를 조절하는 야간 전환 버튼을 표시합니다."
+    },
+    "nightoptions": {
+        "message": "야간 모드"
+    },
+    "desnightonly": {
+        "message": "다음 사이트에서만 야간 모드를 활성화합니다."
+    },
+    "desnightenabletheme": {
+        "message": "새 페이지를 열 때 자동으로 야간 모드로 변경합니다."
+    },
+    "titellampregular": {
+        "message": "주소창에 항상 램프 아이콘 보이기"
+    },
+    "titellampvideo": {
+        "message": "비디오 플레이어가 감지되었을 때만 램프 아이콘 표시"
+    },
+    "ratetitle": {
+        "message": "Turn Off the Lights를 이용해 주셔서 감사합니다"
+    },
+    "ratedes": {
+        "message": "스토어에서 확장기능의 평가와 리뷰를 부탁드립니다. 지원해주셔서 감사합니다."
+    },
+    "rateitema": {
+        "message": "별점 5개 주기"
+    },
+    "titelreset": {
+        "message": "설정 초기화"
+    },
+    "resetbrowserextension": {
+        "message": "Turn off the Lights 설정 초기화"
+    },
+    "desautodimdelay": {
+        "message": "비디오가 종료된 후 배경을 다시 밝게 하기"
+    },
+    "desautodimdelayend": {
+        "message": "초"
+    },
+    "motionoptions": {
+        "message": "동작 인식"
+    },
+    "desmotion": {
+        "message": "동작 인식 기능 활성화하기"
+    },
+    "desspeech": {
+        "message": "음성 인식 기능 활성화하기"
+    },
+    "trymotion": {
+        "message": "직접 시도해보세요!"
+    },
+    "destrymotion": {
+        "message": "제일 좋은 점은 어디에서나 작동한다는 것입니다. Youtube나, 뉴스 웹사이트 등에서도 모두 작동합니다."
+    },
+    "howworkmotion": {
+        "message": "어떻게 작동합니까?"
+    },
+    "nightstep1description": {
+        "message": "야간 모드 기능을 활성화하세요"
+    },
+    "nightstep2description": {
+        "message": "아무 웹 페이지를 열면, 야간 스위치를 볼 수 있습니다."
+    },
+    "nightstep3description": {
+        "message": "스위치를 클릭하면 웹페이지가 야간 테마로 바뀝니다."
+    },
+    "speechstep1description": {
+        "message": "음성 인식 기능을 활성화합니다"
+    },
+    "speechstep2description": {
+        "message": "이 설정을 활성화하면, 브라우저의 램프에 다음의 명령들을 사용할 수 있습니다:"
+    },
+    "camstep1description": {
+        "message": "카메라 모션 기능 사용하기"
+    },
+    "camstep2description": {
+        "message": "손을 위에서 아래로 움직이세요."
+    },
+    "camstep3description": {
+        "message": "검은 레이어가 자동으로 아래로 슬라이드됩니다."
+    },
+    "desmotionChecklist": {
+        "message": "체크리스트:"
+    },
+    "des1checkmotion": {
+        "message": "실내가 충분히 밝은지, 빛이 충분한지 확인하세요."
+    },
+    "des2checkmotion": {
+        "message": "카메라가 직접적으로 햇빛을 받지 않도록 하세요."
+    },
+    "des3checkmotion": {
+        "message": "전면 카메라를 사용합니다."
+    },
+    "titellinear": {
+        "message": "선형"
+    },
+    "titelcolora": {
+        "message": "색상 A:"
+    },
+    "titelcolorb": {
+        "message": "색상 B:"
+    },
+    "speechoption": {
+        "message": "음성 인식"
+    },
+    "titelspeech": {
+        "message": "언어"
+    },
+    "desspeech1command": {
+        "message": "불을 끄기"
+    },
+    "desspeech2command": {
+        "message": "불을 켜기"
+    },
+    "desspeech3command": {
+        "message": "비디오 재생"
+    },
+    "desspeech4command": {
+        "message": "비디오 일시 중지"
+    },
+    "desspeechdialect": {
+        "message": "언어 국가를 고르세요."
+    },
+    "desatmosvivid": {
+        "message": "선명한 대기 효과"
+    },
+    "help": {
+        "message": "도움말"
+    },
+    "about": {
+        "message": "애플리케이션 정보"
+    },
+    "desspeechonly": {
+        "message": "다음 사이트들에서만 음성 인식 활성화하기:"
+    },
+    "descammotiononly": {
+        "message": "다음 사이트들에서만 동작 인식 활성화하기:"
+    },
+    "titelcamera": {
+        "message": "카메라"
+    },
+    "titeldownloadthemeupgrade": {
+        "message": "브라우저에 어두운 테마를 추가해서 꾸미세요. 테마는 브라우저의 테두리 주위에 나타납니다."
+    },
+    "desbrowsersupport": {
+        "message": "이 브라우저에서는 기능이 지원되지 않습니다. 브라우저가 최신 버전인지 확인해주십시오."
+    },
+    "titelsupportatmos": {
+        "message": "HTML5 <video> 플레이어만 지원하며, 본인 기기의 GPU를 사용합니다."
+    },
+    "titelseeonline": {
+        "message": "온라인에서 더 많은 예시를 볼 수 있습니다."
+    },
+    "titelvideosample": {
+        "message": "동영상 예시"
+    },
+    "titelwebsite": {
+        "message": "웹사이트"
+    },
+    "titeldeveloper": {
+        "message": "개발자"
+    },
+    "titelrightsreserved": {
+        "message": "일부 권리를 보유합니다."
+    },
+    "desbrowserextension": {
+        "message": "브라우저 확장 기능"
+    },
+    "desapitext": {
+        "message": "웹 개발자를 위한 Wiki API"
+    },
+    "desbrowsertheme": {
+        "message": "브라우저 테마"
+    },
+    "desproject": {
+        "message": "프로젝트"
+    },
+    "titelapideveloper": {
+        "message": "API 개발자"
+    },
+    "titelwikiatmos": {
+        "message": "분위기 조명에 대해 위키에서 검색해보기"
+    },
+    "sharemenusharetitle": {
+        "message": "공유하기"
+    },
+    "sharemenuwelcomeguidetitle": {
+        "message": "환영 가이드"
+    },
+    "sharemenutellafriend": {
+        "message": "친구에게 알려주기"
+    },
+    "sharemenusendatweet": {
+        "message": "트윗하기"
+    },
+    "sharemenupostonfacebook": {
+        "message": "페이스북에서 공유"
+    },
+    "sharemenuratetitle": {
+        "message": "평점주기"
+    },
+    "sharemenudonatetitle": {
+        "message": "개발자를 지원하기"
+    },
+    "titelautostop": {
+        "message": "자동 멈춤"
+    },
+    "desautostop": {
+        "message": "웹 페이지를 열 때 자동으로 동영상 재생 중지"
+    },
+    "areyouhappy": {
+        "message": "Turn Off the Lights가 마음에 드시나요?"
+    },
+    "tellothers": {
+        "message": "댓글 수 확인"
+    },
+    "nothanks": {
+        "message": "아니오, 괜찮습니다."
+    },
+    "writeareview": {
+        "message": "리뷰 작성하기"
+    },
+    "desauroraplayer": {
+        "message": "주변광 플레이어는 컴퓨터에서도 사용 가능합니다."
+    },
+    "downloadtheapp": {
+        "message": "지금 앱 다운로드하기"
+    },
+    "titeldownloadupgradezoom": {
+        "message": "더 편안하게 읽으려면 줌 버튼으로 웹 컨텐츠를 확대하거나 축소하세요."
+    },
+    "titeldownloadupgradepropermenubar": {
+        "message": "구글 웹사이트에 검은색 메뉴바를 다시 추가합니다."
+    },
+    "titeldownloadupgradefinancetoolbar": {
+        "message": "실시간 주식 시장 정보를 보여줍니다."
+    },
+    "titelnightmodeposition": {
+        "message": "버튼 위치"
+    },
+    "nmtopleft": {
+        "message": "좌측 상단"
+    },
+    "nmtopright": {
+        "message": "우측 상단"
+    },
+    "nmbottomright": {
+        "message": "우측 하단"
+    },
+    "nmbottomleft": {
+        "message": "좌측 하단"
+    },
+    "nmcustom": {
+        "message": "사용자 정의 (클릭해서 원하는 화면 위치로 버튼을 드래그 하세요)"
+    },
+    "desnighthover": {
+        "message": "웹 페이지에 투명한 버튼 표시"
+    },
+    "desautostoponly": {
+        "message": "다음 사이트들에서는 자동으로 비디오 재생을 중지합니다:"
+    },
+    "desnightactivetime": {
+        "message": "다음 시간동안 스위치가 나타납니다:"
+    },
+    "deslampandnightmode": {
+        "message": "회색 램프 버튼을 클릭하면 '야간 모드' 옵션이 활성화됩니다."
+    },
+    "desspeech5command": {
+        "message": "브라우저 램프"
+    },
+    "html5andyoutube": {
+        "message": "HTML5 & YouTube™ 비디오"
+    },
+    "flashembedobject": {
+        "message": "지원 가능: <object>, <embed>, <applet>, <iframe>."
+    },
+    "titelnightmodebck": {
+        "message": "배경 색상"
+    },
+    "titelnightmodetxt": {
+        "message": "글자 색상"
+    },
+    "desdynamicsmoke": {
+        "message": "연기 효과"
+    },
+    "desdynamicdotscolor": {
+        "message": "칼라 점들"
+    },
+    "desdynamicstorm": {
+        "message": "폭풍 효과"
+    },
+    "desdynamictriangulation": {
+        "message": "삼각 측정"
+    },
+    "desdynamicstars": {
+        "message": "별이 가득한 밤에"
+    },
+    "desmobileapp": {
+        "message": "Turn Off the Lights는 모바일 디바이스도 지원합니다."
+    },
+    "titel360youtube": {
+        "message": "한 프레임에 360도 YouTube 동영상을 표시합니다."
+    },
+    "titelvideotool": {
+        "message": "비디오 도구 모음"
+    },
+    "desvideotool": {
+        "message": "화면 아래에 도구 상자를 표시하여 현재 비디오 플레이어를 커스텀하기"
+    },
+    "vtoolfullscreen": {
+        "message": "비디오 플레이어를 전체 창 크기로 설정하는 버튼"
+    },
+    "vtoolfilter": {
+        "message": "비디오 플레이어에 필터를 추가하는 버튼"
+    },
+    "vtoolreplay": {
+        "message": "비디오 플레이어를 다시 재생하는 버튼"
+    },
+    "vtoolscreenshot": {
+        "message": "비디오 플레이어에서 스크린샷을 찍는 버튼"
+    },
+    "vtoolalign": {
+        "message": "비디오 플레이어를 브라우저 창 중간에 배치하는 버튼"
+    },
+    "titelvideotoolgrayscale": {
+        "message": "그레이스케일"
+    },
+    "titelvideotoolsepia": {
+        "message": "세피아"
+    },
+    "titelvideotoolinvert": {
+        "message": "반전"
+    },
+    "titelvideotoolcontrast": {
+        "message": "대비"
+    },
+    "titelvideotoolsaturate": {
+        "message": "채도"
+    },
+    "titelvideotoolhueroration": {
+        "message": "색조 회전"
+    },
+    "titelvideotoolbrightness": {
+        "message": "밝기"
+    },
+    "titelvideotoolnormal": {
+        "message": "보통"
+    },
+    "titelvideotoollike": {
+        "message": "좋아요"
+    },
+    "titelvideotoolsubscribe": {
+        "message": "구독"
+    },
+    "titelvideotoolrepeat": {
+        "message": "반복"
+    },
+    "titelvideotoolfilter": {
+        "message": "필터"
+    },
+    "titelvideotoolfullwindow": {
+        "message": "전체 화면"
+    },
+    "titelvideotoolscreenshot": {
+        "message": "스크린샷 찍기"
+    },
+    "titelreflection": {
+        "message": "반사"
+    },
+    "desreflection": {
+        "message": "모든 동영상에 반사효과 보이기"
+    },
+    "desvideotoolonly": {
+        "message": "다음 사이트에서만 동영상 도구 모음 활성화"
+    },
+    "titelnightmodehyperlink": {
+        "message": "하이퍼링크 색상"
+    },
+    "titelblock60fps": {
+        "message": "60fps 차단"
+    },
+    "titelvolume": {
+        "message": "비디오 음량바"
+    },
+    "desvideovolume": {
+        "message": "마우스 스크롤로 비디오 플레이어의 볼륨 설정"
+    },
+    "desvideovolumecolor": {
+        "message": "바 색상"
+    },
+    "desvolumelabel": {
+        "message": "볼륨 표시줄을 표시합니다(단계 크기:)"
+    },
+    "desvolumesteps": {
+        "message": "볼륨 스크롤 휠 노치를 각 단계에 대한(%) 번호"
+    },
+    "sharetexta": {
+        "message": "Turn Off the Lights 브라우저 확장팩을 받으세요"
+    },
+    "sharetextb": {
+        "message": "오늘 Turn Off the Lights 브라우저 확장 프로그램을 사용해 봤는데, 꽤 쓸만한걸!"
+    },
+    "sharetextc": {
+        "message": "최고만을 자랑하는 근사한 Turn Off the Lights 브라우저 확장 프로그램"
+    },
+    "sharetextd": {
+        "message": "Turn Off the Lights 확장 프로그램은 YouTube에서 사용할 수 있는 최고의 도구입니다. 다운로드해서 직접 사용해 보세요!"
+    },
+    "titelsharethis": {
+        "message": "공유하기:"
+    },
+    "titellampchoose": {
+        "message": "마음에 드는 조명 스타일을 고르세요"
+    },
+    "titeldoesntwork": {
+        "message": "이 웹 페이지에서는 Turn Off the Lights가 작동하지 않습니다. 다른 페이지에서 다시 시도해보세요."
+    },
+    "titelpopupvideo": {
+        "message": "YouTube"
+    },
+    "titelpopupwelcomeguide": {
+        "message": "환영 가이드"
+    },
+    "titelpopupsupport": {
+        "message": "지원"
+    },
+    "titelpopupoptions": {
+        "message": "옵션"
+    },
+    "titelpopupratestars": {
+        "message": "별점 5개 주기"
+    },
+    "titelvisenable": {
+        "message": "오디오 시각화 사용/사용안함"
+    },
+    "titelvischoose": {
+        "message": "오디오 시각화 선택"
+    },
+    "titelvisblocks": {
+        "message": "블록"
+    },
+    "titelvisfrequency": {
+        "message": "주파수"
+    },
+    "titelvistunnel": {
+        "message": "뮤직 터널"
+    },
+    "titelvisualization": {
+        "message": "오디오 시각화"
+    },
+    "desvisopacity": {
+        "message": "오디오 시각화 배경의 불투명도 값"
+    },
+    "vtoolvisualization": {
+        "message": "비디오 플레이어에 오디오 시각화를 표시 하기 위한 버튼"
+    },
+    "desvideotoolcolor": {
+        "message": "툴바 색상"
+    },
+    "titelhovervideo": {
+        "message": "비디오를 가리킴"
+    },
+    "deshovervideo": {
+        "message": "귀하의 마우스를 동영상 위에 몇 초 이상 올려 놓으시면, 웹사이트가 자동으로 어두워집니다"
+    },
+    "promotitle": {
+        "message": "오늘의 팁"
+    },
+    "desremyoutube": {
+        "message": "YouTube 채널 구독하기"
+    },
+    "desremfacebook": {
+        "message": "이 앱을 Facebook에서 추천해주세요"
+    },
+    "titleuserprofile": {
+        "message": "아래에서, 회색 조명 버튼을 누를 때마다 사용하고 싶은 설정들을 고르세요. 각각의 프로필에는 고유한 기능들이 담겨있습니다."
+    },
+    "titleregularuser": {
+        "message": "비디오 가리키기"
+    },
+    "titlenightowl": {
+        "message": "밤 올빼미"
+    },
+    "titlescreenprotection": {
+        "message": "눈 보호"
+    },
+    "desregularuser": {
+        "message": "이것은 새 사용자들을 위한 기본적이고 일반적인 설정입니다. 회색 램프 버튼을 클릭하면 이 스타일이 현재의 웹 페이지에 적용됩니다."
+    },
+    "desnightowl": {
+        "message": "클릭해 페이지를 하이퍼링크가 들어간 야간 테마로 바꿀수 있습니다. 다시 클릭해 원래대로 되돌릴수 있어요. 다시 램프 버튼을 눌러 이 기능을 비활성화 할수 있습니다."
+    },
+    "desscreenprotection": {
+        "message": "클릭해 지금 열려있는 모든 탭과 페이지를 차분한 오렌지 색깔로 바꿀수 있습니다. 이는 눈의 피로 부담을 줄이는데 도움을 줄수 있어요. 다시 램프 버튼을 눌러 이 기능을 비활성화 할수 있습니다."
+    },
+    "titleprofilevideofocus": {
+        "message": "영상 초점 활성화"
+    },
+    "titleprofilenovideofocus": {
+        "message": "영상 초점 비활성화"
+    },
+    "titleprofilealwaysscreentab": {
+        "message": "열려 있는 모든 탭에서 항상 활성화"
+    },
+    "titleprofilescreenclick": {
+        "message": "어두운 화면에서 하이퍼링크를 클릭할 수 있도록 허용"
+    },
+    "titleprofilesubmit": {
+        "message": "이 설정을 선택하세요"
+    },
+    "titlelearnmore": {
+        "message": "더 알아보기"
+    },
+    "optionprofilesaved": {
+        "message": "새로운 조명 작업을 성공적으로 저장했습니다!"
+    },
+    "desaplay": {
+        "message": "재생"
+    },
+    "desapause": {
+        "message": "일시정지"
+    },
+    "desastop": {
+        "message": "정지"
+    },
+    "desvideozoom": {
+        "message": "줌 버튼을 사용하여 영상 콘텐츠를 확대 또는 축소하세요."
+    },
+    "titlevideoplayrate": {
+        "message": "재생 속도"
+    },
+    "desplayrate": {
+        "message": "기본 재생 속도"
+    },
+    "desspeedtoolbar": {
+        "message": "현재 비디오 플레이어에서 재생 도구 모음 표시"
+    },
+    "desatmosontotlmode": {
+        "message": "Turn Off the Lights 모드가 활성화될 때 분위기 조명 효과를 활성화"
+    },
+    "desdarkbrowsertheme": {
+        "message": "어두운 브라우저 테마 전환"
+    },
+    "desautostopfeaturewhite": {
+        "message": "아래의 웹사이트를 블록, 나머지는 자동으로 재생할 수 있습니다."
+    },
+    "desautostopfeatureblack": {
+        "message": "아래의 웹사이트, 인터넷 하고 나머지는 자동으로 차단합니다."
+    },
+    "autostopbannerred": {
+        "message": "빨간색 배너 표시"
+    },
+    "autostopbannertrans": {
+        "message": "투명한 배너 표시"
+    },
+    "titleanalytics": {
+        "message": "분석"
+    },
+    "desbadgeanalytics": {
+        "message": "클릭 수로 배지, 웹페이지 수 dims 표시"
+    },
+    "shareanalyticenergy": {
+        "message": "Turn Off the Lights덕분에 $energyvalue$ kWh를 절약했습니다.",
+        "placeholders": {
+            "energyvalue": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "shareanalyticenergyWh": {
+        "message": "Turn Off the Lights덕분에 $energyvalue$ kWh를 절약했습니다.",
+        "placeholders": {
+            "energyvalue": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "analyticsoption": {
+        "message": "분석"
+    },
+    "activelayertoday": {
+        "message": "오늘 클릭 수"
+    },
+    "totalenergysaved": {
+        "message": "총 전기 에너지 저장"
+    },
+    "resetlampanalytic": {
+        "message": "불을 끄고 켭니다 분석 데이터 재설정"
+    },
+    "titlesiteengagement": {
+        "message": "현장 서비스"
+    },
+    "titleorigin": {
+        "message": "근원"
+    },
+    "titletime": {
+        "message": "시간(분)"
+    },
+    "titleavgdayschedule": {
+        "message": "하루 평균 예약"
+    },
+    "titlesharestats": {
+        "message": "내 상태 공유"
+    },
+    "btnsharestats": {
+        "message": "통계 공유"
+    },
+    "charttitletotaltime": {
+        "message": "총 활성 시간 어두운 레이어(분)"
+    },
+    "charttitlelayeractive": {
+        "message": "어두운 레이어 활성(#)"
+    },
+    "charttitleavgday": {
+        "message": "평균 하루 일정(조명을 켜거나 끌 때 자주)"
+    },
+    "charttitle30dayssaved": {
+        "message": "이 지난 30일 에너지 저장"
+    },
+    "charttitlelblwebsiteused": {
+        "message": "이 웹사이트는 지난 30일간 사용"
+    },
+    "charttitlelblenergytotal": {
+        "message": "총 에너지 사용"
+    },
+    "charttitlelblenergysaved": {
+        "message": "총 에너지 저장"
+    },
+    "titlelanalyticprivacy": {
+        "message": "불을 켜고 브라우저 확장 개인정보 꺼짐 시간이 매우 진지하게 받아들입니다. 조명 분석 이 페이지에서 보고 끄기 컴퓨터에 로컬로 저장됩니다. 귀하의 개인 정보를 판매, 현장 서비스 회사 소속이 아닌 제3자에게 전송할 수 없습니다."
+    },
+    "shareanalyticlove": {
+        "message": "내가 가장 사랑 하는 웹사이트는 Turn Off the Lights와 함께하는 $websiteurl$입니다",
+        "placeholders": {
+            "websiteurl": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "desvolumeposa": {
+        "message": "현재 비디오 플레이어 중앙에 있는 볼륨 표시기 표시"
+    },
+    "desvolumeposb": {
+        "message": "현재 비디오 플레이어 좌측 상단에 볼륨 표시"
+    },
+    "desvolumeposc": {
+        "message": "현재 비디오 플레이어 우측 상단에 볼륨 표시"
+    },
+    "desvideovolumhold": {
+        "message": "볼륨을 변경하려면 마우스의 왼쪽 또는 오른쪽 버튼을 누른 상태에서 마우스를 움직이세요."
+    },
+    "desvideovolumalt": {
+        "message": "Alt 키가 눌려 있는 경우만"
+    },
+    "speechheybrowser": {
+        "message": "브라우저야"
+    },
+    "speechokbrowser": {
+        "message": "알았어 브라우저"
+    },
+    "functionactive": {
+        "message": "이 기능은 탭을 클릭하거나 웹페이지를 새로 고칠 때 활성화됩니다. 그러나 이 기능은 15초 후에 자동으로 종료됩니다."
+    },
+    "cardtexsubscribe": {
+        "message": "지금 구독하세요!"
+    },
+    "cardtextfavdayweek": {
+        "message": "가장 좋아하는 요일"
+    },
+    "cardtextyestime": {
+        "message": "어제의 총 시간 (분)"
+    },
+    "cardavgprevweektime": {
+        "message": "지난주 총시간 (분)"
+    },
+    "sunday": {
+        "message": "일요일"
+    },
+    "monday": {
+        "message": "월요일"
+    },
+    "tuesday": {
+        "message": "화요일"
+    },
+    "wednesday": {
+        "message": "수요일"
+    },
+    "thursday": {
+        "message": "목요일"
+    },
+    "friday": {
+        "message": "금요일"
+    },
+    "saturday": {
+        "message": "토요일"
+    },
+    "titlemultiopacity": {
+        "message": "각 웹 사이트의 불투명도"
+    },
+    "desmultiopacitynormal": {
+        "message": "모든 웹 사이트의 불투명도 값이 동일합니다."
+    },
+    "desmultiopacitysel": {
+        "message": "아래 목록에 있는 웹 사이트는 선택한 특성을 가지고 있습니다."
+    },
+    "desmultiopacitynot": {
+        "message": "웹 사이트가 목록에 없으면 기본 불투명도 값이 적용됩니다."
+    },
+    "titleok": {
+        "message": "확인"
+    },
+    "titlecancel": {
+        "message": "취소"
+    },
+    "titledarkmodeon": {
+        "message": "야간 모드 켬"
+    },
+    "titledarkmodeoff": {
+        "message": "야간 모드 끔"
+    },
+    "titledarkmodeauto": {
+        "message": "장치 외형 사용"
+    },
+    "titlelprivacy": {
+        "message": "개인 정보 보호 정책"
+    },
+    "titleprofile": {
+        "message": "프로필"
+    },
+    "descolorfixcolor": {
+        "message": "어두운 레이어 색 선택"
+    },
+    "desatmossolidcolor": {
+        "message": "한 가지 단색의 광택 효과 색상을 선택합니다."
+    },
+    "titlelratenow": {
+        "message": "지금 평가해주세요!"
+    },
+    "titleratelater": {
+        "message": "다음에"
+    },
+    "desremrate": {
+        "message": "Turn Off the Lights™가 마음에 드셨다면, 주저하지 마시고 5개의 별로 평가해 주십시오. 이것은 우리에게 당신을 위해 이 제품을 계속 유지하고 개선할 용기를 줄 것입니다. 검토를 작성할 시간이 없으면 익명으로 평가할 수 있습니다. 감사합니다!"
+    },
+    "titelnightmodedomain": {
+        "message": "도메인"
+    },
+    "titelnightmodepage": {
+        "message": "웹페이지"
+    },
+    "titelintroduce": {
+        "message": "새로운 Turn Off the Lights 소개!"
+    },
+    "desintroduce": {
+        "message": "여러분이 익숙한 모든 기능을 새롭게 디자인하고 개인적으로 설정할 수 있습니다."
+    },
+    "econothingthisyear": {
+        "message": "올해는 아무 것도 없었어요. 에너지를 절약하기 위해 빛을 끄세요."
+    },
+    "ecothirtyminutes": {
+        "message": "30분의 빛 절약"
+    },
+    "ecowatchtvfortwo": {
+        "message": "2시간 동안 TV 시청"
+    },
+    "ecotoastermaking": {
+        "message": "토스트 두 조각를 만드는 토스터"
+    },
+    "ecochargeiphone": {
+        "message": "회원님의 아이폰을 충전하세요"
+    },
+    "ecobrewsomecoffee": {
+        "message": "커피 주시는 것 어때요?"
+    },
+    "ecoplayingxbox": {
+        "message": "한 시간동안 Xbox 360를 체험해 보세요!"
+    },
+    "ecovacuumingfor": {
+        "message": "15분 동안 진공 상태."
+    },
+    "ecoblowdrying": {
+        "message": "머리를 약 10 분 동안 불어서 말리는 것은 대략적으로 사용합니다."
+    },
+    "ecowashingclothes": {
+        "message": "찬 린스 (cold-rinse) 사이클에서 옷을 세탁하는 것은 대략"
+    },
+    "ecowififoraday": {
+        "message": "하루에 대 한-Fi"
+    },
+    "ecorunningdishwasher": {
+        "message": "에너지 절약모드에서 식기 세척기를 사용합니다."
+    },
+    "ecochargelaptop": {
+        "message": "회원님의 노트북을 충전하세요"
+    },
+    "ecokeeplightonforsix": {
+        "message": "6시간동안 불이 켜진채로 유지합니다."
+    },
+    "ecokeepfridgeday": {
+        "message": "하루동안 냉장고가 작동하게 합니다."
+    },
+    "ecoloadlaundry": {
+        "message": "건조기 안의 세탁물 한 덩어리"
+    },
+    "ecoheatingtenshower": {
+        "message": "10분 정도의 샤워에 충분한 물을 데울 수 있습니다"
+    },
+    "ecotwentyfourghome": {
+        "message": "구글 홈을 24시간 동안 사용할 수 있습니다"
+    },
+    "ecochargeteslacar": {
+        "message": "테슬라 차로 32km를 달릴 수 있습니다"
+    },
+    "ecochargeteslacarhundred": {
+        "message": "테슬라 전기 자동차를 100%로 충전할 수 있습니다"
+    },
+    "ecochargeteslathreetimes": {
+        "message": "테슬라 전기 자동차를 100%로 3번 충전"
+    },
+    "ecopowerhawaiimonth": {
+        "message": "1달동안 하와이에서 쓸수있는 충분한 에너지를 주세요"
+    },
+    "ecopowernwymonth": {
+        "message": "1달동안 뉴욕에서 쓸수있는 충분한 에너지를 주세요"
+    },
+    "ecopowercamonth": {
+        "message": "1달동안 캘리포니아에서 쓸수있는 충분한 에너지를 주세요"
+    },
+    "ecopowerbaseballgame": {
+        "message": "야구장에서 대형스크린을 한번 켜 주세요"
+    },
+    "ecopowereiffeltower": {
+        "message": "1일동안 에펠탑에 불을 밝혀주세요"
+    },
+    "ecopowereurostar": {
+        "message": "브루셀에서 런던까지 유로스타 여행을 위하여"
+    },
+    "ecopowereurostarparis": {
+        "message": "파리부터 런던까지 유로스타 여행"
+    },
+    "ecoeiffeltoweryear": {
+        "message": "1년동안 에펠탑에 불을 밝혀주세요"
+    },
+    "ecosfoyear": {
+        "message": "1년동안 샌프란 시스코에 전기를 넣어주세요"
+    },
+    "ecolayear": {
+        "message": "1년동안 로스 앤젤레스에 전기를 넣어주세요"
+    },
+    "ecoplanetearth": {
+        "message": "지구를 구하기 위한 준비"
+    },
+    "autostopdetails": {
+        "message": "세부 정보"
+    },
+    "autostopblocked": {
+        "message": "Turn Off the Lights™에 의해 차단됨 - www.turnoffthelights.com"
+    },
+    "autostopclickme": {
+        "message": "이 HTML5 비디오를 재생하시려면 이곳을 클릭하세요."
+    },
+    "autostopenabled": {
+        "message": "자동정지가 활성화되어있습니다!"
+    },
+    "searchplaceholder": {
+        "message": "검색/찾기"
+    },
+    "scoregame": {
+        "message": "Turn Off the Lights Browser 확장에서 숨겨진 부활절 달걀 게임에서 놀라운 고득점 $scorevalue$입니다. 직접 해보세요!",
+        "placeholders": {
+            "scorevalue": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "permissionoption": {
+        "message": "이 기능을 사용하려면 사용 권한이 활성화되어 있어야 합니다."
+    },
+    "titelpermission": {
+        "message": "권한"
+    },
+    "despermissiontab": {
+        "message": "탭 권한 제거하기"
+    },
+    "wpermissionremoved": {
+        "message": "허가가 제거되었습니다"
+    },
+    "wpermissionnotremoved": {
+        "message": "허가가 이미 제거되었습니다"
+    },
+    "desnightmodegesture": {
+        "message": "현재 웹 페이지를 길게 눌러 페이지를 어둡게 또는 밝게 표시"
+    },
+    "omninightmode": {
+        "message": "야간 모드"
+    },
+    "omnidaymode": {
+        "message": "주간 모드"
+    },
+    "omnilightoff": {
+        "message": "화면 끄기"
+    },
+    "omnilighton": {
+        "message": "화면 켜기"
+    },
+    "omnihelp": {
+        "message": "도움말"
+    },
+    "permissionrequired": {
+        "message": "현재 활성화된 권한"
+    },
+    "permissionactivetab": {
+        "message": "이것은 현재 열려 있는 탭 페이지의 웹 페이지만 흐리게 합니다."
+    },
+    "permissiontabs": {
+        "message": "시작 및 가이드 페이지를 표시하고, 현재 재생 중인 HTML5 비디오를 감지하고, HTML5 비디오의 스크린샷을 찍고, 옵션 페이지를 열려면 이 기능이 필요합니다."
+    },
+    "permissioncontextmenu": {
+        "message": "웹 브라우저 상황에 맞는 메뉴에서 \"이 페이지 어둡게 만들기\" 메뉴 항목을 추가합니다."
+    },
+    "permissionstorage": {
+        "message": "이것은 로컬 컴퓨터의 설정을 저장하고 웹 브라우저 계정에 동기화하는 것입니다."
+    },
+    "permissionallurl": {
+        "message": "이것은 http, https, file 및 ftp를 포함하는 모든 웹 사이트의 램프 버튼을 제어하는 것입니다."
+    },
+    "permissiontheme": {
+        "message": "이것은 웹 브라우저 사용자 인터페이스를 어둡거나 밝은 테마로 변경하는 것입니다."
+    },
+    "desnightmodeswitchhide": {
+        "message": "선택한 초 후에 자동으로 야간 스위치 숨기기"
+    },
+    "destrythiswebsite": {
+        "message": "이 웹 페이지 사용"
+    },
+    "desatmosfpsmanual": {
+        "message": "수동으로"
+    },
+    "desatmosfpsauto": {
+        "message": "화면에서 재생되는 비디오의 프레임률과 최상의 노력으로 동기화됨"
+    },
+    "desvideovolumeonly": {
+        "message": "다음 사이트(들) 에서만 마우스 볼륨 스크롤을 활성화합니다:"
+    },
+    "titelwhitelist": {
+        "message": "허용된 사이트 목록"
+    },
+    "titelblacklist": {
+        "message": "금지된 사이트 목록"
+    },
+    "desvolumescrolla": {
+        "message": "현재 운영 체제에 따라 스크롤 방향 자동 조정"
+    },
+    "desvolumescrollb": {
+        "message": "위로 스크롤하면 볼륨이 증가합니다."
+    },
+    "desvolumescrollc": {
+        "message": "아래로 스크롤하면 볼륨이 증가합니다."
+    },
+    "desvolumeposd": {
+        "message": "현재 비디오 플레이어 좌측 상단에 볼륨 표시"
+    },
+    "desvolumepose": {
+        "message": "현재 비디오 플레이어 우측 상단에 볼륨 표시"
+    },
+    "titelpipvideo": {
+        "message": "현재 비디오"
+    },
+    "titelpipvisual": {
+        "message": "음악 시각화"
+    },
+    "titelpip": {
+        "message": "PIP 기능"
+    },
+    "despip": {
+        "message": "PIP를 사용하면 항상 다른 창 위에 떠있는 비디오 창을 만들 수 있습니다."
+    },
+    "titelpiperror": {
+        "message": "현재 웹 페이지에서 동영상을 찾을 수 없습니다. 다른 웹 페이지를 사용해 보십시오."
+    },
+    "titelnightmodebutton": {
+        "message": "버튼 색상"
+    },
+    "dessitewhitelist": {
+        "message": "이 사이트를 화이트리스트에 추가할까요?"
+    },
+    "handytip": {
+        "message": "유용한 팁…"
+    },
+    "titletipok": {
+        "message": "알겠습니다"
+    },
+    "desscrolltip": {
+        "message": "위쪽 탐색 모음과 색상 표시줄 안쪽으로 스크롤할 수 있습니다. 가로로 스크롤하면 이 표시줄에 더 많은 단추가 표시됩니다."
+    },
+    "titleyoutube": {
+        "message": "Turn Off the Lights 채널에 참여하세요"
+    },
+    "desyoutube": {
+        "message": "Turn Off the Lights 브라우저 확장 기능의 힘을 확인합니다. 지금 YouTube에서 확인하세요."
+    },
+    "titlesub": {
+        "message": "지금 구독하세요!"
+    },
+    "titlelater": {
+        "message": "다음에"
+    },
+    "gamepadoption": {
+        "message": "게임 컨트롤러"
+    },
+    "titlegamepad": {
+        "message": "컨트롤러"
+    },
+    "desgamepad": {
+        "message": "게임 컨트롤러로 멀티미디어를 제어"
+    },
+    "desstickplaystation": {
+        "message": "PlayStation의 조이스틱"
+    },
+    "desstickxbox": {
+        "message": "Xbox의 조이스틱"
+    },
+    "desactions": {
+        "message": "동작"
+    },
+    "desleftstick": {
+        "message": "왼쪽 스틱"
+    },
+    "desrightstick": {
+        "message": "오른쪽 스틱"
+    },
+    "desbuttonps": {
+        "message": "PlayStation의 버튼"
+    },
+    "desbuttonxb": {
+        "message": "Xbox의 버튼"
+    },
+    "desgamepadsquare": {
+        "message": "사각형"
+    },
+    "desgamepadtriangle": {
+        "message": "삼각형"
+    },
+    "desgamepadshowaddress": {
+        "message": "주소 막대 표시"
+    },
+    "desgamepadshare": {
+        "message": "공유"
+    },
+    "desgamepadshowmenu": {
+        "message": "메뉴 표시"
+    },
+    "desgamepadoptions": {
+        "message": "옵션"
+    },
+    "desgamepadleftstickpress": {
+        "message": "왼쪽 스틱 눌림"
+    },
+    "desgamepadrightstickpress": {
+        "message": "오른쪽 스틱 눌림"
+    },
+    "desgamepaddirup": {
+        "message": "방향성 위"
+    },
+    "desgamepaddirdown": {
+        "message": "방향성 아래"
+    },
+    "desgamepaddirleft": {
+        "message": "방향성 왼쪽"
+    },
+    "desgamepaddirright": {
+        "message": "방향성 오른쪽"
+    },
+    "desgamepadxboxlogo": {
+        "message": "Xbox 로고"
+    },
+    "desgamepadpslogo": {
+        "message": "PlayStation 로고"
+    },
+    "desgpbuttonzoominout": {
+        "message": "확대 또는 축소"
+    },
+    "desgpbuttonzoompos": {
+        "message": "줌 위치"
+    },
+    "desgpbuttonbackwardsmall": {
+        "message": "1초 전 재생"
+    },
+    "desgpbuttonbackwardbig": {
+        "message": "3초 전 재생"
+    },
+    "desgpbuttonforwardsmall": {
+        "message": "1초 후 재생"
+    },
+    "desgpbuttonforwardbig": {
+        "message": "3초 후 재생"
+    },
+    "desgpbuttonhome": {
+        "message": "게임패드 비디오 테스트 페이지"
+    },
+    "desgpbuttondirup": {
+        "message": "Move the view up"
+    },
+    "desgpbuttondirdown": {
+        "message": "Move the view down"
+    },
+    "desgpbuttondirleft": {
+        "message": "Move the view left"
+    },
+    "desgpbuttondirright": {
+        "message": "Move the view right"
+    },
+    "desgpbuttondirreset": {
+        "message": "Reset the zoom view"
+    },
+    "desgpbuttonshare": {
+        "message": "Exit Zoom Edit"
+    },
+    "desgpbuttonplaypause": {
+        "message": "Play/Pause the current video"
+    },
+    "desgpbuttonvolumeincrease": {
+        "message": "Increase volume"
+    },
+    "desgpbuttonvolumedecrease": {
+        "message": "Decrease volume"
+    },
+    "desgpbuttonnextvideo": {
+        "message": "다음 유튜브 영상 재생"
+    },
+    "desgpbuttonprevvideo": {
+        "message": "이전 유튜브 영상 재생"
+    },
+    "titelgpconnect": {
+        "message": "연결됨"
+    },
+    "titelgpdisconnect": {
+        "message": "연결 해제됨"
+    },
+    "desnightmodeos": {
+        "message": "OS 상에서 다크 모드가 활성화될시 현재 열려 있는 웹페이지를 나이트 모드로 자동 전환합니다."
+    },
+    "titelonoff": {
+        "message": "ON/OFF"
+    },
+    "titelnightmodeborder": {
+        "message": "경계선 색상"
+    },
+    "titleinfobx": {
+        "message": "정보"
+    },
+    "permissionwebnav": {
+        "message": "이 옵션은 웹페이지가 로드되기 전부터 곧바로 나이트 모드를 적용합니다."
+    },
+    "desnmautoclock": {
+        "message": "Activate between the following hours:"
+    }
+}

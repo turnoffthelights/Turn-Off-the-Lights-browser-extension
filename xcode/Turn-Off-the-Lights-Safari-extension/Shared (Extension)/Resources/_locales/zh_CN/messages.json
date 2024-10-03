@@ -1,0 +1,1646 @@
+{
+    "descriptionshort": {
+        "message": "观看视频时自动调暗页面，让您仿佛置身于电影院中"
+    },
+    "pagehelp": {
+        "message": "帮助"
+    },
+    "titelimage": {
+        "message": "背景图片"
+    },
+    "shortcutalllights": {
+        "message": "为所有打开的选项卡切换灯开关"
+    },
+    "lastchecked": {
+        "message": "自动检测最新版本开启"
+    },
+    "visualeffects": {
+        "message": "视觉效果"
+    },
+    "titelshortcutlight": {
+        "message": "快捷键"
+    },
+    "titledonatebutton": {
+        "message": "捐款"
+    },
+    "titellikebar": {
+        "message": "点赞指数"
+    },
+    "desmousespotlightt": {
+        "message": "在屏幕变暗时允许点击超链接"
+    },
+    "desmousespotlights": {
+        "message": "启用屏幕着色器，它始终处于活动状态，并可以单击该层"
+    },
+    "desambilight4color": {
+        "message": "选择4种环绕在视频周围的颜色"
+    },
+    "lockentername": {
+        "message": "请输入你的密码"
+    },
+    "desnoflash": {
+        "message": "不使用此功能"
+    },
+    "desdynamicblocks": {
+        "message": "方块"
+    },
+    "titeleye": {
+        "message": "视力保护"
+    },
+    "titelcinemaontop": {
+        "message": "电影剧场模式：在窗口顶部只显示灯关闭状态图层。"
+    },
+    "desmousespotlightc": {
+        "message": "如果灯光关闭，您可以选择一个区域来关注一个事物。"
+    },
+    "titelrememberpage": {
+        "message": "提醒页面"
+    },
+    "desmousespotlighta": {
+        "message": "在关灯的情况下，在鼠标周围显示一个光圈。"
+    },
+    "desmousespotlighto": {
+        "message": "默认鼠标行为（禁用下面的鼠标设置）"
+    },
+    "desplaylist": {
+        "message": "显示YouTube播放列表"
+    },
+    "desambilightfixcolor": {
+        "message": "纯色"
+    },
+    "desuntil": {
+        "message": "直到"
+    },
+    "desconfirmpassword": {
+        "message": "确认密码"
+    },
+    "desautodimonly": {
+        "message": "只有在以下视频站点变暗："
+    },
+    "helpeyeprotection": {
+        "message": "启用视力保护将自动禁用自动播放功能。"
+    },
+    "skipremember": {
+        "message": "跳过它然后立即打开设置页"
+    },
+    "optiontimesaved": {
+        "message": "时间已保存。"
+    },
+    "titelvideoheadline": {
+        "message": "视频标题"
+    },
+    "translateme": {
+        "message": "帮助我们翻译"
+    },
+    "despassword": {
+        "message": "开灯之前需要输入密码。"
+    },
+    "helpautodim": {
+        "message": "“视力保护”已经启用。要使用下面的功能，请先禁用“视力保护”模式"
+    },
+    "name": {
+        "message": "关灯看视频"
+    },
+    "changelog": {
+        "message": "更新日志"
+    },
+    "optionpagetitle": {
+        "message": "关灯看视频 - 选项"
+    },
+    "optionpasswordsaved": {
+        "message": "密码已保存。"
+    },
+    "desdynamicspace": {
+        "message": "太空"
+    },
+    "deseastereggs": {
+        "message": "按 T 键为暗层添加剧院幕布"
+    },
+    "settings": {
+        "message": "设置"
+    },
+    "desspotlightradius": {
+        "message": "聚光灯直径："
+    },
+    "titelsync": {
+        "message": "同步"
+    },
+    "right": {
+        "message": "右侧"
+    },
+    "titeldynamic": {
+        "message": "动态背景"
+    },
+    "deslikebutton": {
+        "message": "显示YouTube上视频的 顶/踩 按钮"
+    },
+    "titelmouse": {
+        "message": "鼠标"
+    },
+    "titellessmore": {
+        "message": "显示较少"
+    },
+    "desshortcutlight": {
+        "message": "启用键盘上的快捷键"
+    },
+    "titelinfobar": {
+        "message": "信息栏"
+    },
+    "descontextmenus": {
+        "message": "在右键菜单中显示高亮一个事物的选择"
+    },
+    "titelcontextmenus": {
+        "message": "右键菜单"
+    },
+    "titelplaylist": {
+        "message": "播放列表"
+    },
+    "desatmosphereonly": {
+        "message": "只在以下视频网站使用光晕效果："
+    },
+    "rectext": {
+        "message": "推荐"
+    },
+    "desenterpassword": {
+        "message": "在下面的框中输入您的密码："
+    },
+    "titelblurradius": {
+        "message": "模糊半径："
+    },
+    "version": {
+        "message": "版本"
+    },
+    "shortcutdark": {
+        "message": "调暗屏幕(增加不透明度)."
+    },
+    "dessharebutton": {
+        "message": "显示视频的分享按钮"
+    },
+    "shortcutbright": {
+        "message": "调亮屏幕(减少不透明度)."
+    },
+    "titelalllightsoff": {
+        "message": "所有打开的选项卡"
+    },
+    "desreadera": {
+        "message": "关灯后永远显示暗度调节"
+    },
+    "rememberrate": {
+        "message": "评价"
+    },
+    "desautodim": {
+        "message": "单击播放按钮时自动调暗背景"
+    },
+    "titelscreen": {
+        "message": "屏幕"
+    },
+    "desflash": {
+        "message": "显示所有多媒体对象"
+    },
+    "titelhead": {
+        "message": "频道"
+    },
+    "pageatitle": {
+        "message": "关灯"
+    },
+    "desaddvideobutton": {
+        "message": "在YouTube视频上显示保存按钮"
+    },
+    "shortcuteyeprotection": {
+        "message": "以启用或禁用视力保护功能"
+    },
+    "titelfadein": {
+        "message": "淡入"
+    },
+    "desreadern": {
+        "message": "不显示暗度调节"
+    },
+    "titelmaxqualityyoutube": {
+        "message": "自动设置为此分辨率："
+    },
+    "desambilightrangespreadradius": {
+        "message": "值越大，阴影越大，反之亦然。"
+    },
+    "titelon": {
+        "message": "开启"
+    },
+    "videotitle": {
+        "message": "焦点影片"
+    },
+    "warningtextambilight": {
+        "message": "当因网站安全规则而导致无法获取视频数据时，将改用纯色。"
+    },
+    "desdynamiccloud": {
+        "message": "动态云"
+    },
+    "desconfirmtimesaver": {
+        "message": "确认屏幕保护程序时间"
+    },
+    "deslikebar": {
+        "message": "显示YouTube 视频下的“like/dislike”项目 。"
+    },
+    "titelautodim": {
+        "message": "自动播放"
+    },
+    "top": {
+        "message": "顶部"
+    },
+    "titelspreadradius": {
+        "message": "传播半径："
+    },
+    "installadblocker": {
+        "message": "如果您不想看到广告，请使用广告隔离插件。"
+    },
+    "titelsharebutton": {
+        "message": "分享按钮"
+    },
+    "titelcolor": {
+        "message": "颜色"
+    },
+    "titeldownloadbutton": {
+        "message": "下载此更新!"
+    },
+    "pagetitle": {
+        "message": "将此页面变暗"
+    },
+    "titelambilight": {
+        "message": "背光"
+    },
+    "titelshowmore": {
+        "message": "显示更多"
+    },
+    "desviewcount": {
+        "message": "显示该视频的浏览次数"
+    },
+    "titelautowidthyoutube": {
+        "message": "自动将 YouTube 播放器设置为更大的大小。"
+    },
+    "desconfirmtime": {
+        "message": "确认时间"
+    },
+    "titelupgrade": {
+        "message": "升级"
+    },
+    "lockwrongpassword": {
+        "message": "密码错误，请重新输入。"
+    },
+    "titelsyncbrowser": {
+        "message": "与您的其他浏览器的扩展设置同步。"
+    },
+    "deletebutton": {
+        "message": "删除"
+    },
+    "eyedivon": {
+        "message": "开"
+    },
+    "eyedivoff": {
+        "message": "关"
+    },
+    "deshead": {
+        "message": "显示YouTube频道栏或名称"
+    },
+    "shortcutsavingopacity": {
+        "message": "保存此不透明度值"
+    },
+    "desinfobar": {
+        "message": "显示视频的描述信息"
+    },
+    "titellamp": {
+        "message": "灯泡"
+    },
+    "desambilightvarcolor": {
+        "message": "从视频中提取颜色"
+    },
+    "showremember": {
+        "message": "当我打开设置页时不再提示我"
+    },
+    "donatepromotext": {
+        "message": "如果你可以做出任何款项捐赠，我会非常感激！"
+    },
+    "titelblur": {
+        "message": "模糊其余部分"
+    },
+    "desdynamicraindrops": {
+        "message": "雨滴"
+    },
+    "desalllightsoff": {
+        "message": "点击灯状按钮将切换所有打开标签页的开关灯状态"
+    },
+    "optionecosaversaved": {
+        "message": "已成功保存 ！"
+    },
+    "titelreader": {
+        "message": "暗度调节"
+    },
+    "deseyen": {
+        "message": "正常使用（当您按灯图标时熄灯）"
+    },
+    "enjoyshare": {
+        "message": "享受此扩展并分享给你觉得需要它的人。"
+    },
+    "shortcuttotl": {
+        "message": "以开/关灯光"
+    },
+    "deseyea": {
+        "message": "打开页面时自动将背景变暗"
+    },
+    "basicsettings": {
+        "message": "基础"
+    },
+    "hoveroptionapply": {
+        "message": "应用"
+    },
+    "reportbug": {
+        "message": "报告问题"
+    },
+    "destime": {
+        "message": "在下列时间内关灯："
+    },
+    "guide": {
+        "message": "关灯看视频欢迎向导"
+    },
+    "deseyealist": {
+        "message": "在打开以下站点时自动将背景变暗"
+    },
+    "titellikebutton": {
+        "message": "顶/踩 按钮"
+    },
+    "titelpageaction": {
+        "message": "在omnibox隐藏灯图标"
+    },
+    "friendlyremember": {
+        "message": "友情提示..."
+    },
+    "desfadein": {
+        "message": "显示淡入效果"
+    },
+    "warning": {
+        "message": "警告！"
+    },
+    "deseyetimesaver": {
+        "message": "当页面处于非活动状态（无鼠标移动或键盘输入）达设定时间时，页面自动变暗："
+    },
+    "titelsuggestions": {
+        "message": "建议"
+    },
+    "advancedoptions": {
+        "message": "高级选项"
+    },
+    "dessuggestions": {
+        "message": "显示YouTube网站的建议。"
+    },
+    "titelmultimedia": {
+        "message": "多媒体检测"
+    },
+    "desambilight": {
+        "message": "在正在播放的视频周围使用背光效果。"
+    },
+    "productshare": {
+        "message": "分享"
+    },
+    "addbutton": {
+        "message": "添加"
+    },
+    "reportlist": {
+        "message": "(见名单)"
+    },
+    "desdynamicfishtank": {
+        "message": "鱼缸"
+    },
+    "longdonatetext": {
+        "message": "如果您为本项目捐款令本浏览器扩展持续可用我将十分感激，无论是1美元或100美元，我们都非常感谢您的支持！"
+    },
+    "deshardflash": {
+        "message": "显示所有多媒体对象，跳过 URL 过滤器。这将解决一些视频播放器被隐藏的问题，但也会显示广告。"
+    },
+    "desfadeout": {
+        "message": "显示淡出效果"
+    },
+    "optionwrongimg": {
+        "message": "无效的图像文件 ！"
+    },
+    "desvideoheadline": {
+        "message": "展和颠倒的视频标题的颜色。"
+    },
+    "desrememberpage": {
+        "message": "不显示提示页"
+    },
+    "description": {
+        "message": "观看视频时自动调暗页面，让您仿佛置身于电影院中观看视频。\n适用于 YouTube™ 和其他视频网站。"
+    },
+    "titelviewcount": {
+        "message": "浏览次数"
+    },
+    "titelopacity": {
+        "message": "透明度"
+    },
+    "titelqualityyoutube": {
+        "message": "自动设置YouTube 视频质量。"
+    },
+    "shortcutopacity": {
+        "message": "还原亮度(不透明度) 设置"
+    },
+    "desambilightrangeblurradius": {
+        "message": "较低的值将使得阴影锐化，较高的值将使得阴影变模糊。"
+    },
+    "titeladdvideobutton": {
+        "message": "保存按钮"
+    },
+    "titelpassword": {
+        "message": "密码保护"
+    },
+    "titeldownloadupgrade": {
+        "message": "升级版添加了选中图像的支持，并将在网站上显示图像。"
+    },
+    "titelfadeout": {
+        "message": "淡出"
+    },
+    "eastereggsquestion": {
+        "message": "想获得在电影院中的感觉么？"
+    },
+    "bottom": {
+        "message": "底部"
+    },
+    "dessaver": {
+        "message": "屏幕保护程序："
+    },
+    "hoveroptiondyn5": {
+        "message": "飞行"
+    },
+    "pagestillloading": {
+        "message": "页面仍在加载？"
+    },
+    "titeloff": {
+        "message": "关"
+    },
+    "titeleastereggs": {
+        "message": "彩蛋"
+    },
+    "textfoot": {
+        "message": "本软件的授权遵守CC - GNU通用公共许可协议。要查看本许可协议，请访问"
+    },
+    "left": {
+        "message": "左侧"
+    },
+    "titelnighttheme": {
+        "message": "夜间模式"
+    },
+    "desnighttheme": {
+        "message": "在网页下面显示\"夜间\"按钮"
+    },
+    "nightoptions": {
+        "message": "夜间模式"
+    },
+    "desnightonly": {
+        "message": "只在以下站点显示夜间模式："
+    },
+    "desnightenabletheme": {
+        "message": "打开一个新页面时自动开启夜间模式。"
+    },
+    "titellampregular": {
+        "message": "在地址栏总是显示灯图标"
+    },
+    "titellampvideo": {
+        "message": "检测到有视频播放器才显示灯图标"
+    },
+    "ratetitle": {
+        "message": "感谢您使用'Turn Off the Lights'"
+    },
+    "ratedes": {
+        "message": "请在应用商店给本扩展程序打分和评价。非常感谢您的支持。"
+    },
+    "rateitema": {
+        "message": "打5分"
+    },
+    "titelreset": {
+        "message": "重置"
+    },
+    "resetbrowserextension": {
+        "message": "重置Turn Off the Lights扩展的设置"
+    },
+    "desautodimdelay": {
+        "message": "当视频结束达指定时间后自动将背景亮起"
+    },
+    "desautodimdelayend": {
+        "message": "秒"
+    },
+    "motionoptions": {
+        "message": "摄像头手势感应"
+    },
+    "desmotion": {
+        "message": "启用摄像机运动"
+    },
+    "desspeech": {
+        "message": "启用语音识别"
+    },
+    "trymotion": {
+        "message": "自己试试 ！"
+    },
+    "destrymotion": {
+        "message": "这非常棒，特别是它能在任何页面生效，即使是YouTube，新闻网站，等等。"
+    },
+    "howworkmotion": {
+        "message": "它是如何运作的？"
+    },
+    "nightstep1description": {
+        "message": "启用夜间模式"
+    },
+    "nightstep2description": {
+        "message": "打开任何网页, 你会看到这个夜间模式的开关"
+    },
+    "nightstep3description": {
+        "message": "单击开关以在暗色主题中查看网页"
+    },
+    "speechstep1description": {
+        "message": "启用语音识别功能"
+    },
+    "speechstep2description": {
+        "message": "当您启用此选项时，你可以使用以下指令对 Browser Lamp 对话："
+    },
+    "camstep1description": {
+        "message": "启用摄像头动作功能。"
+    },
+    "camstep2description": {
+        "message": "移动您的手（或拳）由上至下"
+    },
+    "camstep3description": {
+        "message": "黑色图层将自动滑落。"
+    },
+    "desmotionChecklist": {
+        "message": "清单"
+    },
+    "des1checkmotion": {
+        "message": "请确保您的房间光线充足，不过于昏暗。"
+    },
+    "des2checkmotion": {
+        "message": "避免您的摄像头阳光直射。"
+    },
+    "des3checkmotion": {
+        "message": "您使用前置摄像头。"
+    },
+    "titellinear": {
+        "message": "线性"
+    },
+    "titelcolora": {
+        "message": "颜色 A："
+    },
+    "titelcolorb": {
+        "message": "颜色 B："
+    },
+    "speechoption": {
+        "message": "语音识别"
+    },
+    "titelspeech": {
+        "message": "语音"
+    },
+    "desspeech1command": {
+        "message": "关灯"
+    },
+    "desspeech2command": {
+        "message": "开灯"
+    },
+    "desspeech3command": {
+        "message": "播放视频"
+    },
+    "desspeech4command": {
+        "message": "暂停视频"
+    },
+    "desspeechdialect": {
+        "message": "选择你的语音方言："
+    },
+    "desatmosvivid": {
+        "message": "生动的气氛效果"
+    },
+    "help": {
+        "message": "帮助"
+    },
+    "about": {
+        "message": "关于"
+    },
+    "desspeechonly": {
+        "message": "只在如下站点启用语音识别："
+    },
+    "descammotiononly": {
+        "message": "只在如下站点启用手势识别："
+    },
+    "titelcamera": {
+        "message": "摄像头"
+    },
+    "titeldownloadthemeupgrade": {
+        "message": "使你的浏览器使用更暗的主题元素。主题元素会在浏览器的边框出现。"
+    },
+    "desbrowsersupport": {
+        "message": "此浏览器暂时不支持但此功能。请确保您在您的计算机上安装最新的浏览器版本。"
+    },
+    "titelsupportatmos": {
+        "message": "仅支持 HTML5 <video>标签播放器，它还会使用设备的GPU。"
+    },
+    "titelseeonline": {
+        "message": "在线浏览更多示例。"
+    },
+    "titelvideosample": {
+        "message": "视频示例"
+    },
+    "titelwebsite": {
+        "message": "网站"
+    },
+    "titeldeveloper": {
+        "message": "开发者"
+    },
+    "titelrightsreserved": {
+        "message": "保留部分权力"
+    },
+    "desbrowserextension": {
+        "message": "浏览器扩展"
+    },
+    "desapitext": {
+        "message": "提供给网站开发者的Wiki API"
+    },
+    "desbrowsertheme": {
+        "message": "浏览器主题"
+    },
+    "desproject": {
+        "message": "项目"
+    },
+    "titelapideveloper": {
+        "message": "API 开发者"
+    },
+    "titelwikiatmos": {
+        "message": "在维基上查找关于光晕特效(Atmosphere Lighting)的特性"
+    },
+    "sharemenusharetitle": {
+        "message": "分享"
+    },
+    "sharemenuwelcomeguidetitle": {
+        "message": "使用指南"
+    },
+    "sharemenutellafriend": {
+        "message": "告诉朋友"
+    },
+    "sharemenusendatweet": {
+        "message": "发推"
+    },
+    "sharemenupostonfacebook": {
+        "message": "发到 Facebook"
+    },
+    "sharemenuratetitle": {
+        "message": "评价本扩展"
+    },
+    "sharemenudonatetitle": {
+        "message": "支持开发"
+    },
+    "titelautostop": {
+        "message": "自动停止"
+    },
+    "desautostop": {
+        "message": "当打开新页面时自动暂停视频播放"
+    },
+    "areyouhappy": {
+        "message": "使用Turn Off the Lights的体验愉悦吗？"
+    },
+    "tellothers": {
+        "message": "将您的观点告诉他人"
+    },
+    "nothanks": {
+        "message": "不用了"
+    },
+    "writeareview": {
+        "message": "写评论"
+    },
+    "desauroraplayer": {
+        "message": "环境照明播放器现已可用。"
+    },
+    "downloadtheapp": {
+        "message": "立即下载"
+    },
+    "titeldownloadupgradezoom": {
+        "message": "使用缩放按钮以放大缩小页面内容令阅读更加舒适。"
+    },
+    "titeldownloadupgradepropermenubar": {
+        "message": "在Google网站上添加黑色菜单栏。"
+    },
+    "titeldownloadupgradefinancetoolbar": {
+        "message": "这将向您显示股票市场的实时信息。"
+    },
+    "titelnightmodeposition": {
+        "message": "开关位置"
+    },
+    "nmtopleft": {
+        "message": "左上角"
+    },
+    "nmtopright": {
+        "message": "右上角"
+    },
+    "nmbottomright": {
+        "message": "右下角"
+    },
+    "nmbottomleft": {
+        "message": "左下角"
+    },
+    "nmcustom": {
+        "message": "自定义（单击、长按并拖动按钮到您所需的屏幕位置）"
+    },
+    "desnighthover": {
+        "message": "在页面上显示透明度切换按钮"
+    },
+    "desautostoponly": {
+        "message": "仅在以下站点自动暂停视频播放："
+    },
+    "desnightactivetime": {
+        "message": "开关将在下列时间中可见："
+    },
+    "deslampandnightmode": {
+        "message": "当您点击灰色灯按钮时即可激活夜间模式选项"
+    },
+    "desspeech5command": {
+        "message": "浏览器之灯"
+    },
+    "html5andyoutube": {
+        "message": "HTML5及YouTube™视频"
+    },
+    "flashembedobject": {
+        "message": "支持：<object> <embed> <applet> <iframe>标签"
+    },
+    "titelnightmodebck": {
+        "message": "背景色"
+    },
+    "titelnightmodetxt": {
+        "message": "文字颜色"
+    },
+    "desdynamicsmoke": {
+        "message": "烟雾"
+    },
+    "desdynamicdotscolor": {
+        "message": "颜色点"
+    },
+    "desdynamicstorm": {
+        "message": "雷暴"
+    },
+    "desdynamictriangulation": {
+        "message": "三角测量"
+    },
+    "desdynamicstars": {
+        "message": "星标"
+    },
+    "desmobileapp": {
+        "message": "Turn Off the Lights也适用于您的移动设备。"
+    },
+    "titel360youtube": {
+        "message": "在一个框架中显示完整的360度YouTube视频"
+    },
+    "titelvideotool": {
+        "message": "视频工具栏"
+    },
+    "desvideotool": {
+        "message": "显示用于自定义当前视频播放器的工具栏"
+    },
+    "vtoolfullscreen": {
+        "message": "设置视频播放器到全窗口模式的按钮"
+    },
+    "vtoolfilter": {
+        "message": "在当前视频播放器中添加筛选器的按钮"
+    },
+    "vtoolreplay": {
+        "message": "重复当前视频播放器的按钮"
+    },
+    "vtoolscreenshot": {
+        "message": "对播放器中正在播放的视频进行截图的按钮"
+    },
+    "vtoolalign": {
+        "message": "将播放器居中的按钮"
+    },
+    "titelvideotoolgrayscale": {
+        "message": "灰度"
+    },
+    "titelvideotoolsepia": {
+        "message": "棕褐色"
+    },
+    "titelvideotoolinvert": {
+        "message": "反转"
+    },
+    "titelvideotoolcontrast": {
+        "message": "对比度"
+    },
+    "titelvideotoolsaturate": {
+        "message": "饱和度"
+    },
+    "titelvideotoolhueroration": {
+        "message": "色相旋转"
+    },
+    "titelvideotoolbrightness": {
+        "message": "亮度"
+    },
+    "titelvideotoolnormal": {
+        "message": "正常"
+    },
+    "titelvideotoollike": {
+        "message": "赞"
+    },
+    "titelvideotoolsubscribe": {
+        "message": "订阅"
+    },
+    "titelvideotoolrepeat": {
+        "message": "重复"
+    },
+    "titelvideotoolfilter": {
+        "message": "过滤器"
+    },
+    "titelvideotoolfullwindow": {
+        "message": "全窗口"
+    },
+    "titelvideotoolscreenshot": {
+        "message": "屏幕截图"
+    },
+    "titelreflection": {
+        "message": "映射"
+    },
+    "desreflection": {
+        "message": "显示所有视频的映射效果"
+    },
+    "desvideotoolonly": {
+        "message": "仅在以下网站激活视频工具栏："
+    },
+    "titelnightmodehyperlink": {
+        "message": "超链接颜色"
+    },
+    "titelblock60fps": {
+        "message": "阻止60fps"
+    },
+    "titelvolume": {
+        "message": "视频音量控制栏"
+    },
+    "desvideovolume": {
+        "message": "使用鼠标滚轮控制当前视频播放器的音量"
+    },
+    "desvideovolumecolor": {
+        "message": "工具栏颜色"
+    },
+    "desvolumelabel": {
+        "message": "显示音量控制栏 (幅度大小：)"
+    },
+    "desvolumesteps": {
+        "message": "滚轮每次滚动的量(%)"
+    },
+    "sharetexta": {
+        "message": "获取Turn Off the Lights浏览器扩展程序"
+    },
+    "sharetextb": {
+        "message": "嘿，我今天尝试了Turn Off the Lights浏览器扩展程序，效果真神奇！"
+    },
+    "sharetextc": {
+        "message": "最佳且奇妙的 Turn Off the Lights 浏览器扩展"
+    },
+    "sharetextd": {
+        "message": "Turn Off the Lights浏览器扩展程序是用在Youtube上的工具中最好用的。你也来下载使用试试吧。"
+    },
+    "titelsharethis": {
+        "message": "分享这个："
+    },
+    "titellampchoose": {
+        "message": "选择您首选的灯样式"
+    },
+    "titeldoesntwork": {
+        "message": "Turn Off the Lights 在此网页上无法工作。请尝试另一个页面。"
+    },
+    "titelpopupvideo": {
+        "message": "YouTube"
+    },
+    "titelpopupwelcomeguide": {
+        "message": "使用指南"
+    },
+    "titelpopupsupport": {
+        "message": "支持"
+    },
+    "titelpopupoptions": {
+        "message": "选项"
+    },
+    "titelpopupratestars": {
+        "message": "打5分"
+    },
+    "titelvisenable": {
+        "message": "开启/禁用音频可视化"
+    },
+    "titelvischoose": {
+        "message": "选择您的音频可视化"
+    },
+    "titelvisblocks": {
+        "message": "方块"
+    },
+    "titelvisfrequency": {
+        "message": "频率"
+    },
+    "titelvistunnel": {
+        "message": "音乐隧道"
+    },
+    "titelvisualization": {
+        "message": "音频可视化"
+    },
+    "desvisopacity": {
+        "message": "音频可视化背景不透明值"
+    },
+    "vtoolvisualization": {
+        "message": "用于显示当前视频播放器音频可视化的按钮"
+    },
+    "desvideotoolcolor": {
+        "message": "工具栏颜色"
+    },
+    "titelhovervideo": {
+        "message": "视频悬浮"
+    },
+    "deshovervideo": {
+        "message": "鼠标悬停在视频元素上数秒后网页自动变暗"
+    },
+    "promotitle": {
+        "message": "每日提示"
+    },
+    "desremyoutube": {
+        "message": "在 YouTube 上订阅"
+    },
+    "desremfacebook": {
+        "message": "在 Facebook 上推荐"
+    },
+    "titleuserprofile": {
+        "message": "下面，选择您想要使用单击灰色灯按钮时的设置。每个配置文件有其自身的特点。"
+    },
+    "titleregularuser": {
+        "message": "视频控"
+    },
+    "titlenightowl": {
+        "message": "夜猫子"
+    },
+    "titlescreenprotection": {
+        "message": "视力保护"
+    },
+    "desregularuser": {
+        "message": "这是默认和新用户的常规设置。当按下灰灯后，这种风格将应用于当前页面。"
+    },
+    "desnightowl": {
+        "message": "点击一个超链接直接转换到夜晚主题。再次点击返回到普通视图。再次点击灯按钮可禁用此功能。"
+    },
+    "desscreenprotection": {
+        "message": "一次单击将底纹应用到舒缓的橘黄色，减少眼睛疲劳对所有打开的标签页。灯再次单击按钮可禁用此功能。"
+    },
+    "titleprofilevideofocus": {
+        "message": "启用视频焦点"
+    },
+    "titleprofilenovideofocus": {
+        "message": "视频突出已禁用"
+    },
+    "titleprofilealwaysscreentab": {
+        "message": "对所有打开的选项卡始终启用"
+    },
+    "titleprofilescreenclick": {
+        "message": "在屏幕变暗时允许点击超链接"
+    },
+    "titleprofilesubmit": {
+        "message": "选择此设置"
+    },
+    "titlelearnmore": {
+        "message": "了解更多"
+    },
+    "optionprofilesaved": {
+        "message": "新灯行动已成功保存！"
+    },
+    "desaplay": {
+        "message": "播放"
+    },
+    "desapause": {
+        "message": "暂停"
+    },
+    "desastop": {
+        "message": "停止"
+    },
+    "desvideozoom": {
+        "message": "使用缩放按钮放大或缩小视频"
+    },
+    "titlevideoplayrate": {
+        "message": "视频速度"
+    },
+    "desplayrate": {
+        "message": "默认播放速度"
+    },
+    "desspeedtoolbar": {
+        "message": "在当前播放器中显示播放工具栏"
+    },
+    "desatmosontotlmode": {
+        "message": "仅当TOtL模式启用时显示背光效果"
+    },
+    "desdarkbrowsertheme": {
+        "message": "切换到暗色浏览器主题"
+    },
+    "desautostopfeaturewhite": {
+        "message": "在下列网站上阻止，其他任何网站允许自动播放。"
+    },
+    "desautostopfeatureblack": {
+        "message": "在下列网站上允许，其他任何网站阻止自动播放。"
+    },
+    "autostopbannerred": {
+        "message": "显示红色横幅"
+    },
+    "autostopbannertrans": {
+        "message": "显示透明横幅"
+    },
+    "titleanalytics": {
+        "message": "分析"
+    },
+    "desbadgeanalytics": {
+        "message": "显示已经点击使网页变暗的次数的标志"
+    },
+    "shareanalyticenergy": {
+        "message": "感谢Turn Off the Lights让我节约了$energyvalue$ kWh",
+        "placeholders": {
+            "energyvalue": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "shareanalyticenergyWh": {
+        "message": "感谢Turn Off the Lights让我节约了$energyvalue$ Wh",
+        "placeholders": {
+            "energyvalue": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "analyticsoption": {
+        "message": "分析"
+    },
+    "activelayertoday": {
+        "message": "今天点击次数"
+    },
+    "totalenergysaved": {
+        "message": "节省的总电能"
+    },
+    "resetlampanalytic": {
+        "message": "重设Turn Off the Lights分析数据"
+    },
+    "titlesiteengagement": {
+        "message": "网站参与度"
+    },
+    "titleorigin": {
+        "message": "原始"
+    },
+    "titletime": {
+        "message": "时间(分)"
+    },
+    "titleavgdayschedule": {
+        "message": "平均每日计划"
+    },
+    "titlesharestats": {
+        "message": "共享您的统计信息"
+    },
+    "btnsharestats": {
+        "message": "共享统计信息"
+    },
+    "charttitletotaltime": {
+        "message": "激活暗色层的总时间 (分钟)"
+    },
+    "charttitlelayeractive": {
+        "message": "暗色层激活 (#)"
+    },
+    "charttitleavgday": {
+        "message": "平均每日计划 (当背光频繁关闭)"
+    },
+    "charttitle30dayssaved": {
+        "message": "最近30天节省的能量"
+    },
+    "charttitlelblwebsiteused": {
+        "message": "最近30天网站使用"
+    },
+    "charttitlelblenergytotal": {
+        "message": "总使用能源"
+    },
+    "charttitlelblenergysaved": {
+        "message": "总节约能源"
+    },
+    "titlelanalyticprivacy": {
+        "message": "Turn Off the Lights浏览器扩展非常重视您的隐私。您在该页上看到的Turn Off the Lights分析数据仅存储在本地计算机上。您个人的网站参与度信息将不会被出售或转移到无关的第三方。"
+    },
+    "shareanalyticlove": {
+        "message": "我最喜欢的网站是支持 Turn Off the Lights 功能的 $websiteurl$",
+        "placeholders": {
+            "websiteurl": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "desvolumeposa": {
+        "message": "在当前视频播放器的中央显示音量"
+    },
+    "desvolumeposb": {
+        "message": "在当前视频播放器的左上角显示音量"
+    },
+    "desvolumeposc": {
+        "message": "在当前视频播放器的右上角显示音量"
+    },
+    "desvideovolumhold": {
+        "message": "按住鼠标左键或右键，然后移动鼠标来改变音量"
+    },
+    "desvideovolumalt": {
+        "message": "只有在按下alt键时"
+    },
+    "speechheybrowser": {
+        "message": "嘿，浏览器"
+    },
+    "speechokbrowser": {
+        "message": "OK，浏览器"
+    },
+    "functionactive": {
+        "message": "点击选项卡或刷新网页时，此功能被激活，然后在15秒后自动停止。"
+    },
+    "cardtexsubscribe": {
+        "message": "即刻订阅！"
+    },
+    "cardtextfavdayweek": {
+        "message": "一周最喜欢的一天"
+    },
+    "cardtextyestime": {
+        "message": "昨天总时间（分钟）"
+    },
+    "cardavgprevweektime": {
+        "message": "上周总时间（分钟）"
+    },
+    "sunday": {
+        "message": "星期日"
+    },
+    "monday": {
+        "message": "星期一"
+    },
+    "tuesday": {
+        "message": "星期二"
+    },
+    "wednesday": {
+        "message": "星期三"
+    },
+    "thursday": {
+        "message": "星期四"
+    },
+    "friday": {
+        "message": "星期五"
+    },
+    "saturday": {
+        "message": "星期六"
+    },
+    "titlemultiopacity": {
+        "message": "每个网站自身的不透明度"
+    },
+    "desmultiopacitynormal": {
+        "message": "所有网站都具有相同的不透明度"
+    },
+    "desmultiopacitysel": {
+        "message": "如果网站在列表中，则将应用选定的不透明度值"
+    },
+    "desmultiopacitynot": {
+        "message": "如果网站不在列表中，则将应用默认的不透明度值。"
+    },
+    "titleok": {
+        "message": "确定"
+    },
+    "titlecancel": {
+        "message": "取消"
+    },
+    "titledarkmodeon": {
+        "message": "黑暗模式开启"
+    },
+    "titledarkmodeoff": {
+        "message": "黑暗模式关闭"
+    },
+    "titledarkmodeauto": {
+        "message": "使用设备外观"
+    },
+    "titlelprivacy": {
+        "message": "隐私政策"
+    },
+    "titleprofile": {
+        "message": "个人资料"
+    },
+    "descolorfixcolor": {
+        "message": "选择您暗幕的颜色"
+    },
+    "desatmossolidcolor": {
+        "message": "请您选择一个纯色发光效果"
+    },
+    "titlelratenow": {
+        "message": "立即评价！"
+    },
+    "titleratelater": {
+        "message": "推迟"
+    },
+    "desremrate": {
+        "message": "如果你喜欢Turn Off the Lights™，请不要犹豫，立即给这个扩展五星好评。这使我们有信心继续为您维护和改进这个产品。建议也发表一下评论，但不是必需的。如果您没有时间发表评论，您可以匿名对其进行打分。给个★★★★★是很重要的。谢谢！"
+    },
+    "titelnightmodedomain": {
+        "message": "域名"
+    },
+    "titelnightmodepage": {
+        "message": "网页"
+    },
+    "titelintroduce": {
+        "message": "介绍一下新的 Turn Off the Lights!"
+    },
+    "desintroduce": {
+        "message": "给所有您习惯的的功能带来全新的外观和感受, 并为您个性化定制。"
+    },
+    "econothingthisyear": {
+        "message": "今年什么也没有。保持关掉背光以节省能源"
+    },
+    "ecothirtyminutes": {
+        "message": "节省30分钟的背光"
+    },
+    "ecowatchtvfortwo": {
+        "message": "看电视2小时"
+    },
+    "ecotoastermaking": {
+        "message": "烤面包机做两片面包"
+    },
+    "ecochargeiphone": {
+        "message": "为您的iPhone充电"
+    },
+    "ecobrewsomecoffee": {
+        "message": "泡咖啡, 煮一壶咖啡"
+    },
+    "ecoplayingxbox": {
+        "message": "玩 Xbox 360 一个小时"
+    },
+    "ecovacuumingfor": {
+        "message": "吸尘器工作15分钟"
+    },
+    "ecoblowdrying": {
+        "message": "吹头发10分钟大约使用"
+    },
+    "ecowashingclothes": {
+        "message": "洗衣服一次冷水清洗大约使用"
+    },
+    "ecowififoraday": {
+        "message": "一天Wi-Fi"
+    },
+    "ecorunningdishwasher": {
+        "message": "在节能模式下运行您的洗碗机将使用"
+    },
+    "ecochargelaptop": {
+        "message": "笔记本电脑充电"
+    },
+    "ecokeeplightonforsix": {
+        "message": "开灯6小时"
+    },
+    "ecokeepfridgeday": {
+        "message": "保持冰箱运行一天"
+    },
+    "ecoloadlaundry": {
+        "message": "烘干机中的一堆衣物"
+    },
+    "ecoheatingtenshower": {
+        "message": "为10分钟的淋浴加热足够的水"
+    },
+    "ecotwentyfourghome": {
+        "message": "足以运行Google Home 24h"
+    },
+    "ecochargeteslacar": {
+        "message": "将你的特斯拉车充入足够跑20英里的电"
+    },
+    "ecochargeteslacarhundred": {
+        "message": "将你的特斯拉电动汽车充满电"
+    },
+    "ecochargeteslathreetimes": {
+        "message": "将你的特斯拉电动汽车充满电3次"
+    },
+    "ecopowerhawaiimonth": {
+        "message": "足够夏威夷使用一个月的电"
+    },
+    "ecopowernwymonth": {
+        "message": "足够纽约使用一个月的电"
+    },
+    "ecopowercamonth": {
+        "message": "足够加利福利亚使用一个月的电"
+    },
+    "ecopowerbaseballgame": {
+        "message": "可以给一场棒球赛的一个大屏幕供能"
+    },
+    "ecopowereiffeltower": {
+        "message": "照亮埃菲尔铁塔一天"
+    },
+    "ecopowereurostar": {
+        "message": "从布鲁塞尔到伦敦的欧洲之星之旅"
+    },
+    "ecopowereurostarparis": {
+        "message": "从巴黎到伦敦的欧洲之星之旅"
+    },
+    "ecoeiffeltoweryear": {
+        "message": "照亮艾菲尔铁塔一年"
+    },
+    "ecosfoyear": {
+        "message": "为旧金山供电一年"
+    },
+    "ecolayear": {
+        "message": "为洛杉矶供电一年"
+    },
+    "ecoplanetearth": {
+        "message": "准备拯救地球"
+    },
+    "autostopdetails": {
+        "message": "详细信息"
+    },
+    "autostopblocked": {
+        "message": "由 Turn Off the Lights™拦截 - www.turnoffthelights.com"
+    },
+    "autostopclickme": {
+        "message": "点我播放这个 HTML5 视频"
+    },
+    "autostopenabled": {
+        "message": "自动停止已启用！"
+    },
+    "searchplaceholder": {
+        "message": "搜索"
+    },
+    "scoregame": {
+        "message": "看我在Turn Off the Lights浏览器扩展里隐藏的彩蛋游戏中获得的惊人高分 $scorevalue$ 。你也可以自己尝试一下！",
+        "placeholders": {
+            "scorevalue": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "permissionoption": {
+        "message": "必须启用权限才能使用此功能。"
+    },
+    "titelpermission": {
+        "message": "权限"
+    },
+    "despermissiontab": {
+        "message": "移除标签权限"
+    },
+    "wpermissionremoved": {
+        "message": "权限已删除。"
+    },
+    "wpermissionnotremoved": {
+        "message": "权限已经被删除。"
+    },
+    "desnightmodegesture": {
+        "message": "当您长按当前网页时，页面会变暗或变亮"
+    },
+    "omninightmode": {
+        "message": "夜间模式"
+    },
+    "omnidaymode": {
+        "message": "日间模式"
+    },
+    "omnilightoff": {
+        "message": "关灯"
+    },
+    "omnilighton": {
+        "message": "开灯"
+    },
+    "omnihelp": {
+        "message": "帮助"
+    },
+    "permissionrequired": {
+        "message": "当前活动权限"
+    },
+    "permissionactivetab": {
+        "message": "这只会使当前打开的标签页上的网页变暗。"
+    },
+    "permissiontabs": {
+        "message": "以下功能需要此权限：向您展示欢迎和指南页面， 检测当前播放的 HTML5 视频，HTML5 视频截图，以及打开选项页面。"
+    },
+    "permissioncontextmenu": {
+        "message": "这将在网页浏览器上下文菜单中添加\"将此页面变暗\"菜单项。"
+    },
+    "permissionstorage": {
+        "message": "这将保存您本地计算机上的设置，并将其同步到您的网页浏览器帐户。"
+    },
+    "permissionallurl": {
+        "message": "这将控制包括http、http、文件和ftp在内的所有网站上的灯泡按钮。"
+    },
+    "permissiontheme": {
+        "message": "这是为了在暗色或亮色主题中更改 Web 浏览器用户界面。"
+    },
+    "desnightmodeswitchhide": {
+        "message": "在您选择的时间后自动隐藏夜间模式开关"
+    },
+    "destrythiswebsite": {
+        "message": "请尝试此网页"
+    },
+    "desatmosfpsmanual": {
+        "message": "手动"
+    },
+    "desatmosfpsauto": {
+        "message": "以最佳方式与屏幕上播放的视频帧率同步"
+    },
+    "desvideovolumeonly": {
+        "message": "仅在以下站点激活鼠标滚动调节音量："
+    },
+    "titelwhitelist": {
+        "message": "白名单"
+    },
+    "titelblacklist": {
+        "message": "黑名单"
+    },
+    "desvolumescrolla": {
+        "message": "根据当前操作系统自动调整滚动方向"
+    },
+    "desvolumescrollb": {
+        "message": "向上滚动增加音量"
+    },
+    "desvolumescrollc": {
+        "message": "向下滚动增加音量"
+    },
+    "desvolumeposd": {
+        "message": "在当前视频播放器左上方显示音量"
+    },
+    "desvolumepose": {
+        "message": "在当前视频播放器右上角显示音量"
+    },
+    "titelpipvideo": {
+        "message": "当前视频"
+    },
+    "titelpipvisual": {
+        "message": "音乐可视化"
+    },
+    "titelpip": {
+        "message": "画中画"
+    },
+    "despip": {
+        "message": "通过画中画您可以创建一个浮动视频窗口，保持显示在其他窗口上方。"
+    },
+    "titelpiperror": {
+        "message": "当前网页上没有找到视频。请尝试另一个网页。"
+    },
+    "titelnightmodebutton": {
+        "message": "按钮颜色"
+    },
+    "dessitewhitelist": {
+        "message": "将此站点加入白名单？"
+    },
+    "handytip": {
+        "message": "小贴士..."
+    },
+    "titletipok": {
+        "message": "明白了"
+    },
+    "desscrolltip": {
+        "message": "You can scroll inside the top navigation bar and the color bars. When you scroll horizontally, you can see more buttons in this bar."
+    },
+    "titleyoutube": {
+        "message": "加入Turn Off the Lights 频道。"
+    },
+    "desyoutube": {
+        "message": "Uncover the power of the Turn Off the Lights browser extension. Watch it now on YouTube."
+    },
+    "titlesub": {
+        "message": "即刻订阅！"
+    },
+    "titlelater": {
+        "message": "推迟"
+    },
+    "gamepadoption": {
+        "message": "游戏控制器"
+    },
+    "titlegamepad": {
+        "message": "控制器"
+    },
+    "desgamepad": {
+        "message": "用您的游戏控制器控制多媒体文件"
+    },
+    "desstickplaystation": {
+        "message": "PlayStation手柄"
+    },
+    "desstickxbox": {
+        "message": "Xbox手柄"
+    },
+    "desactions": {
+        "message": "操作"
+    },
+    "desleftstick": {
+        "message": "左摇杆"
+    },
+    "desrightstick": {
+        "message": "右摇杆"
+    },
+    "desbuttonps": {
+        "message": "PlayStation上的按钮"
+    },
+    "desbuttonxb": {
+        "message": "Xbox上的按钮"
+    },
+    "desgamepadsquare": {
+        "message": "方块"
+    },
+    "desgamepadtriangle": {
+        "message": "三角"
+    },
+    "desgamepadshowaddress": {
+        "message": "显示地址栏"
+    },
+    "desgamepadshare": {
+        "message": "分享"
+    },
+    "desgamepadshowmenu": {
+        "message": "显示菜单"
+    },
+    "desgamepadoptions": {
+        "message": "选项"
+    },
+    "desgamepadleftstickpress": {
+        "message": "Left Stick Pressed"
+    },
+    "desgamepadrightstickpress": {
+        "message": "Right Stick Pressed"
+    },
+    "desgamepaddirup": {
+        "message": "Directional Up"
+    },
+    "desgamepaddirdown": {
+        "message": "Directional Down"
+    },
+    "desgamepaddirleft": {
+        "message": "Directional Left"
+    },
+    "desgamepaddirright": {
+        "message": "Directional Right"
+    },
+    "desgamepadxboxlogo": {
+        "message": "Xbox Logo"
+    },
+    "desgamepadpslogo": {
+        "message": "PlayStation Logo"
+    },
+    "desgpbuttonzoominout": {
+        "message": "Zoom in or out"
+    },
+    "desgpbuttonzoompos": {
+        "message": "Zoom position"
+    },
+    "desgpbuttonbackwardsmall": {
+        "message": "play back 1 second"
+    },
+    "desgpbuttonbackwardbig": {
+        "message": "play back 3 seconds"
+    },
+    "desgpbuttonforwardsmall": {
+        "message": "play forward 1 second"
+    },
+    "desgpbuttonforwardbig": {
+        "message": "play forward 3 seconds"
+    },
+    "desgpbuttonhome": {
+        "message": "Gamepad video test page"
+    },
+    "desgpbuttondirup": {
+        "message": "Move the view up"
+    },
+    "desgpbuttondirdown": {
+        "message": "Move the view down"
+    },
+    "desgpbuttondirleft": {
+        "message": "Move the view left"
+    },
+    "desgpbuttondirright": {
+        "message": "Move the view right"
+    },
+    "desgpbuttondirreset": {
+        "message": "Reset the zoom view"
+    },
+    "desgpbuttonshare": {
+        "message": "Exit Zoom Edit"
+    },
+    "desgpbuttonplaypause": {
+        "message": "Play/Pause the current video"
+    },
+    "desgpbuttonvolumeincrease": {
+        "message": "Increase volume"
+    },
+    "desgpbuttonvolumedecrease": {
+        "message": "Decrease volume"
+    },
+    "desgpbuttonnextvideo": {
+        "message": "Play next YouTube video"
+    },
+    "desgpbuttonprevvideo": {
+        "message": "Play previous YouTube video"
+    },
+    "titelgpconnect": {
+        "message": "Connected"
+    },
+    "titelgpdisconnect": {
+        "message": "Disconnected"
+    },
+    "desnightmodeos": {
+        "message": "Automatically switch the current web page to Night Mode if the OS appearance is set to Dark"
+    },
+    "titelonoff": {
+        "message": "ON/OFF"
+    },
+    "titelnightmodeborder": {
+        "message": "Border color"
+    },
+    "titleinfobx": {
+        "message": "Info"
+    },
+    "permissionwebnav": {
+        "message": "这将在网页加载前就添加夜间模式。"
+    }
+}

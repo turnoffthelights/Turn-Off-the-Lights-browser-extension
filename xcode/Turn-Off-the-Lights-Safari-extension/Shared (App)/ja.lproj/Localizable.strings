@@ -1,0 +1,55 @@
+/*
+  Localizable.strings
+  Turn Off the Lights for Safari
+
+  Created by Stefan Van Damme on 17/06/2021.
+  
+*/
+
+"lbleasytosetup" = "設定が簡単です";
+"lblturnoffthelights" = "Turn Off the Lights";
+"lblactivate" = "有効にする";
+"lblwatchvideo" = "動画を見る";
+"lblstep1" = "このアプリを終了する";
+"lblstep2a" = "開くのは";
+"lblstep2b" = "設定";
+"lblstep2c" = "アプリをお使いのデバイスで";
+"lblstep3a" = "検索してタップ";
+"lblstep3b" = "Safari";
+"lblstep3c" = "をタップして、";
+"lblstep3d" = "拡張機能";
+"lblstep4a" = "有効にする";
+"lblstep4b" = "Turn Off the Lights";
+"lblplaceholder" = "Safari の Turn Off the Lights 拡張機能";
+"lblemailsubject" = "Safari の無料の Turn Off the Lights 拡張機能";
+"lblsharetwitter" = "無料のSafari 版 Turn Off the Lights 拡張機能をダウンロードして、ダークモードをすべてのウェブサイトで試してみてください! #iOS15 は @TurnOfftheLight で";
+"lblshareregular" = "このSafari版の無料の Turn Off the Lights 拡張機能をインストールしました。ダークモードをすべてのウェブサイトで使うって、Safari 拡張機能では私のお気に入りです。皆さんも試してみてください！";
+"lblsafariextensionstatus" = "Safari 拡張機能を";
+"lblsafariextensionenable" = "有効にしました";
+"lblsafariextensiondisable" = "無効";
+"lblquickoptions" = "オプションページを開く";
+"lblactionok" = "OK, Got it";
+"bannerstep1a" = "Open the";
+"bannerstep1b" = "Settings";
+"bannerstep1c" = "app";
+"bannerstep2a" = "Scroll to";
+"bannerstep2b" = "Safari";
+"bannerstep3a" = "Select";
+"bannerstep3b" = "Extensions";
+"bannerstep4a" = "Turn on";
+"bannerstep4b" = "Turn Off the Lights";
+"bannerstep5a" = "Open the";
+"bannerstep5b" = "Safari";
+"bannerstep5c" = "web browser";
+"lblactionskip" = "SKIP";
+"lblactionnext" = "NEXT";
+"strfindout" = "Find out more";
+"strworldpremiere" = "WORLD PREMIERE";
+"strdesworldpremiere" = "Browser Extension use Manifest V3 for better Privacy, Performance, and Security.";
+"strtranslator" = "TRANSLATOR COMMUNITY";
+"strdestranslator" = "Help Translate our Browser Extension!";
+"strdeveloper" = "DEVELOPER COMMUNITY";
+"strdesdeveloper" = "Find, and Report Issues!";
+"strsocial" = "SOCIAL COMMUNITY";
+"strdessocial" = "Follow and interact with other members!";
+"strnewsloading" = "Loading…";

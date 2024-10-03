@@ -1,0 +1,119 @@
+/* Class = "UILabel"; text = "There is so much more you can do. And everything can be customized on the Turn Off the Lights Options page, so it matches your personal style and preferences."; ObjectID = "0OB-Fg-auw"; */
+"0OB-Fg-auw.text" = "당신이 할 수 있는 일이 훨씬 더 많습니다. 그리고 개인 스타일과 환경설정에 맞게 Turn Off the Lights 옵션 페이지에서 모든 항목을 사용자 정의할 수 있습니다.";
+
+/* Class = "UILabel"; text = "Activate"; ObjectID = "3Cj-kM-e8I"; */
+"3Cj-kM-e8I.text" = "활성화";
+
+/* Class = "UILabel"; text = "Turn Off the Lights"; ObjectID = "B4r-RH-XgV"; */
+"B4r-RH-XgV.text" = "Turn Off the Lights";
+
+/* Class = "UILabel"; text = "The last profile is the \"Eye Protection\" which dims the web page and adds this dark layer to all newly opened websites and will not remove the layer unless you tap the lamp button again."; ObjectID = "BLb-B0-RK2"; */
+"BLb-B0-RK2.text" = "마지막 프로파일은 \"눈 보호\"로, 웹 페이지를 어둡게 하고 새로 열린 모든 웹 사이트에 이 어두운 레이어를 추가하고 램프 버튼을 다시 누르지 않는 한 레이어를 제거하지 않습니다.";
+
+/* Class = "UIButton"; configuration.title = "Watch Video"; ObjectID = "Ddt-xO-PNb"; */
+"Ddt-xO-PNb.configuration.title" = "동영상 시청";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Ddt-xO-PNb"; */
+"Ddt-xO-PNb.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "The 2nd action you can choose is the Night Owl profile. That makes it possible to convert any website to your personal dark mode theme."; ObjectID = "E6O-Jw-gSV"; */
+"E6O-Jw-gSV.text" = "여러분이 선택할 수 있는 두 번째 액션은 올빼미 프로필입니다. 이는 모든 웹 사이트를 개인 다크 모드 테마로 변환할 수 있습니다.";
+
+/* Class = "UILabel"; text = "Customizable"; ObjectID = "FVh-6P-PDh"; */
+"FVh-6P-PDh.text" = "사용자 지정 가능";
+
+/* Class = "UILabel"; text = "Options page"; ObjectID = "Ggd-gi-wol"; */
+"Ggd-gi-wol.text" = "설정 페이지";
+
+/* Class = "UIButton"; configuration.title = "OK"; ObjectID = "IN9-yT-dQQ"; */
+"IN9-yT-dQQ.configuration.title" = "확인";
+
+/* Class = "UIButton"; configuration.title = "Watch Video"; ObjectID = "Imp-Os-wOD"; */
+"Imp-Os-wOD.configuration.title" = "동영상 시청";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Imp-Os-wOD"; */
+"Imp-Os-wOD.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Leave this app"; ObjectID = "KLJ-NO-6JP"; */
+"KLJ-NO-6JP.text" = "이 앱 닫기";
+
+/* Class = "UILabel"; text = "Let us walk you through the awesome Turn Off the Lights Safari extension features."; ObjectID = "Khk-p9-ex7"; */
+"Khk-p9-ex7.text" = "멋진 \"Turn Off the Lights Safari 확장 기능\"을 안내해 드리겠습니다.";
+
+/* Class = "UIButton"; configuration.title = "4"; ObjectID = "Li8-95-iL8"; */
+"Li8-95-iL8.configuration.title" = "4일";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Li8-95-iL8"; */
+"Li8-95-iL8.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Video Lover Profile"; ObjectID = "O1s-ZN-JTo"; */
+"O1s-ZN-JTo.text" = "비디오 러버 프로필";
+
+/* Class = "UILabel"; text = "Turn Off the Lights"; ObjectID = "OWs-Lg-34j"; */
+"OWs-Lg-34j.text" = "Turn Off the Lights";
+
+/* Class = "UILabel"; text = "Turn Off the Lights"; ObjectID = "PJs-v5-LSN"; */
+"PJs-v5-LSN.text" = "Turn Off the Lights";
+
+/* Class = "UIButton"; configuration.title = "2"; ObjectID = "QUA-an-ILC"; */
+"QUA-an-ILC.configuration.title" = "2";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "QUA-an-ILC"; */
+"QUA-an-ILC.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Easy to set this up"; ObjectID = "TlZ-Hv-ZZ1"; */
+"TlZ-Hv-ZZ1.text" = "설정하기 쉽습니다";
+
+/* Class = "UILabel"; text = "Night Owl Profile"; ObjectID = "XlO-PQ-sJ3"; */
+"XlO-PQ-sJ3.text" = "올빼미 프로필";
+
+/* Class = "UILabel"; text = "Eye Protection Profile"; ObjectID = "aNm-VO-d5h"; */
+"aNm-VO-d5h.text" = "눈 보호 프로필";
+
+/* Class = "UIButton"; configuration.title = "Watch Video"; ObjectID = "b5Q-cU-SYm"; */
+"b5Q-cU-SYm.configuration.title" = "동영상 시청";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "b5Q-cU-SYm"; */
+"b5Q-cU-SYm.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Turn Off the Lights"; ObjectID = "c0N-xl-bA1"; */
+"c0N-xl-bA1.text" = "Turn Off the Lights";
+
+/* Class = "UIButton"; configuration.title = "3"; ObjectID = "e2Y-OR-G7m"; */
+"e2Y-OR-G7m.configuration.title" = "3일";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "e2Y-OR-G7m"; */
+"e2Y-OR-G7m.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Search and tap on Safari, tap then on Extensions"; ObjectID = "i0A-Dg-a92"; */
+"i0A-Dg-a92.text" = "사파리에서 검색하고 누른다음, 확장 기능을 켭니다.";
+
+/* Class = "UILabel"; text = "Enable Turn Off the Lights"; ObjectID = "j8t-bB-hiC"; */
+"j8t-bB-hiC.text" = "Turn Off the Lights 활성화";
+
+/* Class = "UILabel"; text = "Welcome"; ObjectID = "kSN-m6-Tb4"; */
+"kSN-m6-Tb4.text" = "환영합니다";
+
+/* Class = "UILabel"; text = "You can set 3 types of button actions for the lamp button. The default action is the Video Lover profile, which will dim the web page and highlight the video player if available."; ObjectID = "lLD-al-AhY"; */
+"lLD-al-AhY.text" = "램프 버튼의 동작은 3가지로 설정할 수 있습니다. 기본 동작은 비디오 러버 프로필로, 웹 페이지를 어둡게 하고 사용 가능한 경우 비디오 플레이어를 강조 표시합니다.";
+
+/* Class = "UIButton"; configuration.title = "1"; ObjectID = "lOv-lD-98t"; */
+"lOv-lD-98t.configuration.title" = "1";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lOv-lD-98t"; */
+"lOv-lD-98t.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Turn Off the Lights"; ObjectID = "mqJ-SP-Haf"; */
+"mqJ-SP-Haf.text" = "Turn Off the Lights";
+
+/* Class = "UILabel"; text = "Button Action"; ObjectID = "nb0-q9-EJC"; */
+"nb0-q9-EJC.text" = "버튼 동작";
+
+/* Class = "UILabel"; text = "Button Action"; ObjectID = "omB-dZ-yzT"; */
+"omB-dZ-yzT.text" = "버튼 동작";
+
+/* Class = "UILabel"; text = "Open the Settings app on your device"; ObjectID = "opu-Bg-yF6"; */
+"opu-Bg-yF6.text" = "장치에서 설정 앱을 엽니다.";
+
+/* Class = "UILabel"; text = "Button Action"; ObjectID = "z9V-ho-vtZ"; */
+"z9V-ho-vtZ.text" = "버튼 동작";

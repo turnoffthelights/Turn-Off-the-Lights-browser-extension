@@ -1,0 +1,122 @@
+/* Class = "UILabel"; text = "There is so much more you can do. And everything can be customized on the Turn Off the Lights Options page, so it matches your personal style and preferences."; ObjectID = "0OB-Fg-auw"; */
+"0OB-Fg-auw.text" = "Jest jeszcze wiele rzeczy, które możesz zrobić. Wszystko może być dostosowane w ustawieniach Turn Off the Lights, dzięki czemu możesz dopasować dodatek do Twojego stylu i preferencji.";
+
+/* Class = "UILabel"; text = "Activate"; ObjectID = "3Cj-kM-e8I"; */
+"3Cj-kM-e8I.text" = "Aktywuj";
+
+/* Class = "UILabel"; text = "The last profile is the \"Eye Protection\" which dims the web page and adds this dark layer to all newly opened websites and will not remove the layer unless you tap the lamp button again."; ObjectID = "BLb-B0-RK2"; */
+"BLb-B0-RK2.text" = "Ostatni profil to \"Ochrona oczu\", która przyciemnia stronę internetową i dodaje ciemną warstwę do wszystkich nowo otwartych stron internetowych i nie usunie tej warstwy, dopóki znów dotkniesz przycisku lampy.";
+
+/* Class = "UIButton"; configuration.title = "Watch Video"; ObjectID = "Ddt-xO-PNb"; */
+"Ddt-xO-PNb.configuration.title" = "Obejrzyj film";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Ddt-xO-PNb"; */
+"Ddt-xO-PNb.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "The 2nd action you can choose is the Night Owl profile. That makes it possible to convert any website to your personal dark mode theme."; ObjectID = "E6O-Jw-gSV"; */
+"E6O-Jw-gSV.text" = "Drugą akcją, którą możesz wybrać, jest profil Nocna Sowa. Umożliwia to przekształcenie dowolnej strony w Twój motyw trybu ciemności.";
+
+/* Class = "UILabel"; text = "Customizable"; ObjectID = "FVh-6P-PDh"; */
+"FVh-6P-PDh.text" = "Możliwość dostosowania";
+
+/* Class = "UILabel"; text = "Options page"; ObjectID = "Ggd-gi-wol"; */
+"Ggd-gi-wol.text" = "Opcje strony";
+
+/* Class = "UIButton"; configuration.title = "Watch Video"; ObjectID = "Imp-Os-wOD"; */
+"Imp-Os-wOD.configuration.title" = "Obejrzyj film";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Imp-Os-wOD"; */
+"Imp-Os-wOD.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Leave this app"; ObjectID = "KLJ-NO-6JP"; */
+"KLJ-NO-6JP.text" = "Zostaw tę aplikację";
+
+/* Class = "UILabel"; text = "Let us walk you through the awesome Turn Off the Lights Safari extension features."; ObjectID = "Khk-p9-ex7"; */
+"Khk-p9-ex7.text" = "Przejdźmy przez niesamowite rozszerzenia Wyłącz Światło dla Safari.";
+
+/* Class = "UIButton"; configuration.title = "4"; ObjectID = "Li8-95-iL8"; */
+"Li8-95-iL8.configuration.title" = "4";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Li8-95-iL8"; */
+"Li8-95-iL8.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Video Lover Profile"; ObjectID = "O1s-ZN-JTo"; */
+"O1s-ZN-JTo.text" = "Wideo z niskim profilem";
+
+/* Class = "UIButton"; configuration.title = "2"; ObjectID = "QUA-an-ILC"; */
+"QUA-an-ILC.configuration.title" = "2";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "QUA-an-ILC"; */
+"QUA-an-ILC.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Easy to set this up"; ObjectID = "TlZ-Hv-ZZ1"; */
+"TlZ-Hv-ZZ1.text" = "Łatwo to skonfigurować";
+
+/* Class = "UILabel"; text = "Night Owl Profile"; ObjectID = "XlO-PQ-sJ3"; */
+"XlO-PQ-sJ3.text" = "Profil Nocnej Sowy";
+
+/* Class = "UILabel"; text = "Eye Protection Profile"; ObjectID = "aNm-VO-d5h"; */
+"aNm-VO-d5h.text" = "Profil ochrony oczu";
+
+/* Class = "UILabel"; text = "Permissions"; ObjectID = "ak7-Ts-ZUp"; */
+"ak7-Ts-ZUp.text" = "Uprawnienia";
+
+/* Class = "UIButton"; configuration.title = "Watch Video"; ObjectID = "b5Q-cU-SYm"; */
+"b5Q-cU-SYm.configuration.title" = "Obejrzyj film";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "b5Q-cU-SYm"; */
+"b5Q-cU-SYm.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "3"; ObjectID = "e2Y-OR-G7m"; */
+"e2Y-OR-G7m.configuration.title" = "3";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "e2Y-OR-G7m"; */
+"e2Y-OR-G7m.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "GitHub"; ObjectID = "giw-Pr-QBO"; */
+"giw-Pr-QBO.configuration.title" = "GitHub";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "giw-Pr-QBO"; */
+"giw-Pr-QBO.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "https://github.com/turnoffthelights/Turn-Off-the-Lights-Safari-extension"; ObjectID = "gsS-Wx-WRI"; */
+"gsS-Wx-WRI.configuration.title" = "https://github.com/turnoffthelights/Turn-Off-the-Lights-Safari-extension";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "gsS-Wx-WRI"; */
+"gsS-Wx-WRI.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "We take your privacy and security very seriously. We have built the Turn Off the Lights browser extension for our users first, to get a great video and web experience available to all. When you add Turn Off the Lights, it says that we can \"Read and change all your data on the websites you visit\". This permission allows Turn Off the Lights to detect the current video player. We had never collected and will never collect any personal data, credit card, browsing history, and password.\n\nFurthermore, the Turn Off the Lights browser extension is free and Open-Source with the source code publicly available on GitHub."; ObjectID = "gxt-yJ-blz"; */
+"gxt-yJ-blz.text" = "Bardzo poważnie podchodzimy do Twojej prywatności i bezpieczeństwa. Najpierw stworzyliśmy rozszerzenie przeglądarki internetowej \"Wyłącz Światło\" dla naszych użytkowników, aby uzyskać świetne wrażenia oglądania wideo i przeglądania Internetu dostępne dla wszystkich. Po dodaniu rozszerzenia Wyłącz Światło, mówi się, że możemy \"Przeczytać i zmienić wszystkie Twoje dane na odwiedzanych stronach\". To zezwolenie umożliwia rozszerzeniu Wyłącz Światło wykrycie bieżącego odtwarzacza wideo. Nigdy nie zebraliśmy ani nie zgromadziliśmy żadnych danych osobowych, kart kredytowych, historii przeglądania i haseł.\n\nPonadto rozszerzenie Wyłącz Światło jest darmowe i oparte na Open-Source z kodem źródłowym publicznie dostępnym na GitHub.";
+
+/* Class = "UILabel"; text = "Search and tap on Safari, tap then on Extensions"; ObjectID = "i0A-Dg-a92"; */
+"i0A-Dg-a92.text" = "Szukaj i stuknij w Safari, a następnie naciśnij Rozszerzenia";
+
+/* Class = "UILabel"; text = "Enable Turn Off the Lights"; ObjectID = "j8t-bB-hiC"; */
+"j8t-bB-hiC.text" = "Włącz rozszerzenie Wyłącz Światło";
+
+/* Class = "UILabel"; text = "Welcome"; ObjectID = "kSN-m6-Tb4"; */
+"kSN-m6-Tb4.text" = "Witaj";
+
+/* Class = "UILabel"; text = "You can set 3 types of button actions for the lamp button. The default action is the Video Lover profile, which will dim the web page and highlight the video player if available."; ObjectID = "lLD-al-AhY"; */
+"lLD-al-AhY.text" = "Istnieje 3 rodzaje akcji, które możesz ustawić dla przycisku lampy. Domyślną akcją jest niski profil wideo. Spowoduje to przyciemnianie strony internetowej i podkreślenie odtwarzacza wideo, jeśli jest dostępny.";
+
+/* Class = "UIButton"; configuration.title = "1"; ObjectID = "lOv-lD-98t"; */
+"lOv-lD-98t.configuration.title" = "1";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lOv-lD-98t"; */
+"lOv-lD-98t.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Button Action"; ObjectID = "nb0-q9-EJC"; */
+"nb0-q9-EJC.text" = "Akcja przycisku";
+
+/* Class = "UILabel"; text = "Button Action"; ObjectID = "omB-dZ-yzT"; */
+"omB-dZ-yzT.text" = "Akcja przycisku";
+
+/* Class = "UILabel"; text = "Open the Settings app on your device"; ObjectID = "opu-Bg-yF6"; */
+"opu-Bg-yF6.text" = "Otwórz Ustawienia aplikacji na swoim urządzeniu";
+
+/* Class = "UILabel"; text = "Privacy and Open-Source"; ObjectID = "vQR-bB-JZO"; */
+"vQR-bB-JZO.text" = "Polityka prywatności i Open-Source";
+
+/* Class = "UILabel"; text = "Button Action"; ObjectID = "z9V-ho-vtZ"; */
+"z9V-ho-vtZ.text" = "Akcja przycisku";

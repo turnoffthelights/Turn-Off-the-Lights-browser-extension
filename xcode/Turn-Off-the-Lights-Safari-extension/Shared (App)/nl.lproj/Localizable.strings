@@ -1,0 +1,55 @@
+/*
+  Localizable.strings
+  Turn Off the Lights for Safari
+
+  Created by Stefan Van Damme on 17/06/2021.
+  
+*/
+
+"lbleasytosetup" = "Gemakkelijk op te zetten";
+"lblturnoffthelights" = "Turn Off the Lights";
+"lblactivate" = "Activeren";
+"lblwatchvideo" = "Bekijk video";
+"lblstep1" = "Verlaat deze app";
+"lblstep2a" = "Open de";
+"lblstep2b" = "Instellingen";
+"lblstep2c" = "app op uw apparaat";
+"lblstep3a" = "Zoek en tik op";
+"lblstep3b" = "Safari";
+"lblstep3c" = ", tik dan op";
+"lblstep3d" = "Extensies";
+"lblstep4a" = "Inschakelen";
+"lblstep4b" = "Turn Off the Lights";
+"lblplaceholder" = "Turn Off the Lights Safari-extensie";
+"lblemailsubject" = "Gratis Turn Off the Lights Safari extensie";
+"lblsharetwitter" = "Download de gratis Turn Off the Lights Safari-extensie om donkere modus op alle websites te krijgen. Probeer het zelf! #iOS15 via @TurnOfftheLight";
+"lblshareregular" = "Ik heb net deze gratis Turn Off the Lights-Safari-extensie geïnstalleerd, het is mijn favoriete Safari-extensie om donkere modus op alle websites te krijgen. Probeer het zelf!";
+"lblsafariextensionstatus" = "Safari extensie is";
+"lblsafariextensionenable" = "Ingeschakeld";
+"lblsafariextensiondisable" = "Uitgeschakeld";
+"lblquickoptions" = "Open optiespagina";
+"lblactionok" = "OK ik snap het";
+"bannerstep1a" = "Open de";
+"bannerstep1b" = "Instellingen";
+"bannerstep1c" = "app";
+"bannerstep2a" = "Scroll naar";
+"bannerstep2b" = "Safari";
+"bannerstep3a" = "Selecteer";
+"bannerstep3b" = "Extensies";
+"bannerstep4a" = "Schakel in";
+"bannerstep4b" = "Turn Off the Lights";
+"bannerstep5a" = "Open de";
+"bannerstep5b" = "Safari";
+"bannerstep5c" = "web browser";
+"lblactionskip" = "OVERSLAAN";
+"lblactionnext" = "VOLGENDE";
+"strfindout" = "Meer te weten komen";
+"strworldpremiere" = "WERELD PREMIERE";
+"strdesworldpremiere" = "Browser Extension gebruikt Manifest V3 voor betere privacy, prestaties en beveiliging.";
+"strtranslator" = "VERTALER GEMEENSCHAP";
+"strdestranslator" = "Help en vertaal de browserextensie!";
+"strdeveloper" = "ONTWIKKELAAR GEMEENSCHAP";
+"strdesdeveloper" = "Zoek en meld problemen!";
+"strsocial" = "SOCIALE GEMEENSCHAP";
+"strdessocial" = "Volg en communiceer met andere leden!";
+"strnewsloading" = "Laden…";

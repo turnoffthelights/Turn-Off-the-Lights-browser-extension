@@ -1,0 +1,55 @@
+/*
+  Localizable.strings
+  Turn Off the Lights for Safari
+
+  Created by Stefan Van Damme on 17/06/2021.
+  
+*/
+
+"lbleasytosetup" = "Fácil de configurar";
+"lblturnoffthelights" = "Turn Off the Lights";
+"lblactivate" = "Activar";
+"lblwatchvideo" = "Ver vídeo";
+"lblstep1" = "Salir de la aplicación";
+"lblstep2a" = "Abre:";
+"lblstep2b" = "Ajustes";
+"lblstep2c" = "en tu dispositivo";
+"lblstep3a" = "Buscar y pulsar";
+"lblstep3b" = "Safari";
+"lblstep3c" = ", luego pulsa";
+"lblstep3d" = "Extensiones";
+"lblstep4a" = "Activar";
+"lblstep4b" = "Turn Off the Lights";
+"lblplaceholder" = "Extensión Safari de Turn Off the Lights";
+"lblemailsubject" = "Extensión Safari de Turn Off the Lights GRATIS";
+"lblsharetwitter" = "Descarga la extensión Safari para Turn Off the Lights gratis y atenúa todas las webs. ¡Pruébalo tú mismo! #iOS15 desde @TurnOfftheLight";
+"lblshareregular" = "Acabo de instalar la extensión Safari para Turn Off the Lights gratis. Es mi extensión favorita para oscurecer todas las webs. ¡Pruébalo tú mismo!";
+"lblsafariextensionstatus" = "La extensión Safari es";
+"lblsafariextensionenable" = "Activado";
+"lblsafariextensiondisable" = "Desactivado";
+"lblquickoptions" = "Abrir página de opciones";
+"lblactionok" = "Vale, entendido";
+"bannerstep1a" = "Abre:";
+"bannerstep1b" = "Ajustes";
+"bannerstep1c" = "aplic.";
+"bannerstep2a" = "Desliza a";
+"bannerstep2b" = "Safari";
+"bannerstep3a" = "Seleccionar";
+"bannerstep3b" = "Extensiones";
+"bannerstep4a" = "Activar";
+"bannerstep4b" = "Turn Off the Lights";
+"bannerstep5a" = "Abre:";
+"bannerstep5b" = "Safari";
+"bannerstep5c" = "navegador web";
+"lblactionskip" = "OMITIR";
+"lblactionnext" = "SIGUIENTE";
+"strfindout" = "Descubrir más";
+"strworldpremiere" = "MEJOR DEL MUNDO";
+"strdesworldpremiere" = "La extensión de navegador usa Manifest V3 para mejor privacidad, rendimiento y seguridad.";
+"strtranslator" = "COMUNIDAD DE TRADUCCIÓN";
+"strdestranslator" = "¡Ayuda a traducir nuestra extensión de navegador!";
+"strdeveloper" = "COMUNIDAD DE DESARROLLO";
+"strdesdeveloper" = "¡Encuentra e informa de errores!";
+"strsocial" = "COMUNIDAD SOCIAL";
+"strdessocial" = "¡Sigue a otros miembros e interactúa con ellos!";
+"strnewsloading" = "Cargando…";
