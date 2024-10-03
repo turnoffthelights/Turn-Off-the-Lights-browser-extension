@@ -1,0 +1,57 @@
+﻿/*
+//================================================
+
+Turn Off the Lights
+The entire page will be fading to dark, so you can watch the video as if you were in the cinema.
+Copyright (C) 2024 Stefan vd
+www.stefanvd.net
+www.turnoffthelights.com
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+
+To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.0/
+
+//================================================
+*/
+
+.caption-window.ytp-caption-window-bottom{z-index:1001!important;pointer-events:none!important}
+.ytd-browse-0 #header.ytd-browse{z-index:auto!important}
+.ytp-chrome-top{z-index:1001!important}
+.ytp-ce-element,.ytp-ce-shadow{z-index:1001!important}
+#masthead-container.ytd-app{z-index:982!important}
+tp-yt-app-drawer.ytd-app[persistent]{z-index:980!important}
+#masthead-positioner{z-index:980!important}
+.ytp-contextmenu{z-index:1001!important}
+.ytp-chrome-bottom{z-index:1001!important}
+.ytp-preview{z-index:1001!important}
+.html5-video-info-panel{z-index:1001!important}
+.ytp-ad-overlay-slot{z-index:1005!important}
+.ytp-ad-preview-container,.ytp-ad-skip-button-container{z-index:1005!important}
+.ytp-ad-player-overlay-instream-info,.ytp-ad-survey-player-overlay-instream-info{z-index:1005!important}
+.iv-promo{z-index:1005!important}
+/* Start iOS mobile show the player buttons */
+.player-controls-background{z-index:1001!important}
+#player-control-overlay{z-index:1001!important}
+.ytp-ad-player-overlay{z-index:1001!important}
+.ytp-unmute{z-index:1001!important}
+.dialog-container{z-index:1005!important}
+/* End Mobile */
+app-drawer[persistent].ytd-app{z-index:auto!important}
+ytd-mini-guide-renderer{z-index:900!important}
+ytd-channel-name{z-index:900!important}
+ytd-video-preview[active]{z-index:2000!important}
+ytd-channel-video-player-renderer[rounded] #player.ytd-channel-video-player-renderer{isolation:auto!important}
+.ytp-preview-ad,.ytp-skip-ad-button,.ytp-ad-player-overlay-layout__ad-info-container,.ytp-ad-player-overlay-layout__player-card-container{z-index:1001!important}

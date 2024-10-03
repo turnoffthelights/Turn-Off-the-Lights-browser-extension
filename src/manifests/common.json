@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "short_name": "Turn Off the Lights",
+  "author": "Stefan vd",
+  "homepage_url": "https://www.turnoffthelights.com/support/",
+  "icons": {
+    "16": "icons/icon16.png",
+    "24": "icons/icon24.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "96": "icons/icon96.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "content_security_policy": {
+    "extension_pages": "default-src 'none'; style-src 'self'; media-src https://www.turnoffthelights.com; frame-src https://www.youtube.com https://www.turnoffthelights.com; connect-src https://www.turnoffthelights.com; script-src 'self'; img-src 'self' https://www.turnoffthelights.com * data:; object-src 'none'"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/constants.js", "js/content.js", "js/eco.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "css" : ["css/light.css"],
+      "run_at": "document_end",
+      "all_frames": true,
+      "match_about_blank": true
+    },
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["js/fps.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/autostop.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    },
+    {
+      "matches": ["*://*.youtube.com/*"], 
+      "css" : ["css/youtube.css"]
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  }
+}

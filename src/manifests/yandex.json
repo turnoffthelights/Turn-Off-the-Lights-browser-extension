@@ -1,0 +1,47 @@
+{
+  "name": "__MSG_name__",
+  "description": "__MSG_description__",
+  "omnibox": { "keyword" : "totl" },
+  "action": {
+    "default_title": "__MSG_pageatitle__",
+    "default_icon": {
+      "19": "icons/iconstick19.png",
+      "38": "icons/iconstick38.png"
+    }
+  },
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L",
+        "mac": "MacCtrl+Shift+L"
+      }
+    },
+    "toggle-feature-nightmode": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+N",
+        "mac": "MacCtrl+Shift+N"
+      },
+      "description": "__MSG_titelnighttheme__"
+    }
+  },
+  "web_accessible_resources": [{
+    "resources": ["/js/fps-block.js", "/js/hd-quality.js"],
+    "matches": ["*://www.youtube.com/*"],
+    "use_dynamic_url": true
+  },
+  {
+    "resources": ["/js/video-player-status.js"],
+    "matches": ["<all_urls>"],
+    "use_dynamic_url": true
+  }],
+  "offline_enabled": true,
+  "minimum_chrome_version": "116",
+  "storage": {
+    "managed_schema": "schema.json"
+  },
+  "permissions": ["contextMenus", "tabs", "storage", "webNavigation", "scripting"],
+  "host_permissions": ["<all_urls>"]
+}

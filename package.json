@@ -1,0 +1,42 @@
+{
+  "name": "turn-off-the-lights-browser-extension",
+  "version": "4.4.10",
+  "description": "Browser extension",
+  "homepage": "https://wwww.turnoffthelights.com",
+  "author": "Stefan Van Damme",
+  "main": "index.js",
+  "license": "GPL-2.0",
+  "devDependencies": {
+    "eslint": "^7.17.0",
+    "gulp": "^5.0.0",
+    "gulp-zip": "^5.1.0"
+  },
+  "scripts": {
+    "lint:js": "eslint src/**/*.js",
+    "lint": "npm run lint:js",
+    "chrome": "gulp chrome",
+    "firefox": "gulp firefox",
+    "opera": "gulp opera",
+    "edge": "gulp edge",
+    "safari": "gulp safari",
+    "whale": "gulp whale",
+    "yandex": "gulp yandex",
+    "samsung": "gulp samsung",
+    "chrome-create-zip": "cd dist/chrome && find . -name '.DS_Store' -type f -delete && zip -r ../$npm_package_name-chrome-extension-$npm_package_version.zip *",
+    "firefox-create-zip": "cd dist/firefox && find . -name '.DS_Store' -type f -delete && zip -r ../$npm_package_name-firefox-extension-$npm_package_version.zip *",
+    "opera-create-zip": "cd dist/opera && find . -name '.DS_Store' -type f -delete && zip -r ../$npm_package_name-opera-extension-$npm_package_version.zip *",
+    "edge-create-zip": "cd dist/edge && find . -name '.DS_Store' -type f -delete && zip -r ../$npm_package_name-edge-extension-$npm_package_version.zip *",
+    "whale-create-zip": "cd dist/whale && find . -name '.DS_Store' -type f -delete && zip -r ../$npm_package_name-whale-extension-$npm_package_version.zip *",
+    "samsung-create-zip": "cd dist/samsung && find . -name '.DS_Store' -type f -delete && zip -r ../$npm_package_name-samsung-extension-$npm_package_version.zip *",
+    "browserzip": "gulp browserzip"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-inject-string": "^1.1.2",
+    "gulp-merge-json": "^2.2.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.1.4",
+    "merge-stream": "^2.0.0"
+  }
+}

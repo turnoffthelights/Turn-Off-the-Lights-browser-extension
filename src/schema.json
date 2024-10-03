@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "SuppressWelcomePage": {
+      "type": "boolean"
+    },
+    "AutoDim": {
+      "type": "boolean"
+    },
+    "AutoStop": {
+      "type": "boolean"
+    },
+    "AutoHD": {
+      "type": "boolean"
+    },
+    "AutoHDQuality": {
+      "type": "string"
+    },
+    "Block60FPS": {
+      "type": "boolean"
+    },
+    "NightModeSwitch": {
+      "type": "boolean"
+    },
+    "MouseVolumeScroll": {
+      "type": "boolean"
+    },
+    "VideoToolbar": {
+      "type": "boolean"
+    }
+  }
+}
