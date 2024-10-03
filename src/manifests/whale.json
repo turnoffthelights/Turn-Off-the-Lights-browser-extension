@@ -5,8 +5,8 @@
   "action": {
     "default_title": "__MSG_pageatitle__",
     "default_icon": {
-      "19": "icons/iconstick19.png",
-      "38": "icons/iconstick38.png"
+      "19": "images/iconstick19.png",
+      "38": "images/iconstick38.png"
     }
   },
   "background": {
