@@ -5,12 +5,12 @@
   "action": {
     "default_title": "__MSG_pageatitle__",
     "default_icon": {
-      "19": "icons/iconstick19.png",
-      "38": "icons/iconstick38.png"
+      "19": "images/iconstick19.png",
+      "38": "images/iconstick38.png"
     }
   },
   "background": {
-    "service_worker": "js/background.js"
+    "service_worker": "scripts/background.js"
   },
   "commands": {
     "_execute_action": {
@@ -28,12 +28,12 @@
     }
   },
   "web_accessible_resources": [{
-    "resources": ["/js/fps-block.js", "/js/hd-quality.js"],
+    "resources": ["/scripts/fps-block.js", "/scripts/hd-quality.js"],
     "matches": ["*://www.youtube.com/*"],
     "use_dynamic_url": true
   },
   {
-    "resources": ["/js/video-player-status.js"],
+    "resources": ["/scripts/video-player-status.js"],
     "matches": ["<all_urls>"],
     "use_dynamic_url": true
   }],

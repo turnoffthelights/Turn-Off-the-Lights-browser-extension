@@ -31,7 +31,7 @@ chrome.storage.sync.get(["block60fps"], function(response){
 	var block60fps = response["block60fps"];
 	if(block60fps == true){
 		try{
-			var script = document.createElement("script"); script.type = "text/javascript"; script.src = chrome.runtime.getURL("js/fpsinject.js"); document.getElementsByTagName("head")[0].appendChild(script);
+			var script = document.createElement("script"); script.type = "text/javascript"; script.src = chrome.runtime.getURL("scripts/fpsinject.js"); document.getElementsByTagName("head")[0].appendChild(script);
 		}catch(e){ console.error(e); }
 	}
 });

@@ -368,7 +368,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		}, function(tabs){
 			chrome.scripting.executeScript({
 				target: {tabId: tabs[0].id},
-				files: ["js/light.js"]
+				files: ["scripts/light.js"]
 			});
 		});
 	});

@@ -34,6 +34,7 @@ const buildExtension = (browser) => {
 
 	// html, scripts, styles files
 	const sourceFiles = src([
+		"./src/schema.json",
 		"!**/index.js",
 		"./src/LICENSE",
 		"./src/**/*.html",
@@ -92,6 +93,7 @@ exports.opera = () => buildExtension("opera");
 exports.edge = () => buildExtension("edge");
 exports.safari = () => buildExtension("safari");
 exports.whale = () => buildExtension("whale");
+exports.samsung = () => buildExtension("samsung");
 
 // Zipping tasks for each browser
 exports["chrome-zip"] = runZipCommand("chrome");

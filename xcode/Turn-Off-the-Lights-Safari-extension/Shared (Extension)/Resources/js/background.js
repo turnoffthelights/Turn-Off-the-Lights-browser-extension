@@ -46,7 +46,7 @@ chrome.runtime.onMessage.addListener(function request(request, sender){
 	case"automatic":
 		chrome.scripting.executeScript({
 			target: {tabId: sender.tab.id},
-			files: ["js/light.js"]
+			files: ["scripts/light.js"]
 		});
 		break;
 	case"screenshot":
@@ -67,7 +67,7 @@ chrome.runtime.onMessage.addListener(function request(request, sender){
 		removecontexmenus();
 		break;
 	case"sendlightcss":
-		restcontent("/css/light.css", "injectlightcss", sender.tab.id);
+		restcontent("/styles/light.css", "injectlightcss", sender.tab.id);
 		break;
 	case"emergencyalf":
 		chrome.tabs.query({}, function(tabs){
@@ -75,7 +75,7 @@ chrome.runtime.onMessage.addListener(function request(request, sender){
 			for(i = 0; i < l; i++){
 				chrome.scripting.executeScript({
 					target: {tabId: tabs[i].id},
-					files: ["js/light.js"]
+					files: ["scripts/light.js"]
 				});
 			}
 		}
@@ -137,7 +137,7 @@ chrome.runtime.onMessage.addListener(function request(request, sender){
 			chrome.tabs.query({}, function(tabs){
 				var i, l = tabs.length;
 				for(i = 0; i < l; i++){
-					chrome.action.setIcon({tabId : tabs[i].id, path : {"19": "/icons/iconwhite19.png", "38": "/icons/iconwhite38.png"}});
+					chrome.action.setIcon({tabId : tabs[i].id, path : {"19": "/images/iconwhite19.png", "38": "/images/iconwhite38.png"}});
 				}
 			});
 		}else{
@@ -151,9 +151,9 @@ chrome.runtime.onMessage.addListener(function request(request, sender){
 			chrome.storage.sync.get(["icon"], function(items){
 				if(items["icon"] == undefined){
 					if(exbrowser == "safari"){
-						items["icon"] = "/icons/iconstick38safari.png";
+						items["icon"] = "/images/iconstick38safari.png";
 					}else{
-						items["icon"] = "/icons/iconstick38.png";
+						items["icon"] = "/images/iconstick38.png";
 					}
 				}
 				chrome.tabs.query({}, function(tabs){
@@ -198,24 +198,24 @@ if(exbrowser != "safari"){
 		injectScriptsTo(tabId, url);
 	});
 }else{
-    // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/scripting
-    // Safari no support "executeScript.injectImmediately"
-    // Use this content script in iOS 16.4 and higher
-    chrome.scripting.registerContentScripts([
-        {
-          id: "session-script",
-          js: ["js/screen-shader.js", "js/night-mode.js"],
-          matches: ["<all_urls>"],
-          runAt: "document_start"
-        },
-      ])
-    .then(() => console.log("registration complete"))
-    .catch((err) => console.warn("unexpected error", err));
+	// https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/scripting
+	// Safari no support "executeScript.injectImmediately"
+	// Use this content script in iOS 16.4 and higher
+	chrome.scripting.registerContentScripts([
+		{
+			id: "session-script",
+			js: ["scripts/screen-shader.js", "scripts/night-mode.js"],
+			matches: ["<all_urls>"],
+			runAt: "document_start"
+		},
+	])
+		.then(() => console.log("registration complete"))
+		.catch((err) => console.warn("unexpected error", err));
 }
 
 // screen-shader.js = Screen Shader
 // night-mode.js = Night Mode
-const scriptList = ["js/screen-shader.js", "js/night-mode.js"];
+const scriptList = ["scripts/screen-shader.js", "scripts/night-mode.js"];
 const injectScriptsTo = (tabId, url) => {
 	if(url.match(/^http/i) || url.match(/^file/i)){
 		scriptList.forEach((script) => {
@@ -242,9 +242,9 @@ chrome.tabs.onActivated.addListener(async(activeInfo) => {
 		chrome.storage.sync.get(["icon"], function(items){
 			if(items["icon"] == undefined){
 				if(exbrowser == "safari"){
-					items["icon"] = "/icons/iconstick38safari.png";
+					items["icon"] = "/images/iconstick38safari.png";
 				}else{
-					items["icon"] = "/icons/iconstick38.png";
+					items["icon"] = "/images/iconstick38.png";
 				}
 			}
 			chrome.action.setIcon({tabId : thattab.tabId, path : {"19": items["icon"], "38": items["icon"]}});
@@ -263,9 +263,9 @@ chrome.tabs.onUpdated.addListener(function(){
 		chrome.storage.sync.get(["icon"], function(items){
 			if(items["icon"] == undefined){
 				if(exbrowser == "safari"){
-					items["icon"] = "/icons/iconstick38safari.png";
+					items["icon"] = "/images/iconstick38safari.png";
 				}else{
-					items["icon"] = "/icons/iconstick38.png";
+					items["icon"] = "/images/iconstick38.png";
 				}
 			}
 			chrome.action.setIcon({tabId : thattab.id, path : {"19": items["icon"], "38": items["icon"]}});
@@ -304,7 +304,7 @@ chrome.action.onClicked.addListener(function(tab){
 							if((chromeset["alllightsoff"] != true)){
 								chrome.scripting.executeScript({
 									target: {tabId: tab.id},
-									files: ["js/light.js"]
+									files: ["scripts/light.js"]
 								});
 							}else{
 								chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
@@ -361,7 +361,7 @@ function onClickHandler(info, tab){
 	case(str.includes("totlvideo") || str.includes("totlpage")):
 		chrome.scripting.executeScript({
 			target: {tabId: tab.id},
-			files: ["js/light.js"]
+			files: ["scripts/light.js"]
 		});
 		break;
 	case(str.includes("totlguideemenu")): chrome.tabs.create({url: linkguide, active:true});
@@ -671,7 +671,7 @@ if(typeof chrome.omnibox !== "undefined"){
 				getCurrentTab().then((thattab) => {
 					chrome.scripting.executeScript({
 						target: {tabId: thattab.id},
-						files: ["js/light.js"]
+						files: ["scripts/light.js"]
 					});
 				});
 			}else if(onmniresult == i18nomnihelp){

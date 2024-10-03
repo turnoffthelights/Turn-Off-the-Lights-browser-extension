@@ -2458,27 +2458,27 @@ function domcontentloaded(){
 	// Lamp Icons
 	$("p1").addEventListener("click", function(){
 		var custombrowser = "";
-		if(exbrowser == "safari"){ custombrowser = "/icons/iconstick38safari.png"; }else{ custombrowser = "/icons/iconstick38.png"; }
+		if(exbrowser == "safari"){ custombrowser = "/images/iconstick38safari.png"; }else{ custombrowser = "/images/iconstick38.png"; }
 		setpreviewlampicon(custombrowser);
 	});
 	$("p2").addEventListener("click", function(){
 		var custombrowser = "";
-		if(exbrowser == "safari"){ custombrowser = "/icons/icongold38safari.png"; }else{ custombrowser = "/icons/icongold38.png"; }
+		if(exbrowser == "safari"){ custombrowser = "/images/icongold38safari.png"; }else{ custombrowser = "/images/icongold38.png"; }
 		setpreviewlampicon(custombrowser);
 	});
 	$("p3").addEventListener("click", function(){
 		var custombrowser = "";
-		if(exbrowser == "safari"){ custombrowser = "/icons/iconrose38safari.png"; }else{ custombrowser = "/icons/iconrose38.png"; }
+		if(exbrowser == "safari"){ custombrowser = "/images/iconrose38safari.png"; }else{ custombrowser = "/images/iconrose38.png"; }
 		setpreviewlampicon(custombrowser);
 	});
 	$("p4").addEventListener("click", function(){
 		var custombrowser = "";
-		if(exbrowser == "safari"){ custombrowser = "/icons/iconrainbow38safari.png"; }else{ custombrowser = "/icons/iconrainbow38.png"; }
+		if(exbrowser == "safari"){ custombrowser = "/images/iconrainbow38safari.png"; }else{ custombrowser = "/images/iconrainbow38.png"; }
 		setpreviewlampicon(custombrowser);
 	});
 	$("p5").addEventListener("click", function(){
 		var custombrowser = "";
-		if(exbrowser == "safari"){ custombrowser = "/icons/iconwhite38safari.png"; }else{ custombrowser = "/icons/iconwhite38.png"; }
+		if(exbrowser == "safari"){ custombrowser = "/images/iconwhite38safari.png"; }else{ custombrowser = "/images/iconwhite38.png"; }
 		setpreviewlampicon(custombrowser);
 	});
 

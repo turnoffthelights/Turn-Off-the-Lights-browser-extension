@@ -8,54 +8,54 @@
   "homepage_url": "https://www.turnoffthelights.com/support/",
   "omnibox": { "keyword" : "totl" },
   "icons": {
-      "16": "icons/icon16.png",
-      "24": "icons/icon24.png",
-      "32": "icons/icon32.png",
-      "48": "icons/icon48.png",
-      "96": "icons/icon96.png",
-      "128": "icons/icon128.png"
+      "16": "images/icon16.png",
+      "24": "images/icon24.png",
+      "32": "images/icon32.png",
+      "48": "images/icon48.png",
+      "96": "images/icon96.png",
+      "128": "images/icon128.png"
   },
   "default_locale": "en",
   "action": {
       "default_title": "__MSG_pageatitle__",
       "default_icon": {
-        "19": "icons/iconstick19safari.png",
-        "38": "icons/iconstick38safari.png"
+        "19": "images/iconstick19safari.png",
+        "38": "images/iconstick38safari.png"
       }
   },
   "background": {
-    "service_worker": "js/background.js",
+    "service_worker": "scripts/background.js",
     "persistent": false
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["js/constants.js", "js/content.js", "js/eco.js"],
+      "js": ["scripts/constants.js", "scripts/content.js", "scripts/eco.js"],
       "run_at": "document_end"
     },
     {
       "matches": ["<all_urls>"],
-      "css" : ["css/light.css"],
+      "css" : ["styles/light.css"],
       "run_at": "document_end",
       "all_frames": true,
       "match_about_blank": true
     },
     {
       "matches": ["*://*.youtube.com/*"],
-      "js": ["js/fps.js"],
+      "js": ["scripts/fps.js"],
       "run_at": "document_start",
       "all_frames": true
     },
     {
       "matches": ["<all_urls>"],
-      "js": ["js/autostop.js"],
+      "js": ["scripts/autostop.js"],
       "run_at": "document_start",
       "all_frames": true,
       "match_about_blank": true
     },
     {
       "matches": ["*://*.youtube.com/*"], 
-      "css" : ["css/youtube.css"]
+      "css" : ["styles/youtube.css"]
     }
   ],
   "commands": {
@@ -78,12 +78,12 @@
     "open_in_tab": true
   },
   "web_accessible_resources": [{
-    "resources": ["/js/fps-block.js", "/js/hd-quality.js"],
+    "resources": ["/scripts/fps-block.js", "/scripts/hd-quality.js"],
     "matches": ["*://www.youtube.com/*"],
     "use_dynamic_url": true
   },
   {
-    "resources": ["/js/video-player-status.js"],
+    "resources": ["/scripts/video-player-status.js"],
     "matches": ["<all_urls>"],
     "use_dynamic_url": true
   }],

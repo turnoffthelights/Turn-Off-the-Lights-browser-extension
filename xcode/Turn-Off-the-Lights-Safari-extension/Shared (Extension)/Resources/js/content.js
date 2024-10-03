@@ -158,7 +158,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	// inject script for autodim
 	function addautodimfile(){
 		if(!document.getElementById("totlautodim")){
-			var script = document.createElement("script"); script.id = "totlautodim"; script.type = "text/javascript"; script.src = chrome.runtime.getURL("js/video-player-status.js"); document.getElementsByTagName("head")[0].appendChild(script);
+			var script = document.createElement("script"); script.id = "totlautodim"; script.type = "text/javascript"; script.src = chrome.runtime.getURL("scripts/video-player-status.js"); document.getElementsByTagName("head")[0].appendChild(script);
 		}
 	}
 
@@ -3671,7 +3671,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 		if(customqualityyoutube == true){
 			const params = new URLSearchParams();
 			params.set("maxquality", maxquality);
-			var script = document.createElement("script"); script.type = "text/javascript"; script.src = chrome.runtime.getURL(`js/hdinject.js?${params}`); document.getElementsByTagName("head")[0].appendChild(script);
+			var script = document.createElement("script"); script.type = "text/javascript"; script.src = chrome.runtime.getURL(`scripts/hdinject.js?${params}`); document.getElementsByTagName("head")[0].appendChild(script);
 		}
 	} // end check youtube.com website
 
