@@ -7,16 +7,18 @@ const{join} = require("path");
 const{exec} = require("child_process");
 
 const outputDir = "dist";
+const safariOutputDir = "xcode/Turn-Off-the-Lights-Safari-extension/Shared (Extension)/Resources";
 const packageDef = require("./package.json");
 
 const buildExtension = (browser) => {
-	const destination = `${outputDir}/${browser}`;
+	// Set destination based on browser type
+	const destination = browser === "safari" ? safariOutputDir : `${outputDir}/${browser}`;
 
-	// manifest file
+	// Manifest file
 	const commonManifest = "./src/manifests/common.json";
 	const browserManifest = `./src/manifests/${browser}.json`;
 
-	// get the version number from the package.json file and add it in the manifest.json file
+	// Get the version number from package.json and add it to manifest.json
 	src([commonManifest, browserManifest])
 		.pipe(mergeJson({
 			fileName: "manifest.json",
@@ -27,12 +29,13 @@ const buildExtension = (browser) => {
 		}))
 		.pipe(dest(`${destination}/`));
 
+	// Constants file
 	const browserConstantFile = `./src/constants/${browser}/constants.js`;
 	const destinationConstantFile = join(destination, "scripts", "constants.js");
 	fs.mkdirSync(join(destination, "scripts"), {recursive: true});
 	fs.copyFileSync(browserConstantFile, destinationConstantFile);
 
-	// html, scripts, styles files
+	// HTML, scripts, styles, and other necessary files
 	const sourceFiles = src([
 		"./src/schema.json",
 		"!**/index.js",
@@ -52,7 +55,7 @@ const buildExtension = (browser) => {
 
 	processedFiles.pipe(dest(destination));
 
-	// images folder
+	// Images
 	const imageExtensions = ["png", "webp", "svg", "webm", "mp4"];
 	imageExtensions.forEach((extension) => {
 		const files = fs.readdirSync("./src/images", {withFileTypes: true});
@@ -65,7 +68,7 @@ const buildExtension = (browser) => {
 		});
 	});
 
-	// languages
+	// Localization files
 	const commonFiles = src(["./src/_locales/**/*.json"])
 		.pipe(dest(`${destination}/_locales`));
 
