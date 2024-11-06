@@ -3152,16 +3152,16 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 			changevolume("+");
 			break;
 		case 4:
-			onesecondbackward();
+			seek(-1);
 			break;
 		case 5:
-			onesecondforward();
+			seek(1);
 			break;
 		case 6:
-			threesecondbackward();
+			seek(-3);
 			break;
 		case 7:
-			threesecondforward();
+			seek(3);
 			break;
 		case 8:
 			exitzoom(0);
@@ -3186,6 +3186,12 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 			break;
 		case 15:
 			actionlogo();
+			break;
+		case 16:
+			seek(-10);
+			break;
+		case 17:
+			seek(10);
 			break;
 		}
 	}
@@ -3529,22 +3535,6 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 		}
 	}
 
-	function onesecondbackward(){
-		seek(-1);
-	}
-
-	function threesecondbackward(){
-		seek(-3);
-	}
-
-	function onesecondforward(){
-		seek(1);
-	}
-
-	function threesecondforward(){
-		seek(3);
-	}
-
 	// YouTube embed iframe
 	if(customqualityyoutube == true){
 		var newvideoid;
@@ -3612,7 +3602,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 		if(customqualityyoutube == true){
 			const params = new URLSearchParams();
 			params.set("maxquality", maxquality);
-			var script = document.createElement("script"); script.type = "text/javascript"; script.src = chrome.runtime.getURL(`scripts/hdinject.js?${params}`); document.getElementsByTagName("head")[0].appendChild(script);
+			var script = document.createElement("script"); script.type = "text/javascript"; script.src = chrome.runtime.getURL(`scripts/hd-quality.js?${params}`); document.getElementsByTagName("head")[0].appendChild(script);
 		}
 	} // end check youtube.com website
 

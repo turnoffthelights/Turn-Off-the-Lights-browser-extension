@@ -540,5 +540,8 @@
 "desnightmodeimagedarken":{"message":"Darkened"},
 "desnightmodeimagegrayscale":{"message":"Grayscaled"},
 "despasswordhide":{"message":"Hide password"},
-"despasswordshow":{"message":"Show password"}
+"despasswordshow":{"message":"Show password"},
+"desgpbuttonforwardbigx":{"message":"play forward 10 seconds"},
+"desgpbuttonbackwardbigx":{"message":"play back 10 seconds"},
+"desdynamicaquarium":{"message":"Aquarium with fish"}
 }
