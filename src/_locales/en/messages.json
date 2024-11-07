@@ -543,5 +543,6 @@
 "despasswordshow":{"message":"Show password"},
 "desgpbuttonforwardbigx":{"message":"play forward 10 seconds"},
 "desgpbuttonbackwardbigx":{"message":"play back 10 seconds"},
-"desdynamicaquarium":{"message":"Aquarium with fish"}
+"desdynamicaquarium":{"message":"Aquarium with fish"},
+"desdynamicfireworks":{"message":"Fireworks"}
 }

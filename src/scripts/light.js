@@ -29,7 +29,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 
 function $(id){ return document.getElementById(id); }
 // settings
-var default_opacity = null, suggestions = null, playlist = null, videoheadline = null, flash = null, head = null, infobar = null, likebutton = null, sharebutton = null, viewcount = null, addvideobutton = null, likebar = null, mousespotlighto = null, mousespotlightc = null, mousespotlighta = null, lightcolor = null, lightimagea = null, lightimage = null, interval = null, fadein = null, fadeout = null, readera = null, readerlargestyle = null, mousespotlightt = null, password = null, enterpassword = null, hardflash = null, dynamic = null, dynamic1 = null, dynamic2 = null, dynamic3 = null, dynamic4 = null, dynamic5 = null, dynamic6 = null, dynamic7 = null, dynamic8 = null, dynamic9 = null, dynamic10 = null, dynamic11 = null, hoveroptiondyn5 = null, blur = null, cinemaontop = null, spotlightradius = null, slideeffect = null, lightimagelin = null, linearsq = null, colora = null, intervallina = null, colorb = null, intervallinb = null, no360youtube = null, mousespotlights = null, titleinvertcolor = null, darkbrowsertheme = null, multiopacall = null, multiopacsel = null, multiopacityDomains = null, lampandnightmode = null;
+var default_opacity = null, suggestions = null, playlist = null, videoheadline = null, flash = null, head = null, infobar = null, likebutton = null, sharebutton = null, viewcount = null, addvideobutton = null, likebar = null, mousespotlighto = null, mousespotlightc = null, mousespotlighta = null, lightcolor = null, lightimagea = null, lightimage = null, interval = null, fadein = null, fadeout = null, readera = null, readerlargestyle = null, mousespotlightt = null, password = null, enterpassword = null, hardflash = null, dynamic = null, dynamic1 = null, dynamic2 = null, dynamic3 = null, dynamic4 = null, dynamic5 = null, dynamic6 = null, dynamic7 = null, dynamic8 = null, dynamic9 = null, dynamic10 = null, dynamic11 = null, dynamic12 = null, hoveroptiondyn5 = null, blur = null, cinemaontop = null, spotlightradius = null, slideeffect = null, lightimagelin = null, linearsq = null, colora = null, intervallina = null, colorb = null, intervallinb = null, no360youtube = null, mousespotlights = null, titleinvertcolor = null, darkbrowsertheme = null, multiopacall = null, multiopacsel = null, multiopacityDomains = null, lampandnightmode = null;
 // html elements used
 var div = null, video = null;
 // block lights
@@ -1056,6 +1056,10 @@ function removenewframe(){
 }
 
 function removenewdynamic(){
+	// cleanup all times
+	window.clearInterval(fishinterval);
+	window.clearInterval(jellyinterval);
+	// remove dynamic layer
 	removeId("stefanvddynamicbackground");
 }
 
@@ -2345,6 +2349,21 @@ function lightsgoonoroff(){
 					jellyfish.style.left = Math.random() * (window.innerWidth - 128) + "px";
 					jellyfish.style.top = Math.random() * window.innerHeight + "px";
 				});
+			}else if(dynamic12 == true){
+				const fireworksDiv = document.createElement("div");
+				fireworksDiv.id = "fireworks";
+				fireworksDiv.classList.add("stefanvdfireworks");
+
+				const beforeDiv = document.createElement("div");
+				beforeDiv.classList.add("before");
+
+				const afterDiv = document.createElement("div");
+				afterDiv.classList.add("after");
+
+				fireworksDiv.appendChild(beforeDiv);
+				fireworksDiv.appendChild(afterDiv);
+
+				newdynmaster.appendChild(fireworksDiv);
 			}
 		} // end dynamic
 	}
@@ -2354,6 +2373,8 @@ function lightsgoonoroff(){
 var screenwidth;
 var screenheight;
 var fishSize = 128;
+var fishinterval;
+var jellyinterval;
 
 // Fish Animation Function
 function animateFish(fish, index){
@@ -2365,23 +2386,21 @@ function animateFish(fish, index){
 	fish.style.top = positionY + "px";
 	fish.style.left = positionX + "px";
 
-	window.setInterval(() => {
-		if(document.visibilityState === "visible"){
-			positionX += speed * direction;
+	fishinterval = window.setInterval(() => {
+		positionX += speed * direction;
 
-			// Flip direction at the edges and apply rotation
-			if(positionX >= screenwidth - fishSize){
-				positionX = screenwidth - fishSize; // Prevent going over the right edge
-				direction = -1;
-				fish.classList.add("stefanvdflip");
-			}else if(positionX <= 0){
-				positionX = 0; // Prevent going over the left edge
-				direction = 1;
-				fish.classList.remove("stefanvdflip");
-			}
-
-			fish.style.left = positionX + "px";
+		// Flip direction at the edges and apply rotation
+		if(positionX >= screenwidth - fishSize){
+			positionX = screenwidth - fishSize; // Prevent going over the right edge
+			direction = -1;
+			fish.classList.add("stefanvdflip");
+		}else if(positionX <= 0){
+			positionX = 0; // Prevent going over the left edge
+			direction = 1;
+			fish.classList.remove("stefanvdflip");
 		}
+
+		fish.style.left = positionX + "px";
 	}, 20 + index * 10);
 }
 
@@ -2396,26 +2415,24 @@ function animateJellyfish(jellyfish){
 	jellyfish.style.left = initialX + "px";
 	jellyfish.style.top = jellyPositionY + "px";
 
-	window.setInterval(() => {
-		if(document.visibilityState === "visible"){
-			// Move vertically up or down
-			jellyPositionY += jellySpeed * jellyDirection;
+	jellyinterval = window.setInterval(() => {
+		// Move vertically up or down
+		jellyPositionY += jellySpeed * jellyDirection;
 
-			// Oscillate horizontally using a gentler sine wave for a softer wavy movement
-			const horizontalOffset = Math.sin(jellyPositionY * wiggleFrequency) * amplitude;
-			jellyfish.style.left = initialX + horizontalOffset + "px";
+		// Oscillate horizontally using a gentler sine wave for a softer wavy movement
+		const horizontalOffset = Math.sin(jellyPositionY * wiggleFrequency) * amplitude;
+		jellyfish.style.left = initialX + horizontalOffset + "px";
 
-			// Reverse direction at the top and bottom of the screen
-			if(jellyPositionY >= screenheight - fishSize || jellyPositionY <= 0){
-				jellyDirection *= -1;
-			}
-
-			jellyfish.style.top = jellyPositionY + "px";
+		// Reverse direction at the top and bottom of the screen
+		if(jellyPositionY >= screenheight - fishSize || jellyPositionY <= 0){
+			jellyDirection *= -1;
 		}
+
+		jellyfish.style.top = jellyPositionY + "px";
 	}, 30);
 }
 
-chrome.storage.sync.get(["mousespotlighto", "mousespotlightc", "mousespotlighta", "lightcolor", "lightimagea", "lightimage", "interval", "fadein", "fadeout", "readera", "readerlargestyle", "mousespotlightt", "enterpassword", "password", "dynamic", "dynamic1", "dynamic2", "dynamic3", "dynamic4", "dynamic5", "dynamic6", "dynamic7", "dynamic8", "dynamic9", "dynamic10", "dynamic11", "hoveroptiondyn5", "blur", "cinemaontop", "spotlightradius", "slideeffect", "lightimagelin", "linearsq", "colora", "intervallina", "colorb", "intervallinb", "mousespotlights", "screenshader", "darkbrowsertheme", "multiopacall", "multiopacsel", "multiopacityDomains", "lampandnightmode"], function(response){
+chrome.storage.sync.get(["mousespotlighto", "mousespotlightc", "mousespotlighta", "lightcolor", "lightimagea", "lightimage", "interval", "fadein", "fadeout", "readera", "readerlargestyle", "mousespotlightt", "enterpassword", "password", "dynamic", "dynamic1", "dynamic2", "dynamic3", "dynamic4", "dynamic5", "dynamic6", "dynamic7", "dynamic8", "dynamic9", "dynamic10", "dynamic11", "dynamic12", "hoveroptiondyn5", "blur", "cinemaontop", "spotlightradius", "slideeffect", "lightimagelin", "linearsq", "colora", "intervallina", "colorb", "intervallinb", "mousespotlights", "screenshader", "darkbrowsertheme", "multiopacall", "multiopacsel", "multiopacityDomains", "lampandnightmode"], function(response){
 	mousespotlighto = response["mousespotlighto"]; if(mousespotlighto == null)mousespotlighto = true; // default mousespotlighto true
 	mousespotlightc = response["mousespotlightc"]; if(mousespotlightc == null)mousespotlightc = false; // default mousespotlightc false
 	mousespotlighta = response["mousespotlighta"]; if(mousespotlighta == null)mousespotlighta = false; // default mousespotlighta false
@@ -2442,6 +2459,7 @@ chrome.storage.sync.get(["mousespotlighto", "mousespotlightc", "mousespotlighta"
 	dynamic9 = response["dynamic9"];
 	dynamic10 = response["dynamic10"];
 	dynamic11 = response["dynamic11"];
+	dynamic12 = response["dynamic12"];
 	hoveroptiondyn5 = response["hoveroptiondyn5"];
 	blur = response["blur"];
 	cinemaontop = response["cinemaontop"]; if(cinemaontop == null)cinemaontop = false; // default cinemaontop false
