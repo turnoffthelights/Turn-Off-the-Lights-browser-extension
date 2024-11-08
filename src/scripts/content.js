@@ -1532,7 +1532,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 		function videovisualloop(tovis){
 			if(document.getElementById("stefanvdvisualizationcanvas" + tovis)){
 				var canvas = document.getElementById("stefanvdvisualizationcanvas" + tovis);
-				var ctx = canvas.getContext("2d", {desynchronized: true, willReadFrequently: false});
+				var ctx = canvas.getContext("2d", {desynchronized: true, willReadFrequently: true});
 
 				requestvideovisualloop[tovis] = window.requestAnimFrame(function(){ videovisualloop(tovis); });
 				analyser[tovis].fftSize = 2048;
@@ -2275,7 +2275,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 				}
 
 				var canvas = $("totlCanvas" + k + "");
-				var context = canvas.getContext("2d", {desynchronized: true, willReadFrequently: false});
+				var context = canvas.getContext("2d", {desynchronized: true, willReadFrequently: true});
 
 				var colorlamp1X = (sourceWidth * 50) / 100; // up midden
 				var colorlamp1Y = (sourceHeight * 95) / 100;
@@ -2376,7 +2376,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					}
 					var canvas = $("totlCanvas" + item + "");
 					if(canvas){
-						var context = canvas.getContext("2d", {desynchronized: true, willReadFrequently: false});
+						var context = canvas.getContext("2d", {desynchronized: true, willReadFrequently: true});
 
 						p1 = context.getImageData(0, 0, 1, 1).data;
 						p2 = context.getImageData(1, 0, 1, 1).data;
@@ -3663,7 +3663,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 		var pipvisualnumber = pipvisualtype;
 		if(document.getElementById("stefanvdpipvisualizationcanvas")){
 			var canvas = document.getElementById("stefanvdpipvisualizationcanvas");
-			var ctx = canvas.getContext("2d", {desynchronized: true, willReadFrequently: false});
+			var ctx = canvas.getContext("2d", {desynchronized: true, willReadFrequently: true});
 
 			requestvideopiploop = window.requestAnimFrame(function(){ pipvideovisualloop(); });
 			analyser[0].fftSize = 2048;

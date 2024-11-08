@@ -241,8 +241,9 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 							<div>
 								<span data-i18n="titelopacity"></span>:
 							</div>
-							<div class="tabopacityslider">
-								<input type="range" id="slider" min="0" max="100" step="1" value="0" role="slider" aria-label="The opacity value from the slider" aria-valuemin="1" aria-valuemax="100" aria-valuenow="0">
+							<div class="oan">
+								<div class="sliderlabel">0</div>
+								<input id="slider" type="range" min="0" max="100" step="1" value="0" aria-label="The opacity value from the slider" aria-valuemin="1" aria-valuemax="100" aria-valuenow="0"/>
 							</div>
 							<div>
 								<input type="number" id="interval" min="0" max="100" step="1" value="0" maxlength="3" size="4" aria-label="The opacity value from the number box" aria-valuemin="1" aria-valuemax="100" aria-valuenow="0">
@@ -834,7 +835,10 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 									<span data-i18n="titelon"></span>
 								</div>
 								<div class="tabopacityslider">
-									<input type="range" id="onoffrange" min="0" max="1" step="1" value="0" name="onoffrange" role="slider" aria-label="The ON and OFF switch" aria-valuemin="1" aria-valuemax="1" aria-valuenow="0">
+									<div class="oan">
+										<div class="sliderlabel">0</div>
+										<input id="onoffrange" type="range" min="0" max="1" step="1" value="0" aria-label="The ON and OFF switch" aria-valuemin="1" aria-valuemax="100" aria-valuenow="0"/>
+									</div>
 								</div>
 								<div>
 									<span data-i18n="titeloff"></span>
@@ -936,14 +940,24 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 					<div id="atmossettingspanel" class="hidden">
 						<div class="atmosrangebox">
 							<div class="attitle"><span class="item" data-i18n="titelblurradius"></span></div>
-							<div class="atrest"><input type="range" min="30" max="250" step="1" value="0" name="arangeblur" id="arangeblur"></div>
+							<div class="atrest">
+								<div class="oan">
+									<div class="sliderlabel">0</div>
+									<input id="arangeblur" type="range" min="33" max="250" step="1" value="0" aria-label="Blur slider" aria-valuemin="1" aria-valuemax="250" aria-valuenow="0"/>
+								</div>
+							</div>
 							<div class="atrest"><input type="number" min="30" max="250" step="1" value="0" name="ambilightrangeblurradius" id="ambilightrangeblurradius" maxlength="3" size="4"></div>
 						</div>
 						<label for="ambilightrangeblurradius"><span data-i18n="desambilightrangeblurradius"></span></label>
 						<br>
 						<div class="atmosrangebox">
 							<div class="attitle"><span class="item" data-i18n="titelspreadradius"></span></div>
-							<div class="atrest"><input type="range" min="0" max="50" step="1" value="0" name="arangespread" id="arangespread"></div>
+							<div class="atrest">
+								<div class="oan">
+									<div class="sliderlabel">0</div>
+									<input id="arangespread" type="range" min="0" max="50" step="1" value="0" aria-label="Spread slider" aria-valuemin="1" aria-valuemax="50" aria-valuenow="0"/>
+								</div>
+							</div>
 							<div class="atrest"><input type="number" min="0" max="50" step="1" value="0" name="ambilightrangespreadradius" id="ambilightrangespreadradius" maxlength="3" size="4"></div>
 						</div>
 						<label for="ambilightrangespreadradius"><span data-i18n="desambilightrangespreadradius"></span></label>

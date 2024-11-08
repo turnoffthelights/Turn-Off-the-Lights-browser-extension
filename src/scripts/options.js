@@ -781,7 +781,7 @@ function drawAtmos(){
 			}
 
 			var totlcanvas = $("totlCanvas1");
-			var colorcontext = totlcanvas.getContext("2d", {desynchronized: true});
+			var colorcontext = totlcanvas.getContext("2d", {desynchronized: true, willReadFrequently:true});
 			var colorlamp1X = (sourceWidth * 50) / 100; // up midden
 			var colorlamp1Y = (sourceHeight * 95) / 100;
 			var colorlamp2X = (sourceWidth * 95) / 100; // right midden
