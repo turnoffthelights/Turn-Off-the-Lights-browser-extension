@@ -767,7 +767,6 @@ to{transform: translateY(200px);opacity:0}
 /* --- */
 .dimrange{height:48px;display:flex;margin-left:auto}
 .dimrange div{padding:0 20px;margin:auto;display:flex;align-items:center;height:48px;position:relative}
-.dimrange .tabopacityslider{width:120px}
 .atmosrangebox{display:flex;height:48px}
 .atmosrangebox .attitle{padding:0 20px 0px 0px;display:flex;align-items:center;height:48px}
 .atmosrangebox .atrest{display:flex;align-items:center;padding:0 20px}
