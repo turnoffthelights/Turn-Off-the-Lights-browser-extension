@@ -350,49 +350,49 @@ section>div:only-of-type{-webkit-box-flex:1}
 @keyframes totlbubbles16{from{bottom:0;left:248px}5%{bottom:7%;left:232px}to{bottom:100%;left:236px}}
 /* Dynamic Background Squares */
 #stefanvddynamicbackground .stefanvddynamicbackgroundblockleft{height:100%;position:absolute;width:100%}
-#stefanvddynamicbackground .stefanvddynamicbackgroundblocks{background-color:rgba(255,255,255,0.16);border:1px solid rgba(88,88,88,0.2);position:absolute}
+#stefanvddynamicbackground .stefanvddynamicbackgroundblocks{background-color:rgba(255,255,255,0.16);border:1px solid rgba(88,88,88,0.2);position:absolute;height:37px;width:37px;opacity:0;animation-duration:6s;animation-timing-function:ease-out;animation-iteration-count:infinite}
 /* Left */
-#stefanvddynamicbackground .stefanvddynamicblocks1{left:47px;top:60px;opacity:0;height:37px;width:37px;animation:totlblocks1 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks1{left:47px;top:60px;animation-name:totlblocks1}
 @keyframes totlblocks1{70%{transform:scale(0,0);opacity:0}80%{opacity:1}90%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks2{left:89px;top:60px;opacity:0;height:37px;width:37px;animation:totlblocks2 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks2{left:89px;top:60px;animation-name:totlblocks2}
 @keyframes totlblocks2{50%{transform:scale(0,0);opacity:0}60%{opacity:1}70%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks3{left:492px;top:273px;opacity:0;height:37px;width:37px;animation:totlblocks3 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks3{left:492px;top:273px;animation-name:totlblocks3}
 @keyframes totlblocks3{20%{transform:scale(0,0);opacity:0}30%{opacity:1}40%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks4{left:135px;top:228px;opacity:0;height:37px;width:37px;animation:totlblocks4 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks4{left:135px;top:228px;animation-name:totlblocks4}
 @keyframes totlblocks4{80%{transform:scale(0,0);opacity:0}90%{opacity:1}100%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks5{left:174px;top:267px;opacity:0;height:37px;width:37px;animation:totlblocks5 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks5{left:174px;top:267px;animation-name:totlblocks5}
 @keyframes totlblocks5{65%{transform:scale(0,0);opacity:0}75%{opacity:1}85%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks6{left:16px;top:331px;opacity:0;height:37px;width:37px;animation:totlblocks6 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks6{left:16px;top:331px;animation-name:totlblocks6}
 @keyframes totlblocks6{10%{transform:scale(0,0);opacity:0}20%{opacity:1}30%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks7{left:524px;top:38px;opacity:0;height:37px;width:37px;animation:totlblocks7 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks7{left:524px;top:38px;animation-name:totlblocks7}
 @keyframes totlblocks7{70%{transform:scale(0,0);opacity:0}80%{opacity:1}90%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks8{left:90px;top:330px;opacity:0;height:37px;width:37px;animation:totlblocks8 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks8{left:90px;top:330px;animation-name:totlblocks8}
 @keyframes totlblocks8{40%{transform:scale(0,0);opacity:0}50%{opacity:1}60%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks9{left:628px;top:228px;opacity:0;height:37px;width:37px;animation:totlblocks9 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks9{left:628px;top:228px;animation-name:totlblocks9}
 @keyframes totlblocks9{0%{transform:scale(0,0);opacity:0}10%{opacity:1}20%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks10{left:772px;top:285px;opacity:0;height:37px;width:37px;animation:totlblocks10 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks10{left:772px;top:285px;animation-name:totlblocks10}
 @keyframes totlblocks10{50%{transform:scale(0,0);opacity:0}60%{opacity:1}70%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks11{left:371px;top:162px;opacity:0;height:37px;width:37px;animation:totlblocks11 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks11{left:371px;top:162px;animation-name:totlblocks11}
 @keyframes totlblocks11{3%{transform:scale(0,0);opacity:0}13%{opacity:1}23%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks12{left:245px;top:85px;opacity:0;height:37px;width:37px;animation:totlblocks12 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks12{left:245px;top:85px;animation-name:totlblocks12}
 @keyframes totlblocks12{24%{transform:scale(0,0);opacity:0}34%{opacity:1}44%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks13{left:285px;top:13px;opacity:0;height:37px;width:37px;animation:totlblocks13 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks13{left:285px;top:13px;animation-name:totlblocks13}
 @keyframes totlblocks13{68%{transform:scale(0,0);opacity:0}78%{opacity:1}88%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks14{left:323px;top:51px;opacity:0;height:37px;width:37px;animation:totlblocks14 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks14{left:323px;top:51px;animation-name:totlblocks14}
 @keyframes totlblocks14{55%{transform:scale(0,0);opacity:0}65%{opacity:1}75%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks15{left:565px;top:167px;opacity:0;height:37px;width:37px;animation:totlblocks15 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks15{left:565px;top:167px;animation-name:totlblocks15}
 @keyframes totlblocks15{69%{transform:scale(0,0);opacity:0}79%{opacity:1}89%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks16{left:750px;top:326px;opacity:0;height:37px;width:37px;animation:totlblocks16 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks16{left:750px;top:326px;animation-name:totlblocks16}
 @keyframes totlblocks16{23%{transform:scale(0,0);opacity:0}33%{opacity:1}43%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks17{left:672px;top:80px;opacity:0;height:37px;width:37px;animation:totlblocks17 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks17{left:672px;top:80px;animation-name:totlblocks17}
 @keyframes totlblocks17{1%{transform:scale(0,0);opacity:0}11%{opacity:1}21%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks18{left:595px;top:295px;opacity:0;height:37px;width:37px;animation:totlblocks18 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks18{left:595px;top:295px;animation-name:totlblocks18}
 @keyframes totlblocks18{31%{transform:scale(0,0);opacity:0}41%{opacity:1}51%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks19{left:554px;top:295px;opacity:0;height:37px;width:37px;animation:totlblocks19 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks19{left:554px;top:295px;animation-name:totlblocks19}
 @keyframes totlblocks19{56%{transform:scale(0,0);opacity:0}66%{opacity:1}76%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks20{left:444px;top:113px;opacity:0;height:37px;width:37px;animation:totlblocks20 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks20{left:444px;top:113px;animation-name:totlblocks20}
 @keyframes totlblocks20{72%{transform:scale(0,0);opacity:0}82%{opacity:1}92%{opacity:0;transform:scale(1.2,1.2)}}
-#stefanvddynamicbackground .stefanvddynamicblocks21{left:47px;top:19px;opacity:0;height:37px;width:37px;animation:totlblocks21 6s 0s ease-out infinite}
+#stefanvddynamicbackground .stefanvddynamicblocks21{left:47px;top:19px;animation-name:totlblocks21}
 @keyframes totlblocks21{0%{transform:scale(0,0);opacity:0}10%{opacity:1}20%{opacity:0;transform:scale(1.2,1.2)}}
 /* Dynamic Background Raindrups */
 #stefanvddynamicbackground .stefanvddynamicbackgroundraindrupsleft{height:400px;position:absolute;left:12px}
