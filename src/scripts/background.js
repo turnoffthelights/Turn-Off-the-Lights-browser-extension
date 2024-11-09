@@ -625,7 +625,7 @@ chrome.storage.onChanged.addListener(function(changes){
 			}
 		}
 
-		var changenameautodim = ["autodim", "mousespotlights", "autodimDomains", "autodimchecklistwhite", "autodimchecklistblack", "autodimonly", "aplay", "apause", "astop", "autodimdelay", "autodimdelaytime"];
+		var changenameautodim = ["autodim", "mousespotlights", "autodimDomains", "autodimchecklistwhite", "autodimchecklistblack", "autodimonly", "aplay", "apause", "astop", "autodimdelay", "autodimdelaytime", "autodimsize", "autodimsizepixelheight", "autodimsizepixelwidth"];
 		if(changenameautodim.includes(key)){
 			chromerefreshalltabs("gorefreshautodim");
 		}
