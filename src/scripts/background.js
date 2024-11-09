@@ -69,6 +69,9 @@ chrome.runtime.onMessage.addListener(function request(request, sender){
 	case"sendlightcss":
 		restcontent("/styles/light.css", "injectlightcss", sender.tab.id);
 		break;
+	case"senddynamiccss":
+		restcontent("/styles/dynamic.css", "injectdynamiccss", sender.tab.id);
+		break;
 	case"emergencyalf":
 		chrome.tabs.query({}, function(tabs){
 			var i, l = tabs.length;
@@ -192,6 +195,20 @@ if(exbrowser != "safari"){
 		if(frameId !== 0)return;
 		injectScriptsTo(tabId, url);
 	});
+}else{
+	// https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/scripting
+	// Safari no support "executeScript.injectImmediately"
+	// Use this content script in iOS 16.4 and higher
+	chrome.scripting.registerContentScripts([
+		{
+			id: "session-script",
+			js: ["js/screen-shader.js", "js/night-mode.js"],
+			matches: ["<all_urls>"],
+			runAt: "document_start"
+		},
+	])
+		.then(() => console.log("registration complete"))
+		.catch((err) => console.warn("unexpected error", err));
 }
 
 // screen-shader.js = Screen Shader
@@ -210,11 +227,64 @@ const injectScriptsTo = (tabId, url) => {
 };
 //---
 
+// autostop only inject web it is enabled
+
+// The ID for the dynamically registered content script
+const SCRIPT_ID = "autostopScript";
+
+// Function to check if the content script is already registered
+async function isScriptRegistered(){
+	const scripts = await chrome.scripting.getRegisteredContentScripts();
+	return scripts.some((script) => script.id === SCRIPT_ID);
+}
+
+// Function to register the content script
+async function registerContentScript(){
+	const isRegistered = await isScriptRegistered();
+	if(!isRegistered){
+		await chrome.scripting.registerContentScripts([{
+			id: SCRIPT_ID,
+			js: ["scripts/autostop.js"],
+			matches: ["<all_urls>"],
+			runAt: "document_start",
+			allFrames: true
+			// matchAboutBlank: true // not supported here in registerContentScripts https://issuetracker.google.com/issues/340109212
+		}]);
+	}
+}
+
+// Function to unregister the content script
+async function unregisterContentScript(){
+	const isRegistered = await isScriptRegistered();
+	if(isRegistered){
+		await chrome.scripting.unregisterContentScripts({ids: [SCRIPT_ID]});
+	}
+}
+
+// On startup, check the "autostop" setting and apply it
+chrome.runtime.onStartup.addListener(async() => {
+	chrome.storage.sync.get("autostop", async(data) => {
+		if(data.autostop){
+			await registerContentScript();
+		}else{
+			await unregisterContentScript();
+		}
+	});
+});
+
+//---
+
 function restcontent(path, name, sendertab){
 	fetch(path)
 		.then(function(response){
-			// console.log("The content = " + response.text());
-			chrome.tabs.sendMessage(sendertab, {name: name, message: response.text()});
+			return response.text();
+		})
+		.then(function(text){
+			// console.log("The content = " + text);
+			chrome.tabs.sendMessage(sendertab, {name: name, message: text});
+		})
+		.catch(function(error){
+			console.error("Error fetching content:", error);
 		});
 }
 
@@ -609,6 +679,14 @@ chrome.storage.onChanged.addListener(function(changes){
 		var changenamegamepad = ["gamepad", "gpleftstick", "gprightstick", "gpbtnx", "gpbtno", "gpbtnsquare", "gpbtntriangle", "gpbtnlb", "gpbtnrb", "gpbtnlt", "gpbtnrt", "gpbtnshare", "gpbtnmenu", "gpbtnrightstick", "gpbtnleftstick", "gpbtndirup", "gpbtndirdown", "gpbtndirleft", "gpbtndirright", "gpbtnlogo", "gamepadonly", "gamepadDomains", "gamepadchecklistwhite", "gamepadchecklistblack"];
 		if(changenamegamepad.includes(key)){
 			chromerefreshalltabs("gorefreshgamepad");
+		}
+
+		if(changes["autostop"]){
+			if(changes.autostop.newValue){
+				registerContentScript();
+			}else{
+				unregisterContentScript();
+			}
 		}
 
 		// Group Policy

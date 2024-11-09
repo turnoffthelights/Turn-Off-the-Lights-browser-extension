@@ -35,13 +35,6 @@
       "all_frames": true
     },
     {
-      "matches": ["<all_urls>"],
-      "js": ["scripts/autostop.js"],
-      "run_at": "document_start",
-      "all_frames": true,
-      "match_about_blank": true
-    },
-    {
       "matches": ["*://*.youtube.com/*"], 
       "css" : ["styles/youtube.css"]
     }

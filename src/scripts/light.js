@@ -35,6 +35,33 @@ var div = null, video = null;
 // block lights
 var activatelightsoff = true;
 
+// On message listener for the light and dynamic CSS
+function onMessageHandler(request){
+	if(request.name === "injectlightcss"){
+		let stylelight = document.createElement("style");
+		stylelight.type = "text/css";
+		stylelight.textContent = request.message;
+		document.getElementsByTagName("head")[0].appendChild(stylelight);
+
+	}else if(request.name === "injectdynamiccss"){
+		if(!document.getElementById("csstotldynamic")){
+			let styledynamic = document.createElement("style");
+			styledynamic.type = "text/css";
+			styledynamic.textContent = request.message;
+			styledynamic.id = "csstotldynamic";
+			document.getElementsByTagName("head")[0].appendChild(styledynamic);
+		}
+	}
+
+	// Remove listener after handling message
+	chrome.runtime.onMessage.removeListener(onMessageHandler);
+}
+
+function addOnMessageListener(){
+	chrome.runtime.onMessage.addListener(onMessageHandler);
+}
+//---
+
 // Option page settings
 chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "infobar", "likebutton", "sharebutton", "viewcount", "addvideobutton", "likebar", "flash", "hardflash", "no360youtube", "mousespotlights", "titleinvertcolor"], function(response){
 	suggestions = response["suggestions"];
@@ -64,9 +91,8 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 	}
 	removeId("stefanvdtest");
 
-	chrome.runtime.onMessage.addListener(function(request){
-		if(request.name == "injectlightcss"){ var style = document.createElement("style"); style.type = "text/css"; style.textContent = request.message; document.getElementsByTagName("head")[0].appendChild(style); }
-	});
+
+
 
 	function hasClass(a, b){
 		return(" " + a.className + " ").indexOf(" " + b + " ") > -1;
@@ -1061,6 +1087,8 @@ function removenewdynamic(){
 	window.clearInterval(jellyinterval);
 	// remove dynamic layer
 	removeId("stefanvddynamicbackground");
+	// cleanup CSS
+	removeId("csstotldynamic");
 }
 
 // Password in document
@@ -1950,6 +1978,9 @@ function lightsgoonoroff(){
 	if(blackon){
 		lockscreen();
 	}else{
+		// Initial listener setup
+		addOnMessageListener();
+
 		setmetatheme(false);
 
 		if(darkbrowsertheme == true){
@@ -2171,6 +2202,7 @@ function lightsgoonoroff(){
 
 		// start dynamic
 		if(dynamic == true){
+			chrome.runtime.sendMessage({name: "senddynamiccss"});
 			var newdynmaster = document.createElement("div"); newdynmaster.setAttribute("id", "stefanvddynamicbackground"); document.body.appendChild(newdynmaster);
 			if(dynamic1 == true){
 				var newdynleft = document.createElement("div"); newdynleft.setAttribute("class", "stefanvddynamicbackgroundbubbleleft"); newdynmaster.appendChild(newdynleft);
