@@ -420,92 +420,60 @@ section>div:only-of-type{-webkit-box-flex:1}
 #stefanvddynamicbackground #stefanvdworld .stefanvdcloudBase{position:absolute;left:256px;top:256px;width:20px;height:20px;margin-left:-10px;margin-top:-10px}
 #stefanvddynamicbackground #stefanvdworld .stefanvdcloudLayer{position:absolute;left:50%;top:50%;width:256px;height:256px;margin-left:-128px;margin-top:-128px;-webkit-transition:opacity .5s ease-out;transition:opacity .5s ease-out;background-image:url(/images/cloud.png)}
 /* Dynamic Background Space */
+@keyframes totlspace{from{-webkit-transform:translateZ(-300px);opacity:0}50%{-webkit-transform:translateZ(0px);opacity:1}to{-webkit-transform:translateZ(300px);opacity:0}}
+@keyframes totlspacepartnoflying{from{opacity:0}50%{opacity:1}to{opacity:0}}
+#stefanvddynamicbackground #stefanvddynamicspace,#stefanvddynamicbackground #stefanvddynamicspacenoflying{height:100%;width:100%;-webkit-perspective:700;perspective:700;background:-webkit-radial-gradient(rgba(119,106,127,0.15) 0,transparent 66%,rgba(127,18,148,0.2)98%);position:absolute;border-top-left-radius:5px 5px;border-top-right-radius:5px 5px;border-bottom-right-radius:0;border-bottom-left-radius:0}
+#stefanvddynamicbackground #stefanvddynamicspace b,#stefanvddynamicbackground #stefanvddynamicspacenoflying b{position:absolute;height:2px;width:2px;background:#FFF;box-shadow:0 0 5px #FFF}
+/* Flying */
 #stefanvddynamicbackground #stefanvddynamicspace div{position:absolute;-webkit-transform-style:preserve-3d;transform-style:preserve-3d}
-#stefanvddynamicbackground #stefanvddynamicspace{height:100%;width:100%;-webkit-perspective:700;perspective:700;background:-webkit-radial-gradient(rgba(119,106,127,0.15) 0,transparent 66%,rgba(127,18,148,0.2)98%);position:absolute;border-top-left-radius:5px 5px;border-top-right-radius:5px 5px;border-bottom-right-radius:0;border-bottom-left-radius:0}
-#stefanvddynamicbackground #stefanvddynamicspace b{position:absolute;height:2px;width:2px;background:#FFF;box-shadow:0 0 5px #FFF}
-@keyframes totlspace{from{-webkit-transform:translateZ(-300px);opacity:0}50%{-webkit-transform:translateZ(00px);opacity:1}to{-webkit-transform:translateZ(300px);opacity:0}}
-#stefanvddynamicbackground #stefanvddynamicspace .s001{top:5%;left:92%;animation:totlspace 6s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s002{top:26%;left:7%;animation:totlspace 7s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s003{top:89%;left:24%;animation:totlspace 6.2s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s004{top:85%;left:87%;animation:totlspace 5.8s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s005{top:26%;left:56%;animation:totlspace 4.4s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s006{top:74%;left:32%;animation:totlspace 7.1s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s007{top:15%;left:74%;animation:totlspace 5.3s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s008{top:68%;left:51%;animation:totlspace 5.8s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s009{top:21%;left:37%;animation:totlspace 6.2s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s010{top:53%;left:41%;animation:totlspace 6s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s011{top:33%;left:81%;animation:totlspace 7.3s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s012{top:49%;left:64%;animation:totlspace 3.2s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s013{top:24%;left:51%;animation:totlspace 5.5s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s014{top:57%;left:22%;animation:totlspace 6.8s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s015{top:19%;left:7%;animation:totlspace 6s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s016{top:62%;left:42%;animation:totlspace 4.7s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s017{top:52%;left:63%;animation:totlspace 3.9s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s018{top:43%;left:19%;animation:totlspace 5.1s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s019{top:95%;left:28%;animation:totlspace 7.3s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s020{top:5%;left:71%;animation:totlspace 6.8s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s021{top:67%;left:53%;animation:totlspace 7.9s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s022{top:32%;left:25%;animation:totlspace 5.1s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s023{top:47%;left:38%;animation:totlspace 5.8s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s024{top:19%;left:42%;animation:totlspace 6.7s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s025{top:11%;left:18%;animation:totlspace 6.3s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s026{top:37%;left:29%;animation:totlspace 8.1s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s027{top:64%;left:94%;animation:totlspace 7.5s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s028{top:28%;left:82%;animation:totlspace 7.7s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s029{top:71%;left:99%;animation:totlspace 6.1s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace .s030{top:94%;left:37%;animation:totlspace 7s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace #p01{top:0;left:0;height:25%;width:25%;transform:rotate(182deg);animation:totlspacepart 7.1s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace #p02{top:0;left:25%;height:25%;width:25%;transform:rotate(179deg);animation:totlspacepart 5.3s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace #p03{top:0;left:50%;height:25%;width:25%;transform:rotate(185deg);animation:totlspacepart 7.5s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace #p04{top:0;left:75%;height:25%;width:25%;transform:rotate(183deg);animation:totlspacepart 6.6s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace #p05{top:25%;left:0;height:25%;width:25%;transform:rotate(174deg);animation:totlspacepart 8.7s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace #p06{top:25%;left:25%;height:25%;width:25%;transform:rotate(178deg);animation:totlspacepart 8.9s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace #p07{top:25%;left:50%;height:25%;width:25%;transform:rotate(181deg);animation:totlspacepart 7.2s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace #p08{top:25%;left:75%;height:25%;width:25%;transform:rotate(177deg);animation:totlspacepart 9.5s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace #p09{top:50%;left:0;height:25%;width:25%;transform:rotate(186deg);animation:totlspacepart 5.6s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace #p10{top:50%;left:25%;height:25%;width:25%;transform:rotate(184deg);animation:totlspacepart 6.1s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace #p11{top:50%;left:50%;height:25%;width:25%;transform:rotate(180deg);animation:totlspacepart 6.5s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace #p12{top:50%;left:75%;height:25%;width:25%;transform:rotate(176deg);animation:totlspacepart 5.9s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace #p13{top:75%;left:0;height:25%;width:25%;transform:rotate(183deg);animation:totlspacepart 7.6s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace #p14{top:75%;left:25%;height:25%;width:25%;transform:rotate(177deg);animation:totlspacepart 8.7s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace #p15{top:75%;left:50%;height:25%;width:25%;transform:rotate(181deg);animation:totlspacepart 7s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspace #p16{top:75%;left:75%;height:25%;width:25%;transform:rotate(179deg);animation:totlspacepart 5.4s 0s linear infinite}
-@keyframes totlspacepart{from{transform:translateZ(-300px);opacity:0}50%{transform:translateZ(0px);opacity:1}to{transform:translateZ(300px);opacity:0}}
-/* Dynamic Background Space with no flying */
+#stefanvddynamicbackground #stefanvddynamicspace .s001,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns001{top:5%;left:92%;animation:totlspace 6s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s002,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns002{top:26%;left:7%;animation:totlspace 7s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s003,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns003{top:89%;left:24%;animation:totlspace 6.2s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s004,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns004{top:85%;left:87%;animation:totlspace 5.8s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s005,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns005{top:26%;left:56%;animation:totlspace 4.4s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s006,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns006{top:74%;left:32%;animation:totlspace 7.1s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s007,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns007{top:15%;left:74%;animation:totlspace 5.3s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s008,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns008{top:68%;left:51%;animation:totlspace 5.8s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s009,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns009{top:21%;left:37%;animation:totlspace 6.2s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s010,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns010{top:53%;left:41%;animation:totlspace 6s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s011,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns011{top:33%;left:81%;animation:totlspace 7.3s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s012,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns012{top:49%;left:64%;animation:totlspace 3.2s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s013,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns013{top:24%;left:51%;animation:totlspace 5.5s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s014,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns014{top:57%;left:22%;animation:totlspace 6.8s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s015,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns015{top:19%;left:7%;animation:totlspace 6s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s016,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns016{top:62%;left:42%;animation:totlspace 4.7s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s017,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns017{top:52%;left:63%;animation:totlspace 3.9s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s018,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns018{top:43%;left:19%;animation:totlspace 5.1s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s019,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns019{top:95%;left:28%;animation:totlspace 7.3s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s020,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns020{top:5%;left:71%;animation:totlspace 6.8s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s021,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns021{top:67%;left:53%;animation:totlspace 7.9s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s022,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns022{top:32%;left:25%;animation:totlspace 5.1s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s023,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns023{top:47%;left:38%;animation:totlspace 5.8s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s024,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns024{top:19%;left:42%;animation:totlspace 6.7s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s025,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns025{top:11%;left:18%;animation:totlspace 6.3s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s026,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns026{top:37%;left:29%;animation:totlspace 8.1s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s027,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns027{top:64%;left:94%;animation:totlspace 7.5s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s028,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns028{top:28%;left:82%;animation:totlspace 7.7s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s029,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns029{top:71%;left:99%;animation:totlspace 6.1s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace .s030,#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns030{top:94%;left:37%;animation:totlspace 7s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace #p01{top:0;left:0;height:25%;width:25%;transform:rotate(182deg);animation:totlspace 7.1s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace #p02{top:0;left:25%;height:25%;width:25%;transform:rotate(179deg);animation:totlspace 5.3s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace #p03{top:0;left:50%;height:25%;width:25%;transform:rotate(185deg);animation:totlspace 7.5s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace #p04{top:0;left:75%;height:25%;width:25%;transform:rotate(183deg);animation:totlspace 6.6s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace #p05{top:25%;left:0;height:25%;width:25%;transform:rotate(174deg);animation:totlspace 8.7s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace #p06{top:25%;left:25%;height:25%;width:25%;transform:rotate(178deg);animation:totlspace 8.9s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace #p07{top:25%;left:50%;height:25%;width:25%;transform:rotate(181deg);animation:totlspace 7.2s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace #p08{top:25%;left:75%;height:25%;width:25%;transform:rotate(177deg);animation:totlspace 9.5s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace #p09{top:50%;left:0;height:25%;width:25%;transform:rotate(186deg);animation:totlspace 5.6s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace #p10{top:50%;left:25%;height:25%;width:25%;transform:rotate(184deg);animation:totlspace 6.1s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace #p11{top:50%;left:50%;height:25%;width:25%;transform:rotate(180deg);animation:totlspace 6.5s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace #p12{top:50%;left:75%;height:25%;width:25%;transform:rotate(176deg);animation:totlspace 5.9s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace #p13{top:75%;left:0;height:25%;width:25%;transform:rotate(183deg);animation:totlspace 7.6s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace #p14{top:75%;left:25%;height:25%;width:25%;transform:rotate(177deg);animation:totlspace 8.7s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace #p15{top:75%;left:50%;height:25%;width:25%;transform:rotate(181deg);animation:totlspace 7s 0s linear infinite}
+#stefanvddynamicbackground #stefanvddynamicspace #p16{top:75%;left:75%;height:25%;width:25%;transform:rotate(179deg);animation:totlspace 5.4s 0s linear infinite}
+/* No flying */
 #stefanvddynamicbackground #stefanvddynamicspacenoflying div{position:absolute}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying{height:100%;width:100%;-webkit-perspective:700;perspective:700;background:-webkit-radial-gradient(rgba(119,106,127,0.15) 0,transparent 66%,rgba(127,18,148,0.2)98%);position:absolute;border-top-left-radius:5px 5px;border-top-right-radius:5px 5px;border-bottom-right-radius:0;border-bottom-left-radius:0}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying b{position:absolute;height:2px;width:2px;background:#FFF;box-shadow:0 0 5px #FFF}
-@keyframes totlspacenoflying{from{transform:translateZ(-300px);opacity:0}50%{transform:translateZ(00px);opacity:1}to{transform:translateZ(300px);opacity:0}}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns001{top:5%;left:92%;animation:totlspacenoflying 6s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns002{top:26%;left:7%;animation:totlspacenoflying 7s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns003{top:89%;left:24%;animation:totlspacenoflying 6.2s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns004{top:85%;left:87%;animation:totlspacenoflying 5.8s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns005{top:26%;left:56%;animation:totlspacenoflying 4.4s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns006{top:74%;left:32%;animation:totlspacenoflying 7.1s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns007{top:15%;left:74%;animation:totlspacenoflying 5.3s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns008{top:68%;left:51%;animation:totlspacenoflying 5.8s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns009{top:21%;left:37%;animation:totlspacenoflying 6.2s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns010{top:53%;left:41%;animation:totlspacenoflying 6s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns011{top:33%;left:81%;animation:totlspacenoflying 7.3s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns012{top:49%;left:64%;animation:totlspacenoflying 3.2s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns013{top:24%;left:51%;animation:totlspacenoflying 5.5s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns014{top:57%;left:22%;animation:totlspacenoflying 6.8s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns015{top:19%;left:7%;animation:totlspacenoflying 6s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns016{top:62%;left:42%;animation:totlspacenoflying 4.7s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns017{top:52%;left:63%;animation:totlspacenoflying 3.9s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns018{top:43%;left:19%;animation:totlspacenoflying 5.1s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns019{top:95%;left:28%;animation:totlspacenoflying 7.3s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns020{top:5%;left:71%;animation:totlspacenoflying 6.8s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns021{top:67%;left:53%;animation:totlspacenoflying 7.9s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns022{top:32%;left:25%;animation:totlspacenoflying 5.1s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns023{top:47%;left:38%;animation:totlspacenoflying 5.8s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns024{top:19%;left:42%;animation:totlspacenoflying 6.7s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns025{top:11%;left:18%;animation:totlspacenoflying 6.3s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns026{top:37%;left:29%;animation:totlspacenoflying 8.1s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns027{top:64%;left:94%;animation:totlspacenoflying 7.5s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns028{top:28%;left:82%;animation:totlspacenoflying 7.7s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns029{top:71%;left:99%;animation:totlspacenoflying 6.1s 0s linear infinite}
-#stefanvddynamicbackground #stefanvddynamicspacenoflying .ns030{top:94%;left:37%;animation:totlspacenoflying 7s 0s linear infinite}
 #stefanvddynamicbackground #stefanvddynamicspacenoflying #np01{top:0;left:0;height:25%;width:25%;transform:rotate(182deg);animation:totlspacepartnoflying 7.1s 0s linear infinite}
 #stefanvddynamicbackground #stefanvddynamicspacenoflying #np02{top:0;left:25%;height:25%;width:25%;transform:rotate(179deg);animation:totlspacepartnoflying 5.3s 0s linear infinite}
 #stefanvddynamicbackground #stefanvddynamicspacenoflying #np03{top:0;left:50%;height:25%;width:25%;transform:rotate(185deg);animation:totlspacepartnoflying 7.5s 0s linear infinite}
@@ -522,7 +490,6 @@ section>div:only-of-type{-webkit-box-flex:1}
 #stefanvddynamicbackground #stefanvddynamicspacenoflying #np14{top:75%;left:25%;height:25%;width:25%;transform:rotate(177deg);animation:totlspacepartnoflying 8.7s 0s linear infinite}
 #stefanvddynamicbackground #stefanvddynamicspacenoflying #np15{top:75%;left:50%;height:25%;width:25%;transform:rotate(181deg);animation:totlspacepartnoflying 7s 0s linear infinite}
 #stefanvddynamicbackground #stefanvddynamicspacenoflying #np16{top:75%;left:75%;height:25%;width:25%;transform:rotate(179deg);animation:totlspacepartnoflying 5.4s 0s linear infinite}
-@keyframes totlspacepartnoflying{from{opacity:0}50%{opacity:1}to{opacity:0}}
 /* Flying Dots */
 #stefanvddynamicdots{position:relative;transform-style:preserve-3d}
 #stefanvddynamicdots .c{position:absolute;border-radius:50%;height:10px;width:10px}
