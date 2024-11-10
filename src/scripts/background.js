@@ -228,7 +228,6 @@ const injectScriptsTo = (tabId, url) => {
 //---
 
 // autostop only inject web it is enabled
-
 // The ID for the dynamically registered content script
 const SCRIPT_ID = "autostopScript";
 
@@ -262,16 +261,58 @@ async function unregisterContentScript(){
 }
 
 // On startup, check the "autostop" setting and apply it
-chrome.runtime.onStartup.addListener(async() => {
-	chrome.storage.sync.get("autostop", async(data) => {
-		if(data.autostop){
-			await registerContentScript();
-		}else{
-			await unregisterContentScript();
-		}
-	});
+console.log("BEGIN de onStartup");
+chrome.storage.sync.get("autostop", async(data) => {
+	if(data.autostop){
+		await registerContentScript();
+	}else{
+		await unregisterContentScript();
+	}
+});
+chrome.storage.sync.get("block60fps", async(data) => {
+	if(data.block60fps){
+		console.log("DATA block60fps");
+		await fpsregisterContentScript();
+	}else{
+		console.log("NO DATA block60fps");
+		await fpsunregisterContentScript();
+	}
 });
 
+//---
+
+
+// fps only inject web it is enabled
+// The ID for the dynamically registered content script
+const YOUTUBESCRIPT_ID = "fpsScript";
+
+// Function to check if the content script is already registered
+async function fpsisScriptRegistered(){
+	const scripts = await chrome.scripting.getRegisteredContentScripts();
+	return scripts.some((script) => script.id === YOUTUBESCRIPT_ID);
+}
+
+// Function to register the content script
+async function fpsregisterContentScript(){
+	const isRegistered = await fpsisScriptRegistered();
+	if(!isRegistered){
+		await chrome.scripting.registerContentScripts([{
+			id: YOUTUBESCRIPT_ID,
+			js: ["scripts/fps.js"],
+			matches: ["*://*.youtube.com/*"],
+			runAt: "document_start",
+			allFrames: true
+		}]);
+	}
+}
+
+// Function to unregister the content script
+async function fpsunregisterContentScript(){
+	const isRegistered = await fpsisScriptRegistered();
+	if(isRegistered){
+		await chrome.scripting.unregisterContentScripts({ids: [YOUTUBESCRIPT_ID]});
+	}
+}
 //---
 
 function restcontent(path, name, sendertab){
@@ -686,6 +727,14 @@ chrome.storage.onChanged.addListener(function(changes){
 				registerContentScript();
 			}else{
 				unregisterContentScript();
+			}
+		}
+
+		if(changes["block60fps"]){
+			if(changes.block60fps.newValue){
+				fpsregisterContentScript();
+			}else{
+				fpsunregisterContentScript();
 			}
 		}
 

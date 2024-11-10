@@ -27,9 +27,10 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 */
 //================================================
 
-chrome.storage.sync.get(["block60fps"], function(response){
+chrome.storage.sync.get(["block60fps", "customqualityyoutube"], function(response){
 	var block60fps = response["block60fps"];
-	if(block60fps == true){
+	var customqualityyoutube = response["customqualityyoutube"];
+	if(block60fps == true && customqualityyoutube == true){
 		try{
 			var script = document.createElement("script"); script.type = "text/javascript"; script.src = chrome.runtime.getURL("scripts/fps-block.js"); document.getElementsByTagName("head")[0].appendChild(script);
 		}catch(e){ console.error(e); }

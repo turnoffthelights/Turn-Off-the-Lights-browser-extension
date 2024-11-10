@@ -29,12 +29,6 @@
       "match_about_blank": true
     },
     {
-      "matches": ["*://*.youtube.com/*"],
-      "js": ["scripts/fps.js"],
-      "run_at": "document_start",
-      "all_frames": true
-    },
-    {
       "matches": ["*://*.youtube.com/*"], 
       "css" : ["styles/youtube.css"]
     }
