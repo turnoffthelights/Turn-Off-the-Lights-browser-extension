@@ -227,92 +227,70 @@ const injectScriptsTo = (tabId, url) => {
 };
 //---
 
-// autostop only inject web it is enabled
-// The ID for the dynamically registered content script
-const SCRIPT_ID = "autostopScript";
+// Constants for script IDs
+const SCRIPT_IDS = {
+	autostop: "autostopScript",
+	fps: "fpsScript"
+};
 
-// Function to check if the content script is already registered
-async function isScriptRegistered(){
+// Configuration for content scripts
+const CONTENT_SCRIPTS = {
+	autostop: {
+		id: SCRIPT_IDS.autostop,
+		js: ["scripts/autostop.js"],
+		matches: ["<all_urls>"],
+		runAt: "document_start",
+		allFrames: true
+	},
+	fps: {
+		id: SCRIPT_IDS.fps,
+		js: ["scripts/fps.js"],
+		matches: ["*://*.youtube.com/*"],
+		runAt: "document_start",
+		allFrames: true
+	}
+};
+
+// Utility function to check if a specific content script is registered
+async function isScriptRegistered(scriptId){
 	const scripts = await chrome.scripting.getRegisteredContentScripts();
-	return scripts.some((script) => script.id === SCRIPT_ID);
+	return scripts.some((script) => script.id === scriptId);
 }
 
-// Function to register the content script
-async function registerContentScript(){
-	const isRegistered = await isScriptRegistered();
-	if(!isRegistered){
-		await chrome.scripting.registerContentScripts([{
-			id: SCRIPT_ID,
-			js: ["scripts/autostop.js"],
-			matches: ["<all_urls>"],
-			runAt: "document_start",
-			allFrames: true
-			// matchAboutBlank: true // not supported here in registerContentScripts https://issuetracker.google.com/issues/340109212
-		}]);
+// Utility function to register a content script based on configuration
+async function registerContentScript(scriptConfig){
+	const{id} = scriptConfig;
+	if(!(await isScriptRegistered(id))){
+		await chrome.scripting.registerContentScripts([scriptConfig]);
 	}
 }
 
-// Function to unregister the content script
-async function unregisterContentScript(){
-	const isRegistered = await isScriptRegistered();
-	if(isRegistered){
-		await chrome.scripting.unregisterContentScripts({ids: [SCRIPT_ID]});
+// Utility function to unregister a content script by ID
+async function unregisterContentScript(scriptId){
+	if(await isScriptRegistered(scriptId)){
+		await chrome.scripting.unregisterContentScripts({ids: [scriptId]});
 	}
 }
 
-// On startup, check the "autostop" setting and apply it
-console.log("BEGIN de onStartup");
-chrome.storage.sync.get("autostop", async(data) => {
-	if(data.autostop){
-		await registerContentScript();
-	}else{
-		await unregisterContentScript();
-	}
-});
-chrome.storage.sync.get("block60fps", async(data) => {
-	if(data.block60fps){
-		console.log("DATA block60fps");
-		await fpsregisterContentScript();
-	}else{
-		console.log("NO DATA block60fps");
-		await fpsunregisterContentScript();
-	}
-});
-
-//---
-
-
-// fps only inject web it is enabled
-// The ID for the dynamically registered content script
-const YOUTUBESCRIPT_ID = "fpsScript";
-
-// Function to check if the content script is already registered
-async function fpsisScriptRegistered(){
-	const scripts = await chrome.scripting.getRegisteredContentScripts();
-	return scripts.some((script) => script.id === YOUTUBESCRIPT_ID);
-}
-
-// Function to register the content script
-async function fpsregisterContentScript(){
-	const isRegistered = await fpsisScriptRegistered();
-	if(!isRegistered){
-		await chrome.scripting.registerContentScripts([{
-			id: YOUTUBESCRIPT_ID,
-			js: ["scripts/fps.js"],
-			matches: ["*://*.youtube.com/*"],
-			runAt: "document_start",
-			allFrames: true
-		}]);
+// Function to manage content script based on storage setting
+async function manageContentScript(settingKey, scriptConfig){
+	try{
+		const data = await chrome.storage.sync.get(settingKey);
+		if(data[settingKey]){
+			await registerContentScript(scriptConfig);
+			// console.log(`Registered script for ${settingKey}`);
+		}else{
+			await unregisterContentScript(scriptConfig.id);
+			// console.log(`Unregistered script for ${settingKey}`);
+		}
+	}catch(error){
+		console.error(`Error managing script for ${settingKey}:`, error);
 	}
 }
 
-// Function to unregister the content script
-async function fpsunregisterContentScript(){
-	const isRegistered = await fpsisScriptRegistered();
-	if(isRegistered){
-		await chrome.scripting.unregisterContentScripts({ids: [YOUTUBESCRIPT_ID]});
-	}
-}
+// check and apply settings for each script
+manageContentScript("autostop", CONTENT_SCRIPTS.autostop);
+manageContentScript("block60fps", CONTENT_SCRIPTS.fps);
 //---
 
 function restcontent(path, name, sendertab){
@@ -723,19 +701,12 @@ chrome.storage.onChanged.addListener(function(changes){
 		}
 
 		if(changes["autostop"]){
-			if(changes.autostop.newValue){
-				registerContentScript();
-			}else{
-				unregisterContentScript();
-			}
+			manageContentScript("autostop", CONTENT_SCRIPTS.autostop);
 		}
 
+		// Check if "block60fps" setting has changed
 		if(changes["block60fps"]){
-			if(changes.block60fps.newValue){
-				fpsregisterContentScript();
-			}else{
-				fpsunregisterContentScript();
-			}
+			manageContentScript("block60fps", CONTENT_SCRIPTS.fps);
 		}
 
 		// Group Policy
