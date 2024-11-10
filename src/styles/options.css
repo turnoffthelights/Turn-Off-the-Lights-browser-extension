@@ -839,11 +839,12 @@ to{transform: translateY(200px);opacity:0}
 #apnt{position:absolute;font-size:12px;font-weight:700;color:#fff;text-transform:uppercase;top:60px;left:50px;cursor:pointer}
 #apgetapp{position:absolute;font-size:12px;font-weight:700;color:#39F;text-transform:uppercase;top:60px;right:30px;cursor:pointer}
 /* YouTube app */
-#ytappbox{-webkit-user-select:none;-moz-user-select:none;user-select:none;background:var(--totl-primary-sidebar-background);height:115px;border-radius:2px;display:flex;cursor:pointer;padding:15px;box-sizing:border-box}
+#ytappbox{-webkit-user-select:none;-moz-user-select:none;user-select:none;background:var(--totl-primary-sidebar-background);height:115px;border-radius:2px;display:flex;cursor:pointer;padding:15px;box-sizing:border-box;align-items:center;gap:16px}
 #ytappbox:hover{background:var(--totl-nav-background-hover)}
 #ytappbox #ytlogo{display:flex;align-items:center;align-content:center;flex-wrap:nowrap;flex-direction:row;height:100%}
 #ytappbox picture{background:white;border-radius:10px;width:45px;height:45px;display:flex;justify-content:center;align-items:center}
 #ytappbox #ytappdes{display:flex;align-items:center;margin-left:15px;font-size:16px}
+#ytappbox #ytacta{display:flex;background:#ff0000;color:white;padding:8px 24px;border-radius:2px}
 /* Atmosphere */
 .stefanvdvivideffect{position:absolute!important;z-index:100!important;overflow:hidden;pointer-events:none;width:640px;height:360px;margin:auto}
 /* Profile */

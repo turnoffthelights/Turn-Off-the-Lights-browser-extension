@@ -546,5 +546,6 @@
 "desdynamicaquarium":{"message":"Aquarium with fish"},
 "desdynamicfireworks":{"message":"Fireworks"},
 "desautodimsize":{"message":"Works only on video players with a width x height greater than"},
-"desautodimsizepixel":{"message":"pixels"}
+"desautodimsizepixel":{"message":"pixels"},
+"deswatchnow":{"message":"Watch Now"}
 }

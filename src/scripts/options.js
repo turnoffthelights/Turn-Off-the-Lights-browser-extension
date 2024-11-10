@@ -1152,14 +1152,21 @@ function test(){
 	if($("lightimagea").checked == true){
 		$("lightimagen").checked = false; $("example1").style.backgroundSize = $("example2").style.backgroundSize = "cover"; $("example2").style.backgroundImage = $("example1").style.backgroundImage = "url(" + $("lightimage").value + ")"; $("lightimage").disabled = false; $("lightcolor").disabled = true;
 		$("mousespotlighta").disabled = true; $("mousespotlightc").disabled = true; $("mousespotlighto").checked = true;
+		$("linearsq").disabled = true; $("colora").disabled = true; $("intervallina").disabled = true; $("colorb").disabled = true; $("intervallinb").disabled = true;
+		$("wallpaperhide").disabled = false; $("wallpapershow").disabled = false;
 	}else if($("lightimagen").checked == true){
 		$("lightimagen").checked = true; $("example1").style.background = $("lightcolor").value; $("example2").style.background = $("lightcolor").value; $("lightimage").disabled = true; $("lightcolor").disabled = false;
 		$("mousespotlighta").disabled = false; $("mousespotlightc").disabled = false;
+		$("linearsq").disabled = true; $("colora").disabled = true; $("intervallina").disabled = true; $("colorb").disabled = true; $("intervallinb").disabled = true;
+		$("wallpaperhide").disabled = true; $("wallpapershow").disabled = true;
 	}else if($("lightimagelin").checked == true){
 		var linearsq = document.getElementById("linearsq");
 		$("example1").style.background = $("example2").style.background = "linear-gradient(to " + linearsq.options[linearsq.selectedIndex].value + ", " + $("colora").value + " " + $("intervallina").value + "%," + $("colorb").value + " " + $("intervallinb").value + "%)";
 		$("mousespotlighta").disabled = true; $("mousespotlightc").disabled = true;
 		if($("mousespotlighta").checked == true || $("mousespotlightc").checked == true){ $("mousespotlighto").checked = true; }
+		$("linearsq").disabled = false; $("colora").disabled = false; $("intervallina").disabled = false; $("colorb").disabled = false; $("intervallinb").disabled = false;
+		$("lightimage").disabled = true; $("lightcolor").disabled = true;
+		$("wallpaperhide").disabled = true; $("wallpapershow").disabled = true;
 	}
 
 	if($("blur").checked == true){
@@ -1199,9 +1206,12 @@ function test(){
 	if($("autodim").checked == true){
 		$("aplay").disabled = false; $("apause").disabled = false; $("astop").disabled = false; $("eyen").checked = true; $("excludedDomainsBox").disabled = true; $("websiteurl").disabled = true; $("autodimdelay").disabled = false;
 		if($("autodimdelay").checked == true){ $("autodimdelaytime").disabled = false; }else{ $("autodimdelaytime").disabled = true; }
+		if($("autodimsize").checked == true){ $("autodimsizepixelwidth").disabled = false; $("autodimsizepixelheight").disabled = false; }else{ $("autodimsizepixelwidth").disabled = true; $("autodimsizepixelheight").disabled = true; }
+		$("autodimsize").disabled = false; $("autodimonly").disabled = false;
 	}else{
 		$("aplay").disabled = true; $("apause").disabled = true; $("astop").disabled = true; $("autodimdelay").disabled = true;
 		if($("autodimdelay").checked == true){ $("autodimdelaytime").disabled = false; }else{ $("autodimdelaytime").disabled = true; }
+		$("autodimsize").disabled = true; $("autodimsizepixelwidth").disabled = true; $("autodimsizepixelheight").disabled = true; $("autodimonly").disabled = true; $("autodimchecklistwhite").disabled = true; $("autodimchecklistblack").disabled = true; $("autodimdelaytime").disabled = true; $("autodimDomainsBox").disabled = true; $("autodimwebsiteurl").disabled = true; $("autodimaddbutton").disabled = true; $("autodimremovebutton").disabled = true;
 	}
 
 	if($("videovolume").checked == true){ $("videovolumealt").disabled = false; }else{ $("videovolumealt").disabled = true; }
@@ -1216,9 +1226,13 @@ function test(){
 
 	if($("nightmodeimage").checked == true){ $("nmimagedark").disabled = false; $("nmimagegray").disabled = false; }else{ $("nmimagedark").disabled = true; $("nmimagegray").disabled = true; }
 
-	if($("autostop").checked == true){ $("autostopred").disabled = false; $("autostoptrans").disabled = false; }else{ $("autostopred").disabled = true; $("autostoptrans").disabled = true; }
-
 	if($("autostoponly").checked == true){ $("autostopchecklistwhite").disabled = false; $("autostopchecklistblack").disabled = false; $("autostopDomainsBox").disabled = false; $("autostopwebsiteurl").disabled = false; $("autostopaddbutton").disabled = false; $("autostopremovebutton").disabled = false; }else{ $("autostopchecklistwhite").disabled = true; $("autostopchecklistblack").disabled = true; $("autostopDomainsBox").disabled = true; $("autostopwebsiteurl").disabled = true; $("autostopaddbutton").disabled = true; $("autostopremovebutton").disabled = true; }
+
+	if($("autostop").checked == true){
+		$("autostopred").disabled = false; $("autostoptrans").disabled = false; $("autostoponly").disabled = false;
+	}else{
+		$("autostopred").disabled = true; $("autostoptrans").disabled = true; $("autostoponly").disabled = true; $("autostopchecklistwhite").disabled = true; $("autostopchecklistblack").disabled = true; $("autostopwebsiteurl").disabled = true; $("autostopaddbutton").disabled = true; $("autostopremovebutton").disabled = true; $("autostopDomainsBox").disabled = true;
+	}
 
 	if($("videotool").checked == true){ $("videozoom").disabled = false; $("speedtoolbar").disabled = false; $("videotoolonly").disabled = false; }else{ $("videozoom").disabled = true; $("speedtoolbar").disabled = true; $("videotoolonly").disabled = true; }
 
@@ -1235,6 +1249,8 @@ function test(){
 	if($("playrate").checked == true){ $("playrateamount").disabled = false; }else{ $("playrateamount").disabled = true; }
 
 	if($("customqualityyoutube").checked == true){ $("maxquality").disabled = false; $("block60fps").disabled = false; }else{ $("maxquality").disabled = true; $("block60fps").disabled = true; }
+
+	if($("videoheadline").checked == true){ $("titleinvertcolor").disabled = false; }else{ $("titleinvertcolor").disabled = true; }
 
 	if($("videovolumeonly").checked == true){ $("videovolumechecklistwhite").disabled = false; $("videovolumechecklistblack").disabled = false; $("videovolumeDomainsBox").disabled = false; $("videovolumewebsiteurl").disabled = false; $("videovolumeaddbutton").disabled = false; $("videovolumeremovebutton").disabled = false; }else{ $("videovolumechecklistwhite").disabled = true; $("videovolumechecklistblack").disabled = true; $("videovolumeDomainsBox").disabled = true; $("videovolumewebsiteurl").disabled = true; $("videovolumeaddbutton").disabled = true; $("videovolumeremovebutton").disabled = true; }
 
