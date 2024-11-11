@@ -17,7 +17,7 @@ const linkbrowsertheme = "https://www.turnoffthelights.com/browser/theme/";
 const browsernewtab = "null";
 const browserstore = "https://addons.mozilla.org";
 const linkyoutube = "https://www.youtube.com/c/turnoffthelights?sub_confirmation=1";
-const linkauroraplayerapp = "https://www.stefanvd.net/project/aurora-player/";
+const linkauroraplayerapp = "https://www.stefanvd.net/project/aurora-player/app/";
 const linktotlmobileapp = "https://www.turnoffthelights.com/mobile/";
 const linkgamepad = "https://www.turnoffthelights.com/game-controller/";
 const devmode = true;

@@ -832,21 +832,23 @@ to{transform: translateY(200px);opacity:0}
 #nt{position:absolute;font-size:12px;font-weight:700;color:var(--totl-primary-font-color);text-transform:uppercase;top:60px;left:50px;cursor:pointer}
 #war{position:absolute;font-size:12px;font-weight:700;color:#39F;text-transform:uppercase;top:60px;right:30px;cursor:pointer}
 /* Aurora Player app */
-#auroraplayerappbox{-webkit-user-select:none;-moz-user-select:none;user-select:none;height:115px;position:relative;background:#333;border-radius:2px;display:flex;align-items:center;gap:16px;padding:15px;box-sizing:border-box;cursor:pointer;content-visibility:auto}
+#auroraplayerappbox{-webkit-user-select:none;-moz-user-select:none;user-select:none;height:115px;position:relative;background:#333;border-radius:2px;display:flex;align-items:center;gap:16px;padding:15px;box-sizing:border-box;cursor:pointer;justify-content:space-evenly;content-visibility:auto}
 #auroraplayerappbox:hover{background:#1b1b1b}
+#auroraplayerappbox .appname{display:flex;align-items:center;gap:16px}
 #auroraplayerappbox #apicon{display:flex;align-items:center;align-content:center;flex-wrap:nowrap;flex-direction:row;height:100%}
 #auroraplayerappbox #apname{font-size:20px;color:#fff}
-#auroraplayerappbox #aptllo{font-size:16px;color:#fff}
-#auroraplayerappbox #apgetapp{display:flex;background:#ffffff;color:black;padding:8px 24px;border-radius:2px}
+#auroraplayerappbox #aptllo{font-size:16px;color:#fff;text-align:center}
+#auroraplayerappbox #apgetapp{display:flex;background:#ffffff;color:black;padding:0 16px;border-radius:2px;height:36px;align-items:center}
 #auroraplayerappbox #apgetapp:hover{background:#f2f2f2}
 #auroraplayerappbox #apgetapp:active{background:#1d1d1d}
 /* YouTube app */
-#ytappbox{-webkit-user-select:none;-moz-user-select:none;user-select:none;background:var(--totl-primary-sidebar-background);height:115px;border-radius:2px;display:flex;cursor:pointer;padding:15px;box-sizing:border-box;align-items:center;gap:16px}
+#ytappbox{-webkit-user-select:none;-moz-user-select:none;user-select:none;background:var(--totl-primary-sidebar-background);height:115px;border-radius:2px;display:flex;cursor:pointer;padding:15px;box-sizing:border-box;align-items:center;gap:16px;justify-content:space-evenly}
 #ytappbox:hover{background:var(--totl-nav-background-hover)}
+#ytappbox .appname{display:flex;align-items:center;gap:16px}
 #ytappbox #ytlogo{display:flex;align-items:center;align-content:center;flex-wrap:nowrap;flex-direction:row;height:100%}
 #ytappbox picture{background:white;border-radius:10px;width:45px;height:45px;display:flex;justify-content:center;align-items:center}
-#ytappbox #ytappdes{display:flex;align-items:center;margin-left:15px;font-size:16px}
-#ytappbox #ytacta{display:flex;background:#ff0000;color:white;padding:8px 24px;border-radius:2px}
+#ytappbox #ytappdes{display:flex;align-items:center;font-size:16px;text-align:center}
+#ytappbox #ytacta{display:flex;background:#ff0000;color:white;padding:0 16px;border-radius:2px;height:36px;align-items:center}
 #ytappbox #ytacta:hover{background:#e60000}
 #ytappbox #ytacta:active{background:#cc0000}
 /* Atmosphere */
@@ -855,8 +857,8 @@ to{transform: translateY(200px);opacity:0}
 #brotheme{position:absolute;left:380px;top:60px}
 .bigplus{font-size:32px;font-weight:bold;display:inline-block;margin:10px 25px}
 .brothemoption{display:inline-block;height:30px;vertical-align:top;position:relative;z-index:99}
-.profileineerbox{display:block;width:calc(100% - 60px);padding:30px;overflow-x:scroll;overflow-y:hidden}
-.profilebox{display:block;width:840px;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+.profileineerbox{display:block;width:100%;padding:30px 20px 30px 20px;overflow-x:auto;overflow-y:hidden;box-sizing:border-box}
+.profilebox{display:block;width:790px;-webkit-user-select:none;-moz-user-select:none;user-select:none}
 .profilebox .desprofile{display:block;min-height:85px}
 .profilebox .profile{background:var(--totl-card-background);display:inline-grid;width:250px;margin:5px 10px 5px 0px;position:relative;padding:0;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.24);transition:all 0.3s cubic-bezier(.25,.8,.25,1)}
 .profilebox .profile:hover{box-shadow:0 14px 28px rgba(0,0,0,0.25),0 10px 10px rgba(0,0,0,0.22)}
@@ -1177,6 +1179,8 @@ only screen and (max-device-width:480px){
   /* for mobile only */
   input[type=checkbox]:checked ~ #navbar-container{display:block;animation:slide-in 0.5s ease;animation-fill-mode:forwards}
   input[type=checkbox]:checked ~ #darkpanel{opacity:1;display:block;pointer-events:auto}
+  #auroraplayerappbox{height:300px;flex-direction:column;justify-content:space-around}
+  #ytappbox{height:300px;flex-direction:column;justify-content:space-around}
 }
 @media only screen and (max-height:330px){
   #navbar-container{overflow:scroll}
