@@ -540,5 +540,12 @@
 "desnightmodeimagedarken":{"message":"Darkened"},
 "desnightmodeimagegrayscale":{"message":"Grayscaled"},
 "despasswordhide":{"message":"Hide password"},
-"despasswordshow":{"message":"Show password"}
+"despasswordshow":{"message":"Show password"},
+"desgpbuttonforwardbigx":{"message":"play forward 10 seconds"},
+"desgpbuttonbackwardbigx":{"message":"play back 10 seconds"},
+"desdynamicaquarium":{"message":"Aquarium with fish"},
+"desdynamicfireworks":{"message":"Fireworks"},
+"desautodimsize":{"message":"Works only on video players with a width x height greater than"},
+"desautodimsizepixel":{"message":"pixels"},
+"deswatchnow":{"message":"Watch Now"}
 }

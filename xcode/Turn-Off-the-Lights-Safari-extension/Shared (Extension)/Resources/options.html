@@ -241,8 +241,9 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 							<div>
 								<span data-i18n="titelopacity"></span>:
 							</div>
-							<div class="tabopacityslider">
-								<input type="range" id="slider" min="0" max="100" step="1" value="0" role="slider" aria-label="The opacity value from the slider" aria-valuemin="1" aria-valuemax="100" aria-valuenow="0">
+							<div class="oan">
+								<div class="sliderlabel">0</div>
+								<input id="slider" type="range" min="0" max="100" step="1" value="0" aria-label="The opacity value from the slider" aria-valuemin="1" aria-valuemax="100" aria-valuenow="0"/>
 							</div>
 							<div>
 								<input type="number" id="interval" min="0" max="100" step="1" value="0" maxlength="3" size="4" aria-label="The opacity value from the number box" aria-valuemin="1" aria-valuemax="100" aria-valuenow="0">
@@ -319,7 +320,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 							<div>
 								<button type="button" id="wallpapershow" data-i18n="titellessmore"></button>
 								<button type="button" id="wallpaperhide" data-i18n="titelshowmore"></button>
-								<input id="lightimage" type="url" pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" aria-label="The image address">
+								<input id="lightimage" type="url" pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" aria-label="The image address">
 							</div>
 							<div id="imagegallery" class="hidden">
 								<div class="hoveroptionbox">
@@ -385,6 +386,14 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<label>
 												<input id="dynamic10" type="radio" name="dynamicbackground" role="radio" aria-labelledby="dynamic">
 												<span data-i18n="desdynamicstars"></span>
+										</label>
+										<label>
+											<input id="dynamic11" type="radio" name="dynamicbackground" role="radio" aria-labelledby="dynamic">
+											<span data-i18n="desdynamicaquarium"></span>
+										</label>
+										<label>
+											<input id="dynamic12" type="radio" name="dynamicbackground" role="radio" aria-labelledby="dynamic">
+											<span data-i18n="desdynamicfireworks"></span>
 										</label>
 									</div>
 									<div class="md-checkbox">
@@ -454,6 +463,16 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<div class="hoveroptiondyn10"><div class="dyn10showme"><button type="button" id="totldynpaper10" data-dyn="10" data-i18n="hoveroptionapply"></button></div></div>
 										<img id="bckdyn10" alt="Dynamic Background Shot 10" height="70" src="" width="100" class="dynamicshaduw">
 										</div>
+
+										<div class="hoveroptionbox">
+										<div class="hoveroptiondyn11"><div class="dyn11showme"><button type="button" id="totldynpaper11" data-dyn="11" data-i18n="hoveroptionapply"></button></div></div>
+										<img id="bckdyn11" alt="Dynamic Background Shot 11" height="70" src="" width="100" class="dynamicshaduw">
+										</div>
+
+										<div class="hoveroptionbox">
+										<div class="hoveroptiondyn12"><div class="dyn12showme"><button type="button" id="totldynpaper12" data-dyn="12" data-i18n="hoveroptionapply"></button></div></div>
+										<img id="bckdyn12" alt="Dynamic Background Shot 12" height="70" src="" width="100" class="dynamicshaduw">
+										</div>
 									</div>
 						</div>
 						<div id="blurpanel" class="hidden">
@@ -466,14 +485,17 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 				</section>
 				<section id="sectionyoutubeappbox">
 				<div id="ytappbox">
-					<div id="ytlogo">
-						<picture>
-							<source srcset="/images/youtube.webp 1x, /images/youtube@2x.webp 2x" type="image/webp">
-							<source srcset="/images/youtube.png 1x, /images/youtube@2x.png 2x" type="image/png">
-							<img alt="YouTube Turn Off the Lights" loading="lazy" width="25" height="18" src="/images/youtube@2x.png">
-						</picture>
+					<div class="appname">
+						<div id="ytlogo">
+							<picture>
+								<source srcset="/images/youtube.webp 1x, /images/youtube@2x.webp 2x" type="image/webp">
+								<source srcset="/images/youtube.png 1x, /images/youtube@2x.png 2x" type="image/png">
+								<img alt="YouTube Turn Off the Lights" loading="lazy" width="25" height="18" src="/images/youtube@2x.png">
+							</picture>
+						</div>
 					</div>
 					<div id="ytappdes"><span data-i18n="desyoutube"></span></div>
+					<div id="ytacta"><span data-i18n="deswatchnow"></span></div>
 				</div>
 				</section>
 				<section>
@@ -505,6 +527,10 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 					<label for="autodimdelay"><div><span data-i18n="desautodimdelay"></span> <input id="autodimdelaytime" type="number" min="0" max="10" step="1" value="0" maxlength="1" size="1"> <span data-i18n="desautodimdelayend"></span>.</div></label>
 				</div>
 				<div class="md-checkbox">
+					<input id="autodimsize" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="autodimsize">
+					<label for="autodimsize"><div><span data-i18n="desautodimsize"></span> <input id="autodimsizepixelwidth" type="number" min="1" max="800" step="1" value="0" maxlength="1" size="1"> x <input id="autodimsizepixelheight" type="number" min="1" max="800" step="1" value="0" maxlength="1" size="1"><span data-i18n="desautodimsizepixel"></span>.</div></label>
+				</div>
+				<div class="md-checkbox">
 					<input id="autodimonly" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="autodimonly">
 					<label for="autodimonly"><div><span data-i18n="desautodimonly"></span></div></label>
 				</div>
@@ -522,7 +548,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 					<table id="autodimwhitelist">
 						<tr>
 							<td><span data-i18n="titelwebsite"></span></td>
-							<td><input id="autodimwebsiteurl" type="url" required pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com" aria-label="The URL box to type a website for the AutoDim feature"></td>
+							<td><input id="autodimwebsiteurl" type="url" required pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com" aria-label="The URL box to type a website for the AutoDim feature"></td>
 							<td><button type="submit" id="autodimaddbutton" name="add"><span data-i18n="addbutton"></span></button></td>
 						</tr>
 						<tr>
@@ -568,7 +594,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 					<table id="autostopwhitelist">
 						<tr>
 							<td><span data-i18n="titelwebsite"></span></td>
-							<td><input id="autostopwebsiteurl" type="url" required pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com" aria-label="The URL box to type a website for the AutoDim feature"></td>
+							<td><input id="autostopwebsiteurl" type="url" required pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com" aria-label="The URL box to type a website for the AutoDim feature"></td>
 							<td><button type="submit" id="autostopaddbutton" name="add"><span data-i18n="addbutton"></span></button></td>
 						</tr>
 						<tr>
@@ -771,16 +797,17 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 				</section>
 				<section id="sectionauroraplayerappbox">
 				<div id="auroraplayerappbox">
-					<div id="apicon">
-						<picture>
-							<source srcset="/images/aurora-player_32x32.webp 1x, /images/aurora-player_32x32@2x.webp 2x" type="image/webp">
-							<source srcset="/images/aurora-player_32x32.png 1x, /images/aurora-player_32x32@2x.png 2x" type="image/png">
-							<img id="auroraplayericon" alt="Aurora Player" loading="lazy" width="32" height="32" src="/images/aurora-player_32x32@2x.png">
-						</picture>
+					<div class="appname">
+						<div id="apicon">
+							<picture>
+								<source srcset="/images/aurora-player_32x32.webp 1x, /images/aurora-player_32x32@2x.webp 2x" type="image/webp">
+								<source srcset="/images/aurora-player_32x32.png 1x, /images/aurora-player_32x32@2x.png 2x" type="image/png">
+								<img id="auroraplayericon" alt="Aurora Player" loading="lazy" width="32" height="32" src="/images/aurora-player_32x32@2x.png">
+							</picture>
+						</div>
+						<div id="apname"><span>Aurora Player</span></div>
 					</div>
-					<div id="apname"><span>Aurora Player</span></div>
 					<div id="aptllo"><span data-i18n="desauroraplayer"></span></div>
-					<div id="apnt"><span data-i18n="nothanks"></span></div>
 					<div id="apgetapp"><span data-i18n="downloadtheapp"></span></div>
 				</div>
 				</section>
@@ -815,8 +842,9 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 								<div>
 									<span data-i18n="titelon"></span>
 								</div>
-								<div class="tabopacityslider">
-									<input type="range" id="onoffrange" min="0" max="1" step="1" value="0" name="onoffrange" role="slider" aria-label="The ON and OFF switch" aria-valuemin="1" aria-valuemax="1" aria-valuenow="0">
+								<div class="oan">
+									<div class="sliderlabel">0</div>
+									<input id="onoffrange" type="range" min="0" max="1" step="1" value="0" aria-label="The ON and OFF switch" aria-valuemin="1" aria-valuemax="100" aria-valuenow="0"/>
 								</div>
 								<div>
 									<span data-i18n="titeloff"></span>
@@ -888,7 +916,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 						</div>
 						<div id="showwarningambilight" class="warningambilight">
 							<span class="warning" data-i18n="warning"></span><br><span data-i18n="warningtextambilight"></span>
-							<span><a href="https://www.turnoffthelights.com/browser/atmosphere-lighting-backlight-for-html5-videos.html" target="_blank" rel="noopener"><span data-i18n="titelwikiatmos"></span></a>.</span>
+							<span><a href="https://www.turnoffthelights.com/browser/extension/feature/atmosphere-lighting/" target="_blank" rel="noopener"><span data-i18n="titelwikiatmos"></span></a>.</span>
 						</div>
 						<div class="md-checkbox">
 							<input id="atmosvivid" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="atmosvivid">
@@ -918,14 +946,24 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 					<div id="atmossettingspanel" class="hidden">
 						<div class="atmosrangebox">
 							<div class="attitle"><span class="item" data-i18n="titelblurradius"></span></div>
-							<div class="atrest"><input type="range" min="30" max="250" step="1" value="0" name="arangeblur" id="arangeblur"></div>
+							<div class="atrest">
+								<div class="oan">
+									<div class="sliderlabel">0</div>
+									<input id="arangeblur" type="range" min="33" max="250" step="1" value="0" aria-label="Blur slider" aria-valuemin="1" aria-valuemax="250" aria-valuenow="0"/>
+								</div>
+							</div>
 							<div class="atrest"><input type="number" min="30" max="250" step="1" value="0" name="ambilightrangeblurradius" id="ambilightrangeblurradius" maxlength="3" size="4"></div>
 						</div>
 						<label for="ambilightrangeblurradius"><span data-i18n="desambilightrangeblurradius"></span></label>
 						<br>
 						<div class="atmosrangebox">
 							<div class="attitle"><span class="item" data-i18n="titelspreadradius"></span></div>
-							<div class="atrest"><input type="range" min="0" max="50" step="1" value="0" name="arangespread" id="arangespread"></div>
+							<div class="atrest">
+								<div class="oan">
+									<div class="sliderlabel">0</div>
+									<input id="arangespread" type="range" min="0" max="50" step="1" value="0" aria-label="Spread slider" aria-valuemin="1" aria-valuemax="50" aria-valuenow="0"/>
+								</div>
+							</div>
 							<div class="atrest"><input type="number" min="0" max="50" step="1" value="0" name="ambilightrangespreadradius" id="ambilightrangespreadradius" maxlength="3" size="4"></div>
 						</div>
 						<label for="ambilightrangespreadradius"><span data-i18n="desambilightrangespreadradius"></span></label>
@@ -942,7 +980,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 							<table id="atmospherewhitelist">
 								<tr>
 									<td><span data-i18n="titelwebsite"></span></td>
-									<td><input id="atmospherewebsiteurl" type="url" required pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com"></td>
+									<td><input id="atmospherewebsiteurl" type="url" required pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com"></td>
 									<td><button type="submit" id="atmosphereaddbutton" name="add"><span data-i18n="addbutton"></span></button></td>
 								</tr>
 								<tr>
@@ -1107,7 +1145,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 						<table id="videovolumewhitelist">
 							<tr>
 								<td><span data-i18n="titelwebsite"></span></td>
-								<td><input id="videovolumewebsiteurl" type="url" required pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com"></td>
+								<td><input id="videovolumewebsiteurl" type="url" required pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com"></td>
 								<td><button type="submit" id="videovolumeaddbutton" name="add"><span data-i18n="addbutton"></span></button></td>
 							</tr>
 							<tr>
@@ -1162,7 +1200,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 						<table id="videotoolwhitelist">
 							<tr>
 								<td><span data-i18n="titelwebsite"></span></td>
-								<td><input id="videotoolwebsiteurl" type="url" required pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com"></td>
+								<td><input id="videotoolwebsiteurl" type="url" required pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com"></td>
 								<td><button type="submit" id="videotooladdbutton" name="add"><span data-i18n="addbutton"></span></button></td>
 							</tr>
 							<tr>
@@ -1219,7 +1257,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 						<table id="EyeWhitelist">
 							<tr>
 								<td><span data-i18n="titelwebsite"></span></td>
-								<td><input id="websiteurl" type="url" required pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com"></td>
+								<td><input id="websiteurl" type="url" required pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com"></td>
 								<td><button type="submit" id="addbutton" name="add"><span data-i18n="addbutton"></span></button></td>
 							</tr>
 							<tr>
@@ -1725,7 +1763,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 						<table id="nightwhitelist">
 							<tr>
 								<td><span data-i18n="titelwebsite"></span></td>
-								<td><input id="nightwebsiteurl" type="url" pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com"></td>
+								<td><input id="nightwebsiteurl" type="url" pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com"></td>
 								<td><button type="submit" id="nightaddbutton" name="add"><span data-i18n="addbutton"></span></button></td>
 							</tr>
 							<tr>
@@ -2021,10 +2059,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<option value="1" data-i18n="desgpbuttonnextvideo"></option>
 										<option value="2" data-i18n="desgpbuttonprevvideo"></option>
 										<option value="3" data-i18n="desgpbuttonvolumeincrease"></option>
+										<option value="16" data-i18n="desgpbuttonbackwardbigx"></option>
+										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="4" data-i18n="desgpbuttonbackwardsmall"></option>
 										<option value="5" data-i18n="desgpbuttonforwardsmall"></option>
-										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="7" data-i18n="desgpbuttonforwardbig"></option>
+										<option value="17" data-i18n="desgpbuttonforwardbigx"></option>
 										<option value="8" data-i18n="desgpbuttonshare"></option>
 										<option value="9" data-i18n="desgpbuttonplaypause"></option>
 										<option value="10" data-i18n="desgpbuttondirreset"></option>
@@ -2044,10 +2084,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<option value="1" data-i18n="desgpbuttonnextvideo"></option>
 										<option value="2" data-i18n="desgpbuttonprevvideo"></option>
 										<option value="3" data-i18n="desgpbuttonvolumeincrease"></option>
+										<option value="16" data-i18n="desgpbuttonbackwardbigx"></option>
+										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="4" data-i18n="desgpbuttonbackwardsmall"></option>
 										<option value="5" data-i18n="desgpbuttonforwardsmall"></option>
-										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="7" data-i18n="desgpbuttonforwardbig"></option>
+										<option value="17" data-i18n="desgpbuttonforwardbigx"></option>
 										<option value="8" data-i18n="desgpbuttonshare"></option>
 										<option value="9" data-i18n="desgpbuttonplaypause"></option>
 										<option value="10" data-i18n="desgpbuttondirreset"></option>
@@ -2067,10 +2109,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<option value="1" data-i18n="desgpbuttonnextvideo"></option>
 										<option value="2" data-i18n="desgpbuttonprevvideo"></option>
 										<option value="3" data-i18n="desgpbuttonvolumeincrease"></option>
+										<option value="16" data-i18n="desgpbuttonbackwardbigx"></option>
+										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="4" data-i18n="desgpbuttonbackwardsmall"></option>
 										<option value="5" data-i18n="desgpbuttonforwardsmall"></option>
-										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="7" data-i18n="desgpbuttonforwardbig"></option>
+										<option value="17" data-i18n="desgpbuttonforwardbigx"></option>
 										<option value="8" data-i18n="desgpbuttonshare"></option>
 										<option value="9" data-i18n="desgpbuttonplaypause"></option>
 										<option value="10" data-i18n="desgpbuttondirreset"></option>
@@ -2090,10 +2134,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 											<option value="1" data-i18n="desgpbuttonnextvideo"></option>
 											<option value="2" data-i18n="desgpbuttonprevvideo"></option>
 											<option value="3" data-i18n="desgpbuttonvolumeincrease"></option>
+											<option value="16" data-i18n="desgpbuttonbackwardbigx"></option>
+											<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 											<option value="4" data-i18n="desgpbuttonbackwardsmall"></option>
 											<option value="5" data-i18n="desgpbuttonforwardsmall"></option>
-											<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 											<option value="7" data-i18n="desgpbuttonforwardbig"></option>
+											<option value="17" data-i18n="desgpbuttonforwardbigx"></option>
 											<option value="8" data-i18n="desgpbuttonshare"></option>
 											<option value="9" data-i18n="desgpbuttonplaypause"></option>
 											<option value="10" data-i18n="desgpbuttondirreset"></option>
@@ -2113,10 +2159,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<option value="1" data-i18n="desgpbuttonnextvideo"></option>
 										<option value="2" data-i18n="desgpbuttonprevvideo"></option>
 										<option value="3" data-i18n="desgpbuttonvolumeincrease"></option>
+										<option value="16" data-i18n="desgpbuttonbackwardbigx"></option>
+										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="4" data-i18n="desgpbuttonbackwardsmall"></option>
 										<option value="5" data-i18n="desgpbuttonforwardsmall"></option>
-										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="7" data-i18n="desgpbuttonforwardbig"></option>
+										<option value="17" data-i18n="desgpbuttonforwardbigx"></option>
 										<option value="8" data-i18n="desgpbuttonshare"></option>
 										<option value="9" data-i18n="desgpbuttonplaypause"></option>
 										<option value="10" data-i18n="desgpbuttondirreset"></option>
@@ -2136,10 +2184,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<option value="1" data-i18n="desgpbuttonnextvideo"></option>
 										<option value="2" data-i18n="desgpbuttonprevvideo"></option>
 										<option value="3" data-i18n="desgpbuttonvolumeincrease"></option>
+										<option value="16" data-i18n="desgpbuttonbackwardbigx"></option>
+										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="4" data-i18n="desgpbuttonbackwardsmall"></option>
 										<option value="5" data-i18n="desgpbuttonforwardsmall"></option>
-										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="7" data-i18n="desgpbuttonforwardbig"></option>
+										<option value="17" data-i18n="desgpbuttonforwardbigx"></option>
 										<option value="8" data-i18n="desgpbuttonshare"></option>
 										<option value="9" data-i18n="desgpbuttonplaypause"></option>
 										<option value="10" data-i18n="desgpbuttondirreset"></option>
@@ -2159,10 +2209,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<option value="1" data-i18n="desgpbuttonnextvideo"></option>
 										<option value="2" data-i18n="desgpbuttonprevvideo"></option>
 										<option value="3" data-i18n="desgpbuttonvolumeincrease"></option>
+										<option value="16" data-i18n="desgpbuttonbackwardbigx"></option>
+										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="4" data-i18n="desgpbuttonbackwardsmall"></option>
 										<option value="5" data-i18n="desgpbuttonforwardsmall"></option>
-										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="7" data-i18n="desgpbuttonforwardbig"></option>
+										<option value="17" data-i18n="desgpbuttonforwardbigx"></option>
 										<option value="8" data-i18n="desgpbuttonshare"></option>
 										<option value="9" data-i18n="desgpbuttonplaypause"></option>
 										<option value="10" data-i18n="desgpbuttondirreset"></option>
@@ -2182,10 +2234,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<option value="1" data-i18n="desgpbuttonnextvideo"></option>
 										<option value="2" data-i18n="desgpbuttonprevvideo"></option>
 										<option value="3" data-i18n="desgpbuttonvolumeincrease"></option>
+										<option value="16" data-i18n="desgpbuttonbackwardbigx"></option>
+										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="4" data-i18n="desgpbuttonbackwardsmall"></option>
 										<option value="5" data-i18n="desgpbuttonforwardsmall"></option>
-										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="7" data-i18n="desgpbuttonforwardbig"></option>
+										<option value="17" data-i18n="desgpbuttonforwardbigx"></option>
 										<option value="8" data-i18n="desgpbuttonshare"></option>
 										<option value="9" data-i18n="desgpbuttonplaypause"></option>
 										<option value="10" data-i18n="desgpbuttondirreset"></option>
@@ -2205,10 +2259,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<option value="1" data-i18n="desgpbuttonnextvideo"></option>
 										<option value="2" data-i18n="desgpbuttonprevvideo"></option>
 										<option value="3" data-i18n="desgpbuttonvolumeincrease"></option>
+										<option value="16" data-i18n="desgpbuttonbackwardbigx"></option>
+										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="4" data-i18n="desgpbuttonbackwardsmall"></option>
 										<option value="5" data-i18n="desgpbuttonforwardsmall"></option>
-										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="7" data-i18n="desgpbuttonforwardbig"></option>
+										<option value="17" data-i18n="desgpbuttonforwardbigx"></option>
 										<option value="8" data-i18n="desgpbuttonshare"></option>
 										<option value="9" data-i18n="desgpbuttonplaypause"></option>
 										<option value="10" data-i18n="desgpbuttondirreset"></option>
@@ -2228,10 +2284,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<option value="1" data-i18n="desgpbuttonnextvideo"></option>
 										<option value="2" data-i18n="desgpbuttonprevvideo"></option>
 										<option value="3" data-i18n="desgpbuttonvolumeincrease"></option>
+										<option value="16" data-i18n="desgpbuttonbackwardbigx"></option>
+										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="4" data-i18n="desgpbuttonbackwardsmall"></option>
 										<option value="5" data-i18n="desgpbuttonforwardsmall"></option>
-										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="7" data-i18n="desgpbuttonforwardbig"></option>
+										<option value="17" data-i18n="desgpbuttonforwardbigx"></option>
 										<option value="8" data-i18n="desgpbuttonshare"></option>
 										<option value="9" data-i18n="desgpbuttonplaypause"></option>
 										<option value="10" data-i18n="desgpbuttondirreset"></option>
@@ -2251,10 +2309,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<option value="1" data-i18n="desgpbuttonnextvideo"></option>
 										<option value="2" data-i18n="desgpbuttonprevvideo"></option>
 										<option value="3" data-i18n="desgpbuttonvolumeincrease"></option>
+										<option value="16" data-i18n="desgpbuttonbackwardbigx"></option>
+										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="4" data-i18n="desgpbuttonbackwardsmall"></option>
 										<option value="5" data-i18n="desgpbuttonforwardsmall"></option>
-										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="7" data-i18n="desgpbuttonforwardbig"></option>
+										<option value="17" data-i18n="desgpbuttonforwardbigx"></option>
 										<option value="8" data-i18n="desgpbuttonshare"></option>
 										<option value="9" data-i18n="desgpbuttonplaypause"></option>
 										<option value="10" data-i18n="desgpbuttondirreset"></option>
@@ -2274,10 +2334,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<option value="1" data-i18n="desgpbuttonnextvideo"></option>
 										<option value="2" data-i18n="desgpbuttonprevvideo"></option>
 										<option value="3" data-i18n="desgpbuttonvolumeincrease"></option>
+										<option value="16" data-i18n="desgpbuttonbackwardbigx"></option>
+										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="4" data-i18n="desgpbuttonbackwardsmall"></option>
 										<option value="5" data-i18n="desgpbuttonforwardsmall"></option>
-										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="7" data-i18n="desgpbuttonforwardbig"></option>
+										<option value="17" data-i18n="desgpbuttonforwardbigx"></option>
 										<option value="8" data-i18n="desgpbuttonshare"></option>
 										<option value="9" data-i18n="desgpbuttonplaypause"></option>
 										<option value="10" data-i18n="desgpbuttondirreset"></option>
@@ -2297,10 +2359,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<option value="1" data-i18n="desgpbuttonnextvideo"></option>
 										<option value="2" data-i18n="desgpbuttonprevvideo"></option>
 										<option value="3" data-i18n="desgpbuttonvolumeincrease"></option>
+										<option value="16" data-i18n="desgpbuttonbackwardbigx"></option>
+										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="4" data-i18n="desgpbuttonbackwardsmall"></option>
 										<option value="5" data-i18n="desgpbuttonforwardsmall"></option>
-										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="7" data-i18n="desgpbuttonforwardbig"></option>
+										<option value="17" data-i18n="desgpbuttonforwardbigx"></option>
 										<option value="8" data-i18n="desgpbuttonshare"></option>
 										<option value="9" data-i18n="desgpbuttonplaypause"></option>
 										<option value="10" data-i18n="desgpbuttondirreset"></option>
@@ -2320,10 +2384,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<option value="1" data-i18n="desgpbuttonnextvideo"></option>
 										<option value="2" data-i18n="desgpbuttonprevvideo"></option>
 										<option value="3" data-i18n="desgpbuttonvolumeincrease"></option>
+										<option value="16" data-i18n="desgpbuttonbackwardbigx"></option>
+										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="4" data-i18n="desgpbuttonbackwardsmall"></option>
 										<option value="5" data-i18n="desgpbuttonforwardsmall"></option>
-										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="7" data-i18n="desgpbuttonforwardbig"></option>
+										<option value="17" data-i18n="desgpbuttonforwardbigx"></option>
 										<option value="8" data-i18n="desgpbuttonshare"></option>
 										<option value="9" data-i18n="desgpbuttonplaypause"></option>
 										<option value="10" data-i18n="desgpbuttondirreset"></option>
@@ -2343,10 +2409,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<option value="1" data-i18n="desgpbuttonnextvideo"></option>
 										<option value="2" data-i18n="desgpbuttonprevvideo"></option>
 										<option value="3" data-i18n="desgpbuttonvolumeincrease"></option>
+										<option value="16" data-i18n="desgpbuttonbackwardbigx"></option>
+										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="4" data-i18n="desgpbuttonbackwardsmall"></option>
 										<option value="5" data-i18n="desgpbuttonforwardsmall"></option>
-										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="7" data-i18n="desgpbuttonforwardbig"></option>
+										<option value="17" data-i18n="desgpbuttonforwardbigx"></option>
 										<option value="8" data-i18n="desgpbuttonshare"></option>
 										<option value="9" data-i18n="desgpbuttonplaypause"></option>
 										<option value="10" data-i18n="desgpbuttondirreset"></option>
@@ -2366,10 +2434,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<option value="1" data-i18n="desgpbuttonnextvideo"></option>
 										<option value="2" data-i18n="desgpbuttonprevvideo"></option>
 										<option value="3" data-i18n="desgpbuttonvolumeincrease"></option>
+										<option value="16" data-i18n="desgpbuttonbackwardbigx"></option>
+										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="4" data-i18n="desgpbuttonbackwardsmall"></option>
 										<option value="5" data-i18n="desgpbuttonforwardsmall"></option>
-										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="7" data-i18n="desgpbuttonforwardbig"></option>
+										<option value="17" data-i18n="desgpbuttonforwardbigx"></option>
 										<option value="8" data-i18n="desgpbuttonshare"></option>
 										<option value="9" data-i18n="desgpbuttonplaypause"></option>
 										<option value="10" data-i18n="desgpbuttondirreset"></option>
@@ -2389,10 +2459,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<option value="1" data-i18n="desgpbuttonnextvideo"></option>
 										<option value="2" data-i18n="desgpbuttonprevvideo"></option>
 										<option value="3" data-i18n="desgpbuttonvolumeincrease"></option>
+										<option value="16" data-i18n="desgpbuttonbackwardbigx"></option>
+										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="4" data-i18n="desgpbuttonbackwardsmall"></option>
 										<option value="5" data-i18n="desgpbuttonforwardsmall"></option>
-										<option value="6" data-i18n="desgpbuttonbackwardbig"></option>
 										<option value="7" data-i18n="desgpbuttonforwardbig"></option>
+										<option value="17" data-i18n="desgpbuttonforwardbigx"></option>
 										<option value="8" data-i18n="desgpbuttonshare"></option>
 										<option value="9" data-i18n="desgpbuttonplaypause"></option>
 										<option value="10" data-i18n="desgpbuttondirreset"></option>
@@ -2422,7 +2494,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 						<table id="gamepadwhitelist">
 							<tr>
 								<td><span data-i18n="titelwebsite"></span></td>
-								<td><input id="gamepadwebsiteurl" type="url" required pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com"></td>
+								<td><input id="gamepadwebsiteurl" type="url" required pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com"></td>
 								<td><button type="submit" id="gamepadaddbutton" name="add"><span data-i18n="addbutton"></span></button></td>
 							</tr>
 							<tr>
@@ -2459,7 +2531,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 									<table id="multiopacitylist">
 											<tr>
 												<td>
-													<input id="multiopacityname" type="url" required pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{2,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com" aria-label="The URL box to type a website for the AutoDim feature">
+													<input id="multiopacityname" type="url" required pattern="^((https?:\/\/(localhost|www\.)?[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|(https?:\/\/localhost(:\d{1,5})?([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((ftp):\/\/[a-zA-Z0-9@:%_.+-~#?&\/=]{1,256}\.[a-z]{2,6}\b([a-zA-Z0-9@:%_.+-~#?&\/=]*))|((https?|ftp):\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}([a-zA-Z0-9@:%_.+-~#?&\/=]*)))$" placeholder="https://www.example.com" aria-label="The URL box to type a website for the AutoDim feature">
 												</td>
 												<td>
 													<input id="multiopacitynumber" type="number" required placeholder="80" min="0" step="1" max="100" value="80" aria-label="Choose the opacity value in the number box">

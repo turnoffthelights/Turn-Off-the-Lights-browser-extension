@@ -210,6 +210,7 @@
 		1E4CB20C268CC77900015282 /* TOtL_iOS_UITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOtL_iOS_UITest.swift; sourceTree = "<group>"; };
 		1E4CB231268CDC6D00015282 /* TOtL-iOS-test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TOtL-iOS-test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4CB233268CDC6D00015282 /* TOtL_iOS_test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOtL_iOS_test.swift; sourceTree = "<group>"; };
+		1E4D37F42CE2B66F0045070C /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		1E54226528422FB5003B4F50 /* Turn Off the Lights for Safari (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Turn Off the Lights for Safari (iOS).entitlements"; sourceTree = "<group>"; };
 		1E5AF2E828B7D2C8004930D6 /* Stefanfunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stefanfunctions.swift; sourceTree = "<group>"; };
 		1E5AF2EA28B7E5CC004930D6 /* Stefanfunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stefanfunctions.swift; sourceTree = "<group>"; };
@@ -505,6 +506,7 @@
 		1E70C9E326726F350064A939 = {
 			isa = PBXGroup;
 			children = (
+				1E4D37F42CE2B66F0045070C /* Config.xcconfig */,
 				1E70C9E826726F350064A939 /* Shared (App) */,
 				1E70C9F126726F380064A939 /* Shared (Extension) */,
 				1E70C9F926726F380064A939 /* iOS (App) */,
@@ -1243,13 +1245,14 @@
 /* Begin XCBuildConfiguration section */
 		1E07D0112B8FCE7F00B9E5F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 128;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_ASSET_PATHS = "\"Turn Off the Lights for Safari/Preview Content\"";
 				DEVELOPMENT_TEAM = PRR97757HF;
 				ENABLE_PREVIEWS = YES;
@@ -1264,7 +1267,7 @@
 					"@executable_path/Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 4.4.1;
+				MARKETING_VERSION = "$(VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stefanvd.Turn-Off-the-Lights-for-Safari";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = xros;
@@ -1279,13 +1282,14 @@
 		};
 		1E07D0122B8FCE7F00B9E5F7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 128;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_ASSET_PATHS = "\"Turn Off the Lights for Safari/Preview Content\"";
 				DEVELOPMENT_TEAM = PRR97757HF;
 				ENABLE_PREVIEWS = YES;
@@ -1300,7 +1304,7 @@
 					"@executable_path/Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 4.4.1;
+				MARKETING_VERSION = "$(VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stefanvd.Turn-Off-the-Lights-for-Safari";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = xros;
@@ -1315,11 +1319,12 @@
 		};
 		1E4CB211268CC77900015282 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = PRR97757HF;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1327,7 +1332,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stefanvd.TOtL-iOS-UITest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1341,11 +1346,12 @@
 		};
 		1E4CB212268CC77900015282 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = PRR97757HF;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1353,7 +1359,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stefanvd.TOtL-iOS-UITest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1368,11 +1374,12 @@
 		};
 		1E4CB238268CDC6D00015282 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = PRR97757HF;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1380,7 +1387,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stefanvd.TOtL-iOS-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1393,11 +1400,12 @@
 		};
 		1E4CB239268CDC6D00015282 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = PRR97757HF;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1405,7 +1413,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stefanvd.TOtL-iOS-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1419,6 +1427,7 @@
 		};
 		1E70CA3426726F380064A939 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1483,6 +1492,7 @@
 		};
 		1E70CA3526726F380064A939 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1540,9 +1550,10 @@
 		};
 		1E70CA3726726F380064A939 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 128;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = PRR97757HF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
@@ -1557,7 +1568,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 4.4.1;
+				MARKETING_VERSION = "$(VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stefanvd.Turn-Off-the-Lights-for-Safari.Extension";
 				PRODUCT_NAME = "Turn Off the Lights for Safari Extension";
 				SDKROOT = iphoneos;
@@ -1573,9 +1584,10 @@
 		};
 		1E70CA3826726F380064A939 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 128;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = PRR97757HF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
@@ -1590,7 +1602,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 4.4.1;
+				MARKETING_VERSION = "$(VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stefanvd.Turn-Off-the-Lights-for-Safari.Extension";
 				PRODUCT_NAME = "Turn Off the Lights for Safari Extension";
 				SDKROOT = iphoneos;
@@ -1607,13 +1619,14 @@
 		};
 		1E70CA3B26726F380064A939 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "iOS (App)/Turn Off the Lights for Safari (iOS).entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 128;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = PRR97757HF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
@@ -1632,7 +1645,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.4.1;
+				MARKETING_VERSION = "$(VERSION)";
 				OTHER_LDFLAGS = (
 					"-framework",
 					WebKit,
@@ -1649,13 +1662,14 @@
 		};
 		1E70CA3C26726F380064A939 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "iOS (App)/Turn Off the Lights for Safari (iOS).entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 128;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = PRR97757HF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
@@ -1674,7 +1688,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.4.1;
+				MARKETING_VERSION = "$(VERSION)";
 				OTHER_LDFLAGS = (
 					"-framework",
 					WebKit,
@@ -1692,10 +1706,11 @@
 		};
 		1E70CA3E26726F380064A939 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 128;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = PRR97757HF;
 				ENABLE_APP_SANDBOX = YES;
@@ -1714,7 +1729,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 4.4.1;
+				MARKETING_VERSION = "$(VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stefanvd.Turn-Off-the-Lights-for-Safari.Extension";
 				PRODUCT_NAME = "Turn Off the Lights for Safari Extension";
 				SDKROOT = macosx;
@@ -1726,10 +1741,11 @@
 		};
 		1E70CA3F26726F380064A939 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 128;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = PRR97757HF;
 				ENABLE_APP_SANDBOX = YES;
@@ -1748,7 +1764,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 4.4.1;
+				MARKETING_VERSION = "$(VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stefanvd.Turn-Off-the-Lights-for-Safari.Extension";
 				PRODUCT_NAME = "Turn Off the Lights for Safari Extension";
 				SDKROOT = macosx;
@@ -1760,13 +1776,14 @@
 		};
 		1E70CA4226726F380064A939 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Turn Off the Lights for Safari.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 128;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = PRR97757HF;
 				ENABLE_APP_SANDBOX = YES;
@@ -1786,7 +1803,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 4.4.1;
+				MARKETING_VERSION = "$(VERSION)";
 				OTHER_LDFLAGS = (
 					"-framework",
 					WebKit,
@@ -1801,13 +1818,14 @@
 		};
 		1E70CA4326726F380064A939 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Turn Off the Lights for Safari.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 128;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = PRR97757HF;
 				ENABLE_APP_SANDBOX = YES;
@@ -1827,7 +1845,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 4.4.1;
+				MARKETING_VERSION = "$(VERSION)";
 				OTHER_LDFLAGS = (
 					"-framework",
 					WebKit,

@@ -42,27 +42,6 @@
 			"matches": [
 				"*://*.youtube.com/*"
 			],
-			"js": [
-				"scripts/fps.js"
-			],
-			"run_at": "document_start",
-			"all_frames": true
-		},
-		{
-			"matches": [
-				"<all_urls>"
-			],
-			"js": [
-				"scripts/autostop.js"
-			],
-			"run_at": "document_start",
-			"all_frames": true,
-			"match_about_blank": true
-		},
-		{
-			"matches": [
-				"*://*.youtube.com/*"
-			],
 			"css": [
 				"styles/youtube.css"
 			]
@@ -72,7 +51,7 @@
 		"page": "options.html",
 		"open_in_tab": true
 	},
-	"version": "4.4.11",
+	"version": "4.5",
 	"name": "__MSG_name__",
 	"description": "__MSG_descriptionshort__",
 	"omnibox": {

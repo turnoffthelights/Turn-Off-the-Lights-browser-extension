@@ -1,0 +1,13 @@
+//
+//  Config.xcconfig
+//  Turn Off the Lights for Safari
+//
+//  Created by Stefan Van Damme on 11/11/2024.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// Update the version number here for all platforms
+VERSION = 4.5
+BUILD_NUMBER = 129
