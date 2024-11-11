@@ -2616,10 +2616,10 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	function drawReflection(reflectionid){
 		var calcreflection = (100 - reflectionamount) / 100;
 		try{
-			if(reflectionid.paused || reflectionid.ended || $("movie_player").getPlayerState() == 0 || $("movie_player").getPlayerState() == 2){
+			if(reflectionid.paused || reflectionid.ended){
 				if(window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
 					// var youtubewindow = $("watch-player") || $("watch7-player") || $("player-api");
-					let youtubewindow = $("movie_player");
+					let youtubewindow = $("ytd-player");
 					youtubewindow.style.webkitBoxReflect = "";
 				}else{
 					reflectionid.style.webkitBoxReflect = "";
@@ -2631,7 +2631,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 		try{
 			if(window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
 				// var youtubewindow = $("watch-player") || $("watch7-player") || $("player-api");
-				let youtubewindow = $("movie_player");
+				let youtubewindow = $("ytd-player");
 				youtubewindow.style.webkitBoxReflect = "below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(black),color-stop(" + calcreflection + ", transparent))";
 			}else{
 				reflectionid.style.webkitBoxReflect = "below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(black),color-stop(" + calcreflection + ", transparent))";
