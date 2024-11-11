@@ -438,15 +438,13 @@ function read_options(){
 		}
 	}
 
-	var settingsmain = ["firstDate", "countremember", "excludedDomains", "autodimDomains", "atmosphereDomains", "nightDomains", "reviewedlastonversion", "applastonversion", "autostopDomains", "videotoolDomains", "icon", "multiopacityDomains", "firstsawrate", "videovolumeDomains", "firstsawyoutube", "firstsawnumber", "gamepadDomains"];
+	var settingsmain = ["firstDate", "countremember", "excludedDomains", "autodimDomains", "atmosphereDomains", "nightDomains", "reviewedlastonversion", "autostopDomains", "videotoolDomains", "icon", "multiopacityDomains", "firstsawrate", "videovolumeDomains", "firstsawyoutube", "firstsawnumber", "gamepadDomains"];
 	var a = settingscheckboxarray, b = settingsinputrarray, c = settingsmain;
 	var allsettings = a.concat(b, c);
 	//---
 	chrome.storage.sync.get(allsettings, function(items){
 		setcheckboxoptions(items);
 		setinputoptions(items);
-
-		if(items["applastonversion"] == chrome.runtime.getManifest().version){ $("sectionauroraplayerappbox").style.display = "none"; }
 
 		if(items["icon"]){ $("btnpreview").src = items["icon"]; $("btnpreview").setAttribute("data-icon", items["icon"]); }
 
@@ -1214,8 +1212,6 @@ function test(){
 		$("autodimsize").disabled = true; $("autodimsizepixelwidth").disabled = true; $("autodimsizepixelheight").disabled = true; $("autodimonly").disabled = true; $("autodimchecklistwhite").disabled = true; $("autodimchecklistblack").disabled = true; $("autodimdelaytime").disabled = true; $("autodimDomainsBox").disabled = true; $("autodimwebsiteurl").disabled = true; $("autodimaddbutton").disabled = true; $("autodimremovebutton").disabled = true;
 	}
 
-	if($("videovolume").checked == true){ $("videovolumealt").disabled = false; }else{ $("videovolumealt").disabled = true; }
-
 	if($("nightactivetime").checked == true && $("nighttheme").checked == true){ $("nmbegintime").disabled = false; $("nmendtime").disabled = false; }else{ $("nmbegintime").disabled = true; $("nmendtime").disabled = true; }
 
 	if($("nightenabletheme").checked == true){ $("nmautoclock").disabled = false; }else{ $("nmautoclock").disabled = true; }
@@ -1234,11 +1230,17 @@ function test(){
 		$("autostopred").disabled = true; $("autostoptrans").disabled = true; $("autostoponly").disabled = true; $("autostopchecklistwhite").disabled = true; $("autostopchecklistblack").disabled = true; $("autostopwebsiteurl").disabled = true; $("autostopaddbutton").disabled = true; $("autostopremovebutton").disabled = true; $("autostopDomainsBox").disabled = true;
 	}
 
-	if($("videotool").checked == true){ $("videozoom").disabled = false; $("speedtoolbar").disabled = false; $("videotoolonly").disabled = false; }else{ $("videozoom").disabled = true; $("speedtoolbar").disabled = true; $("videotoolonly").disabled = true; }
+	if($("videotool").checked == true){ $("videozoom").disabled = false; $("speedtoolbar").disabled = false; $("videotoolonly").disabled = false; $("videotoolcolor").disabled = false; }else{ $("videozoom").disabled = true; $("speedtoolbar").disabled = true; $("videotoolonly").disabled = true; $("videotoolcolor").disabled = true; }
 
 	if($("videotoolonly").checked == true){ $("videotoolchecklistwhite").disabled = false; $("videotoolchecklistblack").disabled = false; $("videotoolDomainsBox").disabled = false; $("videotoolwebsiteurl").disabled = false; $("videotooladdbutton").disabled = false; $("videotoolremovebutton").disabled = false; }else{ $("videotoolchecklistwhite").disabled = true; $("videotoolchecklistblack").disabled = true; $("videotoolDomainsBox").disabled = true; $("videotoolwebsiteurl").disabled = true; $("videotooladdbutton").disabled = true; $("videotoolremovebutton").disabled = true; }
 
 	if($("gamepadonly").checked == true){ $("gamepadchecklistwhite").disabled = false; $("gamepadchecklistblack").disabled = false; $("gamepadDomainsBox").disabled = false; $("gamepadwebsiteurl").disabled = false; $("gamepadaddbutton").disabled = false; $("gamepadremovebutton").disabled = false; }else{ $("gamepadchecklistwhite").disabled = true; $("gamepadchecklistblack").disabled = true; $("gamepadDomainsBox").disabled = true; $("gamepadwebsiteurl").disabled = true; $("gamepadaddbutton").disabled = true; $("gamepadremovebutton").disabled = true; }
+
+	if($("gamepad").checked == true){
+		$("gpleftstick").disabled = false; $("gprightstick").disabled = false; $("gpbtnx").disabled = false; $("gpbtno").disabled = false; $("gpbtnsquare").disabled = false; $("gpbtntriangle").disabled = false; $("gpbtnlb").disabled = false; $("gpbtnrb").disabled = false; $("gpbtnlt").disabled = false; $("gpbtnrt").disabled = false; $("gpbtnshare").disabled = false; $("gpbtnmenu").disabled = false; $("gpbtnrightstick").disabled = false; $("gpbtnleftstick").disabled = false; $("gpbtndirup").disabled = false; $("gpbtndirdown").disabled = false; $("gpbtndirleft").disabled = false; $("gpbtndirright").disabled = false; $("gpbtnlogo").disabled = false; $("gamepadonly").disabled = false;
+	}else{
+		$("gpleftstick").disabled = true; $("gprightstick").disabled = true; $("gpbtnx").disabled = true; $("gpbtno").disabled = true; $("gpbtnsquare").disabled = true; $("gpbtntriangle").disabled = true; $("gpbtnlb").disabled = true; $("gpbtnrb").disabled = true; $("gpbtnlt").disabled = true; $("gpbtnrt").disabled = true; $("gpbtnshare").disabled = true; $("gpbtnmenu").disabled = true; $("gpbtnrightstick").disabled = true; $("gpbtnleftstick").disabled = true; $("gpbtndirup").disabled = true; $("gpbtndirdown").disabled = true; $("gpbtndirleft").disabled = true; $("gpbtndirright").disabled = true; $("gpbtnlogo").disabled = true; $("gamepadonly").disabled = true; $("gamepadchecklistwhite").disabled = true; $("gamepadchecklistblack").disabled = true; $("gamepadDomainsBox").disabled = true; $("gamepadwebsiteurl").disabled = true; $("gamepadaddbutton").disabled = true; $("gamepadremovebutton").disabled = true;
+	}
 
 	if($("reflection").checked == true){ $("reflectionamount").disabled = false; $("beeld").style.webkitBoxReflect = "below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(black),color-stop(" + (100 - $("reflectionamount").value) / 100 + ", transparent))"; }else{ $("reflectionamount").disabled = true; $("beeld").style.webkitBoxReflect = ""; }
 
@@ -1252,7 +1254,51 @@ function test(){
 
 	if($("videoheadline").checked == true){ $("titleinvertcolor").disabled = false; }else{ $("titleinvertcolor").disabled = true; }
 
+	if($("videovolumelabel").checked == true){
+		$("videovolumesteps").disabled = false;
+	}else{
+		$("videovolumesteps").disabled = true;
+	}
+
 	if($("videovolumeonly").checked == true){ $("videovolumechecklistwhite").disabled = false; $("videovolumechecklistblack").disabled = false; $("videovolumeDomainsBox").disabled = false; $("videovolumewebsiteurl").disabled = false; $("videovolumeaddbutton").disabled = false; $("videovolumeremovebutton").disabled = false; }else{ $("videovolumechecklistwhite").disabled = true; $("videovolumechecklistblack").disabled = true; $("videovolumeDomainsBox").disabled = true; $("videovolumewebsiteurl").disabled = true; $("videovolumeaddbutton").disabled = true; $("videovolumeremovebutton").disabled = true; }
+
+	if($("videovolume").checked == true){
+		$("videovolumealt").disabled = false;
+		$("videovolumescrolla").disabled = false;
+		$("videovolumescrollb").disabled = false;
+		$("videovolumescrollc").disabled = false;
+		$("videovolumehold").disabled = false;
+		$("videovolumeposa").disabled = false;
+		$("videovolumeposb").disabled = false;
+		$("videovolumeposc").disabled = false;
+		$("videovolumeposd").disabled = false;
+		$("videovolumepose").disabled = false;
+		$("videovolumecolor").disabled = false;
+		$("videovolumelabel").disabled = false;
+		$("videovolumesteps").disabled = false;
+		$("videovolumeonly").disabled = false;
+	}else{
+		$("videovolumealt").disabled = true;
+		$("videovolumescrolla").disabled = true;
+		$("videovolumescrollb").disabled = true;
+		$("videovolumescrollc").disabled = true;
+		$("videovolumehold").disabled = true;
+		$("videovolumeposa").disabled = true;
+		$("videovolumeposb").disabled = true;
+		$("videovolumeposc").disabled = true;
+		$("videovolumeposd").disabled = true;
+		$("videovolumepose").disabled = true;
+		$("videovolumecolor").disabled = true;
+		$("videovolumelabel").disabled = true;
+		$("videovolumesteps").disabled = true;
+		$("videovolumeonly").disabled = true;
+		$("videovolumechecklistwhite").disabled = true;
+		$("videovolumechecklistblack").disabled = true;
+		$("videovolumeDomainsBox").disabled = true;
+		$("videovolumewebsiteurl").disabled = true;
+		$("videovolumeaddbutton").disabled = true;
+		$("videovolumeremovebutton").disabled = true;
+	}
 
 	if($("seeanalytics").checked == true){
 		$("seeanalparta").style.display = "";
@@ -2585,8 +2631,7 @@ function domcontentloaded(){
 	$("nt").addEventListener("click", function(){ $("sectionreviewbox").style.display = "none"; chrome.storage.sync.set({"reviewedlastonversion": chrome.runtime.getManifest().version}); });
 
 	// Aurora Player app box
-	$("apgetapp").addEventListener("click", function(){ window.open(linkauroraplayerapp); $("sectionauroraplayerappbox").style.display = "none"; chrome.storage.sync.set({"applastonversion": chrome.runtime.getManifest().version}); });
-	$("apnt").addEventListener("click", function(){ $("sectionauroraplayerappbox").style.display = "none"; chrome.storage.sync.set({"applastonversion": chrome.runtime.getManifest().version}); });
+	$("auroraplayerappbox").addEventListener("click", function(){ window.open(linkauroraplayerapp, "_blank"); });
 
 	// YouTube app box
 	$("ytappbox").addEventListener("click", function(){ window.open(linkyoutube, "_blank"); });
