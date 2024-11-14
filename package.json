@@ -21,7 +21,6 @@
     "safari": "gulp safari",
     "whale": "gulp whale",
     "yandex": "gulp yandex",
-    "samsung": "gulp samsung",
     "chrome-create-zip": "cd dist/chrome && find . -name '.DS_Store' -type f -delete && zip -r ../$npm_package_name-chrome-extension-$npm_package_version.zip *",
     "firefox-create-zip": "cd dist/firefox && find . -name '.DS_Store' -type f -delete && zip -r ../$npm_package_name-firefox-extension-$npm_package_version.zip *",
     "opera-create-zip": "cd dist/opera && find . -name '.DS_Store' -type f -delete && zip -r ../$npm_package_name-opera-extension-$npm_package_version.zip *",

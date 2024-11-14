@@ -30,12 +30,12 @@
   "web_accessible_resources": [{
     "resources": ["/scripts/fps-block.js", "/scripts/hd-quality.js"],
     "matches": ["*://www.youtube.com/*"],
-    "use_dynamic_url": true
+    "use_dynamic_url": false
   },
   {
     "resources": ["/scripts/video-player-status.js"],
     "matches": ["<all_urls>"],
-    "use_dynamic_url": true
+    "use_dynamic_url": false
   }],
   "offline_enabled": true,
   "minimum_chrome_version": "116",

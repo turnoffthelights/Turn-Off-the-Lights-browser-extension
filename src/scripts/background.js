@@ -199,14 +199,21 @@ if(exbrowser != "safari"){
 	// https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/scripting
 	// Safari no support "executeScript.injectImmediately"
 	// Use this content script in iOS 16.4 and higher
-	chrome.scripting.registerContentScripts([
-		{
-			id: "session-script",
-			js: ["js/screen-shader.js", "js/night-mode.js"],
-			matches: ["<all_urls>"],
-			runAt: "document_start"
-		},
-	])
+	// Register the content script only if not already registered
+	chrome.scripting.getRegisteredContentScripts()
+		.then((scripts) => {
+			const isScriptRegistered = scripts.some((script) => script.id === "session-script");
+			if(!isScriptRegistered){
+				return chrome.scripting.registerContentScripts([
+					{
+						id: "session-script",
+						js: ["scripts/screen-shader.js", "scripts/night-mode.js"],
+						matches: ["<all_urls>"],
+						runAt: "document_start"
+					}
+				]);
+			}
+		})
 		.then(() => console.log("registration complete"))
 		.catch((err) => console.warn("unexpected error", err));
 }
@@ -359,52 +366,101 @@ async function getPopupOpenLength(){
 let clickbutton = 0;
 // Declare a timer variable
 let timer;
-chrome.action.onClicked.addListener(async(tab) => {
-	if(tab.url.match(/^http/i) || tab.url.match(/^file/i)){
-		if((new URL(tab.url)).origin == browserstore || tab.url == browsernewtab){
-			chrome.action.setPopup({tabId: tab.id, popup:"popup.html"});
-		}else{
-			clickbutton += 1;
-			timer = setTimeout(function(){
-				getPopupOpenLength().then((thatpanellength) => {
-					if(thatpanellength != 0){
-						// console.log("Doubleclick");
-						// console.log("yes popup open")
-						clickbutton = 0;
-						clearTimeout(timer);
-					}else{
-						// console.log("no popup open")
-						if(clickbutton == 1){
-							chrome.storage.sync.get(["alllightsoff", "mousespotlights"], function(chromeset){
-								if((chromeset["mousespotlights"] != true)){ // regular lamp
-									if((chromeset["alllightsoff"] != true)){
-										chrome.scripting.executeScript({
-											target: {tabId: tab.id},
-											files: ["scripts/light.js"]
-										});
-									}else{
+
+if(exbrowser != "safari"){
+	chrome.action.onClicked.addListener(async(tab) => {
+		if(tab.url.match(/^http/i) || tab.url.match(/^file/i)){
+			if((new URL(tab.url)).origin == browserstore || tab.url == browsernewtab){
+				chrome.action.setPopup({tabId: tab.id, popup:"popup.html"});
+			}else{
+				clickbutton += 1;
+				timer = setTimeout(function(){
+					getPopupOpenLength().then((thatpanellength) => {
+						if(thatpanellength != 0){
+							// console.log("Doubleclick");
+							// console.log("yes popup open")
+							clickbutton = 0;
+							clearTimeout(timer);
+						}else{
+							// console.log("no popup open")
+							if(clickbutton == 1){
+								chrome.storage.sync.get(["alllightsoff", "mousespotlights"], function(chromeset){
+									if((chromeset["mousespotlights"] != true)){ // regular lamp
+										if((chromeset["alllightsoff"] != true)){
+											chrome.scripting.executeScript({
+												target: {tabId: tab.id},
+												files: ["scripts/light.js"]
+											});
+										}else{
+											chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
+										}
+									}else{ // all tabs
+										// Night Mode profile
+										// Eye Protection profile
 										chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
 									}
-								}else{ // all tabs
-									// Night Mode profile
-									// Eye Protection profile
+								});
+							}
+							clickbutton = 0;
+							// Clear all timers
+							clearTimeout(timer);
+						}
+					});
+					chrome.action.setPopup({tabId: tab.id, popup:""});
+				}, 250);
+				chrome.action.setPopup({tabId: tab.id, popup:"palette.html"});
+			}
+		}else{
+			chrome.action.setPopup({tabId: tab.id, popup:"popup.html"});
+		}
+	});
+}else{
+	// safari does not support "chrome.runtime.getContexts"
+	// count click actions
+	chrome.action.onClicked.addListener(function(tab){
+		if(tab.url.match(/^http/i) || tab.url.match(/^file/i)){
+			if((new URL(tab.url)).origin == browserstore || tab.url == browsernewtab){
+				chrome.action.setPopup({tabId: tab.id, popup:"popup.html"});
+			}else{
+				clickbutton += 1;
+				if(clickbutton == 2){
+					// console.log("Doubleclick");
+					clearTimeout(timer);
+					chrome.action.setPopup({tabId: tab.id, popup:"palette.html"});
+					chrome.action.openPopup();
+				}
+
+				timer = setTimeout(function(){
+					// console.log("Singelclick");
+					if(clickbutton == 1){
+						chrome.storage.sync.get(["alllightsoff", "mousespotlights"], function(chromeset){
+							if((chromeset["mousespotlights"] != true)){ // regular lamp
+								if((chromeset["alllightsoff"] != true)){
+									chrome.scripting.executeScript({
+										target: {tabId: tab.id},
+										files: ["scripts/light.js"]
+									});
+								}else{
 									chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
 								}
-							});
-						}
-						clickbutton = 0;
-						// Clear all timers
-						clearTimeout(timer);
+							}else{ // all tabs
+								// Night Mode profile
+								// Eye Protection profile
+								chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
+							}
+						});
 					}
-				});
-				chrome.action.setPopup({tabId: tab.id, popup:""});
-			}, 250);
-			chrome.action.setPopup({tabId: tab.id, popup:"palette.html"});
+					clickbutton = 0;
+					// Clear all timers
+					clearTimeout(timer);
+					chrome.action.setPopup({tabId: tab.id, popup:""});
+				}, 250);
+			}
+		}else{
+			chrome.action.setPopup({tabId: tab.id, popup:"popup.html"});
 		}
-	}else{
-		chrome.action.setPopup({tabId: tab.id, popup:"popup.html"});
-	}
-});
+	});
+}
 
 function codenight(){
 	if(document.getElementById("totldark")){

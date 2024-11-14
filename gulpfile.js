@@ -119,5 +119,6 @@ exports.browserzip = series(
 	exports.whale,
 	exports["whale-zip"],
 	exports.samsung,
-	exports["samsung-zip"]
+	exports["samsung-zip"],
+	exports.safari,
 );

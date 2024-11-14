@@ -19,26 +19,6 @@
 		1E2F2BED26CC4E920033C5E7 /* Walkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E2F2BEF26CC4E920033C5E7 /* Walkthrough.storyboard */; };
 		1E2F2BF526CC4F160033C5E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E2F2BF726CC4F160033C5E7 /* Main.storyboard */; };
 		1E2F5766267BE9D600C78FFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E2F5768267BE9D600C78FFC /* Localizable.strings */; };
-		1E331A40283FBDC5008DE3E6 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A35283FBDC5008DE3E6 /* popup.html */; };
-		1E331A41283FBDC5008DE3E6 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A35283FBDC5008DE3E6 /* popup.html */; };
-		1E331A42283FBDC5008DE3E6 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A36283FBDC5008DE3E6 /* icons */; };
-		1E331A43283FBDC5008DE3E6 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A36283FBDC5008DE3E6 /* icons */; };
-		1E331A46283FBDC5008DE3E6 /* js in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A38283FBDC5008DE3E6 /* js */; };
-		1E331A47283FBDC5008DE3E6 /* js in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A38283FBDC5008DE3E6 /* js */; };
-		1E331A48283FBDC5008DE3E6 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A39283FBDC5008DE3E6 /* schema.json */; };
-		1E331A49283FBDC5008DE3E6 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A39283FBDC5008DE3E6 /* schema.json */; };
-		1E331A4A283FBDC5008DE3E6 /* css in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A3A283FBDC5008DE3E6 /* css */; };
-		1E331A4B283FBDC5008DE3E6 /* css in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A3A283FBDC5008DE3E6 /* css */; };
-		1E331A4C283FBDC5008DE3E6 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A3B283FBDC5008DE3E6 /* manifest.json */; };
-		1E331A4D283FBDC5008DE3E6 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A3B283FBDC5008DE3E6 /* manifest.json */; };
-		1E331A4E283FBDC5008DE3E6 /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A3C283FBDC5008DE3E6 /* options.html */; };
-		1E331A4F283FBDC5008DE3E6 /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A3C283FBDC5008DE3E6 /* options.html */; };
-		1E331A50283FBDC5008DE3E6 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A3D283FBDC5008DE3E6 /* images */; };
-		1E331A51283FBDC5008DE3E6 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A3D283FBDC5008DE3E6 /* images */; };
-		1E331A52283FBDC5008DE3E6 /* palette.html in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A3E283FBDC5008DE3E6 /* palette.html */; };
-		1E331A53283FBDC5008DE3E6 /* palette.html in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A3E283FBDC5008DE3E6 /* palette.html */; };
-		1E331A54283FBDC5008DE3E6 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A3F283FBDC5008DE3E6 /* _locales */; };
-		1E331A55283FBDC5008DE3E6 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 1E331A3F283FBDC5008DE3E6 /* _locales */; };
 		1E35DA0726A8B94D007FE4E0 /* enable-safari-extension-ipad.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1E35DA0626A8B94C007FE4E0 /* enable-safari-extension-ipad.mov */; };
 		1E378629267CA350003A0F73 /* LicensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E378628267CA350003A0F73 /* LicensesViewController.swift */; };
 		1E45037A26A4B17F00A5B147 /* enable-safari-extension-iphone.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1E45037926A4B17E00A5B147 /* enable-safari-extension-iphone.mp4 */; };
@@ -68,8 +48,6 @@
 		1E70CA3126726F380064A939 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E70C9F026726F380064A939 /* Assets.xcassets */; };
 		1E70CA3226726F380064A939 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E70C9F226726F380064A939 /* SafariWebExtensionHandler.swift */; };
 		1E70CA3326726F380064A939 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E70C9F226726F380064A939 /* SafariWebExtensionHandler.swift */; };
-		1E70CA5426726F380064A939 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1E70CA4526726F380064A939 /* LICENSE */; };
-		1E70CA6326726F380064A939 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1E70CA4526726F380064A939 /* LICENSE */; };
 		1E744B4526DE2C1A00BE9D86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E744B4726DE2C1A00BE9D86 /* Main.storyboard */; };
 		1E7D1A192672850D00FECE52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7D1A16267283A700FECE52 /* ViewController.swift */; };
 		1E7D1A1A26728E0500FECE52 /* DaringInfantileDachshund.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1E7D1A15267283A600FECE52 /* DaringInfantileDachshund.mp4 */; };
@@ -91,6 +69,26 @@
 		1ECD0B1628B6A4CB00C7EC91 /* YouTubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD0B1528B6A4CB00C7EC91 /* YouTubeViewController.swift */; };
 		1ECD0B1928B6AA3A00C7EC91 /* VideoiPadCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD0B1828B6AA3A00C7EC91 /* VideoiPadCell1.swift */; };
 		1ECD0B1A28B6AB2400C7EC91 /* VideoiPadCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ECD0B1728B6AA2300C7EC91 /* VideoiPadCell1.xib */; };
+		1ED4B7BD2CE5E6A00077FA3B /* palette.html in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7B32CE5E69F0077FA3B /* palette.html */; };
+		1ED4B7BE2CE5E6A00077FA3B /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7B42CE5E6A00077FA3B /* manifest.json */; };
+		1ED4B7BF2CE5E6A00077FA3B /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7B52CE5E6A00077FA3B /* popup.html */; };
+		1ED4B7C02CE5E6A00077FA3B /* scripts in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7B62CE5E6A00077FA3B /* scripts */; };
+		1ED4B7C12CE5E6A00077FA3B /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7B72CE5E6A00077FA3B /* options.html */; };
+		1ED4B7C22CE5E6A00077FA3B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7B82CE5E6A00077FA3B /* LICENSE */; };
+		1ED4B7C32CE5E6A00077FA3B /* styles in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7B92CE5E6A00077FA3B /* styles */; };
+		1ED4B7C42CE5E6A00077FA3B /* images in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7BA2CE5E6A00077FA3B /* images */; };
+		1ED4B7C52CE5E6A00077FA3B /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7BB2CE5E6A00077FA3B /* schema.json */; };
+		1ED4B7C62CE5E6A00077FA3B /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7BC2CE5E6A00077FA3B /* _locales */; };
+		1ED4B7C82CE5E6F30077FA3B /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7BC2CE5E6A00077FA3B /* _locales */; };
+		1ED4B7C92CE5E6F30077FA3B /* images in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7BA2CE5E6A00077FA3B /* images */; };
+		1ED4B7CA2CE5E6F30077FA3B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7B82CE5E6A00077FA3B /* LICENSE */; };
+		1ED4B7CB2CE5E6F30077FA3B /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7B42CE5E6A00077FA3B /* manifest.json */; };
+		1ED4B7CC2CE5E6F30077FA3B /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7B72CE5E6A00077FA3B /* options.html */; };
+		1ED4B7CD2CE5E6F30077FA3B /* palette.html in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7B32CE5E69F0077FA3B /* palette.html */; };
+		1ED4B7CE2CE5E6F30077FA3B /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7B52CE5E6A00077FA3B /* popup.html */; };
+		1ED4B7CF2CE5E6F30077FA3B /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7BB2CE5E6A00077FA3B /* schema.json */; };
+		1ED4B7D02CE5E6F30077FA3B /* scripts in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7B62CE5E6A00077FA3B /* scripts */; };
+		1ED4B7D12CE5E6F30077FA3B /* styles in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7B92CE5E6A00077FA3B /* styles */; };
 		1EE86E642B91262200118AD8 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE86E5E2B91262100118AD8 /* HelpView.swift */; };
 		1EE86E672B91262200118AD8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE86E612B91262100118AD8 /* SettingsView.swift */; };
 		1EE86E692B91262200118AD8 /* OtherAppsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE86E632B91262200118AD8 /* OtherAppsView.swift */; };
@@ -188,16 +186,6 @@
 		1E2F2BF626CC4F160033C5E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1E2F2BF926CC4F4A0033C5E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		1E2F5767267BE9D600C78FFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1E331A35283FBDC5008DE3E6 /* popup.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = popup.html; path = Resources/popup.html; sourceTree = "<group>"; };
-		1E331A36283FBDC5008DE3E6 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = Resources/icons; sourceTree = "<group>"; };
-		1E331A38283FBDC5008DE3E6 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; name = js; path = Resources/js; sourceTree = "<group>"; };
-		1E331A39283FBDC5008DE3E6 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = schema.json; path = Resources/schema.json; sourceTree = "<group>"; };
-		1E331A3A283FBDC5008DE3E6 /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = Resources/css; sourceTree = "<group>"; };
-		1E331A3B283FBDC5008DE3E6 /* manifest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = manifest.json; path = Resources/manifest.json; sourceTree = "<group>"; };
-		1E331A3C283FBDC5008DE3E6 /* options.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = options.html; path = Resources/options.html; sourceTree = "<group>"; };
-		1E331A3D283FBDC5008DE3E6 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = Resources/images; sourceTree = "<group>"; };
-		1E331A3E283FBDC5008DE3E6 /* palette.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = palette.html; path = Resources/palette.html; sourceTree = "<group>"; };
-		1E331A3F283FBDC5008DE3E6 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _locales; path = Resources/_locales; sourceTree = "<group>"; };
 		1E35DA0626A8B94C007FE4E0 /* enable-safari-extension-ipad.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "enable-safari-extension-ipad.mov"; sourceTree = "<group>"; };
 		1E378628267CA350003A0F73 /* LicensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesViewController.swift; sourceTree = "<group>"; };
 		1E41D60126DC120D00455536 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Walkthrough.strings"; sourceTree = "<group>"; };
@@ -210,7 +198,6 @@
 		1E4CB20C268CC77900015282 /* TOtL_iOS_UITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOtL_iOS_UITest.swift; sourceTree = "<group>"; };
 		1E4CB231268CDC6D00015282 /* TOtL-iOS-test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TOtL-iOS-test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4CB233268CDC6D00015282 /* TOtL_iOS_test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOtL_iOS_test.swift; sourceTree = "<group>"; };
-		1E4D37F42CE2B66F0045070C /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		1E54226528422FB5003B4F50 /* Turn Off the Lights for Safari (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Turn Off the Lights for Safari (iOS).entitlements"; sourceTree = "<group>"; };
 		1E5AF2E828B7D2C8004930D6 /* Stefanfunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stefanfunctions.swift; sourceTree = "<group>"; };
 		1E5AF2EA28B7E5CC004930D6 /* Stefanfunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stefanfunctions.swift; sourceTree = "<group>"; };
@@ -220,6 +207,7 @@
 		1E665AF726FE6B48002ED59A /* share-lamp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-lamp.png"; sourceTree = "<group>"; };
 		1E6762772681F2B800995D6C /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		1E6762792681F42E00995D6C /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		1E6B0EA22CE5453B0064407B /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		1E6C4907267B83C2001048CF /* forest.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = forest.mov; sourceTree = "<group>"; };
 		1E6C4908267B83C2001048CF /* GalleryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryController.swift; sourceTree = "<group>"; };
 		1E6C4909267B83C2001048CF /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
@@ -243,7 +231,6 @@
 		1E70CA1B26726F380064A939 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E70CA2026726F380064A939 /* Turn Off the Lights for Safari Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Turn Off the Lights for Safari Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E70CA2526726F380064A939 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1E70CA4526726F380064A939 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = Resources/LICENSE; sourceTree = "<group>"; };
 		1E744B4626DE2C1A00BE9D86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1E744B5826DE2F7800BE9D86 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Main.strings"; sourceTree = "<group>"; };
 		1E744B5926DE2FC200BE9D86 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
@@ -353,6 +340,16 @@
 		1ECD0B1528B6A4CB00C7EC91 /* YouTubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeViewController.swift; sourceTree = "<group>"; };
 		1ECD0B1728B6AA2300C7EC91 /* VideoiPadCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoiPadCell1.xib; sourceTree = "<group>"; };
 		1ECD0B1828B6AA3A00C7EC91 /* VideoiPadCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoiPadCell1.swift; sourceTree = "<group>"; };
+		1ED4B7B32CE5E69F0077FA3B /* palette.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = palette.html; sourceTree = "<group>"; };
+		1ED4B7B42CE5E6A00077FA3B /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
+		1ED4B7B52CE5E6A00077FA3B /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
+		1ED4B7B62CE5E6A00077FA3B /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = scripts; sourceTree = "<group>"; };
+		1ED4B7B72CE5E6A00077FA3B /* options.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = options.html; sourceTree = "<group>"; };
+		1ED4B7B82CE5E6A00077FA3B /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		1ED4B7B92CE5E6A00077FA3B /* styles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = styles; sourceTree = "<group>"; };
+		1ED4B7BA2CE5E6A00077FA3B /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		1ED4B7BB2CE5E6A00077FA3B /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		1ED4B7BC2CE5E6A00077FA3B /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
 		1EE7F8DE26DE519C0011E42E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		1EE7F8E026DE51BB0011E42E /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Main.strings"; sourceTree = "<group>"; };
 		1EE7F8E226DE51BF0011E42E /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Main.strings; sourceTree = "<group>"; };
@@ -506,7 +503,7 @@
 		1E70C9E326726F350064A939 = {
 			isa = PBXGroup;
 			children = (
-				1E4D37F42CE2B66F0045070C /* Config.xcconfig */,
+				1E6B0EA22CE5453B0064407B /* Config.xcconfig */,
 				1E70C9E826726F350064A939 /* Shared (App) */,
 				1E70C9F126726F380064A939 /* Shared (Extension) */,
 				1E70C9F926726F380064A939 /* iOS (App) */,
@@ -534,7 +531,7 @@
 		1E70C9F126726F380064A939 /* Shared (Extension) */ = {
 			isa = PBXGroup;
 			children = (
-				1E70CA4426726F380064A939 /* Resources */,
+				1ED4B7C72CE5E6C90077FA3B /* Resources */,
 				1E70C9F226726F380064A939 /* SafariWebExtensionHandler.swift */,
 			);
 			path = "Shared (Extension)";
@@ -624,24 +621,22 @@
 			path = "macOS (Extension)";
 			sourceTree = "<group>";
 		};
-		1E70CA4426726F380064A939 /* Resources */ = {
+		1ED4B7C72CE5E6C90077FA3B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1E70CA4526726F380064A939 /* LICENSE */,
-				1E331A3F283FBDC5008DE3E6 /* _locales */,
-				1E331A3A283FBDC5008DE3E6 /* css */,
-				1E331A36283FBDC5008DE3E6 /* icons */,
-				1E331A3D283FBDC5008DE3E6 /* images */,
-				1E331A38283FBDC5008DE3E6 /* js */,
-				1E331A3B283FBDC5008DE3E6 /* manifest.json */,
-				1E331A3C283FBDC5008DE3E6 /* options.html */,
-				1E331A3E283FBDC5008DE3E6 /* palette.html */,
-				1E331A35283FBDC5008DE3E6 /* popup.html */,
-				1E331A39283FBDC5008DE3E6 /* schema.json */,
+				1ED4B7BC2CE5E6A00077FA3B /* _locales */,
+				1ED4B7BA2CE5E6A00077FA3B /* images */,
+				1ED4B7B82CE5E6A00077FA3B /* LICENSE */,
+				1ED4B7B42CE5E6A00077FA3B /* manifest.json */,
+				1ED4B7B72CE5E6A00077FA3B /* options.html */,
+				1ED4B7B32CE5E69F0077FA3B /* palette.html */,
+				1ED4B7B52CE5E6A00077FA3B /* popup.html */,
+				1ED4B7BB2CE5E6A00077FA3B /* schema.json */,
+				1ED4B7B62CE5E6A00077FA3B /* scripts */,
+				1ED4B7B92CE5E6A00077FA3B /* styles */,
 			);
-			name = Resources;
-			path = "Shared (Extension)";
-			sourceTree = SOURCE_ROOT;
+			path = Resources;
+			sourceTree = "<group>";
 		};
 		1EE7F91326DE59930011E42E /* Frameworks */ = {
 			isa = PBXGroup;
@@ -930,17 +925,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E331A52283FBDC5008DE3E6 /* palette.html in Resources */,
-				1E331A50283FBDC5008DE3E6 /* images in Resources */,
-				1E331A46283FBDC5008DE3E6 /* js in Resources */,
-				1E331A42283FBDC5008DE3E6 /* icons in Resources */,
-				1E70CA6326726F380064A939 /* LICENSE in Resources */,
-				1E331A4A283FBDC5008DE3E6 /* css in Resources */,
-				1E331A54283FBDC5008DE3E6 /* _locales in Resources */,
-				1E331A4C283FBDC5008DE3E6 /* manifest.json in Resources */,
-				1E331A48283FBDC5008DE3E6 /* schema.json in Resources */,
-				1E331A40283FBDC5008DE3E6 /* popup.html in Resources */,
-				1E331A4E283FBDC5008DE3E6 /* options.html in Resources */,
+				1ED4B7C82CE5E6F30077FA3B /* _locales in Resources */,
+				1ED4B7C92CE5E6F30077FA3B /* images in Resources */,
+				1ED4B7CA2CE5E6F30077FA3B /* LICENSE in Resources */,
+				1ED4B7CB2CE5E6F30077FA3B /* manifest.json in Resources */,
+				1ED4B7CC2CE5E6F30077FA3B /* options.html in Resources */,
+				1ED4B7CD2CE5E6F30077FA3B /* palette.html in Resources */,
+				1ED4B7CE2CE5E6F30077FA3B /* popup.html in Resources */,
+				1ED4B7CF2CE5E6F30077FA3B /* schema.json in Resources */,
+				1ED4B7D02CE5E6F30077FA3B /* scripts in Resources */,
+				1ED4B7D12CE5E6F30077FA3B /* styles in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -948,17 +942,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E331A53283FBDC5008DE3E6 /* palette.html in Resources */,
-				1E331A51283FBDC5008DE3E6 /* images in Resources */,
-				1E331A47283FBDC5008DE3E6 /* js in Resources */,
-				1E331A43283FBDC5008DE3E6 /* icons in Resources */,
-				1E70CA5426726F380064A939 /* LICENSE in Resources */,
-				1E331A4B283FBDC5008DE3E6 /* css in Resources */,
-				1E331A55283FBDC5008DE3E6 /* _locales in Resources */,
-				1E331A4D283FBDC5008DE3E6 /* manifest.json in Resources */,
-				1E331A49283FBDC5008DE3E6 /* schema.json in Resources */,
-				1E331A41283FBDC5008DE3E6 /* popup.html in Resources */,
-				1E331A4F283FBDC5008DE3E6 /* options.html in Resources */,
+				1ED4B7C02CE5E6A00077FA3B /* scripts in Resources */,
+				1ED4B7C32CE5E6A00077FA3B /* styles in Resources */,
+				1ED4B7C42CE5E6A00077FA3B /* images in Resources */,
+				1ED4B7C62CE5E6A00077FA3B /* _locales in Resources */,
+				1ED4B7BD2CE5E6A00077FA3B /* palette.html in Resources */,
+				1ED4B7BE2CE5E6A00077FA3B /* manifest.json in Resources */,
+				1ED4B7BF2CE5E6A00077FA3B /* popup.html in Resources */,
+				1ED4B7C12CE5E6A00077FA3B /* options.html in Resources */,
+				1ED4B7C22CE5E6A00077FA3B /* LICENSE in Resources */,
+				1ED4B7C52CE5E6A00077FA3B /* schema.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1245,7 +1238,7 @@
 /* Begin XCBuildConfiguration section */
 		1E07D0112B8FCE7F00B9E5F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
+			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1282,7 +1275,7 @@
 		};
 		1E07D0122B8FCE7F00B9E5F7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
+			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1319,7 +1312,7 @@
 		};
 		1E4CB211268CC77900015282 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
+			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -1346,7 +1339,7 @@
 		};
 		1E4CB212268CC77900015282 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
+			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -1374,7 +1367,7 @@
 		};
 		1E4CB238268CDC6D00015282 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
+			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -1400,7 +1393,7 @@
 		};
 		1E4CB239268CDC6D00015282 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
+			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -1427,7 +1420,7 @@
 		};
 		1E70CA3426726F380064A939 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
+			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1492,7 +1485,7 @@
 		};
 		1E70CA3526726F380064A939 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
+			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1550,7 +1543,7 @@
 		};
 		1E70CA3726726F380064A939 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
+			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
@@ -1584,7 +1577,7 @@
 		};
 		1E70CA3826726F380064A939 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
+			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
@@ -1619,7 +1612,7 @@
 		};
 		1E70CA3B26726F380064A939 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
+			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1662,7 +1655,7 @@
 		};
 		1E70CA3C26726F380064A939 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
+			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1706,7 +1699,7 @@
 		};
 		1E70CA3E26726F380064A939 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
+			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -1741,7 +1734,7 @@
 		};
 		1E70CA3F26726F380064A939 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
+			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -1776,7 +1769,7 @@
 		};
 		1E70CA4226726F380064A939 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
+			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1818,7 +1811,7 @@
 		};
 		1E70CA4326726F380064A939 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4D37F42CE2B66F0045070C /* Config.xcconfig */;
+			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
