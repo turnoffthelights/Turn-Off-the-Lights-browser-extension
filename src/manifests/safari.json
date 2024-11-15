@@ -14,7 +14,7 @@
     "persistent": false
   },
   "commands": {
-    "_execute_action": {
+    "_execute_action": { 
       "suggested_key": {
         "default": "Ctrl+Shift+L",
         "mac": "MacCtrl+Shift+L"
@@ -29,12 +29,12 @@
     }
   },
   "web_accessible_resources": [{
-    "resources": ["/scripts/fps-block.js", "/scripts/hd-quality.js"],
+    "resources": ["scripts/fps-block.js", "scripts/hd-quality.js"],
     "matches": ["*://www.youtube.com/*"],
     "use_dynamic_url": false
   },
   {
-    "resources": ["/scripts/video-player-status.js"],
+    "resources": ["scripts/video-player-status.js"],
     "matches": ["<all_urls>"],
     "use_dynamic_url": false
   }],

@@ -2659,7 +2659,7 @@ function domcontentloaded(){
 	});
 	$("p5").addEventListener("click", function(){
 		var custombrowser = "";
-		if(exbrowser == "safari"){ custombrowser = "/images/iconwhite38safari.png"; }else{ custombrowser = "/images/iconwhite38.png"; }
+		custombrowser = "/images/iconwhite38.png";
 		setpreviewlampicon(custombrowser);
 	});
 

@@ -28,11 +28,11 @@
     }
   },
   "web_accessible_resources": [{
-    "resources": ["/scripts/fps-block.js", "/scripts/hd-quality.js"],
+    "resources": ["scripts/fps-block.js", "scripts/hd-quality.js"],
     "matches": ["*://www.youtube.com/*"]
   },
   {
-    "resources": ["/scripts/video-player-status.js"],
+    "resources": ["scripts/video-player-status.js"],
     "matches": ["<all_urls>"]
   }],
   "permissions": ["contextMenus", "tabs", "storage", "webNavigation", "scripting", "theme"],
