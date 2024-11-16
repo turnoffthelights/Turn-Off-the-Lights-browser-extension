@@ -605,17 +605,21 @@ if(chrome.contextMenus){
 	}
 }
 
-var contextmenus;
-chrome.storage.sync.get(["contextmenus"], function(items){
-	contextmenus = items.contextmenus; if(contextmenus == null)contextmenus = true;
+var contextmenus; var pageautodim;
+chrome.storage.sync.get(["contextmenus", "pageautodim"], function(items){
+	contextmenus = items.contextmenus; if(contextmenus == null)contextmenus = false;
+	pageautodim = items.pageautodim; if(pageautodim == null)pageautodim = false;
 	if(items["contextmenus"]){ checkcontextmenus(); }
+	if(items["pageautodim"]){ checkpageautodim(); }
 });
 
 // context menu for page and video
 var menuitems = null;
 var contextmenuadded = false;
+var contextmenuautodimadded = false;
 var contextarrayvideo = [];
 var contextarraypage = [];
+var contextarrayautodim = [];
 
 function addwebpagecontext(a, b, c, d){
 	var k;
@@ -643,6 +647,18 @@ function checkcontextmenus(){
 	}
 }
 
+function checkpageautodim(){
+	if(chrome.contextMenus){
+		if(contextmenuautodimadded == false){
+			contextmenuautodimadded = true;
+			// Toggle AutoDim
+			var pageautodimtitle = chrome.i18n.getMessage("pageautodimtitle");
+			var contextsautodim = ["page"];
+			addwebpagecontext(pageautodimtitle, contextsautodim, contextarrayautodim, "autodimpage");
+		}
+	}
+}
+
 function cleanrightclickmenu(menu){
 	if(menu.length > 0){
 		menu.forEach(function(item){
@@ -657,6 +673,13 @@ function removecontexmenus(){
 		cleanrightclickmenu(contextarrayvideo);
 		cleanrightclickmenu(contextarraypage);
 		contextmenuadded = false;
+	}
+}
+
+function removepageautodim(){
+	if(chrome.contextMenus){
+		cleanrightclickmenu(contextarrayautodim);
+		contextmenuautodimadded = false;
 	}
 }
 
@@ -678,6 +701,7 @@ var key;
 chrome.storage.onChanged.addListener(function(changes){
 	for(key in changes){
 		onchangestorage(changes, "contextmenus", checkcontextmenus, removecontexmenus);
+		onchangestorage(changes, "pageautodim", checkpageautodim, removepageautodim);
 		if(changes["icon"]){
 			if(changes["icon"].newValue){
 				chrome.tabs.query({}, function(tabs){

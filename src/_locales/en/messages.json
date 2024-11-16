@@ -547,5 +547,7 @@
 "desdynamicfireworks":{"message":"Fireworks"},
 "desautodimsize":{"message":"Works only on video players with a width x height greater than"},
 "desautodimsizepixel":{"message":"pixels"},
-"deswatchnow":{"message":"Watch Now"}
+"deswatchnow":{"message":"Watch Now"},
+"pageautodimtitle":{"message":"Toggle AutoDim on this page"},
+"despageautodim":{"message":"Toggle AutoDim feature on the current selected page"}
 }
