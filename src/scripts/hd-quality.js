@@ -27,12 +27,10 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 */
 //================================================
 
-const src = new URL(document.currentScript.src);
-const maxquality = src.searchParams.get("maxquality");
+const maxquality = document.currentScript.dataset.maxquality;
 // https://developers.google.com/youtube/iframe_api_reference?csw=1#setPlaybackQuality
 // one of "highres", "hd4320", "hd2880", "hd1080", "hd2160", "hd1440", "hd1080", "hd720", "large", "medium", "small", "tiny" or "default" to let YouTube pick
-const mplayer = document.getElementById("movie_player") || document.querySelector(".ytp-embed");
-
+var mplayer;
 function setQuality(quality){
 	if(mplayer.setPlaybackQualityRange !== undefined){
 		mplayer.setPlaybackQualityRange(quality, quality);
@@ -40,15 +38,25 @@ function setQuality(quality){
 	mplayer.setPlaybackQuality(quality);
 }
 
-function updateQuality(){
-	var aq = mplayer.getAvailableQualityLevels();
-	if(aq.indexOf(maxquality) == -1){
-		// console.log("Set to highest available level: " + aq[0]);
+function updateQuality(mplayer){
+	const aq = mplayer.getAvailableQualityLevels();
+	if(aq.indexOf(maxquality) === -1){
 		setQuality(aq[0]);
 	}else{
-		// console.log("Set to " + maxquality + " in accordance with user settings");
 		setQuality(maxquality);
 	}
 }
 
-updateQuality();
+function observePlayer(){
+	const observer = new MutationObserver(() => {
+		mplayer = document.getElementById("movie_player") || document.querySelector(".ytp-embed");
+		if(mplayer){
+			observer.disconnect();
+			updateQuality(mplayer);
+		}
+	});
+
+	observer.observe(document.body, {childList: true, subtree: true});
+}
+
+observePlayer();

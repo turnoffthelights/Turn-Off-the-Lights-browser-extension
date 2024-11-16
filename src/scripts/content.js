@@ -3620,9 +3620,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 		}
 
 		if(customqualityyoutube == true){
-			const params = new URLSearchParams();
-			params.set("maxquality", maxquality);
-			var script = document.createElement("script"); script.type = "text/javascript"; script.src = chrome.runtime.getURL(`scripts/hd-quality.js?${params}`); document.getElementsByTagName("head")[0].appendChild(script);
+			var script = document.createElement("script"); script.type = "text/javascript"; script.setAttribute("data-maxquality", maxquality); script.src = chrome.runtime.getURL("scripts/hd-quality.js"); document.getElementsByTagName("head")[0].appendChild(script);
 		}
 	} // end check youtube.com website
 
