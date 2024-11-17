@@ -60,12 +60,6 @@ chrome.runtime.onMessage.addListener(function request(request, sender){
 			});
 		});
 		break;
-	case"contextmenuon":
-		checkcontextmenus();
-		break;
-	case"contextmenuoff":
-		removecontexmenus();
-		break;
 	case"sendlightcss":
 		restcontent("/styles/light.css", "injectlightcss", sender.tab.id);
 		break;
@@ -497,6 +491,26 @@ function onClickHandler(info, tab){
 		chrome.scripting.executeScript({
 			target: {tabId: tab.id},
 			files: ["scripts/light.js"]
+		});
+		break;
+	case(str.includes("autodimpage")):
+		chrome.storage.sync.get(["autodimDomains"], function(items){
+			var autodimDomains = items["autodimDomains"];
+			// Check website is in the list
+			// then add it or remove it
+			var thaturl = new URL(tab.url);
+			var currenttoggledomain = thaturl.protocol + "//" + thaturl.hostname;
+			autodimDomains = JSON.parse(autodimDomains);
+			if(autodimDomains[currenttoggledomain]){
+				// If it is in the list, remove it
+				delete autodimDomains[currenttoggledomain];
+			}else{
+				// If it is not in the list, add it
+				autodimDomains[currenttoggledomain] = true;
+			}
+			autodimDomains = JSON.stringify(autodimDomains);
+			// enable the autodimonly feature because you are going to whitelist/blacklist this feature now
+			chrome.storage.sync.set({"autodimonly": true, "autodimDomains": autodimDomains});
 		});
 		break;
 	case(str.includes("totlguideemenu")): chrome.tabs.create({url: linkguide, active:true});
