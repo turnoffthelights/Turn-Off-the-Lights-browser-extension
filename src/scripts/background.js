@@ -511,6 +511,8 @@ function onClickHandler(info, tab){
 			autodimDomains = JSON.stringify(autodimDomains);
 			// enable the autodimonly feature because you are going to whitelist/blacklist this feature now
 			chrome.storage.sync.set({"autodimonly": true, "autodimDomains": autodimDomains});
+			// send notification message to the user
+			chromerefreshalltabs("gotoggleautodim");
 		});
 		break;
 	case(str.includes("totlguideemenu")): chrome.tabs.create({url: linkguide, active:true});

@@ -4225,6 +4225,35 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					rungamepadcheck();
 				}
 			});
+		}else if(request.action == "gotoggleautodim"){
+			chrome.storage.sync.get(["autodimDomains"], function(items){
+				autodimDomains = items["autodimDomains"];
+
+				var div = document.createElement("div");
+				div.setAttribute("id", "stefanvdremoteadd");
+				div.className = "stefanvdremote";
+				document.body.appendChild(div);
+
+				var h3 = document.createElement("h3");
+				h3.innerText = chrome.i18n.getMessage("titelautodim");
+				div.appendChild(h3);
+
+				var currenttoggledomain = window.location.protocol + "//" + window.location.hostname;
+				var p = document.createElement("p");
+
+				autodimDomains = JSON.parse(autodimDomains);
+				if(autodimDomains[currenttoggledomain]){
+					p.innerText = chrome.i18n.getMessage("desautodimon") + " " + currenttoggledomain;
+				}else{
+					p.innerText = chrome.i18n.getMessage("desautodimoff") + " " + currenttoggledomain;
+				}
+				div.appendChild(p);
+
+				window.setTimeout(function(){
+					var element = document.getElementById("stefanvdremoteadd");
+					element.parentNode.removeChild(element);
+				}, 4000);
+			});
 		}
 	});
 

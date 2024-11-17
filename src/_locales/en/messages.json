@@ -549,5 +549,7 @@
 "desautodimsizepixel":{"message":"pixels"},
 "deswatchnow":{"message":"Watch Now"},
 "pageautodimtitle":{"message":"Toggle AutoDim on this page"},
-"despageautodim":{"message":"Toggle AutoDim feature on the current selected page"}
+"despageautodim":{"message":"Toggle AutoDim feature on the current selected page"},
+"desautodimon":{"message":"ON for"},
+"desautodimoff":{"message":"OFF for"}
 }
