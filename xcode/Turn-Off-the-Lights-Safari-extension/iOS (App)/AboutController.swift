@@ -110,7 +110,7 @@ class AboutController: UITableViewController{
         Stefanfunctions().openweb(text:"https://www.turnoffthelights.com/support/")
     }
 
-    var productURL = URL(string: "https://itunes.apple.com/app/id1273998507")!
+    var productURL = URL(string: "https://apps.apple.com/app/id1273998507")!
     func openreview() {
         
     // 1.

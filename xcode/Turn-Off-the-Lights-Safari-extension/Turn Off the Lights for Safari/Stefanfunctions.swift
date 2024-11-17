@@ -19,7 +19,7 @@ class Stefanfunctions{
     }
     
     func webthisapp() -> String{
-        return "https://itunes.apple.com/app/id1043744348"
+        return "https://apps.apple.com/app/id1043744348"
     }
     
     func webapphellooffice() -> String{
