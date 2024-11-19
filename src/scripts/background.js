@@ -510,9 +510,53 @@ function onClickHandler(info, tab){
 			}
 			autodimDomains = JSON.stringify(autodimDomains);
 			// enable the autodimonly feature because you are going to whitelist/blacklist this feature now
-			chrome.storage.sync.set({"autodimonly": true, "autodimDomains": autodimDomains});
+			chrome.storage.sync.set({"autodim": true, "autodimonly": true, "autodimDomains": autodimDomains});
 			// send notification message to the user
 			chromerefreshalltabs("gotoggleautodim");
+		});
+		break;
+	case(str.includes("autostoppage")):
+		chrome.storage.sync.get(["autostopDomains"], function(items){
+			var autostopDomains = items["autostopDomains"];
+			// Check website is in the list
+			// then add it or remove it
+			var thaturl = new URL(tab.url);
+			var currenttoggledomain = thaturl.protocol + "//" + thaturl.hostname;
+			autostopDomains = JSON.parse(autostopDomains);
+			if(autostopDomains[currenttoggledomain]){
+				// If it is in the list, remove it
+				delete autostopDomains[currenttoggledomain];
+			}else{
+				// If it is not in the list, add it
+				autostopDomains[currenttoggledomain] = true;
+			}
+			autostopDomains = JSON.stringify(autostopDomains);
+			// enable the autostoponly feature because you are going to whitelist/blacklist this feature now
+			chrome.storage.sync.set({"autostop": true, "autostoponly": true, "autostopDomains": autostopDomains});
+			// send notification message to the user
+			chromerefreshalltabs("gotoggleautostop");
+		});
+		break;
+	case(str.includes("nightmodepage")):
+		chrome.storage.sync.get(["nightDomains"], function(items){
+			var nightDomains = items["nightDomains"];
+			// Check website is in the list
+			// then add it or remove it
+			var thaturl = new URL(tab.url);
+			var currenttoggledomain = thaturl.protocol + "//" + thaturl.hostname;
+			nightDomains = JSON.parse(nightDomains);
+			if(nightDomains[currenttoggledomain]){
+				// If it is in the list, remove it
+				delete nightDomains[currenttoggledomain];
+			}else{
+				// If it is not in the list, add it
+				nightDomains[currenttoggledomain] = true;
+			}
+			nightDomains = JSON.stringify(nightDomains);
+			// enable the nightonly feature because you are going to whitelist/blacklist this feature now
+			chrome.storage.sync.set({"nightonly": true, "nightDomains": nightDomains});
+			// send notification message to the user
+			chromerefreshalltabs("gotogglenightmode");
 		});
 		break;
 	case(str.includes("totlguideemenu")): chrome.tabs.create({url: linkguide, active:true});
@@ -621,21 +665,29 @@ if(chrome.contextMenus){
 	}
 }
 
-var contextmenus; var pageautodim;
-chrome.storage.sync.get(["contextmenus", "pageautodim"], function(items){
+var contextmenus; var pageautodim; var pageautostop; var pagenightmode;
+chrome.storage.sync.get(["contextmenus", "pageautodim", "pageautostop", "pagenightmode"], function(items){
 	contextmenus = items.contextmenus; if(contextmenus == null)contextmenus = false;
 	pageautodim = items.pageautodim; if(pageautodim == null)pageautodim = false;
+	pageautostop = items.pageautostop; if(pageautostop == null)pageautostop = false;
+	pagenightmode = items.pagenightmode; if(pagenightmode == null)pagenightmode = false;
 	if(items["contextmenus"]){ checkcontextmenus(); }
 	if(items["pageautodim"]){ checkpageautodim(); }
+	if(items["pageautostop"]){ checkpageautostop(); }
+	if(items["pagenightmode"]){ checkpagenightmode(); }
 });
 
 // context menu for page and video
 var menuitems = null;
 var contextmenuadded = false;
 var contextmenuautodimadded = false;
+var contextmenuautostopadded = false;
+var contextmenunightmodeadded = false;
 var contextarrayvideo = [];
 var contextarraypage = [];
 var contextarrayautodim = [];
+var contextarrayautostop = [];
+var contextarraynightmode = [];
 
 function addwebpagecontext(a, b, c, d){
 	var k;
@@ -675,6 +727,30 @@ function checkpageautodim(){
 	}
 }
 
+function checkpageautostop(){
+	if(chrome.contextMenus){
+		if(contextmenuautostopadded == false){
+			contextmenuautostopadded = true;
+			// Toggle AutoDim
+			var pageautostoptitle = chrome.i18n.getMessage("pageautostoptitle");
+			var contextsautostop = ["page"];
+			addwebpagecontext(pageautostoptitle, contextsautostop, contextarrayautostop, "autostoppage");
+		}
+	}
+}
+
+function checkpagenightmode(){
+	if(chrome.contextMenus){
+		if(contextmenunightmodeadded == false){
+			contextmenunightmodeadded = true;
+			// Toggle AutoDim
+			var pagenightmodetitle = chrome.i18n.getMessage("pagenightmodetitle");
+			var contextsnightmode = ["page"];
+			addwebpagecontext(pagenightmodetitle, contextsnightmode, contextarraynightmode, "nightmodepage");
+		}
+	}
+}
+
 function cleanrightclickmenu(menu){
 	if(menu.length > 0){
 		menu.forEach(function(item){
@@ -699,6 +775,21 @@ function removepageautodim(){
 	}
 }
 
+
+function removepageautostop(){
+	if(chrome.contextMenus){
+		cleanrightclickmenu(contextarrayautostop);
+		contextmenuautostopadded = false;
+	}
+}
+
+function removepagenightmode(){
+	if(chrome.contextMenus){
+		cleanrightclickmenu(contextarraynightmode);
+		contextmenunightmodeadded = false;
+	}
+}
+
 function checkreturnpolicyvalues(a, b, c){
 	if(a[b] && Object.prototype.hasOwnProperty.call(policygrouparray, c)){
 		if(a[b].newValue != policygrouparray[c]){
@@ -718,6 +809,8 @@ chrome.storage.onChanged.addListener(function(changes){
 	for(key in changes){
 		onchangestorage(changes, "contextmenus", checkcontextmenus, removecontexmenus);
 		onchangestorage(changes, "pageautodim", checkpageautodim, removepageautodim);
+		onchangestorage(changes, "pageautostop", checkpageautostop, removepageautostop);
+		onchangestorage(changes, "pagenightmode", checkpagenightmode, removepagenightmode);
 		if(changes["icon"]){
 			if(changes["icon"].newValue){
 				chrome.tabs.query({}, function(tabs){

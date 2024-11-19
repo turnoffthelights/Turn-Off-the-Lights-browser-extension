@@ -4243,9 +4243,67 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 
 				autodimDomains = JSON.parse(autodimDomains);
 				if(autodimDomains[currenttoggledomain]){
-					p.innerText = chrome.i18n.getMessage("desautodimon") + " " + currenttoggledomain;
+					p.innerText = chrome.i18n.getMessage("deswebsiteon") + " " + currenttoggledomain;
 				}else{
-					p.innerText = chrome.i18n.getMessage("desautodimoff") + " " + currenttoggledomain;
+					p.innerText = chrome.i18n.getMessage("deswebsiteoff") + " " + currenttoggledomain;
+				}
+				div.appendChild(p);
+
+				window.setTimeout(function(){
+					var element = document.getElementById("stefanvdremoteadd");
+					element.parentNode.removeChild(element);
+				}, 4000);
+			});
+		}else if(request.action == "gotoggleautostop"){
+			chrome.storage.sync.get(["autostopDomains"], function(items){
+				var autostopDomains = items["autostopDomains"];
+
+				var div = document.createElement("div");
+				div.setAttribute("id", "stefanvdremoteadd");
+				div.className = "stefanvdremote";
+				document.body.appendChild(div);
+
+				var h3 = document.createElement("h3");
+				h3.innerText = chrome.i18n.getMessage("titelautostop");
+				div.appendChild(h3);
+
+				var currenttoggledomain = window.location.protocol + "//" + window.location.hostname;
+				var p = document.createElement("p");
+
+				autostopDomains = JSON.parse(autostopDomains);
+				if(autostopDomains[currenttoggledomain]){
+					p.innerText = chrome.i18n.getMessage("deswebsiteon") + " " + currenttoggledomain;
+				}else{
+					p.innerText = chrome.i18n.getMessage("deswebsiteoff") + " " + currenttoggledomain;
+				}
+				div.appendChild(p);
+
+				window.setTimeout(function(){
+					var element = document.getElementById("stefanvdremoteadd");
+					element.parentNode.removeChild(element);
+				}, 4000);
+			});
+		}else if(request.action == "gotogglenightmode"){
+			chrome.storage.sync.get(["nightDomains"], function(items){
+				var nightDomains = items["nightDomains"];
+
+				var div = document.createElement("div");
+				div.setAttribute("id", "stefanvdremoteadd");
+				div.className = "stefanvdremote";
+				document.body.appendChild(div);
+
+				var h3 = document.createElement("h3");
+				h3.innerText = chrome.i18n.getMessage("titelnighttheme");
+				div.appendChild(h3);
+
+				var currenttoggledomain = window.location.protocol + "//" + window.location.hostname;
+				var p = document.createElement("p");
+
+				nightDomains = JSON.parse(nightDomains);
+				if(nightDomains[currenttoggledomain]){
+					p.innerText = chrome.i18n.getMessage("deswebsiteon") + " " + currenttoggledomain;
+				}else{
+					p.innerText = chrome.i18n.getMessage("deswebsiteoff") + " " + currenttoggledomain;
 				}
 				div.appendChild(p);
 

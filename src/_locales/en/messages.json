@@ -548,8 +548,12 @@
 "desautodimsize":{"message":"Works only on video players with a width x height greater than"},
 "desautodimsizepixel":{"message":"pixels"},
 "deswatchnow":{"message":"Watch Now"},
+"deswebsiteon":{"message":"ON for"},
+"deswebsiteoff":{"message":"OFF for"},
 "pageautodimtitle":{"message":"Toggle AutoDim on this page"},
 "despageautodim":{"message":"Toggle AutoDim feature on the current selected page"},
-"desautodimon":{"message":"ON for"},
-"desautodimoff":{"message":"OFF for"}
+"pageautostoptitle":{"message":"Toggle AutoStop on this page"},
+"despageautostop":{"message":"Toggle AutoStop feature on the current selected page"},
+"pagenightmodetitle":{"message":"Toggle Night Mode on this page"},
+"despagenightmode":{"message":"Toggle Night Mode feature on the current selected page"}
 }
