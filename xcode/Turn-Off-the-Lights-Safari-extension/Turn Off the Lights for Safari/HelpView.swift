@@ -18,9 +18,9 @@ struct HelpView: View {
     @State private var isShareSheetPresented = false
     
     let HelpItems: [MenuItem] = [
-            MenuItem(title: Stefanfunctions().i18string(text: "lbldeveloperwebsite"), url: URL(string: "https://www.turnoffthelights.com")!),
-            MenuItem(title: Stefanfunctions().i18string(text: "lblprivacypolicy"), url: URL(string: "https://www.turnoffthelights.com/privacy/")!),
-            MenuItem(title: Stefanfunctions().i18string(text: "lblhelpfeedback"), url: URL(string: "https://www.turnoffthelights.com/support/")!)
+        MenuItem(title: StefanFunctions().i18string(text: "lbldeveloperwebsite"), url: URL(string: StefanLinks().linkdeveloperwebsite())!),
+            MenuItem(title: StefanFunctions().i18string(text: "lblprivacypolicy"), url: URL(string: StefanLinks().linkprivacy())!),
+            MenuItem(title: StefanFunctions().i18string(text: "lblhelpfeedback"), url: URL(string: StefanLinks().linksupport())!)
         ]
     
     let versionNumber = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
@@ -28,9 +28,9 @@ struct HelpView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section(header: Text(Stefanfunctions().i18string(text: "lblabout"))){
+                Section(header: Text(StefanFunctions().i18string(text: "lblabout"))){
                     HStack{
-                        Text(Stefanfunctions().i18string(text: "lblicon"))
+                        Text(StefanFunctions().i18string(text: "lblicon"))
                         Spacer()
                         Image("Abouticon")
                             .resizable()
@@ -38,27 +38,27 @@ struct HelpView: View {
                     }
                     
                     HStack{
-                        Text(Stefanfunctions().i18string(text: "lblname"))
+                        Text(StefanFunctions().i18string(text: "lblname"))
                         Spacer()
                         Text("Turn Off the Lights")
                     }
                     HStack{
-                        Text(Stefanfunctions().i18string(text: "lblversion"))
+                        Text(StefanFunctions().i18string(text: "lblversion"))
                         Spacer()
                         Text("\(versionNumber)")
                     }
                     HStack{
-                        Text(Stefanfunctions().i18string(text: "lblcopyright"))
+                        Text(StefanFunctions().i18string(text: "lblcopyright"))
                         Text("© 2024 Stefan vd")
                     }
                     NavigationLink {
                         LicensesView()
                     } label: {
-                        Text(Stefanfunctions().i18string(text: "lbllicenses"))
+                        Text(StefanFunctions().i18string(text: "lbllicenses"))
                     }
                 }
                 
-                Section(header: Text(Stefanfunctions().i18string(text: "lblhelp")))
+                Section(header: Text(StefanFunctions().i18string(text: "lblhelp")))
                 {
                     ForEach(HelpItems) { menuItem in  Button(action: {
                         openURL(menuItem.url)
@@ -68,34 +68,34 @@ struct HelpView: View {
                     }
                 }
                 
-                Section(header: Text(Stefanfunctions().i18string(text: "lblyouandus")))
+                Section(header: Text(StefanFunctions().i18string(text: "lblyouandus")))
                 {
                     NavigationLink {
                         OtherAppsView()
                     } label: {
-                        Text(Stefanfunctions().i18string(text: "lblotherapps"))
+                        Text(StefanFunctions().i18string(text: "lblotherapps"))
                     }
                     Button(action: {
                         openreview()
                     }) {
-                        Text(Stefanfunctions().i18string(text: "lblratereviewapp"))
+                        Text(StefanFunctions().i18string(text: "lblratereviewapp"))
                     }
                     
                     Button(action: {
                         openshare()
                     }) {
-                        Text(Stefanfunctions().i18string(text: "lblshareapp"))
+                        Text(StefanFunctions().i18string(text: "lblshareapp"))
                     }
                 }
            }
         }
-        .navigationTitle(Stefanfunctions().i18string(text: "lblhelp"))
+        .navigationTitle(StefanFunctions().i18string(text: "lblhelp"))
         .sheet(isPresented: $isShareSheetPresented) {
             ShareSheetView(activityItems: [productURL])
         }
     }
     
-    var productURL = URL(string: Stefanfunctions().webthisapp())!
+    var productURL = URL(string: StefanFunctions().webthisapp())!
     
     func openshare(){
         self.isShareSheetPresented.toggle()
@@ -120,7 +120,7 @@ struct HelpView: View {
     }
     
     func opentranslate(_ sender: Any) {
-        if let url = URL(string: Stefanfunctions().webtranslate()) {
+        if let url = URL(string: StefanFunctions().webtranslate()) {
             UIApplication.shared.open(url)
         }
     }

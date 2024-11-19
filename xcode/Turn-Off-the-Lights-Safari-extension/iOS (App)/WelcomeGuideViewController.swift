@@ -54,7 +54,7 @@ class WelcomeGuideViewController: UIViewController {
 
     func openyoutubeapporweb(text:String){
         let youtubeId = text
-        Stefanfunctions().openyoutubevideo(youtubeId: youtubeId)
+        StefanFunctions().openyoutubevideo(youtubeId: youtubeId)
     }
     
     @IBAction func opennightowlprofile(_ sender: Any) {
@@ -67,14 +67,14 @@ class WelcomeGuideViewController: UIViewController {
     
     let thisgithub = "https://github.com/turnoffthelights/Turn-Off-the-Lights-Safari-extension"
     @IBAction func opengithub(_ sender: Any) {
-        Stefanfunctions().opensafaripreview(pageurl: thisgithub)
+        StefanFunctions().opensafaripreview(pageurl: thisgithub)
     }
     
     @IBAction func openexterngithub(_ sender: Any) {
         if let url = URL(string: thisgithub) {
             UIApplication.shared.open(url)
         }
-        Stefanfunctions().openweb(text:thisgithub)
+        StefanFunctions().openweb(text:thisgithub)
     }
     
     override func didReceiveMemoryWarning() {

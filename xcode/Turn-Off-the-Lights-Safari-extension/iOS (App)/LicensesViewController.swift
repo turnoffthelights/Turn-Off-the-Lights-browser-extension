@@ -24,7 +24,7 @@ class LicensesViewController: UITableViewController, SFSafariViewControllerDeleg
         if indexPath.section == 0 {
             // section Browser extension
             if indexPath.row == 0 {
-                Stefanfunctions().openweb(text:"http://creativecommons.org/licenses/GPL/2.0/")
+                StefanFunctions().openweb(text:"http://creativecommons.org/licenses/GPL/2.0/")
             }
         }
         

@@ -22,26 +22,25 @@ enum ItemType {
 }
 
 struct HomeView: View {
-    
     let mainSectionItems = [
-        Item(appName: Stefanfunctions().i18string(text: "strworldpremiere"), appDes: Stefanfunctions().i18string(text: "strdesworldpremiere"), appImage: "lock.shield.fill", appButton: Stefanfunctions().i18string(text: "strfindout"), appDownloadLink: "https://www.turnoffthelights.com/blog/"),
-        Item(appName: Stefanfunctions().i18string(text: "strtranslator"), appDes: Stefanfunctions().i18string(text: "strdestranslator"), appImage: "rectangle.3.group.bubble.left.fill", appButton: Stefanfunctions().i18string(text: "strfindout"), appDownloadLink: "https://www.turnoffthelights.com/translator/"),
-        Item(appName: Stefanfunctions().i18string(text: "strdeveloper"), appDes: Stefanfunctions().i18string(text: "strdesdeveloper"), appImage: "chevron.left.forwardslash.chevron.right", appButton: Stefanfunctions().i18string(text: "strfindout"), appDownloadLink: "https://www.turnoffthelights.com/developer/"),
-        Item(appName: Stefanfunctions().i18string(text: "strsocial"), appDes: Stefanfunctions().i18string(text: "strdessocial"), appImage: "heart.circle.fill", appButton: Stefanfunctions().i18string(text: "strfindout"), appDownloadLink: "https://www.turnoffthelights.com/social/")
+        Item(appName: StefanFunctions().i18string(text: "strworldpremiere"), appDes: StefanFunctions().i18string(text: "strdesworldpremiere"), appImage: "lock.shield.fill", appButton: StefanFunctions().i18string(text: "strfindout"), appDownloadLink: StefanLinks().linkdeveloperblog()),
+        Item(appName: StefanFunctions().i18string(text: "strtranslator"), appDes: StefanFunctions().i18string(text: "strdestranslator"), appImage: "rectangle.3.group.bubble.left.fill", appButton: StefanFunctions().i18string(text: "strfindout"), appDownloadLink: StefanLinks().linktranslate()),
+        Item(appName: StefanFunctions().i18string(text: "strdeveloper"), appDes: StefanFunctions().i18string(text: "strdesdeveloper"), appImage: "chevron.left.forwardslash.chevron.right", appButton: StefanFunctions().i18string(text: "strfindout"), appDownloadLink: StefanLinks().linkdeveloper()),
+        Item(appName: StefanFunctions().i18string(text: "strsocial"), appDes: StefanFunctions().i18string(text: "strdessocial"), appImage: "heart.circle.fill", appButton: StefanFunctions().i18string(text: "strfindout"), appDownloadLink: StefanLinks().linksocial())
     ]
-    let websitelink = "https://www.turnoffthelights.com"
+    let websitelink = StefanLinks().linkdeveloperwebsite()
     
     var body: some View {
         ScrollView{
             VStack (spacing:20){
                 HStack{
-                    Text(Stefanfunctions().i18string(text: "lblturnoffthelightsforsafari"))
+                    Text(StefanFunctions().i18string(text: "lblturnoffthelightsforsafari"))
                         .font(.largeTitle)
                         .padding(.top, 20)
                         .padding(.bottom, 10)
                  Spacer()
                     Button(action: {
-                        if let url = URL(string: "https://www.turnoffthelights.com/browser/extension/options/") {
+                        if let url = URL(string: StefanLinks().linkredirectionoptions()) {
                             UIApplication.shared.open(url)
                         }
                     }) {
@@ -49,9 +48,9 @@ struct HomeView: View {
                             .font(.headline)
                     }
                     
-                    ShareLink("", item: URL(string: Stefanfunctions().webappturnoffthelightssafari())!,
-                        subject: Text(Stefanfunctions().i18string(text: "lblemailsubject")),
-                        message: Text(Stefanfunctions().i18string(text: "lblshareregular") + " " + websitelink))
+                    ShareLink("", item: URL(string: StefanFunctions().webappturnoffthelightssafari())!,
+                        subject: Text(StefanFunctions().i18string(text: "lblemailsubject")),
+                        message: Text(StefanFunctions().i18string(text: "lblshareregular") + " " + websitelink))
                 }
                 VStack(alignment: .leading, spacing: 20) {
                                 StepView(iconName: "gear.circle.fill", color: .gray, step: 1, stepText1: NSLocalizedString("bannerstep1a", comment: ""), stepText2: NSLocalizedString("bannerstep1b", comment: ""), stepText3: NSLocalizedString("bannerstep1c", comment: ""))

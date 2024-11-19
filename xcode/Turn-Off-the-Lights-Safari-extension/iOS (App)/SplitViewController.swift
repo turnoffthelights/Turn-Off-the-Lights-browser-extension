@@ -14,7 +14,7 @@ class SplitViewController: UISplitViewController {
         super.viewDidLoad()
         
         // split code check if offline, then show this offline panel
-        Stefanfunctions().checkoffline()
+        StefanFunctions().checkoffline()
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

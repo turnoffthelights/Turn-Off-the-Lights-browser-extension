@@ -21,7 +21,7 @@ class NewsTableViewController: UITableViewController {
     @IBOutlet weak var spinningicon: UIActivityIndicatorView!
     func showTutorial(_ which: Int) {
         let thisurlpost = rssItems![which].link
-        Stefanfunctions().opensafaripreview(pageurl: thisurlpost)
+        StefanFunctions().opensafaripreview(pageurl: thisurlpost)
     }
     
     var gettimenow: String {
@@ -33,7 +33,7 @@ class NewsTableViewController: UITableViewController {
     }
 
     fileprivate let feedParser = FeedParser()
-    fileprivate let feedURL = "https://www.turnoffthelights.com/blog/feed/"
+    fileprivate let feedURL = StefanLinks().linkdeveloperblogfeed()
   
     fileprivate var rssItems: [(title: String, description: String, pubDate: String, link: String)]?
 
@@ -83,7 +83,7 @@ class NewsTableViewController: UITableViewController {
         // Sets label
         loadingLabel.frame = CGRect(x: 30, y: 0, width: width, height: height)
         loadingLabel.textColor = .gray
-        loadingLabel.text = Stefanfunctions().i18string(text: "strnewsloading")
+        loadingLabel.text = StefanFunctions().i18string(text: "strnewsloading")
 
         // Adds text and spinner to the view
         loadingView.addSubview(spinner)

@@ -16,9 +16,9 @@ struct OtherAppsView: View {
     var body: some View {
         VStack {
             List() {
-                Section(header: Text(Stefanfunctions().i18string(text: "lblyouandus"))) {
+                Section(header: Text(StefanFunctions().i18string(text: "lblyouandus"))) {
                     Button {
-                        openURL(URL(string: Stefanfunctions().webappmychristmastree())!)
+                        openURL(URL(string: StefanFunctions().webappmychristmastree())!)
                     } label: {
                         HStack(spacing:10) {
                             Image(uiImage: UIImage(named: "AppMyChristmasTree")!)
@@ -30,7 +30,7 @@ struct OtherAppsView: View {
                     }
                     
                     Button(action: {
-                        openURL(URL(string: Stefanfunctions().webappmylunarnewyear())!)
+                        openURL(URL(string: StefanFunctions().webappmylunarnewyear())!)
                     }) {
                         HStack(spacing:10) {
                             Image(uiImage: UIImage(named: "AppMyLunarNewYear")!)
@@ -42,7 +42,7 @@ struct OtherAppsView: View {
                     }
                     
                     Button(action: {
-                        openURL(URL(string: Stefanfunctions().webapptrafficblinker())!)
+                        openURL(URL(string: StefanFunctions().webapptrafficblinker())!)
                     }) {
                         HStack(spacing:10) {
                             Image(uiImage: UIImage(named: "AppTrafficBlinker")!)
@@ -54,7 +54,7 @@ struct OtherAppsView: View {
                     }
                     
                     Button(action: {
-                        openURL(URL(string: Stefanfunctions().webappsunrise())!)
+                        openURL(URL(string: StefanFunctions().webappsunrise())!)
                     }) {
                         HStack(spacing:10) {
                             Image(uiImage: UIImage(named: "AppSunrise")!)
@@ -66,7 +66,7 @@ struct OtherAppsView: View {
                     }
                     
                     Button(action: {
-                        openURL(URL(string: Stefanfunctions().webappharddisk())!)
+                        openURL(URL(string: StefanFunctions().webappharddisk())!)
                     }) {
                         HStack(spacing:10) {
                             Image(uiImage: UIImage(named: "AppHardDisk")!)
@@ -78,7 +78,7 @@ struct OtherAppsView: View {
                     }
                     
                     Button(action: {
-                        openURL(URL(string: Stefanfunctions().webappdatetoday())!)
+                        openURL(URL(string: StefanFunctions().webappdatetoday())!)
                     }) {
                         HStack(spacing:10) {
                             Image(uiImage: UIImage(named: "AppDateToday")!)
@@ -90,7 +90,7 @@ struct OtherAppsView: View {
                     }
                     
                     Button(action: {
-                        openURL(URL(string: Stefanfunctions().webappturnoffthelightssafari())!)
+                        openURL(URL(string: StefanFunctions().webappturnoffthelightssafari())!)
                     }) {
                         HStack(spacing:10) {
                             Image(uiImage: UIImage(named: "AppTurnOfftheLights")!)
@@ -102,7 +102,7 @@ struct OtherAppsView: View {
                     }
                     
                     Button(action: {
-                        openURL(URL(string: Stefanfunctions().webapphometab())!)
+                        openURL(URL(string: StefanFunctions().webapphometab())!)
                     }) {
                         HStack(spacing:10) {
                             Image(uiImage: UIImage(named: "AppHomeTab")!)
@@ -114,7 +114,7 @@ struct OtherAppsView: View {
                     }
 
                     Button(action: {
-                        openURL(URL(string: Stefanfunctions().webappcanadarace())!)
+                        openURL(URL(string: StefanFunctions().webappcanadarace())!)
                     }) {
                         HStack(spacing:10) {
                             Image(uiImage: UIImage(named: "AppTheCanadaRace")!)
@@ -126,7 +126,7 @@ struct OtherAppsView: View {
                     }
 
                     Button(action: {
-                        openURL(URL(string: Stefanfunctions().webapphellooffice())!)
+                        openURL(URL(string: StefanFunctions().webapphellooffice())!)
                     }) {
                         HStack(spacing:10) {
                             Image(uiImage: UIImage(named: "AppHelloOffice")!)
@@ -138,7 +138,7 @@ struct OtherAppsView: View {
                     }
                 }
             }
-            .navigationTitle(Stefanfunctions().i18string(text: "lblotherapps"))
+            .navigationTitle(StefanFunctions().i18string(text: "lblotherapps"))
         }
         
     }

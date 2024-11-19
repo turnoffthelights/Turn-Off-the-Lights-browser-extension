@@ -20,7 +20,7 @@ struct NewsView: View {
 
         var body: some View {
             VStack {
-                Text(Stefanfunctions().i18string(text: "lblnews"))
+                Text(StefanFunctions().i18string(text: "lblnews"))
                     .font(.largeTitle)
                     .padding(.top, 20)
                     .padding(.bottom, 10)
@@ -52,7 +52,7 @@ struct NewsView: View {
 
     private func loadData() {
         let feedParser = FeedParser()
-        let feedURL = "https://www.turnoffthelights.com/blog/feed/"
+        let feedURL = StefanLinks().linkdeveloperblogfeed()
         let newFeedURL = feedURL + "?v=" + gettimenow()
 
         feedParser.parseFeed(feedURL: newFeedURL) { rssItems in

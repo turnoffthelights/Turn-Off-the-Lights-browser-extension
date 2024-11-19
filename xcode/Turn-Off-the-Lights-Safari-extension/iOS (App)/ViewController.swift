@@ -58,7 +58,7 @@ class ViewController: UIViewController{
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
-            Stefanfunctions().checkoffline()
+            StefanFunctions().checkoffline()
         })
     }
     

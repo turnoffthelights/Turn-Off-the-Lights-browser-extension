@@ -19,7 +19,7 @@ struct SettingsView: View {
                
                    HStack(spacing: 16) {
                        image(for: navigationItem)
-                       Text(Stefanfunctions().i18string(text: navigationItem))
+                       Text(StefanFunctions().i18string(text: navigationItem))
                    }
                
             }
@@ -27,7 +27,7 @@ struct SettingsView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     HStack(spacing:16){
                         
-                        Text(Stefanfunctions().i18string(text: "lblsettings"))
+                        Text(StefanFunctions().i18string(text: "lblsettings"))
                             .font(.title)
                     }
                 }
@@ -61,7 +61,7 @@ struct SettingsView: View {
         }
     
     func opentranslate(_ sender: Any) {
-        if let url = URL(string: Stefanfunctions().webtranslate()) {
+        if let url = URL(string: StefanFunctions().webtranslate()) {
             UIApplication.shared.open(url)
         }
     }

@@ -11,23 +11,23 @@ struct LicensesView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section(header: Text(Stefanfunctions().i18string(text: "lblbrowserextension")))
+                Section(header: Text(StefanFunctions().i18string(text: "lblbrowserextension")))
                 {
                     Button(action: {
                         openURL(URL(string: "http://creativecommons.org/licenses/GPL/2.0/")!)
                     }) {
-                        Text(Stefanfunctions().i18string(text: "lblgpl"))
+                        Text(StefanFunctions().i18string(text: "lblgpl"))
                     }
 
                 }
 
            }
         }
-        .navigationTitle(Stefanfunctions().i18string(text: "lbllicenses"))
+        .navigationTitle(StefanFunctions().i18string(text: "lbllicenses"))
     }
     
     func opentranslate(_ sender: Any) {
-        if let url = URL(string: Stefanfunctions().webtranslate()) {
+        if let url = URL(string: StefanFunctions().webtranslate()) {
             UIApplication.shared.open(url)
         }
     }

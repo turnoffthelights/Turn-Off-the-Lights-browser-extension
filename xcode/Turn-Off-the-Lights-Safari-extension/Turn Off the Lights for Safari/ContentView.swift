@@ -12,22 +12,22 @@ struct ContentView: View {
         TabView {
             HomeView()
             .tabItem {
-                Label(Stefanfunctions().i18string(text: "lblhome"), systemImage: "house.fill")
+                Label(StefanFunctions().i18string(text: "lblhome"), systemImage: "house.fill")
             }
         
             VideoView()
             .tabItem {
-                Label(Stefanfunctions().i18string(text: "lblvideos"), systemImage: "movieclapper.fill")
+                Label(StefanFunctions().i18string(text: "lblvideos"), systemImage: "movieclapper.fill")
             }
             
             NewsView()
             .tabItem {
-                Label(Stefanfunctions().i18string(text: "lblnews"), systemImage: "newspaper.fill")
+                Label(StefanFunctions().i18string(text: "lblnews"), systemImage: "newspaper.fill")
             }
             
             SettingsView()
             .tabItem {
-                Label(Stefanfunctions().i18string(text: "lblsettings"), systemImage: "gearshape.fill")
+                Label(StefanFunctions().i18string(text: "lblsettings"), systemImage: "gearshape.fill")
             }
         }
     }

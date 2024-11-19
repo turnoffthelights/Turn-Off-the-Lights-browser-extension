@@ -36,7 +36,7 @@ struct VideoView: View {
     var body: some View {
         
         VStack {
-            Text(Stefanfunctions().i18string(text: "lblvideos"))
+            Text(StefanFunctions().i18string(text: "lblvideos"))
                            .font(.largeTitle)
                            .padding(.top, 20)
                            .padding(.bottom, 10)
@@ -68,7 +68,7 @@ struct VideoView: View {
                                 UIApplication.shared.open(url)
                             }
                         }) {
-                                Text(Stefanfunctions().i18string(text: "lblsubscribe"))
+                                Text(StefanFunctions().i18string(text: "lblsubscribe"))
                                     .foregroundColor(.white)
                         }
                         .tint(.blue)
@@ -84,7 +84,7 @@ struct VideoView: View {
                     VideoRow(video: video)
                 }
             }
-            .navigationTitle(Stefanfunctions().i18string(text: "lblvideos"))
+            .navigationTitle(StefanFunctions().i18string(text: "lblvideos"))
         }
 
     }

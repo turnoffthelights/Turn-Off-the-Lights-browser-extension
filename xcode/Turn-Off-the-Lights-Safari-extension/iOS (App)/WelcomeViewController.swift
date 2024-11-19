@@ -17,32 +17,32 @@ class WelcomeViewController: UIViewController, UIActivityItemSource {
     
     func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
         let metadata = LPLinkMetadata()
-        metadata.originalURL = URL(string: "https://www.turnoffthelights.com")
+        metadata.originalURL = URL(string: StefanLinks().linkdeveloperwebsite())
         metadata.url = metadata.originalURL
-        metadata.title = Stefanfunctions().i18string(text: "lblplaceholder")
+        metadata.title = StefanFunctions().i18string(text: "lblplaceholder")
         metadata.imageProvider = NSItemProvider.init(contentsOf:Bundle.main.url(forResource: "share-lamp", withExtension: "png"))
         return metadata
     }
 
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
-        return Stefanfunctions().i18string(text: "lblplaceholder")
+        return StefanFunctions().i18string(text: "lblplaceholder")
     }
 
-    let websitelink = "https://www.turnoffthelights.com"
+    let websitelink = StefanLinks().linkdeveloperwebsite()
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
         if activityType == .postToTwitter {
-            return Stefanfunctions().i18string(text: "lblsharetwitter") + " " + websitelink
+            return StefanFunctions().i18string(text: "lblsharex") + " " + websitelink
         } else {
-            return Stefanfunctions().i18string(text: "lblshareregular") + " " + websitelink
+            return StefanFunctions().i18string(text: "lblshareregular") + " " + websitelink
         }
     }
     
     func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivity.ActivityType?) -> String {
-        return Stefanfunctions().i18string(text: "lblemailsubject")
+        return StefanFunctions().i18string(text: "lblemailsubject")
     }
     
     @IBAction func openoptions(_ sender: Any) {
-        Stefanfunctions().openweb(text:"https://www.turnoffthelights.com/browser/extension/options/")
+        StefanFunctions().openweb(text: StefanLinks().linkredirectionoptions())
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -59,10 +59,10 @@ class WelcomeViewController: UIViewController, UIActivityItemSource {
     
     var products : Array<App> =  [
         App(appName: "", appDes: "", appImage: "", appButton: "", appDownloadLink: ""),
-        App(appName: Stefanfunctions().i18string(text: "strworldpremiere"), appDes: Stefanfunctions().i18string(text: "strdesworldpremiere"), appImage: "lock.shield.fill", appButton: Stefanfunctions().i18string(text: "strfindout"), appDownloadLink: "https://www.turnoffthelights.com/blog/"),
-        App(appName: Stefanfunctions().i18string(text: "strtranslator"), appDes: Stefanfunctions().i18string(text: "strdestranslator"), appImage: "rectangle.3.group.bubble.left.fill", appButton: Stefanfunctions().i18string(text: "strfindout"), appDownloadLink: "https://www.turnoffthelights.com/translator/"),
-        App(appName: Stefanfunctions().i18string(text: "strdeveloper"), appDes: Stefanfunctions().i18string(text: "strdesdeveloper"), appImage: "chevron.left.forwardslash.chevron.right", appButton: Stefanfunctions().i18string(text: "strfindout"), appDownloadLink: "https://www.turnoffthelights.com/developer/"),
-        App(appName: Stefanfunctions().i18string(text: "strsocial"), appDes: Stefanfunctions().i18string(text: "strdessocial"), appImage: "heart.circle.fill", appButton: Stefanfunctions().i18string(text: "strfindout"), appDownloadLink: "https://www.turnoffthelights.com/social/")
+        App(appName: StefanFunctions().i18string(text: "strworldpremiere"), appDes: StefanFunctions().i18string(text: "strdesworldpremiere"), appImage: "lock.shield.fill", appButton: StefanFunctions().i18string(text: "strfindout"), appDownloadLink: StefanLinks().linkdeveloperblog()),
+        App(appName: StefanFunctions().i18string(text: "strtranslator"), appDes: StefanFunctions().i18string(text: "strdestranslator"), appImage: "rectangle.3.group.bubble.left.fill", appButton: StefanFunctions().i18string(text: "strfindout"), appDownloadLink: StefanLinks().linktranslate()),
+        App(appName: StefanFunctions().i18string(text: "strdeveloper"), appDes: StefanFunctions().i18string(text: "strdesdeveloper"), appImage: "chevron.left.forwardslash.chevron.right", appButton: StefanFunctions().i18string(text: "strfindout"), appDownloadLink: StefanLinks().linkdeveloper()),
+        App(appName: StefanFunctions().i18string(text: "strsocial"), appDes: StefanFunctions().i18string(text: "strdessocial"), appImage: "heart.circle.fill", appButton: StefanFunctions().i18string(text: "strfindout"), appDownloadLink: StefanLinks().linksocial())
     ]
 
     override func viewDidLoad(){

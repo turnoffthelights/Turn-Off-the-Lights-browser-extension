@@ -46,9 +46,9 @@ class SmalliPadCell1: UICollectionViewCell {
     }
     
     func addLabelStep1(){
-        let regularText = NSAttributedString(string: Stefanfunctions().i18string(text: "bannerstep1a"), attributes: regularAttribute)
-        let boldText = NSAttributedString(string: Stefanfunctions().i18string(text: "bannerstep1b"), attributes: boldAttribute)
-        let regularTextb = NSAttributedString(string: Stefanfunctions().i18string(text: "bannerstep1c"), attributes: regularAttribute)
+        let regularText = NSAttributedString(string: StefanFunctions().i18string(text: "bannerstep1a"), attributes: regularAttribute)
+        let boldText = NSAttributedString(string: StefanFunctions().i18string(text: "bannerstep1b"), attributes: boldAttribute)
+        let regularTextb = NSAttributedString(string: StefanFunctions().i18string(text: "bannerstep1c"), attributes: regularAttribute)
         let newString1 = NSMutableAttributedString()
         newString1.append(regularText)
         newString1.append(spaceText)
@@ -59,8 +59,8 @@ class SmalliPadCell1: UICollectionViewCell {
     }
     
     func addLabelStep2(){
-        let regularTextstep2 = NSAttributedString(string: Stefanfunctions().i18string(text: "bannerstep2a"), attributes: regularAttribute)
-        let boldTextstep2 = NSAttributedString(string: Stefanfunctions().i18string(text: "bannerstep2b"), attributes: boldAttribute)
+        let regularTextstep2 = NSAttributedString(string: StefanFunctions().i18string(text: "bannerstep2a"), attributes: regularAttribute)
+        let boldTextstep2 = NSAttributedString(string: StefanFunctions().i18string(text: "bannerstep2b"), attributes: boldAttribute)
         let newString2 = NSMutableAttributedString()
         newString2.append(regularTextstep2)
         newString2.append(spaceText)
@@ -69,8 +69,8 @@ class SmalliPadCell1: UICollectionViewCell {
     }
 
     func addLabelStep3(){
-        let regularTextstep3 = NSAttributedString(string: Stefanfunctions().i18string(text: "bannerstep3a"), attributes: regularAttribute)
-        let boldTextstep3 = NSAttributedString(string: Stefanfunctions().i18string(text: "bannerstep3b"), attributes: boldAttribute)
+        let regularTextstep3 = NSAttributedString(string: StefanFunctions().i18string(text: "bannerstep3a"), attributes: regularAttribute)
+        let boldTextstep3 = NSAttributedString(string: StefanFunctions().i18string(text: "bannerstep3b"), attributes: boldAttribute)
         let newString3 = NSMutableAttributedString()
         newString3.append(regularTextstep3)
         newString3.append(spaceText)
@@ -80,16 +80,16 @@ class SmalliPadCell1: UICollectionViewCell {
     
     func addLabelStep4(){
         let newString4 = NSMutableAttributedString()
-        newString4.append(NSAttributedString(string: Stefanfunctions().i18string(text: "bannerstep4a"), attributes: regularAttribute))
+        newString4.append(NSAttributedString(string: StefanFunctions().i18string(text: "bannerstep4a"), attributes: regularAttribute))
         newString4.append(spaceText)
-        newString4.append(NSAttributedString(string: Stefanfunctions().i18string(text: "bannerstep4b"), attributes: boldAttribute))
+        newString4.append(NSAttributedString(string: StefanFunctions().i18string(text: "bannerstep4b"), attributes: boldAttribute))
         lblstep4hometab.attributedText = newString4
     }
     
     func addLabelStep5(){
-        let regularTextstep5 = NSAttributedString(string: Stefanfunctions().i18string(text: "bannerstep5a"), attributes: regularAttribute)
-        let boldTextstep5b = NSAttributedString(string: Stefanfunctions().i18string(text: "bannerstep5b"), attributes: boldAttribute)
-        let boldTextstep5c = NSAttributedString(string: Stefanfunctions().i18string(text: "bannerstep5c"), attributes: regularAttribute)
+        let regularTextstep5 = NSAttributedString(string: StefanFunctions().i18string(text: "bannerstep5a"), attributes: regularAttribute)
+        let boldTextstep5b = NSAttributedString(string: StefanFunctions().i18string(text: "bannerstep5b"), attributes: boldAttribute)
+        let boldTextstep5c = NSAttributedString(string: StefanFunctions().i18string(text: "bannerstep5c"), attributes: regularAttribute)
         let newString5 = NSMutableAttributedString()
         newString5.append(regularTextstep5)
         newString5.append(spaceText)

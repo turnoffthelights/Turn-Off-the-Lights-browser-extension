@@ -104,10 +104,10 @@ class AboutController: UITableViewController{
     }
     
     func openweb() {
-        Stefanfunctions().openweb(text:"https://www.turnoffthelights.com")
+        StefanFunctions().openweb(text: StefanLinks().linkdeveloperwebsite())
     }
     func opensupport() {
-        Stefanfunctions().openweb(text:"https://www.turnoffthelights.com/support/")
+        StefanFunctions().openweb(text:StefanLinks().linksupport())
     }
 
     var productURL = URL(string: "https://apps.apple.com/app/id1273998507")!
@@ -157,7 +157,7 @@ class AboutController: UITableViewController{
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
         
-        if let url = URL(string: "https://www.turnoffthelights.com/browser/extension/translate/") {
+        if let url = URL(string: StefanLinks().linktranslate()) {
             UIApplication.shared.open(url)
         }
     }

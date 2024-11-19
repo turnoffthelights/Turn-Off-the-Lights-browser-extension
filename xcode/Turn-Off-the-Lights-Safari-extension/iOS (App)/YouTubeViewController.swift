@@ -56,7 +56,7 @@ class YouTubeViewController: UIViewController {
     }
     
     @IBAction func openyoutube(_ sender: Any) {
-        Stefanfunctions().openweb(text:"https://www.youtube.com/c/turnoffthelights?sub_confirmation=1")
+        StefanFunctions().openweb(text:"https://www.youtube.com/c/turnoffthelights?sub_confirmation=1")
     }
     
     private var player: AVQueuePlayer!
@@ -86,7 +86,7 @@ class YouTubeViewController: UIViewController {
 //        playerLayer.masksToBounds = true
      
         // poster avplayer
-        ytimageinspiration.image = Stefanfunctions().imagePreview(from: pathURL, in: 0.0)
+        ytimageinspiration.image = StefanFunctions().imagePreview(from: pathURL, in: 0.0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -149,7 +149,7 @@ extension YouTubeViewController: UICollectionViewDelegate, UICollectionViewDataS
     @objc func openLinkAction(sender: UIButton!) {
         let btnsendtag: UIButton = sender
         let youtubeId = videoproducts[btnsendtag.tag].appDownloadLink
-        Stefanfunctions().openyoutubevideo(youtubeId: youtubeId)
+        StefanFunctions().openyoutubevideo(youtubeId: youtubeId)
     }
         
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

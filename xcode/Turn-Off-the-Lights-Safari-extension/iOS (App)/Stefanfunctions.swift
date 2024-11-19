@@ -1,5 +1,5 @@
 //
-//  Stefanfunctions.swift
+//  StefanFunctions.swift
 //  Turn Off the Lights for Safari (iOS)
 //
 //  Created by Stefan Van Damme on 25/08/2022.
@@ -37,7 +37,7 @@ extension UIApplication {
     }
 }
 
-class Stefanfunctions{
+class StefanFunctions{
     func i18string(text: String) -> String{
         return String.localizedStringWithFormat(NSLocalizedString(text, comment: ""), "")
     }
@@ -91,7 +91,7 @@ class Stefanfunctions{
             UIApplication.shared.open(youtubeURL, options: [:], completionHandler: nil)
         } else if URL(string: "https://www.youtube.com/watch?v=\(youtubeId)") != nil {
             let thisurlpost = "https://www.youtube.com/watch?v=\(youtubeId)"
-            Stefanfunctions().opensafaripreview(pageurl: thisurlpost)
+            StefanFunctions().opensafaripreview(pageurl: thisurlpost)
         }
     }
     

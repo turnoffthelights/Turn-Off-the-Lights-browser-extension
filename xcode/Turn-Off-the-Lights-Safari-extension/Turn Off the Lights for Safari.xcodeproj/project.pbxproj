@@ -25,7 +25,7 @@
 		1E4CB20D268CC77900015282 /* TOtL_iOS_UITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CB20C268CC77900015282 /* TOtL_iOS_UITest.swift */; };
 		1E4CB234268CDC6D00015282 /* TOtL_iOS_test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CB233268CDC6D00015282 /* TOtL_iOS_test.swift */; };
 		1E5AF2E928B7D2C8004930D6 /* Stefanfunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5AF2E828B7D2C8004930D6 /* Stefanfunctions.swift */; };
-		1E5AF2EB28B7E5CC004930D6 /* Stefanfunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5AF2EA28B7E5CC004930D6 /* Stefanfunctions.swift */; };
+		1E5AF2EB28B7E5CC004930D6 /* StefanFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5AF2EA28B7E5CC004930D6 /* StefanFunctions.swift */; };
 		1E5FEC292896884300C73DE5 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5FEC282896884300C73DE5 /* SectionHeader.swift */; };
 		1E6402832895374E0015265F /* BigiPadCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E64027D2895374E0015265F /* BigiPadCell1.xib */; };
 		1E6402852895374E0015265F /* BigiPadCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E64027F2895374E0015265F /* BigiPadCell1.swift */; };
@@ -64,6 +64,9 @@
 		1EBA02C826D56B2100EDF450 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EBA02C726D56B2100EDF450 /* LaunchScreen.storyboard */; };
 		1EC4AC1A26851FC0005FCF33 /* CommonClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4AC1826851FC0005FCF33 /* CommonClasses.swift */; };
 		1EC4AC1B26851FC0005FCF33 /* SimpleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4AC1926851FC0005FCF33 /* SimpleTableViewController.swift */; };
+		1EC7D05F2CED07C900819365 /* StefanLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC7D05C2CECFC6000819365 /* StefanLinks.swift */; };
+		1EC7D0602CED07C900819365 /* StefanLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC7D05C2CECFC6000819365 /* StefanLinks.swift */; };
+		1EC7D0612CED07C900819365 /* StefanLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC7D05C2CECFC6000819365 /* StefanLinks.swift */; };
 		1ECAC65E26DE657100369F11 /* Turn Off the Lights for Safari Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1E70CA1626726F380064A939 /* Turn Off the Lights for Safari Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1ECAC65F26DE657700369F11 /* Turn Off the Lights for Safari Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1E70CA2026726F380064A939 /* Turn Off the Lights for Safari Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1ECD0B1628B6A4CB00C7EC91 /* YouTubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD0B1528B6A4CB00C7EC91 /* YouTubeViewController.swift */; };
@@ -200,7 +203,7 @@
 		1E4CB233268CDC6D00015282 /* TOtL_iOS_test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOtL_iOS_test.swift; sourceTree = "<group>"; };
 		1E54226528422FB5003B4F50 /* Turn Off the Lights for Safari (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Turn Off the Lights for Safari (iOS).entitlements"; sourceTree = "<group>"; };
 		1E5AF2E828B7D2C8004930D6 /* Stefanfunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stefanfunctions.swift; sourceTree = "<group>"; };
-		1E5AF2EA28B7E5CC004930D6 /* Stefanfunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stefanfunctions.swift; sourceTree = "<group>"; };
+		1E5AF2EA28B7E5CC004930D6 /* StefanFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StefanFunctions.swift; sourceTree = "<group>"; };
 		1E5FEC282896884300C73DE5 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		1E64027D2895374E0015265F /* BigiPadCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigiPadCell1.xib; sourceTree = "<group>"; };
 		1E64027F2895374E0015265F /* BigiPadCell1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigiPadCell1.swift; sourceTree = "<group>"; };
@@ -324,6 +327,7 @@
 		1EBA02CB26D56BFD00EDF450 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1EC4AC1826851FC0005FCF33 /* CommonClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonClasses.swift; sourceTree = "<group>"; };
 		1EC4AC1926851FC0005FCF33 /* SimpleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTableViewController.swift; sourceTree = "<group>"; };
+		1EC7D05C2CECFC6000819365 /* StefanLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StefanLinks.swift; sourceTree = "<group>"; };
 		1ECCC70126D79663002A2A32 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Main.strings; sourceTree = "<group>"; };
 		1ECCC70226D79663002A2A32 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Walkthrough.strings; sourceTree = "<group>"; };
 		1ECCC70326D79663002A2A32 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -522,6 +526,7 @@
 		1E70C9E826726F350064A939 /* Shared (App) */ = {
 			isa = PBXGroup;
 			children = (
+				1EC7D05C2CECFC6000819365 /* StefanLinks.swift */,
 				1E70C9F026726F380064A939 /* Assets.xcassets */,
 				1E2F5768267BE9D600C78FFC /* Localizable.strings */,
 			);
@@ -593,7 +598,7 @@
 		1E70CA0A26726F380064A939 /* macOS (App) */ = {
 			isa = PBXGroup;
 			children = (
-				1E5AF2EA28B7E5CC004930D6 /* Stefanfunctions.swift */,
+				1E5AF2EA28B7E5CC004930D6 /* StefanFunctions.swift */,
 				1E7D1A14267283A600FECE52 /* Assets.xcassets */,
 				1E7D1A15267283A600FECE52 /* DaringInfantileDachshund.mp4 */,
 				1E744B4726DE2C1A00BE9D86 /* Main.storyboard */,
@@ -964,6 +969,7 @@
 			files = (
 				1EE86E6B2B91262E00118AD8 /* Stefanfunctions.swift in Sources */,
 				1EA265712B9265F3004DAE95 /* NewsView.swift in Sources */,
+				1EC7D0612CED07C900819365 /* StefanLinks.swift in Sources */,
 				1EA2656D2B925D6C004DAE95 /* VideoView.swift in Sources */,
 				1EA265752B92665A004DAE95 /* FeedParser.swift in Sources */,
 				1E07D00A2B8FCE7E00B9E5F7 /* ContentView.swift in Sources */,
@@ -1004,6 +1010,7 @@
 				1E70C9FB26726F380064A939 /* AppDelegate.swift in Sources */,
 				1E07A7C12895AFFC00EF820B /* SmalliPadCell1.swift in Sources */,
 				1ECD0B1928B6AA3A00C7EC91 /* VideoiPadCell1.swift in Sources */,
+				1EC7D05F2CED07C900819365 /* StefanLinks.swift in Sources */,
 				1E6C4918267B83C3001048CF /* EnableViewController.swift in Sources */,
 				1E6C4915267B83C3001048CF /* NewsTableViewCell.swift in Sources */,
 				1E6C491A267B83C3001048CF /* ViewController.swift in Sources */,
@@ -1029,8 +1036,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E5AF2EB28B7E5CC004930D6 /* Stefanfunctions.swift in Sources */,
+				1E5AF2EB28B7E5CC004930D6 /* StefanFunctions.swift in Sources */,
 				1E7D1A192672850D00FECE52 /* ViewController.swift in Sources */,
+				1EC7D0602CED07C900819365 /* StefanLinks.swift in Sources */,
 				1E70CA0C26726F380064A939 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

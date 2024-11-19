@@ -1,5 +1,5 @@
 //
-//  Stefanfunctions.swift
+//  StefanFunctions.swift
 //  Turn Off the Lights for Safari
 //
 //  Created by Stefan Van Damme on 28/02/2024.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Stefanfunctions{
+class StefanFunctions{
     // translation
     func i18string(text: String) -> String{
         return String.localizedStringWithFormat(NSLocalizedString(text, comment: ""), "")

@@ -34,33 +34,33 @@ class EnableViewController: UIViewController,AVPlayerViewControllerDelegate{
 
     let textBold = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
     func settranslationtext(){
-        lbleasysetup.text = Stefanfunctions().i18string(text: "lbleasytosetup").uppercased()
-        lblactivate.text = Stefanfunctions().i18string(text: "lblactivate")
-        lblwatchvideo.setTitle(Stefanfunctions().i18string(text: "lblwatchvideo"), for: .normal)
+        lbleasysetup.text = StefanFunctions().i18string(text: "lbleasytosetup").uppercased()
+        lblactivate.text = StefanFunctions().i18string(text: "lblactivate")
+        lblwatchvideo.setTitle(StefanFunctions().i18string(text: "lblwatchvideo"), for: .normal)
 
         // steps list
-        lblstep1.text = Stefanfunctions().i18string(text: "lblstep1")
+        lblstep1.text = StefanFunctions().i18string(text: "lblstep1")
         
-        let part2a = Stefanfunctions().i18string(text: "lblstep2a") + " "
-        let part2b = Stefanfunctions().i18string(text: "lblstep2b")
-        let part2c = " " + Stefanfunctions().i18string(text: "lblstep2c")
+        let part2a = StefanFunctions().i18string(text: "lblstep2a") + " "
+        let part2b = StefanFunctions().i18string(text: "lblstep2b")
+        let part2c = " " + StefanFunctions().i18string(text: "lblstep2c")
         let attributedString = NSMutableAttributedString(string:part2a)
         attributedString.append(NSMutableAttributedString(string:part2b, attributes:textBold))
         attributedString.append(NSMutableAttributedString(string:part2c))
         lblstep2.attributedText = attributedString
 
-        let part3a = Stefanfunctions().i18string(text: "lblstep3a") + " "
-        let part3b = Stefanfunctions().i18string(text: "lblstep3b")
-        let part3c = Stefanfunctions().i18string(text: "lblstep3c") + " "
-        let part3d = Stefanfunctions().i18string(text: "lblstep3d")
+        let part3a = StefanFunctions().i18string(text: "lblstep3a") + " "
+        let part3b = StefanFunctions().i18string(text: "lblstep3b")
+        let part3c = StefanFunctions().i18string(text: "lblstep3c") + " "
+        let part3d = StefanFunctions().i18string(text: "lblstep3d")
         let attributedString3 = NSMutableAttributedString(string:part3a)
         attributedString3.append(NSMutableAttributedString(string:part3b, attributes:textBold))
         attributedString3.append(NSMutableAttributedString(string:part3c))
         attributedString3.append(NSMutableAttributedString(string:part3d, attributes:textBold))
         lblstep3.attributedText = attributedString3
 
-        let part4a = Stefanfunctions().i18string(text: "lblstep4a") + " "
-        let part4b = Stefanfunctions().i18string(text: "lblstep4b")
+        let part4a = StefanFunctions().i18string(text: "lblstep4a") + " "
+        let part4b = StefanFunctions().i18string(text: "lblstep4b")
         let attributedString4 = NSMutableAttributedString(string:part4a)
         attributedString4.append(NSMutableAttributedString(string:part4b, attributes:textBold))
         lblstep4.attributedText = attributedString4
@@ -99,7 +99,7 @@ class EnableViewController: UIViewController,AVPlayerViewControllerDelegate{
 //        playerLayer.masksToBounds = true
      
         // poster avplayer
-        imageinspiration.image = Stefanfunctions().imagePreview(from: pathURL, in: 0.0)
+        imageinspiration.image = StefanFunctions().imagePreview(from: pathURL, in: 0.0)
     }
     
     @IBAction func opentutorialvideo(_ sender: Any) {
