@@ -14,10 +14,12 @@
 "lblstep2a" = "Deschideți";
 "lblstep2b" = "Setări";
 "lblstep2c" = "aplicația de pe dispozitivul dvs.";
-"lblstep3a" = "Căutați și apăsați";
-"lblstep3b" = "Safari";
-"lblstep3c" = ", apoi apăsați pe";
-"lblstep3d" = "Extensii";
+"lblstep3a" = "Search for and tap on";
+"lblstep3b" = "Apps";
+"lblstep3c" = ", then select";
+"lblstep3d" = "Safari";
+"lblstep3e" = "Next, tap on";
+"lblstep3f" = "Extensions";
 "lblstep4a" = "Activați";
 "lblstep4b" = "Stinge lumina";
 "lblplaceholder" = "Opriți extensia Turn Off the Lights pentru Safari";
@@ -32,7 +34,7 @@
 "bannerstep1a" = "Open the";
 "bannerstep1b" = "Settings";
 "bannerstep1c" = "app";
-"bannerstep2a" = "Scroll to";
+"bannerstep2a" = "Select Apps, then choose";
 "bannerstep2b" = "Safari";
 "bannerstep3a" = "Select";
 "bannerstep3b" = "Extensions";

@@ -750,10 +750,10 @@ const afterBodyReady = () => {
 						var ytendfi;
 						var ytendfl = ytendpointfour.length;
 						for(ytendfi = 0; ytendfi < ytendfl; ytendfi++){ ytendpointfour[ytendfi].style.color = nightmodetxt; }
-						var ytformatstring = document.querySelectorAll("yt-formatted-string");
-						var ytformi;
-						var ytforml = ytformatstring.length;
-						for(ytformi = 0; ytformi < ytforml; ytformi++){ ytformatstring[ytformi].style.color = nightmodetxt; }
+						// var ytformatstring = document.querySelectorAll("yt-formatted-string");
+						// var ytformi;
+						// var ytforml = ytformatstring.length;
+						// for(ytformi = 0; ytformi < ytforml; ytformi++){ ytformatstring[ytformi].style.color = nightmodetxt; }
 						// update YouTube 27 December 2017
 						var ytpagemanager = document.querySelectorAll("ytd-page-manager");
 						var ytpai;
@@ -770,26 +770,26 @@ const afterBodyReady = () => {
 						if($("guide-button")){ $("guide-button").style.cssText = "-webkit-filter: invert(1) grayscale(1);"; }
 						if($("buttons")){ $("buttons").style.cssText = "-webkit-filter: invert(1) grayscale(1);"; }
 						if($("guide-content")){ $("guide-content").style.color = nightmodetxt; $("guide-content").style.backgroundColor = nightmodebck; }
-						var ytdguidenentry = document.querySelectorAll(".ytd-guide-entry-renderer");
-						var ytdguidei;
-						var ytdguidel = ytdguidenentry.length;
-						for(ytdguidei = 0; ytdguidei < ytdguidel; ytdguidei++){ ytdguidenentry[ytdguidei].style.color = nightmodetxt; ytdguidenentry[ytdguidei].style.backgroundColor = nightmodebck; }
+						// var ytdguidenentry = document.querySelectorAll(".ytd-guide-entry-renderer");
+						// var ytdguidei;
+						// var ytdguidel = ytdguidenentry.length;
+						// for(ytdguidei = 0; ytdguidei < ytdguidel; ytdguidei++){ ytdguidenentry[ytdguidei].style.color = nightmodetxt; ytdguidenentry[ytdguidei].style.backgroundColor = nightmodebck; }
 						var ytdguidenentryc = document.querySelectorAll(".ytd-toggle-button-renderer");
 						var ytguideni;
 						var ytguidenl = ytdguidenentryc.length;
 						for(ytguideni = 0; ytguideni < ytguidenl; ytguideni++){ ytdguidenentryc[ytguideni].style.color = nightmodetxt; }
-						var ytdbuttonrenderer = document.querySelectorAll("yt-icon");
-						var ytdbuti;
-						var ytdbutl = ytdbuttonrenderer.length;
-						for(ytdbuti = 0; ytdbuti < ytdbutl; ytdbuti++){ ytdbuttonrenderer[ytdbuti].style.cssText = "-webkit-filter: invert(1) grayscale(1) contrast(0);"; }
+						// var ytdbuttonrenderer = document.querySelectorAll("yt-icon");
+						// var ytdbuti;
+						// var ytdbutl = ytdbuttonrenderer.length;
+						// for(ytdbuti = 0; ytdbuti < ytdbutl; ytdbuti++){ ytdbuttonrenderer[ytdbuti].style.cssText = "-webkit-filter: invert(1) grayscale(1) contrast(0);"; }
 						var paperbutton = document.querySelectorAll("paper-button");
 						var papi;
 						var papl = paperbutton.length;
 						for(papi = 0; papi < papl; papi++){ paperbutton[papi].style.color = nightmodetxt; }
-						var ytsimple = document.querySelectorAll(".yt-simple-endpoint style-scope ytd-guide-entry-renderer a");
-						var ytsimi;
-						var ytsiml = ytsimple.length;
-						for(ytsimi = 0; ytsimi < ytsiml; ytsimi++){ ytsimple[ytsimi].style.color = nightmodetxt; }
+						// var ytsimple = document.querySelectorAll(".yt-simple-endpoint style-scope ytd-guide-entry-renderer a");
+						// var ytsimi;
+						// var ytsiml = ytsimple.length;
+						// for(ytsimi = 0; ytsimi < ytsiml; ytsimi++){ ytsimple[ytsimi].style.color = nightmodetxt; }
 						var ytcompact = document.querySelectorAll(".ytd-compact-autoplay-renderer");
 						var ytcoi;
 						var ytcol = ytcompact.length;
@@ -849,10 +849,10 @@ const afterBodyReady = () => {
 						var ytverti;
 						var ytvertl = ytverticalsection.length;
 						for(ytverti = 0; ytverti < ytvertl; ytverti++){ ytverticalsection[ytverti].style.color = nightmodetxt; }
-						var ytformattedstring = document.querySelectorAll(".yt-formatted-string");
-						var ytfromi;
-						var ytfroml = ytformattedstring.length;
-						for(ytfromi = 0; ytfromi < ytfroml; ytfromi++){ ytformattedstring[ytfromi].style.color = nightmodetxt; }
+						// var ytformattedstring = document.querySelectorAll(".yt-formatted-string");
+						// var ytfromi;
+						// var ytfroml = ytformattedstring.length;
+						// for(ytfromi = 0; ytfromi < ytfroml; ytfromi++){ ytformattedstring[ytfromi].style.color = nightmodetxt; }
 						var ytdrichgridvideorenderer = document.querySelectorAll(".ytd-rich-grid-video-renderer");
 						var ytrichrendi;
 						var ytrichrendl = ytdrichgridvideorenderer.length;
@@ -880,7 +880,7 @@ const afterBodyReady = () => {
 						var ytdminiguideentryrenderera = document.querySelectorAll("ytd-mini-guide-entry-renderer");
 						var ytmiguidai;
 						var ytmiguidal = ytdminiguideentryrenderera.length;
-						for(ytmiguidai = 0; ytmiguidai < ytmiguidal; ytmiguidai++){ ytdminiguideentryrenderera[ytmiguidai].style.backgroundColor = nightmodebck; }
+						for(ytmiguidai = 0; ytmiguidai < ytmiguidal; ytmiguidai++){ ytdminiguideentryrenderera[ytmiguidai].style.backgroundColor = "transparent"; }
 						var ytchipcloudrenderera = document.querySelectorAll("yt-chip-cloud-renderer");
 						var ytchipi;
 						var ytchipl = ytchipcloudrenderera.length;
@@ -901,6 +901,70 @@ const afterBodyReady = () => {
 						var ytrightchipcloudi;
 						var ytrightchipcloudl = ytrightchipclouda.length;
 						for(ytrightchipcloudi = 0; ytrightchipcloudi < ytrightchipcloudl; ytrightchipcloudi++){ ytrightchipclouda[ytrightchipcloudi].style.backgroundColor = nightmodebck; }
+						// 22 November 2024
+						if($("chips-wrapper")){ $("chips-wrapper").style.color = nightmodetxt; $("chips-wrapper").style.backgroundColor = nightmodebck; }
+						if($("left-arrow")){ $("left-arrow").classList.add("stefanvdnightpseudobefore", "stefanvdnightpseudoafter"); }
+						if($("left-arrow-button")){ $("left-arrow-button").classList.add("stefanvdnightbck", "stefanvdnight"); }
+						if($("right-arrow")){ $("right-arrow").classList.add("stefanvdnightpseudobefore", "stefanvdnightpseudoafter"); }
+						if($("right-arrow-button")){ $("right-arrow-button").classList.add("stefanvdnightbck", "stefanvdnight"); }
+						if($("search-icon-legacy")){ $("search-icon-legacy").style.color = nightmodetxt; $("search-icon-legacy").style.backgroundColor = nightmodebck; }
+
+						const elements = document.querySelectorAll(".title.ytd-mini-guide-entry-renderer");
+						elements.forEach((element) => {
+							element.style.color = nightmodetxt;
+						});
+
+						const icons = document.querySelectorAll(".guide-icon.ytd-mini-guide-entry-renderer");
+						icons.forEach((icon) => {
+							icon.style.color = nightmodetxt;
+						});
+
+						const ytsidebaricons = document.querySelectorAll(".guide-icon.ytd-guide-entry-renderer");
+						ytsidebaricons.forEach((icon) => {
+							icon.style.color = nightmodetxt;
+						});
+
+						const formattedStrings = document.querySelectorAll("yt-formatted-string");
+						formattedStrings.forEach((element) => {
+							element.style.color = nightmodetxt;
+						});
+
+						const ytspecbuttons = document.querySelectorAll(".yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text");
+						ytspecbuttons.forEach((button) => {
+							button.style.color = nightmodetxt;
+							button.style.background = nightmodebutton;
+						});
+
+						const ytsearchBox = document.querySelector("#container.ytd-searchbox");
+						if(ytsearchBox){
+							ytsearchBox.style.boxShadow = "none";
+						}
+
+						const ytauthortext = document.querySelectorAll("#author-text.yt-simple-endpoint.ytd-comment-view-model");
+						ytauthortext.forEach((element) => {
+							element.style.color = nightmodetxt;
+						});
+
+						const ytcommentview = document.querySelectorAll("#content-text.ytd-comment-view-model");
+						ytcommentview.forEach((element) => {
+							element.style.color = nightmodetxt;
+						});
+
+						const ytspecbutton = document.querySelectorAll(".yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal");
+						ytspecbutton.forEach((element) => {
+							element.style.color = nightmodetxt;
+						});
+
+						const ytcoreattrib = document.querySelectorAll(".yt-core-attributed-string--link-inherit-color");
+						ytcoreattrib.forEach((element) => {
+							element.style.color = nightmodetxt;
+						});
+
+						const anchor = document.querySelector("a.yt-simple-endpoint.style-scope.yt-formatted-string");
+						if(anchor){
+							anchor.style.color = nightmodetxt;
+						}
+
 					}
 				//-----
 				}else{
@@ -1179,10 +1243,10 @@ const afterBodyReady = () => {
 						var ytenddi;
 						var ytenddl = ytendpointfourd.length;
 						for(ytenddi = 0; ytenddi < ytenddl; ytenddi++){ ytendpointfourd[ytenddi].style.color = ""; }
-						var ytformatstringm = document.querySelectorAll("yt-formatted-string");
-						var ytmi;
-						var ytml = ytformatstringm.length;
-						for(ytmi = 0; ytmi < ytml; ytmi++){ ytformatstringm[ytmi].style.color = ""; }
+						// var ytformatstringm = document.querySelectorAll("yt-formatted-string");
+						// var ytmi;
+						// var ytml = ytformatstringm.length;
+						// for(ytmi = 0; ytmi < ytml; ytmi++){ ytformatstringm[ytmi].style.color = ""; }
 						// update YouTube 3 August 2017
 						var ytpagemanagera = document.querySelectorAll("ytd-page-manager");
 						var ytpagemi;
@@ -1199,26 +1263,26 @@ const afterBodyReady = () => {
 						if($("guide-button")){ $("guide-button").style.cssText = ""; }
 						if($("buttons")){ $("buttons").style.cssText = ""; }
 						if($("guide-content")){ $("guide-content").style.color = "black"; $("guide-content").style.backgroundColor = "white"; }
-						var ytdguidenentryh = document.querySelectorAll(".ytd-guide-entry-renderer");
-						var ythui;
-						var ythul = ytdguidenentryh.length;
-						for(ythui = 0; ythui < ythul; ythui++){ ytdguidenentryh[ythui].style.color = "black"; ytdguidenentryh[ythui].style.backgroundColor = "white"; }
+						// var ytdguidenentryh = document.querySelectorAll(".ytd-guide-entry-renderer");
+						// var ythui;
+						// var ythul = ytdguidenentryh.length;
+						// for(ythui = 0; ythui < ythul; ythui++){ ytdguidenentryh[ythui].style.color = "black"; ytdguidenentryh[ythui].style.backgroundColor = "white"; }
 						var ytdguidenentryb = document.querySelectorAll(".ytd-toggle-button-renderer");
 						var yguidei;
 						var yguidel = ytdguidenentryb.length;
 						for(yguidei = 0; yguidei < yguidel; yguidei++){ ytdguidenentryb[yguidei].style.color = ""; }
-						var ytdbuttonrenderera = document.querySelectorAll("yt-icon");
-						var ytbuttonsi;
-						var ytbuttonsl = ytdbuttonrenderera.length;
-						for(ytbuttonsi = 0; ytbuttonsi < ytbuttonsl; ytbuttonsi++){ ytdbuttonrenderera[ytbuttonsi].style.cssText = ""; }
+						// var ytdbuttonrenderera = document.querySelectorAll("yt-icon");
+						// var ytbuttonsi;
+						// var ytbuttonsl = ytdbuttonrenderera.length;
+						// for(ytbuttonsi = 0; ytbuttonsi < ytbuttonsl; ytbuttonsi++){ ytdbuttonrenderera[ytbuttonsi].style.cssText = ""; }
 						var paperbuttonc = document.querySelectorAll("paper-button");
 						var papdi;
 						var papdl = paperbuttonc.length;
 						for(papdi = 0; papdi < papdl; papdi++){ paperbuttonc[papdi].style.color = ""; }
-						var ytsimplea = document.querySelectorAll(".yt-simple-endpoint style-scope ytd-guide-entry-renderer a");
-						var ytsimpai;
-						var ytsimpal = ytsimplea.length;
-						for(ytsimpai = 0; ytsimpai < ytsimpal; ytsimpai++){ ytsimplea[ytsimpai].style.color = ""; }
+						// var ytsimplea = document.querySelectorAll(".yt-simple-endpoint style-scope ytd-guide-entry-renderer a");
+						// var ytsimpai;
+						// var ytsimpal = ytsimplea.length;
+						// for(ytsimpai = 0; ytsimpai < ytsimpal; ytsimpai++){ ytsimplea[ytsimpai].style.color = ""; }
 						var ytcompactd = document.querySelectorAll(".ytd-compact-autoplay-renderer");
 						var ytpaci;
 						var ytpacl = ytcompactd.length;
@@ -1278,10 +1342,10 @@ const afterBodyReady = () => {
 						var ytvertai;
 						var ytvertal = ytverticalsectiona.length;
 						for(ytvertai = 0; ytvertai < ytvertal; ytvertai++){ ytverticalsectiona[ytvertai].style.color = ""; }
-						var ytformattedstringc = document.querySelectorAll(".yt-formatted-string");
-						var ytfotti;
-						var ytfottl = ytformattedstringc.length;
-						for(ytfotti = 0; ytfotti < ytfottl; ytfotti++){ ytformattedstringc[ytfotti].style.color = ""; }
+						// var ytformattedstringc = document.querySelectorAll(".yt-formatted-string");
+						// var ytfotti;
+						// var ytfottl = ytformattedstringc.length;
+						// for(ytfotti = 0; ytfotti < ytfottl; ytfotti++){ ytformattedstringc[ytfotti].style.color = ""; }
 						var ytdrichgridvideorendererh = document.querySelectorAll(".ytd-rich-grid-video-renderer");
 						var ytrichrei;
 						var ytrichrel = ytdrichgridvideorendererh.length;
@@ -1330,6 +1394,69 @@ const afterBodyReady = () => {
 						var ytrightchipcloudbi;
 						var ytrightchipcloudbl = ytrightchipcloudb.length;
 						for(ytrightchipcloudbi = 0; ytrightchipcloudbi < ytrightchipcloudbl; ytrightchipcloudbi++){ ytrightchipcloudb[ytrightchipcloudbi].style.backgroundColor = ""; }
+						// 22 November 2024
+						if($("chips-wrapper")){ $("chips-wrapper").style.color = ""; $("chips-wrapper").style.backgroundColor = ""; }
+						if($("left-arrow")){ $("left-arrow").classList.remove("stefanvdnightpseudobefore", "stefanvdnightpseudoafter"); }
+						if($("left-arrow-button")){ $("left-arrow-button").classList.remove("stefanvdnightbck", "stefanvdnight"); }
+						if($("right-arrow")){ $("right-arrow").classList.remove("stefanvdnightpseudobefore", "stefanvdnightpseudoafter"); }
+						if($("right-arrow-button")){ $("right-arrow-button").classList.remove("stefanvdnightbck", "stefanvdnight"); }
+						if($("search-icon-legacy")){ $("search-icon-legacy").style.color = nightmodetxt; $("search-icon-legacy").style.backgroundColor = "#f8f8f8"; }
+
+						const elements = document.querySelectorAll(".title.ytd-mini-guide-entry-renderer");
+						elements.forEach((element) => {
+							element.style.color = "#0f0f0f";
+						});
+
+						const icons = document.querySelectorAll(".guide-icon.ytd-mini-guide-entry-renderer");
+						icons.forEach((icon) => {
+							icon.style.color = "#0f0f0f";
+						});
+
+						const ytsidebaricons = document.querySelectorAll(".guide-icon.ytd-guide-entry-renderer");
+						ytsidebaricons.forEach((icon) => {
+							icon.style.color = "#0f0f0f";
+						});
+
+						const formattedStrings = document.querySelectorAll("yt-formatted-string");
+						formattedStrings.forEach((element) => {
+							element.style.color = "#0f0f0f";
+						});
+
+						const ytspecbuttons = document.querySelectorAll(".yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text");
+						ytspecbuttons.forEach((button) => {
+							button.style.color = "#0f0f0f";
+							button.style.background = "#f2f2f2";
+						});
+
+						const ytsearchBox = document.querySelector("#container.ytd-searchbox");
+						if(ytsearchBox){
+							ytsearchBox.style.boxShadow = "inset 0 1px 2px var(#eee)";
+						}
+
+						const ytauthortext = document.querySelectorAll("#author-text.yt-simple-endpoint.ytd-comment-view-model");
+						ytauthortext.forEach((element) => {
+							element.style.color = "#0f0f0f";
+						});
+
+						const ytcommentview = document.querySelectorAll("#content-text.ytd-comment-view-model");
+						ytcommentview.forEach((element) => {
+							element.style.color = "#0f0f0f";
+						});
+
+						const ytspecbutton = document.querySelectorAll(".yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal");
+						ytspecbutton.forEach((element) => {
+							element.style.color = "#0f0f0f";
+						});
+
+						const ytcoreattrib = document.querySelectorAll(".yt-core-attributed-string--link-inherit-color");
+						ytcoreattrib.forEach((element) => {
+							element.style.color = "#0f0f0f";
+						});
+
+						const anchor = document.querySelector("a.yt-simple-endpoint.style-scope.yt-formatted-string");
+						if(anchor){
+							anchor.style.color = "#0f0f0f";
+						}
 					}
 				}
 

@@ -53,10 +53,14 @@ class EnableViewController: UIViewController,AVPlayerViewControllerDelegate{
         let part3b = StefanFunctions().i18string(text: "lblstep3b")
         let part3c = StefanFunctions().i18string(text: "lblstep3c") + " "
         let part3d = StefanFunctions().i18string(text: "lblstep3d")
+        let part3e = ". " + StefanFunctions().i18string(text: "lblstep3e") + " "
+        let part3f = StefanFunctions().i18string(text: "lblstep3f")
         let attributedString3 = NSMutableAttributedString(string:part3a)
         attributedString3.append(NSMutableAttributedString(string:part3b, attributes:textBold))
         attributedString3.append(NSMutableAttributedString(string:part3c))
         attributedString3.append(NSMutableAttributedString(string:part3d, attributes:textBold))
+        attributedString3.append(NSMutableAttributedString(string:part3e))
+        attributedString3.append(NSMutableAttributedString(string:part3f, attributes:textBold))
         lblstep3.attributedText = attributedString3
 
         let part4a = StefanFunctions().i18string(text: "lblstep4a") + " "
