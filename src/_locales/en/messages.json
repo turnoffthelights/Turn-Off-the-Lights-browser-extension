@@ -551,9 +551,9 @@
 "deswebsiteon":{"message":"ON for"},
 "deswebsiteoff":{"message":"OFF for"},
 "pageautodimtitle":{"message":"Toggle AutoDim on this page"},
-"despageautodim":{"message":"Toggle AutoDim feature on the current selected page"},
+"despageautodim":{"message":"Toggle AutoDim feature on the currently selected page"},
 "pageautostoptitle":{"message":"Toggle AutoStop on this page"},
-"despageautostop":{"message":"Toggle AutoStop feature on the current selected page"},
+"despageautostop":{"message":"Toggle AutoStop feature on the currently selected page"},
 "pagenightmodetitle":{"message":"Toggle Night Mode on this page"},
-"despagenightmode":{"message":"Toggle Night Mode feature on the current selected page"}
+"despagenightmode":{"message":"Toggle Night Mode feature on the currently selected page"}
 }

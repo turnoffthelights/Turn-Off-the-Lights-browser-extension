@@ -188,7 +188,6 @@
                                     <state key="normal" title="Translate the Safari extension in your local language">
                                         <color key="titleColor" systemColor="labelColor"/>
                                         <imageReference key="image" image="text.page" catalog="system" symbolScale="large"/>
-                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                     </state>
                                     <connections>
                                         <action selector="opentranslate:" destination="Wfs-r5-ayb" eventType="touchUpInside" id="Dhl-nI-YWj"/>
@@ -207,7 +206,6 @@
                                     <state key="normal" title="Love Safari Extension? Leave a review">
                                         <color key="titleColor" systemColor="labelColor"/>
                                         <imageReference key="image" image="square.and.pencil" catalog="system" symbolScale="large"/>
-                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                     </state>
                                     <connections>
                                         <action selector="openreview:" destination="Wfs-r5-ayb" eventType="touchUpInside" id="O8n-yy-Wxf"/>
@@ -370,22 +368,22 @@
                             <tableViewSection headerTitle="About" id="4vm-f2-vCa">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pBo-uk-M07">
-                                        <rect key="frame" x="20" y="634.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="20" y="634.5" width="374" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pBo-uk-M07" id="5wi-MF-eSx">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EpI-DN-Nyv">
-                                                    <rect key="frame" x="20" y="11" width="57" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="57" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGy-U3-sEB">
-                                                    <rect key="frame" x="346" y="11" width="8" height="21.5"/>
+                                                    <rect key="frame" x="346" y="11" width="8" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="8" id="Q4H-1u-bm5"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="8" id="Q4H-1u-bm5"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -404,7 +402,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="tME-ct-sBk" style="IBUITableViewCellStyleDefault" id="4SI-NI-b9D">
-                                        <rect key="frame" x="20" y="678" width="374" height="43.5"/>
+                                        <rect key="frame" x="20" y="677.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4SI-NI-b9D" id="1YD-Id-B6p">
                                             <rect key="frame" x="0.0" y="0.0" width="343.5" height="43.5"/>
