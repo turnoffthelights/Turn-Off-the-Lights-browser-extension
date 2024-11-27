@@ -3,11 +3,11 @@
   "description": "__MSG_descriptionshort__",
   "omnibox": { "keyword" : "totl" },
   "action": {
-      "default_title": "__MSG_pageatitle__",
-      "default_icon": {
-        "19": "images/iconstick19safari.png",
-        "38": "images/iconstick38safari.png"
-      }
+    "default_title": "__MSG_pageatitle__",
+    "default_icon": {
+      "19": "images/iconstick19safari.png",
+      "38": "images/iconstick38safari.png"
+    }
   },
   "background": {
     "service_worker": "scripts/background.js",

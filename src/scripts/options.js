@@ -302,6 +302,14 @@ function defaultgetsettings(){
 		if(items["autodimsizepixelheight"] == null){ firstdefaultvalues["autodimsizepixelheight"] = 220; }
 		if(items["autodimsizepixelwidth"] == null){ firstdefaultvalues["autodimsizepixelwidth"] = 250; }
 
+		if(items["lightcolor"] == null){
+			if(exbrowser == "safari"){
+				firstdefaultvalues["icon"] = "/images/iconstick38safari.png";
+			}else{
+				firstdefaultvalues["icon"] = "/images/iconstick38.png";
+			}
+		}
+
 		// Save the init value
 		chrome.storage.sync.set(firstdefaultvalues, function(){
 			// console.log('Settings saved');
