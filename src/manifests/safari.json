@@ -10,7 +10,7 @@
     }
   },
   "background": {
-    "service_worker": "scripts/background.js",
+    "scripts": ["scripts/constants.js", "scripts/background.js"],
     "persistent": false
   },
   "commands": {

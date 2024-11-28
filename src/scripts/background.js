@@ -28,8 +28,13 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 //================================================
 
 // Importing the constants
-// eslint-disable-next-line no-undef
-importScripts("constants.js");
+// Check if the browser supports service workers
+// Safari uses a background script because iOS service workers are quickly terminated
+if(typeof importScripts === "function"){
+	// Importing the constants only if importScripts is available
+	// eslint-disable-next-line no-undef
+	importScripts("constants.js");
+}
 
 chrome.runtime.onMessage.addListener(function request(request, sender){
 	// eye protection & autodim & shortcut
