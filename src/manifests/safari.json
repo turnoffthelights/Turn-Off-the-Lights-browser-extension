@@ -41,6 +41,13 @@
   "storage": {
     "managed_schema": "schema.json"
   },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["scripts/screen-shader.js", "scripts/night-mode.js"],
+      "run_at": "document_start"
+    }
+  ],
   "permissions": ["contextMenus", "tabs", "storage", "webNavigation", "scripting"],
   "host_permissions": ["<all_urls>"],
   "browser_specific_settings": {

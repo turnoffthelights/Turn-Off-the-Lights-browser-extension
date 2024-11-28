@@ -18,12 +18,38 @@ const buildExtension = (browser) => {
 	const commonManifest = "./src/manifests/common.json";
 	const browserManifest = `./src/manifests/${browser}.json`;
 
+	// Helper function to merge content_scripts
+	const mergeContentScripts = (commonScripts, browserScripts) => {
+		const mergedScripts = [...commonScripts];
+
+		browserScripts.forEach((browserScript) => {
+			const matchExists = commonScripts.some((commonScript) =>
+				JSON.stringify(commonScript.matches) === JSON.stringify(browserScript.matches) &&
+            JSON.stringify(commonScript.js || []) === JSON.stringify(browserScript.js || []) &&
+            JSON.stringify(commonScript.css || []) === JSON.stringify(browserScript.css || [])
+			);
+			if(!matchExists){
+				mergedScripts.push(browserScript);
+			}
+		});
+
+		return mergedScripts;
+	};
+
 	// Get the version number from package.json and add it to manifest.json
 	src([commonManifest, browserManifest])
 		.pipe(mergeJson({
 			fileName: "manifest.json",
 			edit: (json) => {
 				json.version = packageDef.version;
+
+				// Merge content_scripts if present
+				if(json.content_scripts && Array.isArray(json.content_scripts)){
+					const commonContentScripts = require(commonManifest).content_scripts || [];
+					const browserContentScripts = require(browserManifest).content_scripts || [];
+					json.content_scripts = mergeContentScripts(commonContentScripts, browserContentScripts);
+				}
+
 				return json;
 			}
 		}))

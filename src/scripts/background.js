@@ -196,25 +196,9 @@ if(exbrowser != "safari"){
 	});
 }else{
 	// https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/scripting
+	// https://developer.apple.com/documentation/safariservices/assessing-your-safari-web-extension-s-browser-compatibility
 	// Safari no support "executeScript.injectImmediately"
-	// Use this content script in iOS 16.4 and higher
-	// Register the content script only if not already registered
-	chrome.scripting.getRegisteredContentScripts()
-		.then((scripts) => {
-			const isScriptRegistered = scripts.some((script) => script.id === "session-script");
-			if(!isScriptRegistered){
-				return chrome.scripting.registerContentScripts([
-					{
-						id: "session-script",
-						js: ["scripts/screen-shader.js", "scripts/night-mode.js"],
-						matches: ["<all_urls>"],
-						runAt: "document_start"
-					}
-				]);
-			}
-		})
-		.then(() => console.log("registration complete"))
-		.catch((err) => console.warn("unexpected error", err));
+	// See manifest.json "content_scripts"
 }
 
 // screen-shader.js = Screen Shader
@@ -222,13 +206,22 @@ if(exbrowser != "safari"){
 const scriptList = ["scripts/screen-shader.js", "scripts/night-mode.js"];
 const injectScriptsTo = (tabId, url) => {
 	if(url.match(/^http/i) || url.match(/^file/i)){
-		scriptList.forEach((script) => {
-			chrome.scripting.executeScript({
-				target: {tabId: tabId},
-				files: [`${script}`],
-				injectImmediately: true
-			}, () => void chrome.runtime.lastError);
-		});
+		if(exbrowser != "safari"){
+			scriptList.forEach((script) => {
+				chrome.scripting.executeScript({
+					target: {tabId: tabId},
+					files: [`${script}`],
+					injectImmediately: true
+				}, () => void chrome.runtime.lastError);
+			});
+		}else{
+			scriptList.forEach((script) => {
+				chrome.scripting.executeScript({
+					target: {tabId: tabId},
+					files: [`${script}`]
+				}, () => void chrome.runtime.lastError);
+			});
+		}
 	}
 };
 //---
@@ -987,8 +980,6 @@ function omnidaynightmode(a){
 	});
 }
 
-chrome.runtime.setUninstallURL(linkuninstall);
-
 function initwelcome(){
 	chrome.storage.sync.get(["firstRun"], function(chromeset){
 		if((chromeset["firstRun"] != "false") && (chromeset["firstRun"] != false)){
@@ -1091,5 +1082,13 @@ function installation(){
 }
 
 chrome.runtime.onInstalled.addListener(function(){
+	console.log("hello installation");
 	installation();
+	if(chrome.runtime.setUninstallURL){
+		chrome.runtime.setUninstallURL(linkuninstall);
+	}
+});
+
+chrome.runtime.onStartup.addListener(function(){
+	console.log("hello startup");
 });
