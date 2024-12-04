@@ -28,10 +28,8 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 //================================================
 
 // Importing the constants
-// Check if the browser supports service workers
-// Safari uses a background script because iOS service workers are quickly terminated
-if(typeof importScripts === "function"){
-	// Importing the constants only if importScripts is available
+// Execute if importScripts is support such as Google Chrome and not Firefox
+if(typeof importScripts !== "undefined"){
 	// eslint-disable-next-line no-undef
 	importScripts("constants.js");
 }
@@ -1068,7 +1066,7 @@ if(chrome.storage.managed){
 }
 
 function installation(){
-	if(chrome.storage.managed){
+	if(chrome.storage.managed && exbrowser != "firefox"){
 		chrome.storage.managed.get(function(items){
 			readgrouppolicy(items);
 			// save in memory
@@ -1082,13 +1080,8 @@ function installation(){
 }
 
 chrome.runtime.onInstalled.addListener(function(){
-	console.log("hello installation");
 	installation();
 	if(chrome.runtime.setUninstallURL){
 		chrome.runtime.setUninstallURL(linkuninstall);
 	}
-});
-
-chrome.runtime.onStartup.addListener(function(){
-	console.log("hello startup");
 });
