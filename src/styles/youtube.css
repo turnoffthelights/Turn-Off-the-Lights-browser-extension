@@ -34,6 +34,8 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 #masthead-container.ytd-app{z-index:982!important}
 tp-yt-app-drawer.ytd-app[persistent]{z-index:980!important}
 #masthead-positioner{z-index:980!important}
+#frosted-glass{z-index:980!important}
+ytd-feed-filter-chip-bar-renderer[frosted-glass-mode=with-chipbar] #chips-wrapper.ytd-feed-filter-chip-bar-renderer{z-index:980!important}
 .ytp-contextmenu{z-index:1001!important}
 .ytp-chrome-bottom{z-index:1001!important}
 .ytp-preview{z-index:1001!important}
