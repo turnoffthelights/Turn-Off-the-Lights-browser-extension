@@ -3,7 +3,7 @@
 
 Turn Off the Lights
 The entire page will be fading to dark, so you can watch the video as if you were in the cinema.
-Copyright (C) 2024 Stefan vd
+Copyright (C) 2025 Stefan vd
 www.stefanvd.net
 www.turnoffthelights.com
 
@@ -36,6 +36,7 @@ tp-yt-app-drawer.ytd-app[persistent]{z-index:980!important}
 #masthead-positioner{z-index:980!important}
 #frosted-glass{z-index:980!important}
 ytd-feed-filter-chip-bar-renderer[frosted-glass-mode=with-chipbar] #chips-wrapper.ytd-feed-filter-chip-bar-renderer{z-index:980!important}
+#chips-wrapper.ytd-feed-filter-chip-bar-renderer{z-index:980!important}
 .ytp-contextmenu{z-index:1001!important}
 .ytp-chrome-bottom{z-index:1001!important}
 .ytp-preview{z-index:1001!important}
