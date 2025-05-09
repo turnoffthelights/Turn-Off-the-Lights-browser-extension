@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1610"
+   LastUpgradeVersion = "1630"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -17,7 +17,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1E07D0002B8FCE7E00B9E5F7"
                BuildableName = "Turn Off the Lights for Safari.app"
-               BlueprintName = "Turn Off the Lights for Safari"
+               BlueprintName = "Turn Off the Lights for Safari (visionOS)"
                ReferencedContainer = "container:Turn Off the Lights for Safari.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,7 +46,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1E07D0002B8FCE7E00B9E5F7"
             BuildableName = "Turn Off the Lights for Safari.app"
-            BlueprintName = "Turn Off the Lights for Safari"
+            BlueprintName = "Turn Off the Lights for Safari (visionOS)"
             ReferencedContainer = "container:Turn Off the Lights for Safari.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -63,7 +63,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1E07D0002B8FCE7E00B9E5F7"
             BuildableName = "Turn Off the Lights for Safari.app"
-            BlueprintName = "Turn Off the Lights for Safari"
+            BlueprintName = "Turn Off the Lights for Safari (visionOS)"
             ReferencedContainer = "container:Turn Off the Lights for Safari.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

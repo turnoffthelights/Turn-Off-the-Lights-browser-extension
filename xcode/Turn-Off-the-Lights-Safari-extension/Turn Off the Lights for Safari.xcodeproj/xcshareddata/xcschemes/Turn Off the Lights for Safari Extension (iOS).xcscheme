@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1520"
+   LastUpgradeVersion = "1630"
    wasCreatedForAppExtension = "YES"
    version = "2.0">
    <BuildAction
@@ -57,8 +57,12 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "1"
+         BundleIdentifier = "com.apple.Preferences"
+         RemotePath = "/Library/Developer/CoreSimulator/Volumes/xrOS_22O237/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 2.4.simruntime/Contents/Resources/RuntimeRoot/Applications/Preferences.app">
+      </RemoteRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1E70C9F626726F380064A939"
@@ -66,7 +70,7 @@
             BlueprintName = "Turn Off the Lights for Safari (iOS)"
             ReferencedContainer = "container:Turn Off the Lights for Safari.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

@@ -2241,16 +2241,16 @@
       }
     },
     "Date Today" : {
-
+      "shouldTranslate" : false
     },
     "Hard Disk" : {
-
+      "shouldTranslate" : false
     },
     "Hello Office" : {
-
+      "shouldTranslate" : false
     },
     "Home Tab" : {
-
+      "shouldTranslate" : false
     },
     "lblabout" : {
       "extractionState" : "manual",
@@ -7143,10 +7143,10 @@
       }
     },
     "My Christmas Tree" : {
-
+      "shouldTranslate" : false
     },
     "My Lunar New Year" : {
-
+      "shouldTranslate" : false
     },
     "News" : {
 
@@ -9008,19 +9008,19 @@
       }
     },
     "Sunrise" : {
-
+      "shouldTranslate" : false
     },
     "The Canada Race" : {
-
+      "shouldTranslate" : false
     },
     "Thumbnail Image" : {
 
     },
     "Traffic Blinker" : {
-
+      "shouldTranslate" : false
     },
     "Turn Off the Lights" : {
-
+      "shouldTranslate" : false
     }
   },
   "version" : "1.0"
