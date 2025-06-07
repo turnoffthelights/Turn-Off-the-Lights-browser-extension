@@ -237,7 +237,8 @@ const CONTENT_SCRIPTS = {
 		js: ["scripts/autostop.js"],
 		matches: ["<all_urls>"],
 		runAt: "document_start",
-		allFrames: true
+		allFrames: true,
+		matchOriginAsFallback: true
 	},
 	fps: {
 		id: SCRIPT_IDS.fps,
