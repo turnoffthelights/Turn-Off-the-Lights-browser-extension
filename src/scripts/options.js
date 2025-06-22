@@ -515,37 +515,6 @@ function read_options(){
 			$("managed-prefs-banner").className = "hidden";
 		}
 
-		// load tab div
-		var tabListItems = $("navbar").childNodes;
-		var i, l = tabListItems.length;
-		for(i = 0; i < l; i++){
-			if(tabListItems[i].nodeName == "LI"){
-				var tabLink = getFirstChildWithTagName(tabListItems[i], "A");
-				var id = getHash(tabLink.getAttribute("data-tab"));
-				tabLinks[id] = tabLink;
-				contentDivs[id] = document.getElementById(id);
-			}
-		}
-
-		// Assign onclick events to the tab links, and
-		// highlight the first tab
-		var tabi = 0;
-		var tabid;
-		for(tabid in tabLinks){
-			tabLinks[tabid].onclick = showTab;
-			tabLinks[tabid].onfocus = function(){ this.blur(); };
-			if(tabi == 0) tabLinks[tabid].className = "navbar-item-selected";
-			tabi++;
-		}
-
-		// Hide all content divs except the first
-		var contenti = 0;
-		var contentid;
-		for(contentid in contentDivs){
-			if(contenti != 0) contentDivs[contentid].className = "page hidden";
-			contenti++;
-		}
-
 		// display version number
 		var manifestData = chrome.runtime.getManifest();
 		$("version_number").innerText = manifestData.version;
@@ -2233,6 +2202,26 @@ function setmetathemepopup(a){
 	}
 }
 
+function activateTab(tabName){
+	if(tabName == "basic"){
+		document.getElementById("tabbasic").click();
+	}else if(tabName == "visual"){
+		document.getElementById("tabvisual").click();
+	}else if(tabName == "advanced"){
+		document.getElementById("tabadvan").click();
+	}else if(tabName == "nightmode"){
+		document.getElementById("tabnight").click();
+	}else if(tabName == "gamepad"){
+		document.getElementById("tabgamepad").click();
+	}else if(tabName == "guide"){
+		document.getElementById("tabguide").click();
+	}else if(tabName == "analytics"){
+		document.getElementById("tabanalytics").click();
+	}else if(tabName == "help"){
+		document.getElementById("tabhelp").click();
+	}
+}
+
 /* Option page body action */
 // Read current value settings
 window.addEventListener("load", function(){
@@ -2457,6 +2446,44 @@ function domcontentloaded(){
 	$("buttonreportissue").addEventListener("click", function(){ window.open(linksupport); });
 	$("buttonchangelog").addEventListener("click", function(){ window.open(linkchangelog); });
 	$("buttontranslateme").addEventListener("click", function(){ window.open(linktranslate); });
+
+	// load tab div
+	var tabListItems = $("navbar").childNodes;
+	var uli, ls = tabListItems.length;
+	for(uli = 0; uli < ls; uli++){
+		if(tabListItems[uli].nodeName == "LI"){
+			var tabLink = getFirstChildWithTagName(tabListItems[uli], "A");
+			var id = getHash(tabLink.getAttribute("data-tab"));
+			tabLinks[id] = tabLink;
+			contentDivs[id] = document.getElementById(id);
+		}
+	}
+
+	// Assign onclick events to the tab links, and
+	// highlight the first tab
+	var tabi = 0;
+	var tabid;
+	for(tabid in tabLinks){
+		tabLinks[tabid].onclick = showTab;
+		tabLinks[tabid].onfocus = function(){ this.blur(); };
+		if(tabi == 0) tabLinks[tabid].className = "navbar-item-selected";
+		tabi++;
+	}
+
+	// Hide all content divs except the first
+	var contenti = 0;
+	var contentid;
+	for(contentid in contentDivs){
+		if(contenti != 0) contentDivs[contentid].className = "page hidden";
+		contenti++;
+	}
+
+	// open that tab if it is in the URL
+	const urlParams = new URLSearchParams(window.location.search);
+	const tabParam = urlParams.get("tab");
+	if(tabParam){
+		activateTab(tabParam);
+	}
 
 	function setpreviewlampicon(a){
 		document.images["btnpreview"].setAttribute("data-icon", a); document.images["btnpreview"].src = a; save_options();
