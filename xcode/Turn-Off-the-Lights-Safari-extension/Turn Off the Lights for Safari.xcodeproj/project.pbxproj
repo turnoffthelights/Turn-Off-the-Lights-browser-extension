@@ -78,6 +78,8 @@
 		1EA2656E2B92621B004DAE95 /* forest.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1E6C4907267B83C2001048CF /* forest.mov */; };
 		1EA2656F2B9262FB004DAE95 /* share-lamp.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E665AF726FE6B48002ED59A /* share-lamp.png */; };
 		1EBA02C826D56B2100EDF450 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EBA02C726D56B2100EDF450 /* LaunchScreen.storyboard */; };
+		1EC278922DFA05BE006FEC50 /* lampliquadglass.icon in Resources */ = {isa = PBXBuildFile; fileRef = 1EC278902DFA05BE006FEC50 /* lampliquadglass.icon */; };
+		1EC278932DFA05BE006FEC50 /* lampliquadglass.icon in Resources */ = {isa = PBXBuildFile; fileRef = 1EC278902DFA05BE006FEC50 /* lampliquadglass.icon */; };
 		1EC4AC1A26851FC0005FCF33 /* CommonClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4AC1826851FC0005FCF33 /* CommonClasses.swift */; };
 		1EC4AC1B26851FC0005FCF33 /* SimpleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4AC1926851FC0005FCF33 /* SimpleTableViewController.swift */; };
 		1EC7D05F2CED07C900819365 /* StefanLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC7D05C2CECFC6000819365 /* StefanLinks.swift */; };
@@ -344,6 +346,7 @@
 		1EBA02C726D56B2100EDF450 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1EBA02CA26D56BFC00EDF450 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Walkthrough.strings; sourceTree = "<group>"; };
 		1EBA02CB26D56BFD00EDF450 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1EC278902DFA05BE006FEC50 /* lampliquadglass.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = lampliquadglass.icon; sourceTree = "<group>"; };
 		1EC4AC1826851FC0005FCF33 /* CommonClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonClasses.swift; sourceTree = "<group>"; };
 		1EC4AC1926851FC0005FCF33 /* SimpleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTableViewController.swift; sourceTree = "<group>"; };
 		1EC7D05C2CECFC6000819365 /* StefanLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StefanLinks.swift; sourceTree = "<group>"; };
@@ -557,6 +560,7 @@
 		1E70C9E826726F350064A939 /* Shared (App) */ = {
 			isa = PBXGroup;
 			children = (
+				1EC278902DFA05BE006FEC50 /* lampliquadglass.icon */,
 				1EC7D05C2CECFC6000819365 /* StefanLinks.swift */,
 				1E70C9F026726F380064A939 /* Assets.xcassets */,
 				1E2F5768267BE9D600C78FFC /* Localizable.strings */,
@@ -839,7 +843,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1630;
-				LastUpgradeCheck = 1630;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					1E07D0002B8FCE7E00B9E5F7 = {
 						CreatedOnToolsVersion = 15.2;
@@ -969,6 +973,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E2F5766267BE9D600C78FFC /* Localizable.strings in Resources */,
+				1EC278922DFA05BE006FEC50 /* lampliquadglass.icon in Resources */,
 				1EBA02C826D56B2100EDF450 /* LaunchScreen.storyboard in Resources */,
 				1E35DA0726A8B94D007FE4E0 /* enable-safari-extension-ipad.mov in Resources */,
 				1E665AF826FE6B48002ED59A /* share-lamp.png in Resources */,
@@ -990,6 +995,7 @@
 				1E7D1A1A26728E0500FECE52 /* DaringInfantileDachshund.mp4 in Resources */,
 				1E744B4526DE2C1A00BE9D86 /* Main.storyboard in Resources */,
 				1E70CA3126726F380064A939 /* Assets.xcassets in Resources */,
+				1EC278932DFA05BE006FEC50 /* lampliquadglass.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1627,6 +1633,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1686,6 +1693,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -1764,7 +1772,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = lampliquadglass;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "iOS (App)/Turn Off the Lights for Safari (iOS).entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -1776,6 +1784,7 @@
 				INFOPLIST_KEY_CFBundleExecutable = "Turn Off the Lights for Safari";
 				INFOPLIST_KEY_CFBundleName = "Turn Off the Lights for Safari";
 				INFOPLIST_KEY_CFBundleVersion = 38;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1810,7 +1819,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = lampliquadglass;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "iOS (App)/Turn Off the Lights for Safari (iOS).entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -1822,6 +1831,7 @@
 				INFOPLIST_KEY_CFBundleExecutable = "Turn Off the Lights for Safari";
 				INFOPLIST_KEY_CFBundleName = "Turn Off the Lights for Safari";
 				INFOPLIST_KEY_CFBundleVersion = 38;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1925,16 +1935,27 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = lampliquadglass;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Turn Off the Lights for Safari.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = PRR97757HF;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Turn Off the Lights for Safari";
@@ -1956,6 +1977,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stefanvd.Turn-Off-the-Lights-for-Safari";
 				PRODUCT_NAME = "Turn Off the Lights for Safari";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1967,16 +1989,27 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E6B0EA22CE5453B0064407B /* Config.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = lampliquadglass;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Turn Off the Lights for Safari.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = PRR97757HF;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Turn Off the Lights for Safari";
@@ -1998,6 +2031,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stefanvd.Turn-Off-the-Lights-for-Safari";
 				PRODUCT_NAME = "Turn Off the Lights for Safari";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;

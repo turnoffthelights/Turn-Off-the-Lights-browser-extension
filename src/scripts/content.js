@@ -44,6 +44,45 @@ if(window.location.href.match(/^http(s)?:\/\/(www\.)?stefanvd.net/i) || window.l
 	}
 }
 
+document.addEventListener("click", function(event){
+	const anchor = event.target.closest("a[href^=\"turnoffthelights://\"]");
+	if(anchor){
+		event.preventDefault();
+
+		try{
+			const url = new URL(anchor.href);
+			const action = url.searchParams.get("action");
+			const jsonParam = url.searchParams.get("json");
+
+			if(action === "options"){
+				chrome.runtime.sendMessage({name: "redirectionoptionsnewtab"});
+				return;
+			}
+
+			if(action === "nighttheme" && jsonParam){
+				const decoded = decodeURIComponent(jsonParam);
+				const theme = JSON.parse(decoded);
+
+				const newvalues = {};
+
+				if(theme.bg) newvalues.nightmodebck = "#" + theme.bg;
+				if(theme.text) newvalues.nightmodetxt = "#" + theme.text;
+				if(theme.link) newvalues.nightmodehyperlink = "#" + theme.link;
+				if(theme.button) newvalues.nightmodebutton = "#" + theme.button;
+				if(theme.button_border) newvalues.nightmodeborder = "#" + theme.button_border;
+
+				if(Object.keys(newvalues).length > 0){
+					chrome.storage.sync.set(newvalues, function(){
+						console.log("Theme settings saved.");
+					});
+				}
+			}
+		}catch(e){
+			console.error("Failed to parse theme data:", e);
+		}
+	}
+});
+
 // settings
 var autodim = null, eastereggs = null, shortcutlight = null, eyen = null, eyea = null, eyealist = null, excludedDomains = null, nighttime = null, begintime = null, endtime = null, ambilight = null, ambilightrangeblurradius = null, ambilightrangespreadradius = null, ambilightfixcolor = null, ambilightvarcolor = null, ambilightcolorhex = null, ambilight4color = null, ambilight1colorhex = null, ambilight2colorhex = null, ambilight3colorhex = null, ambilight4colorhex = null, ecosaver = null, ecosavertime = null, autodimonly = null, autodimDomains = null, interval = null, autowidthyoutube = null, customqualityyoutube = null, maxquality = null, atmosphereonly = null, atmosphereDomains = null, autodimdelay = null, autodimdelaytime = null, atmosvivid = null, autodimchecklistwhite = null, autodimchecklistblack = null, eyechecklistwhite = null, eyechecklistblack = null, no360youtube = null, videotool = null, reflection = null, reflectionamount = null, videotoolonly = null, videotoolDomains = null, videotoolchecklistwhite = null, videotoolchecklistblack = null, videovolume = null, videovolumecolor = null, videovolumesteps = null, videovolumelabel = null, visopacity = null, videotoolcolor = null, hovervideo = null, hovervideoamount = null, mousespotlights = null, drawatmosfps = null, aplay = null, apause = null, astop = null, videozoom = null, playrate = null, playrateamount = null, speedtoolbar = null, atmosontotlmode = null, vpause = null, videovolumeposa = null, videovolumeposb = null, videovolumeposc = null, videovolumehold = null, videovolumealt = null, atmosfpsauto = null, atmosfpsmanual = null, videovolumeonly = null, videovolumeDomains = null, videovolumechecklistwhite = null, videovolumechecklistblack = null, videovolumescrolla = null, videovolumescrollb = null, videovolumescrollc = null, videovolumeposd = null, videovolumepose = null, pipvisualtype = null, gamepad = null, gpleftstick = null, gprightstick = null, gpbtnx = null, gpbtno = null, gpbtnsquare = null, gpbtntriangle = null, gpbtnlb = null, gpbtnrb = null, gpbtnlt = null, gpbtnrt = null, gpbtnshare = null, gpbtnmenu = null, gpbtnrightstick = null, gpbtnleftstick = null, gpbtndirup = null, gpbtndirdown = null, gpbtndirleft = null, gpbtndirright = null, gpbtnlogo = null, gamepadonly = null, gamepadDomains = null, gamepadchecklistwhite = null, gamepadchecklistblack = null, autodimsize = null, autodimsizepixelheight = null, autodimsizepixelwidth = null;
 /* -------------------------------------------------- */
