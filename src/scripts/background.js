@@ -48,7 +48,8 @@ chrome.runtime.onMessage.addListener(function request(request, sender){
 		break;
 	case"redirectionoptionsnewtab":
 		chrome.tabs.query({active:true, currentWindow:true}, function(){
-			chrome.runtime.openOptionsPage();
+			var optionsnewtab = chrome.runtime.getURL("options.html?tab=" + request.value);
+			chrome.tabs.create({url: optionsnewtab, active:true});
 		});
 		break;
 	case"automatic":

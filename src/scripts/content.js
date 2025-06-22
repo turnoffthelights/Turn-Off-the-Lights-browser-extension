@@ -52,10 +52,11 @@ document.addEventListener("click", function(event){
 		try{
 			const url = new URL(anchor.href);
 			const action = url.searchParams.get("action");
+			const tab = url.searchParams.get("tab");
 			const jsonParam = url.searchParams.get("json");
 
 			if(action === "options"){
-				chrome.runtime.sendMessage({name: "redirectionoptionsnewtab"});
+				chrome.runtime.sendMessage({name: "redirectionoptionsnewtab", value:tab});
 				return;
 			}
 
