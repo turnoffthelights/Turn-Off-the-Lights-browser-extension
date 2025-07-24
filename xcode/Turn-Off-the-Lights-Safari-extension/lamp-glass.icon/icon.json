@@ -15,6 +15,9 @@
           ],
           "fill-specializations" : [
             {
+              "value" : "automatic"
+            },
+            {
               "appearance" : "dark",
               "value" : {
                 "solid" : "srgb:0.00000,0.00000,0.00000,1.00000"
@@ -23,7 +26,7 @@
             {
               "appearance" : "tinted",
               "value" : {
-                "solid" : "srgb:1.00000,1.00000,1.00000,1.00000"
+                "solid" : "extended-gray:0.00000,1.00000"
               }
             }
           ],
@@ -46,6 +49,7 @@
           }
         }
       ],
+      "name" : "Group",
       "shadow-specializations" : [
         {
           "value" : {
@@ -69,10 +73,28 @@
         }
       ],
       "specular" : true,
-      "translucency" : {
-        "enabled" : true,
-        "value" : 0.7
-      }
+      "translucency-specializations" : [
+        {
+          "value" : {
+            "enabled" : true,
+            "value" : 0.7
+          }
+        },
+        {
+          "appearance" : "dark",
+          "value" : {
+            "enabled" : false,
+            "value" : 0.5
+          }
+        },
+        {
+          "appearance" : "tinted",
+          "value" : {
+            "enabled" : false,
+            "value" : 0.5
+          }
+        }
+      ]
     },
     {
       "blend-mode-specializations" : [
@@ -108,7 +130,7 @@
             {
               "appearance" : "tinted",
               "value" : {
-                "solid" : "srgb:0.40000,0.40000,0.40000,1.00000"
+                "solid" : "srgb:1.00000,1.00000,1.00000,1.00000"
               }
             }
           ],

@@ -42,6 +42,9 @@ if(window.location.href.match(/^http(s)?:\/\/(www\.)?stefanvd.net/i) || window.l
 		$("turnoffthelights-" + exbrowser + "-install-button").style.display = "none";
 		$("turnoffthelights-" + exbrowser + "-thanks-button").style.display = "block";
 	}
+	if($("turnoffthelights-card")){
+		$("turnoffthelights-card").style.display = "none";
+	}
 }
 
 document.addEventListener("click", function(event){
@@ -64,7 +67,7 @@ document.addEventListener("click", function(event){
 				const decoded = decodeURIComponent(jsonParam);
 				const theme = JSON.parse(decoded);
 
-				const newvalues = {};
+				const newvalues = {"nightmodestandard":false, "nightmodepersonalized":true};
 
 				if(theme.bg) newvalues.nightmodebck = "#" + theme.bg;
 				if(theme.text) newvalues.nightmodetxt = "#" + theme.text;

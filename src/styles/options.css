@@ -840,7 +840,7 @@ to{transform: translateY(200px);opacity:0}
 #auroraplayerappbox #aptllo{font-size:16px;color:#fff;text-align:center}
 #auroraplayerappbox #apgetapp{display:flex;background:#ffffff;color:black;padding:0 16px;border-radius:2px;height:36px;align-items:center}
 #auroraplayerappbox #apgetapp:hover{background:#f2f2f2}
-#auroraplayerappbox #apgetapp:active{background:#1d1d1d}
+#auroraplayerappbox #apgetapp:active{background:#a5a5a5}
 /* YouTube app */
 #ytappbox{-webkit-user-select:none;-moz-user-select:none;user-select:none;background:var(--totl-primary-sidebar-background);height:115px;border-radius:2px;display:flex;cursor:pointer;padding:15px;box-sizing:border-box;align-items:center;gap:16px;justify-content:space-evenly}
 #ytappbox:hover{background:var(--totl-nav-background-hover)}
@@ -853,6 +853,14 @@ to{transform: translateY(200px);opacity:0}
 #ytappbox #ytacta:active{background:#cc0000}
 /* Atmosphere */
 .stefanvdvivideffect{position:absolute!important;z-index:100!important;overflow:hidden;pointer-events:none;width:640px;height:360px;margin:auto}
+/* Night Mode Creator */
+#nightmodethemecreator{-webkit-user-select:none;-moz-user-select:none;user-select:none;display:flex;flex-direction:column;background:linear-gradient(145deg,#00973b,#53b2ff);color:white;border-radius:2px;margin:15px 0;padding:20px;box-sizing:border-box}
+#nightmodethemecreator:hover{cursor:pointer;background:linear-gradient(145deg,#00aa43,#60b8ff)}
+#nmttitle{font-size:18px;color:#fff;margin-bottom:8px;font-weight:bold}
+#nmtdes{font-size:16px;color:#fff;margin-bottom:16px}
+#nmtaction{display:flex;background:#1a73e8;color:white;padding:0 16px;border-radius:2px;height:36px;justify-content:center;width:240px;align-items:center}
+#nightmodethemecreator #nmtaction:hover{background:#174ea6}
+#nightmodethemecreator #nmtaction:active{background:#0c3370}
 /* Profile */
 #brotheme{position:absolute;left:380px;top:60px}
 .bigplus{font-size:32px;font-weight:bold;display:inline-block;margin:10px 25px}

@@ -29,7 +29,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 
 function $(id){ return document.getElementById(id); }
 // settings
-var default_opacity = null, suggestions = null, playlist = null, videoheadline = null, flash = null, head = null, infobar = null, likebutton = null, sharebutton = null, viewcount = null, addvideobutton = null, likebar = null, mousespotlighto = null, mousespotlightc = null, mousespotlighta = null, lightcolor = null, lightimagea = null, lightimage = null, interval = null, fadein = null, fadeout = null, readera = null, readerlargestyle = null, mousespotlightt = null, password = null, enterpassword = null, hardflash = null, dynamic = null, dynamic1 = null, dynamic2 = null, dynamic3 = null, dynamic4 = null, dynamic5 = null, dynamic6 = null, dynamic7 = null, dynamic8 = null, dynamic9 = null, dynamic10 = null, dynamic11 = null, dynamic12 = null, hoveroptiondyn5 = null, blur = null, cinemaontop = null, spotlightradius = null, slideeffect = null, lightimagelin = null, linearsq = null, colora = null, intervallina = null, colorb = null, intervallinb = null, no360youtube = null, mousespotlights = null, titleinvertcolor = null, darkbrowsertheme = null, multiopacall = null, multiopacsel = null, multiopacityDomains = null, lampandnightmode = null;
+var default_opacity = null, suggestions = null, playlist = null, videoheadline = null, flash = null, head = null, infobar = null, likebutton = null, sharebutton = null, viewcount = null, addvideobutton = null, likebar = null, mousespotlighto = null, mousespotlightc = null, mousespotlighta = null, lightcolor = null, lightimagea = null, lightimage = null, interval = null, fadein = null, fadeout = null, readera = null, readerlargestyle = null, mousespotlightt = null, password = null, enterpassword = null, hardflash = null, dynamic = null, dynamic1 = null, dynamic2 = null, dynamic3 = null, dynamic4 = null, dynamic5 = null, dynamic6 = null, dynamic7 = null, dynamic8 = null, dynamic9 = null, dynamic10 = null, dynamic11 = null, dynamic12 = null, hoveroptiondyn5 = null, hoveroptiondyn11 = null, blur = null, cinemaontop = null, spotlightradius = null, slideeffect = null, lightimagelin = null, linearsq = null, colora = null, intervallina = null, colorb = null, intervallinb = null, no360youtube = null, mousespotlights = null, titleinvertcolor = null, darkbrowsertheme = null, multiopacall = null, multiopacsel = null, multiopacityDomains = null, lampandnightmode = null;
 // html elements used
 var div = null, video = null;
 // block lights
@@ -2372,6 +2372,20 @@ function lightsgoonoroff(){
 
 				animateJellyfish(jellyfish);
 
+				if(hoveroptiondyn11 == true){
+					var newairleft = document.createElement("div"); newairleft.setAttribute("class", "stefanvddynamicbackgroundbubbleleft"); aquarium.appendChild(newairleft);
+					var airlefti;
+					for(airlefti = 0; airlefti < 5; airlefti++){ var newairbubbleleft = document.createElement("div"); newairbubbleleft.setAttribute("class", "stefanvddynamicbackgroundbubbles stefanvddynamicbubbles" + airlefti + ""); newairleft.appendChild(newairbubbleleft); }
+
+					var newairmid = document.createElement("div"); newairmid.setAttribute("class", "stefanvddynamicbackgroundbubblemid"); aquarium.appendChild(newairmid);
+					var airmidi;
+					for(airmidi = 6; airmidi < 10; airmidi++){ var newairbubblemid = document.createElement("div"); newairbubblemid.setAttribute("class", "stefanvddynamicbackgroundbubbles stefanvddynamicbubbles" + airmidi + ""); newairmid.appendChild(newairbubblemid); }
+
+					var newairright = document.createElement("div"); newairright.setAttribute("class", "stefanvddynamicbackgroundbubbleright"); aquarium.appendChild(newairright);
+					var airrighti;
+					for(airrighti = 11; airrighti < 16; airrighti++){ var newairbubble = document.createElement("div"); newairbubble.setAttribute("class", "stefanvddynamicbackgroundbubbles stefanvddynamicbubbles" + airrighti + ""); newairright.appendChild(newairbubble); }
+				}
+
 				// Resize event to reposition elements within the window bounds on resize
 				window.addEventListener("resize", () => {
 					document.querySelectorAll(".stefanvdfish").forEach((fish) => {
@@ -2464,7 +2478,7 @@ function animateJellyfish(jellyfish){
 	}, 30);
 }
 
-chrome.storage.sync.get(["mousespotlighto", "mousespotlightc", "mousespotlighta", "lightcolor", "lightimagea", "lightimage", "interval", "fadein", "fadeout", "readera", "readerlargestyle", "mousespotlightt", "enterpassword", "password", "dynamic", "dynamic1", "dynamic2", "dynamic3", "dynamic4", "dynamic5", "dynamic6", "dynamic7", "dynamic8", "dynamic9", "dynamic10", "dynamic11", "dynamic12", "hoveroptiondyn5", "blur", "cinemaontop", "spotlightradius", "slideeffect", "lightimagelin", "linearsq", "colora", "intervallina", "colorb", "intervallinb", "mousespotlights", "screenshader", "darkbrowsertheme", "multiopacall", "multiopacsel", "multiopacityDomains", "lampandnightmode"], function(response){
+chrome.storage.sync.get(["mousespotlighto", "mousespotlightc", "mousespotlighta", "lightcolor", "lightimagea", "lightimage", "interval", "fadein", "fadeout", "readera", "readerlargestyle", "mousespotlightt", "enterpassword", "password", "dynamic", "dynamic1", "dynamic2", "dynamic3", "dynamic4", "dynamic5", "dynamic6", "dynamic7", "dynamic8", "dynamic9", "dynamic10", "dynamic11", "dynamic12", "hoveroptiondyn5", "hoveroptiondyn11", "blur", "cinemaontop", "spotlightradius", "slideeffect", "lightimagelin", "linearsq", "colora", "intervallina", "colorb", "intervallinb", "mousespotlights", "screenshader", "darkbrowsertheme", "multiopacall", "multiopacsel", "multiopacityDomains", "lampandnightmode"], function(response){
 	mousespotlighto = response["mousespotlighto"]; if(mousespotlighto == null)mousespotlighto = true; // default mousespotlighto true
 	mousespotlightc = response["mousespotlightc"]; if(mousespotlightc == null)mousespotlightc = false; // default mousespotlightc false
 	mousespotlighta = response["mousespotlighta"]; if(mousespotlighta == null)mousespotlighta = false; // default mousespotlighta false
@@ -2493,6 +2507,7 @@ chrome.storage.sync.get(["mousespotlighto", "mousespotlightc", "mousespotlighta"
 	dynamic11 = response["dynamic11"];
 	dynamic12 = response["dynamic12"];
 	hoveroptiondyn5 = response["hoveroptiondyn5"];
+	hoveroptiondyn11 = response["hoveroptiondyn11"];
 	blur = response["blur"];
 	cinemaontop = response["cinemaontop"]; if(cinemaontop == null)cinemaontop = false; // default cinemaontop false
 	spotlightradius = response["spotlightradius"]; if(spotlightradius == null)spotlightradius = 50; // default spotlightradius 50

@@ -555,5 +555,13 @@
 "pageautostoptitle":{"message":"Toggle AutoStop on this page"},
 "despageautostop":{"message":"Toggle AutoStop feature on the currently selected page"},
 "pagenightmodetitle":{"message":"Toggle Night Mode on this page"},
-"despagenightmode":{"message":"Toggle Night Mode feature on the currently selected page"}
+"despagenightmode":{"message":"Toggle Night Mode feature on the currently selected page"},
+"hoveroptiondyn11":{"message":"with air bubbles"},
+"titelstandardtheme":{"message":"Standard Theme"},
+"titelpersonalizedtheme":{"message":"Personalized Theme"},
+"titelnightmodecreator":{"message":"Create Your Own Night Mode Theme"},
+"desnightmodecreator":{"message":"Customize your browsing experience like never before with our brand-new Theme Creator! Choose colors, preview live styles, and generate your unique look in just a few clicks."},
+"actionnightmodecreator":{"message":"Launch Night Mode Theme Creator"},
+"shortcutpage":{"message":"Customize the shorcuts"},
+"titelcssfilter":{"message":"Use CSS filters with potential performance impact in mind"}
 }

@@ -28,7 +28,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 //================================================
 
 function $(id){ return document.getElementById(id); }
-var nighttheme = null, nightonly = null, nightDomains = null, nightenabletheme = null, nighthover = null, nmbegintime = null, nmendtime = null, nightmodechecklistblack = null, nightmodechecklistwhite = null, nmtopleft = null, nmtopright = null, nmbottomright = null, nmbottomleft = null, nmcustom = null, nmcustomx = null, nmcustomy = null, nightmodebck = null, nightmodetxt = null, nightmodehyperlink = null, nightmodebydomain = null, nightmodebypage = null, nightmodegesture = null, nightactivetime = null, nightmodeswitchhide = null, nightmodeswitchhidetime = null, nightmodebutton = null, nightmodeos = null, nightmodeborder = null, nmautobegintime = null, nmautoendtime = null, nmautoclock = null, nightmodeimage = null, nmimagedark = null, nmimagegray = null;
+var nighttheme = null, nightonly = null, nightDomains = null, nightenabletheme = null, nighthover = null, nmbegintime = null, nmendtime = null, nightmodechecklistblack = null, nightmodechecklistwhite = null, nmtopleft = null, nmtopright = null, nmbottomright = null, nmbottomleft = null, nmcustom = null, nmcustomx = null, nmcustomy = null, nightmodebck = null, nightmodetxt = null, nightmodehyperlink = null, nightmodebydomain = null, nightmodebypage = null, nightmodegesture = null, nightactivetime = null, nightmodeswitchhide = null, nightmodeswitchhidetime = null, nightmodebutton = null, nightmodeos = null, nightmodeborder = null, nmautobegintime = null, nmautoendtime = null, nmautoclock = null, nightmodeimage = null, nmimagedark = null, nmimagegray = null, nightmodestandard = null, nightmodepersonalized = null;
 
 var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
 // observeDOM - dynamic check
@@ -145,7 +145,7 @@ function checkregdomaininside(thaturl, websiteurl){
 }
 
 const afterBodyReady = () => {
-	chrome.storage.sync.get(["nighttheme", "nightonly", "nightDomains", "nightenabletheme", "nighthover", "nmbegintime", "nmendtime", "nightmodechecklistblack", "nightmodechecklistwhite", "nmtopleft", "nmtopright", "nmbottomright", "nmbottomleft", "nmcustom", "nmcustomx", "nmcustomy", "nightmodebck", "nightmodetxt", "nightmodehyperlink", "nightmodebydomain", "nightmodebypage", "nightmodegesture", "nightactivetime", "nightmodeswitchhide", "nightmodeswitchhidetime", "nightmodebutton", "nightmodeos", "nightmodeborder", "nmautobegintime", "nmautoendtime", "nmautoclock", "nightmodeimage", "nmimagedark", "nmimagegray"], function(response){
+	chrome.storage.sync.get(["nighttheme", "nightonly", "nightDomains", "nightenabletheme", "nighthover", "nmbegintime", "nmendtime", "nightmodechecklistblack", "nightmodechecklistwhite", "nmtopleft", "nmtopright", "nmbottomright", "nmbottomleft", "nmcustom", "nmcustomx", "nmcustomy", "nightmodebck", "nightmodetxt", "nightmodehyperlink", "nightmodebydomain", "nightmodebypage", "nightmodegesture", "nightactivetime", "nightmodeswitchhide", "nightmodeswitchhidetime", "nightmodebutton", "nightmodeos", "nightmodeborder", "nmautobegintime", "nmautoendtime", "nmautoclock", "nightmodeimage", "nmimagedark", "nmimagegray", "nightmodestandard", "nightmodepersonalized"], function(response){
 		nighttheme = response["nighttheme"];
 		nightonly = response["nightonly"];
 		nightDomains = response["nightDomains"];
@@ -180,6 +180,8 @@ const afterBodyReady = () => {
 		nightmodeimage = response["nightmodeimage"]; if(nightmodeimage == null)nightmodeimage = false;
 		nmimagedark = response["nmimagedark"]; nmimagedark = parseInt(100 - nmimagedark); if(nmimagedark == null)nmimagedark = 60;
 		nmimagegray = response["nmimagegray"]; if(nmimagegray == null)nmimagegray = 50;
+		nightmodestandard = response["nightmodestandard"]; if(nightmodestandard == null)nightmodestandard = false;
+		nightmodepersonalized = response["nightmodepersonalized"]; if(nightmodepersonalized == null)nightmodepersonalized = true;
 
 		var windark = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -1491,28 +1493,50 @@ const afterBodyReady = () => {
 
 		// gogo night mode
 		function gogonightmode(){
-			// PDF detection
-			convertpdfnight();
-			//---
+			if(nightmodestandard == true){
+				const styleId = "night-mode-standard-theme";
+				const existingStyle = document.getElementById(styleId);
 
-			var css = ".stefanvdnightbck{background:" + nightmodebck + "!important;background-color:" + nightmodebck + "!important;}.stefanvdnight::placeholder{color:" + nightmodetxt + "!important;}.stefanvdnight{color:" + nightmodetxt + "!important;}.stefanvdnight a{color:" + nightmodehyperlink + "!important}.stefanvdnight a *{color:" + nightmodehyperlink + "!important}.stefanvdnightbutton{background:" + nightmodebutton + "!important;background-color:" + nightmodebutton + "!important;color:" + nightmodetxt + "!important}.stefanvdnightborder{border-color:" + nightmodeborder + "!important}.stefanvdnightboxshadow{box-shadow: 0 0 0 1px " + nightmodeborder + "!important}.stefanvdnighttextshadow{text-shadow:inherit!important}.stefanvdnightpseudobefore:before,.stefanvdnightpseudoafter:after{background:transparent!important}.stefanvdnightimage{filter:brightness(" + nmimagedark + "%) grayscale(" + nmimagegray + "%)!important}";
-
-			addcsstext("totlnightmodestyle", css);
-
-			getdefaultnightmetatheme();
-			//---
-			webgonightmode().then(function(){
-				// this function is executed after function
-				if(sun == false){
-					isitdark = true;
-					setnightmetatheme(false);
-					// Start mutation observer
-					nightobserver.observe(targetNode, observerConfig);
+				if(existingStyle){
+					existingStyle.remove();
 				}else{
-					isitdark = false;
-					setnightmetatheme(true);
+					const standardstyle = `
+					/* Night Mode Standard Theme */
+					html{filter:invert(85%) grayscale(0%) saturate(110%) contrast(115%) brightness(110%) hue-rotate(180deg)!important}
+					html *{box-shadow:none!important}
+					img,div[role=img],svg,video,
+					*[style*="background-image"]{filter:invert(85%) grayscale(0%) saturate(110%) contrast(115%) brightness(110%) hue-rotate(180deg)!important}
+					`;
+
+					const newstyle = document.createElement("style");
+					newstyle.id = styleId;
+					newstyle.textContent = standardstyle;
+					document.head.appendChild(newstyle);
 				}
-			});
+			}else{
+				// PDF detection
+				convertpdfnight();
+				//---
+
+				var css = ".stefanvdnightbck{background:" + nightmodebck + "!important;background-color:" + nightmodebck + "!important;}.stefanvdnight::placeholder{color:" + nightmodetxt + "!important;}.stefanvdnight{color:" + nightmodetxt + "!important;}.stefanvdnight a{color:" + nightmodehyperlink + "!important}.stefanvdnight a *{color:" + nightmodehyperlink + "!important}.stefanvdnightbutton{background:" + nightmodebutton + "!important;background-color:" + nightmodebutton + "!important;color:" + nightmodetxt + "!important}.stefanvdnightborder{border-color:" + nightmodeborder + "!important}.stefanvdnightboxshadow{box-shadow: 0 0 0 1px " + nightmodeborder + "!important}.stefanvdnighttextshadow{text-shadow:inherit!important}.stefanvdnightpseudobefore:before,.stefanvdnightpseudoafter:after{background:transparent!important}.stefanvdnightimage{filter:brightness(" + nmimagedark + "%) grayscale(" + nmimagegray + "%)!important}";
+
+				addcsstext("totlnightmodestyle", css);
+
+				getdefaultnightmetatheme();
+				//---
+				webgonightmode().then(function(){
+					// this function is executed after function
+					if(sun == false){
+						isitdark = true;
+						setnightmetatheme(false);
+						// Start mutation observer
+						nightobserver.observe(targetNode, observerConfig);
+					}else{
+						isitdark = false;
+						setnightmetatheme(true);
+					}
+				});
+			}
 		}
 
 		function hideclassswitch(){
@@ -1985,7 +2009,7 @@ const afterBodyReady = () => {
 					setnightmetatheme(false);
 				});
 			}else if(request.action == "goenablenightmode"){
-				chrome.storage.sync.get(["nighttheme", "nightmodeswitchhide", "nightmodeswitchhidetime", "nightonly", "nightmodechecklistwhite", "nightmodechecklistblack", "nightDomains", "nightmodebydomain", "nightmodebypage", "nightactivetime", "nmbegintime", "nmendtime", "nightenabletheme", "nighthover", "nmtopleft", "nmtopright", "nmbottomright", "nmbottomleft", "nmcustom", "nightmodegesture", "nightmodeos", "nmautoclock", "nmautobegintime", "nmautoendtime", "nightmodeimage"], function(items){
+				chrome.storage.sync.get(["nighttheme", "nightmodeswitchhide", "nightmodeswitchhidetime", "nightonly", "nightmodechecklistwhite", "nightmodechecklistblack", "nightDomains", "nightmodebydomain", "nightmodebypage", "nightactivetime", "nmbegintime", "nmendtime", "nightenabletheme", "nighthover", "nmtopleft", "nmtopright", "nmbottomright", "nmbottomleft", "nmcustom", "nightmodegesture", "nightmodeos", "nmautoclock", "nmautobegintime", "nmautoendtime", "nightmodeimage", "nightmodestandard", "nightmodepersonalized"], function(items){
 					nighttheme = items["nighttheme"];
 					nightmodeswitchhide = items["nightmodeswitchhide"];
 					nightmodeswitchhidetime = items["nightmodeswitchhidetime"];
@@ -2011,6 +2035,8 @@ const afterBodyReady = () => {
 					nmautobegintime = items["nmautobegintime"];
 					nmautoendtime = items["nmautoendtime"];
 					nightmodeimage = items["nightmodeimage"];
+					nightmodestandard = items["nightmodestandard"];
+					nightmodepersonalized = items["nightmodepersonalized"];
 
 					nightobserver.disconnect();
 					setnightmetatheme(true);
@@ -2020,6 +2046,11 @@ const afterBodyReady = () => {
 					document.removeEventListener("pointermove", mousemoveswitchhide);
 					document.removeEventListener("fullscreenchange", fullscreenswitch);
 					windark.removeEventListener("change", osdarkmodecheck);
+
+					const existingStyle = document.getElementById("night-mode-standard-theme");
+					if(existingStyle){
+						existingStyle.remove();
+					}
 
 					nightcurrentvideoplaying = false;
 					var x = document.getElementsByTagName("video")[0];

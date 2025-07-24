@@ -49,7 +49,7 @@ struct HelpView: View {
                     }
                     HStack{
                         Text(StefanFunctions().i18string(text: "lblcopyright"))
-                        Text("© 2024 Stefan vd")
+                        Text("© 2025 Stefan vd")
                     }
                     NavigationLink {
                         LicensesView()

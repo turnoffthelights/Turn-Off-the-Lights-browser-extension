@@ -407,6 +407,10 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 										<input id="lightdynamic" type="url" readonly>
 										<div id="extradyn">
 											<div class="md-checkbox md-subgroup">
+												<input id="hoveroptiondyn11" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="hoveroptiondyn11">
+												<label for="hoveroptiondyn11"><div><span data-i18n="hoveroptiondyn11"></span></div></label>
+											</div>
+											<div class="md-checkbox md-subgroup">
 												<input id="hoveroptiondyn5" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="hoveroptiondyn5">
 												<label for="hoveroptiondyn5"><div><span data-i18n="hoveroptiondyn5"></span></div></label>
 											</div>
@@ -1298,19 +1302,22 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 				<section>
 				<h3 data-i18n="titelshortcutlight"></h3>
 				<div>
-				<div class="md-checkbox">
-					<input id="shortcutlight" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="shortcutlight">
-					<label for="shortcutlight"><div><span data-i18n="desshortcutlight"></span></div></label>
-				</div>
-				<ul class="minitable">
-				<li><span>Ctrl + Shift + L</span> <span data-i18n="shortcuttotl"></span></li>
-				<li><span>Alt + F8</span> <span data-i18n="shortcutopacity"></span></li>
-				<li><span>Alt + F9</span> <span data-i18n="shortcutsavingopacity"></span></li>
-				<li><span>Alt + F10</span> <span data-i18n="shortcuteyeprotection"></span></li>
-				<li><span>Alt + &uarr;</span> <span data-i18n="shortcutdark"></span></li>
-				<li><span>Alt + &darr;</span> <span data-i18n="shortcutbright"></span></li>
-				<li><span>Alt + *</span> <span data-i18n="shortcutalllights"></span></li>
-				</ul>
+					<div class="md-checkbox">
+						<input id="shortcutlight" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="shortcutlight">
+						<label for="shortcutlight"><div><span data-i18n="desshortcutlight"></span></div></label>
+					</div>
+					<ul class="minitable">
+						<li><span>Ctrl + Shift + L</span> <span data-i18n="shortcuttotl"></span></li>
+						<li><span>Alt + F8</span> <span data-i18n="shortcutopacity"></span></li>
+						<li><span>Alt + F9</span> <span data-i18n="shortcutsavingopacity"></span></li>
+						<li><span>Alt + F10</span> <span data-i18n="shortcuteyeprotection"></span></li>
+						<li><span>Alt + &uarr;</span> <span data-i18n="shortcutdark"></span></li>
+						<li><span>Alt + &darr;</span> <span data-i18n="shortcutbright"></span></li>
+						<li><span>Alt + *</span> <span data-i18n="shortcutalllights"></span></li>
+					</ul>
+					<div id="shortcutlightcustomize">
+						<button id="linkshortcutlightcustomize" data-i18n="shortcutpage"></button>
+					</div>
 				</div>
 				</section>
 				<section id="supportcontextmenus">
@@ -1681,34 +1688,50 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 						</div>
 					</div>
 				</section>
+				<section id="nightmodethemecreator">
+					<div id="nmttitle">🎨 <span data-i18n="titelnightmodecreator"></span></div>
+					<div id="nmtdes"><span data-i18n="desnightmodecreator"></span></div>
+					<div id="nmtaction"><span data-i18n="actionnightmodecreator"></span></div>
+				</section>
 				<section>
-				<h3 data-i18n="titelnighttheme"></h3>
+				<h3 id="titelnightmode" data-i18n="titelnighttheme"></h3>
 				<div>
-					<div class="md-color">
+					<div class="md-radio">
+						<input id="nightmodestandard" type="radio" name="nightmodetheme" value="black" role="radio" aria-labelledby="titelnightmode">
+						<label for="nightmodestandard"><div><span data-i18n="titelstandardtheme"></span></div></label>
+					</div>
+					<div class="md-radio md-subin">
+						<div class="gray-text"><span data-i18n="titelcssfilter"></span></div>
+					</div>
+					<div class="md-radio">
+						<input id="nightmodepersonalized" type="radio" name="nightmodetheme" value="true" role="radio" aria-labelledby="titelnightmode">
+						<label for="nightmodepersonalized"><div><span data-i18n="titelpersonalizedtheme"></span></div></label>
+					</div>
+					<div class="md-color md-subin">
 						<div class="input-color-container">
 							<input id="nightmodebck" type="color" class="color" list="datalightnightmode">
 						</div>
 						<label for="nightmodebck"><div><span data-i18n="titelnightmodebck"></span></div></label>
 					</div>
-					<div class="md-color">
+					<div class="md-color md-subin">
 						<div class="input-color-container">
 							<input id="nightmodetxt" type="color" class="color" list="datalightnightmode">
 						</div>
 						<label for="nightmodetxt"><div><span data-i18n="titelnightmodetxt"></span></div></label>
 					</div>
-					<div class="md-color">
+					<div class="md-color md-subin">
 						<div class="input-color-container">
 							<input id="nightmodehyperlink" type="color" class="color" list="datalightnightmode">
 						</div>
 						<label for="nightmodehyperlink"><div><span data-i18n="titelnightmodehyperlink"></span></div></label>
 					</div>
-					<div class="md-color">
+					<div class="md-color md-subin">
 						<div class="input-color-container">
 							<input id="nightmodebutton" type="color" class="color" list="datalightnightmode">
 						</div>
 						<label for="nightmodebutton"><div><span data-i18n="titelnightmodebutton"></span></div></label>
 					</div>
-					<div class="md-color">
+					<div class="md-color md-subin">
 						<div class="input-color-container">
 							<input id="nightmodeborder" type="color" class="color" list="datalightnightmode">
 						</div>
@@ -1726,7 +1749,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 						<option>#808080</option>
 						<option>#000000</option>
 					</datalist>
-					<div class="md-checkbox">
+					<div class="md-checkbox md-subin">
 						<input id="nightmodeimage" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="nightmodeimage">
 						<label for="nightmodeimage"><div><span data-i18n="desnightmodeimage"></span></span></div></label>
 					</div>

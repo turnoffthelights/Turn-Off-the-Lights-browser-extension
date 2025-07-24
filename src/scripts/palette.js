@@ -35,7 +35,7 @@ function eventFunc(selector, event, callback){
 	});
 }
 
-var lightcolor = null, darkmode = null, interval = null, nighttheme = null, lampandnightmode = null, ambilight = null, ambilightfixcolor = null, ambilight4color = null, ambilightvarcolor = null, atmosvivid = null, nightmodetxt = null, nightmodebck = null, nightmodehyperlink = null, multiopacall = null, multiopacsel = null, multiopacityDomains = null, firstDate = null, optionskipremember = null, firstsawrate = null, pipvisualtype = null, nightmodebutton = null, nightonly = null, nightDomains = null, nightmodebydomain = null, firstsawscroll = null, nightmodeborder = null, nightenabletheme = null, nightmodeimage = null, nmimagedark = null, nmimagegray = null;
+var lightcolor = null, darkmode = null, interval = null, nighttheme = null, lampandnightmode = null, ambilight = null, ambilightfixcolor = null, ambilight4color = null, ambilightvarcolor = null, atmosvivid = null, nightmodetxt = null, nightmodebck = null, nightmodehyperlink = null, multiopacall = null, multiopacsel = null, multiopacityDomains = null, firstDate = null, optionskipremember = null, firstsawrate = null, pipvisualtype = null, nightmodebutton = null, nightonly = null, nightDomains = null, nightmodebydomain = null, firstsawscroll = null, nightmodeborder = null, nightenabletheme = null, nightmodeimage = null, nmimagedark = null, nmimagegray = null, nightmodestandard = null, nightmodepersonalized = null;
 
 function save_options(){
 	var getpipvisualtype;
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		e.preventDefault();
 	}, false);
 
-	chrome.storage.sync.get(["lightcolor", "darkmode", "interval", "nighttheme", "lampandnightmode", "ambilight", "ambilightfixcolor", "ambilight4color", "ambilightvarcolor", "atmosvivid", "nightmodebck", "nightmodetxt", "nightmodehyperlink", "multiopacall", "multiopacsel", "multiopacityDomains", "firstDate", "optionskipremember", "firstsawrate", "pipvisualtype", "nightonly", "nightDomains", "nightmodebydomain", "firstsawscroll", "nightenabletheme", "nightmodeimage", "nmimagedark", "nmimagegray"], function(items){
+	chrome.storage.sync.get(["lightcolor", "darkmode", "interval", "nighttheme", "lampandnightmode", "ambilight", "ambilightfixcolor", "ambilight4color", "ambilightvarcolor", "atmosvivid", "nightmodebck", "nightmodetxt", "nightmodehyperlink", "multiopacall", "multiopacsel", "multiopacityDomains", "firstDate", "optionskipremember", "firstsawrate", "pipvisualtype", "nightonly", "nightDomains", "nightmodebydomain", "firstsawscroll", "nightenabletheme", "nightmodeimage", "nmimagedark", "nmimagegray", "nightmodestandard", "nightmodepersonalized"], function(items){
 		lightcolor = items["lightcolor"]; if(lightcolor == null)lightcolor = "#000000"; // default color black
 		currentlayercolor = lightcolor;
 		darkmode = items["darkmode"]; if(darkmode == null)darkmode = 2; // default Operating System
@@ -127,6 +127,9 @@ document.addEventListener("DOMContentLoaded", function(){
 		nightDomains = items["nightDomains"];
 		if(typeof nightDomains == "undefined" || nightDomains == null)
 			nightDomains = JSON.stringify({"https://www.youtube.com": true, "https://www.nytimes.com": true, "http://192.168.1.1": true});
+
+		nightmodestandard = items["nightmodestandard"]; if(nightmodestandard == null)nightmodestandard = false; // default false
+		nightmodepersonalized = items["nightmodepersonalized"]; if(nightmodepersonalized == null)nightmodepersonalized = true; // default true
 
 		nightenabletheme = items["nightenabletheme"]; if(nightenabletheme == null)nightenabletheme = false; // default false
 
@@ -165,6 +168,12 @@ document.addEventListener("DOMContentLoaded", function(){
 			break;
 		}
 		document.body.className = thattheme;
+
+		if(nightmodepersonalized == true){
+			document.getElementById("nightpersonaltheme").className = "palette";
+		}else{
+			document.getElementById("nightpersonaltheme").className = "hidden";
+		}
 
 		var editzoom = interval;
 		var editdone = false;
