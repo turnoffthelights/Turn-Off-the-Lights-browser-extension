@@ -80,8 +80,8 @@
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "giw-Pr-QBO"; */
 "giw-Pr-QBO.normalTitle" = "Button";
 
-/* Class = "UIButton"; configuration.title = "https://github.com/turnoffthelights/Turn-Off-the-Lights-Safari-extension"; ObjectID = "gsS-Wx-WRI"; */
-"gsS-Wx-WRI.configuration.title" = "https://github.com/turnoffthelights/Turn-Off-the-Lights-Safari-extension";
+/* Class = "UIButton"; configuration.title = "https://github.com/turnoffthelights/Turn-Off-the-Lights-browser-extension"; ObjectID = "gsS-Wx-WRI"; */
+"gsS-Wx-WRI.configuration.title" = "https://github.com/turnoffthelights/Turn-Off-the-Lights-browser-extension";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "gsS-Wx-WRI"; */
 "gsS-Wx-WRI.normalTitle" = "Button";

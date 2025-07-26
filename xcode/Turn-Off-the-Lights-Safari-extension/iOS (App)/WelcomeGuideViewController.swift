@@ -65,7 +65,7 @@ class WelcomeGuideViewController: UIViewController {
         openyoutubeapporweb(text: "3TNYUG9O-u8")
     }
     
-    let thisgithub = "https://github.com/turnoffthelights/Turn-Off-the-Lights-Safari-extension"
+    let thisgithub = "https://github.com/turnoffthelights/Turn-Off-the-Lights-browser-extension"
     @IBAction func opengithub(_ sender: Any) {
         StefanFunctions().opensafaripreview(pageurl: thisgithub)
     }
