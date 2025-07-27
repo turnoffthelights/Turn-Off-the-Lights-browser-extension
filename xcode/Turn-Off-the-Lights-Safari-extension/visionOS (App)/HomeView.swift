@@ -96,7 +96,7 @@ struct StepView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40, height: 40)
-                .foregroundColor(color) // Use provided color
+                .foregroundStyle(color) // Use provided color
             VStack(alignment: .leading, spacing: 5) {
                 Text("Step \(step)")
                     .font(.headline)
@@ -125,7 +125,7 @@ struct CellView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 64, height: 64)
-                    .foregroundColor(.blue)
+                    .foregroundStyle(.tint)
                 
                 Spacer() // Pushes the button to the right
                 

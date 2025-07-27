@@ -69,7 +69,7 @@ struct VideoView: View {
                             }
                         }) {
                                 Text(StefanFunctions().i18string(text: "lblsubscribe"))
-                                    .foregroundColor(.white)
+                                    .foregroundStyle(.white)
                         }
                         .tint(.blue)
                         .controlSize(.small)

@@ -36,18 +36,18 @@ struct NewsView: View {
                                     .font(.headline)
                                 Text(item.description.withoutHtmlTags)
                                     .font(.subheadline)
-                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                                     .lineLimit(3) // Limit to maximum 3 lines
                                 Text(item.pubDate)
                                     .font(.caption)
-                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             }
                         }
                     }
                 }
             }
             .onAppear(perform: loadData)
-            .navigationBarTitle("News")
+            .navigationTitle("News")
         }
 
     private func loadData() {
