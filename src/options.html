@@ -146,7 +146,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 				<table class="youtubepreview" aria-hidden="true" role="none">
 					<tr>
 						<td class="youtubeviewpanel">
-						<iframe id="dont-turn-off-the-lights" title="YouTube video" type="text/html" width="auto" height="auto" src="" frameborder="0" allowfullscreen>Your browser does not support iframes.</iframe>
+						<iframe id="dont-turn-off-the-lights" title="YouTube video" width="auto" height="auto" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>Your browser does not support iframes.</iframe>
 						<div id="sampletitle" class="youtubetitel" aria-disabled="true">Stefan vd</div>
 						<div id="samplechannel" class="youtube_container_head">
 							<div class="embedytsub">
@@ -572,14 +572,18 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 					<label for="autostop"><div><span data-i18n="desautostop"></span></div></label>
 				</div>
 				<div role="radiogroup" aria-labelledby="autostop">
-				<div class="md-radio md-subin">
-					<input id="autostopred" type="radio" name="autostopbanner" value="red" role="radio" aria-labelledby="autostop">
-					<label for="autostopred"><div><span data-i18n="autostopbannerred"></span></div></label>
+					<div class="md-radio md-subin">
+						<input id="autostopred" type="radio" name="autostopbanner" value="red" role="radio" aria-labelledby="autostop">
+						<label for="autostopred"><div><span data-i18n="autostopbannerred"></span></div></label>
 					</div>
-				<div class="md-radio md-subin">
-					<input id="autostoptrans" type="radio" name="autostopbanner" value="trans" role="radio" aria-labelledby="autostop">
-					<label for="autostoptrans"><div><span data-i18n="autostopbannertrans"></span></div></label>
+					<div class="md-radio md-subin">
+						<input id="autostoptrans" type="radio" name="autostopbanner" value="trans" role="radio" aria-labelledby="autostop">
+						<label for="autostoptrans"><div><span data-i18n="autostopbannertrans"></span></div></label>
+					</div>
 				</div>
+				<div class="md-checkbox">
+					<input id="autostopsize" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="autostopsize">
+					<label for="autostopsize"><div><span data-i18n="desautostopsize"></span> <input id="autostopsizepixelwidth" type="number" min="1" max="800" step="1" value="0" maxlength="1" size="1"> x <input id="autostopsizepixelheight" type="number" min="1" max="800" step="1" value="0" maxlength="1" size="1"><span data-i18n="desautostopsizepixel"></span>.</div></label>
 				</div>
 				<div class="md-checkbox">
 					<input id="autostoponly" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="autostoponly">
@@ -1186,6 +1190,10 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 						<label for="videozoom"><div><span data-i18n="desvideozoom"></span></div></label>
 					</div>
 					<div class="md-checkbox">
+						<input id="videofilled" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="videofilled">
+						<label for="videofilled"><div><span data-i18n="desvideofilled"></span></div></label>
+					</div>
+					<div class="md-checkbox">
 						<input id="speedtoolbar" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="speedtoolbar">
 						<label for="speedtoolbar"><div><span data-i18n="desspeedtoolbar"></span></div></label>
 					</div>
@@ -1378,7 +1386,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 							<div class="profile">
 								<div id="profileA" class="exampleprofile">
 									<div id="ska" class="sklayer"></div>
-									<iframe id="videopreviewA" title="YouTube video" width="200" height="113" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Your browser does not support iframes.</iframe>
+									<iframe id="videopreviewA" title="YouTube video" width="200" height="113" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>Your browser does not support iframes.</iframe>
 									<br>
 									<span class="lorem">Lorem ipsum dolor sit amet, consectetur <a href="">adipiscing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
 								</div>
@@ -1429,7 +1437,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 							</div>
 							<div class="profile">
 								<div id="profileB" class="exampleprofile">
-									<iframe id="videopreviewB" title="YouTube video" width="200" height="113" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Your browser does not support iframes.</iframe>
+									<iframe id="videopreviewB" title="YouTube video" width="200" height="113" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>Your browser does not support iframes.</iframe>
 									<br>
 									<span class="lorem">Lorem ipsum dolor sit amet, consectetur <a href="" id="profileBlink">adipiscing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
 								</div>
@@ -1498,7 +1506,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 							<div class="profile">
 								<div id="profileC" class="exampleprofile">
 									<div id="skc" class="toplayer"></div>
-									<iframe id="videopreviewC" title="YouTube video" width="200" height="113" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Your browser does not support iframes.</iframe>
+									<iframe id="videopreviewC" title="YouTube video" width="200" height="113" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>Your browser does not support iframes.</iframe>
 									<br>
 									<span class="lorem">Lorem ipsum dolor sit amet, consectetur <a href="">adipiscing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
 								</div>
@@ -1652,7 +1660,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 				<h2 data-i18n="nightoptions"></h2>
 				<section>
 					<div class="videopreview">
-						<iframe id="videopreviewnight" class="dont-turn-off-the-lights" title="YouTube video" type="text/html" width="auto" height="auto" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Your browser does not support iframes.</iframe>
+						<iframe id="videopreviewnight" class="dont-turn-off-the-lights" title="YouTube video" width="auto" height="auto" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>Your browser does not support iframes.</iframe>
 					</div>
 					<div class="suggpanel">
 						<div class="profile">
@@ -1708,30 +1716,50 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 						<label for="nightmodepersonalized"><div><span data-i18n="titelpersonalizedtheme"></span></div></label>
 					</div>
 					<div class="md-color md-subin">
+						<div class="md-checkbox">
+							<input id="swnightmodebck" type="checkbox" role="checkbox" aria-checked="true" aria-labelledby="swnightmodebck">
+							<label for="swnightmodebck"><div><span data-i18n="desswnightmodebck"></span></span></div></label>
+						</div>
 						<div class="input-color-container">
 							<input id="nightmodebck" type="color" class="color" list="datalightnightmode">
 						</div>
 						<label for="nightmodebck"><div><span data-i18n="titelnightmodebck"></span></div></label>
 					</div>
 					<div class="md-color md-subin">
+						<div class="md-checkbox">
+							<input id="swnightmodetxt" type="checkbox" role="checkbox" aria-checked="true" aria-labelledby="swnightmodetxt">
+							<label for="swnightmodetxt"><div><span data-i18n="desswnightmodetxt"></span></span></div></label>
+						</div>
 						<div class="input-color-container">
 							<input id="nightmodetxt" type="color" class="color" list="datalightnightmode">
 						</div>
 						<label for="nightmodetxt"><div><span data-i18n="titelnightmodetxt"></span></div></label>
 					</div>
 					<div class="md-color md-subin">
+						<div class="md-checkbox">
+							<input id="swnightmodehyperlink" type="checkbox" role="checkbox" aria-checked="true" aria-labelledby="swnightmodehyperlink">
+							<label for="swnightmodehyperlink"><div><span data-i18n="desswnightmodehyperlink"></span></span></div></label>
+						</div>
 						<div class="input-color-container">
 							<input id="nightmodehyperlink" type="color" class="color" list="datalightnightmode">
 						</div>
 						<label for="nightmodehyperlink"><div><span data-i18n="titelnightmodehyperlink"></span></div></label>
 					</div>
 					<div class="md-color md-subin">
+						<div class="md-checkbox">
+							<input id="swnightmodebutton" type="checkbox" role="checkbox" aria-checked="true" aria-labelledby="swnightmodebutton">
+							<label for="swnightmodebutton"><div><span data-i18n="desswnightmodebutton"></span></span></div></label>
+						</div>
 						<div class="input-color-container">
 							<input id="nightmodebutton" type="color" class="color" list="datalightnightmode">
 						</div>
 						<label for="nightmodebutton"><div><span data-i18n="titelnightmodebutton"></span></div></label>
 					</div>
 					<div class="md-color md-subin">
+						<div class="md-checkbox">
+							<input id="swnightmodeborder" type="checkbox" role="checkbox" aria-checked="true" aria-labelledby="swnightmodeborder">
+							<label for="swnightmodeborder"><div><span data-i18n="desswnightmodeborder"></span></span></div></label>
+						</div>
 						<div class="input-color-container">
 							<input id="nightmodeborder" type="color" class="color" list="datalightnightmode">
 						</div>
@@ -1782,6 +1810,14 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 							<input id="nmendtime" type="time" name="time">
 							<label for="nmendtime"></label>
 						</div>
+					</div>
+					<div class="md-checkbox">
+						<input id="nightdarkmodeactive" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="nightnightdarkmodeactive">
+						<label for="nightdarkmodeactive"><div><span data-i18n="desnightdarkmodeactive"></span></div></label>
+					</div>
+					<div class="md-checkbox">
+						<input id="nightskipcolor" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="nightskipcolor">
+						<label for="nightskipcolor"><div><span data-i18n="desnightskipcolor"></span></div></label>
 					</div>
 					<div class="md-checkbox">
 						<input id="nightonly" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="nightonly">
@@ -1987,7 +2023,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 				<h2 data-i18n="gamepadoption"></h2>
 				<section>
 					<div class="videopreview">
-						<iframe id="videopreviewgamepad" class="dont-turn-off-the-lights" title="YouTube video" type="text/html" width="auto" height="auto" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Your browser does not support iframes.</iframe>
+						<iframe id="videopreviewgamepad" class="dont-turn-off-the-lights" title="YouTube video" width="auto" height="auto" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>Your browser does not support iframes.</iframe>
 					</div>
 					<div class="suggpanel">
 						<div class="profile">

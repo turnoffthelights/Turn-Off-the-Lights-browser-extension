@@ -1,6 +1,6 @@
 {
   "name": "turn-off-the-lights-browser-extension",
-  "version": "4.5.9",
+  "version": "4.6",
   "description": "Browser extension",
   "homepage": "https://wwww.turnoffthelights.com",
   "author": "Stefan Van Damme",
@@ -21,11 +21,13 @@
     "safari": "gulp safari",
     "whale": "gulp whale",
     "yandex": "gulp yandex",
+    "samsung": "gulp samsung",
     "chrome-create-zip": "cd dist/chrome && find . -name '.DS_Store' -type f -delete && zip -r ../$npm_package_name-chrome-extension-$npm_package_version.zip *",
     "firefox-create-zip": "cd dist/firefox && find . -name '.DS_Store' -type f -delete && zip -r ../$npm_package_name-firefox-extension-$npm_package_version.zip *",
     "opera-create-zip": "cd dist/opera && find . -name '.DS_Store' -type f -delete && zip -r ../$npm_package_name-opera-extension-$npm_package_version.zip *",
     "edge-create-zip": "cd dist/edge && find . -name '.DS_Store' -type f -delete && zip -r ../$npm_package_name-edge-extension-$npm_package_version.zip *",
     "whale-create-zip": "cd dist/whale && find . -name '.DS_Store' -type f -delete && zip -r ../$npm_package_name-whale-extension-$npm_package_version.zip *",
+    "yandex-create-zip": "cd dist/yandex && find . -name '.DS_Store' -type f -delete && zip -r ../$npm_package_name-yandex-extension-$npm_package_version.zip *",
     "samsung-create-zip": "cd dist/samsung && find . -name '.DS_Store' -type f -delete && zip -r ../$npm_package_name-samsung-extension-$npm_package_version.zip *",
     "browserzip": "gulp browserzip"
   },

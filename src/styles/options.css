@@ -1060,7 +1060,7 @@ input[type=url]{background:var(--totl-input-url-background);color:var(--totl-inp
 /* Disable url */
 input[type=url][disabled]{box-shadow:none;background-color:var(--totl-input-url-disabled-background);color:var(--totl-input-url-disabled-color)}
 /* Disable number */
-input[type=number][disabled],input[type=password][disabled]{border:none;border-bottom:var(--totl-input-number-disabled-border);color:var(--totl-input-number-disabled-color)}
+input[type=number][disabled],input[type=password][disabled],input[type=time][disabled]{border:none;border-bottom:var(--totl-input-number-disabled-border);color:var(--totl-input-number-disabled-color)}
 /* Disable text */
 input[type=text][disabled]{border:none;border-bottom:var(--totl-input-text-disabled-border);color:var(--totl-input-text-disabled-color)}
 /* Disable buttons */

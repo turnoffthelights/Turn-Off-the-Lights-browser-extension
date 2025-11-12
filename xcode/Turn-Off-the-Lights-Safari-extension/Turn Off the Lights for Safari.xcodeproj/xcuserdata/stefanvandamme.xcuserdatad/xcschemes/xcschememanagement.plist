@@ -7,47 +7,27 @@
 		<key>TOtL-iOS-UITest.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>1</integer>
 		</dict>
 		<key>TOtL-iOS-test.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
-		</dict>
-		<key>Turn Off the Lights for Safari (iOS).xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
-		<key>Turn Off the Lights for Safari (macOS).xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
 			<integer>0</integer>
-		</dict>
-		<key>Turn Off the Lights for Safari (visionOS).xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
-		</dict>
-		<key>Turn Off the Lights for Safari Extension (iOS).xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>Turn Off the Lights for Safari Extension (macOS).xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Turn Off the Lights for Safari Extension (visionOS).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
-		<key>Turn Off the Lights.xcscheme_^#shared#^_</key>
+		<key>Turn Off the Lights for Safari iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>2</integer>
+		</dict>
+		<key>Turn Off the Lights for Safari macOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

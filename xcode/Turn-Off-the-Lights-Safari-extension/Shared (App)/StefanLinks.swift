@@ -7,7 +7,23 @@
 
 import Foundation
 
+#if os(iOS) || os(visionOS)
+import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
+
 class StefanLinks {
+    func openURL(_ url: URL) {
+#if os(iOS) || os(visionOS)
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+#elseif os(watchOS)
+        WKExtension.shared().openSystemURL(url)
+#elseif os(macOS)
+        NSWorkspace.shared.open(url)
+#endif
+    }
+    
     func linkredirectionoptions() -> String{
         return "https://www.turnoffthelights.com/browser/extension/options/"
     }

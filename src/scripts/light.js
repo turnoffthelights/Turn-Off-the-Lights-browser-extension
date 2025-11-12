@@ -659,6 +659,10 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 			// movie sidebar
 			var ytmovieside = document.querySelector(".ytp-ypc-player-content");
 			if(ytmovieside){ ytmovieside.classList.add("stefanvdvideocontrolsitem"); }
+
+			// speed indicator
+			var ytbezeltext = document.querySelector(".ytp-bezel-text-wrapper");
+			if(ytbezeltext){ ytbezeltext.classList.add("stefanvdvideocontrolsitem"); }
 		} // end YouTube
 
 		// iframe HTML5 video

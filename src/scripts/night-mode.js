@@ -28,7 +28,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 //================================================
 
 function $(id){ return document.getElementById(id); }
-var nighttheme = null, nightonly = null, nightDomains = null, nightenabletheme = null, nighthover = null, nmbegintime = null, nmendtime = null, nightmodechecklistblack = null, nightmodechecklistwhite = null, nmtopleft = null, nmtopright = null, nmbottomright = null, nmbottomleft = null, nmcustom = null, nmcustomx = null, nmcustomy = null, nightmodebck = null, nightmodetxt = null, nightmodehyperlink = null, nightmodebydomain = null, nightmodebypage = null, nightmodegesture = null, nightactivetime = null, nightmodeswitchhide = null, nightmodeswitchhidetime = null, nightmodebutton = null, nightmodeos = null, nightmodeborder = null, nmautobegintime = null, nmautoendtime = null, nmautoclock = null, nightmodeimage = null, nmimagedark = null, nmimagegray = null, nightmodestandard = null, nightmodepersonalized = null;
+var nighttheme = null, nightonly = null, nightDomains = null, nightenabletheme = null, nighthover = null, nmbegintime = null, nmendtime = null, nightmodechecklistblack = null, nightmodechecklistwhite = null, nmtopleft = null, nmtopright = null, nmbottomright = null, nmbottomleft = null, nmcustom = null, nmcustomx = null, nmcustomy = null, nightmodebck = null, nightmodetxt = null, nightmodehyperlink = null, nightmodebydomain = null, nightmodebypage = null, nightmodegesture = null, nightactivetime = null, nightmodeswitchhide = null, nightmodeswitchhidetime = null, nightmodebutton = null, nightmodeos = null, nightmodeborder = null, nmautobegintime = null, nmautoendtime = null, nmautoclock = null, nightmodeimage = null, nmimagedark = null, nmimagegray = null, nightmodestandard = null, nightmodepersonalized = null, nightdarkmodeactive = null, swnightmodeborder = null, swnightmodebutton = null, swnightmodehyperlink = null, swnightmodebck = null, swnightmodetxt = null, nightskipcolor = null;
 
 var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
 // observeDOM - dynamic check
@@ -144,8 +144,54 @@ function checkregdomaininside(thaturl, websiteurl){
 	return false;
 }
 
+function isDarkMode(){
+	const bg = getComputedStyle(document.body || document.documentElement).backgroundColor;
+	const rgb = bg.match(/\d+/g).map(Number);
+	const brightness = 0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2];
+	return brightness < 128; // true = dark, false = light
+}
+
+function generateNightModeCSS(){
+	let css = "";
+
+	// Only add background styles if enabled
+	if(swnightmodebck){
+		css += `.stefanvdnightbck{background:${nightmodebck}!important;background-color:${nightmodebck}!important;}`;
+	}
+
+	// Only add text styles if enabled
+	if(swnightmodetxt){
+		css += `.stefanvdnight::placeholder{color:${nightmodetxt}!important;}`;
+		css += `.stefanvdnight{color:${nightmodetxt}!important;}`;
+	}
+
+	// Only add hyperlink styles if enabled
+	if(swnightmodehyperlink){
+		css += `.stefanvdnight a{color:${nightmodehyperlink}!important}`;
+		css += `.stefanvdnight a *{color:${nightmodehyperlink}!important}`;
+	}
+
+	// Only add button styles if enabled
+	if(swnightmodebutton){
+		css += `.stefanvdnightbutton{background:${nightmodebutton}!important;background-color:${nightmodebutton}!important;color:${nightmodetxt}!important}`;
+	}
+
+	// Only add border styles if enabled
+	if(swnightmodeborder){
+		css += `.stefanvdnightborder{border-color:${nightmodeborder}!important}`;
+		css += `.stefanvdnightboxshadow{box-shadow: 0 0 0 1px ${nightmodeborder}!important}`;
+	}
+
+	// Always include these base styles
+	css += ".stefanvdnighttextshadow{text-shadow:inherit!important}";
+	css += ".stefanvdnightpseudobefore:before,.stefanvdnightpseudoafter:after{background:transparent!important}";
+	css += `.stefanvdnightimage{filter:brightness(${nmimagedark}%) grayscale(${nmimagegray}%)!important}`;
+
+	return css;
+}
+
 const afterBodyReady = () => {
-	chrome.storage.sync.get(["nighttheme", "nightonly", "nightDomains", "nightenabletheme", "nighthover", "nmbegintime", "nmendtime", "nightmodechecklistblack", "nightmodechecklistwhite", "nmtopleft", "nmtopright", "nmbottomright", "nmbottomleft", "nmcustom", "nmcustomx", "nmcustomy", "nightmodebck", "nightmodetxt", "nightmodehyperlink", "nightmodebydomain", "nightmodebypage", "nightmodegesture", "nightactivetime", "nightmodeswitchhide", "nightmodeswitchhidetime", "nightmodebutton", "nightmodeos", "nightmodeborder", "nmautobegintime", "nmautoendtime", "nmautoclock", "nightmodeimage", "nmimagedark", "nmimagegray", "nightmodestandard", "nightmodepersonalized"], function(response){
+	chrome.storage.sync.get(["nighttheme", "nightonly", "nightDomains", "nightenabletheme", "nighthover", "nmbegintime", "nmendtime", "nightmodechecklistblack", "nightmodechecklistwhite", "nmtopleft", "nmtopright", "nmbottomright", "nmbottomleft", "nmcustom", "nmcustomx", "nmcustomy", "nightmodebck", "nightmodetxt", "nightmodehyperlink", "nightmodebydomain", "nightmodebypage", "nightmodegesture", "nightactivetime", "nightmodeswitchhide", "nightmodeswitchhidetime", "nightmodebutton", "nightmodeos", "nightmodeborder", "nmautobegintime", "nmautoendtime", "nmautoclock", "nightmodeimage", "nmimagedark", "nmimagegray", "nightmodestandard", "nightmodepersonalized", "nightdarkmodeactive", "swnightmodeborder", "swnightmodebutton", "swnightmodehyperlink", "swnightmodebck", "swnightmodetxt", "nightskipcolor"], function(response){
 		nighttheme = response["nighttheme"];
 		nightonly = response["nightonly"];
 		nightDomains = response["nightDomains"];
@@ -182,6 +228,13 @@ const afterBodyReady = () => {
 		nmimagegray = response["nmimagegray"]; if(nmimagegray == null)nmimagegray = 50;
 		nightmodestandard = response["nightmodestandard"]; if(nightmodestandard == null)nightmodestandard = false;
 		nightmodepersonalized = response["nightmodepersonalized"]; if(nightmodepersonalized == null)nightmodepersonalized = true;
+		nightdarkmodeactive = response["nightdarkmodeactive"]; if(nightdarkmodeactive == null)nightdarkmodeactive = false;
+		swnightmodeborder = response["swnightmodeborder"]; if(swnightmodeborder == null)swnightmodeborder = true;
+		swnightmodebutton = response["swnightmodebutton"]; if(swnightmodebutton == null)swnightmodebutton = true;
+		swnightmodehyperlink = response["swnightmodehyperlink"]; if(swnightmodehyperlink == null)swnightmodehyperlink = true;
+		swnightmodebck = response["swnightmodebck"]; if(swnightmodebck == null)swnightmodebck = true;
+		swnightmodetxt = response["swnightmodetxt"]; if(swnightmodetxt == null)swnightmodetxt = true;
+		nightskipcolor = response["nightskipcolor"];
 
 		var windark = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -190,7 +243,6 @@ const afterBodyReady = () => {
 		if(window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
 			if(document.getElementById("content")){ // from youtube website
 				observeDOM(document.getElementById("content"), function(){
-
 					// for the night mode live update
 					if(isitdark == true){
 						sun = true; gogonightmode(); // make it dark
@@ -306,6 +358,38 @@ const afterBodyReady = () => {
 			return n;
 		}
 
+		function isColorDark(color){
+			// Convert color to RGB values
+			let r, g, b;
+			if(color.startsWith("rgb")){
+				const rgbValues = color.match(/\d+/g);
+				r = parseInt(rgbValues[0]);
+				g = parseInt(rgbValues[1]);
+				b = parseInt(rgbValues[2]);
+			}else if(color.startsWith("#")){
+				const hex = color.replace("#", "");
+				r = parseInt(hex.substr(0, 2), 16);
+				g = parseInt(hex.substr(2, 2), 16);
+				b = parseInt(hex.substr(4, 2), 16);
+			}else{
+				return false; // If color format not recognized, do not consider it dark
+			}
+
+			// Check if color is grayscale (R=G=B) and dark
+			const isGrayscale = Math.abs(r - g) < 30 && Math.abs(g - b) < 30 && Math.abs(r - b) < 30;
+			const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+			return isGrayscale && brightness < 128;
+		}
+
+		function shouldApplyNightMode(element){
+			if(!nightskipcolor)return true;
+
+			const computedStyle = window.getComputedStyle(element);
+			const color = computedStyle.color;
+			return isColorDark(color);
+		}
+
 		function convertwebnight(node){
 			if(typeof(node) == "undefined" && node != null){
 				return;
@@ -313,6 +397,7 @@ const afterBodyReady = () => {
 			if(typeof(node.tagName) == "undefined" && node.tagName != null){
 				return;
 			}
+
 			// console.log("node id:" + node.id + " tag:" + node.tagName + " class:" + node.className);
 			if(node.className == "stefanvdlightareoff" && node != null){
 				return;
@@ -322,6 +407,22 @@ const afterBodyReady = () => {
 			}
 			if(node.id == "totldark" && node != null){
 				return;
+			}
+
+			// Only apply text color changes if the text is dark/black when nightskipcolor is true
+			const shouldApplyText = shouldApplyNightMode(node);
+
+			if(swnightmodebck && thatbckishere){
+				node.classList.add("stefanvdnightbck");
+			}
+			if(swnightmodetxt && shouldApplyText){
+				node.classList.add("stefanvdnight");
+			}
+			if(swnightmodebutton && node.tagName == "BUTTON" && shouldApplyText){
+				node.classList.add("stefanvdnightbutton");
+			}
+			if(swnightmodeborder && x !== null){
+				node.classList.add("stefanvdnightborder");
 			}
 
 			var parent = document.getElementById("stefanvdnighttheme");
@@ -432,8 +533,13 @@ const afterBodyReady = () => {
 							// skip image do not get the night background and text color
 							if(thatskipimage != true){
 								if(thatbckishere == true){
-									node.classList.add("stefanvdnightbck", "stefanvdnight");
-								}else{
+									// Only add stefanvdnight if we should apply text changes
+									if(shouldApplyText){
+										node.classList.add("stefanvdnightbck", "stefanvdnight");
+									}else{
+										node.classList.add("stefanvdnightbck");
+									}
+								}else if(shouldApplyText){ // Only add if we should apply text changes
 									node.classList.add("stefanvdnight");
 								}
 							}
@@ -867,10 +973,10 @@ const afterBodyReady = () => {
 						var ytselfri;
 						var ytselfrl = ytdrichshelfrenderer.length;
 						for(ytselfri = 0; ytselfri < ytselfrl; ytselfri++){ ytdrichshelfrenderer[ytselfri].style.color = nightmodetxt; }
-						var ytdrichitemrenderer = document.querySelectorAll(".ytd-rich-item-renderer");
-						var ytremi;
-						var ytreml = ytdrichitemrenderer.length;
-						for(ytremi = 0; ytremi < ytreml; ytremi++){ ytdrichitemrenderer[ytremi].style.backgroundColor = nightmodebck; }
+						// var ytdrichitemrenderer = document.querySelectorAll(".ytd-rich-item-renderer");
+						// var ytremi;
+						// var ytreml = ytdrichitemrenderer.length;
+						// for(ytremi = 0; ytremi < ytreml; ytremi++){ ytdrichitemrenderer[ytremi].style.backgroundColor = nightmodebck; }
 						var ytdvideorenderer = document.querySelectorAll(".ytd-video-renderer");
 						var ytdreni;
 						var ytdrenl = ytdvideorenderer.length;
@@ -967,6 +1073,15 @@ const afterBodyReady = () => {
 							anchor.style.color = nightmodetxt;
 						}
 
+						const ytcoreattr = document.querySelectorAll(".yt-core-attributed-string--white-space-pre-wrap");
+						ytcoreattr.forEach((element) => {
+							element.style.color = nightmodetxt;
+						});
+
+						const ytchipshap = document.querySelectorAll(".ytChipShapeChip");
+						ytchipshap.forEach((element) => {
+							element.style.color = nightmodetxt;
+						});
 					}
 				//-----
 				}else{
@@ -1360,10 +1475,10 @@ const afterBodyReady = () => {
 						var ytrichshi;
 						var ytrichshl = ytdrichshelfrendererf.length;
 						for(ytrichshi = 0; ytrichshi < ytrichshl; ytrichshi++){ ytdrichshelfrendererf[ytrichshi].style.color = ""; }
-						var ytdrichitemrenderera = document.querySelectorAll(".ytd-rich-item-renderer");
-						var ytrichi;
-						var ytrichl = ytdrichitemrenderera.length;
-						for(ytrichi = 0; ytrichi < ytrichl; ytrichi++){ ytdrichitemrenderera[ytrichi].style.backgroundColor = ""; }
+						// var ytdrichitemrenderera = document.querySelectorAll(".ytd-rich-item-renderer");
+						// var ytrichi;
+						// var ytrichl = ytdrichitemrenderera.length;
+						// for(ytrichi = 0; ytrichi < ytrichl; ytrichi++){ ytdrichitemrenderera[ytrichi].style.backgroundColor = ""; }
 						var ytdvideorendererd = document.querySelectorAll(".ytd-video-renderer");
 						var ytviei;
 						var ytviel = ytdvideorendererd.length;
@@ -1459,6 +1574,16 @@ const afterBodyReady = () => {
 						if(anchor){
 							anchor.style.color = "#0f0f0f";
 						}
+
+						const ytcoreattr = document.querySelectorAll(".yt-core-attributed-string--white-space-pre-wrap");
+						ytcoreattr.forEach((element) => {
+							element.style.color = "#0f0f0f";
+						});
+
+						const ytchipshap = document.querySelectorAll(".ytChipShapeChip");
+						ytchipshap.forEach((element) => {
+							element.style.color = "#0f0f0f";
+						});
 					}
 				}
 
@@ -1493,6 +1618,13 @@ const afterBodyReady = () => {
 
 		// gogo night mode
 		function gogonightmode(){
+			// Add the check here, before any night mode changes are made
+			if(nightdarkmodeactive == true){
+				if(isDarkMode() == true){
+					return;
+				}
+			}
+
 			if(nightmodestandard == true){
 				const styleId = "night-mode-standard-theme";
 				const existingStyle = document.getElementById(styleId);
@@ -1518,8 +1650,8 @@ const afterBodyReady = () => {
 				convertpdfnight();
 				//---
 
-				var css = ".stefanvdnightbck{background:" + nightmodebck + "!important;background-color:" + nightmodebck + "!important;}.stefanvdnight::placeholder{color:" + nightmodetxt + "!important;}.stefanvdnight{color:" + nightmodetxt + "!important;}.stefanvdnight a{color:" + nightmodehyperlink + "!important}.stefanvdnight a *{color:" + nightmodehyperlink + "!important}.stefanvdnightbutton{background:" + nightmodebutton + "!important;background-color:" + nightmodebutton + "!important;color:" + nightmodetxt + "!important}.stefanvdnightborder{border-color:" + nightmodeborder + "!important}.stefanvdnightboxshadow{box-shadow: 0 0 0 1px " + nightmodeborder + "!important}.stefanvdnighttextshadow{text-shadow:inherit!important}.stefanvdnightpseudobefore:before,.stefanvdnightpseudoafter:after{background:transparent!important}.stefanvdnightimage{filter:brightness(" + nmimagedark + "%) grayscale(" + nmimagegray + "%)!important}";
-
+				// Where you currently add the CSS styles
+				var css = generateNightModeCSS();
 				addcsstext("totlnightmodestyle", css);
 
 				getdefaultnightmetatheme();
@@ -2009,7 +2141,7 @@ const afterBodyReady = () => {
 					setnightmetatheme(false);
 				});
 			}else if(request.action == "goenablenightmode"){
-				chrome.storage.sync.get(["nighttheme", "nightmodeswitchhide", "nightmodeswitchhidetime", "nightonly", "nightmodechecklistwhite", "nightmodechecklistblack", "nightDomains", "nightmodebydomain", "nightmodebypage", "nightactivetime", "nmbegintime", "nmendtime", "nightenabletheme", "nighthover", "nmtopleft", "nmtopright", "nmbottomright", "nmbottomleft", "nmcustom", "nightmodegesture", "nightmodeos", "nmautoclock", "nmautobegintime", "nmautoendtime", "nightmodeimage", "nightmodestandard", "nightmodepersonalized"], function(items){
+				chrome.storage.sync.get(["nighttheme", "nightmodeswitchhide", "nightmodeswitchhidetime", "nightonly", "nightmodechecklistwhite", "nightmodechecklistblack", "nightDomains", "nightmodebydomain", "nightmodebypage", "nightactivetime", "nmbegintime", "nmendtime", "nightenabletheme", "nighthover", "nmtopleft", "nmtopright", "nmbottomright", "nmbottomleft", "nmcustom", "nightmodegesture", "nightmodeos", "nmautoclock", "nmautobegintime", "nmautoendtime", "nightmodeimage", "nightmodestandard", "nightmodepersonalized", "swnightmodeborder", "swnightmodebutton", "swnightmodehyperlink", "swnightmodebck", "swnightmodetxt", "nightskipcolor"], function(items){
 					nighttheme = items["nighttheme"];
 					nightmodeswitchhide = items["nightmodeswitchhide"];
 					nightmodeswitchhidetime = items["nightmodeswitchhidetime"];
@@ -2037,6 +2169,12 @@ const afterBodyReady = () => {
 					nightmodeimage = items["nightmodeimage"];
 					nightmodestandard = items["nightmodestandard"];
 					nightmodepersonalized = items["nightmodepersonalized"];
+					swnightmodeborder = items["swnightmodeborder"]; if(swnightmodeborder == null)swnightmodeborder = true;
+					swnightmodebutton = items["swnightmodebutton"]; if(swnightmodebutton == null)swnightmodebutton = true;
+					swnightmodehyperlink = items["swnightmodehyperlink"]; if(swnightmodehyperlink == null)swnightmodehyperlink = true;
+					swnightmodebck = items["swnightmodebck"]; if(swnightmodebck == null)swnightmodebck = true;
+					swnightmodetxt = items["swnightmodetxt"]; if(swnightmodetxt == null)swnightmodetxt = true;
+					nightskipcolor = items["nightskipcolor"];
 
 					nightobserver.disconnect();
 					setnightmetatheme(true);
