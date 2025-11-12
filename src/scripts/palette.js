@@ -35,7 +35,7 @@ function eventFunc(selector, event, callback){
 	});
 }
 
-var lightcolor = null, darkmode = null, interval = null, nighttheme = null, lampandnightmode = null, ambilight = null, ambilightfixcolor = null, ambilight4color = null, ambilightvarcolor = null, atmosvivid = null, nightmodetxt = null, nightmodebck = null, nightmodehyperlink = null, multiopacall = null, multiopacsel = null, multiopacityDomains = null, firstDate = null, optionskipremember = null, firstsawrate = null, pipvisualtype = null, nightmodebutton = null, nightonly = null, nightDomains = null, nightmodebydomain = null, firstsawscroll = null, nightmodeborder = null, nightenabletheme = null, nightmodeimage = null, nmimagedark = null, nmimagegray = null;
+var lightcolor = null, darkmode = null, interval = null, nighttheme = null, lampandnightmode = null, ambilight = null, ambilightfixcolor = null, ambilight4color = null, ambilightvarcolor = null, atmosvivid = null, nightmodetxt = null, nightmodebck = null, nightmodehyperlink = null, multiopacall = null, multiopacsel = null, multiopacityDomains = null, firstDate = null, optionskipremember = null, firstsawrate = null, pipvisualtype = null, nightmodebutton = null, nightonly = null, nightDomains = null, nightmodebydomain = null, firstsawscroll = null, nightmodeborder = null, nightenabletheme = null, nightmodeimage = null, nmimagedark = null, nmimagegray = null, nightmodestandard = null, nightmodepersonalized = null, swnightmodeborder = null, swnightmodebutton = null, swnightmodehyperlink = null, swnightmodebck = null, swnightmodetxt = null;
 
 function save_options(){
 	var getpipvisualtype;
@@ -47,7 +47,7 @@ function save_options(){
 		getpipvisualtype = 3;
 	}
 
-	chrome.storage.sync.set({"nighttheme":$("nighttheme").checked, "lampandnightmode":$("lampandnightmode").checked, "ambilight":$("ambilight").checked, "ambilightfixcolor":$("ambilightfixcolor").checked, "ambilight4color":$("ambilight4color").checked, "ambilightvarcolor":$("ambilightvarcolor").checked, "atmosvivid":$("atmosvivid").checked, "pipvisualtype": getpipvisualtype, "nightonly":$("nightonly").checked, "nightDomains": JSON.stringify(nightDomains), "nightenabletheme":$("nightenabletheme").checked, "nightmodeimage":$("nightmodeimage").checked, "nmimagedark":$("nmimagedark").value, "nmimagegray":$("nmimagegray").value});
+	chrome.storage.sync.set({"nighttheme":$("nighttheme").checked, "lampandnightmode":$("lampandnightmode").checked, "ambilight":$("ambilight").checked, "ambilightfixcolor":$("ambilightfixcolor").checked, "ambilight4color":$("ambilight4color").checked, "ambilightvarcolor":$("ambilightvarcolor").checked, "atmosvivid":$("atmosvivid").checked, "pipvisualtype": getpipvisualtype, "nightonly":$("nightonly").checked, "nightDomains": JSON.stringify(nightDomains), "nightenabletheme":$("nightenabletheme").checked, "nightmodeimage":$("nightmodeimage").checked, "nmimagedark":$("nmimagedark").value, "nmimagegray":$("nmimagegray").value, "swnightmodeborder":$("swnightmodeborder").checked, "swnightmodebutton":$("swnightmodebutton").checked, "swnightmodehyperlink":$("swnightmodehyperlink").checked, "swnightmodebck":$("swnightmodebck").checked, "swnightmodetxt":$("swnightmodetxt").checked});
 }
 
 function codenight(){
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		e.preventDefault();
 	}, false);
 
-	chrome.storage.sync.get(["lightcolor", "darkmode", "interval", "nighttheme", "lampandnightmode", "ambilight", "ambilightfixcolor", "ambilight4color", "ambilightvarcolor", "atmosvivid", "nightmodebck", "nightmodetxt", "nightmodehyperlink", "multiopacall", "multiopacsel", "multiopacityDomains", "firstDate", "optionskipremember", "firstsawrate", "pipvisualtype", "nightonly", "nightDomains", "nightmodebydomain", "firstsawscroll", "nightenabletheme", "nightmodeimage", "nmimagedark", "nmimagegray"], function(items){
+	chrome.storage.sync.get(["lightcolor", "darkmode", "interval", "nighttheme", "lampandnightmode", "ambilight", "ambilightfixcolor", "ambilight4color", "ambilightvarcolor", "atmosvivid", "nightmodebck", "nightmodetxt", "nightmodehyperlink", "multiopacall", "multiopacsel", "multiopacityDomains", "firstDate", "optionskipremember", "firstsawrate", "pipvisualtype", "nightonly", "nightDomains", "nightmodebydomain", "firstsawscroll", "nightenabletheme", "nightmodeimage", "nmimagedark", "nmimagegray", "nightmodestandard", "nightmodepersonalized", "swnightmodeborder", "swnightmodebutton", "swnightmodehyperlink", "swnightmodebck", "swnightmodetxt"], function(items){
 		lightcolor = items["lightcolor"]; if(lightcolor == null)lightcolor = "#000000"; // default color black
 		currentlayercolor = lightcolor;
 		darkmode = items["darkmode"]; if(darkmode == null)darkmode = 2; // default Operating System
@@ -128,6 +128,9 @@ document.addEventListener("DOMContentLoaded", function(){
 		if(typeof nightDomains == "undefined" || nightDomains == null)
 			nightDomains = JSON.stringify({"https://www.youtube.com": true, "https://www.nytimes.com": true, "http://192.168.1.1": true});
 
+		nightmodestandard = items["nightmodestandard"]; if(nightmodestandard == null)nightmodestandard = false; // default false
+		nightmodepersonalized = items["nightmodepersonalized"]; if(nightmodepersonalized == null)nightmodepersonalized = true; // default true
+
 		nightenabletheme = items["nightenabletheme"]; if(nightenabletheme == null)nightenabletheme = false; // default false
 
 		nightmodeimage = items["nightmodeimage"]; if(nightmodeimage == null)nightmodeimage = false; // default false
@@ -147,6 +150,18 @@ document.addEventListener("DOMContentLoaded", function(){
 		document.getElementById("nmimagedark").value = nmimagedark;
 		document.getElementById("nmimagegray").value = nmimagegray;
 
+		swnightmodeborder = items["swnightmodeborder"]; if(swnightmodeborder == null)swnightmodeborder = true; // default true
+		swnightmodebutton = items["swnightmodebutton"]; if(swnightmodebutton == null)swnightmodebutton = true; // default true
+		swnightmodehyperlink = items["swnightmodehyperlink"]; if(swnightmodehyperlink == null)swnightmodehyperlink = true; // default true
+		swnightmodebck = items["swnightmodebck"]; if(swnightmodebck == null)swnightmodebck = true; // default true
+		swnightmodetxt = items["swnightmodetxt"]; if(swnightmodetxt == null)swnightmodetxt = true; // default true
+
+		if(swnightmodeborder == true)$("swnightmodeborder").checked = true;
+		if(swnightmodebutton == true)$("swnightmodebutton").checked = true;
+		if(swnightmodehyperlink == true)$("swnightmodehyperlink").checked = true;
+		if(swnightmodebck == true)$("swnightmodebck").checked = true;
+		if(swnightmodetxt == true)$("swnightmodetxt").checked = true;
+
 		// dark mode
 		var thattheme = "light";
 		switch(darkmode){
@@ -165,6 +180,12 @@ document.addEventListener("DOMContentLoaded", function(){
 			break;
 		}
 		document.body.className = thattheme;
+
+		if(nightmodepersonalized == true){
+			document.getElementById("nightpersonaltheme").className = "palette";
+		}else{
+			document.getElementById("nightpersonaltheme").className = "hidden";
+		}
 
 		var editzoom = interval;
 		var editdone = false;

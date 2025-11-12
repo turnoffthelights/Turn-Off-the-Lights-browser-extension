@@ -27,7 +27,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 //================================================
 */
 
-.caption-window.ytp-caption-window-bottom{z-index:1001!important;pointer-events:none!important}
+.caption-window.ytp-caption-window-bottom{z-index:1001!important}
 .ytd-browse-0 #header.ytd-browse{z-index:auto!important}
 .ytp-chrome-top{z-index:1001!important}
 .ytp-ce-element,.ytp-ce-shadow{z-index:1001!important}
@@ -53,7 +53,7 @@ ytd-feed-filter-chip-bar-renderer[frosted-glass-mode=with-chipbar] #chips-wrappe
 .dialog-container{z-index:1005!important}
 /* End Mobile */
 app-drawer[persistent].ytd-app{z-index:auto!important}
-ytd-mini-guide-renderer{z-index:900!important}
+ytd-mini-guide-renderer{z-index:980!important}
 ytd-channel-name{z-index:900!important}
 ytd-video-preview[active]{z-index:2000!important}
 ytd-channel-video-player-renderer[rounded] #player.ytd-channel-video-player-renderer{isolation:auto!important}

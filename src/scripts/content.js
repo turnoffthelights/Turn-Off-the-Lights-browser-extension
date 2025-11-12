@@ -42,12 +42,55 @@ if(window.location.href.match(/^http(s)?:\/\/(www\.)?stefanvd.net/i) || window.l
 		$("turnoffthelights-" + exbrowser + "-install-button").style.display = "none";
 		$("turnoffthelights-" + exbrowser + "-thanks-button").style.display = "block";
 	}
+	if($("turnoffthelights-card")){
+		$("turnoffthelights-card").style.display = "none";
+	}
 }
 
+document.addEventListener("click", function(event){
+	const anchor = event.target.closest("a[href^=\"turnoffthelights://\"]");
+	if(anchor){
+		event.preventDefault();
+
+		try{
+			const url = new URL(anchor.href);
+			const action = url.searchParams.get("action");
+			const tab = url.searchParams.get("tab");
+			const jsonParam = url.searchParams.get("json");
+
+			if(action === "options"){
+				chrome.runtime.sendMessage({name: "redirectionoptionsnewtab", value:tab});
+				return;
+			}
+
+			if(action === "nighttheme" && jsonParam){
+				const decoded = decodeURIComponent(jsonParam);
+				const theme = JSON.parse(decoded);
+
+				const newvalues = {"nightmodestandard":false, "nightmodepersonalized":true};
+
+				if(theme.bg) newvalues.nightmodebck = "#" + theme.bg;
+				if(theme.text) newvalues.nightmodetxt = "#" + theme.text;
+				if(theme.link) newvalues.nightmodehyperlink = "#" + theme.link;
+				if(theme.button) newvalues.nightmodebutton = "#" + theme.button;
+				if(theme.button_border) newvalues.nightmodeborder = "#" + theme.button_border;
+
+				if(Object.keys(newvalues).length > 0){
+					chrome.storage.sync.set(newvalues, function(){
+						console.log("Theme settings saved.");
+					});
+				}
+			}
+		}catch(e){
+			console.error("Failed to parse theme data:", e);
+		}
+	}
+});
+
 // settings
-var autodim = null, eastereggs = null, shortcutlight = null, eyen = null, eyea = null, eyealist = null, excludedDomains = null, nighttime = null, begintime = null, endtime = null, ambilight = null, ambilightrangeblurradius = null, ambilightrangespreadradius = null, ambilightfixcolor = null, ambilightvarcolor = null, ambilightcolorhex = null, ambilight4color = null, ambilight1colorhex = null, ambilight2colorhex = null, ambilight3colorhex = null, ambilight4colorhex = null, ecosaver = null, ecosavertime = null, autodimonly = null, autodimDomains = null, interval = null, autowidthyoutube = null, customqualityyoutube = null, maxquality = null, atmosphereonly = null, atmosphereDomains = null, autodimdelay = null, autodimdelaytime = null, atmosvivid = null, autodimchecklistwhite = null, autodimchecklistblack = null, eyechecklistwhite = null, eyechecklistblack = null, no360youtube = null, videotool = null, reflection = null, reflectionamount = null, videotoolonly = null, videotoolDomains = null, videotoolchecklistwhite = null, videotoolchecklistblack = null, videovolume = null, videovolumecolor = null, videovolumesteps = null, videovolumelabel = null, visopacity = null, videotoolcolor = null, hovervideo = null, hovervideoamount = null, mousespotlights = null, drawatmosfps = null, aplay = null, apause = null, astop = null, videozoom = null, playrate = null, playrateamount = null, speedtoolbar = null, atmosontotlmode = null, vpause = null, videovolumeposa = null, videovolumeposb = null, videovolumeposc = null, videovolumehold = null, videovolumealt = null, atmosfpsauto = null, atmosfpsmanual = null, videovolumeonly = null, videovolumeDomains = null, videovolumechecklistwhite = null, videovolumechecklistblack = null, videovolumescrolla = null, videovolumescrollb = null, videovolumescrollc = null, videovolumeposd = null, videovolumepose = null, pipvisualtype = null, gamepad = null, gpleftstick = null, gprightstick = null, gpbtnx = null, gpbtno = null, gpbtnsquare = null, gpbtntriangle = null, gpbtnlb = null, gpbtnrb = null, gpbtnlt = null, gpbtnrt = null, gpbtnshare = null, gpbtnmenu = null, gpbtnrightstick = null, gpbtnleftstick = null, gpbtndirup = null, gpbtndirdown = null, gpbtndirleft = null, gpbtndirright = null, gpbtnlogo = null, gamepadonly = null, gamepadDomains = null, gamepadchecklistwhite = null, gamepadchecklistblack = null, autodimsize = null, autodimsizepixelheight = null, autodimsizepixelwidth = null;
+var autodim = null, eastereggs = null, shortcutlight = null, eyen = null, eyea = null, eyealist = null, excludedDomains = null, nighttime = null, begintime = null, endtime = null, ambilight = null, ambilightrangeblurradius = null, ambilightrangespreadradius = null, ambilightfixcolor = null, ambilightvarcolor = null, ambilightcolorhex = null, ambilight4color = null, ambilight1colorhex = null, ambilight2colorhex = null, ambilight3colorhex = null, ambilight4colorhex = null, ecosaver = null, ecosavertime = null, autodimonly = null, autodimDomains = null, interval = null, autowidthyoutube = null, customqualityyoutube = null, maxquality = null, atmosphereonly = null, atmosphereDomains = null, autodimdelay = null, autodimdelaytime = null, atmosvivid = null, autodimchecklistwhite = null, autodimchecklistblack = null, eyechecklistwhite = null, eyechecklistblack = null, no360youtube = null, videotool = null, reflection = null, reflectionamount = null, videotoolonly = null, videotoolDomains = null, videotoolchecklistwhite = null, videotoolchecklistblack = null, videovolume = null, videovolumecolor = null, videovolumesteps = null, videovolumelabel = null, visopacity = null, videotoolcolor = null, hovervideo = null, hovervideoamount = null, mousespotlights = null, drawatmosfps = null, aplay = null, apause = null, astop = null, videozoom = null, playrate = null, playrateamount = null, speedtoolbar = null, atmosontotlmode = null, vpause = null, videovolumeposa = null, videovolumeposb = null, videovolumeposc = null, videovolumehold = null, videovolumealt = null, atmosfpsauto = null, atmosfpsmanual = null, videovolumeonly = null, videovolumeDomains = null, videovolumechecklistwhite = null, videovolumechecklistblack = null, videovolumescrolla = null, videovolumescrollb = null, videovolumescrollc = null, videovolumeposd = null, videovolumepose = null, pipvisualtype = null, gamepad = null, gpleftstick = null, gprightstick = null, gpbtnx = null, gpbtno = null, gpbtnsquare = null, gpbtntriangle = null, gpbtnlb = null, gpbtnrb = null, gpbtnlt = null, gpbtnrt = null, gpbtnshare = null, gpbtnmenu = null, gpbtnrightstick = null, gpbtnleftstick = null, gpbtndirup = null, gpbtndirdown = null, gpbtndirleft = null, gpbtndirright = null, gpbtnlogo = null, gamepadonly = null, gamepadDomains = null, gamepadchecklistwhite = null, gamepadchecklistblack = null, autodimsize = null, autodimsizepixelheight = null, autodimsizepixelwidth = null, videofilled = null;
 /* -------------------------------------------------- */
-chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea", "eyealist", "excludedDomains", "nighttime", "begintime", "endtime", "ambilight", "ambilightrangeblurradius", "ambilightrangespreadradius", "ambilightfixcolor", "ambilightvarcolor", "ambilightcolorhex", "ambilight4color", "ambilight1colorhex", "ambilight2colorhex", "ambilight3colorhex", "ambilight4colorhex", "ecosaver", "ecosavertime", "autodimonly", "autodimDomains", "interval", "maxquality", "autowidthyoutube", "customqualityyoutube", "atmosphereonly", "atmosphereDomains", "autodimdelay", "autodimdelaytime", "atmosvivid", "autodimchecklistwhite", "autodimchecklistblack", "eyechecklistwhite", "eyechecklistblack", "no360youtube", "videotool", "reflection", "reflectionamount", "videotoolonly", "videotoolDomains", "videotoolchecklistwhite", "videotoolchecklistblack", "videovolume", "videovolumecolor", "videovolumesteps", "videovolumelabel", "visopacity", "videotoolcolor", "hovervideo", "hovervideoamount", "mousespotlights", "drawatmosfps", "aplay", "apause", "astop", "videozoom", "playrate", "playrateamount", "speedtoolbar", "atmosontotlmode", "vpause", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumehold", "videovolumealt", "atmosfpsauto", "atmosfpsmanual", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose", "pipvisualtype", "gamepad", "gpleftstick", "gprightstick", "gpbtnx", "gpbtno", "gpbtnsquare", "gpbtntriangle", "gpbtnlb", "gpbtnrb", "gpbtnlt", "gpbtnrt", "gpbtnshare", "gpbtnmenu", "gpbtnrightstick", "gpbtnleftstick", "gpbtndirup", "gpbtndirdown", "gpbtndirleft", "gpbtndirright", "gpbtnlogo", "gamepadonly", "gamepadDomains", "gamepadchecklistwhite", "gamepadchecklistblack", "autodimsize", "autodimsizepixelheight", "autodimsizepixelwidth"], function(items){
+chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea", "eyealist", "excludedDomains", "nighttime", "begintime", "endtime", "ambilight", "ambilightrangeblurradius", "ambilightrangespreadradius", "ambilightfixcolor", "ambilightvarcolor", "ambilightcolorhex", "ambilight4color", "ambilight1colorhex", "ambilight2colorhex", "ambilight3colorhex", "ambilight4colorhex", "ecosaver", "ecosavertime", "autodimonly", "autodimDomains", "interval", "maxquality", "autowidthyoutube", "customqualityyoutube", "atmosphereonly", "atmosphereDomains", "autodimdelay", "autodimdelaytime", "atmosvivid", "autodimchecklistwhite", "autodimchecklistblack", "eyechecklistwhite", "eyechecklistblack", "no360youtube", "videotool", "reflection", "reflectionamount", "videotoolonly", "videotoolDomains", "videotoolchecklistwhite", "videotoolchecklistblack", "videovolume", "videovolumecolor", "videovolumesteps", "videovolumelabel", "visopacity", "videotoolcolor", "hovervideo", "hovervideoamount", "mousespotlights", "drawatmosfps", "aplay", "apause", "astop", "videozoom", "playrate", "playrateamount", "speedtoolbar", "atmosontotlmode", "vpause", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumehold", "videovolumealt", "atmosfpsauto", "atmosfpsmanual", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose", "pipvisualtype", "gamepad", "gpleftstick", "gprightstick", "gpbtnx", "gpbtno", "gpbtnsquare", "gpbtntriangle", "gpbtnlb", "gpbtnrb", "gpbtnlt", "gpbtnrt", "gpbtnshare", "gpbtnmenu", "gpbtnrightstick", "gpbtnleftstick", "gpbtndirup", "gpbtndirdown", "gpbtndirleft", "gpbtndirright", "gpbtnlogo", "gamepadonly", "gamepadDomains", "gamepadchecklistwhite", "gamepadchecklistblack", "autodimsize", "autodimsizepixelheight", "autodimsizepixelwidth", "videofilled"], function(items){
 	autodim = items["autodim"];
 	eastereggs = items["eastereggs"];
 	shortcutlight = items["shortcutlight"];
@@ -157,6 +200,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	autodimsize = items["autodimsize"];
 	autodimsizepixelheight = items["autodimsizepixelheight"]; if(autodimsizepixelheight == null)autodimsizepixelheight = 220;
 	autodimsizepixelwidth = items["autodimsizepixelwidth"]; if(autodimsizepixelwidth == null)autodimsizepixelwidth = 250;
+	videofilled = items["videofilled"];
 
 	// inject script for autodim
 	function addautodimfile(){
@@ -743,6 +787,8 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 			}
 		};
 
+		var currentVideoFilters = {}; // Store filter state for each video
+
 		var rock;
 		var currentvideostepfilter = 0;
 		var filtertype = "normal";
@@ -776,11 +822,12 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 		var i18ntitelvideotoolfullwindow = chrome.i18n.getMessage("titelvideotoolfullwindow");
 		var i18ntitelvideotoolscreenshot = chrome.i18n.getMessage("titelvideotoolscreenshot");
 
-		function settoolbarrange(item, array){
+		function settoolbarrange(item, array, status){
 			item.step = array[0];
 			item.min = array[1];
 			item.max = array[2];
 			item.value = array[3];
+			item.disabled = status;
 		}
 
 		var intervalRewind;
@@ -879,7 +926,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					newzoompanel.setAttribute("class", "stefanvdzoom");
 					newzoompanel.style.position = "absolute";
 					newzoompanel.style.background = hexToRGB(videotoolcolor, 0.4);
-					newzoompanel.style.display = "none";// default not visible
+					newzoompanel.style.display = "none"; // default not visible
 					newzoompanel.style.top = visposition.y + "px";
 					newzoompanel.style.left = tempwidthvideo + visposition.x + "px";
 					newzoompanel.style.width = "62px";
@@ -901,7 +948,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					newzoomstage.setAttribute("data-video", i);
 					newzoomstage.style.background = "black";
 					newzoomstage.style.position = "absolute";
-					newzoomstage.style.display = "none";// default not visible
+					newzoomstage.style.display = "none"; // default not visible
 					newzoomstage.style.top = visposition.y + "px";
 					newzoomstage.style.left = visposition.x + "px";
 					newzoomstage.style.width = tempwidthvideo + "px";
@@ -926,13 +973,27 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					// End zoom canvas ---
 
 					if(newzoompanel){
+						let zoomInterval;
 						var newzoombuttonplus = document.createElement("div");
 						newzoombuttonplus.textContent = "+";
 						newzoombuttonplus.accessKey = "i";
 						newzoombuttonplus.title = "ctrl+alt+i";
 						newzoombuttonplus.setAttribute("data-video", i);
 						newzoombuttonplus.addEventListener("click", function(){
-							camerazoomrotate(this.getAttribute("data-video"), + 0.05, "");
+							initialdrawframezoom(this.getAttribute("data-video"));
+							camerazoomrotate(this.getAttribute("data-video"), +0.1, "");
+						}, false);
+						newzoombuttonplus.addEventListener("mousedown", function(){
+							initialdrawframezoom(this.getAttribute("data-video"));
+							zoomInterval = setInterval(() => {
+								camerazoomrotate(this.getAttribute("data-video"), +0.1, "");
+							}, 100);
+						}, false);
+						newzoombuttonplus.addEventListener("mouseup", function(){
+							clearInterval(zoomInterval);
+						}, false);
+						newzoombuttonplus.addEventListener("mouseleave", function(){
+							clearInterval(zoomInterval);
 						}, false);
 						newzoompanel.appendChild(newzoombuttonplus);
 
@@ -942,7 +1003,20 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						newzoombuttonmin.title = "ctrl+alt+o";
 						newzoombuttonmin.setAttribute("data-video", i);
 						newzoombuttonmin.addEventListener("click", function(){
+							initialdrawframezoom(this.getAttribute("data-video"));
 							camerazoomrotate(this.getAttribute("data-video"), -0.05, "");
+						}, false);
+						newzoombuttonmin.addEventListener("mousedown", function(){
+							initialdrawframezoom(this.getAttribute("data-video"));
+							zoomInterval = setInterval(() => {
+								camerazoomrotate(this.getAttribute("data-video"), -0.05, "");
+							}, 100);
+						}, false);
+						newzoombuttonmin.addEventListener("mouseup", function(){
+							clearInterval(zoomInterval);
+						}, false);
+						newzoombuttonmin.addEventListener("mouseleave", function(){
+							clearInterval(zoomInterval);
 						}, false);
 						newzoompanel.appendChild(newzoombuttonmin);
 
@@ -952,7 +1026,20 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						newzoombuttonleft.title = "ctrl+alt+l";
 						newzoombuttonleft.setAttribute("data-video", i);
 						newzoombuttonleft.addEventListener("click", function(){
+							initialdrawframezoom(this.getAttribute("data-video"));
 							zoompaddirection(this.getAttribute("data-video"), [0, 1, 0, 0]);
+						}, false);
+						newzoombuttonleft.addEventListener("mousedown", function(){
+							initialdrawframezoom(this.getAttribute("data-video"));
+							zoomInterval = setInterval(() => {
+								zoompaddirection(this.getAttribute("data-video"), [0, 1, 0, 0]);
+							}, 100);
+						}, false);
+						newzoombuttonleft.addEventListener("mouseup", function(){
+							clearInterval(zoomInterval);
+						}, false);
+						newzoombuttonleft.addEventListener("mouseleave", function(){
+							clearInterval(zoomInterval);
 						}, false);
 						newzoompanel.appendChild(newzoombuttonleft);
 
@@ -962,7 +1049,20 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						newzoombuttonright.title = "ctrl+alt+r";
 						newzoombuttonright.setAttribute("data-video", i);
 						newzoombuttonright.addEventListener("click", function(){
+							initialdrawframezoom(this.getAttribute("data-video"));
 							zoompaddirection(this.getAttribute("data-video"), [0, 0, 0, 1]);
+						}, false);
+						newzoombuttonright.addEventListener("mousedown", function(){
+							initialdrawframezoom(this.getAttribute("data-video"));
+							zoomInterval = setInterval(() => {
+								zoompaddirection(this.getAttribute("data-video"), [0, 0, 0, 1]);
+							}, 100);
+						}, false);
+						newzoombuttonright.addEventListener("mouseup", function(){
+							clearInterval(zoomInterval);
+						}, false);
+						newzoombuttonright.addEventListener("mouseleave", function(){
+							clearInterval(zoomInterval);
 						}, false);
 						newzoompanel.appendChild(newzoombuttonright);
 
@@ -972,7 +1072,20 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						newzoombuttonup.title = "ctrl+alt+u";
 						newzoombuttonup.setAttribute("data-video", i);
 						newzoombuttonup.addEventListener("click", function(){
+							initialdrawframezoom(this.getAttribute("data-video"));
 							zoompaddirection(this.getAttribute("data-video"), [1, 0, 0, 0]);
+						}, false);
+						newzoombuttonup.addEventListener("mousedown", function(){
+							initialdrawframezoom(this.getAttribute("data-video"));
+							zoomInterval = setInterval(() => {
+								zoompaddirection(this.getAttribute("data-video"), [1, 0, 0, 0]);
+							}, 100);
+						}, false);
+						newzoombuttonup.addEventListener("mouseup", function(){
+							clearInterval(zoomInterval);
+						}, false);
+						newzoombuttonup.addEventListener("mouseleave", function(){
+							clearInterval(zoomInterval);
 						}, false);
 						newzoompanel.appendChild(newzoombuttonup);
 
@@ -982,7 +1095,20 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						newzoombuttondown.title = "ctrl+alt+d";
 						newzoombuttondown.setAttribute("data-video", i);
 						newzoombuttondown.addEventListener("click", function(){
+							initialdrawframezoom(this.getAttribute("data-video"));
 							zoompaddirection(this.getAttribute("data-video"), [0, 0, 1, 0]);
+						}, false);
+						newzoombuttondown.addEventListener("mousedown", function(){
+							initialdrawframezoom(this.getAttribute("data-video"));
+							zoomInterval = setInterval(() => {
+								zoompaddirection(this.getAttribute("data-video"), [0, 0, 1, 0]);
+							}, 100);
+						}, false);
+						newzoombuttondown.addEventListener("mouseup", function(){
+							clearInterval(zoomInterval);
+						}, false);
+						newzoombuttondown.addEventListener("mouseleave", function(){
+							clearInterval(zoomInterval);
 						}, false);
 						newzoompanel.appendChild(newzoombuttondown);
 
@@ -992,7 +1118,20 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						newzoombuttonrotateright.title = "ctrl+alt+a";
 						newzoombuttonrotateright.setAttribute("data-video", i);
 						newzoombuttonrotateright.addEventListener("click", function(){
+							initialdrawframezoom(this.getAttribute("data-video"));
 							camerazoomrotate(this.getAttribute("data-video"), "", +5);
+						}, false);
+						newzoombuttonrotateright.addEventListener("mousedown", function(){
+							initialdrawframezoom(this.getAttribute("data-video"));
+							zoomInterval = setInterval(() => {
+								camerazoomrotate(this.getAttribute("data-video"), "", +5);
+							}, 100);
+						}, false);
+						newzoombuttonrotateright.addEventListener("mouseup", function(){
+							clearInterval(zoomInterval);
+						}, false);
+						newzoombuttonrotateright.addEventListener("mouseleave", function(){
+							clearInterval(zoomInterval);
 						}, false);
 						newzoompanel.appendChild(newzoombuttonrotateright);
 
@@ -1002,7 +1141,20 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						newzoombuttonrotateleft.title = "ctrl+alt+q";
 						newzoombuttonrotateleft.setAttribute("data-video", i);
 						newzoombuttonrotateleft.addEventListener("click", function(){
+							initialdrawframezoom(this.getAttribute("data-video"));
 							camerazoomrotate(this.getAttribute("data-video"), "", -5);
+						}, false);
+						newzoombuttonrotateleft.addEventListener("mousedown", function(){
+							initialdrawframezoom(this.getAttribute("data-video"));
+							zoomInterval = setInterval(() => {
+								camerazoomrotate(this.getAttribute("data-video"), "", -5);
+							}, 100);
+						}, false);
+						newzoombuttonrotateleft.addEventListener("mouseup", function(){
+							clearInterval(zoomInterval);
+						}, false);
+						newzoombuttonrotateleft.addEventListener("mouseleave", function(){
+							clearInterval(zoomInterval);
 						}, false);
 						newzoompanel.appendChild(newzoombuttonrotateleft);
 
@@ -1076,7 +1228,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					newspeedpanel.setAttribute("class", "stefanvdspeed");
 					newspeedpanel.style.position = "absolute";
 					newspeedpanel.style.background = hexToRGB(videotoolcolor, 0.4);
-					newspeedpanel.style.display = "none";// default not visible
+					newspeedpanel.style.display = "none"; // default not visible
 					newspeedpanel.style.top = visposition.y + "px";
 					newspeedpanel.style.left = visposition.x - 64 + "px";
 					newspeedpanel.style.width = 64 + "px";
@@ -1236,7 +1388,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						newvisualizationvideo.setAttribute("id", "stefanvdvisualizationcanvas" + i);
 						newvisualizationvideo.setAttribute("class", "stefanvdvisualization");
 						newvisualizationvideo.style.position = "absolute";
-						newvisualizationvideo.style.display = "none";// default not visible
+						newvisualizationvideo.style.display = "none"; // default not visible
 						newvisualizationvideo.style.top = visposition.y + "px";
 						newvisualizationvideo.style.left = visposition.x + "px";
 						newvisualizationvideo.style.width = tempwidthvideo + "px";
@@ -1247,7 +1399,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						newonvispanel.setAttribute("id", "stefanvdvispanel" + i);
 						newonvispanel.setAttribute("class", "stefanvdvis");
 						newonvispanel.style.background = hexToRGB(videotoolcolor, 0.4);
-						newonvispanel.style.display = "none";// default not visible
+						newonvispanel.style.display = "none"; // default not visible
 						newonvispanel.style.top = visposition.y + "px";
 						newonvispanel.style.left = visposition.x + "px";
 						newonvispanel.style.width = tempwidthvideo + "px";
@@ -1260,14 +1412,17 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						}, false);
 						document.body.appendChild(newonvispanel);
 
+						var newtoolbar = document.createElement("div");
+						newtoolbar.className = "stefanvdvistoolbar";
+						newonvispanel.appendChild(newtoolbar);
+
 						var newonbutton = document.createElement("div");
 						newonbutton.setAttribute("id", "stefanvdvisbutton" + i);
 						newonbutton.setAttribute("data-video", i);
-
 						newonbutton.addEventListener("click", dovisenable, true);
-						newonbutton.textContent = "✇";
+						newonbutton.style.background = "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF+klEQVRoge2ZaajVRRTAf88lp+OTzNRcHmIuaCpJkfmhUhJacEtLMTTzgUsGQSGCFKhZH7LNID9UZqYkYaWlZmogZiokmUhmpZbPLbXUJ6X9zx1MeX2Yub2/1/vf7rugiAcuM3PmrHfmf+bMmYq6ujquBmh0uQ0oF1xz5EqDa45cadCknMJUbXfgHuAOoBfQGmjhp/8CTgI/ATuALSLmcLl0V5Qj/Kra8UA1MCgj6xpgsYhZ0VAbGuSIqh0DvAD0LJiqAfYAh4C/gQqgJdAJuBXoXEC/HZglYtaXaktJjqjaFsAHwKMh9I/AUmCtiNmdwN8XGAGMB7qGpt4TMVMyG0QJjqjaPsA6oMqj9gAzRczyIrSNgOYAIuZshLwpwBygnUftAh4SMcczGVZXV5f6FwS5u4Igdz4IcnX+Ny+Gdm4Q5I4GQe6M/x0Ogty0CNrKIMgtDsk9EQS5zllsS70iPiL9AjT2qPEiZmkMfS3QqgC9S8T0jeGZBrzhh6eBHiLmVBr7Up0jqvY6YCv1TgxNcKI17uMuhA5+uxUFETMPmOSHrYAtaeyD9AfiZ0Bb3x8nYr5MoO8dIbs10C2OUcS8Dzzvhz1V7btpDEx0RNUOB4b44Vsi5qMUcnuXOAeAiHkZ+MIPp6jafkk8aVZkoW+PiJhnUtAD9ClxLgyjgJzvL0oijnVE1Y4F2vhhlvge96+nckTEnAOm53lU7YA4+tiopWq3A3cCe0VM4ekdx3cB9yfV4U75RsAtfvoPEdM+g6xTwE3AShEzMoouckVUbRXOCYC3Myge7OXOADqLmG4ipgvuBH8RaKNqb0srj/ptNUTVShRR3NZ6INRfnUHxaaC3iHk1nN2KmBoRMxuXGVdkkLfSt02BgVFEcWl8fjUOiZgDabWKmG35vqodBTwInAdWi5h1ImZXWlkevgcCXKrTD5ceXQJxK9Ldt1kVA6BqFwOf4g64qcBaVftaVjn+o/+5wKZLIM6R/AF4NI1CVdtK1bb1/XHAhCJk01XtIE/TyWfRaSBvQ2SQiHOkuW/PJGnx95JtwAWPqo4hf8K3TYGdqvbeJPlAPnMu6WPPf5CxWaWqnQAsAzqImNoUchsDiJj9uEi2WdUOiaFPtCFJYf5UjVx+VTsHWOyH51RtU9//OEbuMs9bhQsCAGtU7dMxPJUFNl0CcY6c9G3HYpOq9kNgVgh1IzAaQMQswN3HC2FhKOF8nIuj5nxV+2aELR18+2eUsXGO/Obbi+4PqvYGVbvVG1IIr+c7ImYYLq1ZBSwHxoqYyV5GS2BmEf5nVe0qVZu/LqBqm1Cf8vwaZWxkiqJqnwTe8cMuIuaAqu2IC8eFF6YwbMZdVYtuA1XbDtiIK0JEwX7gdhFzVtX2xwUSgGEipthKx67IV6H+w761xDsBMABQVTvDX8jyDrRQta8AxxOcALgZ+Nf3h/v2ArApiiHutnaQ+sNwqsfVAs8lGPE7Lq04ycXR5ryfWwWcSJAxScRY35/o2/Ui5p8ohqTstxpX9gG4X8Rs8Pgj1FdRwMX5lcDnuFTkAjGgaq/HrfJI3zYLTX8nYvp7ugnUR8X/9Wd2xAs7jYtIB0XMLR7XC/ct7AaWeONro6XEym8PDMUFhipcwnm6QPc+EdMjVlCKEtBjoTLN3HAJJ0u5JmW5yYT6S0N6707iTatgU0joiHI7UETfUyF9S8pW1/LJ3THqT9hBIubrUrZSCl1j8Kc/UCNiusbR5yFVOciXO8N35o2q9pFsJiaDqp1MvRMBkCahBDI89IiYncB9IdQKVftSWv44ULUVqnY+sMCjAqC/iDmWWkgJ+7efr83m9/COIMgNbsD3MDoIcvtC8mqCINctq5xSnxXa4OL74BD6W4/bIGJqEvh7eN4JXJzLfQJUR6U3cdDQh56JuCeBwgz5B2AvrhSUN6oSVy7tgXuWC8NeYLaIiUv/Y6HBT2+qthkujajGFQeywGZgkYhZ0iAjKNMbYh78I9BAnEPdcPeISlzOdRYXwvfhntq+ETF7yqW7rI5cTrhq3tmvOXKlwTVHrjT4D4NKaA2hYpQ+AAAAAElFTkSuQmCC)";
 						newonbutton.title = i18ntitelvisenable;
-						newonvispanel.appendChild(newonbutton);
+						newtoolbar.appendChild(newonbutton);
 
 						var newonchoosebutton = document.createElement("div");
 						newonchoosebutton.setAttribute("id", "stefanvdvischoosebutton" + i);
@@ -1275,7 +1430,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						newonchoosebutton.setAttribute("data-video", i);
 						newonchoosebutton.textContent = "❋ " + i18ntitelvisblocks;
 						newonchoosebutton.title = i18ntitelvischoose;
-						newonvispanel.appendChild(newonchoosebutton);
+						newtoolbar.appendChild(newonchoosebutton);
 
 						var newonlikebutton = document.createElement("div");
 						newonlikebutton.setAttribute("id", "stefanvdlikebutton" + i);
@@ -1283,7 +1438,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						newonlikebutton.setAttribute("data-video", i);
 						newonlikebutton.style.background = "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACdUlEQVRoQ+2Z7TEEQRCG+83AZUAEiAARIAMiQASIgAwQASJwIkAEXASIoNWrZlSf2p2Zve1Vc2rnl3K7ff1Mf/dB/snBP+GQEaQ2S/6JRVR1RUTWReQTwPMQlzA4SIB4EJGNAPAhIocA7jyBBgVpgLC673vCDAaSgSDQB4CJl1UGAWmBuBGRMxF5NcpvesWMO0gbBIADAqiqGpAdAFMPq7iCFECs/rLIBACDv/dxA8lBBGvcishe0PoFQMxkdYAsAEHFmYKvexMEAb0tUgjBm38ySj8C2PaCoJxeICUQwaWOReQiKD5jcfSKjXgZSRDTWrRd3qWp2HzmJmYn+4Kqsorvhv/xb76XPQAesw+VuJaq0vxsL0pOI0SwiE25JbLiM28hlrIpOmeRUpAURKmMFGC23nQFsabeMt/c+kWqykL4XQw7Hit/CmAn9X4nEAA/zw9VoaOyDW6dLJ7VgjTEVtK9qgVR1bnaY72hycVqBmFcXQWls+1MzSCsNUcBpDUrlhbEudT5x8HOliY2ldm+rGaL2CKaHcCqBPmdenOBTveqFcQ2mUWdcq0gtsk8B8BZP3lqBeGCgmMxT9HaqDqQMDq8m+tfA8AueLksoqqc6Tnb88wARMssHQjj4TRofQ8gLiuWDoRDVGzhTwCUTZMpzFQ+H6qNV1XGB7f3PNmBqsoWRVXnFnglhbBWkE4dr/WmTuk3LKHj+7ZIcdGWTZGZDEp3Ikh0q6JCuJBFcrnc8fNPFsQuu6+uFnHUtVUUF3h7XX9uyIFwHihKfw6E/G3xedF9cK+VqYPybiJGELerdBI0WsTpIt3EjBZxu0onQaNFnC7STcwXkMeXQh73qawAAAAASUVORK5CYII=)";
 						newonlikebutton.title = i18ntitelvideotoollike;
-						newonvispanel.appendChild(newonlikebutton);
+						newtoolbar.appendChild(newonlikebutton);
 
 						var newonytsbutton = document.createElement("div");
 						newonytsbutton.setAttribute("id", "stefanvdyoutubebutton" + i);
@@ -1291,7 +1446,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						newonytsbutton.setAttribute("data-video", i);
 						newonytsbutton.style.background = "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACm0lEQVRoQ+1ZgXETMRDcqwA6gA6gA5IKAhUAHaQD0klCB0kFJB1ABYQOoIJl9kfnkZ3/l/SR/O+MbuZnbL9s3d7une7Phhdi9kJwoAPZGpOdkc5IowicnLRIvgbwAcBHM/vqcTkJICTfArgAcCYAO+fNdv5vFgjJ98F5Oa7XT8y2CoSkoi7HFXmxMGubARL0Hjsv/U/ZHwA/A0vDmlWBRHr/MiWZCMkvADcAbs3skaSY+rFajpAcqky45iTzD8C9HA/O/43pOTqQuEQG51OSGZw3MwGYtKMAmSqRE15JMnL+xsyk+yxrBiSnREYe3rlspPcszw8WVQVSUCKld0nFZbOn96ZAQoRfjWyiBPX6ntK7J6oAVLVsRkhqc1WYEvMSeV+i95INfG0LINL7IJulel8LiE7VrBK5xMHc7yxl5NzMqus81+mxdR1IZ+Q5+qnRohyU354jjQjB0mRXMxe3FeqP1KHqDFnFlgKZc3ZoQwA8nNqBOAdKzOkpTqCyW/IllJYwomnFWFMYN41jTaX7NcgvtC7VJZgNJCdKJJmzLuSXt/F3Zna8Nj7lYHgK/B2tO4+GZu8S349BrftgNUdtAOmTQI14UnmlPu57SV61lNansYEBSSX/5xTD4b7Y8c56Nq9qA5FEPOKqUuoAdvonqXnV9YH8dF+f6ynzTYYEtceTvKoNZG9IFpJaDMhZ3dPlppIcv9fp7BVQwFJ55aVdoOoP6EheAfiWiKyGD2dzORDmXz64E+BUaRewutN4kpcABGhs8wcAlyWJrKCQjEGlJFhv9htFVHLR5f3Ys0/4MNFxYKMSXHWInVnJ9pZFeSX57Ur7yQGJUQUVDOeVmalgDLbZf6xKmetASiPWen1npHWES3+/M1Iasdbr/wNE7m5C7M5pcAAAAABJRU5ErkJggg==)";
 						newonytsbutton.title = i18ntitelvideotoolsubscribe;
-						newonvispanel.appendChild(newonytsbutton);
+						newtoolbar.appendChild(newonytsbutton);
 
 						var newonrepeatbutton = document.createElement("div");
 						newonrepeatbutton.setAttribute("id", "stefanvdrepeatbutton" + i);
@@ -1313,7 +1468,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						newonrepeatbutton.setAttribute("data-video", i);
 						newonrepeatbutton.style.background = "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAABnUlEQVRoQ+3Y623DIBQF4HMmaEbpBk0nabNJO0mSSdpu0FHaCU51IyeyEK7BGAwR/IoUjO/H4xog7qTwThzokNpGso/I3IhIOpI8zNVb6/9sIyJJAE6lMLkh1uFFMCUgRTClINkxJSFZMZMQSZ8AntbKKqN2bmtG0iMAe89D4Hu+SO59dbeAWBwHkif7IekVwLFFyJmkBW8IG5EPALtSkHeSb4Evu1QbviPuIzdEaFuSbCoZ1kry1FoDEo0YOqQqyCJEbZDFiJogSYhaIPa9uGSnlLL5Yk8Jfvxsh1x7w9miRKffPiJOD/Sp1afWWouiT62JnuxZa2aKSdqR/AmdiVVmLbu0A2D7LzveBpXqIAPC9l7PzUJGCBuFNiEOok2IB9EeZAKxOWQuw/wC2JP8Hk51lp2SD1WelybfosxBll64zbXr/p8dYh84y0bXEbFbxJfYKAPqx0MCGv23iqQpTFT6DY0j2238sFZ8mPYgE5g2IR5MuxAH0zZkhLGLu+DdbxWL3RdE7HmkWkhoYLH1sqbf2GBS6ndISu/lePYP2W6YQr7GhnMAAAAASUVORK5CYII=)";
 						newonrepeatbutton.title = i18ntitelvideotoolrepeat + " " + i18ntiteloff;
-						newonvispanel.appendChild(newonrepeatbutton);
+						newtoolbar.appendChild(newonrepeatbutton);
 
 						var newonfilterbutton = document.createElement("div");
 						newonfilterbutton.setAttribute("id", "stefanvdfilterbutton" + i);
@@ -1332,43 +1487,91 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 								switch(currentvideostepfilter){
 								case 0:
 									filtertype = "grayscale";
-									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "1", "1"]);
-									onevideo.style.webkitFilter = "grayscale(1)"; currentvideostepfilter += 1; newvcpartiaspan.textContent = i18ntitelvideotoolgrayscale;
+									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "1", "1"], false);
+									onevideo.style.webkitFilter = "grayscale(1)";
+									currentvideostepfilter += 1;
+									currentVideoFilters[yellowvis] = {
+										type: filtertype,
+										name: i18ntitelvideotoolgrayscale
+									};
+									newvcpartiaspan.textContent = i18ntitelvideotoolgrayscale;
 									break;
 								case 1:
 									filtertype = "sepia";
-									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "1", "1"]);
-									onevideo.style.webkitFilter = "sepia(1)"; currentvideostepfilter += 1; newvcpartiaspan.textContent = i18ntitelvideotoolsepia;
+									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "1", "1"], false);
+									onevideo.style.webkitFilter = "sepia(1)";
+									currentvideostepfilter += 1;
+									currentVideoFilters[yellowvis] = {
+										type: filtertype,
+										name: i18ntitelvideotoolsepia
+									};
+									newvcpartiaspan.textContent = i18ntitelvideotoolsepia;
 									break;
 								case 2:
 									filtertype = "invert";
-									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "1", "1"]);
-									onevideo.style.webkitFilter = "invert(1)"; currentvideostepfilter += 1; newvcpartiaspan.textContent = i18ntitelvideotoolinvert;
+									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "1", "1"], false);
+									onevideo.style.webkitFilter = "invert(1)";
+									currentvideostepfilter += 1;
+									currentVideoFilters[yellowvis] = {
+										type: filtertype,
+										name: i18ntitelvideotoolinvert
+									};
+									newvcpartiaspan.textContent = i18ntitelvideotoolinvert;
 									break;
 								case 3:
 									filtertype = "contrast";
-									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "10", "10"]);
-									onevideo.style.webkitFilter = "contrast(10)"; currentvideostepfilter += 1; newvcpartiaspan.textContent = i18ntitelvideotoolcontrast;
+									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "10", "10"], false);
+									onevideo.style.webkitFilter = "contrast(10)";
+									currentvideostepfilter += 1;
+									currentVideoFilters[yellowvis] = {
+										type: filtertype,
+										name: i18ntitelvideotoolcontrast
+									};
+									newvcpartiaspan.textContent = i18ntitelvideotoolcontrast;
 									break;
 								case 4:
 									filtertype = "saturate";
-									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "10", "10"]);
-									onevideo.style.webkitFilter = "saturate(10)"; currentvideostepfilter += 1; newvcpartiaspan.textContent = i18ntitelvideotoolsaturate;
+									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "10", "10"], false);
+									onevideo.style.webkitFilter = "saturate(10)";
+									currentvideostepfilter += 1;
+									currentVideoFilters[yellowvis] = {
+										type: filtertype,
+										name: i18ntitelvideotoolsaturate
+									};
+									newvcpartiaspan.textContent = i18ntitelvideotoolsaturate;
 									break;
 								case 5:
 									filtertype = "hue-rotate";
-									settoolbarrange(getstefanvdvideotoolrange, ["30", "0", "360", "90"]);
-									onevideo.style.webkitFilter = "hue-rotate(90deg)"; currentvideostepfilter += 1; newvcpartiaspan.textContent = i18ntitelvideotoolhueroration;
+									settoolbarrange(getstefanvdvideotoolrange, ["30", "0", "360", "90"], false);
+									onevideo.style.webkitFilter = "hue-rotate(90deg)";
+									currentvideostepfilter += 1;
+									currentVideoFilters[yellowvis] = {
+										type: filtertype,
+										name: i18ntitelvideotoolhueroration
+									};
+									newvcpartiaspan.textContent = i18ntitelvideotoolhueroration;
 									break;
 								case 6:
 									filtertype = "brightness";
-									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "10", "0.5"]);
-									onevideo.style.webkitFilter = "brightness(1.5)"; currentvideostepfilter += 1; newvcpartiaspan.textContent = i18ntitelvideotoolbrightness;
+									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "10", "0.5"], false);
+									onevideo.style.webkitFilter = "brightness(1.5)";
+									currentvideostepfilter += 1;
+									currentVideoFilters[yellowvis] = {
+										type: filtertype,
+										name: i18ntitelvideotoolbrightness
+									};
+									newvcpartiaspan.textContent = i18ntitelvideotoolbrightness;
 									break;
 								case 7:
 									filtertype = "normal";
-									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "10", "1"]);
-									onevideo.style.webkitFilter = ""; currentvideostepfilter = 0; newvcpartiaspan.textContent = i18ntitelvideotoolnormal;
+									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "10", "1"], true);
+									onevideo.style.webkitFilter = "";
+									currentvideostepfilter = 0;
+									currentVideoFilters[yellowvis] = {
+										type: filtertype,
+										name: i18ntitelvideotoolnormal
+									};
+									newvcpartiaspan.textContent = i18ntitelvideotoolnormal;
 									break;
 								}
 								document.getElementById("stefanvdvideofiltername" + yellowvis).innerText = filtertype;
@@ -1376,19 +1579,19 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						}, false);
 						newonfilterbutton.style.background = "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAC80lEQVRoQ+1Z23EUMRDsjgAywEQAjgATATgC7AiACIAIgAg4R2ATASYC7AxMBkcEQ7WRKNWedvXaFWzVTtV9nE+P6Xn1jEx0EDN7D+AdgB3J8yWu5BKHDs80M/N/I7nInYscGgGyA/AKwFeSL5cwXhcgSyg+PHMRIGb2FMCe5F0PELpjdiBm9gbARwfgmORNDzBNQJzlvdJeX3njofsij+R65YKkcqlKWoGcAPhWdfPhpg8kVaarZAMis5nZEYAz93nkTHmREU7ap3Is+SmiBHBN8rrKHXMlu5lJgWdOiecphcwsDMnvJPW9SZpCy9+8Afljic0jYSxuoRVaI5UjZiaCfALgluR+tcluZj8AiPHvSD5eM5A9gAfyouaRNQPRDKJmUhPibrVAhky3AZng/uby6yqSkln9k6S0RVGbr7lFeVQtcwC5BBDO4clhys0xAu/liuRpNYrWpjF45vE6vCX5KUehwSSpLf9mHhkkrBQpfiExsysALwLgybAcM1JVaLk5RKHhR9pbACelce7ySyOAWF+iPFFo5o7Hf3HVAvFMrYN+ORBVjwwuXwTmnjAB3JA8zgnPcE0xEDP74iZCf855y6OBDjEzTZk610vx02oRkMiFCoUqT0QsHr6+6OciA2UDcSGgFxOfF6XeL10vIyn5swyVBSRCeqVK1a4XCIFJkmUukCHp6V8DxZUlE406hDBfssgyCaSF9DIVP1gWIcsk0U4CmYP0GsAUkeUokEheVJFeAxAVlZAs76fLYmaPlNpkM1ir9Ni+SHM5WpKnPBK69jNJTXjdxczUhL52F+vFXuR5IFNAwmfQps60Bf2g2Iw+5q3NI6Md9hSQsP8pYtkWD4R7I91EVY6oaoj0fFcqMHr+F9suRYYeh0hRvZeM6VsiddlHYyyf4hGNsGL1/0FOSaoARSWH2QVGnvCe6Q1KnjibAiGFkkC0yJGjAOnTs/uVB9RrzdM09nZBzX1ZHqk5uPeeDUhvi6fu2zySslDv338DROiFQsyzoMoAAAAASUVORK5CYII=)";
 						newonfilterbutton.title = i18ntitelvideotoolfilter;
-						newonvispanel.appendChild(newonfilterbutton);
+						newtoolbar.appendChild(newonfilterbutton);
 
-
+						// Modify the video filter name span creation
 						var newvcpartiaspan = document.createElement("div");
 						newvcpartiaspan.setAttribute("id", "stefanvdvideofiltername" + i);
-						newvcpartiaspan.textContent = i18ntitelvideotoolnormal;
 						newvcpartiaspan.setAttribute("data-video", i);
+						newvcpartiaspan.textContent = currentVideoFilters[i] ? currentVideoFilters[i].name : i18ntitelvideotoolnormal;
 						newvcpartiaspan.addEventListener("click", function(){
 							var orangevis = this.getAttribute("data-video");
 							document.getElementById("stefanvdfilterbutton" + orangevis).click();
 						}, false);
 						if(tempwidthvideo <= 360){ newvcpartiaspan.style.cssText = "display:none!important"; }
-						newonvispanel.appendChild(newvcpartiaspan);
+						newtoolbar.appendChild(newvcpartiaspan);
 
 						var newvcpartiarange = document.createElement("input");
 						newvcpartiarange.setAttribute("id", "stefanvdvideotoolrange" + i);
@@ -1398,10 +1601,34 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						newvcpartiarange.setAttribute("step", "0.1");
 						newvcpartiarange.setAttribute("min", "0");
 						newvcpartiarange.setAttribute("max", "10");
+						newvcpartiarange.value = "1";
+						newvcpartiarange.disabled = true;
 						newvcpartiarange.addEventListener("change", changevideotoolbarrange, false);
 						newvcpartiarange.addEventListener("input", changevideotoolbarrange, false);
 						if(tempwidthvideo <= 360){ newvcpartiarange.style.cssText = "display:none!important"; }
-						newonvispanel.appendChild(newvcpartiarange);
+						newtoolbar.appendChild(newvcpartiarange);
+
+						var newscreenshotbutton = document.createElement("div");
+						newscreenshotbutton.setAttribute("id", "stefanvdscreenshotbutton" + i);
+						newscreenshotbutton.addEventListener("click", function(){
+							var brownvis = this.getAttribute("data-video");
+							var onevideo = document.getElementsByTagName("video")[brownvis];
+							var screenshot = document.createElement("canvas");
+							var context = screenshot.getContext("2d", {desynchronized: true});
+							screenshot.width = onevideo.offsetWidth;
+							screenshot.height = onevideo.offsetHeight;
+							context.drawImage(onevideo, 0, 0, onevideo.offsetWidth, onevideo.offsetHeight);
+							try{ var dataURL = screenshot.toDataURL("image/png"); }catch(e){ console.error(e); }
+							// save the video screenshot
+							chrome.runtime.sendMessage({name:"screenshot", value:dataURL});
+							// Note: Bug issue on Safari web browser version 15.0 and version 16.0
+							// It can not capture the YouTube screenshot the canvas 'drawImage' is blank
+							// On another website, if the video uses MP4 video, that work fine
+						}, false);
+						newscreenshotbutton.setAttribute("data-video", i);
+						newscreenshotbutton.style.background = "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAADVUlEQVRoQ+2ZgVEUMRSG/1eB2gFUoFQgVCBWoFagVKBUIFYgdiAVCBUIFYgVqBU85zvzMOzt3iW7AXZuLjM7N3C55P35X/73J2vakGYbgkNbIHNjcstIzoi7v5f0TtLjSqauJR2b2Wnl75a6T2bE3T9IAsiU9tLMvk4ZYBIQd9+R9D0x8aZ2Zd0dFj9K+i1p18z4HNWmAvkmaV/SFzN7PSYCdz+X9HzKGMx7C4i7ExRpwmdp+yNpZ+xqJlYvJT0qnVASafjJzFiERbsBMiHXJ+e3u8Pm5wog0RWhYI/+A5KYIE1oRyA2MxRldi0xCPAQmAOYCSCRp0dmdjK76HsCyjLozMwOA4invk+6ue7uqMph+v7UzI7nADQx82ORVrSUWgsg8XcE6u6w87YT+E1ePjQgd7+Jex2QX6lG7KWgqRnXZrY7BMLdqe4vEovUmWepL8rEvkNxSIfRNSNb6GIgTIYs5kB+mhkB3moJAOyVWBXGhW0kdDSgGkb67MdSaiUQqF6s/oUk/NOlmcEEysh3PCgOBZDGd6jOKDDFQFIAgImqzWZf6HZGL6nEpuPzCkbyQtWXgknuYeTpFHtSBWTVhu4wAYj90tVNv0X2ATOKmZZAIvWqQHTYDDDVatgESFrRSKlFdR0jx5mrqHbArYCEP7owsxqTuYQ3c8BVR4FWQKgH1IuqyQc2fyzKwm6UMtsKCMUROd0LiS0NoKcGMQ7jIddRs9YO1wpIr61ZO/tAhzyo0jG2QDqFEO2nBrRMrSszC3ewlphWjGzMZg+lOTezg7XLt6KDu8clRpUCtmIEb4Utxx23KIjVlxhNgGSGkrPzWK/EYoRrfhiLkoAQyCjj1zWcNZs882plB6uSvE8BRYrBDBcYK31X8lfcBaBQ1Sl1J0B6mOFfAOFghZzmByvkGpEIbzbKNd8ZkAwMx1yedbeGsMDB6qT0/DLg0dqlVo9vYt9g/Hg428MCjdWPywcuAEcdbztF+e6AlOyrVn0G5VfS0gVdq0lbjzN0QRd2o1rLWwdYOt7QlSkqEpfYnMN53zHnS+xXkuI25/8ldqdKly7KHPrdfq2Q6TLMIJ8cYefczpJ0L7/omXPUJbFNeodYMsF99dkCua+VLp1ny0jpSt1Xv41h5C+YBzxRDPItSgAAAABJRU5ErkJggg==)";
+						newscreenshotbutton.title = i18ntitelvideotoolscreenshot;
+						newtoolbar.appendChild(newscreenshotbutton);
 
 						var newonfwbutton = document.createElement("div");
 						newonfwbutton.setAttribute("id", "stefanvdyfullwindowbutton" + i);
@@ -1451,6 +1678,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 												// playertheater.classList.remove("stefanvdvideotheather");
 												playercontrols.classList.remove("stefanvdvideocontrols");
 												document.getElementsByTagName("video")[0].classList.remove("stefanvdvideowindow");
+												document.getElementsByTagName("video")[0].classList.remove("stefanvdvideocontain", "stefanvdvideofilled");
 												videowindow = false;
 											}else{
 												checktheatermode = watchContainer ? watchContainer.hasAttribute("theater") : true;
@@ -1463,6 +1691,14 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 												// playertheater.classList.add("stefanvdvideotheather");
 												playercontrols.classList.add("stefanvdvideocontrols");
 												document.getElementsByTagName("video")[0].classList.add("stefanvdvideowindow");
+
+												// Remove any video-related state classes first
+												document.getElementsByTagName("video")[0].classList.remove("stefanvdvideocontain", "stefanvdvideofilled");
+												if(videofilled == true){
+													document.getElementsByTagName("video")[0].classList.add("stefanvdvideofilled");
+												}else{
+													document.getElementsByTagName("video")[0].classList.add("stefanvdvideocontain");
+												}
 												videowindow = true;
 											}
 										}
@@ -1475,6 +1711,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 										var stefanvdregularhtmlplayerb = document.getElementsByClassName("stefanvdvideowindow")[0];
 										if(stefanvdregularhtmlplayerb){
 											onevideo.classList.remove("stefanvdvideowindow");
+											onevideo.classList.remove("stefanvdvideocontain", "stefanvdvideofilled");
 											if(thatPrevControlEnabled == true){
 												onevideo.controls = true;
 											}else{
@@ -1483,6 +1720,15 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 											videowindow = false;
 										}else{
 											onevideo.classList.add("stefanvdvideowindow");
+
+											// Remove any video-related state classes first
+											onevideo.classList.remove("stefanvdvideocontain", "stefanvdvideofilled");
+											if(videofilled == true){
+												onevideo.classList.add("stefanvdvideofilled");
+											}else{
+												onevideo.classList.add("stefanvdvideocontain");
+											}
+
 											if(onevideo.hasAttribute("controls")){
 												thatPrevControlEnabled = true;
 											}
@@ -1499,34 +1745,14 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						}, false);
 						newonfwbutton.style.background = "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACVUlEQVRoQ+2Z21EDMQxFryqADqAD6ACohNABdEAqACqAVAJ0AB1AB0kFYu7MesbjrNcvOQmw+snH+qFjKXrYgj8i8kc4MIMcmiVni/wai6jqI4CzCoXvRORjap6qngN4qFj7U0Rux+ZFXUtV3wBcVGx2JSKcGxVVvQTwWrH2u4hw7pb8W5A1gKfESb6IyFfCIqcAFhNjjgFcA+CvL6YWoaI3FW6RNUVVqTzdjv+jUJpBNgCOvFW7wEQgPr2g0wyyBEB3oLmdmMJEIFYAXrzA0A4iIveqykXNYWIQIrIIIpwNCE1hDTMFMeznh2o7EEuYFER3EAuYHIidgLTA5ELsDKQGpgRipyAlMKUQViDMrK5E+MooO8LQ/BRWqiOF6IohNlHOUAeX5dexytq0sfJCMyuBy3DToXxnZcwqIQmRVdMMg0xBBldgH8OsP9qTDDCLWF9Rorw/1hykVpHWeTNI6wlaz58tEjtRVX0GwOKO4XhLVJXh9sK6OTO1yADh8sJNCDNAEJRi2s9MXT4wCbmu8DsjIVJBP7lt5YmaFmCoBty11KY4IQZZeMnGKuFOkxBubilMt8YqhAnciZ+TGbsEZicgNRCllukO0gJRAtMVxAIiF6YbiCVEDkwXkB4QKRhzEAAnqTzRWj+NRTNGQcsLOl5e+xfKyRBbCzUCw77GdYjN91q+Xt0gJtzMfTID4emMvhh5pHxVogWjEpQdsXHsNMMbeTOQHI+ZX6wyTqnKImOmzdgLt5mPoVy/VD6KH0NLd9j3eNPGap8wM8g+T39s79kih2aRH8NkAVGMEdb6AAAAAElFTkSuQmCC)";
 						newonfwbutton.title = i18ntitelvideotoolfullwindow;
-						newonvispanel.appendChild(newonfwbutton);
-
-						var newscreenshotbutton = document.createElement("div");
-						newscreenshotbutton.setAttribute("id", "stefanvdscreenshotbutton" + i);
-						newscreenshotbutton.addEventListener("click", function(){
-							var brownvis = this.getAttribute("data-video");
-							var onevideo = document.getElementsByTagName("video")[brownvis];
-							var screenshot = document.createElement("canvas");
-							var context = screenshot.getContext("2d", {desynchronized: true});
-							screenshot.width = onevideo.offsetWidth;
-							screenshot.height = onevideo.offsetHeight;
-							context.drawImage(onevideo, 0, 0, onevideo.offsetWidth, onevideo.offsetHeight);
-							try{ var dataURL = screenshot.toDataURL("image/png"); }catch(e){ console.error(e); }
-							// save the video screenshot
-							chrome.runtime.sendMessage({name:"screenshot", value:dataURL});
-							// Note: Bug issue on Safari web browser version 15.0 and version 16.0
-							// It can not capture the YouTube screenshot the canvas 'drawImage' is blank
-							// On another website, if the video uses MP4 video, that work fine
-						}, false);
-						newscreenshotbutton.setAttribute("data-video", i);
-						newscreenshotbutton.style.background = "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAADVUlEQVRoQ+2ZgVEUMRSG/1eB2gFUoFQgVCBWoFagVKBUIFYgdiAVCBUIFYgVqBU85zvzMOzt3iW7AXZuLjM7N3C55P35X/73J2vakGYbgkNbIHNjcstIzoi7v5f0TtLjSqauJR2b2Wnl75a6T2bE3T9IAsiU9tLMvk4ZYBIQd9+R9D0x8aZ2Zd0dFj9K+i1p18z4HNWmAvkmaV/SFzN7PSYCdz+X9HzKGMx7C4i7ExRpwmdp+yNpZ+xqJlYvJT0qnVASafjJzFiERbsBMiHXJ+e3u8Pm5wog0RWhYI/+A5KYIE1oRyA2MxRldi0xCPAQmAOYCSCRp0dmdjK76HsCyjLozMwOA4invk+6ue7uqMph+v7UzI7nADQx82ORVrSUWgsg8XcE6u6w87YT+E1ePjQgd7+Jex2QX6lG7KWgqRnXZrY7BMLdqe4vEovUmWepL8rEvkNxSIfRNSNb6GIgTIYs5kB+mhkB3moJAOyVWBXGhW0kdDSgGkb67MdSaiUQqF6s/oUk/NOlmcEEysh3PCgOBZDGd6jOKDDFQFIAgImqzWZf6HZGL6nEpuPzCkbyQtWXgknuYeTpFHtSBWTVhu4wAYj90tVNv0X2ATOKmZZAIvWqQHTYDDDVatgESFrRSKlFdR0jx5mrqHbArYCEP7owsxqTuYQ3c8BVR4FWQKgH1IuqyQc2fyzKwm6UMtsKCMUROd0LiS0NoKcGMQ7jIddRs9YO1wpIr61ZO/tAhzyo0jG2QDqFEO2nBrRMrSszC3ewlphWjGzMZg+lOTezg7XLt6KDu8clRpUCtmIEb4Utxx23KIjVlxhNgGSGkrPzWK/EYoRrfhiLkoAQyCjj1zWcNZs882plB6uSvE8BRYrBDBcYK31X8lfcBaBQ1Sl1J0B6mOFfAOFghZzmByvkGpEIbzbKNd8ZkAwMx1yedbeGsMDB6qT0/DLg0dqlVo9vYt9g/Hg428MCjdWPywcuAEcdbztF+e6AlOyrVn0G5VfS0gVdq0lbjzN0QRd2o1rLWwdYOt7QlSkqEpfYnMN53zHnS+xXkuI25/8ldqdKly7KHPrdfq2Q6TLMIJ8cYefczpJ0L7/omXPUJbFNeodYMsF99dkCua+VLp1ny0jpSt1Xv41h5C+YBzxRDPItSgAAAABJRU5ErkJggg==)";
-						newscreenshotbutton.title = i18ntitelvideotoolscreenshot;
-						newonvispanel.appendChild(newscreenshotbutton);
+						newtoolbar.appendChild(newonfwbutton);
 					}
 				}
 			}
 		}
-		addvisual();
+
+		// Run only after the full page (images/styles/fonts) is loaded
+		window.addEventListener("load", addvisual);
 
 		var t = 0;
 		function setTime(){ ++t; }
@@ -1674,13 +1900,48 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 			}
 		}
 
+		// Track fullscreen state
+		let isFullscreen = false;
+
 		var myListenervideotoolbar = function(){
-			removevideotool();
-			adddatavideo(); // recheck remove and add video ID
-			addvisual();
+			// Continue when fullscreen is not active
+			if(!getFullscreenElement() && isFullscreen == false){
+				removevideotool();
+				adddatavideo(); // recheck remove and add video ID
+				addvisual();
+			}
 		};
 		myListenerWithContext = myListenervideotoolbar.bind(this);
 		window.addEventListener("resize", myListenerWithContext);
+
+		function getFullscreenElement(){
+			return document.fullscreenElement ||
+			document.webkitFullscreenElement ||
+			document.mozFullScreenElement ||
+			document.msFullscreenElement ||
+			null;
+		}
+
+		// Fullscreen change handler
+		function onFullscreenChange(){
+			const fs = getFullscreenElement();
+			if(fs){
+				// Wait for fullscreen transition to complete
+				setTimeout(() => {
+					initialdrawframezoom(0);
+					isFullscreen = true;
+				}, 100);
+			}else{
+				// Wait for exit fullscreen transition to complete
+				setTimeout(() => {
+					initialdrawframezoom(0);
+					isFullscreen = false;
+				}, 100);
+			}
+		}
+		if(videozoom == true){
+			document.addEventListener("fullscreenchange", onFullscreenChange);
+		}
 
 		function updatepanelsize(a, b, c){
 			if(document.getElementById(a)){
@@ -1761,8 +2022,8 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 							updatepanelsize("stefanvdzoomstage" + potvis, mutation, visposition);
 
 						}else{
-						// there is no data
-						// create everything again
+							// there is no data
+							// create everything again
 							myListenervideotoolbar();
 						}
 					}
@@ -2275,6 +2536,10 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						newvivid.style.height = tempheightvideo + "px";
 						newvivid.width = Math.floor(tempwidthvideo * 0.08);
 						newvivid.height = Math.floor(tempheightvideo * 0.08);
+						if(exbrowser == "safari"){
+							// Fix Safari use backdropfilter to show correct the box shadow in realtime
+							newvivid.style.backdropFilter = "opacity(0)";
+						}
 						document.body.appendChild(newvivid);
 					}
 				}
@@ -3486,6 +3751,14 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 		onevideo.style["transform"] = "scale(" + vzoom[a] + ") rotate(" + vrotate[a] + "deg)";
 	}
 
+	function initialdrawframezoom(a){
+		var onevideo = document.getElementsByTagName("video")[a];
+		var newzoomcontext = $("stefanvdzoomcanvas" + a).getContext("2d", {desynchronized: true});
+		newzoomcontext.drawImage(onevideo, 0, 0, onevideo.offsetWidth, onevideo.clientHeight);
+		$("stefanvdzoomcanvas" + a).style.width = onevideo.offsetWidth + "px";
+		$("stefanvdzoomcanvas" + a).style.height = onevideo.clientHeight + "px";
+	}
+
 	var zoompaused = [];
 	function drawframezoom(a){
 		if(zoompaused[a]){ return; }
@@ -3504,11 +3777,30 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 		if($("stefanvdzoomexit" + a)){ $("stefanvdzoomexit" + a).style.setProperty("display", "block", "important"); }
 		var onevideo = $("stefanvdzoomcanvas" + a);
 		onevideo.setAttribute("data-zoom", "true");
+
+		// Zoom change
 		if(b != ""){
-			vzoom[a] = vzoom[a] + b;
+			// If b is a small fractional value (< 1), treat it as a relative percent step:
+			//  +0.1 => scale *= 1.1  (10% bigger)
+			//  -0.1 => scale *= 0.9  (10% smaller)
+			var step = Number(b);
+			if(!isNaN(step) && Math.abs(step) < 1){
+				var factor = 1 + step;
+				vzoom[a] = vzoom[a] * factor;
+			}else{
+				// Fallback: additive change (preserve old behaviour for large values)
+				vzoom[a] = vzoom[a] + Number(b);
+			}
+
+			// Clamp and round to avoid tiny changes due to floating point
+			var MIN_ZOOM = 0.1;
+			var MAX_ZOOM = 16;
+			vzoom[a] = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, Math.round(vzoom[a] * 100) / 100));
 		}else if(c != ""){
+			// Rotation (unchanged)
 			vrotate[a] = vrotate[a] + c;
 		}
+
 		onevideo.style["transform"] = "scale(" + vzoom[a] + ") rotate(" + vrotate[a] + "deg)";
 		// start zoom canvas animation
 		window.requestAnimFrame(function(){ drawframezoom(a); });
@@ -3986,6 +4278,10 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 				if(videotool == true){
 					runvideotoolbarcheck();
 				}
+			});
+		}else if(request.action == "gorefreshvideofilled"){
+			chrome.storage.sync.get(["videofilled"], function(items){
+				videofilled = items["videofilled"];
 			});
 		}else if(request.action == "gorefreshmousescroll"){
 			chrome.storage.sync.get(["videovolume", "videovolumealt", "videovolumehold", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumecolor", "videovolumelabel", "videovolumesteps", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose"], function(items){

@@ -168,8 +168,8 @@ hr{margin:0;border:0px;height:1px;background:var(--totl-hr-border)}
 .palette .boxactions{display:flex;justify-content:space-between}
 .palette .boxcolor{width:26px;height:26px;margin:2px;display:inline-block;cursor:pointer;border-radius:26px}
 .palette .boxcolor:hover{transform:scale(1.1);box-shadow:0 1px 1.5px 0 rgba(0,0,0,.12),0 1px 1px 0 rgba(0,0,0,.24)}
-.colorline{background:var(--totl-button-color-palette);border-radius:4px;padding:4px;margin:10px 0px;width:calc(100% - 8px);font-size:11px;overflow:hidden;overflow-x:hidden}
-.colorline:hover{overflow-x:overlay}
+.colorline{background:var(--totl-button-color-palette);border-radius:4px;padding:4px 4px 2px 4px;margin:10px 0px;width:calc(100% - 8px);font-size:11px;overflow:hidden;overflow-x:hidden;border-bottom:2px solid transparent}
+.colorline:hover{overflow-x:overlay;border-bottom:0px solid transparent}
 .colorbox{width:300px}
 .analgroup{display:inline-block;width:100%;text-align:center}
 .analblockb{width:calc(100% - 20px);height:50px;margin:10px;border:1px solid #ccc;display:inline-block;line-height:50px;text-align:center;border-radius:5px;font-size:20px}

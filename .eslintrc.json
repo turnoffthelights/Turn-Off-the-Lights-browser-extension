@@ -67,6 +67,8 @@
         "browserflags": "writable",
         "browserabout": "writable",
         "browserbookmarks": "writable",
-        "browserhistory": "writable"
+        "browserhistory": "writable",
+        "linknightmodeapp": "writable",
+        "Chart": "writable"
     }
 }

@@ -80,7 +80,7 @@ function setdynimages(a){
 var default_opacity = 80;
 var default_arangeblur = 70;
 var default_arangespread = 20;
-var youtubeembed = "https://www.youtube.com/embed/?listType=playlist&list=PLF155F53B3D8D07CB";
+var youtubeembed = "https://www.turnoffthelights.com/browser/extension/embed/?vid=PLF155F53B3D8D07CB";
 var darkmode = false;
 
 // Option to save current value to chrome.storage
@@ -123,13 +123,13 @@ function save_options(){
 		websitemulti[multiopacityDomainsBox.options[multiopacityi].value] = getnumber;
 	}
 
-	chrome.storage.sync.set({"interval":$("interval").value, "lightcolor":$("lightcolor").value, "autodim":$("autodim").checked, "playlist":$("playlist").checked, "flash":$("flash").checked, "head":$("head").checked, "fadein":$("fadein").checked, "fadeout":$("fadeout").checked, "infobar":$("infobar").checked, "sharebutton":$("sharebutton").checked, "likebutton":$("likebutton").checked, "readera":$("readera").checked, "readern":$("readern").checked, "shortcutlight":$("shortcutlight").checked, "eyea":$("eyea").checked, "eyen":$("eyen").checked, "suggestions":$("suggestions").checked, "videoheadline":$("videoheadline").checked, "eastereggs":$("eastereggs").checked, "contextmenus":$("contextmenus").checked, "viewcount":$("viewcount").checked, "lightimage":$("lightimage").value, "lightimagea":$("lightimagea").checked, "lightimagen":$("lightimagen").checked, "eyealist":$("eyealist").checked, "mousespotlighto":$("mousespotlighto").checked, "mousespotlighta":$("mousespotlighta").checked, "mousespotlightc":$("mousespotlightc").checked, "nighttime":$("nighttime").checked, "begintime":$("begintime").value, "endtime":$("endtime").value, "addvideobutton":$("addvideobutton").checked, "likebar":$("likebar").checked, "ambilight":$("ambilight").checked, "ambilightrangeblurradius":$("ambilightrangeblurradius").value, "ambilightrangespreadradius":$("ambilightrangespreadradius").value, "mousespotlightt":$("mousespotlightt").checked, "ambilightfixcolor":$("ambilightfixcolor").checked, "ambilightvarcolor":$("ambilightvarcolor").checked, "ambilightcolorhex":$("ambilightcolorhex").value, "ambilight4color":$("ambilight4color").checked, "ambilight1colorhex":$("ambilight1colorhex").value, "ambilight2colorhex":$("ambilight2colorhex").value, "ambilight3colorhex":$("ambilight3colorhex").value, "ambilight4colorhex":$("ambilight4colorhex").value, "password":$("password").checked, "enterpassword":$("enterpassword").value, "noflash":$("noflash").checked, "hardflash":$("hardflash").checked, "ecosaver":$("ecosaver").checked, "ecosavertime":$("ecosavertime").value, "dynamic":$("dynamic").checked, "dynamic1":$("dynamic1").checked, "dynamic2":$("dynamic2").checked, "dynamic3":$("dynamic3").checked, "dynamic4":$("dynamic4").checked, "dynamic5":$("dynamic5").checked, "dynamic6":$("dynamic6").checked, "dynamic7":$("dynamic7").checked, "dynamic8":$("dynamic8").checked, "dynamic9":$("dynamic9").checked, "dynamic10":$("dynamic10").checked, "dynamic11":$("dynamic11").checked, "dynamic12":$("dynamic12").checked, "hoveroptiondyn5":$("hoveroptiondyn5").checked, "autodimonly":$("autodimonly").checked, "blur":$("blur").checked, "maxquality":ytselq.options[ytselq.selectedIndex].value, "autowidthyoutube":$("autowidthyoutube").checked, "customqualityyoutube":$("customqualityyoutube").checked, "cinemaontop":$("cinemaontop").checked, "alllightsoff":$("alllightsoff").checked, "spotlightradius":$("spotlightradius").value, "atmosphereonly":$("atmosphereonly").checked, "optionskipremember":$("optionskipremember").checked, "nighttheme":$("nighttheme").checked, "nightonly":$("nightonly").checked, "nightenabletheme":$("nightenabletheme").checked, "autodimdelay":$("autodimdelay").checked, "autodimdelaytime":$("autodimdelaytime").value, "lightimagelin":$("lightimagelin").checked, "linearsq":linearsq.options[linearsq.selectedIndex].value, "colora":$("colora").value, "intervallina":$("intervallina").value, "colorb":$("colorb").value, "intervallinb":$("intervallinb").value, "atmosvivid":$("atmosvivid").checked, "autodimchecklistwhite":$("autodimchecklistwhite").checked, "autodimchecklistblack":$("autodimchecklistblack").checked, "autostop":$("autostop").checked, "autostoponly":$("autostoponly").checked, "autostopchecklistwhite":$("autostopchecklistwhite").checked, "autostopchecklistblack":$("autostopchecklistblack").checked, "nighthover":$("nighthover").checked, "nightmodechecklistwhite":$("nightmodechecklistwhite").checked, "nightmodechecklistblack":$("nightmodechecklistblack").checked, "nmtopleft":$("nmtopleft").checked, "nmtopright":$("nmtopright").checked, "nmbottomright":$("nmbottomright").checked, "nmbottomleft":$("nmbottomleft").checked, "nmcustom":$("nmcustom").checked, "nightactivetime":$("nightactivetime").checked, "nmbegintime":$("nmbegintime").value, "nmendtime":$("nmendtime").value, "lampandnightmode":$("lampandnightmode").checked, "eyechecklistwhite":$("eyechecklistwhite").checked, "eyechecklistblack":$("eyechecklistblack").checked, "nightmodebck":$("nightmodebck").value, "nightmodetxt":$("nightmodetxt").value, "no360youtube":$("no360youtube").checked, "videotool":$("videotool").checked, "reflection":$("reflection").checked, "reflectionamount":$("reflectionamount").value, "videotoolonly":$("videotoolonly").checked, "videotoolchecklistwhite":$("videotoolchecklistwhite").checked, "videotoolchecklistblack":$("videotoolchecklistblack").checked, "nightmodehyperlink":$("nightmodehyperlink").value, "block60fps":$("block60fps").checked, "excludedDomains":getalldomains("excludedDomainsBox"), "autodimDomains":getalldomains("autodimDomainsBox"), "atmosphereDomains":getalldomains("atmosphereDomainsBox"), "nightDomains":getalldomains("nightDomainsBox"), "autostopDomains":getalldomains("autostopDomainsBox"), "videotoolDomains":getalldomains("videotoolDomainsBox"), "videovolume":$("videovolume").checked, "videovolumecolor":$("videovolumecolor").value, "videovolumesteps":html5volumesteps.options[html5volumesteps.selectedIndex].value, "videovolumelabel":$("videovolumelabel").checked, "icon":$("btnpreview").getAttribute("data-icon"), "visopacity":$("visopacity").value, "videotoolcolor":$("videotoolcolor").value, "hovervideo":$("hovervideo").checked, "hovervideoamount":$("hovervideoamount").value, "mousespotlights":$("mousespotlights").checked, "drawatmosfps":$("drawatmosfps").value, "aplay":$("aplay").checked, "apause":$("apause").checked, "astop":$("astop").checked, "videozoom":$("videozoom").checked, "playrate":$("playrate").checked, "playrateamount":$("playrateamount").value, "speedtoolbar":$("speedtoolbar").checked, "atmosontotlmode":$("atmosontotlmode").checked, "titleinvertcolor":$("titleinvertcolor").value, "vpause":$("vpause").checked, "darkbrowsertheme":$("darkbrowsertheme").checked, "autostopred":$("autostopred").checked, "autostoptrans":$("autostoptrans").checked, "videovolumeposa":$("videovolumeposa").checked, "videovolumeposb":$("videovolumeposb").checked, "videovolumeposc":$("videovolumeposc").checked, "videovolumehold":$("videovolumehold").checked, "multiopacall":$("multiopacall").checked, "multiopacsel":$("multiopacsel").checked, "multiopacityDomains":JSON.stringify(websitemulti), "videovolumealt":$("videovolumealt").checked, "nightmodebydomain":$("nightmodebydomain").checked, "nightmodebypage":$("nightmodebypage").checked, "seeanalytics":$("seeanalytics").checked, "nightmodegesture":$("nightmodegesture").checked, "nightmodeswitchhide":$("nightmodeswitchhide").checked, "nightmodeswitchhidetime":$("nightmodeswitchhidetime").value, "atmosfpsauto":$("atmosfpsauto").checked, "atmosfpsmanual":$("atmosfpsmanual").checked, "videovolumeonly":$("videovolumeonly").checked, "videovolumechecklistwhite":$("videovolumechecklistwhite").checked, "videovolumechecklistblack":$("videovolumechecklistblack").checked, "videovolumeDomains":getalldomains("videovolumeDomainsBox"), "videovolumescrolla":$("videovolumescrolla").checked, "videovolumescrollb":$("videovolumescrollb").checked, "videovolumescrollc":$("videovolumescrollc").checked, "videovolumeposd":$("videovolumeposd").checked, "videovolumepose":$("videovolumepose").checked, "nightmodebutton":$("nightmodebutton").value, "gamepad":$("gamepad").checked, "nightmodeos":$("nightmodeos").checked, "gpleftstick":gpleftstick.options[gpleftstick.selectedIndex].value, "gprightstick":gprightstick.options[gprightstick.selectedIndex].value, "gpbtnx":gpbtnx.options[gpbtnx.selectedIndex].value, "gpbtno":gpbtno.options[gpbtno.selectedIndex].value, "gpbtnsquare":gpbtnsquare.options[gpbtnsquare.selectedIndex].value, "gpbtntriangle":gpbtntriangle.options[gpbtntriangle.selectedIndex].value, "gpbtnlb":gpbtnlb.options[gpbtnlb.selectedIndex].value, "gpbtnrb":gpbtnrb.options[gpbtnrb.selectedIndex].value, "gpbtnlt":gpbtnlt.options[gpbtnlt.selectedIndex].value, "gpbtnrt":gpbtnrt.options[gpbtnrt.selectedIndex].value, "gpbtnshare":gpbtnshare.options[gpbtnshare.selectedIndex].value, "gpbtnmenu":gpbtnmenu.options[gpbtnmenu.selectedIndex].value, "gpbtnrightstick":gpbtnrightstick.options[gpbtnrightstick.selectedIndex].value, "gpbtnleftstick":gpbtnleftstick.options[gpbtnleftstick.selectedIndex].value, "gpbtndirup":gpbtndirup.options[gpbtndirup.selectedIndex].value, "gpbtndirdown":gpbtndirdown.options[gpbtndirdown.selectedIndex].value, "gpbtndirleft":gpbtndirleft.options[gpbtndirleft.selectedIndex].value, "gpbtndirright":gpbtndirright.options[gpbtndirright.selectedIndex].value, "gpbtnlogo":gpbtnlogo.options[gpbtnlogo.selectedIndex].value, "nightmodeborder":$("nightmodeborder").value, "nmautobegintime":$("nmautobegintime").value, "nmautoendtime":$("nmautoendtime").value, "nmautoclock":$("nmautoclock").checked, "gamepadDomains":getalldomains("gamepadDomainsBox"), "gamepadchecklistwhite":$("gamepadchecklistwhite").checked, "gamepadchecklistblack":$("gamepadchecklistblack").checked, "gamepadonly":$("gamepadonly").checked, "nightmodeimage":$("nightmodeimage").checked, "nmimagedark":$("nmimagedark").value, "nmimagegray":$("nmimagegray").value, "autodimsize":$("autodimsize").checked, "autodimsizepixelheight":$("autodimsizepixelheight").value, "autodimsizepixelwidth":$("autodimsizepixelwidth").value, "pageautodim":$("pageautodim").checked, "pageautostop":$("pageautostop").checked, "pagenightmode":$("pagenightmode").checked});
+	chrome.storage.sync.set({"interval":$("interval").value, "lightcolor":$("lightcolor").value, "autodim":$("autodim").checked, "playlist":$("playlist").checked, "flash":$("flash").checked, "head":$("head").checked, "fadein":$("fadein").checked, "fadeout":$("fadeout").checked, "infobar":$("infobar").checked, "sharebutton":$("sharebutton").checked, "likebutton":$("likebutton").checked, "readera":$("readera").checked, "readern":$("readern").checked, "shortcutlight":$("shortcutlight").checked, "eyea":$("eyea").checked, "eyen":$("eyen").checked, "suggestions":$("suggestions").checked, "videoheadline":$("videoheadline").checked, "eastereggs":$("eastereggs").checked, "contextmenus":$("contextmenus").checked, "viewcount":$("viewcount").checked, "lightimage":$("lightimage").value, "lightimagea":$("lightimagea").checked, "lightimagen":$("lightimagen").checked, "eyealist":$("eyealist").checked, "mousespotlighto":$("mousespotlighto").checked, "mousespotlighta":$("mousespotlighta").checked, "mousespotlightc":$("mousespotlightc").checked, "nighttime":$("nighttime").checked, "begintime":$("begintime").value, "endtime":$("endtime").value, "addvideobutton":$("addvideobutton").checked, "likebar":$("likebar").checked, "ambilight":$("ambilight").checked, "ambilightrangeblurradius":$("ambilightrangeblurradius").value, "ambilightrangespreadradius":$("ambilightrangespreadradius").value, "mousespotlightt":$("mousespotlightt").checked, "ambilightfixcolor":$("ambilightfixcolor").checked, "ambilightvarcolor":$("ambilightvarcolor").checked, "ambilightcolorhex":$("ambilightcolorhex").value, "ambilight4color":$("ambilight4color").checked, "ambilight1colorhex":$("ambilight1colorhex").value, "ambilight2colorhex":$("ambilight2colorhex").value, "ambilight3colorhex":$("ambilight3colorhex").value, "ambilight4colorhex":$("ambilight4colorhex").value, "password":$("password").checked, "enterpassword":$("enterpassword").value, "noflash":$("noflash").checked, "hardflash":$("hardflash").checked, "ecosaver":$("ecosaver").checked, "ecosavertime":$("ecosavertime").value, "dynamic":$("dynamic").checked, "dynamic1":$("dynamic1").checked, "dynamic2":$("dynamic2").checked, "dynamic3":$("dynamic3").checked, "dynamic4":$("dynamic4").checked, "dynamic5":$("dynamic5").checked, "dynamic6":$("dynamic6").checked, "dynamic7":$("dynamic7").checked, "dynamic8":$("dynamic8").checked, "dynamic9":$("dynamic9").checked, "dynamic10":$("dynamic10").checked, "dynamic11":$("dynamic11").checked, "dynamic12":$("dynamic12").checked, "hoveroptiondyn5":$("hoveroptiondyn5").checked, "hoveroptiondyn11":$("hoveroptiondyn11").checked, "autodimonly":$("autodimonly").checked, "blur":$("blur").checked, "maxquality":ytselq.options[ytselq.selectedIndex].value, "autowidthyoutube":$("autowidthyoutube").checked, "customqualityyoutube":$("customqualityyoutube").checked, "cinemaontop":$("cinemaontop").checked, "alllightsoff":$("alllightsoff").checked, "spotlightradius":$("spotlightradius").value, "atmosphereonly":$("atmosphereonly").checked, "optionskipremember":$("optionskipremember").checked, "nighttheme":$("nighttheme").checked, "nightonly":$("nightonly").checked, "nightenabletheme":$("nightenabletheme").checked, "autodimdelay":$("autodimdelay").checked, "autodimdelaytime":$("autodimdelaytime").value, "lightimagelin":$("lightimagelin").checked, "linearsq":linearsq.options[linearsq.selectedIndex].value, "colora":$("colora").value, "intervallina":$("intervallina").value, "colorb":$("colorb").value, "intervallinb":$("intervallinb").value, "atmosvivid":$("atmosvivid").checked, "autodimchecklistwhite":$("autodimchecklistwhite").checked, "autodimchecklistblack":$("autodimchecklistblack").checked, "autostop":$("autostop").checked, "autostoponly":$("autostoponly").checked, "autostopchecklistwhite":$("autostopchecklistwhite").checked, "autostopchecklistblack":$("autostopchecklistblack").checked, "nighthover":$("nighthover").checked, "nightmodechecklistwhite":$("nightmodechecklistwhite").checked, "nightmodechecklistblack":$("nightmodechecklistblack").checked, "nmtopleft":$("nmtopleft").checked, "nmtopright":$("nmtopright").checked, "nmbottomright":$("nmbottomright").checked, "nmbottomleft":$("nmbottomleft").checked, "nmcustom":$("nmcustom").checked, "nightactivetime":$("nightactivetime").checked, "nmbegintime":$("nmbegintime").value, "nmendtime":$("nmendtime").value, "lampandnightmode":$("lampandnightmode").checked, "eyechecklistwhite":$("eyechecklistwhite").checked, "eyechecklistblack":$("eyechecklistblack").checked, "nightmodebck":$("nightmodebck").value, "nightmodetxt":$("nightmodetxt").value, "no360youtube":$("no360youtube").checked, "videotool":$("videotool").checked, "reflection":$("reflection").checked, "reflectionamount":$("reflectionamount").value, "videotoolonly":$("videotoolonly").checked, "videotoolchecklistwhite":$("videotoolchecklistwhite").checked, "videotoolchecklistblack":$("videotoolchecklistblack").checked, "nightmodehyperlink":$("nightmodehyperlink").value, "block60fps":$("block60fps").checked, "excludedDomains":getalldomains("excludedDomainsBox"), "autodimDomains":getalldomains("autodimDomainsBox"), "atmosphereDomains":getalldomains("atmosphereDomainsBox"), "nightDomains":getalldomains("nightDomainsBox"), "autostopDomains":getalldomains("autostopDomainsBox"), "videotoolDomains":getalldomains("videotoolDomainsBox"), "videovolume":$("videovolume").checked, "videovolumecolor":$("videovolumecolor").value, "videovolumesteps":html5volumesteps.options[html5volumesteps.selectedIndex].value, "videovolumelabel":$("videovolumelabel").checked, "icon":$("btnpreview").getAttribute("data-icon"), "visopacity":$("visopacity").value, "videotoolcolor":$("videotoolcolor").value, "hovervideo":$("hovervideo").checked, "hovervideoamount":$("hovervideoamount").value, "mousespotlights":$("mousespotlights").checked, "drawatmosfps":$("drawatmosfps").value, "aplay":$("aplay").checked, "apause":$("apause").checked, "astop":$("astop").checked, "videozoom":$("videozoom").checked, "playrate":$("playrate").checked, "playrateamount":$("playrateamount").value, "speedtoolbar":$("speedtoolbar").checked, "atmosontotlmode":$("atmosontotlmode").checked, "titleinvertcolor":$("titleinvertcolor").value, "vpause":$("vpause").checked, "darkbrowsertheme":$("darkbrowsertheme").checked, "autostopred":$("autostopred").checked, "autostoptrans":$("autostoptrans").checked, "videovolumeposa":$("videovolumeposa").checked, "videovolumeposb":$("videovolumeposb").checked, "videovolumeposc":$("videovolumeposc").checked, "videovolumehold":$("videovolumehold").checked, "multiopacall":$("multiopacall").checked, "multiopacsel":$("multiopacsel").checked, "multiopacityDomains":JSON.stringify(websitemulti), "videovolumealt":$("videovolumealt").checked, "nightmodebydomain":$("nightmodebydomain").checked, "nightmodebypage":$("nightmodebypage").checked, "seeanalytics":$("seeanalytics").checked, "nightmodegesture":$("nightmodegesture").checked, "nightmodeswitchhide":$("nightmodeswitchhide").checked, "nightmodeswitchhidetime":$("nightmodeswitchhidetime").value, "atmosfpsauto":$("atmosfpsauto").checked, "atmosfpsmanual":$("atmosfpsmanual").checked, "videovolumeonly":$("videovolumeonly").checked, "videovolumechecklistwhite":$("videovolumechecklistwhite").checked, "videovolumechecklistblack":$("videovolumechecklistblack").checked, "videovolumeDomains":getalldomains("videovolumeDomainsBox"), "videovolumescrolla":$("videovolumescrolla").checked, "videovolumescrollb":$("videovolumescrollb").checked, "videovolumescrollc":$("videovolumescrollc").checked, "videovolumeposd":$("videovolumeposd").checked, "videovolumepose":$("videovolumepose").checked, "nightmodebutton":$("nightmodebutton").value, "gamepad":$("gamepad").checked, "nightmodeos":$("nightmodeos").checked, "gpleftstick":gpleftstick.options[gpleftstick.selectedIndex].value, "gprightstick":gprightstick.options[gprightstick.selectedIndex].value, "gpbtnx":gpbtnx.options[gpbtnx.selectedIndex].value, "gpbtno":gpbtno.options[gpbtno.selectedIndex].value, "gpbtnsquare":gpbtnsquare.options[gpbtnsquare.selectedIndex].value, "gpbtntriangle":gpbtntriangle.options[gpbtntriangle.selectedIndex].value, "gpbtnlb":gpbtnlb.options[gpbtnlb.selectedIndex].value, "gpbtnrb":gpbtnrb.options[gpbtnrb.selectedIndex].value, "gpbtnlt":gpbtnlt.options[gpbtnlt.selectedIndex].value, "gpbtnrt":gpbtnrt.options[gpbtnrt.selectedIndex].value, "gpbtnshare":gpbtnshare.options[gpbtnshare.selectedIndex].value, "gpbtnmenu":gpbtnmenu.options[gpbtnmenu.selectedIndex].value, "gpbtnrightstick":gpbtnrightstick.options[gpbtnrightstick.selectedIndex].value, "gpbtnleftstick":gpbtnleftstick.options[gpbtnleftstick.selectedIndex].value, "gpbtndirup":gpbtndirup.options[gpbtndirup.selectedIndex].value, "gpbtndirdown":gpbtndirdown.options[gpbtndirdown.selectedIndex].value, "gpbtndirleft":gpbtndirleft.options[gpbtndirleft.selectedIndex].value, "gpbtndirright":gpbtndirright.options[gpbtndirright.selectedIndex].value, "gpbtnlogo":gpbtnlogo.options[gpbtnlogo.selectedIndex].value, "nightmodeborder":$("nightmodeborder").value, "nmautobegintime":$("nmautobegintime").value, "nmautoendtime":$("nmautoendtime").value, "nmautoclock":$("nmautoclock").checked, "gamepadDomains":getalldomains("gamepadDomainsBox"), "gamepadchecklistwhite":$("gamepadchecklistwhite").checked, "gamepadchecklistblack":$("gamepadchecklistblack").checked, "gamepadonly":$("gamepadonly").checked, "nightmodeimage":$("nightmodeimage").checked, "nmimagedark":$("nmimagedark").value, "nmimagegray":$("nmimagegray").value, "autodimsize":$("autodimsize").checked, "autodimsizepixelheight":$("autodimsizepixelheight").value, "autodimsizepixelwidth":$("autodimsizepixelwidth").value, "pageautodim":$("pageautodim").checked, "pageautostop":$("pageautostop").checked, "pagenightmode":$("pagenightmode").checked, "nightmodestandard":$("nightmodestandard").checked, "nightmodepersonalized":$("nightmodepersonalized").checked, "autostopsize":$("autostopsize").checked, "autostopsizepixelheight":$("autostopsizepixelheight").value, "autostopsizepixelwidth":$("autostopsizepixelwidth").value, "nightdarkmodeactive":$("nightdarkmodeactive").checked, "swnightmodeborder":$("swnightmodeborder").checked, "swnightmodebutton":$("swnightmodebutton").checked, "swnightmodehyperlink":$("swnightmodehyperlink").checked, "swnightmodebck":$("swnightmodebck").checked, "swnightmodetxt":$("swnightmodetxt").checked, "videofilled":$("videofilled").checked, "nightskipcolor": $("nightskipcolor").checked});
 }
 
 var firstdefaultvalues = {};
 function defaultgetsettings(){
 	// Option default value to read if there is no current value from chrome.storage AND init default value
-	chrome.storage.sync.get(["lightcolor", "ambilightcolorhex", "ambilight1colorhex", "ambilight2colorhex", "ambilight3colorhex", "ambilight4colorhex", "colora", "colorb", "nightmodebck", "nightmodetxt", "nightmodehyperlink", "videovolumecolor", "videotoolcolor", "titleinvertcolor", "nightmodebutton", "lightimage", "spotlightradius", "linearsq", "intervallina", "intervallinb", "reflectionamount", "videovolumesteps", "nmbegintime", "nmendtime", "ecosavertime", "begintime", "endtime", "nightmodeswitchhidetime", "playrateamount", "drawatmosfps", "hovervideoamount", "visopacity", "autodimdelaytime", "autodimDomains", "atmosphereDomains", "nightDomains", "autostopDomains", "videotoolDomains", "videovolumeDomains", "multiopacityDomains", "fadein", "fadeout", "readera", "readern", "lightimagea", "lightimagen", "mousespotlighta", "mousespotlightc", "mousespotlighto", "mousespotlightt", "eyea", "eyen", "eyealist", "interval", "ambilightrangeblurradius", "ambilightrangespreadradius", "ambilightvarcolor", "ambilightfixcolor", "ambilight4color", "flash", "noflash", "noflash", "dynamic1", "dynamic2", "dynamic3", "dynamic4", "dynamic5", "dynamic6", "dynamic7", "dynamic8", "dynamic9", "dynamic10", "dynamic11", "dynamic12", "hoveroptiondyn5", "maxquality", "autodimchecklistwhite", "autodimchecklistblack", "autostopchecklistwhite", "autostopchecklistblack", "videotoolchecklistwhite", "videotoolchecklistblack", "nightmodechecklistwhite", "nightmodechecklistblack", "nmtopleft", "nmtopright", "nmbottomright", "nmbottomleft", "nmcustom", "eyechecklistwhite", "eyechecklistblack", "videovolumesteps", "videovolumelabel", "mousespotlights", "aplay", "apause", "astop", "autostopred", "autostoptrans", "videovolumeposa", "videovolumeposb", "videovolumeposc", "multiopacall", "multiopacsel", "nightmodebydomain", "nightmodebypage", "seeanalytics", "atmosfpsauto", "atmosfpsmanual", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose", "gpleftstick", "gprightstick", "gpbtnx", "gpbtno", "gpbtnsquare", "gpbtntriangle", "gpbtnlb", "gpbtnrb", "gpbtnlt", "gpbtnrt", "gpbtnshare", "gpbtnmenu", "gpbtnrightstick", "gpbtnleftstick", "gpbtndirup", "gpbtndirdown", "gpbtndirleft", "gpbtndirright", "gpbtnlogo", "nightmodeborder", "nmautobegintime", "nmautoendtime", "gamepadDomains", "gamepadchecklistwhite", "gamepadchecklistblack", "nightmodeimage", "nmimagedark", "nmimagegray", "autodimsize", "autodimsizepixelheight", "autodimsizepixelwidth", "pageautodim", "pageautostop", "pagenightmode"], function(items){
+	chrome.storage.sync.get(["lightcolor", "ambilightcolorhex", "ambilight1colorhex", "ambilight2colorhex", "ambilight3colorhex", "ambilight4colorhex", "colora", "colorb", "nightmodebck", "nightmodetxt", "nightmodehyperlink", "videovolumecolor", "videotoolcolor", "titleinvertcolor", "nightmodebutton", "lightimage", "spotlightradius", "linearsq", "intervallina", "intervallinb", "reflectionamount", "videovolumesteps", "nmbegintime", "nmendtime", "ecosavertime", "begintime", "endtime", "nightmodeswitchhidetime", "playrateamount", "drawatmosfps", "hovervideoamount", "visopacity", "autodimdelaytime", "autodimDomains", "atmosphereDomains", "nightDomains", "autostopDomains", "videotoolDomains", "videovolumeDomains", "multiopacityDomains", "fadein", "fadeout", "readera", "readern", "lightimagea", "lightimagen", "mousespotlighta", "mousespotlightc", "mousespotlighto", "mousespotlightt", "eyea", "eyen", "eyealist", "interval", "ambilightrangeblurradius", "ambilightrangespreadradius", "ambilightvarcolor", "ambilightfixcolor", "ambilight4color", "flash", "noflash", "noflash", "dynamic1", "dynamic2", "dynamic3", "dynamic4", "dynamic5", "dynamic6", "dynamic7", "dynamic8", "dynamic9", "dynamic10", "dynamic11", "dynamic12", "hoveroptiondyn5", "hoveroptiondyn11", "maxquality", "autodimchecklistwhite", "autodimchecklistblack", "autostopchecklistwhite", "autostopchecklistblack", "videotoolchecklistwhite", "videotoolchecklistblack", "nightmodechecklistwhite", "nightmodechecklistblack", "nmtopleft", "nmtopright", "nmbottomright", "nmbottomleft", "nmcustom", "eyechecklistwhite", "eyechecklistblack", "videovolumesteps", "videovolumelabel", "mousespotlights", "aplay", "apause", "astop", "autostopred", "autostoptrans", "videovolumeposa", "videovolumeposb", "videovolumeposc", "multiopacall", "multiopacsel", "nightmodebydomain", "nightmodebypage", "seeanalytics", "atmosfpsauto", "atmosfpsmanual", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose", "gpleftstick", "gprightstick", "gpbtnx", "gpbtno", "gpbtnsquare", "gpbtntriangle", "gpbtnlb", "gpbtnrb", "gpbtnlt", "gpbtnrt", "gpbtnshare", "gpbtnmenu", "gpbtnrightstick", "gpbtnleftstick", "gpbtndirup", "gpbtndirdown", "gpbtndirleft", "gpbtndirright", "gpbtnlogo", "nightmodeborder", "nmautobegintime", "nmautoendtime", "gamepadDomains", "gamepadchecklistwhite", "gamepadchecklistblack", "nightmodeimage", "nmimagedark", "nmimagegray", "autodimsize", "autodimsizepixelheight", "autodimsizepixelwidth", "pageautodim", "pageautostop", "pagenightmode", "nightmodestandard", "nightmodepersonalized", "autostopsize", "autostopsizepixelheight", "autostopsizepixelwidth", "swnightmodeborder", "swnightmodebutton", "swnightmodehyperlink", "swnightmodebck", "swnightmodetxt"], function(items){
 		// find no localstore lightcolor
 		if(items["lightcolor"] == null){ firstdefaultvalues["lightcolor"] = "#000000"; }
 		// find no localstore ambilightcolorhex
@@ -166,6 +166,12 @@ function defaultgetsettings(){
 		if(items["intervallinb"] == null){ firstdefaultvalues["intervallinb"] = 100; }
 		if(items["reflectionamount"] == null){ firstdefaultvalues["reflectionamount"] = 20; }
 		if(items["videovolumesteps"] == null){ firstdefaultvalues["reflectionamount"] = 5; }
+
+		if(items["swnightmodeborder"] == null){ firstdefaultvalues["swnightmodeborder"] = true; }
+		if(items["swnightmodebutton"] == null){ firstdefaultvalues["swnightmodebutton"] = true; }
+		if(items["swnightmodehyperlink"] == null){ firstdefaultvalues["swnightmodehyperlink"] = true; }
+		if(items["swnightmodebck"] == null){ firstdefaultvalues["swnightmodebck"] = true; }
+		if(items["swnightmodetxt"] == null){ firstdefaultvalues["swnightmodetxt"] = true; }
 
 		if(items["nightmodeimage"] == null){ firstdefaultvalues["nightmodeimage"] = false; }
 		if(items["nmimagedark"] == null){ firstdefaultvalues["nmimagedark"] = 60; }
@@ -227,6 +233,8 @@ function defaultgetsettings(){
 		if(items["dynamic1"] == null && items["dynamic2"] == null && items["dynamic3"] == null && items["dynamic4"] == null && items["dynamic5"] == null && items["dynamic6"] == null && items["dynamic7"] == null && items["dynamic8"] == null && items["dynamic9"] == null && items["dynamic10"] == null){ firstdefaultvalues["dynamic1"] = true; firstdefaultvalues["dynamic2"] = false; firstdefaultvalues["dynamic3"] = false; firstdefaultvalues["dynamic4"] = false; firstdefaultvalues["dynamic5"] = false; firstdefaultvalues["dynamic6"] = false; firstdefaultvalues["dynamic7"] = false; firstdefaultvalues["dynamic8"] = false; firstdefaultvalues["dynamic9"] = false; firstdefaultvalues["dynamic10"] = false; firstdefaultvalues["dynamic11"] = false; firstdefaultvalues["dynamic12"] = false; }
 		// find no localstore hoverdyn
 		if(items["hoveroptiondyn5"] == null){ firstdefaultvalues["hoveroptiondyn5"] = true; }
+		// find no localstore hoverdyn
+		if(items["hoveroptiondyn11"] == null){ firstdefaultvalues["hoveroptiondyn11"] = true; }
 		// find no localstore maxquality
 		if(items["maxquality"] == null){ firstdefaultvalues["maxquality"] = "hd1080"; }
 		// find no localstore autodim whitelist
@@ -267,6 +275,9 @@ function defaultgetsettings(){
 		// find no localstore a nightmodebydomain
 		if(items["nightmodebydomain"] == null && items["nightmodebypage"] == null){ firstdefaultvalues["nightmodebydomain"] = true; firstdefaultvalues["nightmodebypage"] = false; }
 
+		// find no localstore a nightmodepersonalized
+		if(items["nightmodepersonalized"] == null && items["nightmodestandard"] == null){ firstdefaultvalues["nightmodepersonalized"] = true; firstdefaultvalues["nightmodestandard"] = false; }
+
 		// find no localstore a seeanalytics
 		if(items["seeanalytics"] == null){ firstdefaultvalues["seeanalytics"] = true; }
 
@@ -301,6 +312,10 @@ function defaultgetsettings(){
 		if(items["autodimsize"] == null){ firstdefaultvalues["autodimsize"] = false; }
 		if(items["autodimsizepixelheight"] == null){ firstdefaultvalues["autodimsizepixelheight"] = 220; }
 		if(items["autodimsizepixelwidth"] == null){ firstdefaultvalues["autodimsizepixelwidth"] = 250; }
+
+		if(items["autostopsize"] == null){ firstdefaultvalues["autostopsize"] = false; }
+		if(items["autostopsizepixelheight"] == null){ firstdefaultvalues["autostopsizepixelheight"] = 280; }
+		if(items["autostopsizepixelwidth"] == null){ firstdefaultvalues["autostopsizepixelwidth"] = 500; }
 
 		if(items["lightcolor"] == null){
 			if(exbrowser == "safari"){
@@ -432,14 +447,14 @@ function read_options(){
 		showhidemodal("materialModalYouTube", "hide", "true");
 	}
 
-	var settingscheckboxarray = ["lightimagea", "lightimagen", "autodim", "playlist", "flash", "head", "fadein", "fadeout", "infobar", "sharebutton", "likebutton", "readera", "readern", "shortcutlight", "eyea", "eyen", "suggestions", "videoheadline", "eastereggs", "contextmenus", "viewcount", "eyealist", "mousespotlighto", "mousespotlightc", "mousespotlighta", "nighttime", "addvideobutton", "likebar", "ambilight", "mousespotlightt", "ambilightfixcolor", "ambilightvarcolor", "ambilight4color", "password", "noflash", "hardflash", "ecosaver", "hoveroptiondyn5", "blur", "autowidthyoutube", "customqualityyoutube", "cinemaontop", "alllightsoff", "optionskipremember", "nighttheme", "nightenabletheme", "autodimdelay", "lightimagelin", "atmosvivid", "autodimchecklistwhite", "autodimchecklistblack", "autostop", "autostopchecklistwhite", "autostopchecklistblack", "nighthover", "nightmodechecklistwhite", "nightmodechecklistblack", "nmtopleft", "nmtopright", "nmbottomright", "nmbottomleft", "nmcustom", "nightactivetime", "eyechecklistwhite", "eyechecklistblack", "no360youtube", "videotool", "reflection", "videotoolonly", "videotoolchecklistwhite", "videotoolchecklistblack", "block60fps", "videovolume", "videovolumelabel", "hovervideo", "mousespotlights", "aplay", "apause", "astop", "videozoom", "playrate", "speedtoolbar", "atmosontotlmode", "vpause", "darkbrowsertheme", "autostopred", "autostoptrans", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumehold", "multiopacall", "multiopacsel", "videovolumealt", "nightmodebydomain", "nightmodebypage", "seeanalytics", "nightmodegesture", "nightmodeswitchhide", "atmosfpsauto", "atmosfpsmanual", "videovolumeonly", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose", "gamepad", "dynamic", "dynamic1", "dynamic2", "dynamic3", "dynamic4", "dynamic5", "dynamic6", "dynamic7", "dynamic8", "dynamic9", "dynamic10", "dynamic11", "dynamic12", "autodimonly", "atmosphereonly", "nightonly", "autostoponly", "lampandnightmode", "nightmodeos", "nmautoclock", "gamepadchecklistwhite", "gamepadchecklistblack", "gamepadonly", "nightmodeimage", "autodimsize", "pageautodim", "pageautostop", "pagenightmode"];
+	var settingscheckboxarray = ["lightimagea", "lightimagen", "autodim", "playlist", "flash", "head", "fadein", "fadeout", "infobar", "sharebutton", "likebutton", "readera", "readern", "shortcutlight", "eyea", "eyen", "suggestions", "videoheadline", "eastereggs", "contextmenus", "viewcount", "eyealist", "mousespotlighto", "mousespotlightc", "mousespotlighta", "nighttime", "addvideobutton", "likebar", "ambilight", "mousespotlightt", "ambilightfixcolor", "ambilightvarcolor", "ambilight4color", "password", "noflash", "hardflash", "ecosaver", "hoveroptiondyn5", "hoveroptiondyn11", "blur", "autowidthyoutube", "customqualityyoutube", "cinemaontop", "alllightsoff", "optionskipremember", "nighttheme", "nightenabletheme", "autodimdelay", "lightimagelin", "atmosvivid", "autodimchecklistwhite", "autodimchecklistblack", "autostop", "autostopchecklistwhite", "autostopchecklistblack", "nighthover", "nightmodechecklistwhite", "nightmodechecklistblack", "nmtopleft", "nmtopright", "nmbottomright", "nmbottomleft", "nmcustom", "nightactivetime", "eyechecklistwhite", "eyechecklistblack", "no360youtube", "videotool", "reflection", "videotoolonly", "videotoolchecklistwhite", "videotoolchecklistblack", "block60fps", "videovolume", "videovolumelabel", "hovervideo", "mousespotlights", "aplay", "apause", "astop", "videozoom", "playrate", "speedtoolbar", "atmosontotlmode", "vpause", "darkbrowsertheme", "autostopred", "autostoptrans", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumehold", "multiopacall", "multiopacsel", "videovolumealt", "nightmodebydomain", "nightmodebypage", "seeanalytics", "nightmodegesture", "nightmodeswitchhide", "atmosfpsauto", "atmosfpsmanual", "videovolumeonly", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose", "gamepad", "dynamic", "dynamic1", "dynamic2", "dynamic3", "dynamic4", "dynamic5", "dynamic6", "dynamic7", "dynamic8", "dynamic9", "dynamic10", "dynamic11", "dynamic12", "autodimonly", "atmosphereonly", "nightonly", "autostoponly", "lampandnightmode", "nightmodeos", "nmautoclock", "gamepadchecklistwhite", "gamepadchecklistblack", "gamepadonly", "nightmodeimage", "autodimsize", "pageautodim", "pageautostop", "pagenightmode", "nightmodestandard", "nightmodepersonalized", "autostopsize", "nightdarkmodeactive", "swnightmodeborder", "swnightmodebutton", "swnightmodehyperlink", "swnightmodebck", "swnightmodetxt", "videofilled", "nightskipcolor"];
 	function setcheckboxoptions(a){
 		for(var iset = 0; iset < settingscheckboxarray.length; iset++){
 			if(a[settingscheckboxarray[iset]] == true){ $(settingscheckboxarray[iset]).checked = true; }
 		}
 	}
 
-	var settingsinputrarray = ["lightcolor", "ambilightcolorhex", "ambilight1colorhex", "ambilight2colorhex", "ambilight3colorhex", "ambilight4colorhex", "colora", "colorb", "nightmodebck", "nightmodetxt", "nightmodehyperlink", "videovolumecolor", "videotoolcolor", "titleinvertcolor", "nightmodebutton", "lightimage", "enterpassword", "spotlightradius", "linearsq", "intervallina", "intervallinb", "reflectionamount", "videovolumesteps", "nmbegintime", "nmendtime", "ecosavertime", "begintime", "endtime", "nightmodeswitchhidetime", "playrateamount", "drawatmosfps", "hovervideoamount", "visopacity", "autodimdelaytime", "maxquality", "interval", "ambilightrangeblurradius", "ambilightrangespreadradius", "gpleftstick", "gprightstick", "gpbtnx", "gpbtno", "gpbtnsquare", "gpbtntriangle", "gpbtnlb", "gpbtnrb", "gpbtnlt", "gpbtnrt", "gpbtnshare", "gpbtnmenu", "gpbtnrightstick", "gpbtnleftstick", "gpbtndirup", "gpbtndirdown", "gpbtndirleft", "gpbtndirright", "gpbtnlogo", "nightmodeborder", "nmautobegintime", "nmautoendtime", "nmimagedark", "nmimagegray", "autodimsizepixelheight", "autodimsizepixelwidth"];
+	var settingsinputrarray = ["lightcolor", "ambilightcolorhex", "ambilight1colorhex", "ambilight2colorhex", "ambilight3colorhex", "ambilight4colorhex", "colora", "colorb", "nightmodebck", "nightmodetxt", "nightmodehyperlink", "videovolumecolor", "videotoolcolor", "titleinvertcolor", "nightmodebutton", "lightimage", "enterpassword", "spotlightradius", "linearsq", "intervallina", "intervallinb", "reflectionamount", "videovolumesteps", "nmbegintime", "nmendtime", "ecosavertime", "begintime", "endtime", "nightmodeswitchhidetime", "playrateamount", "drawatmosfps", "hovervideoamount", "visopacity", "autodimdelaytime", "maxquality", "interval", "ambilightrangeblurradius", "ambilightrangespreadradius", "gpleftstick", "gprightstick", "gpbtnx", "gpbtno", "gpbtnsquare", "gpbtntriangle", "gpbtnlb", "gpbtnrb", "gpbtnlt", "gpbtnrt", "gpbtnshare", "gpbtnmenu", "gpbtnrightstick", "gpbtnleftstick", "gpbtndirup", "gpbtndirdown", "gpbtndirleft", "gpbtndirright", "gpbtnlogo", "nightmodeborder", "nmautobegintime", "nmautoendtime", "nmimagedark", "nmimagegray", "autodimsizepixelheight", "autodimsizepixelwidth", "autostopsizepixelheight", "autostopsizepixelwidth"];
 	function setinputoptions(a){
 		for(var iset = 0; iset < settingsinputrarray.length; iset++){
 			if(a[settingsinputrarray[iset]]){ $(settingsinputrarray[iset]).value = a[settingsinputrarray[iset]]; }
@@ -513,37 +528,6 @@ function read_options(){
 		// donation bar
 		if(devdonate == true){
 			$("managed-prefs-banner").className = "hidden";
-		}
-
-		// load tab div
-		var tabListItems = $("navbar").childNodes;
-		var i, l = tabListItems.length;
-		for(i = 0; i < l; i++){
-			if(tabListItems[i].nodeName == "LI"){
-				var tabLink = getFirstChildWithTagName(tabListItems[i], "A");
-				var id = getHash(tabLink.getAttribute("data-tab"));
-				tabLinks[id] = tabLink;
-				contentDivs[id] = document.getElementById(id);
-			}
-		}
-
-		// Assign onclick events to the tab links, and
-		// highlight the first tab
-		var tabi = 0;
-		var tabid;
-		for(tabid in tabLinks){
-			tabLinks[tabid].onclick = showTab;
-			tabLinks[tabid].onfocus = function(){ this.blur(); };
-			if(tabi == 0) tabLinks[tabid].className = "navbar-item-selected";
-			tabi++;
-		}
-
-		// Hide all content divs except the first
-		var contenti = 0;
-		var contentid;
-		for(contentid in contentDivs){
-			if(contenti != 0) contentDivs[contentid].className = "page hidden";
-			contenti++;
 		}
 
 		// display version number
@@ -691,12 +675,6 @@ window.requestAnimFrame = function(){
 	);
 }();
 
-/* function getPosition(el){
-var xPos = 0; var yPos = 0;
-while(el){ xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft); yPos += (el.offsetTop - el.scrollTop + el.clientTop); el = el.offsetParent; }
-return{x:xPos,y:yPos};
-}*/
-
 var countA = 0, countB = 0, countC = 0; // start from zero (blur spread) and size (left right top under) position
 
 function rgbToHex(r, g, b){
@@ -818,11 +796,8 @@ function drawAtmos(){
 			if($("atmosvivid").checked == true){
 				if($("stefanvdvivideffect1")){
 					showtime.style["boxShadow"] = "none";
-					// var newpositionvivid = getPosition(showtime);
 					var tempwidthvideo = showtime.offsetWidth;
 					var tempheightvideo = showtime.offsetHeight;
-					// var tempvisscrollleft = window.pageXOffset || document.documentElement.scrollLeft;
-					// var tempvisscrolltop = window.pageYOffset || document.documentElement.scrollTop;
 					var newvivid = $("stefanvdvivideffect1");
 					newvivid.style.webkitTransform = "scale(" + 1.1 + ")";
 					newvivid.style.webkitFilter = "blur(" + 30 + "px)";
@@ -1228,14 +1203,61 @@ function test(){
 
 	if($("nighttheme").checked == true){ $("nighthover").disabled = false; $("nightmodeswitchhide").disabled = false; $("nightmodeswitchhidetime").disabled = false; $("nightactivetime").disabled = false; }else{ $("nighthover").disabled = true; $("nightmodeswitchhide").disabled = true; $("nightmodeswitchhidetime").disabled = true; $("nightactivetime").disabled = true; }
 
-	if($("nightmodeimage").checked == true){ $("nmimagedark").disabled = false; $("nmimagegray").disabled = false; }else{ $("nmimagedark").disabled = true; $("nmimagegray").disabled = true; }
+	if($("nightmodeimage").checked == true && $("nightmodepersonalized").checked == true){ $("nmimagedark").disabled = false; $("nmimagegray").disabled = false; }else{ $("nmimagedark").disabled = true; $("nmimagegray").disabled = true; }
+
+	if($("nightmodestandard").checked == true){
+		$("swnightmodebck").disabled = true;
+		$("swnightmodetxt").disabled = true;
+		$("swnightmodehyperlink").disabled = true;
+		$("swnightmodebutton").disabled = true;
+		$("swnightmodeborder").disabled = true;
+		$("nightmodeimage").disabled = true;
+	}else{
+		$("swnightmodebck").disabled = false;
+		$("swnightmodetxt").disabled = false;
+		$("swnightmodehyperlink").disabled = false;
+		$("swnightmodebutton").disabled = false;
+		$("swnightmodeborder").disabled = false;
+		$("nightmodeimage").disabled = false;
+	}
+
+	if($("swnightmodebck").checked == true && $("nightmodepersonalized").checked == true){
+		$("nightmodebck").disabled = false;
+	}else{
+		$("nightmodebck").disabled = true;
+	}
+
+	if($("swnightmodetxt").checked == true && $("nightmodepersonalized").checked == true){
+		$("nightmodetxt").disabled = false;
+	}else{
+		$("nightmodetxt").disabled = true;
+	}
+
+	if($("swnightmodehyperlink").checked == true && $("nightmodepersonalized").checked == true){
+		$("nightmodehyperlink").disabled = false;
+	}else{
+		$("nightmodehyperlink").disabled = true;
+	}
+
+	if($("swnightmodebutton").checked == true && $("nightmodepersonalized").checked == true){
+		$("nightmodebutton").disabled = false;
+	}else{
+		$("nightmodebutton").disabled = true;
+	}
+
+	if($("swnightmodeborder").checked == true && $("nightmodepersonalized").checked == true){
+		$("nightmodeborder").disabled = false;
+	}else{
+		$("nightmodeborder").disabled = true;
+	}
 
 	if($("autostoponly").checked == true){ $("autostopchecklistwhite").disabled = false; $("autostopchecklistblack").disabled = false; $("autostopDomainsBox").disabled = false; $("autostopwebsiteurl").disabled = false; $("autostopaddbutton").disabled = false; $("autostopremovebutton").disabled = false; }else{ $("autostopchecklistwhite").disabled = true; $("autostopchecklistblack").disabled = true; $("autostopDomainsBox").disabled = true; $("autostopwebsiteurl").disabled = true; $("autostopaddbutton").disabled = true; $("autostopremovebutton").disabled = true; }
 
 	if($("autostop").checked == true){
-		$("autostopred").disabled = false; $("autostoptrans").disabled = false; $("autostoponly").disabled = false;
+		$("autostopred").disabled = false; $("autostoptrans").disabled = false; $("autostopsize").disabled = false; $("autostoponly").disabled = false;
+		if($("autostopsize").checked == true){ $("autostopsizepixelwidth").disabled = false; $("autostopsizepixelheight").disabled = false; }else{ $("autostopsizepixelwidth").disabled = true; $("autostopsizepixelheight").disabled = true; }
 	}else{
-		$("autostopred").disabled = true; $("autostoptrans").disabled = true; $("autostoponly").disabled = true; $("autostopchecklistwhite").disabled = true; $("autostopchecklistblack").disabled = true; $("autostopwebsiteurl").disabled = true; $("autostopaddbutton").disabled = true; $("autostopremovebutton").disabled = true; $("autostopDomainsBox").disabled = true;
+		$("autostopred").disabled = true; $("autostoptrans").disabled = true; $("autostoponly").disabled = true; $("autostopchecklistwhite").disabled = true; $("autostopchecklistblack").disabled = true; $("autostopwebsiteurl").disabled = true; $("autostopaddbutton").disabled = true; $("autostopremovebutton").disabled = true; $("autostopDomainsBox").disabled = true; $("autostopsize").disabled = true; $("autostopsizepixelwidth").disabled = true; $("autostopsizepixelheight").disabled = true;
 	}
 
 	if($("videotool").checked == true){ $("videozoom").disabled = false; $("speedtoolbar").disabled = false; $("videotoolonly").disabled = false; $("videotoolcolor").disabled = false; }else{ $("videozoom").disabled = true; $("speedtoolbar").disabled = true; $("videotoolonly").disabled = true; $("videotoolcolor").disabled = true; }
@@ -1810,9 +1832,11 @@ function dynamictest(){
 	if($("dynamic").checked == true){
 		$("lightdynamic").disabled = false;
 		if($("dynamic5").checked == true){ $("hoveroptiondyn5").disabled = false; }else{ $("hoveroptiondyn5").disabled = true; }
+		if($("dynamic11").checked == true){ $("hoveroptiondyn11").disabled = false; }else{ $("hoveroptiondyn11").disabled = true; }
 	}else{
 		$("lightdynamic").disabled = true;
 		$("hoveroptiondyn5").disabled = true;
+		$("hoveroptiondyn11").disabled = true;
 	}
 
 	if($("dynamic1").checked == true){ setdynamiclabel(chrome.i18n.getMessage("desdynamicfishtank")); }else if($("dynamic2").checked == true){ setdynamiclabel(chrome.i18n.getMessage("desdynamicblocks")); }else if($("dynamic3").checked == true){ setdynamiclabel(chrome.i18n.getMessage("desdynamicraindrops")); }else if($("dynamic4").checked == true){ setdynamiclabel(chrome.i18n.getMessage("desdynamiccloud")); }else if($("dynamic5").checked == true){ setdynamiclabel(chrome.i18n.getMessage("desdynamicspace")); }else if($("dynamic6").checked == true){ setdynamiclabel(chrome.i18n.getMessage("desdynamicsmoke")); }else if($("dynamic7").checked == true){ setdynamiclabel(chrome.i18n.getMessage("desdynamicdotscolor")); }else if($("dynamic8").checked == true){ setdynamiclabel(chrome.i18n.getMessage("desdynamicstorm")); }else if($("dynamic9").checked == true){ setdynamiclabel(chrome.i18n.getMessage("desdynamictriangulation")); }else if($("dynamic10").checked == true){ setdynamiclabel(chrome.i18n.getMessage("desdynamicstars")); }else if($("dynamic11").checked == true){ setdynamiclabel(chrome.i18n.getMessage("desdynamicaquarium")); }else if($("dynamic12").checked == true){ setdynamiclabel(chrome.i18n.getMessage("desdynamicfireworks")); }
@@ -1987,6 +2011,20 @@ function dynamictest(){
 			aquarium.appendChild(jellyfish);
 
 			animateJellyfish(jellyfish);
+
+			if($("hoveroptiondyn11").checked == true){
+				var newairleft = document.createElement("div"); newairleft.setAttribute("class", "stefanvddynamicbackgroundbubbleleft"); aquarium.appendChild(newairleft);
+				var airlefti;
+				for(airlefti = 0; airlefti < 5; airlefti++){ var newairbubbleleft = document.createElement("div"); newairbubbleleft.setAttribute("class", "stefanvddynamicbackgroundbubbles stefanvddynamicbubbles" + airlefti + ""); newairleft.appendChild(newairbubbleleft); }
+
+				var newairmid = document.createElement("div"); newairmid.setAttribute("class", "stefanvddynamicbackgroundbubblemid"); aquarium.appendChild(newairmid);
+				var airmidi;
+				for(airmidi = 6; airmidi < 10; airmidi++){ var newairbubblemid = document.createElement("div"); newairbubblemid.setAttribute("class", "stefanvddynamicbackgroundbubbles stefanvddynamicbubbles" + airmidi + ""); newairmid.appendChild(newairbubblemid); }
+
+				var newairright = document.createElement("div"); newairright.setAttribute("class", "stefanvddynamicbackgroundbubbleright"); aquarium.appendChild(newairright);
+				var airrighti;
+				for(airrighti = 11; airrighti < 16; airrighti++){ var newairbubble = document.createElement("div"); newairbubble.setAttribute("class", "stefanvddynamicbackgroundbubbles stefanvddynamicbubbles" + airrighti + ""); newairright.appendChild(newairbubble); }
+			}
 
 			// Resize event to reposition elements within the window bounds on resize
 			window.addEventListener("resize", () => {
@@ -2233,6 +2271,26 @@ function setmetathemepopup(a){
 	}
 }
 
+function activateTab(tabName){
+	if(tabName == "basic"){
+		document.getElementById("tabbasic").click();
+	}else if(tabName == "visual"){
+		document.getElementById("tabvisual").click();
+	}else if(tabName == "advanced"){
+		document.getElementById("tabadvan").click();
+	}else if(tabName == "nightmode"){
+		document.getElementById("tabnight").click();
+	}else if(tabName == "gamepad"){
+		document.getElementById("tabgamepad").click();
+	}else if(tabName == "guide"){
+		document.getElementById("tabguide").click();
+	}else if(tabName == "analytics"){
+		document.getElementById("tabanalytics").click();
+	}else if(tabName == "help"){
+		document.getElementById("tabhelp").click();
+	}
+}
+
 /* Option page body action */
 // Read current value settings
 window.addEventListener("load", function(){
@@ -2458,6 +2516,44 @@ function domcontentloaded(){
 	$("buttonchangelog").addEventListener("click", function(){ window.open(linkchangelog); });
 	$("buttontranslateme").addEventListener("click", function(){ window.open(linktranslate); });
 
+	// load tab div
+	var tabListItems = $("navbar").childNodes;
+	var uli, ls = tabListItems.length;
+	for(uli = 0; uli < ls; uli++){
+		if(tabListItems[uli].nodeName == "LI"){
+			var tabLink = getFirstChildWithTagName(tabListItems[uli], "A");
+			var id = getHash(tabLink.getAttribute("data-tab"));
+			tabLinks[id] = tabLink;
+			contentDivs[id] = document.getElementById(id);
+		}
+	}
+
+	// Assign onclick events to the tab links, and
+	// highlight the first tab
+	var tabi = 0;
+	var tabid;
+	for(tabid in tabLinks){
+		tabLinks[tabid].onclick = showTab;
+		tabLinks[tabid].onfocus = function(){ this.blur(); };
+		if(tabi == 0) tabLinks[tabid].className = "navbar-item-selected";
+		tabi++;
+	}
+
+	// Hide all content divs except the first
+	var contenti = 0;
+	var contentid;
+	for(contentid in contentDivs){
+		if(contenti != 0) contentDivs[contentid].className = "page hidden";
+		contenti++;
+	}
+
+	// open that tab if it is in the URL
+	const urlParams = new URLSearchParams(window.location.search);
+	const tabParam = urlParams.get("tab");
+	if(tabParam){
+		activateTab(tabParam);
+	}
+
 	function setpreviewlampicon(a){
 		document.images["btnpreview"].setAttribute("data-icon", a); document.images["btnpreview"].src = a; save_options();
 	}
@@ -2478,17 +2574,17 @@ function domcontentloaded(){
 	}
 
 	function OFFworkaroundbugpreview(){
-		$("videopreviewA").src = "https://www.youtube.com/embed/videoseries?list=PLxPzk_0jENdBDJATUnIE3koQ-63Ld-4OX&amp;showinfo=0";
-		$("videopreviewB").src = "https://www.youtube.com/embed/videoseries?list=PLxPzk_0jENdCGQd-Ftbhw73gyGA-hN71C&amp;showinfo=0";
-		$("videopreviewC").src = "https://www.youtube.com/embed/videoseries?list=PLxPzk_0jENdCDL6HzWwYmTg2Xkp9AIP5F&amp;showinfo=0";
+		$("videopreviewA").src = "https://www.turnoffthelights.com/browser/extension/embed/?vid=PLxPzk_0jENdBDJATUnIE3koQ-63Ld-4OX&amp;showinfo=0";
+		$("videopreviewB").src = "https://www.turnoffthelights.com/browser/extension/embed/?vid=PLxPzk_0jENdCGQd-Ftbhw73gyGA-hN71C&amp;showinfo=0";
+		$("videopreviewC").src = "https://www.turnoffthelights.com/browser/extension/embed/?vid=PLxPzk_0jENdCDL6HzWwYmTg2Xkp9AIP5F&amp;showinfo=0";
 	}
 
 	function OFFworkaroundnight(){
-		$("videopreviewnight").src = "https://www.youtube.com/embed/videoseries?list=PLxPzk_0jENdC0jpbT-SOLhoRWcTZhIHcu&rel=0";
+		$("videopreviewnight").src = "https://www.turnoffthelights.com/browser/extension/embed/?vid=PLxPzk_0jENdC0jpbT-SOLhoRWcTZhIHcu&rel=0";
 	}
 
 	function OFFworkaroundgamepad(){
-		$("videopreviewgamepad").src = "https://www.youtube.com/embed/videoseries?list=PLxPzk_0jENdBo2_HFGOtu8lRv6hhA86kg&rel=0";
+		$("videopreviewgamepad").src = "https://www.turnoffthelights.com/browser/extension/embed/?vid=PLxPzk_0jENdBo2_HFGOtu8lRv6hhA86kg&rel=0";
 	}
 
 	// wizard profile
@@ -2572,6 +2668,7 @@ function domcontentloaded(){
 		$("totldynpaper" + dynn + "").addEventListener("click", function(){ $("dynamic" + this.getAttribute("data-dyn") + "").checked = true; dynamictest(); save_options(); });
 	}
 	$("hoveroptiondyn5").addEventListener("click", function(){ $("dynamic5").checked = true; dynamictest(); save_options(); });
+	$("hoveroptiondyn11").addEventListener("click", function(){ $("dynamic11").checked = true; dynamictest(); save_options(); });
 
 	// autodim Add website
 	eventsubmitFunc("formautodim", autodimaddWhitelistDomain);
@@ -2643,6 +2740,23 @@ function domcontentloaded(){
 
 	// YouTube app box
 	$("ytappbox").addEventListener("click", function(){ window.open(linkyoutube, "_blank"); });
+
+	// Night Mode Theme Creator app box
+	$("nightmodethemecreator").addEventListener("click", function(){ window.open(linknightmodeapp, "_blank"); });
+
+	// Open shortcut page
+	if(exbrowser == "safari"){
+		document.getElementById("shortcutlightcustomize").classList.add("hidden");
+	}
+	$("linkshortcutlightcustomize").addEventListener("click", function(){
+		if(exbrowser == "chrome" || exbrowser == "edge" || exbrowser == "brave" || exbrowser == "opera" || exbrowser == "whale" || exbrowser == "yandex"){
+			const extName = chrome.i18n.getMessage("name"); // extension name
+			const url = "chrome://extensions/shortcuts#:~:text=" + encodeURIComponent(extName); // create a link with text fragment
+			chrome.tabs.create({url: url});
+		}else if(exbrowser == "firefox"){
+			browser.commands.openShortcutSettings();
+		}
+	});
 
 	// Lamp Icons
 	$("p1").addEventListener("click", function(){

@@ -331,13 +331,23 @@ function domcontentloaded(){
 				last30daysdomainonly = siteengagement.slice(30);
 			}else{ last30daysdomainonly = siteengagement; }
 			var v;
+
 			for(v in last30daysdomainonly){
 				if(last30daysdomainonly[v]){
 					var oma = last30daysdomainonly[v];
 					for(key in oma){
-						if(key != "name" && Object.prototype.hasOwnProperty.call(oma, key)){ // key is not the date
-							var dom = getDomain(key);
-							setnewtable(newtablesitedomain, dom, oma);
+						if(key !== "name" && Object.prototype.hasOwnProperty.call(oma, key)){
+							// strip extra quotes
+							var cleanKey = key.replace(/^'+|'+$/g, "");
+
+							// get domain
+							var dom = getDomain(cleanKey);
+
+							// temporarily make the object have the domain as a key
+							var tempOma = {};
+							tempOma[dom] = oma[key];
+
+							setnewtable(newtablesitedomain, dom, tempOma);
 						}
 					}
 				}
@@ -360,17 +370,17 @@ function domcontentloaded(){
 	function createcharts(){
 		// --- Begin chart1
 		var ctx1 = document.getElementById("myChart").getContext("2d");
-		new Chart(ctx1, {type: "line", data: {datasets: [{label: chrome.i18n.getMessage("charttitletotaltime"), data: timevalm, backgroundColor: ["rgba(229,57,53,0)"], borderColor: ["rgba(229,57,53,1)"], borderWidth: 2}, {label: chrome.i18n.getMessage("charttitlelayeractive"), data: activevals, backgroundColor: ["rgba(30,136,229,0)"], borderColor: ["rgba(30,136,229,1)"], borderWidth: 2, type: "line"}], labels: labelsvals}, options: {legend: {labels: {usePointStyle: true}}, responsive: true, scales: {yAxes: [{ticks: {beginAtZero:true}}]}}});
+		new Chart(ctx1, {type: "line", data: {datasets: [{label: chrome.i18n.getMessage("charttitletotaltime"), data: timevalm, backgroundColor: ["rgba(229,57,53,0)"], borderColor: ["rgba(229,57,53,1)"], borderWidth: 2}, {label: chrome.i18n.getMessage("charttitlelayeractive"), data: activevals, backgroundColor: ["rgba(30,136,229,0)"], borderColor: ["rgba(30,136,229,1)"], borderWidth: 2, type: "line"}], labels: labelsvals}, options: {legend: {labels: {usePointStyle: true}}, responsive: true, scales: {y: {ticks: {beginAtZero:true}}}}});
 		// --- End chart1
 		// --- Begin chart3
 		var ctx3 = document.getElementById("myChartthree").getContext("2d");
 		var data = {labels: [chrome.i18n.getMessage("charttitlelblenergysaved"), chrome.i18n.getMessage("charttitlelblenergytotal")], datasets: [{fill: true, backgroundColor: ["#43A047"], data: [currentkwh30days, kwhwithregu30days], borderColor: ["#43A047"], borderWidth: 1}]};
-		var options = {responsive: true, title: {display: true, text: chrome.i18n.getMessage("charttitle30dayssaved"), position: "top"}, rotation: -0.7 * Math.PI, legend: {display:false, position:"top"}};
+		var options = {responsive: true, rotation: -0.7 * Math.PI, plugins: {title: {display: true, text: chrome.i18n.getMessage("charttitle30dayssaved"), position: "top"}, legend: {display: false, position: "top"}}};
 		new Chart(ctx3, {type: "doughnut", data: data, options: options});
 		// --- End chart3
 		// --- Begin chart4
 		var ctx4 = document.getElementById("myChartfour").getContext("2d");
-		new Chart(ctx4, {type: "line", data: {datasets: [{label: chrome.i18n.getMessage("charttitleavgday"), data: avgdayschedule, backgroundColor: ["rgba(229,57,53,0)"], borderColor: ["rgba(229,57,53,1)"], borderWidth: 2}], labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}, options: {legend: {labels: {usePointStyle: true}}, responsive: true, scales: {yAxes: [{ticks: {beginAtZero:true}}]}}});
+		new Chart(ctx4, {type: "line", data: {datasets: [{label: chrome.i18n.getMessage("charttitleavgday"), data: avgdayschedule, backgroundColor: ["rgba(229,57,53,0)"], borderColor: ["rgba(229,57,53,1)"], borderWidth: 2}], labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}, options: {legend: {labels: {usePointStyle: true}}, responsive: true, scales: {y: {ticks: {beginAtZero:true}}}}});
 		// --- End chart4
 	}
 	function createtables(){
@@ -397,7 +407,7 @@ function domcontentloaded(){
 		}
 		var data = {labels: sitenamedomain, datasets: [{fill: true, backgroundColor: ["#D32F2F", "#0288D1", "#388E3C", "#FFD600", "#FFA000", "#C51162", "#7B1FA2", "#0097A7", "#00BFA5", "#689F38", "#FF6D00", "#616161"], data: sitevaluedomain, borderColor: ["#D32F2F", "#0288D1", "#388E3C", "#FFD600", "#FFA000", "#C51162", "#7B1FA2", "#0097A7", "#00BFA5", "#689F38", "#FF6D00", "#616161"], borderWidth: [2, 2]}]};
 
-		var options = {responsive: true, title: {display: true, text: chrome.i18n.getMessage("charttitlelblwebsiteused"), position: "top"}, rotation: -0.7 * Math.PI, legend: {display:false, position:"top"}};
+		var options = {responsive: true, rotation: -0.7 * Math.PI, plugins: {title: {display: true, text: chrome.i18n.getMessage("charttitlelblwebsiteused"), position: "top"}, legend: {display: false, position: "top"}}};
 
 		new Chart(ctx2, {type: "doughnut", data: data, options: options});
 		// --- End chart2
