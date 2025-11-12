@@ -22,7 +22,7 @@ Using Turn Off the Lights to dims the web page and reduces the eye strain caused
 **[Please use and enjoy it, and if you can make a donation of any amount, I'd appreciate it immensely](https://www.turnoffthelights.com/donate/)**
 
 <div style="text-align:center">
-<img alt="Turn Off the Lights Browser extension Screenshot in Google Chrome" src="https://www.turnoffthelights.com/images/turnoffthelights-twitter.png">
+<img alt="Turn Off the Lights Browser extension Screenshot in Google Chrome" src="https://www.turnoffthelights.com/images/turnoffthelights-github.png">
 </div>
 
 ## Features
