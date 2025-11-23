@@ -100,7 +100,7 @@ struct HelpView: View {
                     .accessibilityHint(Text("Opens in your web browser"))
                     
                     Button(action: {
-                        StefanFunctions().openURL(URL(string: StefanLinks().linksourccode())!)
+                        StefanFunctions().openURL(URL(string: StefanLinks().linksourcecode())!)
                     }) {
                         Text("View Open-Source Code")
                     }
@@ -146,7 +146,7 @@ struct HelpView: View {
         }
     }
     
-    var productURL = URL(string: StefanLinks().linkdeveloperwebsite())!
+    var productURL = URL(string: StefanLinks().webappturnoffthelights())!
     
     func openreview() {
         var components = URLComponents(url: productURL, resolvingAgainstBaseURL: false)

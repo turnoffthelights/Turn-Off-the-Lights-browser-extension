@@ -177,7 +177,7 @@ struct Page2: View{
                         Spacer()
                         
                         Button(action: {
-                            StefanFunctions().openURL(URL(string: StefanLinks().linksourccode())!)
+                            StefanFunctions().openURL(URL(string: StefanLinks().linksourcecode())!)
                         }) {
                             HStack(spacing:10) {
                                 Text("GitHub")

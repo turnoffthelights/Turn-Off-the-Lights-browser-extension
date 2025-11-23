@@ -64,7 +64,7 @@ class StefanLinks {
         return "https://www.turnoffthelights.com/privacy/"
     }
     
-    func linksourccode() -> String{
+    func linksourcecode() -> String{
         return "https://github.com/turnoffthelights/Turn-Off-the-Lights-browser-extension"
     }
     
@@ -83,6 +83,10 @@ class StefanLinks {
     
     func webapphometab() -> String{
         return "https://apps.apple.com/app/id1585512140"
+    }
+    
+    func webappturnoffthelights() -> String{
+        return "https://apps.apple.com/app/id1273998507"
     }
     
     func webappzoom() -> String{

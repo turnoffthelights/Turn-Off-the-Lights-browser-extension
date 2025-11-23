@@ -123,6 +123,21 @@ struct OtherAppsView: View {
                     .accessibilityHint(Text("Opens in your web browser"))
                     
                     Button(action: {
+                        StefanFunctions().openURL(URL(string: StefanLinks().webappzoom())!)
+                    }) {
+                        HStack(spacing:10) {
+                            Image(.appZoom)
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .cornerRadius(10)
+                                .accessibilityHidden(true)
+                            Text("Zoom for Safari")
+                        }.frame(maxWidth:.infinity, alignment: .leading)
+                    }
+                    .accessibilityLabel(Text("Open app page: Zoom"))
+                    .accessibilityHint(Text("Opens in your web browser"))
+                    
+                    Button(action: {
                         StefanFunctions().openURL(URL(string: StefanLinks().webappcanadarace())!)
                     }) {
                         HStack(spacing:10) {

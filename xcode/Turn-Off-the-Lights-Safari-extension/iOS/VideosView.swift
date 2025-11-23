@@ -291,6 +291,7 @@ struct VideoRow: View {
                 Text(video.appName)
                     .font(.headline)
                     .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
         .onAppear {

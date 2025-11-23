@@ -12,6 +12,7 @@
 		1E35544E2EB55BCC00603EEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E35544D2EB55BCC00603EEA /* LaunchScreen.storyboard */; platformFilter = ios; };
 		1E4CB20D268CC77900015282 /* TOtL_iOS_UITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CB20C268CC77900015282 /* TOtL_iOS_UITest.swift */; };
 		1E4CB234268CDC6D00015282 /* TOtL_iOS_test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CB233268CDC6D00015282 /* TOtL_iOS_test.swift */; };
+		1E5C6CB32ECDDF8E00AD3FD8 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1E5C6CB22ECDDF8E00AD3FD8 /* Credits.rtf */; };
 		1E655F9B2EA2E1CE007F2F39 /* DaringInfantileDachshund.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1E7D1A15267283A600FECE52 /* DaringInfantileDachshund.mp4 */; };
 		1E70CA3226726F380064A939 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E70C9F226726F380064A939 /* SafariWebExtensionHandler.swift */; };
 		1E70CA3326726F380064A939 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E70C9F226726F380064A939 /* SafariWebExtensionHandler.swift */; };
@@ -126,6 +127,9 @@
 		1E4CB20C268CC77900015282 /* TOtL_iOS_UITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOtL_iOS_UITest.swift; sourceTree = "<group>"; };
 		1E4CB231268CDC6D00015282 /* TOtL-iOS-test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TOtL-iOS-test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4CB233268CDC6D00015282 /* TOtL_iOS_test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOtL_iOS_test.swift; sourceTree = "<group>"; };
+		1E5C6CB02ECDDF4C00AD3FD8 /* Turn-Off-the-Lights-for-Safari-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Turn-Off-the-Lights-for-Safari-iOS-Info.plist"; sourceTree = "<group>"; };
+		1E5C6CB12ECDDF6A00AD3FD8 /* Turn-Off-the-Lights-for-Safari-macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Turn-Off-the-Lights-for-Safari-macOS-Info.plist"; sourceTree = "<group>"; };
+		1E5C6CB22ECDDF8E00AD3FD8 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		1E6B0EA22CE5453B0064407B /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		1E70C9F026726F380064A939 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E70C9F226726F380064A939 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
@@ -235,6 +239,8 @@
 		1E70C9E326726F350064A939 = {
 			isa = PBXGroup;
 			children = (
+				1E5C6CB12ECDDF6A00AD3FD8 /* Turn-Off-the-Lights-for-Safari-macOS-Info.plist */,
+				1E5C6CB02ECDDF4C00AD3FD8 /* Turn-Off-the-Lights-for-Safari-iOS-Info.plist */,
 				1E6B0EA22CE5453B0064407B /* Config.xcconfig */,
 				1E11F43D2E2909CD0051E9E2 /* AppIcon.icon */,
 				1E70C9E826726F350064A939 /* Shared (App) */,
@@ -305,6 +311,7 @@
 		1E9AC2FA2EA3D8CF00C41F8D /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				1E5C6CB22ECDDF8E00AD3FD8 /* Credits.rtf */,
 				1E9AC2EF2EA3D8CF00C41F8D /* AboutView.swift */,
 				1E9AC2F02EA3D8CF00C41F8D /* ContentView.swift */,
 				1E9AC2F12EA3D8CF00C41F8D /* EnableView.swift */,
@@ -623,6 +630,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E655F9B2EA2E1CE007F2F39 /* DaringInfantileDachshund.mp4 in Resources */,
+				1E5C6CB32ECDDF8E00AD3FD8 /* Credits.rtf in Resources */,
 				1E9AC2EB2EA3CBAB00C41F8D /* Localizable.xcstrings in Resources */,
 				1EBC202B2E95B62D0073BBFD /* Assets.xcassets in Resources */,
 				1E9C58672E941D620018DFB0 /* AppIcon.icon in Resources */,
@@ -1036,7 +1044,16 @@
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Turn Off the Lights for Safari Extension";
@@ -1070,7 +1087,16 @@
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Turn Off the Lights for Safari Extension";
@@ -1121,6 +1147,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Turn-Off-the-Lights-for-Safari-iOS-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Turn Off the Lights for Safari";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -1185,6 +1212,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Turn-Off-the-Lights-for-Safari-iOS-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Turn Off the Lights for Safari";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -1248,6 +1276,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Turn-Off-the-Lights-for-Safari-macOS-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Turn Off the Lights for Safari";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -1300,6 +1329,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Turn-Off-the-Lights-for-Safari-macOS-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Turn Off the Lights for Safari";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
