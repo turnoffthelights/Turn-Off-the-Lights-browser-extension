@@ -3314,189 +3314,8 @@
         }
       }
     },
-    "Download the free Turn Off the Lights Safari extension to get Dark Mode on all websites. Try it yourself! #iOS via @TurnOfftheLight  %@" : {
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "حمّل إضافة \"إطفاء الأنوار\" المجانية لمتصفح سفاري لتشغيل الوضع الداكن على جميع المواقع. جرّبها بنفسك! #iOS عبر @TurnOfftheLight %@"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Baixa't l'extensió gratuïta Turn Off the Lights Safari per obtenir el mode fosc a tots els llocs web. Prova-ho tu mateix! #iOS via @TurnOfftheLight %@"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stáhněte si bezplatné rozšíření Turn Off the Lights Safari, které vám umožní používat tmavý režim na všech webových stránkách. Vyzkoušejte si to sami! #iOS via @TurnOfftheLight %@"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Download den gratis Turn Off the Lights Safari-udvidelse for at få Dark Mode på alle hjemmesider. Prøv det selv! #iOS via @TurnOfftheLight %@"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Laden Sie die kostenlose Safari-Erweiterung \"Turn Off the Lights\", um den dunklen Modus auf allen Websites zu aktivieren. Probieren Sie es selbst aus! #iOS via @TurnOfftheLight %@"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Κατεβάστε τη δωρεάν επέκταση Turn Off the Lights Safari για να ενεργοποιήσετε τη σκοτεινή λειτουργία σε όλους τους ιστότοπους. Δοκιμάστε το μόνοι σας! #iOS μέσω @TurnOfftheLight %@"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Download the free Turn Off the Lights Safari extension to get Dark Mode on all websites. Try it yourself! #iOS via @TurnOfftheLight  %@"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descarga la extensión gratuita Turn Off the Lights Safari para obtener el modo oscuro en todos los sitios web. ¡Pruébalo tú mismo! #iOS via @TurnOfftheLight %@"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descarga la extensión gratuita Turn Off the Lights Safari para obtener el modo oscuro en todos los sitios web. ¡Pruébalo tú mismo! #iOS via @TurnOfftheLight %@"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lataa ilmainen Turn Off the Lights Safari -laajennus, jotta saat pimeän tilan käyttöön kaikilla verkkosivustoilla. Kokeile sitä itse! #iOS via @TurnOfftheLight %@"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Téléchargez gratuitement l'extension Safari Éteindre les lumières pour activer le mode sombre sur tous les sites web. Essayez-le vous-même ! #iOS via @TurnOfftheLight %@"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "הורידו את התוסף החינמי לכבות את האורות בספארי כדי לקבל מצב כהה בכל האתרים. נסו זאת בעצמכם! #iOS דרך @TurnOfftheLight %@"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Töltse le az ingyenes Turn Off the Lights Safari bővítményt, hogy minden weboldalon sötét módot kapjon. Próbálja ki Ön is! #iOS via @TurnOfftheLight %@"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unduh ekstensi Turn Off the Lights Safari gratis untuk mendapatkan Mode Gelap di semua situs web. Cobalah sendiri! #iOS melalui @MatikanLampu %@"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scaricate l'estensione gratuita Turn Off the Lights Safari per ottenere la modalità scura su tutti i siti web. Provatela voi stessi! #iOS via @TurnOfftheLight %@"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "無料のSafari拡張機能「Turn Off the Lights」をダウンロードすれば、すべてのウェブサイトでダークモードを利用できます。ぜひお試しください！#iOS via @TurnOfftheLight %@."
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "모든 웹사이트에서 다크 모드를 사용하려면 무료 조명 끄기 Safari 확장 프로그램을 다운로드하세요. 직접 사용해 보세요! iOS @TurnOfftheLight %@를 통해 #iOS"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Last ned gratisutvidelsen Turn Off the Lights Safari for å få mørk modus på alle nettsteder. Prøv det selv! #iOS via @TurnOfftheLight %@"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Download de gratis Safari-extensie Turn Off the Lights om de donkere modus op alle websites te krijgen. Probeer het zelf! #iOS via @TurnOfftheLight %@"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pobierz darmowe rozszerzenie Turn Off the Lights Safari, aby włączyć tryb ciemny na wszystkich stronach internetowych. Wypróbuj sam! #iOS via @TurnOfftheLight %@"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Baixe a extensão gratuita Turn Off the Lights Safari para obter o Modo escuro em todos os sites. Experimente você mesmo! #iOS via @TurnOfftheLight %@"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Transfira a extensão gratuita Turn Off the Lights Safari para obter o Modo Escuro em todos os sítios Web. Experimente você mesmo! #iOS via @TurnOfftheLight %@"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descărcați extensia gratuită Turn Off the Lights Safari pentru a obține modul întunecat pe toate site-urile web. Încearcă și tu! #iOS via @TurnOfftheLight %@"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Загрузите бесплатное расширение Turn Off the Lights Safari, чтобы включить темный режим на всех сайтах. Попробуйте сами! #iOS через @TurnOfftheLight %@"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ladda ner det kostnadsfria Safari-tillägget Turn Off the Lights för att få Dark Mode på alla webbplatser. Prova det själv! #iOS via @TurnOfftheLight %@"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tüm web sitelerinde Karanlık Mod'a geçmek için ücretsiz Işıkları Kapat Safari eklentisini indirin. Kendiniz deneyin! #iOS üzerinden @TurnOfftheLight %@"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Завантажте безкоштовне розширення Turn Off the Lights Safari, щоб отримати темний режим на всіх веб-сайтах. Спробуйте самі! #iOS через @TurnOfftheLight %@"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tải xuống tiện ích mở rộng Turn Off the Lights Safari miễn phí để bật Chế độ tối trên tất cả các trang web. Hãy tự mình trải nghiệm! #iOS qua @TurnOfftheLight %@"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "下载免费的“关灯”Safari 扩展程序，即可在所有网站上启用暗黑模式。快来试试吧！#iOS via @TurnOfftheLight %@"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "下載免費的「關燈」Safari 擴充程序，即可在所有網站上啟用暗黑模式。快來試試吧！ #iOS via @TurnOfftheLight %@"
-          }
-        }
-      }
+    "Download the free Turn Off the Lights Safari extension to get Dark Mode on all websites. Try it yourself! via @TurnOfftheLight  %@" : {
+
     },
     "Easy to set this up" : {
       "localizations" : {
@@ -3683,6 +3502,7 @@
       }
     },
     "Enable **\"Turn Off the Lights for Safari\"**" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -3865,6 +3685,9 @@
           }
         }
       }
+    },
+    "Enable **\"Turn Off the Lights\"**" : {
+
     },
     "Explore" : {
       "localizations" : {
@@ -6078,189 +5901,7 @@
         }
       }
     },
-    "Home Tab" : {
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Home Tab"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        }
-      },
+    "Home Tab for Safari" : {
       "shouldTranslate" : false
     },
     "https://github.com/turnoffthelights/Turn-Off-the-Lights-Browser-extension" : {
@@ -9394,189 +9035,8 @@
         }
       }
     },
-    "Open app page: Home Tab" : {
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "افتح صفحة التطبيق: علامة التبويب الرئيسية"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Obre la pàgina de l'aplicació: Pestanya Inici"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Otevřete stránku aplikace: Karta Domů"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Åbn app-side: Fanen Hjem"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "App-Seite öffnen: Registerkarte \"Home"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ανοίξτε τη σελίδα της εφαρμογής: Αρχική καρτέλα"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Open app page: Home Tab"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Abrir la página de la aplicación: Pestaña Inicio"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Abrir la página de la aplicación: Pestaña Inicio"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Avaa sovelluksen sivu: Home-välilehti"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ouvrir la page de l'application : Onglet Accueil"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "פתיחת דף האפליקציה: לשונית הבית"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alkalmazás oldal megnyitása: Kezdőlap"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buka halaman aplikasi: Tab Beranda"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aprire la pagina dell'applicazione: Scheda Home"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アプリのページを開くホームタブ"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "앱 페이지를 엽니다: 홈 탭"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Åpne app-siden: Hjem-fanen"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "App-pagina openen: Tabblad Home"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Otwórz stronę aplikacji: Karta główna"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Abrir a página do aplicativo: Guia Início"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Abrir a página da aplicação: Separador Início"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Deschideți pagina aplicației: Tab-ul Acasă"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Открыть страницу приложения: Вкладка \"Главная"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Öppna appens sida: Fliken Hem"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uygulama sayfasını açın: Ana Sayfa Sekmesi"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Відкрити сторінку програми: Головна вкладка"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mở trang ứng dụng: Tab Trang chủ"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "打开应用程序页面主页标签"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "打开应用程序页面主页标签"
-          }
-        }
-      }
+    "Open app page: Home Tab for Safari" : {
+
     },
     "Open app page: My Christmas Tree" : {
       "localizations" : {
@@ -10497,6 +9957,9 @@
           }
         }
       }
+    },
+    "Open app page: Zoom for Safari" : {
+
     },
     "Open the **\"Settings\"** app on your device" : {
       "localizations" : {
@@ -19702,6 +19165,9 @@
           }
         }
       }
+    },
+    "Zoom for Safari" : {
+
     }
   },
   "version" : "1.0"

@@ -615,7 +615,7 @@ struct Page7: View{
                             .foregroundStyle(.tint)
                             .frame(width: 35, height: 35)
                             .accessibilityHidden(true)
-                        Text("Enable **\"Turn Off the Lights for Safari\"**")
+                        Text("Enable **\"Turn Off the Lights\"**")
                     }
                     
                     Spacer(minLength: 100)

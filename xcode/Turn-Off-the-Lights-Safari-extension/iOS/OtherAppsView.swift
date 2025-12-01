@@ -116,10 +116,10 @@ struct OtherAppsView: View {
                                 .frame(width: 50, height: 50)
                                 .cornerRadius(10)
                                 .accessibilityHidden(true)
-                            Text("Home Tab")
+                            Text("Home Tab for Safari")
                         }.frame(maxWidth:.infinity, alignment: .leading)
                     }
-                    .accessibilityLabel(Text("Open app page: Home Tab"))
+                    .accessibilityLabel(Text("Open app page: Home Tab for Safari"))
                     .accessibilityHint(Text("Opens in your web browser"))
                     
                     Button(action: {
@@ -134,7 +134,7 @@ struct OtherAppsView: View {
                             Text("Zoom for Safari")
                         }.frame(maxWidth:.infinity, alignment: .leading)
                     }
-                    .accessibilityLabel(Text("Open app page: Zoom"))
+                    .accessibilityLabel(Text("Open app page: Zoom for Safari"))
                     .accessibilityHint(Text("Opens in your web browser"))
                     
                     Button(action: {
