@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "text.page.svg",
+      "filename" : "fullscreen60.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "fullscreen120.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "fullscreen180.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -17,8 +19,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "template-rendering-intent" : "template"
   }
 }

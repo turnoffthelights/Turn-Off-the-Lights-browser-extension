@@ -138,6 +138,66 @@ struct OtherAppsView: View {
                     .accessibilityHint(Text("Opens in your web browser"))
                     
                     Button(action: {
+                        StefanFunctions().openURL(URL(string: StefanLinks().webappfullscreen())!)
+                    }) {
+                        HStack(spacing:10) {
+                            Image(.appFullScreen)
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .cornerRadius(10)
+                                .accessibilityHidden(true)
+                            Text("Full Screen for Safari")
+                        }.frame(maxWidth:.infinity, alignment: .leading)
+                    }
+                    .accessibilityLabel(Text("Open app page: Full Screen for Safari"))
+                    .accessibilityHint(Text("Opens in your web browser"))
+                    
+                    Button(action: {
+                        StefanFunctions().openURL(URL(string: StefanLinks().webappsnow())!)
+                    }) {
+                        HStack(spacing:10) {
+                            Image(.appSnow)
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .cornerRadius(10)
+                                .accessibilityHidden(true)
+                            Text("Snow for Safari")
+                        }.frame(maxWidth:.infinity, alignment: .leading)
+                    }
+                    .accessibilityLabel(Text("Open app page: Snow for Safari"))
+                    .accessibilityHint(Text("Opens in your web browser"))
+                           
+                    Button(action: {
+                        StefanFunctions().openURL(URL(string: StefanLinks().webappfontsizeincrease())!)
+                    }) {
+                        HStack(spacing:10) {
+                            Image(.appFontSizeIncrease)
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .cornerRadius(10)
+                                .accessibilityHidden(true)
+                            Text("Font Size Increase for Safari")
+                        }.frame(maxWidth:.infinity, alignment: .leading)
+                    }
+                    .accessibilityLabel(Text("Open app page: Font Size Increase for Safari"))
+                    .accessibilityHint(Text("Opens in your web browser"))
+                          
+                    Button(action: {
+                        StefanFunctions().openURL(URL(string: StefanLinks().webappfontsizedecrease())!)
+                    }) {
+                        HStack(spacing:10) {
+                            Image(.appFontSizeDecrease)
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .cornerRadius(10)
+                                .accessibilityHidden(true)
+                            Text("Font Size Decrease for Safari")
+                        }.frame(maxWidth:.infinity, alignment: .leading)
+                    }
+                    .accessibilityLabel(Text("Open app page: Font Size Decrease for Safari"))
+                    .accessibilityHint(Text("Opens in your web browser"))
+                    
+                    Button(action: {
                         StefanFunctions().openURL(URL(string: StefanLinks().webappcanadarace())!)
                     }) {
                         HStack(spacing:10) {

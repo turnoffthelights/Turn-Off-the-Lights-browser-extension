@@ -3315,7 +3315,188 @@
       }
     },
     "Download the free Turn Off the Lights Safari extension to get Dark Mode on all websites. Try it yourself! via @TurnOfftheLight  %@" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حمّل إضافة Turn Off the Lights المجانية لمتصفح سفاري لتفعيل الوضع الداكن على جميع المواقع. جرّبها بنفسك! عبر @TurnOfftheLight %@"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baixeu l'extensió gratuïta Turn Off the Lights Safari per obtenir el mode fosc a tots els llocs web. Proveu-ho vosaltres mateixos! via @TurnOfftheLight %@"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stáhněte si bezplatné rozšíření Turn Off the Lights Safari, které vám umožní používat tmavý režim na všech webových stránkách. Vyzkoušejte si to sami! přes @TurnOfftheLight %@"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download den gratis Turn Off the Lights Safari-udvidelse for at få Dark Mode på alle hjemmesider. Prøv det selv! via @TurnOfftheLight %@"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laden Sie die kostenlose Safari-Erweiterung Turn Off the Lights herunter, um den dunklen Modus auf allen Websites zu aktivieren. Probieren Sie es selbst aus! via @TurnOfftheLight %@"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Κατεβάστε τη δωρεάν επέκταση Turn Off the Lights Safari για να ενεργοποιήσετε τη σκοτεινή λειτουργία σε όλους τους ιστότοπους. Δοκιμάστε το μόνοι σας! μέσω @TurnOfftheLight %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Download the free Turn Off the Lights Safari extension to get Dark Mode on all websites. Try it yourself! via @TurnOfftheLight  %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descarga la extensión gratuita de Safari Turn Off the Lights para obtener el modo oscuro en todos los sitios web. Pruébalo tú mismo vía @TurnOfftheLight %@."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descarga la extensión gratuita de Safari Turn Off the Lights para obtener el modo oscuro en todos los sitios web. Pruébalo tú mismo vía @TurnOfftheLight %@."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lataa ilmainen Turn Off the Lights Safari -laajennus, jotta saat pimeän tilan käyttöön kaikilla verkkosivustoilla. Kokeile itse! via @TurnOfftheLight %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Téléchargez l'extension gratuite Turn Off the Lights Safari pour activer le mode sombre sur tous les sites web. Essayez-le vous-même ! via @TurnOfftheLight %@"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הורידו את התוסף החינמי של Turn Off the Lights Safari כדי לקבל מצב כהה בכל האתרים. נסו זאת בעצמכם! דרך @TurnOfftheLight %@"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Töltse le az ingyenes Turn Off the Lights Safari bővítményt, hogy minden weboldalon sötét módot kapjon. Próbáld ki te is! via @TurnOfftheLight %@"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unduh ekstensi Turn Off the Lights Safari gratis untuk mendapatkan Mode Gelap di semua situs web. Cobalah sendiri! melalui @MatikanLampu %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scaricate l'estensione gratuita Turn Off the Lights Safari per ottenere la modalità scura su tutti i siti web. Provatela voi stessi! via @TurnOfftheLight %@"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料のSafari拡張機能「Turn Off the Lights」をダウンロードすれば、すべてのウェブサイトでダークモードを利用できます。自分で試してみよう！via @TurnOfftheLight %@."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "모든 웹사이트에서 다크 모드를 사용하려면 무료 조명 끄기 Safari 확장 프로그램을 다운로드하세요. 직접 사용해 보세요! @TurnOfftheLight %@를 통해"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Last ned gratisutvidelsen Turn Off the Lights Safari for å få mørk modus på alle nettsteder. Prøv det selv! via @TurnOfftheLight %@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download de gratis Safari-extensie Turn Off the Lights om de donkere modus op alle websites te krijgen. Probeer het zelf! via @TurnOfftheLight %@"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pobierz darmowe rozszerzenie Turn Off the Lights Safari, aby włączyć tryb ciemny na wszystkich stronach internetowych. Wypróbuj sam! via @TurnOfftheLight %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baixe a extensão gratuita Turn Off the Lights Safari para obter o Modo escuro em todos os sites. Experimente você mesmo! via @TurnOfftheLight %@"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descarregue a extensão gratuita Turn Off the Lights Safari para obter o Modo Escuro em todos os sítios Web. Experimente você mesmo! via @TurnOfftheLight %@"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descărcați extensia gratuită Turn Off the Lights Safari pentru a obține modul întunecat pe toate site-urile web. Încearcă și tu! via @TurnOfftheLight %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загрузите бесплатное расширение Turn Off the Lights Safari, чтобы включить темный режим на всех сайтах. Попробуйте сами! через @TurnOfftheLight %@"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ladda ner det kostnadsfria Safari-tillägget Turn Off the Lights för att få Dark Mode på alla webbplatser. Prova själv! via @TurnOfftheLight %@"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tüm web sitelerinde Karanlık Mod'a sahip olmak için ücretsiz Turn Off the Lights Safari uzantısını indirin. Kendiniz deneyin! via @TurnOfftheLight %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантажте безкоштовне розширення Turn Off the Lights Safari, щоб отримати темний режим на всіх веб-сайтах. Спробуйте самі! через @TurnOfftheLight %@"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tải xuống tiện ích mở rộng Turn Off the Lights miễn phí cho Safari để bật Chế độ tối trên tất cả các trang web. Hãy thử ngay! (qua @TurnOfftheLight)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下载免费的 \"关灯 \"Safari 扩展，在所有网站上使用黑暗模式。自己试试吧！ via @TurnOfftheLight %@"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下载免费的 \"关灯 \"Safari 扩展，在所有网站上使用黑暗模式。自己试试吧！ via @TurnOfftheLight %@"
+          }
+        }
+      }
     },
     "Easy to set this up" : {
       "localizations" : {
@@ -3501,193 +3682,189 @@
         }
       }
     },
-    "Enable **\"Turn Off the Lights for Safari\"**" : {
-      "extractionState" : "stale",
+    "Enable **\"Turn Off the Lights\"**" : {
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تمكين **\"إطفاء الأضواء في Safari\"**"
+            "value" : "تفعيل **\"Turn Off the Lights\"**"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Activa **\"Apaga els llums per a Safari\"**"
+            "value" : "Activa **”Turn Off the Lights“**"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Povolení **\"Vypnout světla pro Safari \"**"
+            "value" : "Povolení **\"Zhasnout světla \"**"
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aktivér **\"Sluk lyset for Safari\"**."
+            "value" : "Aktivér **\"Sluk lyset\"**."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aktivieren Sie **\"Licht für Safari ausschalten \"**."
+            "value" : "Aktivieren **\"Licht ausschalten \"**"
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ενεργοποίηση του **\"Σβήσε τα φώτα για το Safari \"**"
+            "value" : "Ενεργοποίηση του **\"Σβήστε τα φώτα \"**"
           }
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enable **\"Turn Off the Lights for Safari\"**"
+            "state" : "needs_review",
+            "value" : "Enable **\"Turn Off the Lights\"**"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Activar **\"Apagar las luces para Safari \"**"
+            "value" : "Activar **\"Apagar las luces \"**"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Activar **\"Apagar las luces para Safari \"**"
+            "value" : "Activar **\"Apagar las luces \"**"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ota käyttöön **\"Sammuta valot Safaria varten \"**."
+            "value" : "Ota käyttöön **\"Sammuta valot \"**"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Activer **\"Éteindre les lumières pour Safari \"**"
+            "value" : "Activer **\"Éteindre les lumières \"**"
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "הפעל **\"כבה את האורות עבור ספארי\"**"
+            "value" : "הפעל **\"כבה את האורות\"**"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Engedélyezze a **\"Turn Off the Lights for Safari \"** funkciót."
+            "value" : "Engedélyezze a **\"Kapcsolja le a fényeket \"** engedélyezését"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aktifkan **\"Matikan Lampu untuk Safari \"**."
+            "value" : "Aktifkan **\"Matikan Lampu \"**."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abilitare **\"Spegni le luci per Safari \"**"
+            "value" : "Abilitare **\"Spegnere le luci \"**"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Safariのライトを消す」**を有効にする"
+            "value" : "照明を消す」**を有効にする"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "\"Safari용 조명 끄기\"** 활성화하기"
+            "value" : "\"조명 끄기\"** 활성화하기"
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aktiver **\"Slå av lyset for Safari\"**"
+            "value" : "Aktiver **\"Slå av lyset\"**"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**\"Doe het licht uit voor Safari\"** inschakelen"
+            "value" : "Schakel **\"Doe de lichten uit\"** in"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Włącz **\"Wyłącz światła dla Safari \"**."
+            "value" : "Włącz **\"Turn Off the Lights \"**."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ativar **\"Turn Off the Lights for Safari \"**"
+            "value" : "Ativar **\"Turn Off the Lights \"**"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ativar **\"Turn Off the Lights for Safari \"**"
+            "value" : "Ativar **\"Desligar as luzes \"**"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Activați **\"Stingeți luminile pentru Safari\"**"
+            "value" : "Activați **\"Turn Off the Lights\"**"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Включите **\"Выключить свет для Safari \"**."
+            "value" : "Включите **\"Выключить свет \"**."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aktivera **\"Släck lamporna för Safari\"**"
+            "value" : "Aktivera **\"Släck ljuset\"**"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Etkinleştir **\"Safari için Işıkları Kapat \"**"
+            "value" : "Etkinleştir **\"Işıkları Kapat \"**"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Увімкнути **\"Вимкнути світло для Safari \"**."
+            "value" : "Увімкнути **\"Вимкнути світло \"**."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bật **\"Tắt đèn cho Safari\"**"
+            "value" : "Kích hoạt chức năng **\"Tắt đèn\"**"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "启用 **\"为 Safari 关闭灯光 \"**"
+            "value" : "启用 **\"关灯 \"功能 **"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "启用 **\"为 Safari 关闭灯光 \"**"
+            "value" : "启用 **\"关灯 \"功能 **"
           }
         }
       }
-    },
-    "Enable **\"Turn Off the Lights\"**" : {
-
     },
     "Explore" : {
       "localizations" : {
@@ -4241,6 +4418,376 @@
         }
       }
     },
+    "Font Size Decrease for Safari" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zmenšení velikosti písma pro Safari"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reducering af skriftstørrelse i Safari"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verkleinerung der Schriftgröße für Safari"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Μείωση μεγέθους γραμματοσειράς για Safari"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Font Size Decrease for Safari"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reducción del tamaño de fuente para Safari"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reducción del tamaño de fuente para Safari"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kirjasinkoon pienentäminen Safarissa"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diminution de la taille des polices pour Safari"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Betűméret csökkentése Safari esetén"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pengurangan Ukuran Font untuk Safari"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riduzione della dimensione dei caratteri per Safari"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safariのフォントサイズ縮小"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari의 글꼴 크기 줄이기"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Redusert skriftstørrelse for Safari"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lettergrootte verkleinen voor Safari"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zmniejszanie rozmiaru czcionki w Safari"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diminuição do tamanho da fonte no Safari"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diminuição do tamanho do tipo de letra no Safari"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scăderea dimensiunii fontului pentru Safari"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Уменьшение размера шрифта для Safari"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minskad teckenstorlek för Safari"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari için Yazı Tipi Boyutunu Azaltma"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зменшення розміру шрифту для Safari"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "减小 Safari 的字体大小"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "减小 Safari 的字体大小"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "Font Size Increase for Safari" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zvětšení velikosti písma pro Safari"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forøgelse af skriftstørrelse til Safari"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schriftgröße für Safari erhöhen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αύξηση μεγέθους γραμματοσειράς για Safari"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Font Size Increase for Safari"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aumento del tamaño de fuente para Safari"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aumento del tamaño de fuente para Safari"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kirjasinkoon kasvattaminen Safarissa"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Augmentation de la taille des polices pour Safari"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Betűméret növelése Safari számára"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peningkatan Ukuran Font untuk Safari"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aumento della dimensione dei caratteri per Safari"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safariのフォントサイズ拡大"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari의 글꼴 크기 늘리기"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Økning av skriftstørrelse for Safari"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lettergrootte vergroten voor Safari"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zwiększenie rozmiaru czcionki dla Safari"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aumento do tamanho da fonte para o Safari"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aumento do tamanho do tipo de letra para o Safari"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mărimea fontului crește pentru Safari"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Увеличение размера шрифта для Safari"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ökning av teckenstorlek för Safari"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari için Yazı Tipi Boyutu Artışı"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Збільшення розміру шрифту для Safari"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "增加 Safari 的字体大小"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "增加 Safari 的字体大小"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
     "FREE Turn Off the Lights Safari extension" : {
       "localizations" : {
         "ar" : {
@@ -4424,6 +4971,191 @@
           }
         }
       }
+    },
+    "Full Screen for Safari" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Celá obrazovka pro Safari"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fuld skærm til Safari"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vollbild für Safari"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Πλήρης οθόνη για Safari"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Full Screen for Safari"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pantalla completa para Safari"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pantalla completa para Safari"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safarin koko näyttö"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plein écran pour Safari"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teljes képernyő a Safari számára"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Layar Penuh untuk Safari"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schermo intero per Safari"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safariのフルスクリーン"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari용 전체 화면"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fullskjerm for Safari"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volledig scherm voor Safari"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pełny ekran dla Safari"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tela cheia para Safari"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ecrã completo para Safari"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ecran complet pentru Safari"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Полный экран для Safari"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fullskärm för Safari"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari için Tam Ekran"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повноекранний режим для Safari"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari 全屏"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari 全屏"
+          }
+        }
+      },
+      "shouldTranslate" : false
     },
     "GitHub" : {
       "localizations" : {
@@ -5902,6 +6634,188 @@
       }
     },
     "Home Tab for Safari" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Home Tab for Safari"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        }
+      },
       "shouldTranslate" : false
     },
     "https://github.com/turnoffthelights/Turn-Off-the-Lights-Browser-extension" : {
@@ -6826,6 +7740,7 @@
       }
     },
     "Make a Donation" : {
+      "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -8667,6 +9582,558 @@
         }
       }
     },
+    "Open app page: Font Size Decrease for Safari" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "افتح صفحة التطبيق: Font Size Decrease for Safari"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obre la pàgina de l'aplicació: Font Size Decrease for Safari"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevřete stránku aplikace: Zmenšení velikosti písma pro Safari"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åbn app-side: Reducering af skriftstørrelse for Safari"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App-Seite öffnen: Schriftgröße verkleinern für Safari"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ανοίξτε τη σελίδα της εφαρμογής: Μείωση μεγέθους γραμματοσειράς για Safari"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Open app page: Font Size Decrease for Safari"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir la página de la aplicación: Reducción del tamaño de fuente para Safari"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir la página de la aplicación: Reducción del tamaño de fuente para Safari"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avaa sovelluksen sivu: Safarin fonttikoon pienentäminen"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir la page de l'application : Diminution de la taille de la police pour Safari"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "פתיחת דף האפליקציה: הקטנת גודל גופן עבור ספארי"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alkalmazás oldal megnyitása: Betűméret csökkentése Safari esetében"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buka halaman aplikasi: Mengurangi Ukuran Huruf untuk Safari"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aprire la pagina dell'applicazione: Diminuzione della dimensione dei caratteri per Safari"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリのページを開くSafariのフォントサイズ縮小"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱 페이지를 엽니다: Safari의 글꼴 크기 줄이기"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åpne app-siden: Redusere skriftstørrelse for Safari"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open app pagina: Lettergrootte verkleinen voor Safari"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otwórz stronę aplikacji: Zmniejszanie rozmiaru czcionki dla Safari"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir página do aplicativo: Diminuição do tamanho da fonte para o Safari"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir página da aplicação: Diminuição do tamanho do tipo de letra para o Safari"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deschideți pagina aplicației: Scăderea dimensiunii fontului pentru Safari"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть страницу приложения: Уменьшение размера шрифта для Safari"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öppna app-sida: Minskad teckenstorlek för Safari"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uygulama sayfasını açın: Safari için Yazı Tipi Boyutunu Azaltma"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрити сторінку програми: Зменшення розміру шрифту для Safari"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mở trang ứng dụng: Giảm kích thước phông chữ cho Safari"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开应用程序页面：减小 Safari 的字体大小"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开应用程序页面：减小 Safari 的字体大小"
+          }
+        }
+      }
+    },
+    "Open app page: Font Size Increase for Safari" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "افتح صفحة التطبيق: Font Size Increase for Safari"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obre la pàgina de l'aplicació: Font Size Increase for Safari"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevřete stránku aplikace: Zvětšení velikosti písma pro Safari"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åbn app-side: Forøgelse af skriftstørrelse til Safari"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App-Seite öffnen: Schriftgröße erhöhen für Safari"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ανοίξτε τη σελίδα της εφαρμογής: Safari: Αύξηση μεγέθους γραμματοσειράς για Safari"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Open app page: Font Size Increase for Safari"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir la página de la aplicación: Aumento del tamaño de fuente para Safari"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir la página de la aplicación: Aumento del tamaño de fuente para Safari"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avaa sovelluksen sivu: Safarin fonttikoon kasvattaminen"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir la page de l'application : Augmentation de la taille de la police pour Safari"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "פתיחת דף האפליקציה: הגדלת גודל גופן עבור ספארי"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alkalmazás oldal megnyitása: Betűméret növelése Safari számára"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buka halaman aplikasi: Memperbesar Ukuran Huruf untuk Safari"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aprire la pagina dell'applicazione: Aumento della dimensione dei caratteri per Safari"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリのページを開くSafariのフォントサイズを大きくする"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱 페이지 열기: Safari의 글꼴 크기 늘리기"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åpne app-siden: Økning av skriftstørrelse for Safari"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open app pagina: Lettergrootte vergroten voor Safari"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otwórz stronę aplikacji: Zwiększenie rozmiaru czcionki dla Safari"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir página do aplicativo: Aumento do tamanho da fonte para o Safari"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir página da aplicação: Aumento do tamanho do tipo de letra para o Safari"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deschideți pagina aplicației: Mărimea fontului crește pentru Safari"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть страницу приложения: Увеличение размера шрифта для Safari"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öppna app-sidan: Öka teckenstorleken för Safari"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uygulama sayfasını açın: Safari için Yazı Tipi Boyutunu Artırma"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрити сторінку програми: Збільшення розміру шрифту для Safari"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mở trang ứng dụng: Tăng kích thước phông chữ cho Safari"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开应用程序页面：增加 Safari 的字体大小"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开应用程序页面：增加 Safari 的字体大小"
+          }
+        }
+      }
+    },
+    "Open app page: Full Screen for Safari" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "افتح صفحة التطبيق: Full Screen for Safari"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obre la pàgina de l'aplicació: Full Screen for Safari"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevřete stránku aplikace: Celá obrazovka pro Safari"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åbn app-side: Fuld skærm til Safari"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App-Seite öffnen: Vollbild für Safari"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ανοίξτε τη σελίδα της εφαρμογής: Safari: Πλήρης οθόνη για Safari"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Open app page: Full Screen for Safari"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir la página de la aplicación: Pantalla completa para Safari"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir la página de la aplicación: Pantalla completa para Safari"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avaa sovelluksen sivu: Safari: Koko näyttö"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir la page de l'application : Plein écran pour Safari"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "פתיחת דף האפליקציה: מסך מלא עבור ספארי"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alkalmazás oldal megnyitása: Safari teljes képernyő"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Membuka halaman aplikasi: Layar Penuh untuk Safari"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aprire la pagina dell'app: Schermo intero per Safari"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリのページを開くSafariのフルスクリーン"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱 페이지를 엽니다: Safari용 전체 화면"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åpne appside: Fullskjerm for Safari"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App-pagina openen: Volledig scherm voor Safari"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otwórz stronę aplikacji: Pełny ekran dla Safari"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir página do aplicativo: Tela cheia para Safari"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir página da aplicação: Ecrã inteiro para Safari"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deschideți pagina aplicației: Ecran complet pentru Safari"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть страницу приложения: Полный экран для Safari"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öppna app-sida: Helskärm för Safari"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uygulama sayfasını açın: Safari için Tam Ekran"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрити сторінку програми: Повноекранний режим для Safari"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mở trang ứng dụng: Chế độ toàn màn hình cho Safari"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开应用程序页面Safari 全屏"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开应用程序页面Safari 全屏"
+          }
+        }
+      }
+    },
     "Open app page: Hard Disk" : {
       "localizations" : {
         "ar" : {
@@ -9036,7 +10503,188 @@
       }
     },
     "Open app page: Home Tab for Safari" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "افتح صفحة التطبيق: Home Tab for Safari"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obre la pàgina de l'aplicació: Home Tab for Safari"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevřete stránku aplikace: Karta Domů pro Safari"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åbn app-side: Hjem-fanen til Safari"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App-Seite öffnen: Home Tab für Safari"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ανοίξτε τη σελίδα της εφαρμογής: Safari"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Open app page: Home Tab for Safari"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir la página de la aplicación: Pestaña de inicio de Safari"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir la página de la aplicación: Pestaña de inicio de Safari"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avaa sovelluksen sivu: Safarin aloitusvälilehti"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir la page de l'application : Onglet d'accueil pour Safari"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "פתיחת דף האפליקציה: לשונית הבית עבור ספארי"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alkalmazás oldal megnyitása: Kezdőlap a Safari számára"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buka halaman aplikasi: Tab Beranda untuk Safari"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aprire la pagina dell'applicazione: Scheda Home per Safari"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリのページを開くSafariのホームタブ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱 페이지를 엽니다: Safari용 홈 탭"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åpne app-siden: Hjem-fanen for Safari"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App-pagina openen: Startpagina voor Safari"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otwórz stronę aplikacji: Karta główna Safari"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir página do aplicativo: Aba Home do Safari"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir a página da aplicação: Separador inicial do Safari"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deschideți pagina aplicației: Tab-ul Acasă pentru Safari"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть страницу приложения: Домашняя вкладка для Safari"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öppna app-sida: Startfliken för Safari"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uygulama sayfasını açın: Safari için Ana Sayfa Sekmesi"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрити сторінку програми: Головна вкладка для Safari"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mở trang ứng dụng: Tab Trang chủ cho Safari"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开应用程序页面Safari 的主页标签"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开应用程序页面Safari 的主页标签"
+          }
+        }
+      }
     },
     "Open app page: My Christmas Tree" : {
       "localizations" : {
@@ -9402,6 +11050,190 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "打开应用程序页面：我的农历新年"
+          }
+        }
+      }
+    },
+    "Open app page: Snow for Safari" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "افتح صفحة التطبيق: Snow for Safari"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obre la pàgina de l'aplicació: Snow for Safari"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevřete stránku aplikace: Snow pro Safari"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åbn app-side: Sne til Safari"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App-Seite öffnen: Schnee für Safari"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ανοίξτε τη σελίδα της εφαρμογής: Snow για Safari"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Open app page: Snow for Safari"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir la página de la aplicación: Snow para Safari"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir la página de la aplicación: Snow para Safari"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avaa sovelluksen sivu: Snow for Safari"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir la page de l'application : Snow pour Safari"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "פתח את דף האפליקציה: שלג לספארי"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alkalmazás oldal megnyitása: Snow for Safari"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buka halaman aplikasi: Salju untuk Safari"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aprire la pagina dell'applicazione: Neve per Safari"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリのページを開くSnow for Safari"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱 페이지를 엽니다: Safari용 Snow"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åpne app-siden: Snø for Safari"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open app pagina: Sneeuw voor Safari"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otwórz stronę aplikacji: Snow dla Safari"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abra a página do aplicativo: Snow para Safari"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir a página da aplicação: Snow para Safari"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deschideți pagina aplicației: Snow pentru Safari"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть страницу приложения: Снег для Safari"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öppna appens sida: Snö för Safari"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uygulama sayfasını açın: Safari için Snow"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрити сторінку програми: Сніг для Сафарі"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mở trang ứng dụng: Snow for Safari"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开应用程序页面：Snow for Safari"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开应用程序页面：Snow for Safari"
           }
         }
       }
@@ -9959,7 +11791,188 @@
       }
     },
     "Open app page: Zoom for Safari" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "افتح صفحة التطبيق: Zoom for Safari"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obre la pàgina de l'aplicació: Zoom for Safari"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevřete stránku aplikace: Zoom pro Safari"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åbn app-side: Zoom til Safari"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App-Seite öffnen: Zoom für Safari"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ανοίξτε τη σελίδα της εφαρμογής: για Safari"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Open app page: Zoom for Safari"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir la página de la aplicación: Zoom para Safari"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir la página de la aplicación: Zoom para Safari"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avaa sovelluksen sivu: Safarin zoomaus"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir la page de l'application : Zoom pour Safari"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "פתיחת דף האפליקציה: זום עבור ספארי"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alkalmazás oldal megnyitása: Zoom for Safari"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buka halaman aplikasi: Memperbesar untuk Safari"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aprire la pagina dell'applicazione: Zoom per Safari"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリのページを開くZoom for Safari"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱 페이지를 엽니다: Safari용 줌"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åpne app-siden: Zoom for Safari"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open app pagina: Zoom voor Safari"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otwórz stronę aplikacji: Zoom dla Safari"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir página do aplicativo: Zoom para Safari"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir página da aplicação: Zoom para Safari"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deschideți pagina aplicației: Zoom pentru Safari"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть страницу приложения: Zoom для Safari"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öppna app-sida: Zoom för Safari"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uygulama sayfasını açın: Safari için Yakınlaştır"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрити сторінку програми: Zoom для Safari"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mở trang ứng dụng: Zoom cho Safari"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开应用页面Safari 浏览器缩放"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开应用页面Safari 浏览器缩放"
+          }
+        }
+      }
     },
     "Open the **\"Settings\"** app on your device" : {
       "localizations" : {
@@ -14929,6 +16942,191 @@
         }
       }
     },
+    "Snow for Safari" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "افتح صفحة التطبيق: Snow for Safari"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obre la pàgina de l'aplicació: Snow for Safari"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sníh pro Safari"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sne til safari"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schnee für Safari"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Χιόνι για Safari"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Snow for Safari"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nieve para Safari"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nieve para Safari"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lunta safarille"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De la neige pour le safari"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Snow for Safari"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salju untuk Safari"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neve per Safari"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サファリのための雪"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사파리용 스노우"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Snø til safari"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sneeuw voor Safari"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Śnieg na Safari"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neve para o Safári"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neve para o Safari"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zăpadă pentru Safari"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Снег для сафари"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Snö för safari"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari için Kar"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сніг для Сафарі"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "野生动物园的雪"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "野生动物园的雪"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
     "Subscribe" : {
       "localizations" : {
         "ar" : {
@@ -19167,7 +21365,189 @@
       }
     },
     "Zoom for Safari" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "افتح صفحة التطبيق: Zoom for Safari"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obre la pàgina de l'aplicació: Zoom for Safari"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přiblížení pro Safari"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom til Safari"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom für Safari"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ζουμ για Safari"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Zoom for Safari"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom para Safari"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom para Safari"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safarin zoomaus"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom pour Safari"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nagyítás Safari számára"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom untuk Safari"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom per Safari"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ズーム・フォー・サファリ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari용 줌"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom for Safari"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom voor Safari"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom dla Safari"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom para Safari"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom para Safari"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom pentru Safari"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom для Safari"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom för Safari"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari için Yakınlaştırma"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Масштабування для Safari"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari 浏览器缩放"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari 浏览器缩放"
+          }
+        }
+      },
+      "shouldTranslate" : false
     }
   },
   "version" : "1.0"

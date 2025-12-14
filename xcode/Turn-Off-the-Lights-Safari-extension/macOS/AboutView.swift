@@ -90,12 +90,14 @@ struct AboutView: View {
                     }
                     .accessibilityHint(Text("Opens in your web browser"))
 
+                    /*
                     Button(action: {
                         StefanFunctions().openURL(URL(string: StefanLinks().linkdonate())!)
                     }) {
                         Text("Make a Donation")
                     }
                     .accessibilityHint(Text("Opens in your web browser"))
+                     */
                 }
                 
                 Section(header: Text("Explore & Connect"))

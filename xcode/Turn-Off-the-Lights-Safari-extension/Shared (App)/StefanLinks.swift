@@ -117,4 +117,27 @@ class StefanLinks {
         return "https://apps.apple.com/app/id1062397646"
     }
     
+    func webappfullscreen() -> String{
+        return "https://apps.apple.com/app/id1462623715"
+    }
+    
+    func webappsnow() -> String{
+        return "https://apps.apple.com/app/id6755977850"
+    }
+    
+    func webappfontsizeincrease() -> String{
+        return "https://apps.apple.com/app/id6756031354"
+    }
+    
+    func webappfontsizedecrease() -> String{
+        return "https://apps.apple.com/app/id6756031162"
+    }
+    
+    func webapprotatethatvideoplayer() -> String{
+        return "https://apps.apple.com/app/id6756031106"
+    }
+    
+    func webappprint() -> String{
+        return "https://apps.apple.com/app/id6475040701"
+    }
 }

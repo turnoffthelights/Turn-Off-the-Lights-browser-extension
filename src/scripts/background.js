@@ -469,23 +469,27 @@ function codenight(){
 }
 
 var lampandnightmode;
-chrome.commands.onCommand.addListener(function(command){
-	if(command == "toggle-feature-nightmode"){
-		chrome.storage.sync.get(["lampandnightmode"], function(response){
-			lampandnightmode = response["lampandnightmode"];
-			if(lampandnightmode == true){
-				chrome.runtime.sendMessage({name: "mastertabnight"});
-			}else{
-				getCurrentTab().then((thattab) => {
-					chrome.scripting.executeScript({
-						target: {tabId: thattab.id},
-						func: codenight
+// keyboard shortcuts only for desktop web browser
+// and not for Firefox Android mobile web browser
+if(chrome.commands && chrome.commands.onCommand){
+	chrome.commands.onCommand.addListener(function(command){
+		if(command == "toggle-feature-nightmode"){
+			chrome.storage.sync.get(["lampandnightmode"], function(response){
+				lampandnightmode = response["lampandnightmode"];
+				if(lampandnightmode == true){
+					chrome.runtime.sendMessage({name: "mastertabnight"});
+				}else{
+					getCurrentTab().then((thattab) => {
+						chrome.scripting.executeScript({
+							target: {tabId: thattab.id},
+							func: codenight
+						});
 					});
-				});
-			}
-		});
-	}
-});
+				}
+			});
+		}
+	});
+}
 
 // contextMenus
 function onClickHandler(info, tab){
