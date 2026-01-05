@@ -3,7 +3,7 @@
 
 Turn Off the Lights
 The entire page will be fading to dark, so you can watch the video as if you were in the cinema.
-Copyright (C) 2025 Stefan vd
+Copyright (C) 2026 Stefan vd
 www.stefanvd.net
 www.turnoffthelights.com
 
@@ -47,6 +47,12 @@ ytd-feed-filter-chip-bar-renderer[frosted-glass-mode=with-chipbar] #chips-wrappe
 .ytp-ad-preview-container,.ytp-ad-skip-button-container{z-index:1005!important}
 .ytp-ad-player-overlay-instream-info,.ytp-ad-survey-player-overlay-instream-info{z-index:1005!important}
 .iv-promo{z-index:1005!important}
+/* Shorts - must set to contain to inherit that to fix z-index issue */
+.reel-video-in-sequence-new.ytd-shorts{contain:inherit!important}
+#scrubber.ytd-reel-video-renderer{z-index:1005!important}
+ytd-reel-video-renderer:not([showing-expanded-overlay]) .overlay.ytd-reel-video-renderer{z-index:1001!important}
+.player-controls.ytd-reel-video-renderer{z-index:1001!important}
+.caption-window{z-index:1001!important}
 /* Start iOS mobile show the player buttons */
 .player-controls-background{z-index:1001!important}
 #player-control-overlay{z-index:1001!important}
