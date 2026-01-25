@@ -3,7 +3,7 @@
 
 Turn Off the Lights
 The entire page will be fading to dark, so you can watch the video as if you were in the cinema.
-Copyright (C) 2025 Stefan vd
+Copyright (C) 2026 Stefan vd
 www.stefanvd.net
 www.turnoffthelights.com
 
@@ -47,6 +47,316 @@ function setnewtable(a, b, c){
 
 // http://data.iana.org/TLD/tlds-alpha-by-domain.txt
 var TLDs = ["ac", "ad", "ae", "aero", "af", "ag", "ai", "al", "am", "an", "ao", "app", "aq", "ar", "arpa", "as", "asia", "at", "au", "aw", "ax", "az", "ba", "bb", "bd", "be", "bf", "bg", "bh", "bi", "biz", "bj", "bm", "bn", "bo", "br", "bs", "bt", "bv", "bw", "by", "bz", "ca", "cat", "cc", "cd", "cf", "cg", "ch", "ci", "ck", "cl", "cm", "cn", "co", "com", "coop", "cr", "cu", "cv", "cx", "cy", "cz", "de", "dj", "dk", "dm", "do", "dz", "ec", "edu", "ee", "eg", "er", "es", "et", "eu", "fi", "fj", "fk", "fm", "fo", "fr", "ga", "gb", "gd", "ge", "gf", "gg", "gh", "gi", "gl", "gm", "gn", "gov", "gp", "gq", "gr", "gs", "gt", "gu", "gw", "gy", "hk", "hm", "hn", "hr", "ht", "hu", "id", "ie", "il", "im", "in", "info", "int", "io", "iq", "ir", "is", "it", "je", "jm", "jo", "jobs", "jp", "ke", "kg", "kh", "ki", "km", "kn", "kp", "kr", "kw", "ky", "kz", "la", "lb", "lc", "li", "lk", "lr", "ls", "lt", "lu", "lv", "ly", "ma", "mc", "md", "me", "mg", "mh", "mil", "mk", "ml", "mm", "mn", "mo", "mobi", "mp", "mq", "mr", "ms", "mt", "mu", "museum", "mv", "mw", "mx", "my", "mz", "na", "name", "nc", "ne", "net", "nf", "ng", "ni", "nl", "no", "np", "nr", "nu", "nz", "om", "org", "pa", "pe", "pf", "pg", "ph", "pk", "pl", "pm", "pn", "pr", "pro", "ps", "pt", "pw", "py", "qa", "re", "ro", "rs", "ru", "rw", "sa", "sb", "sc", "sd", "se", "sg", "sh", "si", "sj", "sk", "sl", "sm", "sn", "so", "sr", "st", "su", "sv", "sy", "sz", "tc", "td", "tel", "tf", "tg", "th", "tj", "tk", "tl", "tm", "tn", "to", "tp", "tr", "travel", "tt", "tv", "tw", "tz", "ua", "ug", "uk", "us", "uy", "uz", "va", "vc", "ve", "vg", "vi", "video", "vn", "vu", "wf", "ws", "xn--0zwm56d", "xn--11b5bs3a9aj6g", "xn--3e0b707e", "xn--45brj9c", "xn--80akhbyknj4f", "xn--90a3ac", "xn--9t4b11yi5a", "xn--clchc0ea0b2g2a9gcd", "xn--deba0ad", "xn--fiqs8s", "xn--fiqz9s", "xn--fpcrj9c3d", "xn--fzc2c9e2c", "xn--g6w251d", "xn--gecrj9c", "xn--h2brj9c", "xn--hgbk6aj7f53bba", "xn--hlcj6aya9esc7a", "xn--j6w193g", "xn--jxalpdlp", "xn--kgbechtv", "xn--kprw13d", "xn--kpry57d", "xn--lgbbat1ad8j", "xn--mgbaam7a8h", "xn--mgbayh7gpa", "xn--mgbbh1a71e", "xn--mgbc0a9azcg", "xn--mgberp4a5d4ar", "xn--o3cw4h", "xn--ogbpf8fl", "xn--p1ai", "xn--pgbs0dh", "xn--s9brj9c", "xn--wgbh1c", "xn--wgbl6a", "xn--xkc2al3hye2a", "xn--xkc2dl3a5ee0h", "xn--yfro4i67o", "xn--ygbi2ammx", "xn--zckzah", "xxx", "ye", "yt", "za", "zm", "zw"].join();
+
+// Begin chart drawing functions
+function createTooltip(){
+	let tooltip = document.getElementById("chart-tooltip");
+	if(!tooltip){
+		tooltip = document.createElement("div");
+		tooltip.id = "chart-tooltip";
+		tooltip.style.position = "fixed";
+		tooltip.style.background = "rgba(0, 0, 0, 0.8)";
+		tooltip.style.color = "white";
+		tooltip.style.padding = "5px 10px";
+		tooltip.style.borderRadius = "4px";
+		tooltip.style.fontSize = "12px";
+		tooltip.style.pointerEvents = "none";
+		tooltip.style.zIndex = "1000";
+		tooltip.style.display = "none";
+		document.body.appendChild(tooltip);
+	}
+	return tooltip;
+}
+
+function showTooltip(text, x, y){
+	const tooltip = createTooltip();
+	tooltip.textContent = text;
+	tooltip.style.left = (x + 10) + "px";
+	tooltip.style.top = (y - 10) + "px";
+	tooltip.style.display = "block";
+}
+
+function hideTooltip(){
+	const tooltip = document.getElementById("chart-tooltip");
+	if(tooltip){
+		tooltip.style.display = "none";
+	}
+}
+
+function drawLineChart(canvas, labels, datasets){
+	// Make canvas responsive
+	const container = canvas.parentElement;
+	const containerWidth = container.clientWidth;
+	const containerHeight = container.clientHeight;
+
+	canvas.width = containerWidth > 0 ? containerWidth : 942;
+	canvas.height = containerHeight > 0 ? containerHeight : 440;
+	canvas.style.width = "100%";
+	canvas.style.height = "100%";
+
+	const ctx = canvas.getContext("2d");
+	const width = canvas.width;
+	const height = canvas.height;
+	const padding = 60;
+	const chartTop = 40;
+	const chartWidth = width - 2 * padding;
+	const chartHeight = height - chartTop - padding;
+
+	// Find max values
+	let maxY = 0;
+	datasets.forEach((dataset) => {
+		dataset.data.forEach((val) => {
+			if(val > maxY) maxY = val;
+		});
+	});
+	if(maxY === 0) maxY = 1;
+
+	function drawChart(highlightPoint = null){
+		// Clear canvas
+		ctx.clearRect(0, 0, width, height);
+
+		// Draw grid and labels first
+		ctx.strokeStyle = "#ddd";
+		ctx.lineWidth = 1;
+		ctx.fillStyle = "#333";
+		ctx.font = "12px Arial";
+
+		// Y axis grid lines and labels
+		for(let i = 0; i <= 5; i++){
+			const y = chartTop + (chartHeight - (i * chartHeight / 5));
+			// Horizontal grid line
+			ctx.beginPath();
+			ctx.moveTo(padding, y);
+			ctx.lineTo(width - padding, y);
+			ctx.stroke();
+			// Y axis tick
+			ctx.beginPath();
+			ctx.moveTo(padding - 5, y);
+			ctx.lineTo(padding + 5, y);
+			ctx.stroke();
+			ctx.fillText((maxY * i / 5).toFixed(1), padding - 40, y + 4);
+		}
+
+		// X axis grid lines and labels (show more labels)
+		const maxLabels = Math.min(labels.length, 15); // Show up to 15 labels
+		const step = Math.max(1, Math.floor(labels.length / maxLabels));
+		for(let i = 0; i < labels.length; i += step){
+			const x = padding + (i * chartWidth / (labels.length - 1));
+			// Vertical grid line
+			ctx.beginPath();
+			ctx.moveTo(x, chartTop);
+			ctx.lineTo(x, height - padding);
+			ctx.stroke();
+			// X axis tick
+			ctx.beginPath();
+			ctx.moveTo(x, height - padding - 5);
+			ctx.lineTo(x, height - padding + 5);
+			ctx.stroke();
+			// Label
+			ctx.save();
+			ctx.translate(x - 5, height - padding + 20);
+			// ctx.rotate(-Math.PI / 8);
+			ctx.fillText(labels[i], 0, 0);
+			ctx.restore();
+		}
+
+		// Draw axes on top
+		ctx.strokeStyle = "#333";
+		ctx.lineWidth = 2;
+		ctx.beginPath();
+		ctx.moveTo(padding, chartTop);
+		ctx.lineTo(padding, height - padding);
+		ctx.lineTo(width - padding, height - padding);
+		ctx.stroke();
+
+		// Draw datasets lines
+		datasets.forEach((dataset) => {
+			ctx.strokeStyle = dataset.borderColor || "#000";
+			ctx.lineWidth = dataset.borderWidth || 2;
+			ctx.beginPath();
+			dataset.data.forEach((val, i) => {
+				const x = padding + (i * chartWidth / (dataset.data.length - 1));
+				const y = chartTop + chartHeight - (val * chartHeight / maxY);
+				if(i === 0){
+					ctx.moveTo(x, y);
+				}else{
+					ctx.lineTo(x, y);
+				}
+			});
+			ctx.stroke();
+		});
+
+		// Draw points
+		datasets.forEach((dataset) => {
+			ctx.fillStyle = dataset.borderColor || "#000";
+			dataset.data.forEach((val, i) => {
+				const x = padding + (i * chartWidth / (dataset.data.length - 1));
+				const y = chartTop + chartHeight - (val * chartHeight / maxY);
+				const isHighlight = highlightPoint && highlightPoint.x === x && highlightPoint.y === y;
+				ctx.beginPath();
+				ctx.arc(x, y, isHighlight ? 6 : 4, 0, 2 * Math.PI);
+				ctx.fill();
+				if(isHighlight){
+					ctx.strokeStyle = "#fff";
+					ctx.lineWidth = 2;
+					ctx.stroke();
+				}
+			});
+		});
+
+		// Draw legend
+		const legendY = 10;
+		let legendX = padding;
+		datasets.forEach((dataset, index) => {
+			// Draw color box
+			ctx.fillStyle = dataset.borderColor || "#000";
+			ctx.fillRect(legendX, legendY, 15, 15);
+			// Draw label
+			ctx.fillStyle = "#333";
+			ctx.font = "12px Arial";
+			const labelText = dataset.label || `Dataset ${index + 1}`;
+			ctx.fillText(labelText, legendX + 20, legendY + 12);
+			// Calculate text width and add padding
+			const textWidth = ctx.measureText(labelText).width;
+			legendX += 25 + textWidth + 20; // 15 (box) + 10 (padding) + textWidth + 20 (spacing)
+		});
+	}
+
+	// Draw chart initially
+	drawChart();
+
+	// Add tooltip functionality
+	canvas.addEventListener("mousemove", function(e){
+		const rect = canvas.getBoundingClientRect();
+		const mouseX = e.clientX - rect.left;
+		const mouseY = e.clientY - rect.top;
+
+		let closestPoint = null;
+		let minDistance = Infinity;
+		let tooltipText = "";
+
+		datasets.forEach((dataset) => {
+			dataset.data.forEach((val, i) => {
+				const x = padding + (i * chartWidth / (dataset.data.length - 1));
+				const y = chartTop + chartHeight - (val * chartHeight / maxY);
+				const distance = Math.sqrt((mouseX - x) ** 2 + (mouseY - y) ** 2);
+				if(distance < minDistance && distance < 10){ // 10px threshold for points
+					minDistance = distance;
+					closestPoint = {x, y};
+					tooltipText = `${labels[i]}: ${val}`;
+				}
+			});
+		});
+
+		if(closestPoint){
+			drawChart(closestPoint);
+			showTooltip(tooltipText, e.clientX, e.clientY);
+		}else{
+			drawChart();
+			hideTooltip();
+		}
+	});
+
+	canvas.addEventListener("mouseleave", function(){
+		drawChart();
+		hideTooltip();
+	});
+}
+
+function drawDoughnutChart(canvas, labels, data, colors, title){
+	// Make canvas responsive
+	const container = canvas.parentElement;
+	const containerWidth = container.clientWidth;
+	const containerHeight = container.clientHeight;
+
+	canvas.width = containerWidth > 0 ? containerWidth : 400;
+	canvas.height = containerHeight > 0 ? containerHeight : 300;
+	canvas.style.width = "100%";
+	canvas.style.height = "100%";
+
+	const ctx = canvas.getContext("2d");
+	const width = canvas.width;
+	const height = canvas.height;
+	const centerX = width / 2;
+	const centerY = height / 2;
+	const radius = Math.min(width, height) / 2 - 40;
+	const innerRadius = radius * 0.6;
+
+	// Clear canvas
+	ctx.clearRect(0, 0, width, height);
+
+	// Draw title
+	if(title){
+		ctx.fillStyle = "#333";
+		ctx.font = "16px Arial";
+		ctx.textAlign = "center";
+		ctx.fillText(title, centerX, 30);
+	}
+
+	let total = data.reduce((sum, val) => sum + val, 0);
+	if(total === 0)return;
+
+	let startAngle = -Math.PI / 2;
+	data.forEach((val, i) => {
+		const sliceAngle = (val / total) * 2 * Math.PI;
+		const endAngle = startAngle + sliceAngle;
+
+		// Draw outer arc
+		ctx.beginPath();
+		ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+		ctx.arc(centerX, centerY, innerRadius, endAngle, startAngle, true);
+		ctx.closePath();
+		ctx.fillStyle = colors[i % colors.length];
+		ctx.fill();
+		ctx.strokeStyle = "#fff";
+		ctx.lineWidth = 2;
+		ctx.stroke();
+
+		startAngle = endAngle;
+	});
+
+	// Draw legend
+	ctx.textAlign = "left";
+	ctx.font = "12px Arial";
+	labels.forEach((label, i) => {
+		const x = 20;
+		const y = height - 20 - (labels.length - 1 - i) * 20;
+		ctx.fillStyle = colors[i % colors.length];
+		ctx.fillRect(x, y - 10, 15, 15);
+		ctx.fillStyle = "#333";
+		ctx.fillText(label + ": " + data[i], x + 20, y + 4);
+	});
+
+	// Add tooltip functionality
+	canvas.addEventListener("mousemove", function(e){
+		const rect = canvas.getBoundingClientRect();
+		const mouseX = e.clientX - rect.left;
+		const mouseY = e.clientY - rect.top;
+
+		const dx = mouseX - centerX;
+		const dy = mouseY - centerY;
+		const distance = Math.sqrt(dx * dx + dy * dy);
+
+		if(distance >= innerRadius && distance <= radius){
+			const angle = Math.atan2(dy, dx) + Math.PI / 2;
+			let normalizedAngle = angle < 0 ? angle + 2 * Math.PI : angle;
+
+			let cumulativeAngle = 0;
+			for(let i = 0; i < data.length; i++){
+				const sliceAngle = (data[i] / total) * 2 * Math.PI;
+				if(normalizedAngle >= cumulativeAngle && normalizedAngle < cumulativeAngle + sliceAngle){
+					showTooltip(`${labels[i]}: ${data[i]}`, e.clientX, e.clientY);
+					return;
+				}
+				cumulativeAngle += sliceAngle;
+			}
+		}
+		hideTooltip();
+	});
+
+	canvas.addEventListener("mouseleave", hideTooltip);
+}
+// End chart drawing functions
 
 function getDomain(url){
 	url = url.replace(/.*?:\/\//g, "");
@@ -369,24 +679,31 @@ function domcontentloaded(){
 
 	function createcharts(){
 		// --- Begin chart1
-		var ctx1 = document.getElementById("myChart").getContext("2d");
-		new Chart(ctx1, {type: "line", data: {datasets: [{label: chrome.i18n.getMessage("charttitletotaltime"), data: timevalm, backgroundColor: ["rgba(229,57,53,0)"], borderColor: ["rgba(229,57,53,1)"], borderWidth: 2}, {label: chrome.i18n.getMessage("charttitlelayeractive"), data: activevals, backgroundColor: ["rgba(30,136,229,0)"], borderColor: ["rgba(30,136,229,1)"], borderWidth: 2, type: "line"}], labels: labelsvals}, options: {legend: {labels: {usePointStyle: true}}, responsive: true, scales: {y: {ticks: {beginAtZero:true}}}}});
+		var canvas1 = document.getElementById("myChart");
+		var datasets1 = [
+			{label: chrome.i18n.getMessage("charttitletotaltime"), data: timevalm, borderColor: "rgba(229,57,53,1)", borderWidth: 2},
+			{label: chrome.i18n.getMessage("charttitlelayeractive"), data: activevals, borderColor: "rgba(30,136,229,1)", borderWidth: 2}
+		];
+		drawLineChart(canvas1, labelsvals, datasets1, {});
 		// --- End chart1
 		// --- Begin chart3
-		var ctx3 = document.getElementById("myChartthree").getContext("2d");
-		var data = {labels: [chrome.i18n.getMessage("charttitlelblenergysaved"), chrome.i18n.getMessage("charttitlelblenergytotal")], datasets: [{fill: true, backgroundColor: ["#43A047"], data: [currentkwh30days, kwhwithregu30days], borderColor: ["#43A047"], borderWidth: 1}]};
-		var options = {responsive: true, rotation: -0.7 * Math.PI, plugins: {title: {display: true, text: chrome.i18n.getMessage("charttitle30dayssaved"), position: "top"}, legend: {display: false, position: "top"}}};
-		new Chart(ctx3, {type: "doughnut", data: data, options: options});
+		var canvas3 = document.getElementById("myChartthree");
+		var labels3 = [chrome.i18n.getMessage("charttitlelblenergysaved"), chrome.i18n.getMessage("charttitlelblenergytotal")];
+		var data3 = [currentkwh30days, kwhwithregu30days];
+		var colors3 = ["#43A047"];
+		var title3 = chrome.i18n.getMessage("charttitle30dayssaved");
+		drawDoughnutChart(canvas3, labels3, data3, colors3, title3);
 		// --- End chart3
 		// --- Begin chart4
-		var ctx4 = document.getElementById("myChartfour").getContext("2d");
-		new Chart(ctx4, {type: "line", data: {datasets: [{label: chrome.i18n.getMessage("charttitleavgday"), data: avgdayschedule, backgroundColor: ["rgba(229,57,53,0)"], borderColor: ["rgba(229,57,53,1)"], borderWidth: 2}], labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}, options: {legend: {labels: {usePointStyle: true}}, responsive: true, scales: {y: {ticks: {beginAtZero:true}}}}});
+		var canvas4 = document.getElementById("myChartfour");
+		var datasets4 = [{label: chrome.i18n.getMessage("charttitleavgday"), data: avgdayschedule, borderColor: "rgba(229,57,53,1)", borderWidth: 2}];
+		var labels4 = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"];
+		drawLineChart(canvas4, labels4, datasets4, {});
 		// --- End chart4
 	}
 	function createtables(){
 		// --- Begin chart2
 		var testlove = false;
-		var ctx2 = document.getElementById("myCharttwo").getContext("2d");
 		var sitenamedomain = [];
 		var sitevaluedomain = [];
 		var key;
@@ -405,11 +722,13 @@ function domcontentloaded(){
 			sharelovetext = chrome.i18n.getMessage("shareanalyticlove", "turnoffthelights.com");
 			document.getElementById("sharelovetext").innerText = sharelovetext;
 		}
-		var data = {labels: sitenamedomain, datasets: [{fill: true, backgroundColor: ["#D32F2F", "#0288D1", "#388E3C", "#FFD600", "#FFA000", "#C51162", "#7B1FA2", "#0097A7", "#00BFA5", "#689F38", "#FF6D00", "#616161"], data: sitevaluedomain, borderColor: ["#D32F2F", "#0288D1", "#388E3C", "#FFD600", "#FFA000", "#C51162", "#7B1FA2", "#0097A7", "#00BFA5", "#689F38", "#FF6D00", "#616161"], borderWidth: [2, 2]}]};
-
-		var options = {responsive: true, rotation: -0.7 * Math.PI, plugins: {title: {display: true, text: chrome.i18n.getMessage("charttitlelblwebsiteused"), position: "top"}, legend: {display: false, position: "top"}}};
-
-		new Chart(ctx2, {type: "doughnut", data: data, options: options});
+		var canvas2 = document.getElementById("myCharttwo");
+		var colors2 = ["#D32F2F", "#0288D1", "#388E3C", "#FFD600", "#FFA000", "#C51162", "#7B1FA2", "#0097A7", "#00BFA5", "#689F38", "#FF6D00", "#616161"];
+		var title2 = chrome.i18n.getMessage("charttitlelblwebsiteused");
+		// Flatten arrays and ensure data is numeric
+		var flatLabels = sitenamedomain.flat();
+		var flatData = sitevaluedomain.flat().map((val) => parseFloat(val));
+		drawDoughnutChart(canvas2, flatLabels, flatData, colors2, title2);
 		// --- End chart2
 
 		// --- Share Love

@@ -918,10 +918,10 @@ input[type=checkbox]:checked ~ div #expandprofileaicon,input[type=checkbox]:chec
 .canvaschart:first-child{width:calc(50% - 42px);display:inline-block;margin:auto 10px 0px 0px;box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);padding:15px}
 .canvaschart:nth-child(2){width:calc(50% - 42px);display:inline-block;margin:auto 0px 0px 10px;box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);padding:15px}
 .canvasavgday{position:relative;box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);padding:15px}
-#myChart{width:400px;height:132px;content-visibility:auto}
-#myChartfour{width:400px;height:132px;content-visibility:auto}
-#myCharttwo{width:100px;height:100px;content-visibility:auto}
-#myChartthree{width:100px;height:100px;content-visibility:auto}
+#myChart{width:100%;height:100%;content-visibility:auto}
+#myChartfour{width:100%;height:100%;;content-visibility:auto}
+#myCharttwo{width:100%;height:100%;content-visibility:auto}
+#myChartthree{width:100%;height:100%;content-visibility:auto}
 .threecanvasgroup{width:100%}
 .tabledatalist{border-spacing:0;width:100%;table-layout:fixed;overflow:hidden}
 .tabledatalist tr:first-child{background:var(--totl-table-first-background);color:var(--totl-table-first-color)}
