@@ -571,6 +571,8 @@ function onClickHandler(info, tab){
 		break;
 	case(str.includes("totldevelopmenu")): chrome.tabs.create({url: linkdonate, active:true});
 		break;
+	case(str.includes("totlsupport")): chrome.tabs.create({url: linksupport, active:true});
+		break;
 	case(str.includes("totlratemen")): chrome.tabs.create({url: writereview, active:true});
 		break;
 	case(str.includes("totlshareemail")): var sturnoffthelightemail = "mailto:your@email.com?subject=" + chrome.i18n.getMessage("sharetexta") + "&body=" + chrome.i18n.getMessage("sharetextb") + " " + linkproduct; chrome.tabs.create({url: sturnoffthelightemail, active:true});
@@ -609,6 +611,7 @@ var sharemenusendapost = chrome.i18n.getMessage("sharemenusendapost");
 var sharemenupostonfacebook = chrome.i18n.getMessage("sharemenupostonfacebook");
 // var sharemenuratetitle = chrome.i18n.getMessage("sharemenuratetitle");
 var sharemenudonatetitle = chrome.i18n.getMessage("sharemenudonatetitle");
+var sharemenusupporttitle = chrome.i18n.getMessage("titelpopupsupport");
 // var sharemenusubscribetitle = chrome.i18n.getMessage("desremyoutube");
 var sharemenupostonweibo = chrome.i18n.getMessage("sharemenupostonweibo");
 var sharemenupostonvkontakte = chrome.i18n.getMessage("sharemenupostonvkontakte");
@@ -643,7 +646,11 @@ if(chrome.contextMenus){
 
 		var contexts = ["action"];
 		browsercontext(sharemenuwelcomeguidetitle, "totlguideemenu", {"16": "images/IconGuide.png", "32": "images/IconGuide@2x.png"});
-		browsercontext(sharemenudonatetitle, "totldevelopmenu", {"16": "images/IconDonate.png", "32": "images/IconDonate@2x.png"});
+		if(devdonate == true){
+			browsercontext(sharemenusupporttitle, "totlsupport", {"16": "images/IconHelp.png", "32": "images/IconHelp@2x.png"});
+		}else{
+			browsercontext(sharemenudonatetitle, "totldevelopmenu", {"16": "images/IconDonate.png", "32": "images/IconDonate@2x.png"});
+		}
 		// browsercontext(sharemenuratetitle, "totlratemenu", {"16": "images/IconStar.png", "32": "images/IconStar@2x.png"});
 
 		// Create a parent item and two children.

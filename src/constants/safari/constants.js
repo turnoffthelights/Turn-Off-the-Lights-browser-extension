@@ -22,4 +22,4 @@ const linktotlmobileapp = "https://www.turnoffthelights.com/mobile/";
 const linkgamepad = "https://www.turnoffthelights.com/game-controller/";
 const linknightmodeapp = "https://www.turnoffthelights.com/browser/extension/night-mode/";
 const devmode = true;
-const devdonate = false;
+const devdonate = true;
