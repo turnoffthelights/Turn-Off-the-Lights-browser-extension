@@ -31,7 +31,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 .ytd-browse-0 #header.ytd-browse{z-index:auto!important}
 .ytp-chrome-top{z-index:1001!important}
 .ytp-ce-element,.ytp-ce-shadow{z-index:1001!important}
-#masthead-container.ytd-app{z-index:982!important}
+/*#masthead-container.ytd-app{z-index:982!important}*/
 tp-yt-app-drawer.ytd-app[persistent]{z-index:980!important}
 #masthead-positioner{z-index:980!important}
 #frosted-glass{z-index:980!important}
@@ -47,6 +47,8 @@ ytd-feed-filter-chip-bar-renderer[frosted-glass-mode=with-chipbar] #chips-wrappe
 .ytp-ad-preview-container,.ytp-ad-skip-button-container{z-index:1005!important}
 .ytp-ad-player-overlay-instream-info,.ytp-ad-survey-player-overlay-instream-info{z-index:1005!important}
 .iv-promo{z-index:1005!important}
+/* Search panel */
+.ytSearchboxComponentSuggestionsContainer{z-index:1005!important}
 /* Shorts - must set to contain to inherit that to fix z-index issue */
 .reel-video-in-sequence-new.ytd-shorts{contain:inherit!important}
 #scrubber.ytd-reel-video-renderer{z-index:1005!important}

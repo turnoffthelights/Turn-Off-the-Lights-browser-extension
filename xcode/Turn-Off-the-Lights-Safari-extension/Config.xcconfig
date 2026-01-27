@@ -9,5 +9,5 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 // Update the version number here for all platforms
-VERSION = 4.6.3
-BUILD_NUMBER = 142
+VERSION = 4.6.4
+BUILD_NUMBER = 143

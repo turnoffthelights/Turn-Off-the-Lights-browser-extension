@@ -205,7 +205,23 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	// inject script for autodim
 	function addautodimfile(){
 		if(!document.getElementById("totlautodim")){
-			var script = document.createElement("script"); script.id = "totlautodim"; script.type = "text/javascript"; script.src = chrome.runtime.getURL("scripts/video-player-status.js"); document.getElementsByTagName("head")[0].appendChild(script);
+			if(exbrowser == "safari"){
+				// Safari - new fetch method
+				// because CSP issues on YouTube on 27 January 2026
+				var url = chrome.runtime.getURL("scripts/video-player-status.js");
+				fetch(url)
+					.then(function(response){ return response.text(); })
+					.then(function(text){
+						var script = document.createElement("script");
+						script.id = "totlautodim";
+						script.type = "text/javascript";
+						script.textContent = text;
+						(document.head || document.documentElement).appendChild(script);
+					});
+			}else{
+				// All other browsers
+				var script = document.createElement("script"); script.id = "totlautodim"; script.type = "text/javascript"; script.src = chrome.runtime.getURL("scripts/video-player-status.js"); (document.head || document.documentElement).appendChild(script);
+			}
 		}
 	}
 
