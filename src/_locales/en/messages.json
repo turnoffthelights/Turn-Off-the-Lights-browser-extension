@@ -25,7 +25,7 @@
 "desuntil":{"message":"until"},
 "desconfirmpassword":{"message":"Confirm password"},
 "desautodimonly":{"message":"Dim only the following video site(s):"},
-"helpeyeprotection":{"message":"Enabling 'Eye protection' will automatically disable the 'Auto play' feature."},
+"helpeyeprotection":{"message":"Enabling 'Eye protection' will automatically disable the 'AutoDim' feature."},
 "skipremember":{"message":"Skip this, and open the options page now"},
 "optiontimesaved":{"message":"Time is saved successfully!"},
 "titelvideoheadline":{"message":"Video Title"},
@@ -551,5 +551,6 @@
 "desautostopsizepixel":{"message":"pixels"},
 "desnightdarkmodeactive":{"message":"Skip Night Mode when the website has dark mode enabled"},
 "desvideofilled":{"message":"Make the video player fill the browser window while in full window mode that may cut off some parts of the video"},
-"desnightskipcolor":{"message":"Skip converting the colored text to night mode"}
+"desnightskipcolor":{"message":"Skip converting the colored text to night mode"},
+"domainexist": {"message": "Domain already exists in the list."}
 }

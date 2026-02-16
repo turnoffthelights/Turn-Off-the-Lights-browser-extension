@@ -25,7 +25,7 @@
 "desuntil":{"message":"μέχρι"},
 "desconfirmpassword":{"message":"Επιβεβαίωση κωδικού"},
 "desautodimonly":{"message":"Μείωση φωτεινότητας μόνο των παρακάτω ιστοσελίδων βίντεο:"},
-"helpeyeprotection":{"message":"Ενεργοποίηση «Προστασίας των ματιών» αυτόματα θα απενεργοποιήσει το χαρακτηριστικό 'Auto play'."},
+"helpeyeprotection":{"message":"Ενεργοποίηση «Προστασίας των ματιών» αυτόματα θα απενεργοποιήσει το χαρακτηριστικό 'AutoDim'."},
 "skipremember":{"message":"Παραλείψτε αυτό και ανοίξτε την σελίδα επιλογών τώρα"},
 "optiontimesaved":{"message":"Ο χρόνος αποθηκεύτηκε επιτυχώς!"},
 "titelvideoheadline":{"message":"Τίτλος Βίντεο"},

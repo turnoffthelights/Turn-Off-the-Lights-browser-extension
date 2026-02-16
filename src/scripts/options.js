@@ -3,7 +3,7 @@
 
 Turn Off the Lights
 The entire page will be fading to dark, so you can watch the video as if you were in the cinema.
-Copyright (C) 2025 Stefan vd
+Copyright (C) 2026 Stefan vd
 www.stefanvd.net
 www.turnoffthelights.com
 
@@ -649,16 +649,15 @@ function read_options(){
 		var multiopacityDomains = items["multiopacityDomains"];
 		if(typeof multiopacityDomains == "string"){
 			multiopacityDomains = JSON.parse(multiopacityDomains);
-			let mpbbuf = [];
-			let domain;
-			for(domain in multiopacityDomains)
-				mpbbuf.push(domain);
-			mpbbuf.sort();
-			let i;
-			let l = mpbbuf.length;
-			for(i = 0; i < l; i++){
-				multiappendToListBox("multiopacityDomainsBox", mpbbuf[i], multiopacityDomains["" + mpbbuf[i] + ""]);
-			}
+		}
+
+		let mpbbuf = [], domain;
+		for(domain in multiopacityDomains)
+			mpbbuf.push(domain);
+		mpbbuf.sort();
+		let i, l = mpbbuf.length;
+		for(i = 0; i < l; i++){
+			multiappendToListBox("multiopacityDomainsBox", mpbbuf[i], multiopacityDomains["" + mpbbuf[i] + ""]);
 		}
 
 		test(); // everything readed, do the "test"
@@ -872,9 +871,33 @@ function reduceOpacity(){
 }
 
 // Add a filter string to the list box.
-function appendToListBox(boxId, text){ var elt = document.createElement("option"); elt.role = "option"; elt.text = text; elt.value = text; $(boxId).add(elt, null); }
+function appendToListBox(boxId, text){
+	// Check if the domain/pattern already exists in the list
+	var listBox = document.getElementById(boxId);
+	var options = listBox.options;
+	for(var i = 0; i < options.length; i++){
+		if(options[i].value.toLowerCase() === text.toLowerCase()){
+			var i18ndomainexist = chrome.i18n.getMessage("domainexist");
+			alert(i18ndomainexist);
+			return;
+		}
+	}
+
+	var elt = document.createElement("option"); elt.role = "option"; elt.text = text; elt.value = text; $(boxId).add(elt, null);
+}
 
 function multiappendToListBox(boxId, text, phonenumber){
+	// Check if the domain/pattern already exists in the list
+	var listBox = document.getElementById(boxId);
+	var options = listBox.options;
+	for(var i = 0; i < options.length; i++){
+		if(options[i].value.toLowerCase() === text.toLowerCase()){
+			var i18ndomainexist = chrome.i18n.getMessage("domainexist");
+			alert(i18ndomainexist);
+			return;
+		}
+	}
+
 	var elt = document.createElement("option");
 	elt.role = "option";
 	elt.text = text;
@@ -929,6 +952,7 @@ function getHash(url){
 function addWhitelistDomain(){
 	var domain = $("websiteurl").value;
 	appendToListBox("excludedDomainsBox", domain);
+	$("websiteurl").value = "";
 	save_options();
 }
 
@@ -936,6 +960,7 @@ function addWhitelistDomain(){
 function autodimaddWhitelistDomain(){
 	var domain = $("autodimwebsiteurl").value;
 	appendToListBox("autodimDomainsBox", domain);
+	$("autodimwebsiteurl").value = "";
 	save_options();
 }
 
@@ -943,6 +968,7 @@ function autodimaddWhitelistDomain(){
 function atmosphereaddWhitelistDomain(){
 	var domain = $("atmospherewebsiteurl").value;
 	appendToListBox("atmosphereDomainsBox", domain);
+	$("atmospherewebsiteurl").value = "";
 	save_options();
 }
 
@@ -950,6 +976,7 @@ function atmosphereaddWhitelistDomain(){
 function nightaddWhitelistDomain(){
 	var domain = $("nightwebsiteurl").value;
 	appendToListBox("nightDomainsBox", domain);
+	$("nightwebsiteurl").value = "";
 	save_options();
 }
 
@@ -957,6 +984,7 @@ function nightaddWhitelistDomain(){
 function autostopaddWhitelistDomain(){
 	var domain = $("autostopwebsiteurl").value;
 	appendToListBox("autostopDomainsBox", domain);
+	$("autostopwebsiteurl").value = "";
 	save_options();
 }
 
@@ -964,6 +992,7 @@ function autostopaddWhitelistDomain(){
 function videotooladdWhitelistDomain(){
 	var domain = $("videotoolwebsiteurl").value;
 	appendToListBox("videotoolDomainsBox", domain);
+	$("videotoolwebsiteurl").value = "";
 	save_options();
 }
 
@@ -971,6 +1000,7 @@ function videotooladdWhitelistDomain(){
 function gamepadaddWhitelistDomain(){
 	var domain = $("gamepadwebsiteurl").value;
 	appendToListBox("gamepadDomainsBox", domain);
+	$("gamepadwebsiteurl").value = "";
 	save_options();
 }
 
@@ -1001,6 +1031,8 @@ function multiopacityadd(){
 	if(domain == ""){ return; }
 	if(number == ""){ return; }
 	multiappendToListBox("multiopacityDomainsBox", domain, number);
+	$("multiopacityname").value = "";
+	$("multiopacitynumber").value = "";
 	save_options();
 }
 
@@ -2291,6 +2323,220 @@ function activateTab(tabName){
 	}
 }
 
+function autodimRemoveAndFillInputs(){
+	var autodimDomainsBox = $("autodimDomainsBox");
+	var autodimwebsiteurl = $("autodimwebsiteurl");
+
+	// Prevent action if autodimwebsiteurl already has text
+	if(autodimwebsiteurl && autodimwebsiteurl.value.trim() !== "")return;
+
+	// No selection or empty list
+	if(!autodimDomainsBox || autodimDomainsBox.length === 0)return;
+	var idx = autodimDomainsBox.selectedIndex;
+	if(idx < 0)return;
+
+	// Read values
+	var domain = autodimDomainsBox.options[idx].value || autodimDomainsBox.options[idx].text;
+
+	// Put back into inputs
+	if(autodimwebsiteurl) autodimwebsiteurl.value = domain || "";
+
+	// Remove from both lists
+	autodimDomainsBox.remove(idx);
+
+	// Keep the two selects aligned
+	ariacheck();
+	save_options();
+}
+
+function atmosphereRemoveAndFillInputs(){
+	var atmosphereDomainsBox = $("atmosphereDomainsBox");
+	var atmospherewebsiteurl = $("atmospherewebsiteurl");
+
+	// Prevent action if atmospherewebsiteurl already has text
+	if(atmospherewebsiteurl && atmospherewebsiteurl.value.trim() !== "")return;
+
+	// No selection or empty list
+	if(!atmosphereDomainsBox || atmosphereDomainsBox.length === 0)return;
+	var idx = atmosphereDomainsBox.selectedIndex;
+	if(idx < 0)return;
+
+	// Read values
+	var domain = atmosphereDomainsBox.options[idx].value || atmosphereDomainsBox.options[idx].text;
+
+	// Put back into inputs
+	if(atmospherewebsiteurl) atmospherewebsiteurl.value = domain || "";
+
+	// Remove from both lists
+	atmosphereDomainsBox.remove(idx);
+
+	// Keep the two selects aligned
+	ariacheck();
+	save_options();
+}
+
+function nightRemoveAndFillInputs(){
+	var nightDomainsBox = $("nightDomainsBox");
+	var nightwebsiteurl = $("nightwebsiteurl");
+
+	// Prevent action if nightwebsiteurl already has text
+	if(nightwebsiteurl && nightwebsiteurl.value.trim() !== "")return;
+
+	// No selection or empty list
+	if(!nightDomainsBox || nightDomainsBox.length === 0)return;
+	var idx = nightDomainsBox.selectedIndex;
+	if(idx < 0)return;
+
+	// Read values
+	var domain = nightDomainsBox.options[idx].value || nightDomainsBox.options[idx].text;
+
+	// Put back into inputs
+	if(nightwebsiteurl) nightwebsiteurl.value = domain || "";
+
+	// Remove from both lists
+	nightDomainsBox.remove(idx);
+
+	// Keep the two selects aligned
+	ariacheck();
+	save_options();
+}
+
+function autostopRemoveAndFillInputs(){
+	var autostopDomainsBox = $("autostopDomainsBox");
+	var autostopwebsiteurl = $("autostopwebsiteurl");
+
+	// Prevent action if autostopwebsiteurl already has text
+	if(autostopwebsiteurl && autostopwebsiteurl.value.trim() !== "")return;
+
+	// No selection or empty list
+	if(!autostopDomainsBox || autostopDomainsBox.length === 0)return;
+	var idx = autostopDomainsBox.selectedIndex;
+	if(idx < 0)return;
+
+	// Read values
+	var domain = autostopDomainsBox.options[idx].value || autostopDomainsBox.options[idx].text;
+
+	// Put back into inputs
+	if(autostopwebsiteurl) autostopwebsiteurl.value = domain || "";
+
+	// Remove from both lists
+	autostopDomainsBox.remove(idx);
+
+	// Keep the two selects aligned
+	ariacheck();
+	save_options();
+}
+
+function eyeprotectionRemoveAndFillInputs(){
+	var excludedDomainsBox = $("excludedDomainsBox");
+	var websiteurl = $("websiteurl");
+
+	// Prevent action if websiteurl already has text
+	if(websiteurl && websiteurl.value.trim() !== "")return;
+
+	// No selection or empty list
+	if(!excludedDomainsBox || excludedDomainsBox.length === 0)return;
+	var idx = excludedDomainsBox.selectedIndex;
+	if(idx < 0)return;
+
+	// Read values
+	var domain = excludedDomainsBox.options[idx].value || excludedDomainsBox.options[idx].text;
+
+	// Put back into inputs
+	if(websiteurl) websiteurl.value = domain || "";
+
+	// Remove from both lists
+	excludedDomainsBox.remove(idx);
+
+	// Keep the two selects aligned
+	ariacheck();
+	save_options();
+}
+
+function videotoolRemoveAndFillInputs(){
+	var videotoolDomainsBox = $("videotoolDomainsBox");
+	var videotoolwebsiteurl = $("videotoolwebsiteurl");
+
+	// Prevent action if videotoolwebsiteurl already has text
+	if(videotoolwebsiteurl && videotoolwebsiteurl.value.trim() !== "")return;
+
+	// No selection or empty list
+	if(!videotoolDomainsBox || videotoolDomainsBox.length === 0)return;
+	var idx = videotoolDomainsBox.selectedIndex;
+	if(idx < 0)return;
+
+	// Read values
+	var domain = videotoolDomainsBox.options[idx].value || videotoolDomainsBox.options[idx].text;
+
+	// Put back into inputs
+	if(videotoolwebsiteurl) videotoolwebsiteurl.value = domain || "";
+
+	// Remove from both lists
+	videotoolDomainsBox.remove(idx);
+
+	// Keep the two selects aligned
+	ariacheck();
+	save_options();
+}
+
+function gamepadRemoveAndFillInputs(){
+	var gamepadDomainsBox = $("gamepadDomainsBox");
+	var gamepadwebsiteurl = $("gamepadwebsiteurl");
+
+	// Prevent action if gamepadwebsiteurl already has text
+	if(gamepadwebsiteurl && gamepadwebsiteurl.value.trim() !== "")return;
+
+	// No selection or empty list
+	if(!gamepadDomainsBox || gamepadDomainsBox.length === 0)return;
+	var idx = gamepadDomainsBox.selectedIndex;
+	if(idx < 0)return;
+
+	// Read values
+	var domain = gamepadDomainsBox.options[idx].value || gamepadDomainsBox.options[idx].text;
+
+	// Put back into inputs
+	if(gamepadwebsiteurl) gamepadwebsiteurl.value = domain || "";
+
+	// Remove from both lists
+	gamepadDomainsBox.remove(idx);
+
+	// Keep the two selects aligned
+	ariacheck();
+	save_options();
+}
+
+function multiRemoveAndFillInputs(){
+	var multiopacityDomainsBox = $("multiopacityDomainsBox");
+	var multiopacitynumberBox = $("multiopacitynumberBox");
+	var multiopacityname = $("multiopacityname");
+
+	// Prevent action if multiopacityname already has text
+	if(multiopacityname && multiopacityname.value.trim() !== "")return;
+
+	// No selection or empty list
+	if(!multiopacityDomainsBox || multiopacityDomainsBox.length === 0)return;
+	var idx = multiopacityDomainsBox.selectedIndex;
+	if(idx < 0)return;
+
+	// Read values
+	var domain = multiopacityDomainsBox.options[idx].value || multiopacityDomainsBox.options[idx].text;
+	var zoomValue = multiopacitynumberBox && multiopacitynumberBox.options[idx] ? multiopacitynumberBox.options[idx].text : "";
+
+	// Put back into inputs
+	if(multiopacityname) multiopacityname.value = domain || "";
+	if($("multiopacitynumber")) $("multiopacitynumber").value = zoomValue || "";
+
+	// Remove from both lists
+	multiopacityDomainsBox.remove(idx);
+	if(multiopacitynumberBox && multiopacitynumberBox.length > idx){
+		multiopacitynumberBox.remove(idx);
+	}
+
+	// Keep the two selects aligned
+	ariacheck();
+	save_options();
+}
+
 /* Option page body action */
 // Read current value settings
 window.addEventListener("load", function(){
@@ -2448,6 +2694,11 @@ function domcontentloaded(){
 
 	// Remove website
 	$("removebutton").addEventListener("click", function(){ removedselectedwebsite("excludedDomainsBox"); });
+
+	// Double-click to remove and fill inputs
+	$("excludedDomainsBox").addEventListener("dblclick", function(){
+		eyeprotectionRemoveAndFillInputs();
+	});
 
 	// Password eye
 	$("eyeopen").addEventListener("click", function(){
@@ -2676,6 +2927,11 @@ function domcontentloaded(){
 	// autodim Remove website
 	$("autodimremovebutton").addEventListener("click", function(){ removedselectedwebsite("autodimDomainsBox"); });
 
+	// Double-click to remove and fill inputs
+	$("autodimDomainsBox").addEventListener("dblclick", function(){
+		autodimRemoveAndFillInputs();
+	});
+
 	// YouTube quality
 	$("maxquality").addEventListener("click", function(){ save_options(); });
 	$("maxquality").addEventListener("change", function(){ save_options(); });
@@ -2690,11 +2946,21 @@ function domcontentloaded(){
 	// atmosphere Remove website
 	$("atmosphereremovebutton").addEventListener("click", function(){ removedselectedwebsite("atmosphereDomainsBox"); });
 
+	// Double-click to remove and fill inputs
+	$("atmosphereDomainsBox").addEventListener("dblclick", function(){
+		atmosphereRemoveAndFillInputs();
+	});
+
 	// night Add website
 	eventsubmitFunc("formnightmode", nightaddWhitelistDomain);
 
 	// night Remove website
 	$("nightremovebutton").addEventListener("click", function(){ removedselectedwebsite("nightDomainsBox"); });
+
+	// Double-click to remove and fill inputs
+	$("nightDomainsBox").addEventListener("dblclick", function(){
+		nightRemoveAndFillInputs();
+	});
 
 	// autostop Add website
 	eventsubmitFunc("formautostop", autostopaddWhitelistDomain);
@@ -2702,17 +2968,32 @@ function domcontentloaded(){
 	// autostop Remove website
 	$("autostopremovebutton").addEventListener("click", function(){ removedselectedwebsite("autostopDomainsBox"); });
 
+	// Double-click to remove and fill inputs
+	$("autostopDomainsBox").addEventListener("dblclick", function(){
+		autostopRemoveAndFillInputs();
+	});
+
 	// video Add website
 	eventsubmitFunc("formvideotoolbar", videotooladdWhitelistDomain);
 
 	// video Remove website
 	$("videotoolremovebutton").addEventListener("click", function(){ removedselectedwebsite("videotoolDomainsBox"); });
 
+	// Double-click to remove and fill inputs
+	$("videotoolDomainsBox").addEventListener("dblclick", function(){
+		videotoolRemoveAndFillInputs();
+	});
+
 	// gamepad Add website
 	eventsubmitFunc("formgamepad", gamepadaddWhitelistDomain);
 
 	// gamepad Remove website
 	$("gamepadremovebutton").addEventListener("click", function(){ removedselectedwebsite("gamepadDomainsBox"); });
+
+	// Double-click to remove and fill inputs
+	$("gamepadDomainsBox").addEventListener("dblclick", function(){
+		gamepadRemoveAndFillInputs();
+	});
 
 	// multi opacity Change
 	$("multiopacityDomainsBox").addEventListener("click", function(){ multiopacitychangeurl(); });
@@ -2723,6 +3004,14 @@ function domcontentloaded(){
 
 	// multi opacity Remove
 	$("multiopacityremovebutton").addEventListener("click", function(){ multiopacityremoveSelectedExcludedDomain(); });
+
+	// Double-click to remove and fill inputs
+	$("multiopacityDomainsBox").addEventListener("dblclick", function(){
+		multiRemoveAndFillInputs();
+	});
+	$("multiopacitynumberBox").addEventListener("dblclick", function(){
+		multiRemoveAndFillInputs();
+	});
 
 	// Reset settings
 	$("resettotl").addEventListener("click", function(){ chrome.storage.sync.clear(); chrome.runtime.sendMessage({name: "bckreload"}); location.reload(); });

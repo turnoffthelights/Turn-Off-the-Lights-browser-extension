@@ -3,7 +3,7 @@
 
 Turn Off the Lights
 The entire page will be fading to dark, so you can watch the video as if you were in the cinema.
-Copyright (C) 2025 Stefan vd
+Copyright (C) 2026 Stefan vd
 www.stefanvd.net
 www.turnoffthelights.com
 
@@ -283,6 +283,7 @@ section>div:only-of-type{-webkit-box-flex:1}
 .youtuberatingsparkbarlikes,.youtuberatingsparkbardislikes{height:5px}
 .youtubeviewnumbers{padding-bottom:7px;padding-left:80px;width:50px;display:inline-block;font-size:13px;font-weight:700}
 .youtube_container_head{display:inline-block}
+.youtubewidthbar{width:100%}
 .embedytsub{position:relative;top:0px;width:195px;margin:0px;left:0px;visibility:visible;height:50px;display:inline-block}
 .subchannelicon{line-height:45px;font-size:45px;font-family:serif;text-shadow:0 0 5px white;display:block;float:left;width:40px;text-align:center;margin-right:20px}
 .subchanneldes{float:left;display:block}

@@ -25,7 +25,7 @@
 "desuntil":{"message":"until"},
 "desconfirmpassword":{"message":"Confirm password"},
 "desautodimonly":{"message":"Dim only the following video site(s):"},
-"helpeyeprotection":{"message":"Enabling 'Eye protection' will automatically disable the 'Auto play' feature."},
+"helpeyeprotection":{"message":"Enabling 'Eye protection' will automatically disable the 'AutoDim' feature."},
 "skipremember":{"message":"Skip this, and open the options page now"},
 "optiontimesaved":{"message":"Time is saved successfully!"},
 "titelvideoheadline":{"message":"Video Title"},

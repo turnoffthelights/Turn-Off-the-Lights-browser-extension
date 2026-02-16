@@ -3,7 +3,7 @@
 
 Turn Off the Lights
 The entire page will be fading to dark, so you can watch the video as if you were in the cinema.
-Copyright (C) 2025 Stefan vd
+Copyright (C) 2026 Stefan vd
 www.stefanvd.net
 www.turnoffthelights.com
 
@@ -493,22 +493,32 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	}
 
 	function checkregdomaininside(thaturl, websiteurl){
-		// regex test
 		var rxUrlSplit = /((?:http|ftp)s?):\/\/([^/]+)(\/.*)?/;
-		var prepUrl = ""; var m;
+		var prepUrl = "";
+		var m;
+
 		if((m = thaturl.match(rxUrlSplit)) !== null){
-			prepUrl = m[1] + "://" + m[2].replace(/[?()[\]\\.+^$|]/g, "\\$&").replace(/\*\\./g, "(?:[^/]*\\.)*").replace(/\*$/, "[^/]*");
-			if(m[3]){
-				prepUrl += m[3].replace(/[?()[\]\\.+^$|]/g, "\\$&").replace(/\/\*(?=$|\/)/g, "(?:/[^]*)?");
-			}
+			// 1. Combine the full URL parts
+			var fullPath = m[1] + "://" + m[2] + (m[3] || "");
+
+			// 2. Escape regex special characters (except the asterisk for now)
+			// We escape: . ? ( ) [ ] \ + ^ $ |
+			prepUrl = fullPath.replace(/[?()[\]\\.+^$|]/g, "\\$&");
+
+			// 3. Handle the asterisk:
+			// In the previous step, '*' was NOT escaped, or if it was,
+			// we now convert it to '.*'
+			prepUrl = prepUrl.replace(/\*/g, ".*");
+
+			// 4. Finally, escape all forward slashes to get the \/ format
+			prepUrl = prepUrl.replace(/\//g, "\\/");
 		}
+
 		if(prepUrl){
-			// console.log(prepUrl); // ^http://(?:[^/]*\.)*google\.com(?:/[^]*)?$
-			if(websiteurl.match(RegExp("^" + prepUrl + "$", "i"))){
-				return true;
-			}else{
-				return false;
-			}
+			// Output will be: https:\/\/www\.youtube\.com\/watch.*
+			// console.log("Generated Pattern:", prepUrl);
+			var finalRegex = new RegExp("^" + prepUrl + "$", "i");
+			return finalRegex.test(websiteurl);
 		}
 		return false;
 	}
@@ -516,49 +526,53 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	function runautodimcheck(){
 		if(autodim == true && mousespotlights != true){
 			if(autodimonly == true){
-				var currenturl = window.location.protocol + "//" + window.location.host;
+				var currentdomain = window.location.protocol + "//" + window.location.host;
+				var currentfullurl = window.location.href;
 				var blackrabbit = false;
-				if(typeof autodimDomains == "string"){
+				if(typeof autodimDomains === "string"){
 					autodimDomains = JSON.parse(autodimDomains);
-					var abuf = [];
-					var domain;
-					for(domain in autodimDomains)
-						abuf.push(domain);
-					abuf.sort();
-					var i;
-					var l = abuf.length;
-					for(i = 0; i < l; i++){
-						if(autodimchecklistwhite == true){
-							if(abuf[i].includes("*")){
-								// regex test
-								if(checkregdomaininside(abuf[i], currenturl) == true){
-									autodimfunction();
-								}
-							}else{
-								// regular text
-								if(currenturl == abuf[i]){ autodimfunction(); }
-							}
-						}else if(autodimchecklistblack == true){
-							if(abuf[i].includes("*")){
-								// regex test
-								if(checkregdomaininside(abuf[i], currenturl) == true){
-									blackrabbit = true;
-								}
-							}else{
-								// regular text
-								if(currenturl == abuf[i]){ blackrabbit = true; }
-							}
+				}
+
+				var abuf = [], domain;
+				for(domain in autodimDomains)
+					abuf.push(domain);
+				abuf.sort();
+				var i, l = abuf.length;
+				for(i = 0; i < l; i++){
+					if(autodimchecklistwhite == true){
+						if(abuf[i].includes("*")){
+							// regex test
+							if(checkregdomaininside(abuf[i], currentfullurl) == true){ autodimfunction(); }
+						}else{
+							// regular text
+							if(currentdomain == abuf[i]){ autodimfunction(); }
+						}
+					}else if(autodimchecklistblack == true){
+						if(abuf[i].includes("*")){
+							// regex test
+							if(checkregdomaininside(abuf[i], currentfullurl) == true){ blackrabbit = true; }
+						}else{
+							// regular text
+							if(currentdomain == abuf[i]){ blackrabbit = true; }
 						}
 					}
 				}
+
 				if(autodimchecklistblack == true && blackrabbit == false){ autodimfunction(); }
 			}else{ autodimfunction(); }
 		} // option autodim on end
 	}
-	runautodimcheck();
 
 	if(autodim == true){
 		addautodimfile();
+		runautodimcheck();
+		navigation.addEventListener("navigatesuccess", () => {
+			// console.log("new url" ,e.destination.url);
+			if(document.getElementById("stefanvdcinemamessage")){
+				removeElement("stefanvdcinemamessage");
+			}
+			runautodimcheck();
+		});
 	}
 
 	// general ID for each HTML5 video player
@@ -582,47 +596,50 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	function runvideotoolbarcheck(){
 		if(videotool == true || gamepad == true){
 			if(videotoolonly == true){
-				var currenturl = window.location.protocol + "//" + window.location.host;
+				var currentdomain = window.location.protocol + "//" + window.location.host;
+				var currentfullurl = window.location.href;
 				var videotoolrabbit = false;
-				if(typeof videotoolDomains == "string"){
+				if(typeof videotoolDomains === "string"){
 					videotoolDomains = JSON.parse(videotoolDomains);
-					var vtbbuf = [], domain;
-					for(domain in videotoolDomains)
-						vtbbuf.push(domain);
-					vtbbuf.sort();
-					var i, l = vtbbuf.length;
-					for(i = 0; i < l; i++){
-						if(videotoolchecklistwhite == true){
-							if(vtbbuf[i].includes("*")){
-								// regex test
-								if(checkregdomaininside(vtbbuf[i], currenturl) == true){
-									videotoolfunction();
-								}
-							}else{
-								// regular text
-								if(currenturl == vtbbuf[i]){
-									videotoolfunction();
-								}
-							}
-						}else if(videotoolchecklistblack == true){
-							if(vtbbuf[i].includes("*")){
-								// regex test
-								if(checkregdomaininside(vtbbuf[i], currenturl) == true){
-									videotoolrabbit = true;
-								}
-							}else{
-								if(currenturl == vtbbuf[i]){
-									videotoolrabbit = true;
-								}
-							}
+				}
+
+				var vtbbuf = [], domain;
+				for(domain in videotoolDomains)
+					vtbbuf.push(domain);
+				vtbbuf.sort();
+				var i, l = vtbbuf.length;
+				for(i = 0; i < l; i++){
+					if(videotoolchecklistwhite == true){
+						if(vtbbuf[i].includes("*")){
+							// regex test
+							if(checkregdomaininside(vtbbuf[i], currentfullurl) == true){ videotoolfunction(); }
+						}else{
+							// regular text
+							if(currentdomain == vtbbuf[i]){ videotoolfunction(); }
+						}
+					}else if(videotoolchecklistblack == true){
+						if(vtbbuf[i].includes("*")){
+							// regex test
+							if(checkregdomaininside(vtbbuf[i], currentfullurl) == true){ videotoolrabbit = true; }
+						}else{
+							// regular text
+							if(currentdomain == vtbbuf[i]){ videotoolrabbit = true; }
 						}
 					}
 				}
+
 				if(videotoolchecklistblack == true && videotoolrabbit == false){ videotoolfunction(); }
 			}else{ videotoolfunction(); }
 		} // option videotool on end
 	}
-	runvideotoolbarcheck();
+
+	if(videotool == true || gamepad == true){
+		runvideotoolbarcheck();
+		navigation.addEventListener("navigatesuccess", () => {
+			// console.log("new url" ,e.destination.url);
+			runvideotoolbarcheck();
+		});
+	}
 
 	var audiocontext = [];
 	var analyser = [];
@@ -2062,8 +2079,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	function runplayratecheck(){
 		if(playrate == true){
 			var ratevideos = document.getElementsByTagName("video");
-			var i;
-			var l = ratevideos.length;
+			var i, l = ratevideos.length;
 			for(i = 0; i < l; i++){
 				var myElement = document.getElementsByTagName("video")[i];
 				myElement.playbackRate = playrateamount;
@@ -2127,43 +2143,40 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 		if((ecosaver == true) && (eyen == true)){ chrome.runtime.sendMessage({name: "automatic"}); }
 
 		if(eyea == true){ chrome.runtime.sendMessage({name: "automatic"}); }else if(eyealist == true){
-			var currenturl = window.location.protocol + "//" + window.location.host;
+			var currentdomain = window.location.protocol + "//" + window.location.host;
+			var currentfullurl = window.location.href;
 			var eyerabbit = false;
-			if(typeof excludedDomains == "string"){
+			if(typeof excludedDomains === "string"){
 				excludedDomains = JSON.parse(excludedDomains);
-				var eyebuf = [];
-				var domain;
-				for(domain in excludedDomains)
-					eyebuf.push(domain);
-				eyebuf.sort();
-				var i;
-				var l = eyebuf.length;
-				for(i = 0; i < l; i++){
-					if(eyechecklistwhite == true){
-						if(eyebuf[i].includes("*")){
-							// regex test
-							if(checkregdomaininside(eyebuf[i], currenturl) == true){
-								chrome.runtime.sendMessage({name: "automatic"});
-							}
-						}else{
-							// regular text
-							if(currenturl == eyebuf[i]){ chrome.runtime.sendMessage({name: "automatic"}); }
-						}
-					}else if(eyechecklistblack == true){
-						if(eyebuf[i].includes("*")){
-							// regex test
-							if(checkregdomaininside(eyebuf[i], currenturl) == true){
-								eyerabbit = true;
-							}
-						}else{
-							// regular text
-							if(currenturl == eyebuf[i]){ eyerabbit = true; }
-						}
+			}
+
+			var eyebuf = [], domain;
+			for(domain in excludedDomains)
+				eyebuf.push(domain);
+			eyebuf.sort();
+			var i, l = eyebuf.length;
+			for(i = 0; i < l; i++){
+				if(eyechecklistwhite == true){
+					if(eyebuf[i].includes("*")){
+						// regex test
+						if(checkregdomaininside(eyebuf[i], currentfullurl) == true){ chrome.runtime.sendMessage({name: "automatic"}); }
+					}else{
+						// regular text
+						if(currentdomain == eyebuf[i]){ chrome.runtime.sendMessage({name: "automatic"}); }
+					}
+				}else if(eyechecklistblack == true){
+					if(eyebuf[i].includes("*")){
+						// regex test
+						if(checkregdomaininside(eyebuf[i], currentfullurl) == true){ eyerabbit = true; }
+					}else{
+						// regular text
+						if(currentdomain == eyebuf[i]){ eyerabbit = true; }
 					}
 				}
 			}
-			if(eyechecklistblack == true){
-				if(eyerabbit == false){ chrome.runtime.sendMessage({name: "automatic"}); }
+
+			if(eyechecklistblack == true && eyerabbit == false){
+				chrome.runtime.sendMessage({name: "automatic"});
 			}
 		}
 	}
@@ -2263,7 +2276,13 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 			window.addEventListener("pointermove", ecomousemove);
 			window.addEventListener("keydown", ecomousekey);
 			window.addEventListener("wheel", ecomousescroll);
-		}else{ eyeprotection(); }
+		}else{
+			eyeprotection();
+			navigation.addEventListener("navigatesuccess", () => {
+				// console.log("new url" ,e.destination.url);
+				eyeprotection();
+			});
+		}
 	}
 
 	function returntimetoseconds(a){
@@ -2303,32 +2322,38 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	function runambilight(){
 		if(ambilight == true){
 			if(atmosphereonly == true){
-				var currenturl = window.location.protocol + "//" + window.location.host;
-				if(typeof atmosphereDomains == "string"){
+				var currentdomain = window.location.protocol + "//" + window.location.host;
+				var currentfullurl = window.location.href;
+				if(typeof atmosphereDomains === "string"){
 					atmosphereDomains = JSON.parse(atmosphereDomains);
-					var albuf = [];
-					var domain;
-					for(domain in atmosphereDomains)
-						albuf.push(domain);
-					albuf.sort();
-					var i;
-					var l = albuf.length;
-					for(i = 0; i < l; i++){
-						if(albuf[i].includes("*")){
-							// regex test
-							if(checkregdomaininside(albuf[i], currenturl) == true){
-								ambilightfunction();
-							}
-						}else{
-							// regular text
-							if(currenturl == albuf[i]){ ambilightfunction(); }
-						}
+				}
+
+				var albuf = [], domain;
+				for(domain in atmosphereDomains)
+					albuf.push(domain);
+				albuf.sort();
+				var i, l = albuf.length;
+				for(i = 0; i < l; i++){
+					if(albuf[i].includes("*")){
+						// regex test
+						if(checkregdomaininside(albuf[i], currentfullurl) == true){ ambilightfunction(); }
+					}else{
+						// regular text
+						if(currentdomain == albuf[i]){ ambilightfunction(); }
 					}
 				}
+
 			}else{ ambilightfunction(); }
 		}
 	}
-	runambilight();
+
+	if(ambilight == true){
+		runambilight();
+		navigation.addEventListener("navigatesuccess", () => {
+			// console.log("new url" ,e.destination.url);
+			runambilight();
+		});
+	}
 
 	function fixyoutubeatmos(){
 		if(window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
@@ -3109,8 +3134,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 		}
 
 		var volumevideos = document.getElementsByTagName("video");
-		var i;
-		var l = volumevideos.length;
+		var i, l = volumevideos.length;
 		for(i = 0; i < l; i++){
 			var myElement = document.getElementsByTagName("video")[i];
 			var position = getPosition(myElement);
@@ -3312,45 +3336,49 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	function runvideovolumecheck(){
 		if(videovolume == true || gamepad == true){
 			if(videovolumeonly == true){
-				var currenturl = window.location.protocol + "//" + window.location.host;
+				var currentdomain = window.location.protocol + "//" + window.location.host;
+				var currentfullurl = window.location.href;
 				var videovolumerabbit = false;
-				if(typeof videovolumeDomains == "string"){
+				if(typeof videovolumeDomains === "string"){
 					videovolumeDomains = JSON.parse(videovolumeDomains);
-					var vvbbuf = [];
-					var domain;
-					for(domain in videovolumeDomains)
-						vvbbuf.push(domain);
-					vvbbuf.sort();
-					var i;
-					var l = vvbbuf.length;
-					for(i = 0; i < l; i++){
-						if(videovolumechecklistwhite == true){
-							if(vvbbuf[i].includes("*")){
-								// regex test
-								if(checkregdomaininside(vvbbuf[i], currenturl) == true){
-									videovolumefunction();
-								}
-							}else{
-								if(currenturl == vvbbuf[i]){ videovolumefunction(); }
-							}
-						}else if(videovolumechecklistblack == true){
-							if(vvbbuf[i].includes("*")){
-								// regex test
-								if(checkregdomaininside(vvbbuf[i], currenturl) == true){
-									videovolumerabbit = true;
-								}
-							}else{
-								// regular text
-								if(currenturl == vvbbuf[i]){ videovolumerabbit = true; }
-							}
+				}
+
+				var vvbbuf = [], domain;
+				for(domain in videovolumeDomains)
+					vvbbuf.push(domain);
+				vvbbuf.sort();
+				var i, l = vvbbuf.length;
+				for(i = 0; i < l; i++){
+					if(videovolumechecklistwhite == true){
+						if(vvbbuf[i].includes("*")){
+							// regex test
+							if(checkregdomaininside(vvbbuf[i], currentfullurl) == true){ videovolumefunction(); }
+						}else{
+							if(currentdomain == vvbbuf[i]){ videovolumefunction(); }
+						}
+					}else if(videovolumechecklistblack == true){
+						if(vvbbuf[i].includes("*")){
+							// regex test
+							if(checkregdomaininside(vvbbuf[i], currentfullurl) == true){ videovolumerabbit = true; }
+						}else{
+							// regular text
+							if(currentdomain == vvbbuf[i]){ videovolumerabbit = true; }
 						}
 					}
 				}
+
 				if(videovolumechecklistblack == true && videovolumerabbit == false){ videovolumefunction(); }
 			}else{ videovolumefunction(); }
 		} // option videotool on end
 	}
-	runvideovolumecheck();
+
+	if(videovolume == true || gamepad == true){
+		runvideovolumecheck();
+		navigation.addEventListener("navigatesuccess", () => {
+			// console.log("new url" ,e.destination.url);
+			runvideovolumecheck();
+		});
+	}
 
 	function refreshvolume(){
 		adddatavideo(); // recheck remove and add video ID
@@ -3366,45 +3394,49 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	function rungamepadcheck(){
 		if(gamepad == true){
 			if(gamepadonly == true){
-				var currenturl = window.location.protocol + "//" + window.location.host;
+				var currentdomain = window.location.protocol + "//" + window.location.host;
+				var currentfullurl = window.location.href;
 				var gamepadrabbit = false;
-				if(typeof gamepadDomains == "string"){
+				if(typeof gamepadDomains === "string"){
 					gamepadDomains = JSON.parse(gamepadDomains);
-					var gmbbuf = [];
-					var domain;
-					for(domain in gamepadDomains)
-						gmbbuf.push(domain);
-					gmbbuf.sort();
-					var i;
-					var l = gmbbuf.length;
-					for(i = 0; i < l; i++){
-						if(gamepadchecklistwhite == true){
-							if(gmbbuf[i].includes("*")){
-								// regex test
-								if(checkregdomaininside(gmbbuf[i], currenturl) == true){
-									gamepadfunction();
-								}
-							}else{
-								if(currenturl == gmbbuf[i]){ gamepadfunction(); }
-							}
-						}else if(gamepadchecklistblack == true){
-							if(gmbbuf[i].includes("*")){
-								// regex test
-								if(checkregdomaininside(gmbbuf[i], currenturl) == true){
-									gamepadrabbit = true;
-								}
-							}else{
-								// regular text
-								if(currenturl == gmbbuf[i]){ gamepadrabbit = true; }
-							}
+				}
+
+				var gmbbuf = [], domain;
+				for(domain in gamepadDomains)
+					gmbbuf.push(domain);
+				gmbbuf.sort();
+				var i, l = gmbbuf.length;
+				for(i = 0; i < l; i++){
+					if(gamepadchecklistwhite == true){
+						if(gmbbuf[i].includes("*")){
+							// regex test
+							if(checkregdomaininside(gmbbuf[i], currentfullurl) == true){ gamepadfunction(); }
+						}else{
+							// regular text
+							if(currentdomain == gmbbuf[i]){ gamepadfunction(); }
+						}
+					}else if(gamepadchecklistblack == true){
+						if(gmbbuf[i].includes("*")){
+							// regex test
+							if(checkregdomaininside(gmbbuf[i], currentfullurl) == true){ gamepadrabbit = true; }
+						}else{
+							// regular text
+							if(currentdomain == gmbbuf[i]){ gamepadrabbit = true; }
 						}
 					}
 				}
+
 				if(videovolumechecklistblack == true && gamepadrabbit == false){ gamepadfunction(); }
 			}else{ gamepadfunction(); }
-		} // option videotool on end
+		} // option gamepad on end
 	}
-	rungamepadcheck();
+	if(gamepad == true){
+		rungamepadcheck();
+		navigation.addEventListener("navigatesuccess", () => {
+			// console.log("new url" ,e.destination.url);
+			rungamepadcheck();
+		});
+	}
 
 	function gamepadfunction(){
 		// control the current video with your remote gamepad controller

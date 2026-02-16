@@ -3,7 +3,7 @@
 
 Turn Off the Lights
 The entire page will be fading to dark, so you can watch the video as if you were in the cinema.
-Copyright (C) 2025 Stefan vd
+Copyright (C) 2026 Stefan vd
 www.stefanvd.net
 www.turnoffthelights.com
 
@@ -405,77 +405,113 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 
 			// Shows YouTube Suggestions
 			if(suggestions == true){
-				// update YouTube material 21 march 2017
-				var ytmaterialsuggestions = document.querySelector("ytd-watch-next-secondary-results-renderer");
+				// update YouTube 14 february 2026
+				let secondary = document.querySelector("#secondary");
+				if(secondary){ secondary.style.viewTransitionName = "inherit"; }
+
+				let ytmaterialsuggestions = document.querySelector("ytd-watch-next-secondary-results-renderer");
 				if(ytmaterialsuggestions){ ytmaterialsuggestions.classList.add("stefanvditemtop"); ytmaterialsuggestions.style.background = "white"; }
 			}
 
 			// Shows YouTube playlist
 			if(playlist == true){
-				// update YouTube material 21 march 2017
-				var ytmaterialplaylist = document.querySelector("ytd-playlist-panel-renderer");
-				if(ytmaterialplaylist){ ytmaterialplaylist.classList.add("stefanvditemtop"); }
+				// update YouTube 14 february 2026
+				let secondary = document.querySelector("#secondary");
+				if(secondary){ secondary.style.viewTransitionName = "inherit"; }
+
+				var ytdplaylist = document.querySelector("ytd-playlist-panel-renderer");
+				if(ytdplaylist){
+					ytdplaylist.classList.add("stefanvditemtop");
+				}
 			}
 
 			// Shows video title
 			if(videoheadline == true){
-				// update YouTube material 21 march 2017
-				var ytmaterialvideotitle = document.querySelector("ytd-video-primary-info-renderer");
-				if(ytmaterialvideotitle){
-					var ytgeth = ytmaterialvideotitle.querySelector("h1");
-					if(ytgeth != null){ ytgeth.classList.add("stefanvditemtop"); ytgeth.style.color = titleinvertcolor; }
+				// update YouTube 14 february 2026
+				let ytbelow = document.querySelector("#below");
+				if(ytbelow){ ytbelow.style.viewTransitionName = "inherit"; }
+
+				var title = document.querySelector("#title");
+				if(title){
+					title.classList.add("stefanvditemtop");
+					title.style.color = titleinvertcolor;
 				}
 			}
 
 			// Shows YouTube Channel name
 			if(head == true){
-				// updated 15 january 2016
-				var watch7userheader = $("watch7-user-header");
-				if(watch7userheader){ $("watch7-user-header").style.zIndex = 1000; $("watch7-user-header").style.position = "relative"; }
+				// update YouTube 14 february 2026
+				let ytbelow = document.querySelector("#below");
+				if(ytbelow){ ytbelow.style.viewTransitionName = "inherit"; }
 
-				var ytuserinfoa = document.querySelector(".yt-user-info a");
-				if(ytuserinfoa){ ytuserinfoa.style.color = "white"; }
-				// update YouTube material 21 march 2017
-				var ytmaterialhead = document.querySelector("ytd-video-owner-renderer");
-				if(ytmaterialhead){ ytmaterialhead.classList.add("stefanvditemtop"); ytmaterialhead.style.background = "white"; }
+				var owner = document.querySelector("#owner");
+				if(owner){
+					owner.classList.add("stefanvditemtop");
+					owner.style.background = "#ffffff";
+				}
 			}
 
 			// Shows Infobar
 			if(infobar == true){
-				// update YouTube material 21 march 2017
-				var ytmaterialinfo = document.querySelector("ytd-video-secondary-info-renderer");
-				if(ytmaterialinfo){ ytmaterialinfo.classList.add("stefanvditemtop"); ytmaterialinfo.style.background = "white"; }
+				// update YouTube 14 february 2026
+				let ytbelow = document.querySelector("#below");
+				if(ytbelow){ ytbelow.style.viewTransitionName = "inherit"; }
+
+				var bottomrow = document.querySelector("#description-inner");
+				if(bottomrow){
+					bottomrow.classList.add("stefanvditemtop");
+					bottomrow.style.background = "#f2f2f2";
+				}
 			}
 
 			// Shows like and unlike buttons
 			if(likebutton == true){
-				// update YouTube material 21 march 2017
-				var ytmateriallikebutton = document.querySelectorAll("ytd-toggle-button-renderer");
-				var ytmatlikei;
-				var ytmatlikel = ytmateriallikebutton.length;
-				for(ytmatlikei = 0; ytmatlikei < ytmatlikel; ytmatlikei++){
-					var ytgetobject = ytmateriallikebutton[ytmatlikei].getElementsByTagName("button")[0];
-					if(ytgetobject != null){
-						var ytgetstring = ytgetobject.getAttribute("aria-label");
-						if(ytgetstring != null){
-							if(ytgetstring.substring(0, 7) == "dislike"){ ytmateriallikebutton[ytmatlikei].classList.add("stefanvditemtop"); ytmateriallikebutton[ytmatlikei].style.background = "white"; }else if(ytgetstring.substring(0, 4) == "like"){ ytmateriallikebutton[ytmatlikei].classList.add("stefanvditemtop"); ytmateriallikebutton[ytmatlikei].style.background = "white"; }
-						}
-					}
+				// update YouTube 14 february 2026
+				let ytbelow = document.querySelector("#below");
+				if(ytbelow){ ytbelow.style.viewTransitionName = "inherit"; }
+
+				var segmentlikedislike = document.querySelector("segmented-like-dislike-button-view-model");
+				if(segmentlikedislike){
+					segmentlikedislike.classList.add("stefanvditemtop");
+					segmentlikedislike.style.background = "white";
 				}
 			}
 
 			// Shows share buttons
 			if(sharebutton == true){
-				// update YouTube material 21 march 2017
-				var ytmaterialsharebutton = document.querySelectorAll("ytd-button-renderer");
-				var ytmatsharei;
-				var ytmatsharel = ytmaterialsharebutton.length;
-				for(ytmatsharei = 0; ytmatsharei < ytmatsharel; ytmatsharei++){
-					var ytgetshareobject = ytmaterialsharebutton[ytmatsharei].getElementsByTagName("button")[0];
-					if(ytgetshareobject != null){
-						var ytgetsharestring = ytgetshareobject.getAttribute("aria-label");
-						if(ytgetsharestring != null){
-							if(ytgetsharestring.substring(0, 5) == "Share"){ ytmaterialsharebutton[ytmatsharei].classList.add("stefanvditemtop"); ytmaterialsharebutton[ytmatsharei].style.background = "white"; }
+				// update YouTube 14 february 2026
+				let ytbelow = document.querySelector("#below");
+				if(ytbelow){ ytbelow.style.viewTransitionName = "inherit"; }
+
+				var ytbuttonviewmodel = document.querySelectorAll("button-view-model");
+				var ytmati;
+				var ytmatl = ytbuttonviewmodel.length;
+				for(ytmati = 0; ytmati < ytmatl; ytmati++){
+					var ytgetaddobject = ytbuttonviewmodel[ytmati].getElementsByTagName("button")[0];
+					if(ytgetaddobject != null){
+						var ytgetaddstring = ytgetaddobject.getAttribute("aria-label");
+						if(ytgetaddstring != null){
+							if(ytgetaddstring.substring(0, 5) == "Share"){ ytgetaddobject.classList.add("stefanvditemtop"); ytgetaddobject.style.background = "white"; }
+						}
+					}
+				}
+			}
+
+			// Shows save button
+			if(addvideobutton == true){
+				// update YouTube 14 february 2026
+				let ytbelow = document.querySelector("#below");
+				if(ytbelow){ ytbelow.style.viewTransitionName = "inherit"; }
+
+				let ytbuttonviewmodelsave = document.querySelectorAll("button-view-model");
+				let ytsavei;
+				let ytsavel = ytbuttonviewmodelsave.length;
+				for(ytsavei = 0; ytsavei < ytsavel; ytsavei++){
+					let ytgetaddobject = ytbuttonviewmodelsave[ytsavei].getElementsByTagName("button")[0];
+					if(ytgetaddobject != null){
+						let ytgetaddstring = ytgetaddobject.getAttribute("aria-label");
+						if(ytgetaddstring != null){
+							if(ytgetaddstring.substring(0, 4) == "Save"){ ytgetaddobject.classList.add("stefanvditemtop"); ytgetaddobject.style.background = "white"; }
 						}
 					}
 				}
@@ -488,23 +524,6 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 				if(ytmaterialviewcount){
 					var ytgetformat = ytmaterialviewcount.querySelector(".view-count");
 					if(ytgetformat != null){ ytgetformat.classList.add("stefanvditemtop"); ytgetformat.style.color = "white"; }
-				}
-			}
-
-			// Shows save button
-			if(addvideobutton == true){
-				// update YouTube material 21 march 2017
-				var ytmaterialaddbutton = document.querySelectorAll("ytd-button-renderer");
-				var ytmati;
-				var ytmatl = ytmaterialaddbutton.length;
-				for(ytmati = 0; ytmati < ytmatl; ytmati++){
-					var ytgetaddobject = ytmaterialaddbutton[ytmati].getElementsByTagName("button")[0];
-					if(ytgetaddobject != null){
-						var ytgetaddstring = ytgetaddobject.getAttribute("aria-label");
-						if(ytgetaddstring != null){
-							if(ytgetaddstring.substring(0, 4) == "Save"){ ytmaterialaddbutton[ytmati].classList.add("stefanvditemtop"); ytmaterialaddbutton[ytmati].style.background = "white"; }
-						}
-					}
 				}
 			}
 
@@ -915,78 +934,71 @@ function reader(){
 	}
 	window.onpointermove = null;
 
-	function ytresettxtcolor(a){
-		if(a != null){ a.style.color = ""; }
-	}
-
 	// Set everything back to the default YouTube theme
 	if(window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
 		// update YouTube material 6 August 2017
 		var ytmaterialinfo = document.querySelector("ytd-video-secondary-info-renderer");
 		if(ytmaterialinfo){ ytmaterialinfo.style.background = ""; }
 
+		let ytbelow = document.querySelector("#below");
+		if(ytbelow){ ytbelow.style.viewTransitionName = "inherit"; }
+
 		// YouTube like button
-		var ytmateriallikebutton = document.querySelectorAll("ytd-toggle-button-renderer");
-		var i;
-		var l = ytmateriallikebutton.length;
-		for(i = 0; i < l; i++){
-			var ytgetobject = ytmateriallikebutton[i].getElementsByTagName("button")[0];
-			if(ytgetobject != null){
-				var ytgetstring = ytgetobject.getAttribute("aria-label");
-				if(ytgetstring != null){
-					if(ytgetstring.substring(0, 7) == "dislike"){ ytmateriallikebutton[i].style.background = ""; }else if(ytgetstring.substring(0, 4) == "like"){ ytmateriallikebutton[i].style.background = ""; }
-				}
-			}
+		var segmentlikedislike = document.querySelector("segmented-like-dislike-button-view-model");
+		if(segmentlikedislike){
+			segmentlikedislike.style.background = "";
 		}
 
 		// YouTube share button
-		var ytmaterialsharebutton = document.querySelectorAll("ytd-button-renderer");
-		var sharei;
-		var sharel = ytmaterialsharebutton.length;
-		for(sharei = 0; sharei < sharel; sharei++){
-			var ytgetshareobject = ytmaterialsharebutton[sharei].getElementsByTagName("button")[0];
-			if(ytgetshareobject != null){
-				var ytgetsharestring = ytgetshareobject.getAttribute("aria-label");
-				if(ytgetsharestring != null){
-					if(ytgetsharestring.substring(0, 5) == "Share"){ ytmaterialsharebutton[sharei].style.background = ""; }
+		var ytbuttonviewmodel = document.querySelectorAll("button-view-model");
+		var ytmati;
+		var ytmatl = ytbuttonviewmodel.length;
+		for(ytmati = 0; ytmati < ytmatl; ytmati++){
+			var ytgetaddobject = ytbuttonviewmodel[ytmati].getElementsByTagName("button")[0];
+			if(ytgetaddobject != null){
+				var ytgetaddstring = ytgetaddobject.getAttribute("aria-label");
+				if(ytgetaddstring != null){
+					if(ytgetaddstring.substring(0, 5) == "Share"){ ytgetaddobject.style.background = ""; }
 				}
 			}
 		}
 
 		// YouTube save button
-		var ytmaterialsavebutton = document.querySelectorAll("ytd-button-renderer");
-		var savei;
-		var savel = ytmaterialsavebutton.length;
-		for(savei = 0; savei < savel; savei++){
-			var ytgetsaveobject = ytmaterialsavebutton[savei].getElementsByTagName("button")[0];
-			if(ytgetsaveobject != null){
-				var ytgetsavestring = ytgetsaveobject.getAttribute("aria-label");
-				if(ytgetsavestring != null){
-					if(ytgetsavestring.substring(0, 4) == "Save"){ ytmaterialsavebutton[savei].style.background = ""; }
+		let ytbuttonviewmodelsave = document.querySelectorAll("button-view-model");
+		let ytsavei;
+		let ytsavel = ytbuttonviewmodelsave.length;
+		for(ytsavei = 0; ytsavei < ytsavel; ytsavei++){
+			let ytgetaddobject = ytbuttonviewmodelsave[ytsavei].getElementsByTagName("button")[0];
+			if(ytgetaddobject != null){
+				let ytgetaddstring = ytgetaddobject.getAttribute("aria-label");
+				if(ytgetaddstring != null){
+					if(ytgetaddstring.substring(0, 4) == "Save"){ ytgetaddobject.style.background = "white"; }
 				}
 			}
 		}
 
 		// YouTube head
-		var ytmaterialhead = document.querySelector("ytd-video-owner-renderer");
-		if(ytmaterialhead){ ytmaterialhead.style.background = ""; }
+		var owner = document.querySelector("#owner");
+		if(owner){
+			owner.classList.add("stefanvditemtop");
+			owner.style.background = "";
+		}
 
 		// YouTube suggestions
-		var ytmaterialsuggestions = document.querySelector("ytd-watch-next-secondary-results-renderer");
+		let ytmaterialsuggestions = document.querySelector("ytd-watch-next-secondary-results-renderer");
 		if(ytmaterialsuggestions){ ytmaterialsuggestions.style.background = ""; }
 
 		// YouTube video title
-		var ytmaterialvideotitle = document.querySelector("ytd-video-primary-info-renderer");
-		if(ytmaterialvideotitle){
-			var ytgeth = ytmaterialvideotitle.querySelector("h1");
-			ytresettxtcolor(ytgeth);
+		var title = document.querySelector("#title");
+		if(title){
+			title.style.color = "";
 		}
 
 		// YouTube view count
 		var ytmaterialviewcount = document.querySelector("yt-view-count-renderer");
 		if(ytmaterialviewcount){
 			var ytgetformat = ytmaterialviewcount.querySelector(".view-count");
-			ytresettxtcolor(ytgetformat);
+			if(ytgetformat != null){ ytgetformat.style.color = ""; }
 		}
 
 		// old YouTube -----

@@ -25,7 +25,7 @@
 "desuntil":{"message":"tills"},
 "desconfirmpassword":{"message":"Bekräfta lösenord"},
 "desautodimonly":{"message":"Dimma endast de följande sidor(na) med video:"},
-"helpeyeprotection":{"message":"Aktivera \"Öga skydd\" inaktiverar automatiskt funktionen \"Auto play\"."},
+"helpeyeprotection":{"message":"Aktivera \"Öga skydd\" inaktiverar automatiskt funktionen \"AutoDim\"."},
 "skipremember":{"message":"Hoppa över detta och öppna sidan alternativ nu"},
 "optiontimesaved":{"message":"Tiden sparades framgångsrikt!"},
 "titelvideoheadline":{"message":"Videonamn"},
