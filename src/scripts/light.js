@@ -972,7 +972,7 @@ function reader(){
 			if(ytgetaddobject != null){
 				let ytgetaddstring = ytgetaddobject.getAttribute("aria-label");
 				if(ytgetaddstring != null){
-					if(ytgetaddstring.substring(0, 4) == "Save"){ ytgetaddobject.style.background = "white"; }
+					if(ytgetaddstring.substring(0, 4) == "Save"){ ytgetaddobject.style.background = ""; }
 				}
 			}
 		}
