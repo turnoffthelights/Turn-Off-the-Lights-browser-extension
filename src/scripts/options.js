@@ -591,7 +591,7 @@ function read_options(){
 			if(stop){ return; }
 
 			// request another frame
-			requestId = window.requestAnimFrame(animate);
+			requestId = window.requestAnimationFrame(animate);
 
 			// calc elapsed time since last loop
 			now = window.performance.now();
@@ -665,15 +665,6 @@ function read_options(){
 		ariacheck();
 	});// chrome storage end
 } // end read
-
-// animation browser engine
-window.requestAnimFrame = function(){
-	return(
-		window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(/* function */ callback){
-			window.setTimeout(callback, 1000 / 60);
-		}
-	);
-}();
 
 var countA = 0, countB = 0, countC = 0; // start from zero (blur spread) and size (left right top under) position
 
@@ -853,7 +844,7 @@ function increaseOpacity(){
 	if((opacity < default_opacity) && (ReducingFinished == true)){
 		(opacity > (default_opacity - 10)) ? opacity += (default_opacity - opacity) : opacity += OpacityLevelIncrement;
 		DIVElementById.style.opacity = opacity / 100;
-		window.requestAnimFrame(increaseOpacity);
+		window.requestAnimationFrame(increaseOpacity);
 	}else{ ReducingFinished = false; }
 }
 
@@ -863,7 +854,7 @@ function reduceOpacity(){
 	if((opacity > 0) && (ReducingFinished == false)){
 		opacity -= OpacityLevelIncrement;
 		DIVElementById.style.opacity = opacity / 100;
-		window.requestAnimFrame(reduceOpacity);
+		window.requestAnimationFrame(reduceOpacity);
 	}else{
 		ReducingFinished = true;
 		// When finished, make sure the DIVElementById is set to remove element
@@ -1639,7 +1630,7 @@ function rain(){
 		drop.draw();
 	}
 
-	window.requestAnimFrame(rain);
+	window.requestAnimationFrame(rain);
 }
 
 function drop(){

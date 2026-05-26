@@ -242,14 +242,6 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 		}
 	}
 
-	// animation browser engine
-	window.requestAnimFrame = function(){
-		return(
-			window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
-        function(/* function */ callback){ window.setTimeout(callback, 1000 / 30); } // 33.33
-		);
-	}();
-
 	let redirectionHosts = [linkredirectionoptions];
 	if(redirectionHosts.includes(window.location.href)){
 		if($("allowpermission")){
@@ -879,7 +871,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 				if(!this.paused && !this.ended){
 					if($("stefanvdzoomplay" + rock)){ $("stefanvdzoomplay" + rock).textContent = "❙❙"; }
 					zoompaused[rock] = false;
-					window.requestAnimFrame(function(){ drawframezoom(rock); });
+					window.requestAnimationFrame(function(){ drawframezoom(rock); });
 				}else{
 					if($("stefanvdzoomplay" + rock)){ $("stefanvdzoomplay" + rock).textContent = "►"; }
 					zoompaused[rock] = true;
@@ -1780,7 +1772,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 				var canvas = document.getElementById("stefanvdvisualizationcanvas" + tovis);
 				var ctx = canvas.getContext("2d", {desynchronized: true, willReadFrequently: true});
 
-				requestvideovisualloop[tovis] = window.requestAnimFrame(function(){ videovisualloop(tovis); });
+				requestvideovisualloop[tovis] = window.requestAnimationFrame(function(){ videovisualloop(tovis); });
 				analyser[tovis].fftSize = 2048;
 				var bufferLength = analyser[tovis].fftSize;
 				var dataArray = new Uint8Array(bufferLength);
@@ -2422,7 +2414,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 			fixyoutubeatmos();
 		}else{
 			// request another frame
-			requestId = window.requestAnimFrame(animate);
+			requestId = window.requestAnimationFrame(animate);
 
 			// calc elapsed time since last loop
 			now = window.performance.now();
@@ -3578,7 +3570,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 				}
 			});
 		}
-		window.requestAnimFrame(updategamepadbuttons);
+		window.requestAnimationFrame(updategamepadbuttons);
 	};
 
 	function actionzoominout(myGamepad, a){
@@ -3634,7 +3626,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 				}
 			}
 		}
-		window.requestAnimFrame(updategamepadaxes);
+		window.requestAnimationFrame(updategamepadaxes);
 	};
 
 	function shortname(name){
@@ -3768,7 +3760,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 			newzoomcontext.drawImage(onevideo, 0, 0, onevideo.offsetWidth, onevideo.clientHeight);
 			$("stefanvdzoomcanvas" + a).style.width = onevideo.offsetWidth + "px";
 			$("stefanvdzoomcanvas" + a).style.height = onevideo.clientHeight + "px";
-			window.requestAnimFrame(function(){ drawframezoom(a); });
+			window.requestAnimationFrame(function(){ drawframezoom(a); });
 		}
 	}
 
@@ -3803,7 +3795,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 
 		onevideo.style["transform"] = "scale(" + vzoom[a] + ") rotate(" + vrotate[a] + "deg)";
 		// start zoom canvas animation
-		window.requestAnimFrame(function(){ drawframezoom(a); });
+		window.requestAnimationFrame(function(){ drawframezoom(a); });
 	}
 
 	// b: [top, left, bottom, right]
@@ -3822,7 +3814,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 			onevideo.style.left = (parseInt(onevideo.style.left, 10) + 5) + "px";
 		}
 		// start zoom canvas animation
-		window.requestAnimFrame(function(){ drawframezoom(a); });
+		window.requestAnimationFrame(function(){ drawframezoom(a); });
 	}
 
 	function gamepadplaypause(){
@@ -3975,7 +3967,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 			var canvas = document.getElementById("stefanvdpipvisualizationcanvas");
 			var ctx = canvas.getContext("2d", {desynchronized: true, willReadFrequently: true});
 
-			requestvideopiploop = window.requestAnimFrame(function(){ pipvideovisualloop(); });
+			requestvideopiploop = window.requestAnimationFrame(function(){ pipvideovisualloop(); });
 			analyser[0].fftSize = 2048;
 			var bufferLength = analyser[0].fftSize;
 			var dataArray = new Uint8Array(bufferLength);

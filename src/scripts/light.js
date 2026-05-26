@@ -1698,7 +1698,7 @@ function rain(){
 		drop.draw();
 	}
 
-	window.requestAnimFrame(rain);
+	window.requestAnimationFrame(rain);
 }
 
 function drop(){
@@ -2575,14 +2575,6 @@ chrome.storage.sync.get(["mousespotlighto", "mousespotlightc", "mousespotlighta"
 });
 
 // /////////
-// animation browser engine
-window.requestAnimFrame = function(){
-	return(
-		window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
-        function(/* function */ callback){ window.setTimeout(callback, 1000 / 60); }
-	);
-}();
-
 // Fade engine
 // Variable for the fade in and out effect
 var opacity = 0;
@@ -2608,7 +2600,7 @@ function increaseOpacity(){
 	if((opacity < default_opacity) && (ReducingFinished == true)){
 		(opacity > (default_opacity - 10)) ? opacity += (default_opacity - opacity) : opacity += OpacityLevelIncrement;
 		DIVElementById.style.opacity = opacity / 100;
-		window.requestAnimFrame(increaseOpacity);
+		window.requestAnimationFrame(increaseOpacity);
 	}else{ ReducingFinished = false; }
 	setallopacity(opacity);
 }
@@ -2619,7 +2611,7 @@ function reduceOpacity(){
 	if((opacity > 0) && (ReducingFinished == false)){
 		opacity -= OpacityLevelIncrement;
 		DIVElementById.style.opacity = opacity / 100;
-		window.requestAnimFrame(reduceOpacity);
+		window.requestAnimationFrame(reduceOpacity);
 	}else{
 		ReducingFinished = true;
 		// When finished, make sure the DIVElementById is set to remove element
