@@ -3,7 +3,7 @@
 
 Turn Off the Lights
 The entire page will be fading to dark, so you can watch the video as if you were in the cinema.
-Copyright (C) 2025 Stefan vd
+Copyright (C) 2026 Stefan vd
 www.stefanvd.net
 www.turnoffthelights.com
 
@@ -359,9 +359,10 @@ async function getPopupOpenLength(){
 	return total;
 }
 
-// Set click to zero at beginning
+// Transient state for double-click detection (250ms window)
+// Intentionally not persisted - resets on service worker termination
+// This is acceptable as it only affects click detection timing
 let clickbutton = 0;
-// Declare a timer variable
 let timer;
 
 if(exbrowser != "safari"){
