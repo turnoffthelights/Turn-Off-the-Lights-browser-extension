@@ -16,7 +16,6 @@
 		1E655F9B2EA2E1CE007F2F39 /* DaringInfantileDachshund.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1E7D1A15267283A600FECE52 /* DaringInfantileDachshund.mp4 */; };
 		1E70CA3226726F380064A939 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E70C9F226726F380064A939 /* SafariWebExtensionHandler.swift */; };
 		1E70CA3326726F380064A939 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E70C9F226726F380064A939 /* SafariWebExtensionHandler.swift */; };
-		1E7AC6C62E34E345000AD93D /* AppIcon26.icon in Resources */ = {isa = PBXBuildFile; fileRef = 1E11F43D2E2909CD0051E9E2 /* AppIcon26.icon */; };
 		1E7AC7672E34FFD4000AD93D /* StefanLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC7D05C2CECFC6000819365 /* StefanLinks.swift */; };
 		1E7AC7C32E35047B000AD93D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E70C9F026726F380064A939 /* Assets.xcassets */; };
 		1E7AC7CB2E35652D000AD93D /* StefanFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7AC7C92E35652D000AD93D /* StefanFunctions.swift */; };
@@ -44,7 +43,6 @@
 		1E9AC31A2EA3D8DF00C41F8D /* VideosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9AC3102EA3D8DF00C41F8D /* VideosView.swift */; };
 		1E9AC31B2EA3D8DF00C41F8D /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9AC3082EA3D8DF00C41F8D /* GuideView.swift */; };
 		1E9AC31C2EA3D8DF00C41F8D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9AC3062EA3D8DF00C41F8D /* ContentView.swift */; };
-		1E9C58672E941D620018DFB0 /* AppIcon26.icon in Resources */ = {isa = PBXBuildFile; fileRef = 1E11F43D2E2909CD0051E9E2 /* AppIcon26.icon */; };
 		1EBC1ECC2E9549E10073BBFD /* StefanFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7AC7C92E35652D000AD93D /* StefanFunctions.swift */; };
 		1EBC202B2E95B62D0073BBFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E70C9F026726F380064A939 /* Assets.xcassets */; };
 		1ED4B7BD2CE5E6A00077FA3B /* palette.html in Resources */ = {isa = PBXBuildFile; fileRef = 1ED4B7B32CE5E69F0077FA3B /* palette.html */; };
@@ -123,7 +121,6 @@
 
 /* Begin PBXFileReference section */
 		1E014E222DCB8C64002C83CB /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		1E11F43D2E2909CD0051E9E2 /* AppIcon26.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon26.icon; sourceTree = "<group>"; };
 		1E35544D2EB55BCC00603EEA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E4CB20A268CC77900015282 /* TOtL-iOS-UITest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TOtL-iOS-UITest.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4CB20C268CC77900015282 /* TOtL_iOS_UITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOtL_iOS_UITest.swift; sourceTree = "<group>"; };
@@ -244,7 +241,6 @@
 			children = (
 				1E6B0EA22CE5453B0064407B /* Config.xcconfig */,
 				1EFE808F2FDEDA3B0004A9F8 /* AppIcon.icon */,
-				1E11F43D2E2909CD0051E9E2 /* AppIcon26.icon */,
 				1E70C9E826726F350064A939 /* Shared (App) */,
 				1E70C9F126726F380064A939 /* Shared (Extension) */,
 				1E9AC3112EA3D8DF00C41F8D /* iOS */,
@@ -626,7 +622,6 @@
 				1EFE80902FDEDA3B0004A9F8 /* AppIcon.icon in Resources */,
 				1E7AC7C32E35047B000AD93D /* Assets.xcassets in Resources */,
 				1E35544E2EB55BCC00603EEA /* LaunchScreen.storyboard in Resources */,
-				1E7AC6C62E34E345000AD93D /* AppIcon26.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,7 +634,6 @@
 				1EFE80912FDEDA3B0004A9F8 /* AppIcon.icon in Resources */,
 				1E9AC2EB2EA3CBAB00C41F8D /* Localizable.xcstrings in Resources */,
 				1EBC202B2E95B62D0073BBFD /* Assets.xcassets in Resources */,
-				1E9C58672E941D620018DFB0 /* AppIcon26.icon in Resources */,
 				1E0919FC2EA047D200154A1B /* forest.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
