@@ -146,8 +146,6 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	hovervideo = items["hovervideo"];
 	hovervideoamount = items["hovervideoamount"]; if(hovervideoamount == null)hovervideoamount = 3;
 	mousespotlights = items["mousespotlights"];
-	mouseshake = items["mouseshake"]; if(mouseshake == null)mouseshake = false;
-	mouseshakesensitivity = items["mouseshakesensitivity"]; if(mouseshakesensitivity == null)mouseshakesensitivity = 4;
 	drawatmosfps = items["drawatmosfps"]; if(drawatmosfps == null)drawatmosfps = 12;
 	aplay = items["aplay"]; if(aplay == null)aplay = true;
 	apause = items["apause"]; if(apause == null)apause = true;
