@@ -90,7 +90,7 @@ document.addEventListener("click", function(event){
 // settings
 var autodim = null, eastereggs = null, shortcutlight = null, eyen = null, eyea = null, eyealist = null, excludedDomains = null, nighttime = null, begintime = null, endtime = null, ambilight = null, ambilightrangeblurradius = null, ambilightrangespreadradius = null, ambilightfixcolor = null, ambilightvarcolor = null, ambilightcolorhex = null, ambilight4color = null, ambilight1colorhex = null, ambilight2colorhex = null, ambilight3colorhex = null, ambilight4colorhex = null, ecosaver = null, ecosavertime = null, autodimonly = null, autodimDomains = null, interval = null, autowidthyoutube = null, customqualityyoutube = null, maxquality = null, atmosphereonly = null, atmosphereDomains = null, autodimdelay = null, autodimdelaytime = null, atmosvivid = null, autodimchecklistwhite = null, autodimchecklistblack = null, eyechecklistwhite = null, eyechecklistblack = null, no360youtube = null, videotool = null, reflection = null, reflectionamount = null, videotoolonly = null, videotoolDomains = null, videotoolchecklistwhite = null, videotoolchecklistblack = null, videovolume = null, videovolumecolor = null, videovolumesteps = null, videovolumelabel = null, visopacity = null, videotoolcolor = null, hovervideo = null, hovervideoamount = null, mousespotlights = null, drawatmosfps = null, aplay = null, apause = null, astop = null, videozoom = null, playrate = null, playrateamount = null, speedtoolbar = null, atmosontotlmode = null, vpause = null, videovolumeposa = null, videovolumeposb = null, videovolumeposc = null, videovolumehold = null, videovolumealt = null, atmosfpsauto = null, atmosfpsmanual = null, videovolumeonly = null, videovolumeDomains = null, videovolumechecklistwhite = null, videovolumechecklistblack = null, videovolumescrolla = null, videovolumescrollb = null, videovolumescrollc = null, videovolumeposd = null, videovolumepose = null, pipvisualtype = null, gamepad = null, gpleftstick = null, gprightstick = null, gpbtnx = null, gpbtno = null, gpbtnsquare = null, gpbtntriangle = null, gpbtnlb = null, gpbtnrb = null, gpbtnlt = null, gpbtnrt = null, gpbtnshare = null, gpbtnmenu = null, gpbtnrightstick = null, gpbtnleftstick = null, gpbtndirup = null, gpbtndirdown = null, gpbtndirleft = null, gpbtndirright = null, gpbtnlogo = null, gamepadonly = null, gamepadDomains = null, gamepadchecklistwhite = null, gamepadchecklistblack = null, autodimsize = null, autodimsizepixelheight = null, autodimsizepixelwidth = null, videofilled = null;
 /* -------------------------------------------------- */
-chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea", "eyealist", "excludedDomains", "nighttime", "begintime", "endtime", "ambilight", "ambilightrangeblurradius", "ambilightrangespreadradius", "ambilightfixcolor", "ambilightvarcolor", "ambilightcolorhex", "ambilight4color", "ambilight1colorhex", "ambilight2colorhex", "ambilight3colorhex", "ambilight4colorhex", "ecosaver", "ecosavertime", "autodimonly", "autodimDomains", "interval", "maxquality", "autowidthyoutube", "customqualityyoutube", "atmosphereonly", "atmosphereDomains", "autodimdelay", "autodimdelaytime", "atmosvivid", "autodimchecklistwhite", "autodimchecklistblack", "eyechecklistwhite", "eyechecklistblack", "no360youtube", "videotool", "reflection", "reflectionamount", "videotoolonly", "videotoolDomains", "videotoolchecklistwhite", "videotoolchecklistblack", "videovolume", "videovolumecolor", "videovolumesteps", "videovolumelabel", "visopacity", "videotoolcolor", "hovervideo", "hovervideoamount", "mousespotlights", "drawatmosfps", "aplay", "apause", "astop", "videozoom", "playrate", "playrateamount", "speedtoolbar", "atmosontotlmode", "vpause", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumehold", "videovolumealt", "atmosfpsauto", "atmosfpsmanual", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose", "pipvisualtype", "gamepad", "gpleftstick", "gprightstick", "gpbtnx", "gpbtno", "gpbtnsquare", "gpbtntriangle", "gpbtnlb", "gpbtnrb", "gpbtnlt", "gpbtnrt", "gpbtnshare", "gpbtnmenu", "gpbtnrightstick", "gpbtnleftstick", "gpbtndirup", "gpbtndirdown", "gpbtndirleft", "gpbtndirright", "gpbtnlogo", "gamepadonly", "gamepadDomains", "gamepadchecklistwhite", "gamepadchecklistblack", "autodimsize", "autodimsizepixelheight", "autodimsizepixelwidth", "videofilled"], function(items){
+chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea", "eyealist", "excludedDomains", "nighttime", "begintime", "endtime", "ambilight", "ambilightrangeblurradius", "ambilightrangespreadradius", "ambilightfixcolor", "ambilightvarcolor", "ambilightcolorhex", "ambilight4color", "ambilight1colorhex", "ambilight2colorhex", "ambilight3colorhex", "ambilight4colorhex", "ecosaver", "ecosavertime", "autodimonly", "autodimDomains", "interval", "maxquality", "autowidthyoutube", "customqualityyoutube", "atmosphereonly", "atmosphereDomains", "autodimdelay", "autodimdelaytime", "atmosvivid", "autodimchecklistwhite", "autodimchecklistblack", "eyechecklistwhite", "eyechecklistblack", "no360youtube", "videotool", "reflection", "reflectionamount", "videotoolonly", "videotoolDomains", "videotoolchecklistwhite", "videotoolchecklistblack", "videovolume", "videovolumecolor", "videovolumesteps", "videovolumelabel", "visopacity", "videotoolcolor", "hovervideo", "hovervideoamount", "mouseshake", "mouseshakesensitivity", "mousespotlights", "drawatmosfps", "aplay", "apause", "astop", "videozoom", "playrate", "playrateamount", "speedtoolbar", "atmosontotlmode", "vpause", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumehold", "videovolumealt", "atmosfpsauto", "atmosfpsmanual", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose", "pipvisualtype", "gamepad", "gpleftstick", "gprightstick", "gpbtnx", "gpbtno", "gpbtnsquare", "gpbtntriangle", "gpbtnlb", "gpbtnrb", "gpbtnlt", "gpbtnrt", "gpbtnshare", "gpbtnmenu", "gpbtnrightstick", "gpbtnleftstick", "gpbtndirup", "gpbtndirdown", "gpbtndirleft", "gpbtndirright", "gpbtnlogo", "gamepadonly", "gamepadDomains", "gamepadchecklistwhite", "gamepadchecklistblack", "autodimsize", "autodimsizepixelheight", "autodimsizepixelwidth", "videofilled"], function(items){
 	autodim = items["autodim"];
 	eastereggs = items["eastereggs"];
 	shortcutlight = items["shortcutlight"];
@@ -146,6 +146,8 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	hovervideo = items["hovervideo"];
 	hovervideoamount = items["hovervideoamount"]; if(hovervideoamount == null)hovervideoamount = 3;
 	mousespotlights = items["mousespotlights"];
+	mouseshake = items["mouseshake"]; if(mouseshake == null)mouseshake = false;
+	mouseshakesensitivity = items["mouseshakesensitivity"]; if(mouseshakesensitivity == null)mouseshakesensitivity = 4;
 	drawatmosfps = items["drawatmosfps"]; if(drawatmosfps == null)drawatmosfps = 12;
 	aplay = items["aplay"]; if(aplay == null)aplay = true;
 	apause = items["apause"]; if(apause == null)apause = true;
@@ -201,6 +203,15 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	autodimsizepixelheight = items["autodimsizepixelheight"]; if(autodimsizepixelheight == null)autodimsizepixelheight = 220;
 	autodimsizepixelwidth = items["autodimsizepixelwidth"]; if(autodimsizepixelwidth == null)autodimsizepixelwidth = 250;
 	videofilled = items["videofilled"];
+	mouseshake = items["mouseshake"]; if(mouseshake == null)mouseshake = false;
+	mouseshakesensitivity = items["mouseshakesensitivity"]; if(mouseshakesensitivity == null)mouseshakesensitivity = 4;
+
+	// Mark that we need to initialize mouse shake detection
+	if(mouseshake == true){
+		window.addEventListener("load", function(){
+			window.addEventListener("mousemove", detectMouseShake);
+		});
+	}
 
 	// inject script for autodim
 	function addautodimfile(){
@@ -2187,6 +2198,65 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 		window.clearTimeout(ecothreadmove);
 		ecothreadmove = window.setTimeout(movemouseStopped, ecosavertime * 1000);
 	};
+
+	// Mouse shake detection variables
+	var lastMouseX = null;
+	var lastDirection = 0;
+	var shakeReversals = [];
+	var mouseShakeTimeWindow = 500; // Time window in ms to detect shake
+
+	var detectMouseShake = function(e){
+		if(!mouseshake) return;
+
+		var mouseX = e.clientX;
+		var now = Date.now();
+
+		if(lastMouseX === null){
+			lastMouseX = mouseX;
+			return;
+		}
+
+		var dx = mouseX - lastMouseX;
+
+		// Ignore tiny movements
+		if(Math.abs(dx) < 10){
+			return;
+		}
+
+		var direction = dx > 0 ? 1 : -1;
+
+		if(lastDirection !== 0 && direction !== lastDirection){
+			shakeReversals.push(now);
+
+			// Keep only recent reversals
+			shakeReversals = shakeReversals.filter(function(t){
+				return now - t < mouseShakeTimeWindow;
+			});
+
+			// Adjust required direction changes based on sensitivity (1-20 scale, higher = more sensitive)
+			// Sensitivity 1 = 8 changes, Sensitivity 7 = 2 changes
+			var requiredChanges = Math.max(
+				2,
+				9 - mouseshakesensitivity
+			);
+
+			if(shakeReversals.length >= requiredChanges){
+				shakeReversals = [];
+				// shake action
+				chrome.runtime.sendMessage({name: "automatic"});
+			}
+		}
+
+		lastDirection = direction;
+		lastMouseX = mouseX;
+	};
+
+	// Initialize mouse shake detection when script loads
+	function initMouseShake(){
+		if(mouseshake == true){
+			window.addEventListener("mousemove", detectMouseShake);
+		}
+	}
 	//--
 	var ecothreadkey;
 	function keymouseStopped(){
@@ -4360,6 +4430,18 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 
 				if(hovervideo == true){
 					runhovervideocheck();
+				}
+			});
+		}else if(request.action == "gorefreshmouseshake"){
+			chrome.storage.sync.get(["mouseshake", "mouseshakesensitivity"], function(items){
+				mouseshake = items["mouseshake"];
+				mouseshakesensitivity = items["mouseshakesensitivity"];
+				// Remove existing listener
+				window.removeEventListener("mousemove", detectMouseShake);
+
+				// Add listener if enabled
+				if(mouseshake == true){
+					window.addEventListener("mousemove", detectMouseShake);
 				}
 			});
 		}else if(request.action == "gorefreshplayrate"){

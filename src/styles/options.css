@@ -738,6 +738,9 @@ to{transform: translateY(200px);opacity:0}
 .atmosrangebox .attitle{padding:0 20px 0px 0px;display:flex;align-items:center;height:48px}
 .atmosrangebox .atrest{display:flex;align-items:center;padding:0 20px}
 .atmosbox{display:flex;height:480px;width:100%}
+.shakerangebox{display:flex;height:48px}
+.shakerangebox .attitle{padding:0 20px 0px 0px;display:flex;align-items:center;height:48px}
+.shakerangebox .atrest{display:flex;align-items:center;padding:0 20px}
 #beeld{position:relative;z-index:101;margin:auto;width:487px;aspect-ratio:16/9;content-visibility:auto}
 .warning{font-weight:700}
 .warningambilight{border-radius:2px;background-color:var(--totl-donation-bar);color:black;margin-top:7px;margin-bottom:10px;padding:10px;line-height:25px}

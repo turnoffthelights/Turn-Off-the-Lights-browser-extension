@@ -919,6 +919,11 @@ chrome.storage.onChanged.addListener(function(changes){
 			manageContentScript("block60fps", CONTENT_SCRIPTS.fps);
 		}
 
+		var changenameshake = ["mouseshake", "mouseshakesensitivity"];
+		if(changenameshake.includes(key)){
+			chromerefreshalltabs("gorefreshmouseshake");
+		}
+
 		// Group Policy
 		// check the values with group policy, if different values. Then change it back
 		checkreturnpolicyvalues(changes, "autodim", "AutoDim");
