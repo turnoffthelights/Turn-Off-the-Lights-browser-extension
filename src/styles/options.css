@@ -278,9 +278,6 @@ section>div:only-of-type{-webkit-box-flex:1}
 .youtubesharebutton{display:block;float:right;margin-top:5px;min-height:18px;padding:4px 10px}
 .youtubesharebutton span{font-size:12px;color:#333;padding:8px;background:#fff}
 .youtuberating{padding-left:75px;display:inline-flex;width:140px;padding-top:16px;line-height:1;height:0;justify-items:center;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-content:flex-end}
-.youtuberatingsparkbarlikes{background-color:#2793e6;width:100%}
-.youtuberatingsparkbardislikes{background:#C00;width:0%;display:block;float:right;margin-top:-7px}
-.youtuberatingsparkbarlikes,.youtuberatingsparkbardislikes{height:5px}
 .youtubeviewnumbers{padding-bottom:7px;padding-left:80px;width:50px;display:inline-block;font-size:13px;font-weight:700}
 .youtube_container_head{display:inline-block}
 .embedytsub{position:relative;top:0px;width:195px;margin:0px;left:0px;visibility:visible;height:50px;display:inline-block}
@@ -1154,7 +1151,7 @@ only screen and (max-device-width:480px){
   .videopreview{width:100%;padding-right:0}
   .videopreview iframe{width:100%;height:auto;aspect-ratio:16/9}
   .youtubesuggpanel{display:none}
-  #samplelikebar,#sampledislikebutton,#samplesharebutton,#sampleaddbutton{display:none}
+  #sampledislikebutton,#samplesharebutton,#sampleaddbutton{display:none}
   #autodimwhitelist,#atmospherewhitelist,#nightwhitelist,#autostopwhitelist,#videotoolwhitelist,#videovolumewhitelist,#gamepadwhitelist{margin-left:25px}
   #autodimwhitelist input[type=url],#atmospherewhitelist input[type=url],#nightwhitelist input[type=url],#autostopwhitelist input[type=url],#videotoolwhitelist input[type=url],#EyeWhitelist input[type=url],#videovolumewhitelist input[type=url],#gamepadwhitelist input[type=url]{width:100%;float:left}
   #autodimwhitelist select,#atmospherewhitelist select,#nightwhitelist select,#autostopwhitelist select,#videotoolwhitelist select,#EyeWhitelist select,#videovolumewhitelist select,#gamepadwhitelist select{width:100%;margin-right:0px}

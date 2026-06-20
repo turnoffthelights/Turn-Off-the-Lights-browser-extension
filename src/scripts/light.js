@@ -29,7 +29,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 
 function $(id){ return document.getElementById(id); }
 // settings
-var default_opacity = null, suggestions = null, playlist = null, videoheadline = null, flash = null, head = null, infobar = null, likebutton = null, sharebutton = null, viewcount = null, addvideobutton = null, likebar = null, mousespotlighto = null, mousespotlightc = null, mousespotlighta = null, lightcolor = null, lightimagea = null, lightimage = null, interval = null, fadein = null, fadeout = null, readera = null, readerlargestyle = null, mousespotlightt = null, password = null, enterpassword = null, hardflash = null, dynamic = null, dynamic1 = null, dynamic2 = null, dynamic3 = null, dynamic4 = null, dynamic5 = null, dynamic6 = null, dynamic7 = null, dynamic8 = null, dynamic9 = null, dynamic10 = null, dynamic11 = null, dynamic12 = null, hoveroptiondyn5 = null, hoveroptiondyn11 = null, blur = null, cinemaontop = null, spotlightradius = null, slideeffect = null, lightimagelin = null, linearsq = null, colora = null, intervallina = null, colorb = null, intervallinb = null, no360youtube = null, mousespotlights = null, titleinvertcolor = null, darkbrowsertheme = null, multiopacall = null, multiopacsel = null, multiopacityDomains = null, lampandnightmode = null;
+var default_opacity = null, suggestions = null, playlist = null, videoheadline = null, flash = null, head = null, infobar = null, likebutton = null, sharebutton = null, viewcount = null, addvideobutton = null, mousespotlighto = null, mousespotlightc = null, mousespotlighta = null, lightcolor = null, lightimagea = null, lightimage = null, interval = null, fadein = null, fadeout = null, readera = null, readerlargestyle = null, mousespotlightt = null, password = null, enterpassword = null, hardflash = null, dynamic = null, dynamic1 = null, dynamic2 = null, dynamic3 = null, dynamic4 = null, dynamic5 = null, dynamic6 = null, dynamic7 = null, dynamic8 = null, dynamic9 = null, dynamic10 = null, dynamic11 = null, dynamic12 = null, hoveroptiondyn5 = null, hoveroptiondyn11 = null, blur = null, cinemaontop = null, spotlightradius = null, slideeffect = null, lightimagelin = null, linearsq = null, colora = null, intervallina = null, colorb = null, intervallinb = null, no360youtube = null, mousespotlights = null, titleinvertcolor = null, darkbrowsertheme = null, multiopacall = null, multiopacsel = null, multiopacityDomains = null, lampandnightmode = null;
 // html elements used
 var div = null, video = null;
 // block lights
@@ -63,7 +63,7 @@ function addOnMessageListener(){
 //---
 
 // Option page settings
-chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "infobar", "likebutton", "sharebutton", "viewcount", "addvideobutton", "likebar", "flash", "hardflash", "no360youtube", "mousespotlights", "titleinvertcolor"], function(response){
+chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "infobar", "likebutton", "sharebutton", "viewcount", "addvideobutton", "flash", "hardflash", "no360youtube", "mousespotlights", "titleinvertcolor"], function(response){
 	suggestions = response["suggestions"];
 	playlist = response["playlist"];
 	videoheadline = response["videoheadline"];
@@ -73,7 +73,6 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 	sharebutton = response["sharebutton"];
 	viewcount = response["viewcount"];
 	addvideobutton = response["addvideobutton"];
-	likebar = response["likebar"];
 	flash = response["flash"];
 	hardflash = response["hardflash"];
 	no360youtube = response["no360youtube"];
@@ -525,13 +524,6 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 					var ytgetformat = ytmaterialviewcount.querySelector(".view-count");
 					if(ytgetformat != null){ ytgetformat.classList.add("stefanvditemtop"); ytgetformat.style.color = "white"; }
 				}
-			}
-
-			// Shows like/dislike bar
-			if(likebar == true){
-				// update YouTube material 21 march 2017
-				var ytmateriallikebar = document.querySelector("ytd-sentiment-bar-renderer");
-				if(ytmateriallikebar){ ytmateriallikebar.classList.add("stefanvditemtop"); }
 			}
 
 			// MAC & WINDOWS & LINUX
