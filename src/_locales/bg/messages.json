@@ -25,7 +25,7 @@
 "desuntil":{"message":"до"},
 "desconfirmpassword":{"message":"Потвърждение на паролата"},
 "desautodimonly":{"message":"Dim only the following video site(s):"},
-"helpeyeprotection":{"message":"Давам възможност на \"Защита на очите\" автоматично ще изключите функцията \"Auto play\"."},
+"helpeyeprotection":{"message":"Давам възможност на \"Защита на очите\" автоматично ще изключите функцията \"AutoDim\"."},
 "skipremember":{"message":"Прескочи това и отвори страницата с опции сега"},
 "optiontimesaved":{"message":"Време е записан успешно!"},
 "titelvideoheadline":{"message":"Заглавие"},

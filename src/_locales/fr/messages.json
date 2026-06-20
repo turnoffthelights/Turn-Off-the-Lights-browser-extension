@@ -25,7 +25,7 @@
 "desuntil":{"message":"jusqu'à"},
 "desconfirmpassword":{"message":"Veuillez confirmer votre mot de passe"},
 "desautodimonly":{"message":"Réduire la luminosité seulement sur le(s) site(s) web de vidéo suivant(s) :"},
-"helpeyeprotection":{"message":"Activer la fonction de « Protection des yeux » désactivera automatiquement la fonction « Auto play »."},
+"helpeyeprotection":{"message":"Activer la fonction de « Protection des yeux » désactivera automatiquement la fonction « AutoDim »."},
 "skipremember":{"message":"Passer ceci et ouvrir la page d'options"},
 "optiontimesaved":{"message":"Période validée !"},
 "titelvideoheadline":{"message":"Titre de la vidéo"},
