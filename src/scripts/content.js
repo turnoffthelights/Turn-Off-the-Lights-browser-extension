@@ -522,58 +522,61 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 				prepUrl += m[3].replace(/[?()[\]\\.+^$|]/g, "\\$&").replace(/\/\*(?=$|\/)/g, "(?:/[^]*)?");
 			}
 		}
-		if(prepUrl){
-			// console.log(prepUrl); // ^http://(?:[^/]*\.)*google\.com(?:/[^]*)?$
-			if(websiteurl.match(RegExp("^" + prepUrl + "$", "i"))){
-				return true;
-			}else{
-				return false;
-			}
-		}
-		return false;
+		var rx = new RegExp("^" + prepUrl + "$", "i");
+		return rx.test(websiteurl);
 	}
 
-	function runautodimcheck(){
-		if(autodim == true && mousespotlights != true){
-			if(autodimonly == true){
+	function checkDomainFeature(featureEnabled, domains, checklistWhite, checklistBlack, onlyMode, callback){
+		if(featureEnabled){
+			if(onlyMode){
 				var currenturl = window.location.protocol + "//" + window.location.host;
-				var blackrabbit = false;
-				if(typeof autodimDomains == "string"){
-					autodimDomains = JSON.parse(autodimDomains);
-					var abuf = [];
+				var blacklisted = false;
+				if(typeof domains == "string"){
+					domains = JSON.parse(domains);
+					var domainList = [];
 					var domain;
-					for(domain in autodimDomains)
-						abuf.push(domain);
-					abuf.sort();
+					for(domain in domains)
+						domainList.push(domain);
+					domainList.sort();
 					var i;
-					var l = abuf.length;
+					var l = domainList.length;
 					for(i = 0; i < l; i++){
-						if(autodimchecklistwhite == true){
-							if(abuf[i].includes("*")){
-								// regex test
-								if(checkregdomaininside(abuf[i], currenturl) == true){
-									autodimfunction();
+						if(checklistWhite == true){
+							if(domainList[i].includes("*")){
+								if(checkregdomaininside(domainList[i], currenturl) == true){
+									callback();
+									return;
 								}
 							}else{
-								// regular text
-								if(currenturl == abuf[i]){ autodimfunction(); }
+								if(currenturl == domainList[i]){ 
+									callback();
+									return;
+								}
 							}
-						}else if(autodimchecklistblack == true){
-							if(abuf[i].includes("*")){
-								// regex test
-								if(checkregdomaininside(abuf[i], currenturl) == true){
-									blackrabbit = true;
+						}else if(checklistBlack == true){
+							if(domainList[i].includes("*")){
+								if(checkregdomaininside(domainList[i], currenturl) == true){
+									blacklisted = true;
 								}
 							}else{
-								// regular text
-								if(currenturl == abuf[i]){ blackrabbit = true; }
+								if(currenturl == domainList[i]){ blacklisted = true; }
 							}
 						}
 					}
 				}
-				if(autodimchecklistblack == true && blackrabbit == false){ autodimfunction(); }
-			}else{ autodimfunction(); }
-		} // option autodim on end
+				if(checklistBlack == true && blacklisted == false){ 
+					callback();
+					return;
+				}
+			}else{ 
+				callback();
+				return;
+			}
+		}
+	}
+
+	function runautodimcheck(){
+		checkDomainFeature(autodim == true && mousespotlights != true, autodimDomains, autodimchecklistwhite, autodimchecklistblack, autodimonly, autodimfunction);
 	}
 	runautodimcheck();
 
@@ -600,47 +603,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	var vrotate = [];
 
 	function runvideotoolbarcheck(){
-		if(videotool == true || gamepad == true){
-			if(videotoolonly == true){
-				var currenturl = window.location.protocol + "//" + window.location.host;
-				var videotoolrabbit = false;
-				if(typeof videotoolDomains == "string"){
-					videotoolDomains = JSON.parse(videotoolDomains);
-					var vtbbuf = [], domain;
-					for(domain in videotoolDomains)
-						vtbbuf.push(domain);
-					vtbbuf.sort();
-					var i, l = vtbbuf.length;
-					for(i = 0; i < l; i++){
-						if(videotoolchecklistwhite == true){
-							if(vtbbuf[i].includes("*")){
-								// regex test
-								if(checkregdomaininside(vtbbuf[i], currenturl) == true){
-									videotoolfunction();
-								}
-							}else{
-								// regular text
-								if(currenturl == vtbbuf[i]){
-									videotoolfunction();
-								}
-							}
-						}else if(videotoolchecklistblack == true){
-							if(vtbbuf[i].includes("*")){
-								// regex test
-								if(checkregdomaininside(vtbbuf[i], currenturl) == true){
-									videotoolrabbit = true;
-								}
-							}else{
-								if(currenturl == vtbbuf[i]){
-									videotoolrabbit = true;
-								}
-							}
-						}
-					}
-				}
-				if(videotoolchecklistblack == true && videotoolrabbit == false){ videotoolfunction(); }
-			}else{ videotoolfunction(); }
-		} // option videotool on end
+		checkDomainFeature(videotool == true || gamepad == true, videotoolDomains, videotoolchecklistwhite, videotoolchecklistblack, videotoolonly, videotoolfunction);
 	}
 	runvideotoolbarcheck();
 
@@ -2062,32 +2025,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 
 	// ambilight time
 	function runambilight(){
-		if(ambilight == true){
-			if(atmosphereonly == true){
-				var currenturl = window.location.protocol + "//" + window.location.host;
-				if(typeof atmosphereDomains == "string"){
-					atmosphereDomains = JSON.parse(atmosphereDomains);
-					var albuf = [];
-					var domain;
-					for(domain in atmosphereDomains)
-						albuf.push(domain);
-					albuf.sort();
-					var i;
-					var l = albuf.length;
-					for(i = 0; i < l; i++){
-						if(albuf[i].includes("*")){
-							// regex test
-							if(checkregdomaininside(albuf[i], currenturl) == true){
-								ambilightfunction();
-							}
-						}else{
-							// regular text
-							if(currenturl == albuf[i]){ ambilightfunction(); }
-						}
-					}
-				}
-			}else{ ambilightfunction(); }
-		}
+		checkDomainFeature(ambilight == true, atmosphereDomains, true, false, atmosphereonly, ambilightfunction);
 	}
 	runambilight();
 
@@ -3071,45 +3009,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	} // end videovolume
 
 	function runvideovolumecheck(){
-		if(videovolume == true || gamepad == true){
-			if(videovolumeonly == true){
-				var currenturl = window.location.protocol + "//" + window.location.host;
-				var videovolumerabbit = false;
-				if(typeof videovolumeDomains == "string"){
-					videovolumeDomains = JSON.parse(videovolumeDomains);
-					var vvbbuf = [];
-					var domain;
-					for(domain in videovolumeDomains)
-						vvbbuf.push(domain);
-					vvbbuf.sort();
-					var i;
-					var l = vvbbuf.length;
-					for(i = 0; i < l; i++){
-						if(videovolumechecklistwhite == true){
-							if(vvbbuf[i].includes("*")){
-								// regex test
-								if(checkregdomaininside(vvbbuf[i], currenturl) == true){
-									videovolumefunction();
-								}
-							}else{
-								if(currenturl == vvbbuf[i]){ videovolumefunction(); }
-							}
-						}else if(videovolumechecklistblack == true){
-							if(vvbbuf[i].includes("*")){
-								// regex test
-								if(checkregdomaininside(vvbbuf[i], currenturl) == true){
-									videovolumerabbit = true;
-								}
-							}else{
-								// regular text
-								if(currenturl == vvbbuf[i]){ videovolumerabbit = true; }
-							}
-						}
-					}
-				}
-				if(videovolumechecklistblack == true && videovolumerabbit == false){ videovolumefunction(); }
-			}else{ videovolumefunction(); }
-		} // option videotool on end
+		checkDomainFeature(videovolume == true || gamepad == true, videovolumeDomains, videovolumechecklistwhite, videovolumechecklistblack, videovolumeonly, videovolumefunction);
 	}
 	runvideovolumecheck();
 
@@ -3125,45 +3025,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 
 	// Game controller
 	function rungamepadcheck(){
-		if(gamepad == true){
-			if(gamepadonly == true){
-				var currenturl = window.location.protocol + "//" + window.location.host;
-				var gamepadrabbit = false;
-				if(typeof gamepadDomains == "string"){
-					gamepadDomains = JSON.parse(gamepadDomains);
-					var gmbbuf = [];
-					var domain;
-					for(domain in gamepadDomains)
-						gmbbuf.push(domain);
-					gmbbuf.sort();
-					var i;
-					var l = gmbbuf.length;
-					for(i = 0; i < l; i++){
-						if(gamepadchecklistwhite == true){
-							if(gmbbuf[i].includes("*")){
-								// regex test
-								if(checkregdomaininside(gmbbuf[i], currenturl) == true){
-									gamepadfunction();
-								}
-							}else{
-								if(currenturl == gmbbuf[i]){ gamepadfunction(); }
-							}
-						}else if(gamepadchecklistblack == true){
-							if(gmbbuf[i].includes("*")){
-								// regex test
-								if(checkregdomaininside(gmbbuf[i], currenturl) == true){
-									gamepadrabbit = true;
-								}
-							}else{
-								// regular text
-								if(currenturl == gmbbuf[i]){ gamepadrabbit = true; }
-							}
-						}
-					}
-				}
-				if(videovolumechecklistblack == true && gamepadrabbit == false){ gamepadfunction(); }
-			}else{ gamepadfunction(); }
-		} // option videotool on end
+		checkDomainFeature(gamepad == true, gamepadDomains, gamepadchecklistwhite, gamepadchecklistblack, gamepadonly, gamepadfunction);
 	}
 	rungamepadcheck();
 
