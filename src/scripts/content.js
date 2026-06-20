@@ -35,6 +35,41 @@ function rgbToHex(r, g, b){
 	return((r << 16) | (g << 8) | b).toString(16);
 }
 
+function createVideoButton(config){
+	var button = document.createElement("div");
+	button.textContent = config.text;
+	button.setAttribute("data-video", config.videoIndex);
+	if(config.accessKey) button.accessKey = config.accessKey;
+	if(config.title) button.title = config.title;
+	if(config.id) button.setAttribute("id", config.id);
+	if(config.style) button.style.cssText = config.style;
+
+	if(config.onClick){
+		button.addEventListener("click", function(){
+			config.onClick(this.getAttribute("data-video"));
+		}, false);
+	}
+
+	if(config.onHold){
+		var interval;
+		button.addEventListener("mousedown", function(){
+			config.onHold(this.getAttribute("data-video"));
+			interval = setInterval(() => {
+				config.onHold(this.getAttribute("data-video"));
+			}, 100);
+		}, false);
+		button.addEventListener("mouseup", function(){
+			clearInterval(interval);
+		}, false);
+		button.addEventListener("mouseleave", function(){
+			clearInterval(interval);
+		}, false);
+	}
+
+	config.parent.appendChild(button);
+	return button;
+}
+
 // Install on www.stefanvd.net
 // Install on www.turnoffthelights.com
 if(window.location.href.match(/^http(s)?:\/\/(www\.)?stefanvd.net/i) || window.location.href.match(/^http(s)?:\/\/(www\.)?turnoffthelights.com/i)){
@@ -974,231 +1009,172 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					// End zoom canvas ---
 
 					if(newzoompanel){
-						let zoomInterval;
-						var newzoombuttonplus = document.createElement("div");
-						newzoombuttonplus.textContent = "+";
-						newzoombuttonplus.accessKey = "i";
-						newzoombuttonplus.title = "ctrl+alt+i";
-						newzoombuttonplus.setAttribute("data-video", i);
-						newzoombuttonplus.addEventListener("click", function(){
-							initialdrawframezoom(this.getAttribute("data-video"));
-							camerazoomrotate(this.getAttribute("data-video"), +0.1, "");
-						}, false);
-						newzoombuttonplus.addEventListener("mousedown", function(){
-							initialdrawframezoom(this.getAttribute("data-video"));
-							zoomInterval = setInterval(() => {
-								camerazoomrotate(this.getAttribute("data-video"), +0.1, "");
-							}, 100);
-						}, false);
-						newzoombuttonplus.addEventListener("mouseup", function(){
-							clearInterval(zoomInterval);
-						}, false);
-						newzoombuttonplus.addEventListener("mouseleave", function(){
-							clearInterval(zoomInterval);
-						}, false);
-						newzoompanel.appendChild(newzoombuttonplus);
-
-						var newzoombuttonmin = document.createElement("div");
-						newzoombuttonmin.textContent = "-";
-						newzoombuttonmin.accessKey = "o";
-						newzoombuttonmin.title = "ctrl+alt+o";
-						newzoombuttonmin.setAttribute("data-video", i);
-						newzoombuttonmin.addEventListener("click", function(){
-							initialdrawframezoom(this.getAttribute("data-video"));
-							camerazoomrotate(this.getAttribute("data-video"), -0.05, "");
-						}, false);
-						newzoombuttonmin.addEventListener("mousedown", function(){
-							initialdrawframezoom(this.getAttribute("data-video"));
-							zoomInterval = setInterval(() => {
-								camerazoomrotate(this.getAttribute("data-video"), -0.05, "");
-							}, 100);
-						}, false);
-						newzoombuttonmin.addEventListener("mouseup", function(){
-							clearInterval(zoomInterval);
-						}, false);
-						newzoombuttonmin.addEventListener("mouseleave", function(){
-							clearInterval(zoomInterval);
-						}, false);
-						newzoompanel.appendChild(newzoombuttonmin);
-
-						var newzoombuttonleft = document.createElement("div");
-						newzoombuttonleft.textContent = "⇠";
-						newzoombuttonleft.accessKey = "l";
-						newzoombuttonleft.title = "ctrl+alt+l";
-						newzoombuttonleft.setAttribute("data-video", i);
-						newzoombuttonleft.addEventListener("click", function(){
-							initialdrawframezoom(this.getAttribute("data-video"));
-							zoompaddirection(this.getAttribute("data-video"), [0, 1, 0, 0]);
-						}, false);
-						newzoombuttonleft.addEventListener("mousedown", function(){
-							initialdrawframezoom(this.getAttribute("data-video"));
-							zoomInterval = setInterval(() => {
-								zoompaddirection(this.getAttribute("data-video"), [0, 1, 0, 0]);
-							}, 100);
-						}, false);
-						newzoombuttonleft.addEventListener("mouseup", function(){
-							clearInterval(zoomInterval);
-						}, false);
-						newzoombuttonleft.addEventListener("mouseleave", function(){
-							clearInterval(zoomInterval);
-						}, false);
-						newzoompanel.appendChild(newzoombuttonleft);
-
-						var newzoombuttonright = document.createElement("div");
-						newzoombuttonright.textContent = "⇢";
-						newzoombuttonright.accessKey = "r";
-						newzoombuttonright.title = "ctrl+alt+r";
-						newzoombuttonright.setAttribute("data-video", i);
-						newzoombuttonright.addEventListener("click", function(){
-							initialdrawframezoom(this.getAttribute("data-video"));
-							zoompaddirection(this.getAttribute("data-video"), [0, 0, 0, 1]);
-						}, false);
-						newzoombuttonright.addEventListener("mousedown", function(){
-							initialdrawframezoom(this.getAttribute("data-video"));
-							zoomInterval = setInterval(() => {
-								zoompaddirection(this.getAttribute("data-video"), [0, 0, 0, 1]);
-							}, 100);
-						}, false);
-						newzoombuttonright.addEventListener("mouseup", function(){
-							clearInterval(zoomInterval);
-						}, false);
-						newzoombuttonright.addEventListener("mouseleave", function(){
-							clearInterval(zoomInterval);
-						}, false);
-						newzoompanel.appendChild(newzoombuttonright);
-
-						var newzoombuttonup = document.createElement("div");
-						newzoombuttonup.textContent = "⇡";
-						newzoombuttonup.accessKey = "u";
-						newzoombuttonup.title = "ctrl+alt+u";
-						newzoombuttonup.setAttribute("data-video", i);
-						newzoombuttonup.addEventListener("click", function(){
-							initialdrawframezoom(this.getAttribute("data-video"));
-							zoompaddirection(this.getAttribute("data-video"), [1, 0, 0, 0]);
-						}, false);
-						newzoombuttonup.addEventListener("mousedown", function(){
-							initialdrawframezoom(this.getAttribute("data-video"));
-							zoomInterval = setInterval(() => {
-								zoompaddirection(this.getAttribute("data-video"), [1, 0, 0, 0]);
-							}, 100);
-						}, false);
-						newzoombuttonup.addEventListener("mouseup", function(){
-							clearInterval(zoomInterval);
-						}, false);
-						newzoombuttonup.addEventListener("mouseleave", function(){
-							clearInterval(zoomInterval);
-						}, false);
-						newzoompanel.appendChild(newzoombuttonup);
-
-						var newzoombuttondown = document.createElement("div");
-						newzoombuttondown.textContent = "⇣";
-						newzoombuttondown.accessKey = "d";
-						newzoombuttondown.title = "ctrl+alt+d";
-						newzoombuttondown.setAttribute("data-video", i);
-						newzoombuttondown.addEventListener("click", function(){
-							initialdrawframezoom(this.getAttribute("data-video"));
-							zoompaddirection(this.getAttribute("data-video"), [0, 0, 1, 0]);
-						}, false);
-						newzoombuttondown.addEventListener("mousedown", function(){
-							initialdrawframezoom(this.getAttribute("data-video"));
-							zoomInterval = setInterval(() => {
-								zoompaddirection(this.getAttribute("data-video"), [0, 0, 1, 0]);
-							}, 100);
-						}, false);
-						newzoombuttondown.addEventListener("mouseup", function(){
-							clearInterval(zoomInterval);
-						}, false);
-						newzoombuttondown.addEventListener("mouseleave", function(){
-							clearInterval(zoomInterval);
-						}, false);
-						newzoompanel.appendChild(newzoombuttondown);
-
-						var newzoombuttonrotateright = document.createElement("div");
-						newzoombuttonrotateright.textContent = "↻";
-						newzoombuttonrotateright.accessKey = "a";
-						newzoombuttonrotateright.title = "ctrl+alt+a";
-						newzoombuttonrotateright.setAttribute("data-video", i);
-						newzoombuttonrotateright.addEventListener("click", function(){
-							initialdrawframezoom(this.getAttribute("data-video"));
-							camerazoomrotate(this.getAttribute("data-video"), "", +5);
-						}, false);
-						newzoombuttonrotateright.addEventListener("mousedown", function(){
-							initialdrawframezoom(this.getAttribute("data-video"));
-							zoomInterval = setInterval(() => {
-								camerazoomrotate(this.getAttribute("data-video"), "", +5);
-							}, 100);
-						}, false);
-						newzoombuttonrotateright.addEventListener("mouseup", function(){
-							clearInterval(zoomInterval);
-						}, false);
-						newzoombuttonrotateright.addEventListener("mouseleave", function(){
-							clearInterval(zoomInterval);
-						}, false);
-						newzoompanel.appendChild(newzoombuttonrotateright);
-
-						var newzoombuttonrotateleft = document.createElement("div");
-						newzoombuttonrotateleft.textContent = "↺";
-						newzoombuttonrotateleft.accessKey = "q";
-						newzoombuttonrotateleft.title = "ctrl+alt+q";
-						newzoombuttonrotateleft.setAttribute("data-video", i);
-						newzoombuttonrotateleft.addEventListener("click", function(){
-							initialdrawframezoom(this.getAttribute("data-video"));
-							camerazoomrotate(this.getAttribute("data-video"), "", -5);
-						}, false);
-						newzoombuttonrotateleft.addEventListener("mousedown", function(){
-							initialdrawframezoom(this.getAttribute("data-video"));
-							zoomInterval = setInterval(() => {
-								camerazoomrotate(this.getAttribute("data-video"), "", -5);
-							}, 100);
-						}, false);
-						newzoombuttonrotateleft.addEventListener("mouseup", function(){
-							clearInterval(zoomInterval);
-						}, false);
-						newzoombuttonrotateleft.addEventListener("mouseleave", function(){
-							clearInterval(zoomInterval);
-						}, false);
-						newzoompanel.appendChild(newzoombuttonrotateleft);
-
-						var newzoombuttonreset = document.createElement("div");
-						newzoombuttonreset.textContent = "Reset";
-						newzoombuttonreset.accessKey = "s";
-						newzoombuttonreset.title = "ctrl+alt+s";
-						newzoombuttonreset.setAttribute("data-video", i);
-						newzoombuttonreset.addEventListener("click", function(){
-							resetzoom(this.getAttribute("data-video"));
-						}, false);
-						newzoompanel.appendChild(newzoombuttonreset);
-
-						var newzoombuttonplay = document.createElement("div");
-						newzoombuttonplay.setAttribute("id", "stefanvdzoomplay" + i);
-						newzoombuttonplay.setAttribute("data-video", i);
-						if(myElement.paused === false){
-							newzoombuttonplay.textContent = "❙❙";
-						}else{
-							newzoombuttonplay.textContent = "►";
-						}
-						newzoombuttonplay.addEventListener("click", function(){
-							var bomo = this.getAttribute("data-video");
-							var onevideo = document.getElementsByTagName("video")[bomo];
-							if(onevideo.paused === false){
-								onevideo.pause();
-								$("stefanvdzoomplay" + bomo).textContent = "►";
-							}else{
-								onevideo.play();
-								$("stefanvdzoomplay" + bomo).textContent = "❙❙";
+						createVideoButton({
+							text: "+",
+							accessKey: "i",
+							title: "ctrl+alt+i",
+							videoIndex: i,
+							parent: newzoompanel,
+							onClick: function(v){
+								initialdrawframezoom(v);
+								camerazoomrotate(v, +0.1, "");
+							},
+							onHold: function(v){
+								initialdrawframezoom(v);
+								camerazoomrotate(v, +0.1, "");
 							}
-						}, false);
-						newzoompanel.appendChild(newzoombuttonplay);
+						});
 
-						var newzoombuttonexit = document.createElement("div");
-						newzoombuttonexit.setAttribute("id", "stefanvdzoomexit" + i);
-						newzoombuttonexit.setAttribute("data-video", i);
-						newzoombuttonexit.textContent = "EXIT ZOOM EDIT";
-						newzoombuttonexit.style.display = "none";
-						newzoombuttonexit.addEventListener("click", function(){
-							exitzoom(this.getAttribute("data-video"));
-						}, false);
-						newzoompanel.appendChild(newzoombuttonexit);
+						createVideoButton({
+							text: "-",
+							accessKey: "o",
+							title: "ctrl+alt+o",
+							videoIndex: i,
+							parent: newzoompanel,
+							onClick: function(v){
+								initialdrawframezoom(v);
+								camerazoomrotate(v, -0.05, "");
+							},
+							onHold: function(v){
+								initialdrawframezoom(v);
+								camerazoomrotate(v, -0.05, "");
+							}
+						});
+
+						createVideoButton({
+							text: "⇠",
+							accessKey: "l",
+							title: "ctrl+alt+l",
+							videoIndex: i,
+							parent: newzoompanel,
+							onClick: function(v){
+								initialdrawframezoom(v);
+								zoompaddirection(v, [0, 1, 0, 0]);
+							},
+							onHold: function(v){
+								initialdrawframezoom(v);
+								zoompaddirection(v, [0, 1, 0, 0]);
+							}
+						});
+
+						createVideoButton({
+							text: "⇢",
+							accessKey: "r",
+							title: "ctrl+alt+r",
+							videoIndex: i,
+							parent: newzoompanel,
+							onClick: function(v){
+								initialdrawframezoom(v);
+								zoompaddirection(v, [0, 0, 0, 1]);
+							},
+							onHold: function(v){
+								initialdrawframezoom(v);
+								zoompaddirection(v, [0, 0, 0, 1]);
+							}
+						});
+
+						createVideoButton({
+							text: "⇡",
+							accessKey: "u",
+							title: "ctrl+alt+u",
+							videoIndex: i,
+							parent: newzoompanel,
+							onClick: function(v){
+								initialdrawframezoom(v);
+								zoompaddirection(v, [1, 0, 0, 0]);
+							},
+							onHold: function(v){
+								initialdrawframezoom(v);
+								zoompaddirection(v, [1, 0, 0, 0]);
+							}
+						});
+
+						createVideoButton({
+							text: "⇣",
+							accessKey: "d",
+							title: "ctrl+alt+d",
+							videoIndex: i,
+							parent: newzoompanel,
+							onClick: function(v){
+								initialdrawframezoom(v);
+								zoompaddirection(v, [0, 0, 1, 0]);
+							},
+							onHold: function(v){
+								initialdrawframezoom(v);
+								zoompaddirection(v, [0, 0, 1, 0]);
+							}
+						});
+
+						createVideoButton({
+							text: "↻",
+							accessKey: "a",
+							title: "ctrl+alt+a",
+							videoIndex: i,
+							parent: newzoompanel,
+							onClick: function(v){
+								initialdrawframezoom(v);
+								camerazoomrotate(v, "", +5);
+							},
+							onHold: function(v){
+								initialdrawframezoom(v);
+								camerazoomrotate(v, "", +5);
+							}
+						});
+
+						createVideoButton({
+							text: "↺",
+							accessKey: "q",
+							title: "ctrl+alt+q",
+							videoIndex: i,
+							parent: newzoompanel,
+							onClick: function(v){
+								initialdrawframezoom(v);
+								camerazoomrotate(v, "", -5);
+							},
+							onHold: function(v){
+								initialdrawframezoom(v);
+								camerazoomrotate(v, "", -5);
+							}
+						});
+
+						createVideoButton({
+							text: "Reset",
+							accessKey: "s",
+							title: "ctrl+alt+s",
+							videoIndex: i,
+							parent: newzoompanel,
+							onClick: function(v){
+								resetzoom(v);
+							}
+						});
+
+						createVideoButton({
+							id: "stefanvdzoomplay" + i,
+							text: myElement.paused === false ? "❙❙" : "►",
+							videoIndex: i,
+							parent: newzoompanel,
+							onClick: function(v){
+								var onevideo = document.getElementsByTagName("video")[v];
+								if(onevideo.paused === false){
+									onevideo.pause();
+									$("stefanvdzoomplay" + v).textContent = "►";
+								}else{
+									onevideo.play();
+									$("stefanvdzoomplay" + v).textContent = "❙❙";
+								}
+							}
+						});
+
+						createVideoButton({
+							id: "stefanvdzoomexit" + i,
+							text: "EXIT ZOOM EDIT",
+							videoIndex: i,
+							parent: newzoompanel,
+							style: "display:none",
+							onClick: function(v){
+								exitzoom(v);
+							}
+						});
 					}
 				}
 				//---
@@ -1243,143 +1219,158 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					}, false);
 					document.body.appendChild(newspeedpanel);
 
-					var newspeedbuttonneg2 = document.createElement("div");
-					newspeedbuttonneg2.setAttribute("id", "stefanvdspeedN2step" + i);
-					newspeedbuttonneg2.setAttribute("data-video", i);
-					newspeedbuttonneg2.textContent = "-2";
-					newspeedbuttonneg2.addEventListener("click", function(){
-						rewind(2.0, this.getAttribute("data-video"));
-					}, false);
-					newspeedpanel.appendChild(newspeedbuttonneg2);
+					createVideoButton({
+						id: "stefanvdspeedN2step" + i,
+						text: "-2",
+						videoIndex: i,
+						parent: newspeedpanel,
+						onClick: function(v){
+							rewind(2.0, v);
+						}
+					});
 
-					var newspeedbuttonneg15 = document.createElement("div");
-					newspeedbuttonneg15.setAttribute("id", "stefanvdspeedN15step" + i);
-					newspeedbuttonneg15.setAttribute("data-video", i);
-					newspeedbuttonneg15.textContent = "-1.5";
-					newspeedbuttonneg15.addEventListener("click", function(){
-						rewind(1.5, this.getAttribute("data-video"));
-					}, false);
-					newspeedpanel.appendChild(newspeedbuttonneg15);
+					createVideoButton({
+						id: "stefanvdspeedN15step" + i,
+						text: "-1.5",
+						videoIndex: i,
+						parent: newspeedpanel,
+						onClick: function(v){
+							rewind(1.5, v);
+						}
+					});
 
-					var newspeedbuttonneg125 = document.createElement("div");
-					newspeedbuttonneg125.setAttribute("id", "stefanvdspeedN125step" + i);
-					newspeedbuttonneg125.setAttribute("data-video", i);
-					newspeedbuttonneg125.textContent = "-1.25";
-					newspeedbuttonneg125.addEventListener("click", function(){
-						rewind(1.25, this.getAttribute("data-video"));
-					}, false);
-					newspeedpanel.appendChild(newspeedbuttonneg125);
+					createVideoButton({
+						id: "stefanvdspeedN125step" + i,
+						text: "-1.25",
+						videoIndex: i,
+						parent: newspeedpanel,
+						onClick: function(v){
+							rewind(1.25, v);
+						}
+					});
 
-					var newspeedbuttonneg1 = document.createElement("div");
-					newspeedbuttonneg1.setAttribute("id", "stefanvdspeedN1step" + i);
-					newspeedbuttonneg1.setAttribute("data-video", i);
-					newspeedbuttonneg1.textContent = "-1";
-					newspeedbuttonneg1.addEventListener("click", function(){
-						rewind(1.0, this.getAttribute("data-video"));
-					}, false);
-					newspeedpanel.appendChild(newspeedbuttonneg1);
+					createVideoButton({
+						id: "stefanvdspeedN1step" + i,
+						text: "-1",
+						videoIndex: i,
+						parent: newspeedpanel,
+						onClick: function(v){
+							rewind(1.0, v);
+						}
+					});
 
-					var newspeedbuttonneg075 = document.createElement("div");
-					newspeedbuttonneg075.setAttribute("id", "stefanvdspeedN075step" + i);
-					newspeedbuttonneg075.setAttribute("data-video", i);
-					newspeedbuttonneg075.textContent = "-0.75";
-					newspeedbuttonneg075.addEventListener("click", function(){
-						rewind(0.5, this.getAttribute("data-video"));
-					}, false);
-					newspeedpanel.appendChild(newspeedbuttonneg075);
+					createVideoButton({
+						id: "stefanvdspeedN075step" + i,
+						text: "-0.75",
+						videoIndex: i,
+						parent: newspeedpanel,
+						onClick: function(v){
+							rewind(0.5, v);
+						}
+					});
 
-					var newspeedbuttonneg05 = document.createElement("div");
-					newspeedbuttonneg05.setAttribute("id", "stefanvdspeedN05step" + i);
-					newspeedbuttonneg05.setAttribute("data-video", i);
-					newspeedbuttonneg05.textContent = "-0.5";
-					newspeedbuttonneg05.addEventListener("click", function(){
-						rewind(0.5, this.getAttribute("data-video"));
-					}, false);
-					newspeedpanel.appendChild(newspeedbuttonneg05);
+					createVideoButton({
+						id: "stefanvdspeedN05step" + i,
+						text: "-0.5",
+						videoIndex: i,
+						parent: newspeedpanel,
+						onClick: function(v){
+							rewind(0.5, v);
+						}
+					});
 
-					var newspeedbuttonneg025 = document.createElement("div");
-					newspeedbuttonneg025.setAttribute("id", "stefanvdspeedN025step" + i);
-					newspeedbuttonneg025.setAttribute("data-video", i);
-					newspeedbuttonneg025.textContent = "-0.25";
-					newspeedbuttonneg025.addEventListener("click", function(){
-						rewind(0.25, this.getAttribute("data-video"));
-					}, false);
-					newspeedpanel.appendChild(newspeedbuttonneg025);
+					createVideoButton({
+						id: "stefanvdspeedN025step" + i,
+						text: "-0.25",
+						videoIndex: i,
+						parent: newspeedpanel,
+						onClick: function(v){
+							rewind(0.25, v);
+						}
+					});
 
-					var newspeedbuttonzero = document.createElement("div");
-					newspeedbuttonzero.setAttribute("id", "stefanvdspeedzerostep" + i);
-					newspeedbuttonzero.setAttribute("data-video", i);
-					newspeedbuttonzero.textContent = "0";
-					newspeedbuttonzero.addEventListener("click", function(){
-						var onevideo = document.getElementsByTagName("video")[this.getAttribute("data-video")];
-						window.clearInterval(intervalRewind);
-						onevideo.playbackRate = 1.0;
-						onevideo.pause();
-					}, false);
-					newspeedpanel.appendChild(newspeedbuttonzero);
+					createVideoButton({
+						id: "stefanvdspeedzerostep" + i,
+						text: "0",
+						videoIndex: i,
+						parent: newspeedpanel,
+						onClick: function(v){
+							var onevideo = document.getElementsByTagName("video")[v];
+							window.clearInterval(intervalRewind);
+							onevideo.playbackRate = 1.0;
+							onevideo.pause();
+						}
+					});
 
-					var newspeedbuttonpos025 = document.createElement("div");
-					newspeedbuttonpos025.setAttribute("id", "stefanvdspeedP025step" + i);
-					newspeedbuttonpos025.setAttribute("data-video", i);
-					newspeedbuttonpos025.textContent = "+0.25";
-					newspeedbuttonpos025.addEventListener("click", function(){
-						playrate(this.getAttribute("data-video"), 0.25);
-					}, false);
-					newspeedpanel.appendChild(newspeedbuttonpos025);
+					createVideoButton({
+						id: "stefanvdspeedP025step" + i,
+						text: "+0.25",
+						videoIndex: i,
+						parent: newspeedpanel,
+						onClick: function(v){
+							playrate(v, 0.25);
+						}
+					});
 
-					var newspeedbuttonpos05 = document.createElement("div");
-					newspeedbuttonpos05.setAttribute("id", "stefanvdspeedP05step" + i);
-					newspeedbuttonpos05.setAttribute("data-video", i);
-					newspeedbuttonpos05.textContent = "+0.5";
-					newspeedbuttonpos05.addEventListener("click", function(){
-						playrate(this.getAttribute("data-video"), 0.5);
-					}, false);
-					newspeedpanel.appendChild(newspeedbuttonpos05);
+					createVideoButton({
+						id: "stefanvdspeedP05step" + i,
+						text: "+0.5",
+						videoIndex: i,
+						parent: newspeedpanel,
+						onClick: function(v){
+							playrate(v, 0.5);
+						}
+					});
 
-					var newspeedbuttonpos075 = document.createElement("div");
-					newspeedbuttonpos075.setAttribute("id", "stefanvdspeedP05step" + i);
-					newspeedbuttonpos075.setAttribute("data-video", i);
-					newspeedbuttonpos075.textContent = "+0.75";
-					newspeedbuttonpos075.addEventListener("click", function(){
-						playrate(this.getAttribute("data-video"), 0.75);
-					}, false);
-					newspeedpanel.appendChild(newspeedbuttonpos075);
+					createVideoButton({
+						id: "stefanvdspeedP05step" + i,
+						text: "+0.75",
+						videoIndex: i,
+						parent: newspeedpanel,
+						onClick: function(v){
+							playrate(v, 0.75);
+						}
+					});
 
-					var newspeedbuttonpos1 = document.createElement("div");
-					newspeedbuttonpos1.setAttribute("id", "stefanvdspeedP1step" + i);
-					newspeedbuttonpos1.setAttribute("data-video", i);
-					newspeedbuttonpos1.textContent = "+1";
-					newspeedbuttonpos1.addEventListener("click", function(){
-						playrate(this.getAttribute("data-video"), 1.0);
-					}, false);
-					newspeedpanel.appendChild(newspeedbuttonpos1);
+					createVideoButton({
+						id: "stefanvdspeedP1step" + i,
+						text: "+1",
+						videoIndex: i,
+						parent: newspeedpanel,
+						onClick: function(v){
+							playrate(v, 1.0);
+						}
+					});
 
-					var newspeedbuttonpos125 = document.createElement("div");
-					newspeedbuttonpos125.setAttribute("id", "stefanvdspeedP125step" + i);
-					newspeedbuttonpos125.setAttribute("data-video", i);
-					newspeedbuttonpos125.textContent = "+1.25";
-					newspeedbuttonpos125.addEventListener("click", function(){
-						playrate(this.getAttribute("data-video"), 1.25);
-					}, false);
-					newspeedpanel.appendChild(newspeedbuttonpos125);
+					createVideoButton({
+						id: "stefanvdspeedP125step" + i,
+						text: "+1.25",
+						videoIndex: i,
+						parent: newspeedpanel,
+						onClick: function(v){
+							playrate(v, 1.25);
+						}
+					});
 
-					var newspeedbuttonpos15 = document.createElement("div");
-					newspeedbuttonpos15.setAttribute("id", "stefanvdspeedP15step" + i);
-					newspeedbuttonpos15.setAttribute("data-video", i);
-					newspeedbuttonpos15.textContent = "+1.5";
-					newspeedbuttonpos15.addEventListener("click", function(){
-						playrate(this.getAttribute("data-video"), 1.5);
-					}, false);
-					newspeedpanel.appendChild(newspeedbuttonpos15);
+					createVideoButton({
+						id: "stefanvdspeedP15step" + i,
+						text: "+1.5",
+						videoIndex: i,
+						parent: newspeedpanel,
+						onClick: function(v){
+							playrate(v, 1.5);
+						}
+					});
 
-					var newspeedbuttonpos2 = document.createElement("div");
-					newspeedbuttonpos2.setAttribute("id", "stefanvdspeedP2step" + i);
-					newspeedbuttonpos2.setAttribute("data-video", i);
-					newspeedbuttonpos2.textContent = "+2";
-					newspeedbuttonpos2.addEventListener("click", function(){
-						playrate(this.getAttribute("data-video"), 2.0);
-					}, false);
-					newspeedpanel.appendChild(newspeedbuttonpos2);
+					createVideoButton({
+						id: "stefanvdspeedP2step" + i,
+						text: "+2",
+						videoIndex: i,
+						parent: newspeedpanel,
+						onClick: function(v){
+							playrate(v, 2.0);
+						}
+					});
 				}
 				//---
 
