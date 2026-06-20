@@ -1269,95 +1269,28 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 							}
 
 							if(onevideo){
-								switch(currentvideostepfilter){
-								case 0:
-									filtertype = "grayscale";
-									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "1", "1"], false);
-									onevideo.style.webkitFilter = "grayscale(1)";
-									currentvideostepfilter += 1;
+								const filterConfigs = [
+									{ type: "grayscale", range: ["0.1", "0", "1", "1"], value: "1", i18n: i18ntitelvideotoolgrayscale },
+									{ type: "sepia", range: ["0.1", "0", "1", "1"], value: "1", i18n: i18ntitelvideotoolsepia },
+									{ type: "invert", range: ["0.1", "0", "1", "1"], value: "1", i18n: i18ntitelvideotoolinvert },
+									{ type: "contrast", range: ["0.1", "0", "10", "10"], value: "10", i18n: i18ntitelvideotoolcontrast },
+									{ type: "saturate", range: ["0.1", "0", "10", "10"], value: "10", i18n: i18ntitelvideotoolsaturate },
+									{ type: "hue-rotate", range: ["30", "0", "360", "90"], value: "90deg", i18n: i18ntitelvideotoolhueroration },
+									{ type: "brightness", range: ["0.1", "0", "10", "0.5"], value: "1.5", i18n: i18ntitelvideotoolbrightness },
+									{ type: "normal", range: ["0.1", "0", "10", "1"], value: "", i18n: i18ntitelvideotoolnormal, reset: true }
+								];
+
+								const config = filterConfigs[currentvideostepfilter];
+								if(config) {
+									filtertype = config.type;
+									settoolbarrange(getstefanvdvideotoolrange, config.range, config.reset || false);
+									onevideo.style.webkitFilter = config.type === "normal" ? "" : `${config.type}(${config.value})`;
+									currentvideostepfilter = config.reset ? 0 : currentvideostepfilter + 1;
 									currentVideoFilters[yellowvis] = {
 										type: filtertype,
-										name: i18ntitelvideotoolgrayscale
+										name: config.i18n
 									};
-									newvcpartiaspan.textContent = i18ntitelvideotoolgrayscale;
-									break;
-								case 1:
-									filtertype = "sepia";
-									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "1", "1"], false);
-									onevideo.style.webkitFilter = "sepia(1)";
-									currentvideostepfilter += 1;
-									currentVideoFilters[yellowvis] = {
-										type: filtertype,
-										name: i18ntitelvideotoolsepia
-									};
-									newvcpartiaspan.textContent = i18ntitelvideotoolsepia;
-									break;
-								case 2:
-									filtertype = "invert";
-									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "1", "1"], false);
-									onevideo.style.webkitFilter = "invert(1)";
-									currentvideostepfilter += 1;
-									currentVideoFilters[yellowvis] = {
-										type: filtertype,
-										name: i18ntitelvideotoolinvert
-									};
-									newvcpartiaspan.textContent = i18ntitelvideotoolinvert;
-									break;
-								case 3:
-									filtertype = "contrast";
-									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "10", "10"], false);
-									onevideo.style.webkitFilter = "contrast(10)";
-									currentvideostepfilter += 1;
-									currentVideoFilters[yellowvis] = {
-										type: filtertype,
-										name: i18ntitelvideotoolcontrast
-									};
-									newvcpartiaspan.textContent = i18ntitelvideotoolcontrast;
-									break;
-								case 4:
-									filtertype = "saturate";
-									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "10", "10"], false);
-									onevideo.style.webkitFilter = "saturate(10)";
-									currentvideostepfilter += 1;
-									currentVideoFilters[yellowvis] = {
-										type: filtertype,
-										name: i18ntitelvideotoolsaturate
-									};
-									newvcpartiaspan.textContent = i18ntitelvideotoolsaturate;
-									break;
-								case 5:
-									filtertype = "hue-rotate";
-									settoolbarrange(getstefanvdvideotoolrange, ["30", "0", "360", "90"], false);
-									onevideo.style.webkitFilter = "hue-rotate(90deg)";
-									currentvideostepfilter += 1;
-									currentVideoFilters[yellowvis] = {
-										type: filtertype,
-										name: i18ntitelvideotoolhueroration
-									};
-									newvcpartiaspan.textContent = i18ntitelvideotoolhueroration;
-									break;
-								case 6:
-									filtertype = "brightness";
-									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "10", "0.5"], false);
-									onevideo.style.webkitFilter = "brightness(1.5)";
-									currentvideostepfilter += 1;
-									currentVideoFilters[yellowvis] = {
-										type: filtertype,
-										name: i18ntitelvideotoolbrightness
-									};
-									newvcpartiaspan.textContent = i18ntitelvideotoolbrightness;
-									break;
-								case 7:
-									filtertype = "normal";
-									settoolbarrange(getstefanvdvideotoolrange, ["0.1", "0", "10", "1"], true);
-									onevideo.style.webkitFilter = "";
-									currentvideostepfilter = 0;
-									currentVideoFilters[yellowvis] = {
-										type: filtertype,
-										name: i18ntitelvideotoolnormal
-									};
-									newvcpartiaspan.textContent = i18ntitelvideotoolnormal;
-									break;
+									newvcpartiaspan.textContent = config.i18n;
 								}
 								document.getElementById("stefanvdvideofiltername" + yellowvis).innerText = filtertype;
 							}
