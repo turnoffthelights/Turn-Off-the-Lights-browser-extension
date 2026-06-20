@@ -34,7 +34,7 @@ if(typeof importScripts !== "undefined"){
 	importScripts("constants.js");
 }
 
-chrome.runtime.onMessage.addListener(function request(request, sender){
+chrome.runtime.onMessage.addListener(function request(request, sender, sendResponse){
 	// eye protection & autodim & shortcut
 	switch(request.name){
 	case"bckreload":
@@ -179,14 +179,12 @@ chrome.runtime.onMessage.addListener(function request(request, sender){
 		chromerefreshalltabs("goclearscreenshader");
 		break;
 	case"getallpermissions":
-		var result = "";
 		chrome.permissions.getAll(function(permissions){
-			result = permissions.permissions;
-			chrome.tabs.sendMessage(sender.tab.id, {text: "receiveallpermissions", value: result});
+			sendResponse(permissions.permissions);
 		});
+		return true;
 		break;
 	}
-	return true;
 });
 
 // Not for Safari web browser, it use the content script way in the manifest.json file

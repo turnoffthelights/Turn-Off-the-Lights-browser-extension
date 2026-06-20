@@ -86,7 +86,11 @@ var darkmode = false;
 
 // Option to save current value to chrome.storage
 function save_options(){
-	chrome.runtime.sendMessage({name: "getallpermissions"});
+	chrome.runtime.sendMessage({name: "getallpermissions"}, function(response){
+		if(response){
+			displayPermissions(response);
+		}
+	});
 
 	var gpleftstick = document.getElementById("gpleftstick");
 	var gprightstick = document.getElementById("gprightstick");
@@ -2201,49 +2205,45 @@ function checkdarkmode(){
 	});
 }
 
-// Listen for messages
-chrome.runtime.onMessage.addListener(function(msg){
-	// If the received message has the expected format...
-	if(msg.text === "receiveallpermissions"){
-		// empty ul first
-		if($("permullist")){
-			var ul = document.getElementById("permullist");
-			if(ul){
-				while(ul.firstChild){
-					ul.removeChild(ul.firstChild);
-				}
+// Function to display permissions
+function displayPermissions(perm){
+	// empty ul first
+	if($("permullist")){
+		var ul = document.getElementById("permullist");
+		if(ul){
+			while(ul.firstChild){
+				ul.removeChild(ul.firstChild);
 			}
 		}
-		var perm = msg.value;
-		perm.forEach(function(x){
-			if($("permissionlist")){
-				if($("permullist") == null){
-					var newpermtitle = document.createElement("h4");
-					newpermtitle.textContent = chrome.i18n.getMessage("permissionrequired");
-					$("permissionlist").appendChild(newpermtitle);
-
-					var newpermul = document.createElement("ul");
-					newpermul.setAttribute("id", "permullist");
-					$("permissionlist").appendChild(newpermul);
-				}
-
-				var newperm = document.createElement("li");
-				$("permullist").appendChild(newperm);
-
-				var newpermspan = document.createElement("span");
-				newpermspan.textContent = x + ": ";
-				newperm.appendChild(newpermspan);
-
-				var textperm = "";
-				var newpermspandes = document.createElement("span");
-				if(x == "activeTab"){ textperm = chrome.i18n.getMessage("permissionactivetab"); }else if(x == "contextMenus"){ textperm = chrome.i18n.getMessage("permissioncontextmenu"); }else if(x == "storage"){ textperm = chrome.i18n.getMessage("permissionstorage"); }else if(x == "tabs"){ textperm = chrome.i18n.getMessage("permissiontabs"); }else if(x == "theme"){ textperm = chrome.i18n.getMessage("permissiontheme"); }else if(x == "<all_urls>"){ textperm = chrome.i18n.getMessage("permissionallurl"); }else if(x == "webNavigation"){ textperm = chrome.i18n.getMessage("permissionwebnav"); }else if(x == "scripting"){ textperm = chrome.i18n.getMessage("permissionscripting"); }else if(x == "alarms"){ textperm = chrome.i18n.getMessage("permissionalarms"); }
-				newpermspandes.textContent = textperm;
-				newpermspandes.className = "item";
-				newperm.appendChild(newpermspandes);
-			}
-		});
 	}
-});
+	perm.forEach(function(x){
+		if($("permissionlist")){
+			if($("permullist") == null){
+				var newpermtitle = document.createElement("h4");
+				newpermtitle.textContent = chrome.i18n.getMessage("permissionrequired");
+				$("permissionlist").appendChild(newpermtitle);
+
+				var newpermul = document.createElement("ul");
+				newpermul.setAttribute("id", "permullist");
+				$("permissionlist").appendChild(newpermul);
+			}
+
+			var newperm = document.createElement("li");
+			$("permullist").appendChild(newperm);
+
+			var newpermspan = document.createElement("span");
+			newpermspan.textContent = x + ": ";
+			newperm.appendChild(newpermspan);
+
+			var textperm = "";
+			var newpermspandes = document.createElement("span");
+			if(x == "activeTab"){ textperm = chrome.i18n.getMessage("permissionactivetab"); }else if(x == "contextMenus"){ textperm = chrome.i18n.getMessage("permissioncontextmenu"); }else if(x == "storage"){ textperm = chrome.i18n.getMessage("permissionstorage"); }else if(x == "tabs"){ textperm = chrome.i18n.getMessage("permissiontabs"); }else if(x == "theme"){ textperm = chrome.i18n.getMessage("permissiontheme"); }else if(x == "<all_urls>"){ textperm = chrome.i18n.getMessage("permissionallurl"); }else if(x == "webNavigation"){ textperm = chrome.i18n.getMessage("permissionwebnav"); }else if(x == "scripting"){ textperm = chrome.i18n.getMessage("permissionscripting"); }else if(x == "alarms"){ textperm = chrome.i18n.getMessage("permissionalarms"); }
+			newpermspandes.textContent = textperm;
+			newpermspandes.className = "item";
+			newperm.appendChild(newpermspandes);
+		}
+	});
+}
 
 function setmetatheme(a){
 	const metas = document.getElementsByTagName("meta");
@@ -2632,7 +2632,11 @@ function domcontentloaded(){
 	for(i = 0; i < l; i++){ inputs[i].addEventListener("change", test); inputs[i].addEventListener("change", ariacheck); inputs[i].addEventListener("change", save_options); }
 
 	// show all the active permissions in a list
-	chrome.runtime.sendMessage({name: "getallpermissions"});
+	chrome.runtime.sendMessage({name: "getallpermissions"}, function(response){
+		if(response){
+			displayPermissions(response);
+		}
+	});
 
 	// Detect lightcolor change
 	$("lightcolor").addEventListener("change", function(){ $("lightimagen").checked = true; $("example1").style.background = this.value; $("example2").style.background = this.value; save_options(); });
