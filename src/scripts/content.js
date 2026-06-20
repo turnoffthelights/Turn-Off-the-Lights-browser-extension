@@ -1009,145 +1009,43 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					// End zoom canvas ---
 
 					if(newzoompanel){
-						createVideoButton({
-							text: "+",
-							accessKey: "i",
-							title: "ctrl+alt+i",
-							videoIndex: i,
-							parent: newzoompanel,
-							onClick: function(v){
-								initialdrawframezoom(v);
-								camerazoomrotate(v, +0.1, "");
-							},
-							onHold: function(v){
-								initialdrawframezoom(v);
-								camerazoomrotate(v, +0.1, "");
-							}
+						// Zoom button configurations
+						const zoomButtons = [
+							{ text: "+", accessKey: "i", title: "ctrl+alt+i", action: (v) => camerazoomrotate(v, +0.1, "") },
+							{ text: "-", accessKey: "o", title: "ctrl+alt+o", action: (v) => camerazoomrotate(v, -0.05, "") },
+							{ text: "⇠", accessKey: "l", title: "ctrl+alt+l", action: (v) => zoompaddirection(v, [0, 1, 0, 0]) },
+							{ text: "⇢", accessKey: "r", title: "ctrl+alt+r", action: (v) => zoompaddirection(v, [0, 0, 0, 1]) },
+							{ text: "⇡", accessKey: "u", title: "ctrl+alt+u", action: (v) => zoompaddirection(v, [1, 0, 0, 0]) },
+							{ text: "⇣", accessKey: "d", title: "ctrl+alt+d", action: (v) => zoompaddirection(v, [0, 0, 1, 0]) },
+							{ text: "↻", accessKey: "a", title: "ctrl+alt+a", action: (v) => camerazoomrotate(v, "", +5) },
+							{ text: "↺", accessKey: "q", title: "ctrl+alt+q", action: (v) => camerazoomrotate(v, "", -5) }
+						];
+
+						// Create zoom buttons with hold support
+						zoomButtons.forEach(btn => {
+							const action = (v) => { initialdrawframezoom(v); btn.action(v); };
+							createVideoButton({
+								text: btn.text,
+								accessKey: btn.accessKey,
+								title: btn.title,
+								videoIndex: i,
+								parent: newzoompanel,
+								onClick: action,
+								onHold: action
+							});
 						});
 
-						createVideoButton({
-							text: "-",
-							accessKey: "o",
-							title: "ctrl+alt+o",
-							videoIndex: i,
-							parent: newzoompanel,
-							onClick: function(v){
-								initialdrawframezoom(v);
-								camerazoomrotate(v, -0.05, "");
-							},
-							onHold: function(v){
-								initialdrawframezoom(v);
-								camerazoomrotate(v, -0.05, "");
-							}
-						});
-
-						createVideoButton({
-							text: "⇠",
-							accessKey: "l",
-							title: "ctrl+alt+l",
-							videoIndex: i,
-							parent: newzoompanel,
-							onClick: function(v){
-								initialdrawframezoom(v);
-								zoompaddirection(v, [0, 1, 0, 0]);
-							},
-							onHold: function(v){
-								initialdrawframezoom(v);
-								zoompaddirection(v, [0, 1, 0, 0]);
-							}
-						});
-
-						createVideoButton({
-							text: "⇢",
-							accessKey: "r",
-							title: "ctrl+alt+r",
-							videoIndex: i,
-							parent: newzoompanel,
-							onClick: function(v){
-								initialdrawframezoom(v);
-								zoompaddirection(v, [0, 0, 0, 1]);
-							},
-							onHold: function(v){
-								initialdrawframezoom(v);
-								zoompaddirection(v, [0, 0, 0, 1]);
-							}
-						});
-
-						createVideoButton({
-							text: "⇡",
-							accessKey: "u",
-							title: "ctrl+alt+u",
-							videoIndex: i,
-							parent: newzoompanel,
-							onClick: function(v){
-								initialdrawframezoom(v);
-								zoompaddirection(v, [1, 0, 0, 0]);
-							},
-							onHold: function(v){
-								initialdrawframezoom(v);
-								zoompaddirection(v, [1, 0, 0, 0]);
-							}
-						});
-
-						createVideoButton({
-							text: "⇣",
-							accessKey: "d",
-							title: "ctrl+alt+d",
-							videoIndex: i,
-							parent: newzoompanel,
-							onClick: function(v){
-								initialdrawframezoom(v);
-								zoompaddirection(v, [0, 0, 1, 0]);
-							},
-							onHold: function(v){
-								initialdrawframezoom(v);
-								zoompaddirection(v, [0, 0, 1, 0]);
-							}
-						});
-
-						createVideoButton({
-							text: "↻",
-							accessKey: "a",
-							title: "ctrl+alt+a",
-							videoIndex: i,
-							parent: newzoompanel,
-							onClick: function(v){
-								initialdrawframezoom(v);
-								camerazoomrotate(v, "", +5);
-							},
-							onHold: function(v){
-								initialdrawframezoom(v);
-								camerazoomrotate(v, "", +5);
-							}
-						});
-
-						createVideoButton({
-							text: "↺",
-							accessKey: "q",
-							title: "ctrl+alt+q",
-							videoIndex: i,
-							parent: newzoompanel,
-							onClick: function(v){
-								initialdrawframezoom(v);
-								camerazoomrotate(v, "", -5);
-							},
-							onHold: function(v){
-								initialdrawframezoom(v);
-								camerazoomrotate(v, "", -5);
-							}
-						});
-
+						// Reset button (no hold)
 						createVideoButton({
 							text: "Reset",
 							accessKey: "s",
 							title: "ctrl+alt+s",
 							videoIndex: i,
 							parent: newzoompanel,
-							onClick: function(v){
-								resetzoom(v);
-							}
+							onClick: (v) => resetzoom(v)
 						});
 
+						// Play/Pause button
 						createVideoButton({
 							id: "stefanvdzoomplay" + i,
 							text: myElement.paused === false ? "❙❙" : "►",
@@ -1165,15 +1063,14 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 							}
 						});
 
+						// Exit button
 						createVideoButton({
 							id: "stefanvdzoomexit" + i,
 							text: "EXIT ZOOM EDIT",
 							videoIndex: i,
 							parent: newzoompanel,
 							style: "display:none",
-							onClick: function(v){
-								exitzoom(v);
-							}
+							onClick: (v) => exitzoom(v)
 						});
 					}
 				}
@@ -1219,76 +1116,42 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					}, false);
 					document.body.appendChild(newspeedpanel);
 
-					createVideoButton({
-						id: "stefanvdspeedN2step" + i,
-						text: "-2",
-						videoIndex: i,
-						parent: newspeedpanel,
-						onClick: function(v){
-							rewind(2.0, v);
-						}
+					// Speed button configurations
+					const speedButtons = [
+						{ id: "stefanvdspeedN2step", text: "-2", value: 2.0, type: "rewind" },
+						{ id: "stefanvdspeedN15step", text: "-1.5", value: 1.5, type: "rewind" },
+						{ id: "stefanvdspeedN125step", text: "-1.25", value: 1.25, type: "rewind" },
+						{ id: "stefanvdspeedN1step", text: "-1", value: 1.0, type: "rewind" },
+						{ id: "stefanvdspeedN075step", text: "-0.75", value: 0.5, type: "rewind" },
+						{ id: "stefanvdspeedN05step", text: "-0.5", value: 0.5, type: "rewind" },
+						{ id: "stefanvdspeedN025step", text: "-0.25", value: 0.25, type: "rewind" },
+						{ id: "stefanvdspeedP025step", text: "+0.25", value: 0.25, type: "playrate" },
+						{ id: "stefanvdspeedP05step", text: "+0.5", value: 0.5, type: "playrate" },
+						{ id: "stefanvdspeedP075step", text: "+0.75", value: 0.75, type: "playrate" },
+						{ id: "stefanvdspeedP1step", text: "+1", value: 1.0, type: "playrate" },
+						{ id: "stefanvdspeedP125step", text: "+1.25", value: 1.25, type: "playrate" },
+						{ id: "stefanvdspeedP15step", text: "+1.5", value: 1.5, type: "playrate" },
+						{ id: "stefanvdspeedP2step", text: "+2", value: 2.0, type: "playrate" }
+					];
+
+					// Create speed buttons
+					speedButtons.forEach(btn => {
+						createVideoButton({
+							id: btn.id + i,
+							text: btn.text,
+							videoIndex: i,
+							parent: newspeedpanel,
+							onClick: (v) => {
+								if(btn.type === "rewind"){
+									rewind(btn.value, v);
+								}else{
+									playrate(v, btn.value);
+								}
+							}
+						});
 					});
 
-					createVideoButton({
-						id: "stefanvdspeedN15step" + i,
-						text: "-1.5",
-						videoIndex: i,
-						parent: newspeedpanel,
-						onClick: function(v){
-							rewind(1.5, v);
-						}
-					});
-
-					createVideoButton({
-						id: "stefanvdspeedN125step" + i,
-						text: "-1.25",
-						videoIndex: i,
-						parent: newspeedpanel,
-						onClick: function(v){
-							rewind(1.25, v);
-						}
-					});
-
-					createVideoButton({
-						id: "stefanvdspeedN1step" + i,
-						text: "-1",
-						videoIndex: i,
-						parent: newspeedpanel,
-						onClick: function(v){
-							rewind(1.0, v);
-						}
-					});
-
-					createVideoButton({
-						id: "stefanvdspeedN075step" + i,
-						text: "-0.75",
-						videoIndex: i,
-						parent: newspeedpanel,
-						onClick: function(v){
-							rewind(0.5, v);
-						}
-					});
-
-					createVideoButton({
-						id: "stefanvdspeedN05step" + i,
-						text: "-0.5",
-						videoIndex: i,
-						parent: newspeedpanel,
-						onClick: function(v){
-							rewind(0.5, v);
-						}
-					});
-
-					createVideoButton({
-						id: "stefanvdspeedN025step" + i,
-						text: "-0.25",
-						videoIndex: i,
-						parent: newspeedpanel,
-						onClick: function(v){
-							rewind(0.25, v);
-						}
-					});
-
+					// Zero speed button (special case)
 					createVideoButton({
 						id: "stefanvdspeedzerostep" + i,
 						text: "0",
@@ -1299,76 +1162,6 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 							window.clearInterval(intervalRewind);
 							onevideo.playbackRate = 1.0;
 							onevideo.pause();
-						}
-					});
-
-					createVideoButton({
-						id: "stefanvdspeedP025step" + i,
-						text: "+0.25",
-						videoIndex: i,
-						parent: newspeedpanel,
-						onClick: function(v){
-							playrate(v, 0.25);
-						}
-					});
-
-					createVideoButton({
-						id: "stefanvdspeedP05step" + i,
-						text: "+0.5",
-						videoIndex: i,
-						parent: newspeedpanel,
-						onClick: function(v){
-							playrate(v, 0.5);
-						}
-					});
-
-					createVideoButton({
-						id: "stefanvdspeedP05step" + i,
-						text: "+0.75",
-						videoIndex: i,
-						parent: newspeedpanel,
-						onClick: function(v){
-							playrate(v, 0.75);
-						}
-					});
-
-					createVideoButton({
-						id: "stefanvdspeedP1step" + i,
-						text: "+1",
-						videoIndex: i,
-						parent: newspeedpanel,
-						onClick: function(v){
-							playrate(v, 1.0);
-						}
-					});
-
-					createVideoButton({
-						id: "stefanvdspeedP125step" + i,
-						text: "+1.25",
-						videoIndex: i,
-						parent: newspeedpanel,
-						onClick: function(v){
-							playrate(v, 1.25);
-						}
-					});
-
-					createVideoButton({
-						id: "stefanvdspeedP15step" + i,
-						text: "+1.5",
-						videoIndex: i,
-						parent: newspeedpanel,
-						onClick: function(v){
-							playrate(v, 1.5);
-						}
-					});
-
-					createVideoButton({
-						id: "stefanvdspeedP2step" + i,
-						text: "+2",
-						videoIndex: i,
-						parent: newspeedpanel,
-						onClick: function(v){
-							playrate(v, 2.0);
 						}
 					});
 				}
