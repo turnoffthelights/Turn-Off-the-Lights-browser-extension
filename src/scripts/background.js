@@ -835,6 +835,24 @@ chrome.storage.onChanged.addListener(function(changes){
 		onchangestorage(changes, "pageautodim", checkpageautodim, removepageautodim);
 		onchangestorage(changes, "pageautostop", checkpageautostop, removepageautostop);
 		onchangestorage(changes, "pagenightmode", checkpagenightmode, removepagenightmode);
+		
+		// Handle autostop content script registration
+		if(changes["autostop"]){
+			if(changes["autostop"].newValue === true){
+				manageContentScript("autostop", CONTENT_SCRIPTS.autostop);
+			}else{
+				unregisterContentScript(SCRIPT_IDS.autostop);
+			}
+		}
+		
+		// Handle block60fps content script registration
+		if(changes["block60fps"]){
+			if(changes["block60fps"].newValue === true){
+				manageContentScript("block60fps", CONTENT_SCRIPTS.fps);
+			}else{
+				unregisterContentScript(SCRIPT_IDS.fps);
+			}
+		}
 		if(changes["icon"]){
 			if(changes["icon"].newValue){
 				chrome.tabs.query({}, function(tabs){
