@@ -124,22 +124,32 @@ function returntimetoseconds(a){
 }
 
 function checkregdomaininside(thaturl, websiteurl){
-	// regex test
 	var rxUrlSplit = /((?:http|ftp)s?):\/\/([^/]+)(\/.*)?/;
-	var prepUrl = ""; var m;
+	var prepUrl = "";
+	var m;
+
 	if((m = thaturl.match(rxUrlSplit)) !== null){
-		prepUrl = m[1] + "://" + m[2].replace(/[?()[\]\\.+^$|]/g, "\\$&").replace(/\*\\./g, "(?:[^/]*\\.)*").replace(/\*$/, "[^/]*");
-		if(m[3]){
-			prepUrl += m[3].replace(/[?()[\]\\.+^$|]/g, "\\$&").replace(/\/\*(?=$|\/)/g, "(?:/[^]*)?");
-		}
+		// 1. Combine the full URL parts
+		var fullPath = m[1] + "://" + m[2] + (m[3] || "");
+
+		// 2. Escape regex special characters (except the asterisk for now)
+		// We escape: . ? ( ) [ ] \ + ^ $ |
+		prepUrl = fullPath.replace(/[?()[\]\\.+^$|]/g, "\\$&");
+
+		// 3. Handle the asterisk:
+		// In the previous step, '*' was NOT escaped, or if it was,
+		// we now convert it to '.*'
+		prepUrl = prepUrl.replace(/\*/g, ".*");
+
+		// 4. Finally, escape all forward slashes to get the \/ format
+		prepUrl = prepUrl.replace(/\//g, "\\/");
 	}
+
 	if(prepUrl){
-		// console.log(prepUrl); // ^http://(?:[^/]*\.)*google\.com(?:/[^]*)?$
-		if(websiteurl.match(RegExp("^" + prepUrl + "$", "i"))){
-			return true;
-		}else{
-			return false;
-		}
+		// Output will be: https:\/\/www\.youtube\.com\/watch.*
+		// console.log("Generated Pattern:", prepUrl);
+		var finalRegex = new RegExp("^" + prepUrl + "$", "i");
+		return finalRegex.test(websiteurl);
 	}
 	return false;
 }
