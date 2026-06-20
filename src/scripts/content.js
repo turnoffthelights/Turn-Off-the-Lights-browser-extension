@@ -3881,50 +3881,90 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	}
 
 	//---
-	chrome.runtime.onMessage.addListener(function(request){
-		if((request.action === "receivescreenshot")){
+	// Helper function to show toggle notification
+	function showToggleNotification(titleKey, domainsKey){
+		chrome.storage.sync.get([domainsKey], function(items){
+			var domains = items[domainsKey];
+
+			var div = document.createElement("div");
+			div.setAttribute("id", "stefanvdremoteadd");
+			div.className = "stefanvdremote";
+			document.body.appendChild(div);
+
+			var h3 = document.createElement("h3");
+			h3.innerText = chrome.i18n.getMessage(titleKey);
+			div.appendChild(h3);
+
+			var currenttoggledomain = window.location.protocol + "//" + window.location.hostname;
+			var p = document.createElement("p");
+
+			domains = JSON.parse(domains);
+			if(domains[currenttoggledomain]){
+				p.innerText = chrome.i18n.getMessage("deswebsiteon") + " " + currenttoggledomain;
+			}else{
+				p.innerText = chrome.i18n.getMessage("deswebsiteoff") + " " + currenttoggledomain;
+			}
+			div.appendChild(p);
+
+			window.setTimeout(function(){
+				var element = document.getElementById("stefanvdremoteadd");
+				element.parentNode.removeChild(element);
+			}, 4000);
+		});
+	}
+
+	// Action handler map
+	const actionHandlers = {
+		receivescreenshot: function(request){
 			let allowedHosts = [linkcapturescreenshot];
-			// completed support hosts
 			if(allowedHosts.includes(window.location.href)){
 				if($("capturevideoframe")){ $("capturevideoframe").src = request.value; }
 				if($("browserextensioninstalled")){ $("browserextensioninstalled").style.display = "none"; }
 			}
-		}else if(request.action == "gorefresheyelight"){
+		},
+		gorefresheyelight: function(){
 			chrome.storage.sync.get(["eyea", "eyen"], function(items){
 				if(items["eyea"]){ eyea = items["eyea"]; }else{ eyea = items["eyea"]; }
 				if(items["eyen"]){ eyen = items["eyen"]; }else{ eyen = items["eyen"]; }
 			});
 			var blackon = $("stefanvdlightareoff1");
 			if(blackon){ chrome.runtime.sendMessage({name: "automatic"}); }
-		}else if(request.action == "gorefresheyedark"){
+		},
+		gorefresheyedark: function(){
 			chrome.storage.sync.get(["eyea", "eyen"], function(items){
 				if(items["eyea"]){ eyea = items["eyea"]; }else{ eyea = items["eyea"]; }
 				if(items["eyen"]){ eyen = items["eyen"]; }else{ eyen = items["eyen"]; }
 				gonighttime();
 			});
-		}else if(request.action == "goclearscreenshader"){
+		},
+		goclearscreenshader: function(){
 			var stefanscreenshader = $("stefanvdscreenshader");
 			if(stefanscreenshader){
 				document.documentElement.removeChild(stefanscreenshader);
 			}
-		}else if(request.action == "goremovelightoff"){
+		},
+		goremovelightoff: function(){
 			let blackon = $("stefanvdlightareoff1");
 			if(blackon){ chrome.runtime.sendMessage({name: "automatic"}); }
-		}else if(request.action == "goaddlightoff"){
+		},
+		goaddlightoff: function(){
 			let blackon = $("stefanvdlightareoff1");
 			if(blackon == null){ chrome.runtime.sendMessage({name: "automatic"}); }
-		}else if(request.action == "masterclick"){
+		},
+		masterclick: function(){
 			let blackon = $("stefanvdlightareoff1");
 			if(blackon){ chrome.runtime.sendMessage({name: "mastertabdark", value: true}); }else{ chrome.runtime.sendMessage({name: "mastertabdark", value: false}); }
-		}else if(request.action == "gorefreshvideonumber"){
-			adddatavideo();// recheck the video content on the current web page
-		}else if(request.action == "goenableatmos"){
+		},
+		gorefreshvideonumber: function(){
+			adddatavideo();
+		},
+		goenableatmos: function(){
 			chrome.storage.sync.get(["ambilight", "ambilightfixcolor", "ambilight4color", "ambilightvarcolor", "atmosvivid", "vpause", "atmosfpsauto", "atmosfpsmanual", "drawatmosfps", "ambilightcolorhex", "ambilight1colorhex", "ambilight2colorhex", "ambilight3colorhex", "ambilight4colorhex", "ambilightrangeblurradius", "ambilightrangespreadradius", "atmosontotlmode", "atmosphereonly", "atmosphereDomains"], function(items){
 
-				ambilightfixcolor = items["ambilightfixcolor"]; if(ambilightfixcolor == null)ambilightfixcolor = true; // default true
-				ambilight4color = items["ambilight4color"]; if(ambilight4color == null)ambilight4color = false; // default false
-				ambilightvarcolor = items["ambilightvarcolor"]; if(ambilightvarcolor == null)ambilightvarcolor = false; // default false
-				atmosvivid = items["atmosvivid"]; if(atmosvivid == null)atmosvivid = false; // default false
+				ambilightfixcolor = items["ambilightfixcolor"]; if(ambilightfixcolor == null)ambilightfixcolor = true;
+				ambilight4color = items["ambilight4color"]; if(ambilight4color == null)ambilight4color = false;
+				ambilightvarcolor = items["ambilightvarcolor"]; if(ambilightvarcolor == null)ambilightvarcolor = false;
+				atmosvivid = items["atmosvivid"]; if(atmosvivid == null)atmosvivid = false;
 
 				vpause = items["vpause"];
 				atmosfpsauto = items["atmosfpsauto"]; if(atmosfpsauto == null){ atmosfpsauto = false; }
@@ -3999,7 +4039,8 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					}
 				}
 			});
-		}else if(request.action == "gorefreshautodim"){
+		},
+		gorefreshautodim: function(){
 			chrome.storage.sync.get(["autodim", "mousespotlights", "autodimDomains", "autodimchecklistwhite", "autodimchecklistblack", "autodimonly", "aplay", "apause", "astop", "autodimdelay", "autodimdelaytime", "autodimsize", "autodimsizepixelheight", "autodimsizepixelwidth"], function(items){
 				autodim = items["autodim"];
 				mousespotlights = items["mousespotlights"];
@@ -4016,7 +4057,6 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 				autodimsizepixelheight = items["autodimsizepixelheight"];
 				autodimsizepixelwidth = items["autodimsizepixelwidth"];
 
-				// remove
 				if(document.getElementById("totlautodim")){
 					removeElement("totlautodim");
 				}
@@ -4029,7 +4069,8 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					runautodimcheck();
 				}
 			});
-		}else if(request.action == "gorefreshvideotoolbar"){
+		},
+		gorefreshvideotoolbar: function(){
 			chrome.storage.sync.get(["videotool", "videotoolonly", "videotoolDomains", "videotoolchecklistwhite", "videotoolchecklistblack", "speedtoolbar", "videozoom", "visopacity", "videotoolcolor"], function(items){
 				videotool = items["videotool"];
 				videotoolonly = items["videotoolonly"];
@@ -4041,7 +4082,6 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 				visopacity = items["visopacity"];
 				videotoolcolor = items["videotoolcolor"];
 
-				// remove
 				if(MutationObserver){
 					if(typeof observervideotoolbar != "undefined"){
 						observervideotoolbar.disconnect();
@@ -4056,11 +4096,13 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					runvideotoolbarcheck();
 				}
 			});
-		}else if(request.action == "gorefreshvideofilled"){
+		},
+		gorefreshvideofilled: function(){
 			chrome.storage.sync.get(["videofilled"], function(items){
 				videofilled = items["videofilled"];
 			});
-		}else if(request.action == "gorefreshmousescroll"){
+		},
+		gorefreshmousescroll: function(){
 			chrome.storage.sync.get(["videovolume", "videovolumealt", "videovolumehold", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumecolor", "videovolumelabel", "videovolumesteps", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose"], function(items){
 				videovolume = items["videovolume"];
 				videovolumealt = items["videovolumealt"];
@@ -4081,7 +4123,6 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 				videovolumeposd = items["videovolumeposd"];
 				videovolumepose = items["videovolumepose"];
 
-				// remove
 				if(MutationObserver){
 					if(typeof observervideovolume != "undefined"){
 						observervideovolume.disconnect();
@@ -4108,12 +4149,12 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					runvideovolumecheck();
 				}
 			});
-		}else if(request.action == "gorefreshreflection"){
+		},
+		gorefreshreflection: function(){
 			chrome.storage.sync.get(["reflection", "reflectionamount"], function(items){
 				reflection = items["reflection"];
 				reflectionamount = items["reflectionamount"];
 
-				// remove
 				window.clearInterval(startreflection);
 
 				var reflectionplayer = document.getElementsByTagName("video") || null;
@@ -4127,12 +4168,12 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					runreflectioncheck();
 				}
 			});
-		}else if(request.action == "gorefreshhovervideo"){
+		},
+		gorefreshhovervideo: function(){
 			chrome.storage.sync.get(["hovervideo", "hovervideoamount"], function(items){
 				hovervideo = items["hovervideo"];
 				hovervideoamount = items["hovervideoamount"];
 
-				// remove
 				window.clearTimeout(htimer);
 
 				var hvids = document.getElementsByTagName("video");
@@ -4147,19 +4188,19 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					runhovervideocheck();
 				}
 			});
-		}else if(request.action == "gorefreshmouseshake"){
+		},
+		gorefreshmouseshake: function(){
 			chrome.storage.sync.get(["mouseshake", "mouseshakesensitivity"], function(items){
 				mouseshake = items["mouseshake"];
 				mouseshakesensitivity = items["mouseshakesensitivity"];
-				// Remove existing listener
 				window.removeEventListener("mousemove", detectMouseShake);
 
-				// Add listener if enabled
 				if(mouseshake == true){
 					window.addEventListener("mousemove", detectMouseShake);
 				}
 			});
-		}else if(request.action == "gorefreshplayrate"){
+		},
+		gorefreshplayrate: function(){
 			chrome.storage.sync.get(["playrate", "playrateamount"], function(items){
 				playrate = items["playrate"];
 				playrateamount = items["playrateamount"];
@@ -4170,19 +4211,19 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 				var l = ratevideos.length;
 				for(i = 0; i < l; i++){
 					var myElement = document.getElementsByTagName("video")[i];
-					myElement.playbackRate = 1;// default value
+					myElement.playbackRate = 1;
 				}
 
 				if(playrate == true){
 					runplayratecheck();
 				}
 			});
-		}else if(request.action == "gorefresheyesaver"){
+		},
+		gorefresheyesaver: function(){
 			chrome.storage.sync.get(["ecosaver", "ecosavertime"], function(items){
 				ecosaver = items["ecosaver"];
 				ecosavertime = items["ecosavertime"];
 
-				// remove
 				screenactiondone = false;
 				centralmove = false;
 				centralkey = false;
@@ -4196,13 +4237,13 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 
 				gonighttime();
 			});
-		}else if(request.action == "gorefreshnighttime"){
+		},
+		gorefreshnighttime: function(){
 			chrome.storage.sync.get(["nighttime", "begintime", "endtime"], function(items){
 				nighttime = items["nighttime"];
 				begintime = items["begintime"];
 				endtime = items["endtime"];
 
-				// remove
 				screenactiondone = false;
 				centralmove = false;
 				centralkey = false;
@@ -4216,11 +4257,13 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 
 				gonighttime();
 			});
-		}else if(request.action == "gorefreshpipvisualtype"){
+		},
+		gorefreshpipvisualtype: function(){
 			chrome.storage.sync.get(["pipvisualtype"], function(items){
 				pipvisualtype = items["pipvisualtype"];
 			});
-		}else if(request.action == "gopipvisual"){
+		},
+		gopipvisual: function(){
 			var videotopipvisual = document.getElementById("stefanvdpipvisualizationcanvas");
 			if(!videotopipvisual){
 				if(!document.getElementById("stefanvdpipvisualizationcanvas")){
@@ -4274,7 +4317,8 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					removepipvisual();
 				});
 			}
-		}else if(request.action == "gorefreshgamepad"){
+		},
+		gorefreshgamepad: function(){
 			chrome.storage.sync.get(["gamepad", "gpleftstick", "gprightstick", "gpbtnx", "gpbtno", "gpbtnsquare", "gpbtntriangle", "gpbtnlb", "gpbtnrb", "gpbtnlt", "gpbtnrt", "gpbtnshare", "gpbtnmenu", "gpbtnrightstick", "gpbtnleftstick", "gpbtndirup", "gpbtndirdown", "gpbtndirleft", "gpbtndirright", "gpbtnlogo", "gamepadonly", "gamepadDomains", "gamepadchecklistwhite", "gamepadchecklistblack"], function(items){
 				gamepad = items["gamepad"];
 				gpleftstick = items["gpleftstick"];
@@ -4310,93 +4354,22 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					rungamepadcheck();
 				}
 			});
-		}else if(request.action == "gotoggleautodim"){
-			chrome.storage.sync.get(["autodimDomains"], function(items){
-				autodimDomains = items["autodimDomains"];
+		},
+		gotoggleautodim: function(){
+			showToggleNotification("titelautodim", "autodimDomains");
+		},
+		gotoggleautostop: function(){
+			showToggleNotification("titelautostop", "autostopDomains");
+		},
+		gotogglenightmode: function(){
+			showToggleNotification("titelnighttheme", "nightDomains");
+		}
+	};
 
-				var div = document.createElement("div");
-				div.setAttribute("id", "stefanvdremoteadd");
-				div.className = "stefanvdremote";
-				document.body.appendChild(div);
-
-				var h3 = document.createElement("h3");
-				h3.innerText = chrome.i18n.getMessage("titelautodim");
-				div.appendChild(h3);
-
-				var currenttoggledomain = window.location.protocol + "//" + window.location.hostname;
-				var p = document.createElement("p");
-
-				autodimDomains = JSON.parse(autodimDomains);
-				if(autodimDomains[currenttoggledomain]){
-					p.innerText = chrome.i18n.getMessage("deswebsiteon") + " " + currenttoggledomain;
-				}else{
-					p.innerText = chrome.i18n.getMessage("deswebsiteoff") + " " + currenttoggledomain;
-				}
-				div.appendChild(p);
-
-				window.setTimeout(function(){
-					var element = document.getElementById("stefanvdremoteadd");
-					element.parentNode.removeChild(element);
-				}, 4000);
-			});
-		}else if(request.action == "gotoggleautostop"){
-			chrome.storage.sync.get(["autostopDomains"], function(items){
-				var autostopDomains = items["autostopDomains"];
-
-				var div = document.createElement("div");
-				div.setAttribute("id", "stefanvdremoteadd");
-				div.className = "stefanvdremote";
-				document.body.appendChild(div);
-
-				var h3 = document.createElement("h3");
-				h3.innerText = chrome.i18n.getMessage("titelautostop");
-				div.appendChild(h3);
-
-				var currenttoggledomain = window.location.protocol + "//" + window.location.hostname;
-				var p = document.createElement("p");
-
-				autostopDomains = JSON.parse(autostopDomains);
-				if(autostopDomains[currenttoggledomain]){
-					p.innerText = chrome.i18n.getMessage("deswebsiteon") + " " + currenttoggledomain;
-				}else{
-					p.innerText = chrome.i18n.getMessage("deswebsiteoff") + " " + currenttoggledomain;
-				}
-				div.appendChild(p);
-
-				window.setTimeout(function(){
-					var element = document.getElementById("stefanvdremoteadd");
-					element.parentNode.removeChild(element);
-				}, 4000);
-			});
-		}else if(request.action == "gotogglenightmode"){
-			chrome.storage.sync.get(["nightDomains"], function(items){
-				var nightDomains = items["nightDomains"];
-
-				var div = document.createElement("div");
-				div.setAttribute("id", "stefanvdremoteadd");
-				div.className = "stefanvdremote";
-				document.body.appendChild(div);
-
-				var h3 = document.createElement("h3");
-				h3.innerText = chrome.i18n.getMessage("titelnighttheme");
-				div.appendChild(h3);
-
-				var currenttoggledomain = window.location.protocol + "//" + window.location.hostname;
-				var p = document.createElement("p");
-
-				nightDomains = JSON.parse(nightDomains);
-				if(nightDomains[currenttoggledomain]){
-					p.innerText = chrome.i18n.getMessage("deswebsiteon") + " " + currenttoggledomain;
-				}else{
-					p.innerText = chrome.i18n.getMessage("deswebsiteoff") + " " + currenttoggledomain;
-				}
-				div.appendChild(p);
-
-				window.setTimeout(function(){
-					var element = document.getElementById("stefanvdremoteadd");
-					element.parentNode.removeChild(element);
-				}, 4000);
-			});
+	chrome.runtime.onMessage.addListener(function(request){
+		const handler = actionHandlers[request.action];
+		if(handler){
+			handler(request);
 		}
 	});
 
