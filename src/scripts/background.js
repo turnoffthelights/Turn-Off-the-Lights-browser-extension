@@ -34,17 +34,16 @@ if(typeof importScripts !== "undefined"){
 	importScripts("constants.js");
 }
 
-chrome.runtime.onMessage.addListener(function request(request, sender, sendResponse){
+chrome.runtime.onMessage.addListener(async function request(request, sender, sendResponse){
 	// eye protection & autodim & shortcut
 	switch(request.name){
 	case"bckreload":
 		installation();
 		break;
 	case"redirectionoptions":
-		chrome.tabs.query({active:true, currentWindow:true}, function(tabs){
-			chrome.tabs.remove(tabs[0].id);
-			chrome.runtime.openOptionsPage();
-		});
+		const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+		await chrome.tabs.remove(tab.id);
+		await chrome.runtime.openOptionsPage();
 		break;
 	case"redirectionoptionsnewtab":
 		chrome.tabs.query({active:true, currentWindow:true}, function(){
@@ -179,9 +178,8 @@ chrome.runtime.onMessage.addListener(function request(request, sender, sendRespo
 		chromerefreshalltabs("goclearscreenshader");
 		break;
 	case"getallpermissions":
-		chrome.permissions.getAll(function(permissions){
-			sendResponse(permissions.permissions);
-		});
+		const permissions = await chrome.permissions.getAll();
+		sendResponse(permissions.permissions);
 		return true;
 	}
 });
@@ -631,7 +629,7 @@ function browsercontext(a, b, c, d){
 		// Firefox, Opera, Microsoft Edge
 		return chrome.contextMenus.create(newitem);
 	}catch(e){
-		console.log(e);
+		// console.log(e);
 		// catch web browsers that do NOT show the icon
 		// Google Chrome
 		return chrome.contextMenus.create(item);

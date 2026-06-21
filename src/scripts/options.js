@@ -1416,7 +1416,7 @@ function test(){
 			$("brotheme").style.display = "none";
 		}
 	}catch(e){
-		console.log(e);
+		// console.log(e);
 		$("brotheme").style.display = "none";
 	}
 }
@@ -2217,7 +2217,9 @@ function displayPermissions(perm){
 			}
 		}
 	}
-	perm.forEach(function(x){
+	// Ensure perm is an array before iterating
+	if(Array.isArray(perm)){
+		perm.forEach(function(x){
 		if($("permissionlist")){
 			if($("permullist") == null){
 				var newpermtitle = document.createElement("h4");
@@ -2243,7 +2245,8 @@ function displayPermissions(perm){
 			newpermspandes.className = "item";
 			newperm.appendChild(newpermspandes);
 		}
-	});
+		});
+	}
 }
 
 function setmetatheme(a){
