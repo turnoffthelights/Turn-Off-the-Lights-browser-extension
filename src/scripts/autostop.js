@@ -332,7 +332,7 @@ chrome.storage.sync.get(["autostop", "autostoponly", "autostopDomains", "autosto
 				}
 			}
 			refreshdesign(newautostoppanel, selectedvideo);
-			newautostoppanel.addEventListener("click", function(event){
+			newautostoppanel.addEventListener("click", async function(event){
 				var templearn = event.target.id;
 				templearn = templearn.substr(0, 26);
 				if(templearn != "stefanvdautostoppanellearn"){
@@ -343,15 +343,12 @@ chrome.storage.sync.get(["autostop", "autostoponly", "autostopDomains", "autosto
 						this.style.display = "none";
 						thisVideo.setAttribute("data-stopvideo", "false");
 
-						var playPromise = thisVideo.play();
-						if(playPromise !== undefined){
-							playPromise.then(() => {
-								// Automatic playback started!
-							})
-								.catch((e) => {
-									// Auto-play was prevented
-									console.log(e);
-								});
+						try{
+							await thisVideo.play();
+							// Automatic playback started!
+						}catch(e){
+							// Auto-play was prevented
+							console.log(e);
 						}
 					}
 				}

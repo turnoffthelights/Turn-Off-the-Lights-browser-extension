@@ -289,18 +289,15 @@ manageContentScript("autostop", CONTENT_SCRIPTS.autostop);
 manageContentScript("block60fps", CONTENT_SCRIPTS.fps);
 //---
 
-function restcontent(path, name, sendertab){
-	fetch(path)
-		.then(function(response){
-			return response.text();
-		})
-		.then(function(text){
-			// console.log("The content = " + text);
-			chrome.tabs.sendMessage(sendertab, {name: name, message: text});
-		})
-		.catch(function(error){
-			console.error("Error fetching content:", error);
-		});
+async function restcontent(path, name, sendertab){
+	try{
+		const response = await fetch(path);
+		const text = await response.text();
+		// console.log("The content = " + text);
+		chrome.tabs.sendMessage(sendertab, {name: name, message: text});
+	}catch(error){
+		console.error("Error fetching content:", error);
+	}
 }
 
 (async function(){
@@ -462,21 +459,19 @@ var lampandnightmode;
 // keyboard shortcuts only for desktop web browser
 // and not for Firefox Android mobile web browser
 if(chrome.commands && chrome.commands.onCommand){
-	chrome.commands.onCommand.addListener(function(command){
+	chrome.commands.onCommand.addListener(async function(command){
 		if(command == "toggle-feature-nightmode"){
-			chrome.storage.sync.get(["lampandnightmode"], function(response){
-				lampandnightmode = response["lampandnightmode"];
-				if(lampandnightmode == true){
-					chrome.runtime.sendMessage({name: "mastertabnight"});
-				}else{
-					getCurrentTab().then((thattab) => {
-						chrome.scripting.executeScript({
-							target: {tabId: thattab.id},
-							func: codenight
-						});
-					});
-				}
-			});
+			const response = await chrome.storage.sync.get(["lampandnightmode"]);
+			lampandnightmode = response["lampandnightmode"];
+			if(lampandnightmode == true){
+				chrome.runtime.sendMessage({name: "mastertabnight"});
+			}else{
+				const thattab = await getCurrentTab();
+				chrome.scripting.executeScript({
+					target: {tabId: thattab.id},
+					func: codenight
+				});
+			}
 		}
 	});
 }
@@ -949,25 +944,24 @@ chrome.storage.onChanged.addListener(async function(changes){
 	}
 });
 
-function chromerefreshalltabs(name){
-	chrome.tabs.query({}, function(tabs){
-		var i, l = tabs.length;
-		for(i = 0; i < l; i++){
-			var protocol = tabs[i].url.split(":")[0];
-			if(protocol == "http" || protocol == "https"){
-				// chrome.tabs.sendMessage(tabs[i].id, {action: name});
-				let rtnPromise = chrome.tabs.sendMessage(tabs[i].id, {action: name});
-				rtnPromise.then(()=> {
-					// Callback Function Processes
-					// console.log(response);
-				}).catch(()=> {
-					// Error Handling Processes
-					// This will hide the message when the browser extension is reloaded and the chrome.runtime.onMessage.addListener is not connected with this browser extension
-					// console.log(error);
-				});
+async function chromerefreshalltabs(name){
+	const tabs = await chrome.tabs.query({});
+	var i, l = tabs.length;
+	for(i = 0; i < l; i++){
+		var protocol = tabs[i].url.split(":")[0];
+		if(protocol == "http" || protocol == "https"){
+			// chrome.tabs.sendMessage(tabs[i].id, {action: name});
+			try{
+				await chrome.tabs.sendMessage(tabs[i].id, {action: name});
+				// Callback Function Processes
+				// console.log(response);
+			}catch(error){
+				// Error Handling Processes
+				// This will hide the message when the browser extension is reloaded and the chrome.runtime.onMessage.addListener is not connected with this browser extension
+				// console.log(error);
 			}
 		}
-	});
+	}
 }
 
 // omnibox
@@ -991,33 +985,30 @@ if(typeof chrome.omnibox !== "undefined"){
 		});
 
 	chrome.omnibox.onInputEntered.addListener(
-		function(text){
+		async function(text){
 			var onmniresult = text.toLowerCase();
 			if(onmniresult == i18nomninightmode){
 				omnidaynightmode(1);
 			}else if(onmniresult == i18nomnidaymode){
 				omnidaynightmode(0);
 			}else if(onmniresult == i18nomnilightoff || text == i18nomnilighton){
-				getCurrentTab().then((thattab) => {
-					chrome.scripting.executeScript({
-						target: {tabId: thattab.id},
-						files: ["scripts/light.js"]
-					});
+				const thattab = await getCurrentTab();
+				chrome.scripting.executeScript({
+					target: {tabId: thattab.id},
+					files: ["scripts/light.js"]
 				});
 			}else if(onmniresult == i18nomnihelp){
-				getCurrentTab().then((thattab) => {
-					chrome.tabs.update(thattab.id, {url: linksupport});
-				});
+				const thattab = await getCurrentTab();
+				chrome.tabs.update(thattab.id, {url: linksupport});
 			}
 		});
 }
 
-function omnidaynightmode(a){
+async function omnidaynightmode(a){
 	var result = "";
 	if(a == 0){ result = "day"; }else{ result = "night"; }
-	getCurrentTab().then((thattab) => {
-		chrome.tabs.sendMessage(thattab.id, {action: "goinnightmode", value:result});
-	});
+	const thattab = await getCurrentTab();
+	chrome.tabs.sendMessage(thattab.id, {action: "goinnightmode", value:result});
 }
 
 function initwelcome(){

@@ -1622,7 +1622,7 @@ const afterBodyReady = () => {
 		}
 
 		// gogo night mode
-		function gogonightmode(){
+		async function gogonightmode(){
 			// Add the check here, before any night mode changes are made
 			if(nightdarkmodeactive == true){
 				if(isDarkMode() == true){
@@ -1661,18 +1661,17 @@ const afterBodyReady = () => {
 
 				getdefaultnightmetatheme();
 				//---
-				webgonightmode().then(function(){
-					// this function is executed after function
-					if(sun == false){
-						isitdark = true;
-						setnightmetatheme(false);
-						// Start mutation observer
-						nightobserver.observe(targetNode, observerConfig);
-					}else{
-						isitdark = false;
-						setnightmetatheme(true);
-					}
-				});
+				await webgonightmode();
+				// this function is executed after function
+				if(sun == false){
+					isitdark = true;
+					setnightmetatheme(false);
+					// Start mutation observer
+					nightobserver.observe(targetNode, observerConfig);
+				}else{
+					isitdark = false;
+					setnightmetatheme(true);
+				}
 			}
 		}
 

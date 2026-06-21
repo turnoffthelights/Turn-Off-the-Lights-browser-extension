@@ -3432,10 +3432,13 @@ function domcontentloaded(){
 				var frequency = FREQUENCY;
 				var interval = INTERVAL;
 
-				var play = function(){
-					gameaudiocontext.resume().then(() => {
+				var play = async function(){
+					try{
+						await gameaudiocontext.resume();
 						// console.log('Playback resumed successfully');
-					});
+					}catch(e){
+						console.error(e);
+					}
 					var currentTime = gameaudiocontext.currentTime;
 					var osc = gameaudiocontext.createOscillator();
 					var gain = gameaudiocontext.createGain();

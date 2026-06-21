@@ -632,16 +632,13 @@ document.addEventListener("DOMContentLoaded", function(){
 			});
 		});
 	});
-	$("btnpipvisual").addEventListener("click", function(){
-		chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
-			var activeTab = tabs[0];
-			chrome.tabs.sendMessage(activeTab.id, {action: "gopipvisual"})
-				.then(() => {
-					chrome.scripting.executeScript({
-						target: {tabId: activeTab.id},
-						func: codepipvisual
-					});
-				});
+	$("btnpipvisual").addEventListener("click", async function(){
+		const tabs = await chrome.tabs.query({currentWindow: true, active: true});
+		var activeTab = tabs[0];
+		await chrome.tabs.sendMessage(activeTab.id, {action: "gopipvisual"});
+		chrome.scripting.executeScript({
+			target: {tabId: activeTab.id},
+			func: codepipvisual
 		});
 	});
 
