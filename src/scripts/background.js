@@ -46,10 +46,9 @@ chrome.runtime.onMessage.addListener(async function request(request, sender, sen
 		await chrome.runtime.openOptionsPage();
 		break;
 	case"redirectionoptionsnewtab":
-		chrome.tabs.query({active:true, currentWindow:true}, function(){
-			var optionsnewtab = chrome.runtime.getURL("options.html?tab=" + request.value);
-			chrome.tabs.create({url: optionsnewtab, active:true});
-		});
+		const tabs = await chrome.tabs.query({active:true, currentWindow:true});
+		var optionsnewtab = chrome.runtime.getURL("options.html?tab=" + request.value);
+		chrome.tabs.create({url: optionsnewtab, active:true});
 		break;
 	case"automatic":
 		chrome.scripting.executeScript({
@@ -75,16 +74,13 @@ chrome.runtime.onMessage.addListener(async function request(request, sender, sen
 		restcontent("/styles/dynamic.css", "injectdynamiccss", sender.tab.id);
 		break;
 	case"emergencyalf":
-		chrome.tabs.query({}, function(tabs){
-			var i, l = tabs.length;
-			for(i = 0; i < l; i++){
-				chrome.scripting.executeScript({
-					target: {tabId: tabs[i].id},
-					files: ["scripts/light.js"]
-				});
-			}
+		const allTabs = await chrome.tabs.query({});
+		for(const tab of allTabs){
+			chrome.scripting.executeScript({
+				target: {tabId: tab.id},
+				files: ["scripts/light.js"]
+			});
 		}
-		);
 		break;
 	case"eyesaveme":
 		if(request.value == true){ chrome.storage.sync.set({"eyea": true, "eyen": false}); chromerefreshalltabs("gorefresheyedark"); }else{ chrome.storage.sync.set({"eyea": false, "eyen": true}); chromerefreshalltabs("gorefresheyelight"); }
@@ -139,12 +135,10 @@ chrome.runtime.onMessage.addListener(async function request(request, sender, sen
 				}
 			}
 			// set white icon
-			chrome.tabs.query({}, function(tabs){
-				var i, l = tabs.length;
-				for(i = 0; i < l; i++){
-					chrome.action.setIcon({tabId : tabs[i].id, path : {"19": "/images/iconwhite19.png", "38": "/images/iconwhite38.png"}});
-				}
-			});
+			const allTabs = await chrome.tabs.query({});
+			for(const tab of allTabs){
+				chrome.action.setIcon({tabId : tab.id, path : {"19": "/images/iconwhite19.png", "38": "/images/iconwhite38.png"}});
+			}
 		}else{
 			if(typeof browser !== "undefined"){
 				var qtestbrowsertheme = browser.theme.update;
@@ -153,21 +147,19 @@ chrome.runtime.onMessage.addListener(async function request(request, sender, sen
 				}
 			}
 			// return default icon
-			chrome.storage.sync.get(["icon"], function(items){
-				if(items["icon"] == undefined){
-					if(exbrowser == "safari"){
-						items["icon"] = "/images/iconstick38safari.png";
-					}else{
-						items["icon"] = "/images/iconstick38.png";
-					}
+			const items = await chrome.storage.sync.get(["icon"]);
+			let iconPath = items["icon"];
+			if(iconPath == undefined){
+				if(exbrowser == "safari"){
+					iconPath = "/images/iconstick38safari.png";
+				}else{
+					iconPath = "/images/iconstick38.png";
 				}
-				chrome.tabs.query({}, function(tabs){
-					var i, l = tabs.length;
-					for(i = 0; i < l; i++){
-						chrome.action.setIcon({tabId : tabs[i].id, path : {"19": items["icon"], "38": items["icon"]}});
-					}
-				});
-			});
+			}
+			const allTabs = await chrome.tabs.query({});
+			for(const tab of allTabs){
+				chrome.action.setIcon({tabId : tab.id, path : {"19": iconPath, "38": iconPath}});
+			}
 		}
 		break;
 	case"sendnightmodeindark":
@@ -306,41 +298,42 @@ function restcontent(path, name, sendertab){
 		});
 }
 
-chrome.storage.sync.get(["icon"], function(items){
-	if(items["icon"] == undefined){
+(async function(){
+	const items = await chrome.storage.sync.get(["icon"]);
+	let iconPath = items["icon"];
+	if(iconPath == undefined){
 		if(exbrowser == "safari"){
-			items["icon"] = "/images/iconstick38safari.png";
+			iconPath = "/images/iconstick38safari.png";
 		}else{
-			items["icon"] = "/images/iconstick38.png";
+			iconPath = "/images/iconstick38.png";
 		}
 	}
 	chrome.action.setIcon({
 		path : {
-			"19": items["icon"],
-			"38": items["icon"]
+			"19": iconPath,
+			"38": iconPath
 		}
 	});
-});
+})();
 
-chrome.tabs.onUpdated.addListener(function(){
-	getCurrentTab().then((thattab) => {
-		if(thattab.status == "complete"){
-			if(thattab.url.match(/^http/i)){
-				chrome.tabs.sendMessage(thattab.id, {action: "gorefreshvideonumber"});
-			}
+chrome.tabs.onUpdated.addListener(async function(){
+	const thattab = await getCurrentTab();
+	if(thattab.status == "complete"){
+		if(thattab.url.match(/^http/i)){
+			chrome.tabs.sendMessage(thattab.id, {action: "gorefreshvideonumber"});
 		}
+	}
 
-		chrome.storage.sync.get(["icon"], function(items){
-			if(items["icon"] == undefined){
-				if(exbrowser == "safari"){
-					items["icon"] = "/images/iconstick38safari.png";
-				}else{
-					items["icon"] = "/images/iconstick38.png";
-				}
-			}
-			chrome.action.setIcon({tabId : thattab.id, path : {"19": items["icon"], "38": items["icon"]}});
-		});
-	});
+	const items = await chrome.storage.sync.get(["icon"]);
+	let iconPath = items["icon"];
+	if(iconPath == undefined){
+		if(exbrowser == "safari"){
+			iconPath = "/images/iconstick38safari.png";
+		}else{
+			iconPath = "/images/iconstick38.png";
+		}
+	}
+	chrome.action.setIcon({tabId : thattab.id, path : {"19": iconPath, "38": iconPath}});
 });
 
 async function getCurrentTab(){
@@ -825,7 +818,7 @@ function onchangestorage(a, b, c, d){
 }
 
 var key;
-chrome.storage.onChanged.addListener(function(changes){
+chrome.storage.onChanged.addListener(async function(changes){
 	for(key in changes){
 		onchangestorage(changes, "contextmenus", checkcontextmenus, removecontexmenus);
 		onchangestorage(changes, "pageautodim", checkpageautodim, removepageautodim);
@@ -851,18 +844,15 @@ chrome.storage.onChanged.addListener(function(changes){
 		}
 		if(changes["icon"]){
 			if(changes["icon"].newValue){
-				chrome.tabs.query({}, function(tabs){
-					var i, l = tabs.length;
-					for(i = 0; i < l; i++){
-						chrome.action.setIcon({tabId : tabs[i].id,
-							path : {
-								"19": changes["icon"].newValue,
-								"38": changes["icon"].newValue
-							}
-						});
-					}
+				const allTabs = await chrome.tabs.query({});
+				for(const tab of allTabs){
+					chrome.action.setIcon({tabId : tab.id,
+						path : {
+							"19": changes["icon"].newValue,
+							"38": changes["icon"].newValue
+						}
+					});
 				}
-				);
 			}
 		}
 		if(changes["ecosaver"]){
