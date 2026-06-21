@@ -58,17 +58,19 @@ chrome.runtime.onMessage.addListener(async function request(request, sender, sen
 			files: ["scripts/light.js"]
 		});
 		break;
-	case"screenshot":
-		var checkcapturewebsite = linkcapturescreenshot;
-		chrome.tabs.create({url: checkcapturewebsite}, function(tab){
-			var currenttabid = tab.id;
-			chrome.tabs.onUpdated.addListener(function(tabId, changeInfo){
-				if(changeInfo.status == "complete"){
-					chrome.tabs.sendMessage(currenttabid, {action: "receivescreenshot", value: request.value});
-				}
-			});
-		});
+	case"screenshot": {
+		const checkcapturewebsite = linkcapturescreenshot;
+		const tab = await chrome.tabs.create({url: checkcapturewebsite});
+		const currenttabid = tab.id;
+		const listener = function(tabId, changeInfo){
+			if(tabId === currenttabid && changeInfo.status == "complete"){
+				chrome.tabs.onUpdated.removeListener(listener);
+				chrome.tabs.sendMessage(currenttabid, {action: "receivescreenshot", value: request.value});
+			}
+		};
+		chrome.tabs.onUpdated.addListener(listener);
 		break;
+	}
 	case"sendlightcss":
 		restcontent("/styles/light.css", "injectlightcss", sender.tab.id);
 		break;
@@ -91,21 +93,20 @@ chrome.runtime.onMessage.addListener(async function request(request, sender, sen
 	case"nmcustomvalues":
 		if(request.valuex && request.valuey){ chrome.storage.sync.set({"nmcustomx": request.valuex, "nmcustomy": request.valuey}); }
 		break;
-	case"mastertabnight":
+	case"mastertabnight": {
 		// Night Owl profile
-		var nightowlprofile, nightenabletheme;
-		chrome.storage.sync.get(["nightowlprofile", "nightenabletheme"], function(response){
-			nightowlprofile = response["nightowlprofile"];
-			nightenabletheme = response["nightenabletheme"];
-			if(nightowlprofile == true && nightenabletheme == true){
-				chrome.storage.sync.set({"nightowlprofile": false});
-				chrome.storage.sync.set({"nightenabletheme": false});
-			}else{
-				chrome.storage.sync.set({"nightowlprofile": true});
-				chrome.storage.sync.set({"nightenabletheme": true});
-			}
-		});
+		const response = await chrome.storage.sync.get(["nightowlprofile", "nightenabletheme"]);
+		const nightowlprofile = response["nightowlprofile"];
+		const nightenabletheme = response["nightenabletheme"];
+		if(nightowlprofile == true && nightenabletheme == true){
+			await chrome.storage.sync.set({"nightowlprofile": false});
+			await chrome.storage.sync.set({"nightenabletheme": false});
+		}else{
+			await chrome.storage.sync.set({"nightowlprofile": true});
+			await chrome.storage.sync.set({"nightenabletheme": true});
+		}
 		break;
+	}
 	case"mastertabdark":
 		if(request.value == true){
 			chromerefreshalltabs("goremovelightoff");
@@ -364,39 +365,36 @@ if(exbrowser != "safari"){
 				chrome.action.setPopup({tabId: tab.id, popup:"popup.html"});
 			}else{
 				clickbutton += 1;
-				timer = setTimeout(function(){
-					getPopupOpenLength().then((thatpanellength) => {
-						if(thatpanellength != 0){
-							// console.log("Doubleclick");
-							// console.log("yes popup open")
-							clickbutton = 0;
-							clearTimeout(timer);
-						}else{
-							// console.log("no popup open")
-							if(clickbutton == 1){
-								chrome.storage.sync.get(["alllightsoff", "mousespotlights"], function(chromeset){
-									if((chromeset["mousespotlights"] != true)){ // regular lamp
-										if((chromeset["alllightsoff"] != true)){
-											chrome.scripting.executeScript({
-												target: {tabId: tab.id},
-												files: ["scripts/light.js"]
-											});
-										}else{
-											chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
-										}
-									}else{ // all tabs
-										// Night Mode profile
-										// Eye Protection profile
-										chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
-									}
-								});
+				timer = setTimeout(async function(){
+					const thatpanellength = await getPopupOpenLength();
+					if(thatpanellength != 0){
+						// console.log("Doubleclick");
+						// console.log("yes popup open")
+						clickbutton = 0;
+						clearTimeout(timer);
+					}else{
+						// console.log("no popup open")
+						if(clickbutton == 1){
+							const chromeset = await chrome.storage.sync.get(["alllightsoff", "mousespotlights"]);
+							if((chromeset["mousespotlights"] != true)){ // regular lamp
+								if((chromeset["alllightsoff"] != true)){
+									chrome.scripting.executeScript({
+										target: {tabId: tab.id},
+										files: ["scripts/light.js"]
+									});
+								}else{
+									chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
+								}
+							}else{ // all tabs
+								// Night Mode profile
+								// Eye Protection profile
+								chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
 							}
-							clickbutton = 0;
-							// Clear all timers
-							clearTimeout(timer);
 						}
-					});
-					chrome.action.setPopup({tabId: tab.id, popup:""});
+						clickbutton = 0;
+						// Clear all timers
+						clearTimeout(timer);
+					}
 				}, 250);
 				chrome.action.setPopup({tabId: tab.id, popup:"palette.html"});
 			}
@@ -422,25 +420,24 @@ if(exbrowser != "safari"){
 					setTimeout(() => { chrome.action.setPopup({tabId: tab.id, popup:""}); }, 500);
 				}
 
-				timer = setTimeout(function(){
+				timer = setTimeout(async function(){
 					// console.log("Singelclick");
 					if(clickbutton == 1){
-						chrome.storage.sync.get(["alllightsoff", "mousespotlights"], function(chromeset){
-							if((chromeset["mousespotlights"] != true)){ // regular lamp
-								if((chromeset["alllightsoff"] != true)){
-									chrome.scripting.executeScript({
-										target: {tabId: tab.id},
-										files: ["scripts/light.js"]
-									});
-								}else{
-									chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
-								}
-							}else{ // all tabs
-								// Night Mode profile
-								// Eye Protection profile
+						const chromeset = await chrome.storage.sync.get(["alllightsoff", "mousespotlights"]);
+						if((chromeset["mousespotlights"] != true)){ // regular lamp
+							if((chromeset["alllightsoff"] != true)){
+								chrome.scripting.executeScript({
+									target: {tabId: tab.id},
+									files: ["scripts/light.js"]
+								});
+							}else{
 								chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
 							}
-						});
+						}else{ // all tabs
+							// Night Mode profile
+							// Eye Protection profile
+							chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
+						}
 					}
 					clickbutton = 0;
 					// Clear all timers
@@ -485,7 +482,7 @@ if(chrome.commands && chrome.commands.onCommand){
 }
 
 // contextMenus
-function onClickHandler(info, tab){
+async function onClickHandler(info, tab){
 	var str = info.menuItemId;
 	switch(true){
 	case(str.includes("totlvideo") || str.includes("totlpage")):
@@ -494,72 +491,72 @@ function onClickHandler(info, tab){
 			files: ["scripts/light.js"]
 		});
 		break;
-	case(str.includes("autodimpage")):
-		chrome.storage.sync.get(["autodimDomains"], function(items){
-			var autodimDomains = items["autodimDomains"];
-			// Check website is in the list
-			// then add it or remove it
-			var thaturl = new URL(tab.url);
-			var currenttoggledomain = thaturl.protocol + "//" + thaturl.hostname;
-			autodimDomains = JSON.parse(autodimDomains);
-			if(autodimDomains[currenttoggledomain]){
-				// If it is in the list, remove it
-				delete autodimDomains[currenttoggledomain];
-			}else{
-				// If it is not in the list, add it
-				autodimDomains[currenttoggledomain] = true;
-			}
-			autodimDomains = JSON.stringify(autodimDomains);
-			// enable the autodimonly feature because you are going to whitelist/blacklist this feature now
-			chrome.storage.sync.set({"autodim": true, "autodimonly": true, "autodimDomains": autodimDomains});
-			// send notification message to the user
-			chromerefreshalltabs("gotoggleautodim");
-		});
+	case(str.includes("autodimpage")): {
+		const items = await chrome.storage.sync.get(["autodimDomains"]);
+		var autodimDomains = items["autodimDomains"];
+		// Check website is in the list
+		// then add it or remove it
+		var thaturl = new URL(tab.url);
+		var currenttoggledomain = thaturl.protocol + "//" + thaturl.hostname;
+		autodimDomains = JSON.parse(autodimDomains);
+		if(autodimDomains[currenttoggledomain]){
+			// If it is in the list, remove it
+			delete autodimDomains[currenttoggledomain];
+		}else{
+			// If it is not in the list, add it
+			autodimDomains[currenttoggledomain] = true;
+		}
+		autodimDomains = JSON.stringify(autodimDomains);
+		// enable the autodimonly feature because you are going to whitelist/blacklist this feature now
+		await chrome.storage.sync.set({"autodim": true, "autodimonly": true, "autodimDomains": autodimDomains});
+		// send notification message to the user
+		chromerefreshalltabs("gotoggleautodim");
 		break;
-	case(str.includes("autostoppage")):
-		chrome.storage.sync.get(["autostopDomains"], function(items){
-			var autostopDomains = items["autostopDomains"];
-			// Check website is in the list
-			// then add it or remove it
-			var thaturl = new URL(tab.url);
-			var currenttoggledomain = thaturl.protocol + "//" + thaturl.hostname;
-			autostopDomains = JSON.parse(autostopDomains);
-			if(autostopDomains[currenttoggledomain]){
-				// If it is in the list, remove it
-				delete autostopDomains[currenttoggledomain];
-			}else{
-				// If it is not in the list, add it
-				autostopDomains[currenttoggledomain] = true;
-			}
-			autostopDomains = JSON.stringify(autostopDomains);
-			// enable the autostoponly feature because you are going to whitelist/blacklist this feature now
-			chrome.storage.sync.set({"autostop": true, "autostoponly": true, "autostopDomains": autostopDomains});
-			// send notification message to the user
-			chromerefreshalltabs("gotoggleautostop");
-		});
+	}
+	case(str.includes("autostoppage")): {
+		const items = await chrome.storage.sync.get(["autostopDomains"]);
+		var autostopDomains = items["autostopDomains"];
+		// Check website is in the list
+		// then add it or remove it
+		var thaturl = new URL(tab.url);
+		var currenttoggledomain = thaturl.protocol + "//" + thaturl.hostname;
+		autostopDomains = JSON.parse(autostopDomains);
+		if(autostopDomains[currenttoggledomain]){
+			// If it is in the list, remove it
+			delete autostopDomains[currenttoggledomain];
+		}else{
+			// If it is not in the list, add it
+			autostopDomains[currenttoggledomain] = true;
+		}
+		autostopDomains = JSON.stringify(autostopDomains);
+		// enable the autostoponly feature because you are going to whitelist/blacklist this feature now
+		await chrome.storage.sync.set({"autostop": true, "autostoponly": true, "autostopDomains": autostopDomains});
+		// send notification message to the user
+		chromerefreshalltabs("gotoggleautostop");
 		break;
-	case(str.includes("nightmodepage")):
-		chrome.storage.sync.get(["nightDomains"], function(items){
-			var nightDomains = items["nightDomains"];
-			// Check website is in the list
-			// then add it or remove it
-			var thaturl = new URL(tab.url);
-			var currenttoggledomain = thaturl.protocol + "//" + thaturl.hostname;
-			nightDomains = JSON.parse(nightDomains);
-			if(nightDomains[currenttoggledomain]){
-				// If it is in the list, remove it
-				delete nightDomains[currenttoggledomain];
-			}else{
-				// If it is not in the list, add it
-				nightDomains[currenttoggledomain] = true;
-			}
-			nightDomains = JSON.stringify(nightDomains);
-			// enable the nightonly feature because you are going to whitelist/blacklist this feature now
-			chrome.storage.sync.set({"nightonly": true, "nightDomains": nightDomains});
-			// send notification message to the user
-			chromerefreshalltabs("gotogglenightmode");
-		});
+	}
+	case(str.includes("nightmodepage")): {
+		const items = await chrome.storage.sync.get(["nightDomains"]);
+		var nightDomains = items["nightDomains"];
+		// Check website is in the list
+		// then add it or remove it
+		var thaturl = new URL(tab.url);
+		var currenttoggledomain = thaturl.protocol + "//" + thaturl.hostname;
+		nightDomains = JSON.parse(nightDomains);
+		if(nightDomains[currenttoggledomain]){
+			// If it is in the list, remove it
+			delete nightDomains[currenttoggledomain];
+		}else{
+			// If it is not in the list, add it
+			nightDomains[currenttoggledomain] = true;
+		}
+		nightDomains = JSON.stringify(nightDomains);
+		// enable the nightonly feature because you are going to whitelist/blacklist this feature now
+		await chrome.storage.sync.set({"nightonly": true, "nightDomains": nightDomains});
+		// send notification message to the user
+		chromerefreshalltabs("gotogglenightmode");
 		break;
+	}
 	case(str.includes("totlguideemenu")): chrome.tabs.create({url: linkguide, active:true});
 		break;
 	case(str.includes("totldevelopmenu")): chrome.tabs.create({url: linkdonate, active:true});
