@@ -3233,8 +3233,32 @@ function domcontentloaded(){
 		myGamePiece = {};
 		myObstacles = [];
 		myScore = {};
-		document.getElementById("stefanvdplayground").innerHTML = "";
+		const playground = document.getElementById("stefanvdplayground");
+		while(playground.firstChild){
+			playground.removeChild(playground.firstChild);
+		}
 		startGame();
+	}
+
+	function cleanupGame(){
+		if(myGameArea && myGameArea.stop){
+			myGameArea.stop();
+		}
+		if(myGameArea && myGameArea.clear){
+			myGameArea.clear();
+		}
+		myGameArea = {};
+		myGamePiece = {};
+		myObstacles = [];
+		myScore = {};
+		myHighScore = {};
+		myGameOver = {};
+		if(gameaudiocontext){
+			gameaudiocontext.close();
+			gameaudiocontext = null;
+		}
+		removeElement("stefanvdplayground");
+		removeElement("stefanvdbtnplaygroundfilter");
 	}
 
 	function startGame(){
@@ -3576,6 +3600,12 @@ function domcontentloaded(){
 		//---
 		var searchword = input.value;
 		if(searchword == "balloon"){
+			if($("stefanvdplayground")){
+				removeElement("stefanvdplayground");
+			}
+			if($("stefanvdbtnplaygroundfilter")){
+				removeElement("stefanvdbtnplaygroundfilter");
+			}
 			// easteregg Party Balloon
 			if(!$("stefanvdplayground")){
 				// user gesture activate the game audio ping
@@ -3616,7 +3646,7 @@ function domcontentloaded(){
 				startGame();
 			}
 		}else{
-			removeElement("stefanvdplayground");
+			cleanupGame();
 		}
 
 		var allsections = document.getElementsByTagName("section");
