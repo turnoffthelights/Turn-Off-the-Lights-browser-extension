@@ -33,8 +33,6 @@ var nighttheme = null, nightonly = null, nightDomains = null, nightenabletheme =
 var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
 // observeDOM - dynamic check
 var observeDOM = (function(){
-	var eventListenerSupported = window.addEventListener;
-
 	return function(obj, callback){
 		if(MutationObserver){
 			// define a new observer

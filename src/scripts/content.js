@@ -123,7 +123,7 @@ document.addEventListener("click", function(event){
 });
 
 // settings
-var autodim = null, eastereggs = null, shortcutlight = null, eyen = null, eyea = null, eyealist = null, excludedDomains = null, nighttime = null, begintime = null, endtime = null, ambilight = null, ambilightrangeblurradius = null, ambilightrangespreadradius = null, ambilightfixcolor = null, ambilightvarcolor = null, ambilightcolorhex = null, ambilight4color = null, ambilight1colorhex = null, ambilight2colorhex = null, ambilight3colorhex = null, ambilight4colorhex = null, ecosaver = null, ecosavertime = null, autodimonly = null, autodimDomains = null, interval = null, autowidthyoutube = null, customqualityyoutube = null, maxquality = null, atmosphereonly = null, atmosphereDomains = null, autodimdelay = null, autodimdelaytime = null, atmosvivid = null, autodimchecklistwhite = null, autodimchecklistblack = null, eyechecklistwhite = null, eyechecklistblack = null, no360youtube = null, videotool = null, reflection = null, reflectionamount = null, videotoolonly = null, videotoolDomains = null, videotoolchecklistwhite = null, videotoolchecklistblack = null, videovolume = null, videovolumecolor = null, videovolumesteps = null, videovolumelabel = null, visopacity = null, videotoolcolor = null, hovervideo = null, hovervideoamount = null, mousespotlights = null, drawatmosfps = null, aplay = null, apause = null, astop = null, videozoom = null, playrate = null, playrateamount = null, speedtoolbar = null, atmosontotlmode = null, vpause = null, videovolumeposa = null, videovolumeposb = null, videovolumeposc = null, videovolumehold = null, videovolumealt = null, atmosfpsauto = null, atmosfpsmanual = null, videovolumeonly = null, videovolumeDomains = null, videovolumechecklistwhite = null, videovolumechecklistblack = null, videovolumescrolla = null, videovolumescrollb = null, videovolumescrollc = null, videovolumeposd = null, videovolumepose = null, pipvisualtype = null, gamepad = null, gpleftstick = null, gprightstick = null, gpbtnx = null, gpbtno = null, gpbtnsquare = null, gpbtntriangle = null, gpbtnlb = null, gpbtnrb = null, gpbtnlt = null, gpbtnrt = null, gpbtnshare = null, gpbtnmenu = null, gpbtnrightstick = null, gpbtnleftstick = null, gpbtndirup = null, gpbtndirdown = null, gpbtndirleft = null, gpbtndirright = null, gpbtnlogo = null, gamepadonly = null, gamepadDomains = null, gamepadchecklistwhite = null, gamepadchecklistblack = null, autodimsize = null, autodimsizepixelheight = null, autodimsizepixelwidth = null, videofilled = null;
+var autodim = null, eastereggs = null, shortcutlight = null, eyen = null, eyea = null, eyealist = null, excludedDomains = null, nighttime = null, begintime = null, endtime = null, ambilight = null, ambilightrangeblurradius = null, ambilightrangespreadradius = null, ambilightfixcolor = null, ambilightvarcolor = null, ambilightcolorhex = null, ambilight4color = null, ambilight1colorhex = null, ambilight2colorhex = null, ambilight3colorhex = null, ambilight4colorhex = null, ecosaver = null, ecosavertime = null, autodimonly = null, autodimDomains = null, interval = null, autowidthyoutube = null, customqualityyoutube = null, maxquality = null, atmosphereonly = null, atmosphereDomains = null, autodimdelay = null, autodimdelaytime = null, atmosvivid = null, autodimchecklistwhite = null, autodimchecklistblack = null, eyechecklistwhite = null, eyechecklistblack = null, no360youtube = null, videotool = null, reflection = null, reflectionamount = null, videotoolonly = null, videotoolDomains = null, videotoolchecklistwhite = null, videotoolchecklistblack = null, videovolume = null, videovolumecolor = null, videovolumesteps = null, videovolumelabel = null, visopacity = null, videotoolcolor = null, hovervideo = null, hovervideoamount = null, mousespotlights = null, drawatmosfps = null, aplay = null, apause = null, astop = null, videozoom = null, playrate = null, playrateamount = null, speedtoolbar = null, atmosontotlmode = null, vpause = null, videovolumeposa = null, videovolumeposb = null, videovolumeposc = null, videovolumehold = null, videovolumealt = null, atmosfpsauto = null, atmosfpsmanual = null, videovolumeonly = null, videovolumeDomains = null, videovolumechecklistwhite = null, videovolumechecklistblack = null, videovolumescrolla = null, videovolumescrollb = null, videovolumescrollc = null, videovolumeposd = null, videovolumepose = null, pipvisualtype = null, gamepad = null, gpleftstick = null, gprightstick = null, gpbtnx = null, gpbtno = null, gpbtnsquare = null, gpbtntriangle = null, gpbtnlb = null, gpbtnrb = null, gpbtnlt = null, gpbtnrt = null, gpbtnshare = null, gpbtnmenu = null, gpbtnrightstick = null, gpbtnleftstick = null, gpbtndirup = null, gpbtndirdown = null, gpbtndirleft = null, gpbtndirright = null, gpbtnlogo = null, gamepadonly = null, gamepadDomains = null, gamepadchecklistwhite = null, gamepadchecklistblack = null, autodimsize = null, autodimsizepixelheight = null, autodimsizepixelwidth = null, videofilled = null, mouseshake = null, mouseshakesensitivity = null;
 /* -------------------------------------------------- */
 chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea", "eyealist", "excludedDomains", "nighttime", "begintime", "endtime", "ambilight", "ambilightrangeblurradius", "ambilightrangespreadradius", "ambilightfixcolor", "ambilightvarcolor", "ambilightcolorhex", "ambilight4color", "ambilight1colorhex", "ambilight2colorhex", "ambilight3colorhex", "ambilight4colorhex", "ecosaver", "ecosavertime", "autodimonly", "autodimDomains", "interval", "maxquality", "autowidthyoutube", "customqualityyoutube", "atmosphereonly", "atmosphereDomains", "autodimdelay", "autodimdelaytime", "atmosvivid", "autodimchecklistwhite", "autodimchecklistblack", "eyechecklistwhite", "eyechecklistblack", "no360youtube", "videotool", "reflection", "reflectionamount", "videotoolonly", "videotoolDomains", "videotoolchecklistwhite", "videotoolchecklistblack", "videovolume", "videovolumecolor", "videovolumesteps", "videovolumelabel", "visopacity", "videotoolcolor", "hovervideo", "hovervideoamount", "mouseshake", "mouseshakesensitivity", "mousespotlights", "drawatmosfps", "aplay", "apause", "astop", "videozoom", "playrate", "playrateamount", "speedtoolbar", "atmosontotlmode", "vpause", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumehold", "videovolumealt", "atmosfpsauto", "atmosfpsmanual", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose", "pipvisualtype", "gamepad", "gpleftstick", "gprightstick", "gpbtnx", "gpbtno", "gpbtnsquare", "gpbtntriangle", "gpbtnlb", "gpbtnrb", "gpbtnlt", "gpbtnrt", "gpbtnshare", "gpbtnmenu", "gpbtnrightstick", "gpbtnleftstick", "gpbtndirup", "gpbtndirdown", "gpbtndirleft", "gpbtndirright", "gpbtnlogo", "gamepadonly", "gamepadDomains", "gamepadchecklistwhite", "gamepadchecklistblack", "autodimsize", "autodimsizepixelheight", "autodimsizepixelwidth", "videofilled"], function(items){
 	autodim = items["autodim"];
@@ -256,8 +256,6 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
 	// observeDOM - dynamic check
 	var observeDOM = (function(){
-		var eventListenerSupported = window.addEventListener;
-
 		return function(obj, callback){
 			if(MutationObserver){
 				// define a new observer
@@ -563,7 +561,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 									return;
 								}
 							}else{
-								if(currenturl == domainList[i]){ 
+								if(currenturl == domainList[i]){
 									callback();
 									return;
 								}
@@ -579,11 +577,11 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 						}
 					}
 				}
-				if(checklistBlack == true && blacklisted == false){ 
+				if(checklistBlack == true && blacklisted == false){
 					callback();
 					return;
 				}
-			}else{ 
+			}else{
 				callback();
 				return;
 			}
@@ -989,18 +987,18 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					if(newzoompanel){
 						// Zoom button configurations
 						const zoomButtons = [
-							{ text: "+", accessKey: "i", title: "ctrl+alt+i", action: (v) => camerazoomrotate(v, +0.1, "") },
-							{ text: "-", accessKey: "o", title: "ctrl+alt+o", action: (v) => camerazoomrotate(v, -0.05, "") },
-							{ text: "⇠", accessKey: "l", title: "ctrl+alt+l", action: (v) => zoompaddirection(v, [0, 1, 0, 0]) },
-							{ text: "⇢", accessKey: "r", title: "ctrl+alt+r", action: (v) => zoompaddirection(v, [0, 0, 0, 1]) },
-							{ text: "⇡", accessKey: "u", title: "ctrl+alt+u", action: (v) => zoompaddirection(v, [1, 0, 0, 0]) },
-							{ text: "⇣", accessKey: "d", title: "ctrl+alt+d", action: (v) => zoompaddirection(v, [0, 0, 1, 0]) },
-							{ text: "↻", accessKey: "a", title: "ctrl+alt+a", action: (v) => camerazoomrotate(v, "", +5) },
-							{ text: "↺", accessKey: "q", title: "ctrl+alt+q", action: (v) => camerazoomrotate(v, "", -5) }
+							{text: "+", accessKey: "i", title: "ctrl+alt+i", action: (v) => camerazoomrotate(v, +0.1, "")},
+							{text: "-", accessKey: "o", title: "ctrl+alt+o", action: (v) => camerazoomrotate(v, -0.05, "")},
+							{text: "⇠", accessKey: "l", title: "ctrl+alt+l", action: (v) => zoompaddirection(v, [0, 1, 0, 0])},
+							{text: "⇢", accessKey: "r", title: "ctrl+alt+r", action: (v) => zoompaddirection(v, [0, 0, 0, 1])},
+							{text: "⇡", accessKey: "u", title: "ctrl+alt+u", action: (v) => zoompaddirection(v, [1, 0, 0, 0])},
+							{text: "⇣", accessKey: "d", title: "ctrl+alt+d", action: (v) => zoompaddirection(v, [0, 0, 1, 0])},
+							{text: "↻", accessKey: "a", title: "ctrl+alt+a", action: (v) => camerazoomrotate(v, "", +5)},
+							{text: "↺", accessKey: "q", title: "ctrl+alt+q", action: (v) => camerazoomrotate(v, "", -5)}
 						];
 
 						// Create zoom buttons with hold support
-						zoomButtons.forEach(btn => {
+						zoomButtons.forEach((btn) => {
 							const action = (v) => { initialdrawframezoom(v); btn.action(v); };
 							createVideoButton({
 								text: btn.text,
@@ -1096,24 +1094,24 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 
 					// Speed button configurations
 					const speedButtons = [
-						{ id: "stefanvdspeedN2step", text: "-2", value: 2.0, type: "rewind" },
-						{ id: "stefanvdspeedN15step", text: "-1.5", value: 1.5, type: "rewind" },
-						{ id: "stefanvdspeedN125step", text: "-1.25", value: 1.25, type: "rewind" },
-						{ id: "stefanvdspeedN1step", text: "-1", value: 1.0, type: "rewind" },
-						{ id: "stefanvdspeedN075step", text: "-0.75", value: 0.5, type: "rewind" },
-						{ id: "stefanvdspeedN05step", text: "-0.5", value: 0.5, type: "rewind" },
-						{ id: "stefanvdspeedN025step", text: "-0.25", value: 0.25, type: "rewind" },
-						{ id: "stefanvdspeedP025step", text: "+0.25", value: 0.25, type: "playrate" },
-						{ id: "stefanvdspeedP05step", text: "+0.5", value: 0.5, type: "playrate" },
-						{ id: "stefanvdspeedP075step", text: "+0.75", value: 0.75, type: "playrate" },
-						{ id: "stefanvdspeedP1step", text: "+1", value: 1.0, type: "playrate" },
-						{ id: "stefanvdspeedP125step", text: "+1.25", value: 1.25, type: "playrate" },
-						{ id: "stefanvdspeedP15step", text: "+1.5", value: 1.5, type: "playrate" },
-						{ id: "stefanvdspeedP2step", text: "+2", value: 2.0, type: "playrate" }
+						{id: "stefanvdspeedN2step", text: "-2", value: 2.0, type: "rewind"},
+						{id: "stefanvdspeedN15step", text: "-1.5", value: 1.5, type: "rewind"},
+						{id: "stefanvdspeedN125step", text: "-1.25", value: 1.25, type: "rewind"},
+						{id: "stefanvdspeedN1step", text: "-1", value: 1.0, type: "rewind"},
+						{id: "stefanvdspeedN075step", text: "-0.75", value: 0.5, type: "rewind"},
+						{id: "stefanvdspeedN05step", text: "-0.5", value: 0.5, type: "rewind"},
+						{id: "stefanvdspeedN025step", text: "-0.25", value: 0.25, type: "rewind"},
+						{id: "stefanvdspeedP025step", text: "+0.25", value: 0.25, type: "playrate"},
+						{id: "stefanvdspeedP05step", text: "+0.5", value: 0.5, type: "playrate"},
+						{id: "stefanvdspeedP075step", text: "+0.75", value: 0.75, type: "playrate"},
+						{id: "stefanvdspeedP1step", text: "+1", value: 1.0, type: "playrate"},
+						{id: "stefanvdspeedP125step", text: "+1.25", value: 1.25, type: "playrate"},
+						{id: "stefanvdspeedP15step", text: "+1.5", value: 1.5, type: "playrate"},
+						{id: "stefanvdspeedP2step", text: "+2", value: 2.0, type: "playrate"}
 					];
 
 					// Create speed buttons
-					speedButtons.forEach(btn => {
+					speedButtons.forEach((btn) => {
 						createVideoButton({
 							id: btn.id + i,
 							text: btn.text,
@@ -1248,18 +1246,18 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 
 							if(onevideo){
 								const filterConfigs = [
-									{ type: "grayscale", range: ["0.1", "0", "1", "1"], value: "1", i18n: i18ntitelvideotoolgrayscale },
-									{ type: "sepia", range: ["0.1", "0", "1", "1"], value: "1", i18n: i18ntitelvideotoolsepia },
-									{ type: "invert", range: ["0.1", "0", "1", "1"], value: "1", i18n: i18ntitelvideotoolinvert },
-									{ type: "contrast", range: ["0.1", "0", "10", "10"], value: "10", i18n: i18ntitelvideotoolcontrast },
-									{ type: "saturate", range: ["0.1", "0", "10", "10"], value: "10", i18n: i18ntitelvideotoolsaturate },
-									{ type: "hue-rotate", range: ["30", "0", "360", "90"], value: "90deg", i18n: i18ntitelvideotoolhueroration },
-									{ type: "brightness", range: ["0.1", "0", "10", "0.5"], value: "1.5", i18n: i18ntitelvideotoolbrightness },
-									{ type: "normal", range: ["0.1", "0", "10", "1"], value: "", i18n: i18ntitelvideotoolnormal, reset: true }
+									{type: "grayscale", range: ["0.1", "0", "1", "1"], value: "1", i18n: i18ntitelvideotoolgrayscale},
+									{type: "sepia", range: ["0.1", "0", "1", "1"], value: "1", i18n: i18ntitelvideotoolsepia},
+									{type: "invert", range: ["0.1", "0", "1", "1"], value: "1", i18n: i18ntitelvideotoolinvert},
+									{type: "contrast", range: ["0.1", "0", "10", "10"], value: "10", i18n: i18ntitelvideotoolcontrast},
+									{type: "saturate", range: ["0.1", "0", "10", "10"], value: "10", i18n: i18ntitelvideotoolsaturate},
+									{type: "hue-rotate", range: ["30", "0", "360", "90"], value: "90deg", i18n: i18ntitelvideotoolhueroration},
+									{type: "brightness", range: ["0.1", "0", "10", "0.5"], value: "1.5", i18n: i18ntitelvideotoolbrightness},
+									{type: "normal", range: ["0.1", "0", "10", "1"], value: "", i18n: i18ntitelvideotoolnormal, reset: true}
 								];
 
 								const config = filterConfigs[currentvideostepfilter];
-								if(config) {
+								if(config){
 									filtertype = config.type;
 									settoolbarrange(getstefanvdvideotoolrange, config.range, config.reset || false);
 									onevideo.style.webkitFilter = config.type === "normal" ? "" : `${config.type}(${config.value})`;
@@ -1899,7 +1897,7 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	var mouseShakeTimeWindow = 500; // Time window in ms to detect shake
 
 	var detectMouseShake = function(e){
-		if(!mouseshake) return;
+		if(!mouseshake)return;
 
 		var mouseX = e.clientX;
 		var now = Date.now();
@@ -1944,12 +1942,6 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 		lastMouseX = mouseX;
 	};
 
-	// Initialize mouse shake detection when script loads
-	function initMouseShake(){
-		if(mouseshake == true){
-			window.addEventListener("mousemove", detectMouseShake);
-		}
-	}
 	//--
 	var ecothreadkey;
 	function keymouseStopped(){
@@ -2325,7 +2317,10 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 					setatmosplayer(totlshowtime, [textcountC, textcountB, textcountA], [hex1, hex2, hex3, hex4]);
 				}
 			}
-		}catch(e){ rundefault(); }
+		}catch(e){
+			console.log(e);
+			rundefault();
+		}
 	}
 
 	// if catch error in URL

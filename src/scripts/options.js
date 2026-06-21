@@ -199,7 +199,7 @@ function defaultgetsettings(){
 		if(items["drawatmosfps"] == null){ firstdefaultvalues["drawatmosfps"] = 12; }
 
 		if(items["hovervideoamount"] == null){ firstdefaultvalues["hovervideoamount"] = 3; }
-		
+
 		if(items["mouseshake"] == null){ firstdefaultvalues["mouseshake"] = false; }
 		if(items["mouseshakesensitivity"] == null){ firstdefaultvalues["mouseshakesensitivity"] = 4; }
 
@@ -1416,6 +1416,7 @@ function test(){
 			$("brotheme").style.display = "none";
 		}
 	}catch(e){
+		console.log(e);
 		$("brotheme").style.display = "none";
 	}
 }
@@ -3677,22 +3678,21 @@ function domcontentloaded(){
 		document.getElementById("appsearch").placeholder = chrome.i18n.getMessage("searchplaceholder");
 	}
 
-// Clear all timers on page unload to prevent memory leaks
-window.addEventListener("beforeunload", function(){
-	// Clear triangle animation timer
-	if(refreshTimeout){
-		window.clearTimeout(refreshTimeout);
-		refreshTimeout = null;
-	}
-	// Clear fish and jellyfish animation timers
-	if(fishinterval){
-		window.clearInterval(fishinterval);
-		fishinterval = null;
-	}
-	if(jellyinterval){
-		window.clearInterval(jellyinterval);
-		jellyinterval = null;
-	}
-});
-
+	// Clear all timers on page unload to prevent memory leaks
+	window.addEventListener("beforeunload", function(){
+		// Clear triangle animation timer
+		if(refreshTimeout){
+			window.clearTimeout(refreshTimeout);
+			refreshTimeout = null;
+		}
+		// Clear fish and jellyfish animation timers
+		if(fishinterval){
+			window.clearInterval(fishinterval);
+			fishinterval = null;
+		}
+		if(jellyinterval){
+			window.clearInterval(jellyinterval);
+			jellyinterval = null;
+		}
+	});
 }

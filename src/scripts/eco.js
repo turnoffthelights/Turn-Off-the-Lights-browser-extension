@@ -85,8 +85,7 @@ chrome.storage.sync.get(["analytics", "siteengagement", "seeanalytics"], functio
 
 // observeDOM - dynamic check
 var observeDOM = (function(){
-	var MutationObserver = window.MutationObserver || window.WebKitMutationObserver,
-		eventListenerSupported = window.addEventListener;
+	var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
 	return function(obj, callback){
 		if(MutationObserver){
@@ -137,7 +136,7 @@ function endlayer(){
 			}
 		});
 	}catch(e){
-		// console.log(e);
+		console.log(e);
 	}
 }
 
@@ -171,7 +170,7 @@ observeDOM(document.body, function(){
 					}
 				});
 			}catch(e){
-				// console.log(e);
+				console.log(e);
 			}
 		}
 		in_dom = true;

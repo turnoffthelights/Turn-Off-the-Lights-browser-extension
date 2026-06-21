@@ -183,7 +183,6 @@ chrome.runtime.onMessage.addListener(function request(request, sender, sendRespo
 			sendResponse(permissions.permissions);
 		});
 		return true;
-		break;
 	}
 });
 
@@ -632,6 +631,7 @@ function browsercontext(a, b, c, d){
 		// Firefox, Opera, Microsoft Edge
 		return chrome.contextMenus.create(newitem);
 	}catch(e){
+		console.log(e);
 		// catch web browsers that do NOT show the icon
 		// Google Chrome
 		return chrome.contextMenus.create(item);
@@ -833,7 +833,7 @@ chrome.storage.onChanged.addListener(function(changes){
 		onchangestorage(changes, "pageautodim", checkpageautodim, removepageautodim);
 		onchangestorage(changes, "pageautostop", checkpageautostop, removepageautostop);
 		onchangestorage(changes, "pagenightmode", checkpagenightmode, removepagenightmode);
-		
+
 		// Handle autostop content script registration
 		if(changes["autostop"]){
 			if(changes["autostop"].newValue === true){
@@ -842,7 +842,7 @@ chrome.storage.onChanged.addListener(function(changes){
 				unregisterContentScript(SCRIPT_IDS.autostop);
 			}
 		}
-		
+
 		// Handle block60fps content script registration
 		if(changes["block60fps"]){
 			if(changes["block60fps"].newValue === true){
@@ -941,7 +941,7 @@ chrome.storage.onChanged.addListener(function(changes){
 		if(changes["block60fps"]){
 			manageContentScript("block60fps", CONTENT_SCRIPTS.fps);
 		}
-		
+
 		var changenameshake = ["mouseshake", "mouseshakesensitivity"];
 		if(changenameshake.includes(key)){
 			chromerefreshalltabs("gorefreshmouseshake");
