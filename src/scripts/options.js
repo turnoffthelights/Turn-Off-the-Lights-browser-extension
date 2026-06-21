@@ -2107,7 +2107,7 @@ function animateFish(fish, index){
 	fish.style.top = positionY + "px";
 	fish.style.left = positionX + "px";
 
-	window.setInterval(() => {
+	fishinterval = window.setInterval(() => {
 		positionX += speed * direction;
 
 		// Flip direction at the edges and apply rotation
@@ -2136,7 +2136,7 @@ function animateJellyfish(jellyfish){
 	jellyfish.style.left = initialX + "px";
 	jellyfish.style.top = jellyPositionY + "px";
 
-	window.setInterval(() => {
+	jellyinterval = window.setInterval(() => {
 		// Move vertically up or down
 		jellyPositionY += jellySpeed * jellyDirection;
 
@@ -3676,5 +3676,23 @@ function domcontentloaded(){
 		document.getElementById("btnsearchicon").addEventListener("input", function(){ OnSearch(this); }, false);
 		document.getElementById("appsearch").placeholder = chrome.i18n.getMessage("searchplaceholder");
 	}
+
+// Clear all timers on page unload to prevent memory leaks
+window.addEventListener("beforeunload", function(){
+	// Clear triangle animation timer
+	if(refreshTimeout){
+		window.clearTimeout(refreshTimeout);
+		refreshTimeout = null;
+	}
+	// Clear fish and jellyfish animation timers
+	if(fishinterval){
+		window.clearInterval(fishinterval);
+		fishinterval = null;
+	}
+	if(jellyinterval){
+		window.clearInterval(jellyinterval);
+		jellyinterval = null;
+	}
+});
 
 }

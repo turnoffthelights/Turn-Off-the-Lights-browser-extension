@@ -198,3 +198,11 @@ document.addEventListener("visibilitychange", function(){
 		}
 	}
 });
+
+// Clear interval on page unload to prevent memory leaks
+window.addEventListener("beforeunload", function(){
+	if(refreshIntervalId){
+		window.clearInterval(refreshIntervalId);
+		refreshIntervalId = null;
+	}
+});
