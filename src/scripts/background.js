@@ -40,16 +40,18 @@ chrome.runtime.onMessage.addListener(async function request(request, sender, sen
 	case"bckreload":
 		installation();
 		break;
-	case"redirectionoptions":
-		const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+	case"redirectionoptions": {
+		const[tab] = await chrome.tabs.query({active: true, currentWindow: true});
 		await chrome.tabs.remove(tab.id);
 		await chrome.runtime.openOptionsPage();
 		break;
-	case"redirectionoptionsnewtab":
-		const tabs = await chrome.tabs.query({active:true, currentWindow:true});
+	}
+	case"redirectionoptionsnewtab": {
+		await chrome.tabs.query({active:true, currentWindow:true});
 		var optionsnewtab = chrome.runtime.getURL("options.html?tab=" + request.value);
 		chrome.tabs.create({url: optionsnewtab, active:true});
 		break;
+	}
 	case"automatic":
 		chrome.scripting.executeScript({
 			target: {tabId: sender.tab.id},
@@ -73,7 +75,7 @@ chrome.runtime.onMessage.addListener(async function request(request, sender, sen
 	case"senddynamiccss":
 		restcontent("/styles/dynamic.css", "injectdynamiccss", sender.tab.id);
 		break;
-	case"emergencyalf":
+	case"emergencyalf": {
 		const allTabs = await chrome.tabs.query({});
 		for(const tab of allTabs){
 			chrome.scripting.executeScript({
@@ -82,6 +84,7 @@ chrome.runtime.onMessage.addListener(async function request(request, sender, sen
 			});
 		}
 		break;
+	}
 	case"eyesaveme":
 		if(request.value == true){ chrome.storage.sync.set({"eyea": true, "eyen": false}); chromerefreshalltabs("gorefresheyedark"); }else{ chrome.storage.sync.set({"eyea": false, "eyen": true}); chromerefreshalltabs("gorefresheyelight"); }
 		break;
@@ -169,10 +172,11 @@ chrome.runtime.onMessage.addListener(async function request(request, sender, sen
 		chrome.storage.sync.set({"screenshader": false});
 		chromerefreshalltabs("goclearscreenshader");
 		break;
-	case"getallpermissions":
+	case"getallpermissions": {
 		const permissions = await chrome.permissions.getAll();
 		sendResponse(permissions.permissions);
 		return true;
+	}
 	}
 });
 

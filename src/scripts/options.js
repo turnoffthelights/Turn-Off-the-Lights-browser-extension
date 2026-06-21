@@ -1416,7 +1416,7 @@ function test(){
 			$("brotheme").style.display = "none";
 		}
 	}catch(e){
-		// console.log(e);
+		console.log(e);
 		$("brotheme").style.display = "none";
 	}
 }
@@ -2220,31 +2220,31 @@ function displayPermissions(perm){
 	// Ensure perm is an array before iterating
 	if(Array.isArray(perm)){
 		perm.forEach(function(x){
-		if($("permissionlist")){
-			if($("permullist") == null){
-				var newpermtitle = document.createElement("h4");
-				newpermtitle.textContent = chrome.i18n.getMessage("permissionrequired");
-				$("permissionlist").appendChild(newpermtitle);
+			if($("permissionlist")){
+				if($("permullist") == null){
+					var newpermtitle = document.createElement("h4");
+					newpermtitle.textContent = chrome.i18n.getMessage("permissionrequired");
+					$("permissionlist").appendChild(newpermtitle);
 
-				var newpermul = document.createElement("ul");
-				newpermul.setAttribute("id", "permullist");
-				$("permissionlist").appendChild(newpermul);
+					var newpermul = document.createElement("ul");
+					newpermul.setAttribute("id", "permullist");
+					$("permissionlist").appendChild(newpermul);
+				}
+
+				var newperm = document.createElement("li");
+				$("permullist").appendChild(newperm);
+
+				var newpermspan = document.createElement("span");
+				newpermspan.textContent = x + ": ";
+				newperm.appendChild(newpermspan);
+
+				var textperm = "";
+				var newpermspandes = document.createElement("span");
+				if(x == "activeTab"){ textperm = chrome.i18n.getMessage("permissionactivetab"); }else if(x == "contextMenus"){ textperm = chrome.i18n.getMessage("permissioncontextmenu"); }else if(x == "storage"){ textperm = chrome.i18n.getMessage("permissionstorage"); }else if(x == "tabs"){ textperm = chrome.i18n.getMessage("permissiontabs"); }else if(x == "theme"){ textperm = chrome.i18n.getMessage("permissiontheme"); }else if(x == "<all_urls>"){ textperm = chrome.i18n.getMessage("permissionallurl"); }else if(x == "webNavigation"){ textperm = chrome.i18n.getMessage("permissionwebnav"); }else if(x == "scripting"){ textperm = chrome.i18n.getMessage("permissionscripting"); }else if(x == "alarms"){ textperm = chrome.i18n.getMessage("permissionalarms"); }
+				newpermspandes.textContent = textperm;
+				newpermspandes.className = "item";
+				newperm.appendChild(newpermspandes);
 			}
-
-			var newperm = document.createElement("li");
-			$("permullist").appendChild(newperm);
-
-			var newpermspan = document.createElement("span");
-			newpermspan.textContent = x + ": ";
-			newperm.appendChild(newpermspan);
-
-			var textperm = "";
-			var newpermspandes = document.createElement("span");
-			if(x == "activeTab"){ textperm = chrome.i18n.getMessage("permissionactivetab"); }else if(x == "contextMenus"){ textperm = chrome.i18n.getMessage("permissioncontextmenu"); }else if(x == "storage"){ textperm = chrome.i18n.getMessage("permissionstorage"); }else if(x == "tabs"){ textperm = chrome.i18n.getMessage("permissiontabs"); }else if(x == "theme"){ textperm = chrome.i18n.getMessage("permissiontheme"); }else if(x == "<all_urls>"){ textperm = chrome.i18n.getMessage("permissionallurl"); }else if(x == "webNavigation"){ textperm = chrome.i18n.getMessage("permissionwebnav"); }else if(x == "scripting"){ textperm = chrome.i18n.getMessage("permissionscripting"); }else if(x == "alarms"){ textperm = chrome.i18n.getMessage("permissionalarms"); }
-			newpermspandes.textContent = textperm;
-			newpermspandes.className = "item";
-			newperm.appendChild(newpermspandes);
-		}
 		});
 	}
 }
