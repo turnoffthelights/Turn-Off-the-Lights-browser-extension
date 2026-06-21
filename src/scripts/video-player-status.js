@@ -69,10 +69,6 @@ var totlCinema;
 				childList: true, // include childNode insertion/removals
 				attributes: true // include changes to attributes within the subtree
 			});
-		}else{
-			// Fallback for older browsers
-			document.addEventListener("DOMNodeRemoved", totlCinema.initvideoinject, false);
-			document.addEventListener("DOMNodeInserted", totlCinema.initvideoinject, false);
 		}
 	},
 	initvideoinject: function(){
