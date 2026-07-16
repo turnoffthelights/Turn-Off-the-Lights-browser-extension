@@ -30,77 +30,90 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 // Helper function to get element by ID
 function $(id){ return document.getElementById(id); }
 
-chrome.storage.sync.get(["reflection", "reflectionamount"], function(response){
-	var reflection = response["reflection"];
-	var reflectionamount = response["reflectionamount"];
+// Global variables
+var reflection = null;
+var reflectionamount = null;
+var startreflection = null;
 
-	var startreflection;
-
-	function drawReflection(reflectionid){
-		var calcreflection = (100 - reflectionamount) / 100;
-		try{
-			if(reflectionid.paused || reflectionid.ended){
-				if(window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
-					// var youtubewindow = $("watch-player") || $("watch7-player") || $("player-api");
-					let youtubewindow = $("ytd-player");
-					youtubewindow.style.webkitBoxReflect = "";
-				}else{
-					reflectionid.style.webkitBoxReflect = "";
-				}
-				return false;
-			}
-		}catch(e){ console.log(e); }
-
-		try{
+function drawReflection(reflectionid){
+	var calcreflection = (100 - reflectionamount) / 100;
+	try{
+		if(reflectionid.paused || reflectionid.ended){
 			if(window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
 				// var youtubewindow = $("watch-player") || $("watch7-player") || $("player-api");
 				let youtubewindow = $("ytd-player");
-				youtubewindow.style.webkitBoxReflect = "below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(black),color-stop(" + calcreflection + ", transparent))";
+				youtubewindow.style.webkitBoxReflect = "";
 			}else{
-				reflectionid.style.webkitBoxReflect = "below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(black),color-stop(" + calcreflection + ", transparent))";
+				reflectionid.style.webkitBoxReflect = "";
 			}
-		}catch(e){ console.log(e); }
-	}
-
-	function runreflectioncheck(){
-		if(reflection == true){
-			startreflection = window.setInterval(function(){
-				try{
-					var reflectionplayer = document.getElementsByTagName("video") || null;
-					var reflectionid = null;
-					var refk;
-					var l = reflectionplayer.length;
-					for(refk = 0; refk < l; refk++){
-						if(reflectionplayer[refk].play){ reflectionid = reflectionplayer[refk]; drawReflection(reflectionid); }
-					}
-				}catch(e){ console.log(e); }
-			}, 20); // 20 refreshing it
+			return false;
 		}
-	}
+	}catch(e){ console.log(e); }
 
-	// Start reflection check on load
-	runreflectioncheck();
+	try{
+		if(window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
+			// var youtubewindow = $("watch-player") || $("watch7-player") || $("player-api");
+			let youtubewindow = $("ytd-player");
+			youtubewindow.style.webkitBoxReflect = "below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(black),color-stop(" + calcreflection + ", transparent))";
+		}else{
+			reflectionid.style.webkitBoxReflect = "below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(black),color-stop(" + calcreflection + ", transparent))";
+		}
+	}catch(e){ console.log(e); }
+}
 
-	// Listen for settings changes from options page
-	chrome.runtime.onMessage.addListener(function(request){
-		if(request.action === "gorefreshreflection"){
-			chrome.storage.sync.get(["reflection", "reflectionamount"], function(items){
-				reflection = items["reflection"];
-				reflectionamount = items["reflectionamount"];
-
-				window.clearInterval(startreflection);
-
+function runreflectioncheck(){
+	if(reflection == true){
+		startreflection = window.setInterval(function(){
+			try{
 				var reflectionplayer = document.getElementsByTagName("video") || null;
+				var reflectionid = null;
 				var refk;
 				var l = reflectionplayer.length;
 				for(refk = 0; refk < l; refk++){
-					reflectionplayer[refk].style.webkitBoxReflect = "";
+					if(reflectionplayer[refk].play){ reflectionid = reflectionplayer[refk]; drawReflection(reflectionid); }
 				}
+			}catch(e){ console.log(e); }
+		}, 20); // 20 refreshing it
+	}
+}
 
-				if(reflection == true){
-					runreflectioncheck();
-				}
-			});
+function stopreflectioncheck(){
+	window.clearInterval(startreflection);
+	// Clear reflection from video elements
+	var reflectionplayer = document.getElementsByTagName("video") || null;
+	var refk;
+	var l = reflectionplayer.length;
+	for(refk = 0; refk < l; refk++){
+		reflectionplayer[refk].style.webkitBoxReflect = "";
+	}
+	// Clear reflection from YouTube player container
+	if(window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
+		let youtubewindow = $("ytd-player");
+		if(youtubewindow){
+			youtubewindow.style.webkitBoxReflect = "";
 		}
-	});
+	}
+}
+
+// Listen for settings changes from options page (register immediately)
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+	if(request.action === "gorefreshreflection"){
+		chrome.storage.sync.get(["reflection", "reflectionamount"], function(items){
+			reflection = items["reflection"];
+			reflectionamount = items["reflectionamount"];
+
+			stopreflectioncheck();
+
+			if(reflection == true){
+				runreflectioncheck();
+			}
+		});
+	}
+});
+
+// Load settings and start
+chrome.storage.sync.get(["reflection", "reflectionamount"], function(response){
+	reflection = response["reflection"];
+	reflectionamount = response["reflectionamount"];
+	runreflectioncheck();
 });

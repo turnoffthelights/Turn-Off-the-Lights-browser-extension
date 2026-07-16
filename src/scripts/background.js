@@ -860,6 +860,8 @@ chrome.storage.onChanged.addListener(async function(changes){
 				}
 			}else{
 				unregisterContentScript(SCRIPT_IDS.reflection);
+				// Stop reflection in existing tabs
+				chromerefreshalltabs("gorefreshreflection");
 			}
 		}
 
