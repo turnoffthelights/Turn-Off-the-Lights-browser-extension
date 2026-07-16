@@ -225,7 +225,8 @@ const injectScriptsTo = (tabId, url) => {
 // Constants for script IDs
 const SCRIPT_IDS = {
 	autostop: "autostopScript",
-	fps: "fpsScript"
+	fps: "fpsScript",
+	reflection: "reflectionScript"
 };
 
 // Configuration for content scripts
@@ -244,6 +245,14 @@ const CONTENT_SCRIPTS = {
 		matches: ["*://*.youtube.com/*"],
 		runAt: "document_start",
 		allFrames: true
+	},
+	reflection: {
+		id: SCRIPT_IDS.reflection,
+		js: ["scripts/reflection.js"],
+		matches: ["<all_urls>"],
+		runAt: "document_start",
+		allFrames: true,
+		matchOriginAsFallback: true
 	}
 };
 
@@ -287,6 +296,7 @@ async function manageContentScript(settingKey, scriptConfig){
 // check and apply settings for each script
 manageContentScript("autostop", CONTENT_SCRIPTS.autostop);
 manageContentScript("block60fps", CONTENT_SCRIPTS.fps);
+manageContentScript("reflection", CONTENT_SCRIPTS.reflection);
 //---
 
 async function restcontent(path, name, sendertab){
@@ -827,6 +837,29 @@ chrome.storage.onChanged.addListener(async function(changes){
 				manageContentScript("autostop", CONTENT_SCRIPTS.autostop);
 			}else{
 				unregisterContentScript(SCRIPT_IDS.autostop);
+			}
+		}
+
+		// Handle reflection content script registration
+		if(changes["reflection"]){
+			if(changes["reflection"].newValue === true){
+				manageContentScript("reflection", CONTENT_SCRIPTS.reflection);
+				// Inject script into existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.startsWith("http://") || tab.url.startsWith("https://"))){
+						try{
+							await chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/reflection.js"]
+							});
+						}catch(error){
+							// Ignore errors for tabs where script can't be injected
+						}
+					}
+				}
+			}else{
+				unregisterContentScript(SCRIPT_IDS.reflection);
 			}
 		}
 
