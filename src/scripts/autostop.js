@@ -425,6 +425,7 @@ chrome.storage.sync.get(["autostop", "autostoponly", "autostopDomains", "autosto
 	if(autostop == true){
 		if(autostoponly == true){
 			var currenturl = window.location.protocol + "//" + window.location.host;
+			var currentfullurl = window.location.href;
 			var stoprabbit = false;
 			if(typeof autostopDomains == "string"){
 				autostopDomains = JSON.parse(autostopDomains);
@@ -435,9 +436,22 @@ chrome.storage.sync.get(["autostop", "autostoponly", "autostopDomains", "autosto
 				var i, l = atbuf.length;
 				for(i = 0; i < l; i++){
 					if(autostopchecklistwhite == true){
-						if(currenturl == atbuf[i]){ safeAutostopStart(); }
+						if(atbuf[i].includes("*")){
+							if(window.checkregdomaininside(atbuf[i], currentfullurl) == true){
+								safeAutostopStart();
+								return;
+							}
+						}else{
+							if(currenturl == atbuf[i]){ safeAutostopStart(); }
+						}
 					}else if(autostopchecklistblack == true){
-						if(currenturl == atbuf[i]){ stoprabbit = true; }
+						if(atbuf[i].includes("*")){
+							if(window.checkregdomaininside(atbuf[i], currentfullurl) == true){
+								stoprabbit = true;
+							}
+						}else{
+							if(currenturl == atbuf[i]){ stoprabbit = true; }
+						}
 					}
 				}
 			}
