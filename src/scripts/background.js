@@ -226,7 +226,8 @@ const injectScriptsTo = (tabId, url) => {
 const SCRIPT_IDS = {
 	autostop: "autostopScript",
 	fps: "fpsScript",
-	reflection: "reflectionScript"
+	reflection: "reflectionScript",
+	autodim: "autodimScript"
 };
 
 // Configuration for content scripts
@@ -250,9 +251,13 @@ const CONTENT_SCRIPTS = {
 		id: SCRIPT_IDS.reflection,
 		js: ["scripts/reflection.js"],
 		matches: ["<all_urls>"],
-		runAt: "document_start",
-		allFrames: true,
-		matchOriginAsFallback: true
+		runAt: "document_end"
+	},
+	autodim: {
+		id: SCRIPT_IDS.autodim,
+		js: ["scripts/autodim.js"],
+		matches: ["<all_urls>"],
+		runAt: "document_end"
 	}
 };
 
@@ -862,6 +867,31 @@ chrome.storage.onChanged.addListener(async function(changes){
 				unregisterContentScript(SCRIPT_IDS.reflection);
 				// Stop reflection in existing tabs
 				chromerefreshalltabs("gorefreshreflection");
+			}
+		}
+
+		// Handle autodim content script registration
+		if(changes["autodim"]){
+			if(changes["autodim"].newValue === true){
+				manageContentScript("autodim", CONTENT_SCRIPTS.autodim);
+				// Inject script into existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.startsWith("http://") || tab.url.startsWith("https://"))){
+						try{
+							await chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/content.js", "scripts/autodim.js"]
+							});
+						}catch(error){
+							// Ignore errors for tabs where script can't be injected
+						}
+					}
+				}
+			}else{
+				unregisterContentScript(SCRIPT_IDS.autodim);
+				// Stop autodim in existing tabs
+				chromerefreshalltabs("gorefreshautodim");
 			}
 		}
 
