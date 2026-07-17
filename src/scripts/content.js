@@ -96,7 +96,6 @@ document.addEventListener("click", function(event){
 	const anchor = event.target.closest("a[href^=\"turnoffthelights://\"]");
 	if(anchor){
 		event.preventDefault();
-
 		try{
 			const url = new URL(anchor.href);
 			const action = url.searchParams.get("action");
@@ -133,9 +132,9 @@ document.addEventListener("click", function(event){
 });
 
 // settings
-var eastereggs = null, shortcutlight = null, eyen = null, eyea = null, eyealist = null, excludedDomains = null, nighttime = null, begintime = null, endtime = null, ecosaver = null, ecosavertime = null, interval = null, autowidthyoutube = null, customqualityyoutube = null, maxquality = null, eyechecklistwhite = null, eyechecklistblack = null, no360youtube = null, videotool = null, videotoolonly = null, videotoolDomains = null, videotoolchecklistwhite = null, videotoolchecklistblack = null, videovolume = null, videovolumecolor = null, videovolumesteps = null, videovolumelabel = null, visopacity = null, videotoolcolor = null, hovervideo = null, hovervideoamount = null, mouseshake = null, mouseshakesensitivity = null, videozoom = null, playrate = null, playrateamount = null, speedtoolbar = null, videovolumeposa = null, videovolumeposb = null, videovolumeposc = null, videovolumehold = null, videovolumealt = null, videovolumeonly = null, videovolumeDomains = null, videovolumechecklistwhite = null, videovolumechecklistblack = null, videovolumescrolla = null, videovolumescrollb = null, videovolumescrollc = null, videovolumeposd = null, videovolumepose = null, pipvisualtype = null, gamepad = null, gpleftstick = null, gprightstick = null, gpbtnx = null, gpbtno = null, gpbtnsquare = null, gpbtntriangle = null, gpbtnlb = null, gpbtnrb = null, gpbtnlt = null, gpbtnrt = null, gpbtnshare = null, gpbtnmenu = null, gpbtnrightstick = null, gpbtnleftstick = null, gpbtndirup = null, gpbtndirdown = null, gpbtndirleft = null, gpbtndirright = null, gpbtnlogo = null, gamepadonly = null, gamepadDomains = null, gamepadchecklistwhite = null, gamepadchecklistblack = null, videofilled = null;
+var eastereggs = null, shortcutlight = null, eyen = null, eyea = null, eyealist = null, excludedDomains = null, nighttime = null, begintime = null, endtime = null, ecosaver = null, ecosavertime = null, interval = null, autowidthyoutube = null, customqualityyoutube = null, maxquality = null, eyechecklistwhite = null, eyechecklistblack = null, no360youtube = null, videotool = null, videotoolonly = null, videotoolDomains = null, videotoolchecklistwhite = null, videotoolchecklistblack = null, videovolume = null, videovolumecolor = null, videovolumesteps = null, videovolumelabel = null, visopacity = null, videotoolcolor = null, hovervideo = null, hovervideoamount = null, mouseshake = null, mouseshakesensitivity = null, videozoom = null, playrate = null, playrateamount = null, speedtoolbar = null, videovolumeposa = null, videovolumeposb = null, videovolumeposc = null, videovolumehold = null, videovolumealt = null, videovolumeonly = null, videovolumeDomains = null, videovolumechecklistwhite = null, videovolumechecklistblack = null, videovolumescrolla = null, videovolumescrollb = null, videovolumescrollc = null, videovolumeposd = null, videovolumepose = null, pipvisualtype = null, gamepad = null, videofilled = null;
 /* -------------------------------------------------- */
-chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealist", "excludedDomains", "nighttime", "begintime", "endtime", "ecosaver", "ecosavertime", "interval", "maxquality", "autowidthyoutube", "customqualityyoutube", "eyechecklistwhite", "eyechecklistblack", "no360youtube", "videotool", "videotoolonly", "videotoolDomains", "videotoolchecklistwhite", "videotoolchecklistblack", "videovolume", "videovolumecolor", "videovolumesteps", "videovolumelabel", "visopacity", "videotoolcolor", "hovervideo", "hovervideoamount", "mouseshake", "mouseshakesensitivity", "videozoom", "playrate", "playrateamount", "speedtoolbar", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumehold", "videovolumealt", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose", "pipvisualtype", "gamepad", "gpleftstick", "gprightstick", "gpbtnx", "gpbtno", "gpbtnsquare", "gpbtntriangle", "gpbtnlb", "gpbtnrb", "gpbtnlt", "gpbtnrt", "gpbtnshare", "gpbtnmenu", "gpbtnrightstick", "gpbtnleftstick", "gpbtndirup", "gpbtndirdown", "gpbtndirleft", "gpbtndirright", "gpbtnlogo", "gamepadonly", "gamepadDomains", "gamepadchecklistwhite", "gamepadchecklistblack", "videofilled"], function(items){
+chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealist", "excludedDomains", "nighttime", "begintime", "endtime", "ecosaver", "ecosavertime", "interval", "maxquality", "autowidthyoutube", "customqualityyoutube", "eyechecklistwhite", "eyechecklistblack", "no360youtube", "videotool", "videotoolonly", "videotoolDomains", "videotoolchecklistwhite", "videotoolchecklistblack", "videovolume", "videovolumecolor", "videovolumesteps", "videovolumelabel", "visopacity", "videotoolcolor", "hovervideo", "hovervideoamount", "mouseshake", "mouseshakesensitivity", "videozoom", "playrate", "playrateamount", "speedtoolbar", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumehold", "videovolumealt", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose", "pipvisualtype", "gamepad", "videofilled"], function(items){
 	eastereggs = items["eastereggs"];
 	shortcutlight = items["shortcutlight"];
 	eyen = items["eyen"];
@@ -187,29 +186,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	videovolumepose = items["videovolumepose"];
 	pipvisualtype = items["pipvisualtype"]; if(pipvisualtype == null)pipvisualtype = 1;
 	gamepad = items["gamepad"];
-	gpleftstick = items["gpleftstick"]; if(gpleftstick == null)gpleftstick = 0;
-	gprightstick = items["gprightstick"]; if(gprightstick == null)gprightstick = 1;
-	gpbtnx = items["gpbtnx"]; if(gpbtnx == null)gpbtnx = 0;
-	gpbtno = items["gpbtno"]; if(gpbtno == null)gpbtno = 1;
-	gpbtnsquare = items["gpbtnsquare"]; if(gpbtnsquare == null)gpbtnsquare = 2;
-	gpbtntriangle = items["gpbtntriangle"]; if(gpbtntriangle == null)gpbtntriangle = 3;
-	gpbtnlb = items["gpbtnlb"]; if(gpbtnlb == null)gpbtnlb = 4;
-	gpbtnrb = items["gpbtnrb"]; if(gpbtnrb == null)gpbtnrb = 5;
-	gpbtnlt = items["gpbtnlt"]; if(gpbtnlt == null)gpbtnlt = 6;
-	gpbtnrt = items["gpbtnrt"]; if(gpbtnrt == null)gpbtnrt = 7;
-	gpbtnshare = items["gpbtnshare"]; if(gpbtnshare == null)gpbtnshare = 8;
-	gpbtnmenu = items["gpbtnmenu"]; if(gpbtnmenu == null)gpbtnmenu = 9;
-	gpbtnrightstick = items["gpbtnrightstick"]; if(gpbtnrightstick == null)gpbtnrightstick = 10;
-	gpbtnleftstick = items["gpbtnleftstick"]; if(gpbtnleftstick == null)gpbtnleftstick = 10;
-	gpbtndirup = items["gpbtndirup"]; if(gpbtndirup == null)gpbtndirup = 11;
-	gpbtndirdown = items["gpbtndirdown"]; if(gpbtndirdown == null)gpbtndirdown = 12;
-	gpbtndirleft = items["gpbtndirleft"]; if(gpbtndirleft == null)gpbtndirleft = 13;
-	gpbtndirright = items["gpbtndirright"]; if(gpbtndirright == null)gpbtndirright = 14;
-	gpbtnlogo = items["gpbtnlogo"]; if(gpbtnlogo == null)gpbtnlogo = 15;
-	gamepadonly = items["gamepadonly"];
-	gamepadDomains = items["gamepadDomains"];
-	gamepadchecklistwhite = items["gamepadchecklistwhite"];
-	gamepadchecklistblack = items["gamepadchecklistblack"];
 	videofilled = items["videofilled"];
 	mouseshake = items["mouseshake"]; if(mouseshake == null)mouseshake = false;
 	mouseshakesensitivity = items["mouseshakesensitivity"]; if(mouseshakesensitivity == null)mouseshakesensitivity = 4;
@@ -375,8 +351,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	}, false);
 
 	window.addEventListener("keypress", function(e){
-		// press the key t
-		if(e.key == "t"){
+		if(e.key == "t"){ // press the key t
 			gogotheater();
 		}
 	}, false);
@@ -2210,11 +2185,9 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			// Observe a specific DOM element
 			// New Mutation Summary API Reference
 			if(MutationObserver){
-				// setup MutationSummary observer
 				var videolist = document.body;
 				observervideovolume = new MutationObserver(function(mutations){
 					mutations.forEach(function(mutation){
-
 						if(mutation.target.tagName == "VIDEO"){
 							if(mutation.attributeName === "src" && mutation.target.currentSrc != ""){
 								if(videovolume == true || videovolumehold == true || gamepad == true){
@@ -2251,7 +2224,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 								}
 							}
 						}
-
 					});
 				});
 
@@ -2261,9 +2233,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 					characterData: false, // include textContent changes
 					attributes: true // include changes to attributes within the subtree
 				});
-
 			}
-			//---
 		}
 	} // end videovolume
 
