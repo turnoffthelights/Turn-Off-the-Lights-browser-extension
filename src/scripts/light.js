@@ -1078,6 +1078,20 @@ function removeClass(classelement){
 	}
 }
 
+function createView(id, left, top, width, height){
+	var view = $(id);
+	if(view){
+		view.className = "stefanvdlightareoff";
+		view.style.left = left + "px";
+		view.style.top = top + "px";
+		view.style.width = width;
+		view.style.height = height;
+		view.style.visibility = "visible";
+		document.body.appendChild(view);
+	}
+	return view;
+}
+
 function removenewframe(){
 	// remove dark layers
 	var removedarklayerid = ["stefanvdlightareoff1", "stefanvdlightareoff2", "stefanvdlightareoff3", "stefanvdlightareoff4", "stefanvdtheater", "stefanvdblurimage", "stefanvdlightcorner", "stefanvdtheme"];
@@ -1272,7 +1286,6 @@ function stretchout(){
 	stretchable = false; document.body.style.cursor = "auto";
 }
 
-var view1; var view2; var view3; var view4;
 function getMouse(obj, e){
 	posx = 0; posy = 0;
 	var ev = (!e) ? window.event : e;
@@ -1318,137 +1331,36 @@ function getMouse(obj, e){
 		setAttributes($("stefanvdlightcorner"), {"top": parseInt(document.getElementById("stefanvdlightareoff1").style.height) - 10 + "px", "height": parseInt(document.getElementById("stefanvdlightareoff2").style.height) - 20 + "px", "left": parseInt(document.getElementById("stefanvdlightareoff2").style.width) - 10 + "px", "width": parseInt(document.getElementById("stefanvdlightareoff3").style.left) - parseInt(document.getElementById("stefanvdlightareoff2").style.width) - 20 + "px"});
 
 	}else{ return false; }
-	// var viewpartwidth = customview.style.width;
 	var viewpartheight = customview.style.height;
 
-	view1 = $("stefanvdlightareoff1");
-	view1.className = "stefanvdlightareoff";
-	view1.style.left = 0 + "px"; view1.style.top = 0 + "px";
-	view1.style.width = "100%"; view1.style.height = beginycordinate + "px";
-	view1.style.visibility = "visible";
-	document.body.appendChild(view1);
-
-	view2 = $("stefanvdlightareoff2");
-	view2.className = "stefanvdlightareoff";
-	view2.style.left = 0 + "px"; view2.style.top = beginycordinate + "px";
-	view2.style.width = beginxcordinate + "px"; view2.style.height = viewpartheight;
-	view2.style.visibility = "visible";
-	document.body.appendChild(view2);
-
-	view3 = $("stefanvdlightareoff3");
-	var viewcall3awidth = window.innerWidth - beginxcordinate; // calc width
-	view3.className = "stefanvdlightareoff";
-	view3.style.left = endxcordinate + "px"; view3.style.top = beginycordinate + "px";
-	view3.style.width = viewcall3awidth + "px"; view3.style.height = viewpartheight;
-	view3.style.visibility = "visible";
-	document.body.appendChild(view3);
-
-	view4 = $("stefanvdlightareoff4");
-	var viewcall4aheight = window.innerHeight - endycordinate; // calc height
-	view4.className = "stefanvdlightareoff";
-	view4.style.left = 0 + "px"; view4.style.top = endycordinate + "px";
-	view4.style.width = "100%"; view4.style.height = viewcall4aheight + "px";
-	view4.style.visibility = "visible";
-	document.body.appendChild(view4);
+	createView("stefanvdlightareoff1", 0, 0, "100%", beginycordinate + "px");
+	createView("stefanvdlightareoff2", 0, beginycordinate, beginxcordinate + "px", viewpartheight);
+	createView("stefanvdlightareoff3", endxcordinate, beginycordinate, (window.innerWidth - beginxcordinate) + "px", viewpartheight);
+	createView("stefanvdlightareoff4", 0, endycordinate, "100%", (window.innerHeight - endycordinate) + "px");
 
 	var calcpartx = endxcordinate - beginxcordinate;
 	var calcparty = endycordinate - beginycordinate;
 	if((calcpartx < 0) && ! (calcparty < 0)){ // X as automatic change view
-		view1 = $("stefanvdlightareoff1");
-		view1.className = "stefanvdlightareoff";
-		view1.style.left = 0 + "px"; view1.style.top = 0 + "px";
-		view1.style.width = "100%"; view1.style.height = beginycordinate + "px";
-		view1.style.visibility = "visible";
-		document.body.appendChild(view1);
-
-		view2 = $("stefanvdlightareoff2");
-		view2.className = "stefanvdlightareoff";
-		view2.style.left = 0 + "px"; view2.style.top = beginycordinate + "px";
-		view2.style.width = endxcordinate + "px"; view2.style.height = viewpartheight;
-		view2.style.visibility = "visible";
-		document.body.appendChild(view2);
-
-		view3 = $("stefanvdlightareoff3");
-		var viewcall3bwidth = window.innerWidth - beginxcordinate; // calc width
-		view3.className = "stefanvdlightareoff";
-		view3.style.left = beginxcordinate + "px"; view3.style.top = beginycordinate + "px";
-		view3.style.width = viewcall3bwidth + "px"; view3.style.height = viewpartheight;
-		view3.style.visibility = "visible";
-		document.body.appendChild(view3);
-
-		view4 = $("stefanvdlightareoff4");
-		var viewcall4bheight = window.innerHeight - endycordinate; // calc height
-		view4.className = "stefanvdlightareoff";
-		view4.style.left = 0 + "px"; view4.style.top = endycordinate + "px";
-		view4.style.width = "100%"; view4.style.height = viewcall4bheight + "px";
-		view4.style.visibility = "visible";
-		document.body.appendChild(view4);
+		createView("stefanvdlightareoff1", 0, 0, "100%", beginycordinate + "px");
+		createView("stefanvdlightareoff2", 0, beginycordinate, endxcordinate + "px", viewpartheight);
+		createView("stefanvdlightareoff3", beginxcordinate, beginycordinate, (window.innerWidth - beginxcordinate) + "px", viewpartheight);
+		createView("stefanvdlightareoff4", 0, endycordinate, "100%", (window.innerHeight - endycordinate) + "px");
 	}else if((calcparty < 0) && ! (calcpartx < 0)){ // Y as automatic change view
-		view1 = $("stefanvdlightareoff1");
-		view1.className = "stefanvdlightareoff";
-		view1.style.left = 0 + "px"; view1.style.top = 0 + "px";
 		if(endycordinate < 0){ endycordinate = 0; }
-		view1.style.width = "100%"; view1.style.height = endycordinate + "px";
-		view1.style.visibility = "visible";
-		document.body.appendChild(view1);
-
-		view2 = $("stefanvdlightareoff2");
-		view2.className = "stefanvdlightareoff";
-		view2.style.left = 0 + "px"; view2.style.top = endycordinate + "px";
-		view2.style.width = beginxcordinate + "px";
-		if(endycordinate == 0){ view2.style.height = beginycordinate + "px"; }else{ view2.style.height = viewpartheight; }
-		view2.style.visibility = "visible";
-		document.body.appendChild(view2);
-
-		view3 = $("stefanvdlightareoff3");
-		var viewcall3cwidth = window.innerWidth - beginxcordinate; // calc width
-		view3.className = "stefanvdlightareoff";
-		view3.style.left = endxcordinate + "px"; view3.style.top = endycordinate + "px";
-		view3.style.width = viewcall3cwidth + "px";
-		if(endycordinate == 0){ view3.style.height = beginycordinate + "px"; }else{ view3.style.height = viewpartheight; }
-		view3.style.visibility = "visible";
-		document.body.appendChild(view3);
-
-		view4 = $("stefanvdlightareoff4");
-		var viewcall4cheight = window.innerHeight - endycordinate; // calc height
-		view4.className = "stefanvdlightareoff";
-		view4.style.left = 0 + "px"; view4.style.top = beginycordinate + "px";
-		view4.style.width = "100%"; view4.style.height = viewcall4cheight + "px";
-		view4.style.visibility = "visible";
-		document.body.appendChild(view4);
+		let view2height = (endycordinate == 0) ? beginycordinate + "px" : viewpartheight;
+		let view3height = (endycordinate == 0) ? beginycordinate + "px" : viewpartheight;
+		createView("stefanvdlightareoff1", 0, 0, "100%", endycordinate + "px");
+		createView("stefanvdlightareoff2", 0, endycordinate, beginxcordinate + "px", view2height);
+		createView("stefanvdlightareoff3", endxcordinate, endycordinate, (window.innerWidth - beginxcordinate) + "px", view3height);
+		createView("stefanvdlightareoff4", 0, beginycordinate, "100%", (window.innerHeight - endycordinate) + "px");
 	}else if((calcpartx < 0) && (calcparty < 0)){ // X en Y as automatic change view
-		view1 = $("stefanvdlightareoff1");
-		view1.className = "stefanvdlightareoff";
-		view1.style.left = 0 + "px"; view1.style.top = 0 + "px";
 		if(endycordinate < 0){ endycordinate = 0; }
-		view1.style.width = "100%"; view1.style.height = endycordinate + "px";
-		view1.style.visibility = "visible";
-		document.body.appendChild(view1);
-
-		view2 = $("stefanvdlightareoff2");
-		view2.className = "stefanvdlightareoff";
-		view2.style.left = 0 + "px"; view2.style.top = endycordinate + "px";
-		view2.style.width = endxcordinate + "px";
-		if(endycordinate == 0){ view2.style.height = beginycordinate + "px"; }else{ view2.style.height = viewpartheight; }
-		view2.style.visibility = "visible";
-		document.body.appendChild(view2);
-
-		view3 = $("stefanvdlightareoff3");
-		var viewcall3dwidth = window.innerWidth - beginxcordinate; // calc width
-		view3.className = "stefanvdlightareoff";
-		view3.style.left = beginxcordinate + "px"; view3.style.top = endycordinate + "px";
-		view3.style.width = viewcall3dwidth + "px";
-		if(endycordinate == 0){ view3.style.height = beginycordinate + "px"; }else{ view3.style.height = viewpartheight; }
-		view3.style.visibility = "visible";
-		document.body.appendChild(view3);
-
-		view4 = $("stefanvdlightareoff4");
-		var viewcall4dheight = window.innerHeight - beginycordinate; // calc height
-		view4.className = "stefanvdlightareoff";
-		view4.style.left = 0 + "px"; view4.style.top = beginycordinate + "px";
-		view4.style.width = "100%"; view4.style.height = viewcall4dheight + "px";
-		view4.style.visibility = "visible";
-		document.body.appendChild(view4);
+		let view2height = (endycordinate == 0) ? beginycordinate + "px" : viewpartheight;
+		let view3height = (endycordinate == 0) ? beginycordinate + "px" : viewpartheight;
+		createView("stefanvdlightareoff1", 0, 0, "100%", endycordinate + "px");
+		createView("stefanvdlightareoff2", 0, endycordinate, endxcordinate + "px", view2height);
+		createView("stefanvdlightareoff3", beginxcordinate, endycordinate, (window.innerWidth - beginxcordinate) + "px", view3height);
+		createView("stefanvdlightareoff4", 0, beginycordinate, "100%", (window.innerHeight - beginycordinate) + "px");
 	}
 }
 //---
