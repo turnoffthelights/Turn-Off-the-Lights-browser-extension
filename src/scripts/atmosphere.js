@@ -602,7 +602,7 @@ function runambilight(){
 }
 
 // Listen for settings changes from options page (register immediately)
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+chrome.runtime.onMessage.addListener(function(request){
 	if(request.action === "goenableatmos"){
 		chrome.storage.sync.get(["ambilight", "ambilightfixcolor", "ambilight4color", "ambilightvarcolor", "atmosvivid", "vpause", "atmosfpsauto", "atmosfpsmanual", "drawatmosfps", "ambilightcolorhex", "ambilight1colorhex", "ambilight2colorhex", "ambilight3colorhex", "ambilight4colorhex", "ambilightrangeblurradius", "ambilightrangespreadradius", "atmosontotlmode", "atmosphereonly", "atmosphereDomains"], function(items){
 

@@ -29,12 +29,6 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 
 function $(id){ return document.getElementById(id); }
 
-function rgbToHex(r, g, b){
-	if(r > 255 || g > 255 || b > 255)
-		throw"Invalid color component";
-	return((r << 16) | (g << 8) | b).toString(16);
-}
-
 window.getPosition = function(el){
 	var xPos = 0; var yPos = 0;
 	while(el){ xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft); yPos += (el.offsetTop - el.scrollTop + el.clientTop); el = el.offsetParent; }
@@ -385,7 +379,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			return finalRegex.test(websiteurl);
 		}
 		return false;
-	}
+	};
 
 	window.checkDomainFeature = function(featureEnabled, domains, checklistWhite, checklistBlack, onlyMode, callback){
 		if(featureEnabled){
@@ -435,7 +429,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 				return;
 			}
 		}
-	}
+	};
 
 	// general ID for each HTML5 video player
 	function adddatavideo(){
@@ -456,7 +450,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	var vrotate = [];
 
 	function runvideotoolbarcheck(){
-		checkDomainFeature(videotool == true || gamepad == true, videotoolDomains, videotoolchecklistwhite, videotoolchecklistblack, videotoolonly, videotoolfunction);
+		window.checkDomainFeature(videotool == true || gamepad == true, videotoolDomains, videotoolchecklistwhite, videotoolchecklistblack, videotoolonly, videotoolfunction);
 	}
 	runvideotoolbarcheck();
 
@@ -745,7 +739,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			for(i = 0; i < l; i++){
 				var myElement = document.getElementsByTagName("video")[i];
 
-				var visposition = getPosition(myElement);
+				var visposition = window.getPosition(myElement);
 				var tempwidthvideo = myElement.offsetWidth;
 				var tempheightvideo = myElement.offsetHeight;
 
@@ -1522,7 +1516,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 							// update the style
 							// video toolbar update location
 							var potvis = mutation.target.getAttribute("data-video");
-							var visposition = getPosition(mutation.target);
+							var visposition = window.getPosition(mutation.target);
 							if(document.getElementById("stefanvdvispanel" + potvis)){
 								document.getElementById("stefanvdvispanel" + potvis).style.width = mutation.target.offsetWidth + "px";
 								document.getElementById("stefanvdvispanel" + potvis).style.top = visposition.y + "px";
@@ -1600,7 +1594,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 					document.body.appendChild(newimg);
 				}
 			}
-		} 
+		}
 	}
 
 	// Video hover
@@ -2047,7 +2041,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 		var l = volumevideos.length;
 		for(i = 0; i < l; i++){
 			var myElement = document.getElementsByTagName("video")[i];
-			var position = getPosition(myElement);
+			var position = window.getPosition(myElement);
 			var tempxmidvideo = myElement.offsetWidth / 2 - 250 / 2;
 			var tempymidvideo = myElement.offsetHeight / 2 - 20 / 2;
 
@@ -2238,7 +2232,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	} // end videovolume
 
 	function runvideovolumecheck(){
-		checkDomainFeature(videovolume == true || gamepad == true, videovolumeDomains, videovolumechecklistwhite, videovolumechecklistblack, videovolumeonly, videovolumefunction);
+		window.checkDomainFeature(videovolume == true || gamepad == true, videovolumeDomains, videovolumechecklistwhite, videovolumechecklistblack, videovolumeonly, videovolumefunction);
 	}
 	runvideovolumecheck();
 
@@ -2492,7 +2486,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	window.removeElement = function(elementId){
 		var element = document.getElementById(elementId);
 		element.parentNode.removeChild(element);
-	}
+	};
 
 	function removevideotool(){
 		var removespeedelement = document.getElementsByClassName("stefanvdspeed");

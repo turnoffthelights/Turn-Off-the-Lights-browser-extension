@@ -526,8 +526,8 @@ async function onClickHandler(info, tab){
 		var autodimDomains = items["autodimDomains"];
 		// Check website is in the list
 		// then add it or remove it
-		var thaturl = new URL(tab.url);
-		var currenttoggledomain = thaturl.protocol + "//" + thaturl.hostname;
+		var thaturldim = new URL(tab.url);
+		var currenttoggledomain = thaturldim.protocol + "//" + thaturldim.hostname;
 		autodimDomains = JSON.parse(autodimDomains);
 		if(autodimDomains[currenttoggledomain]){
 			// If it is in the list, remove it
@@ -548,15 +548,15 @@ async function onClickHandler(info, tab){
 		var autostopDomains = items["autostopDomains"];
 		// Check website is in the list
 		// then add it or remove it
-		var thaturl = new URL(tab.url);
-		var currenttoggledomain = thaturl.protocol + "//" + thaturl.hostname;
+		var thaturlstop = new URL(tab.url);
+		var currenttoggledomainstop = thaturlstop.protocol + "//" + thaturlstop.hostname;
 		autostopDomains = JSON.parse(autostopDomains);
-		if(autostopDomains[currenttoggledomain]){
+		if(autostopDomains[currenttoggledomainstop]){
 			// If it is in the list, remove it
-			delete autostopDomains[currenttoggledomain];
+			delete autostopDomains[currenttoggledomainstop];
 		}else{
 			// If it is not in the list, add it
-			autostopDomains[currenttoggledomain] = true;
+			autostopDomains[currenttoggledomainstop] = true;
 		}
 		autostopDomains = JSON.stringify(autostopDomains);
 		// enable the autostoponly feature because you are going to whitelist/blacklist this feature now
@@ -570,15 +570,15 @@ async function onClickHandler(info, tab){
 		var nightDomains = items["nightDomains"];
 		// Check website is in the list
 		// then add it or remove it
-		var thaturl = new URL(tab.url);
-		var currenttoggledomain = thaturl.protocol + "//" + thaturl.hostname;
+		var thaturlnight = new URL(tab.url);
+		var currenttoggledomainnight = thaturlnight.protocol + "//" + thaturlnight.hostname;
 		nightDomains = JSON.parse(nightDomains);
-		if(nightDomains[currenttoggledomain]){
+		if(nightDomains[currenttoggledomainnight]){
 			// If it is in the list, remove it
-			delete nightDomains[currenttoggledomain];
+			delete nightDomains[currenttoggledomainnight];
 		}else{
 			// If it is not in the list, add it
-			nightDomains[currenttoggledomain] = true;
+			nightDomains[currenttoggledomainnight] = true;
 		}
 		nightDomains = JSON.stringify(nightDomains);
 		// enable the nightonly feature because you are going to whitelist/blacklist this feature now
@@ -652,7 +652,7 @@ function browsercontext(a, b, c, d){
 		// try show web browsers that do support "icons"
 		// Firefox, Opera, Microsoft Edge
 		return chrome.contextMenus.create(newitem);
-	}catch(e){
+	}catch{
 		// console.log(e);
 		// catch web browsers that do NOT show the icon
 		// Google Chrome
@@ -878,7 +878,7 @@ chrome.storage.onChanged.addListener(async function(changes){
 								target: {tabId: tab.id},
 								files: ["scripts/reflection.js"]
 							});
-						}catch(error){
+						}catch{
 							// Ignore errors for tabs where script can't be injected
 						}
 					}
@@ -903,7 +903,7 @@ chrome.storage.onChanged.addListener(async function(changes){
 								target: {tabId: tab.id},
 								files: ["scripts/autodim.js"]
 							});
-						}catch(error){
+						}catch{
 							// Ignore errors for tabs where script can't be injected
 						}
 					}
@@ -937,7 +937,7 @@ chrome.storage.onChanged.addListener(async function(changes){
 								target: {tabId: tab.id},
 								files: ["scripts/gamepad.js"]
 							});
-						}catch(error){
+						}catch{
 							// Ignore errors for tabs where script can't be injected
 						}
 					}
@@ -962,7 +962,7 @@ chrome.storage.onChanged.addListener(async function(changes){
 								target: {tabId: tab.id},
 								files: ["scripts/atmosphere.js"]
 							});
-						}catch(error){
+						}catch{
 							// Ignore errors for tabs where script can't be injected
 						}
 					}
@@ -1090,7 +1090,7 @@ async function chromerefreshalltabs(name){
 				await chrome.tabs.sendMessage(tabs[i].id, {action: name});
 				// Callback Function Processes
 				// console.log(response);
-			}catch(error){
+			}catch{
 				// Error Handling Processes
 				// This will hide the message when the browser extension is reloaded and the chrome.runtime.onMessage.addListener is not connected with this browser extension
 				// console.log(error);

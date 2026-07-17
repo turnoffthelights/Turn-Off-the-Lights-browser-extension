@@ -84,7 +84,7 @@ function dispatch(data){
 
 function shadesOff(player){
 	if(player !== null){
-		var blackon = $("stefanvdlightareoff1");
+		var blackon = document.getElementById("stefanvdlightareoff1");
 		if(autodimsize === false || checkActiveVideosHeight()){
 			if(autodimdelay == true){
 				var delaytime = autodimdelaytime * 1000;
@@ -101,7 +101,7 @@ function shadesOff(player){
 
 function shadesOn(player){
 	if(player !== null){
-		var blackon = $("stefanvdlightareoff1");
+		var blackon = document.getElementById("stefanvdlightareoff1");
 		if(autodimsize === false || checkActiveVideosHeight()){
 			if(blackon == null){ chrome.runtime.sendMessage({name: "automatic"}); }
 			if(autodimdelay == true){
@@ -126,7 +126,7 @@ function checkActiveVideosHeight(){
 
 function autodimfunction(){
 	var cinemahandler;
-	var messagediv = $("stefanvdcinemamessage");
+	var messagediv = document.getElementById("stefanvdcinemamessage");
 	if(messagediv == null){
 		// injected code messaging
 		var message = document.createElement("div");
@@ -136,10 +136,10 @@ function autodimfunction(){
 		if(!bt.length)return;
 		bt[0].appendChild(message);
 		cinemahandler = function(){
-			var eventData = $(message.id).textContent;
+			var eventData = document.getElementById(message.id).textContent;
 			trigger(eventData);
 		};
-		$(message.id).addEventListener(message.id, cinemahandler, false);
+		document.getElementById(message.id).addEventListener(message.id, cinemahandler, false);
 	}
 }
 
@@ -148,7 +148,7 @@ function runautodimcheck(){
 }
 
 // Listen for settings changes from options page (register immediately)
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+chrome.runtime.onMessage.addListener(function(request){
 	if(request.action === "gorefreshautodim"){
 		chrome.storage.sync.get(["autodim", "mousespotlights", "autodimDomains", "autodimchecklistwhite", "autodimchecklistblack", "autodimonly", "aplay", "apause", "astop", "autodimdelay", "autodimdelaytime", "autodimsize", "autodimsizepixelheight", "autodimsizepixelwidth"], function(items){
 			autodim = items["autodim"];
@@ -197,9 +197,9 @@ chrome.storage.sync.get(["autodim", "mousespotlights", "autodimDomains", "autodi
 	autodimsize = items["autodimsize"];
 	autodimsizepixelheight = items["autodimsizepixelheight"]; if(autodimsizepixelheight == null)autodimsizepixelheight = 220;
 	autodimsizepixelwidth = items["autodimsizepixelwidth"]; if(autodimsizepixelwidth == null)autodimsizepixelwidth = 250;
-	
+
 	runautodimcheck();
-	
+
 	if(autodim == true){
 		addautodimfile();
 	}

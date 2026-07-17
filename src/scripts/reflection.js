@@ -96,7 +96,7 @@ function stopreflectioncheck(){
 }
 
 // Listen for settings changes from options page (register immediately)
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+chrome.runtime.onMessage.addListener(function(request){
 	if(request.action === "gorefreshreflection"){
 		chrome.storage.sync.get(["reflection", "reflectionamount"], function(items){
 			reflection = items["reflection"];

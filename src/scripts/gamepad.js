@@ -377,7 +377,7 @@ function gamepadplaypause(){
 }
 
 // Listen for settings changes from options page (register immediately)
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+chrome.runtime.onMessage.addListener(function(request){
 	if(request.action === "gorefreshgamepad"){
 		chrome.storage.sync.get(["gamepad", "gpleftstick", "gprightstick", "gpbtnx", "gpbtno", "gpbtnsquare", "gpbtntriangle", "gpbtnlb", "gpbtnrb", "gpbtnlt", "gpbtnrt", "gpbtnshare", "gpbtnmenu", "gpbtnrightstick", "gpbtnleftstick", "gpbtndirup", "gpbtndirdown", "gpbtndirleft", "gpbtndirright", "gpbtnlogo", "gamepadonly", "gamepadDomains", "gamepadchecklistwhite", "gamepadchecklistblack"], function(items){
 			gamepad = items["gamepad"];
