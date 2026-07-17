@@ -3006,8 +3006,8 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 				if(!document.getElementById("stefanvdpipvisualizationcanvas")){
 					var pipcanvas = document.createElement("canvas");
 					pipcanvas.id = "stefanvdpipvisualizationcanvas";
-					pipcanvas.style.width = "640" + "px";
-					pipcanvas.style.height = "360" + "px";
+					pipcanvas.style.width = "640px";
+					pipcanvas.style.height = "360px";
 					document.body.appendChild(pipcanvas);
 
 					var pipvideo = document.createElement("video");
