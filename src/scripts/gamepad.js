@@ -70,14 +70,14 @@ function gamepadfunction(){
 }
 
 function gpstartconnnected(e){
-	console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.", e.gamepad.index, e.gamepad.id, e.gamepad.buttons.length, e.gamepad.axes.length);
+	// console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.", e.gamepad.index, e.gamepad.id, e.gamepad.buttons.length, e.gamepad.axes.length);
 	updategamepadbuttons();
 	updategamepadaxes();
 	var devicename = e.gamepad.id; statusremotebadge(devicename, "add");
 }
 
 function gpdisconnected(e){
-	console.log("Gamepad disconnected from index %d: %s", e.gamepad.index, e.gamepad.id);
+	// console.log("Gamepad disconnected from index %d: %s", e.gamepad.index, e.gamepad.id);
 	var devicename = e.gamepad.id; statusremotebadge(devicename, "dis");
 	window.cancelAnimationFrame(updategamepadbuttons);
 	window.cancelAnimationFrame(updategamepadaxes);
@@ -159,18 +159,18 @@ const updategamepadbuttons = () => {
 	for(let i = 0; i < gamepads.length; i++){
 		if(gamepads[i]){
 			myGamepad = gamepads[i];
-			console.log("Found gamepad at index:", i);
+			// console.log("Found gamepad at index:", i);
 			break;
 		}
 	}
-	console.log("updategamepadbuttons called, myGamepad:", myGamepad ? "connected" : "null");
+	// console.log("updategamepadbuttons called, myGamepad:", myGamepad ? "connected" : "null");
 	if(myGamepad){
 		myGamepad.buttons.forEach((button, index) => {
 			// pressed => one action
 			if(index == 16){
 				// PlayStation Logo
 				if(button.pressed && buttonsstate[index] != true){
-					console.log("Click 16 on pressed:", button.pressed, "arry set on:", buttonsstate[index]);
+					// console.log("Click 16 on pressed:", button.pressed, "arry set on:", buttonsstate[index]);
 					buttonsstate[index] = true;
 					// set delay to prevent double openening new tab when open this on the other web browser tab
 					actiongamepad(gpbtnlogo);
@@ -178,73 +178,61 @@ const updategamepadbuttons = () => {
 			}
 
 			if(button.pressed){
-				console.log(`Button ${index} pressed, current state:`, buttonsstate[index], "pressed:", button.pressed);
+				// console.log(`Button ${index} pressed, current state:`, buttonsstate[index], "pressed:", button.pressed);
 				if(buttonsstate[index] != true){
 					buttonsstate[index] = true;
-					console.log(`Pressed button ${index}`, "on status=",button.pressed, "compare with=",buttonsstate[index]);
+					// console.log(`Pressed button ${index}`, "on status=",button.pressed, "compare with=",buttonsstate[index]);
 					var video = document.getElementsByTagName("video")[0];
-					console.log(`Video element found:`, video ? "yes" : "no");
+					// console.log(`Video element found:`, video ? "yes" : "no");
 					if(video){
 						// playstation
 						switch(index){
 						case 0:
 							// X
-							console.log("Executing action for button 0 (X), gpbtnx:", gpbtnx);
 							actiongamepad(gpbtnx);
 							break;
 						case 1:
 							// O
-							console.log("Executing action for button 1 (O), gpbtno:", gpbtno);
 							actiongamepad(gpbtno);
 							break;
 						case 2:
 							// Square
-							console.log("Executing action for button 2 (Square), gpbtnsquare:", gpbtnsquare);
 							actiongamepad(gpbtnsquare);
 							break;
 						case 3:
 							// Triangle
-							console.log("Executing action for button 3 (Triangle), gpbtntriangle:", gpbtntriangle);
 							actiongamepad(gpbtntriangle);
 							break;
 						case 4:
 							// L1
-							console.log("Executing action for button 4 (L1), gpbtnlb:", gpbtnlb);
 							actiongamepad(gpbtnlb);
 							break;
 						case 5:
 							// R1
-							console.log("Executing action for button 5 (R1), gpbtnrb:", gpbtnrb);
 							actiongamepad(gpbtnrb);
 							break;
 						case 6:
 							// L2
-							console.log("Executing action for button 6 (L2), gpbtnlt:", gpbtnlt);
 							actiongamepad(gpbtnlt);
 							break;
 						case 7:
 							// R2
-							console.log("Executing action for button 7 (R2), gpbtnrt:", gpbtnrt);
 							actiongamepad(gpbtnrt);
 							break;
 						case 8:
 							// Share
-							console.log("Executing action for button 8 (Share), gpbtnshare:", gpbtnshare);
 							actiongamepad(gpbtnshare);
 							break;
 						case 9:
 							// Options
-							console.log("Executing action for button 9 (Options), gpbtnmenu:", gpbtnmenu);
 							actiongamepad(gpbtnmenu);
 							break;
 						case 10:
 							// Left Stick Pressed
-							console.log("Executing action for button 10 (Left Stick), gpbtnleftstick:", gpbtnleftstick);
 							actiongamepad(gpbtnleftstick);
 							break;
 						case 11:
 							// Right Stick Pressed
-							console.log("Executing action for button 11 (Right Stick), gpbtnrightstick:", gpbtnrightstick);
 							actiongamepad(gpbtnrightstick);
 							break;
 						}
@@ -268,7 +256,7 @@ const updategamepadbuttons = () => {
 					}
 				}
 			}else{
-				console.log("NOT pressed anymore",index, "status=",button.pressed, "resetting state to false");
+				// console.log("NOT pressed anymore",index, "status=",button.pressed, "resetting state to false");
 				buttonsstate[index] = false;
 			}
 		});
