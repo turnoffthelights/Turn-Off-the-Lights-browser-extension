@@ -431,7 +431,7 @@ function drawAtmos(playerid, item, totlmode){
 						if(typeof downhex1 != "undefined" || typeof downhex2 != "undefined" || typeof downhex3 != "undefined" || typeof downhex4 != "undefined"){
 							try{
 								setatmosplayer(youtubewindow, [textcountC, textcountB, textcountA], [downhex1, downhex2, downhex3, downhex4]);
-							}catch{ 
+							}catch{
 								// Ignore errors
 							}
 						}else{

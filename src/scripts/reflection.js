@@ -65,26 +65,24 @@ function drawReflection(reflectionid){
 	}
 }
 
-function runreflectioncheck(){
-	if(reflection == true){
-		startreflection = window.setInterval(function(){
-			try{
-				var reflectionplayer = document.getElementsByTagName("video") || null;
-				var reflectionid = null;
-				var refk;
-				var l = reflectionplayer.length;
-				for(refk = 0; refk < l; refk++){
-					if(reflectionplayer[refk].play){ reflectionid = reflectionplayer[refk]; drawReflection(reflectionid); }
-				}
-			}catch{
-				// Ignore errors
-			}
-		}, 20); // 20 refreshing it
+function reflectionLoop(){
+	if(reflection !== true)return; // Stop if disabled
+	try{
+		var reflectionplayer = document.getElementsByTagName("video") || null;
+		var reflectionid = null;
+		var refk;
+		var l = reflectionplayer.length;
+		for(refk = 0; refk < l; refk++){
+			if(reflectionplayer[refk].play){ reflectionid = reflectionplayer[refk]; drawReflection(reflectionid); }
+		}
+	}catch{
+		// Ignore errors
 	}
+	startreflection = window.requestAnimationFrame(reflectionLoop);
 }
 
 function stopreflectioncheck(){
-	window.clearInterval(startreflection);
+	window.cancelAnimationFrame(startreflection);
 	// Clear reflection from video elements
 	var reflectionplayer = document.getElementsByTagName("video") || null;
 	var refk;
@@ -111,7 +109,7 @@ chrome.runtime.onMessage.addListener(function(request){
 			stopreflectioncheck();
 
 			if(reflection == true){
-				runreflectioncheck();
+				reflectionLoop();
 			}
 		});
 	}
@@ -121,5 +119,7 @@ chrome.runtime.onMessage.addListener(function(request){
 chrome.storage.sync.get(["reflection", "reflectionamount"], function(response){
 	reflection = response["reflection"];
 	reflectionamount = response["reflectionamount"];
-	runreflectioncheck();
+	if(reflection == true){
+		reflectionLoop();
+	}
 });
