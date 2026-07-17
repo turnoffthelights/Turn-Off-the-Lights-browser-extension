@@ -2710,7 +2710,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	function showToggleNotification(titleKey, domainsKey){
 		chrome.storage.sync.get([domainsKey], function(items){
 			var domains = items[domainsKey];
-
 			var div = document.createElement("div");
 			div.setAttribute("id", "stefanvdremoteadd");
 			div.className = "stefanvdremote";
@@ -2871,7 +2870,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 				}
 
 				window.removeEventListener("resize", myListenerWithContextvolume);
-
 				window.removeEventListener("wheel", doscroll, {passive: false});
 				window.removeEventListener("DOMMouseScroll", doscroll, false);
 
@@ -2891,8 +2889,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 				}
 			});
 		},
-
-
 		gorefreshhovervideo: function(){
 			chrome.storage.sync.get(["hovervideo", "hovervideoamount"], function(items){
 				hovervideo = items["hovervideo"];
@@ -3006,7 +3002,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 				}
 
 				if(typeof audiocontext[0] == "undefined"){
-					// I am new now
 					audiocontext[0] = new AudioContext();
 					analyser[0] = audiocontext[0].createAnalyser();
 				}
@@ -3059,5 +3054,4 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			handler(request);
 		}
 	});
-
 });
