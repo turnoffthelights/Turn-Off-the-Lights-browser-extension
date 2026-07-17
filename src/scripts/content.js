@@ -2293,297 +2293,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 		addvolume();
 	}
 
-	// Game controller
-	function rungamepadcheck(){
-		checkDomainFeature(gamepad == true, gamepadDomains, gamepadchecklistwhite, gamepadchecklistblack, gamepadonly, gamepadfunction);
-	}
-	rungamepadcheck();
-
-	function gamepadfunction(){
-		// control the current video with your remote gamepad controller
-		window.addEventListener("gamepadconnected", gpstartconnnected);
-		window.addEventListener("gamepaddisconnected", gpdisconnected);
-	}
-
-	function gpstartconnnected(e){
-		// console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.", e.gamepad.index, e.gamepad.id, e.gamepad.buttons.length, e.gamepad.axes.length);
-		updategamepadbuttons();
-		updategamepadaxes();
-		var devicename = e.gamepad.id; statusremotebadge(devicename, "add");
-	}
-
-	function gpdisconnected(e){
-		// console.log("Gamepad disconnected from index %d: %s", e.gamepad.index, e.gamepad.id);
-		var devicename = e.gamepad.id; statusremotebadge(devicename, "dis");
-		window.cancelAnimationFrame(updategamepadbuttons);
-		window.cancelAnimationFrame(updategamepadaxes);
-	}
-
-	var buttonsstate = [];
-	var logoclicked = false;
-	function actionlogo(){
-		if(logoclicked == false){
-			logoclicked = true;
-			window.setTimeout(function(){
-				window.open(linkgamepad, "_blank");
-				logoclicked = false;
-			}, 2500);
-		}
-	}
-
-	function actiongamepad(n){
-		switch(parseInt(n)){
-		case 0:
-			changevolume("-");
-			break;
-		case 1:
-			playnext();
-			break;
-		case 2:
-			playprev();
-			break;
-		case 3:
-			changevolume("+");
-			break;
-		case 4:
-			seek(-1);
-			break;
-		case 5:
-			seek(1);
-			break;
-		case 6:
-			seek(-3);
-			break;
-		case 7:
-			seek(3);
-			break;
-		case 8:
-			exitzoom(0);
-			break;
-		case 9:
-			gamepadplaypause();
-			break;
-		case 10:
-			resetzoom(0);
-			break;
-		case 11:
-			zoompaddirection(0, [1, 0, 0, 0]);
-			break;
-		case 12:
-			zoompaddirection(0, [0, 0, 1, 0]);
-			break;
-		case 13:
-			zoompaddirection(0, [0, 1, 0, 0]);
-			break;
-		case 14:
-			zoompaddirection(0, [0, 0, 0, 1]);
-			break;
-		case 15:
-			actionlogo();
-			break;
-		case 16:
-			seek(-10);
-			break;
-		case 17:
-			seek(10);
-			break;
-		}
-	}
-
-	const updategamepadbuttons = () => {
-		const myGamepad = navigator.getGamepads()[0];
-		if(myGamepad){
-			myGamepad.buttons.forEach((button, index) => {
-				// pressed => one action
-				if(index == 16){
-					// PlayStation Logo
-					if(button.pressed && buttonsstate[index] != true){
-						// console.log("Click 16 on pressed:", button.pressed, "arry set on:", buttonsstate[index]);
-						buttonsstate[index] = true;
-						// set delay to prevent double openening new tab when open this on the other web browser tab
-						actiongamepad(gpbtnlogo);
-					}
-				}
-
-				if(button.pressed){
-					if(buttonsstate[index] != true){
-						buttonsstate[index] = true;
-						// console.log(`Pressed button ${index}`, "on status=",button.pressed, "compare with=",buttonsstate[index]);
-						var video = document.getElementsByTagName("video")[0];
-						if(video){
-							// playstation
-							switch(index){
-							case 0:
-								// X
-								actiongamepad(gpbtnx);
-								break;
-							case 1:
-								// O
-								actiongamepad(gpbtno);
-								break;
-							case 2:
-								// Square
-								actiongamepad(gpbtnsquare);
-								break;
-							case 3:
-								// Triangle
-								actiongamepad(gpbtntriangle);
-								break;
-							case 4:
-								// L1
-								actiongamepad(gpbtnlb);
-								break;
-							case 5:
-								// R1
-								actiongamepad(gpbtnrb);
-								break;
-							case 6:
-								// L2
-								actiongamepad(gpbtnlt);
-								break;
-							case 7:
-								// R2
-								actiongamepad(gpbtnrt);
-								break;
-							case 8:
-								// Share
-								actiongamepad(gpbtnshare);
-								break;
-							case 9:
-								// Options
-								actiongamepad(gpbtnmenu);
-								break;
-							case 10:
-								// Left Stick Pressed
-								actiongamepad(gpbtnleftstick);
-								break;
-							case 11:
-								// Right Stick Pressed
-								actiongamepad(gpbtnrightstick);
-								break;
-							}
-						}
-					}
-
-					// pressed => continue actions loop
-					if(document.getElementsByTagName("video")[0]){
-						if(index == 12){
-							// Directional Up
-							actiongamepad(gpbtndirup);
-						}else if(index == 13){
-							// Directional Down
-							actiongamepad(gpbtndirdown);
-						}else if(index == 14){
-							// Directional Left
-							actiongamepad(gpbtndirleft);
-						}else if(index == 15){
-							// Directional Right
-							actiongamepad(gpbtndirright);
-						}
-					}
-				}else{
-					// console.log("NOT pressed anymore",index, "status=",button.pressed)
-					buttonsstate[index] = false;
-				}
-			});
-		}
-		window.requestAnimationFrame(updategamepadbuttons);
-	};
-
-	function actionzoominout(myGamepad, a){
-		var currentaxesleft = Number(myGamepad.axes[a]).toFixed(1);
-
-		if(currentaxesleft > 0.1){
-			camerazoomrotate(0, -0.05, "");
-		}else if(Math.abs(currentaxesleft) == 0.0){
-			// do nothing
-		}else if(currentaxesleft < -0.1){
-			camerazoomrotate(0, +0.05, "");
-		}
-	}
-
-	function actionzoompad(myGamepad, a, b){
-		var currentaxesrighthoz = Number(myGamepad.axes[a]).toFixed(1);
-		if(currentaxesrighthoz > 0.1){
-			zoompaddirection(0, [0, 0, 0, 1]);
-		}else if(Math.abs(currentaxesrighthoz) == 0.0){
-			// do nothing
-		}else if(currentaxesrighthoz < -0.1){
-			zoompaddirection(0, [0, 1, 0, 0]);
-		}
-
-		var currentaxesrightvert = Number(myGamepad.axes[b]).toFixed(1);
-		if(currentaxesrightvert > 0.1){
-			zoompaddirection(0, [0, 0, 1, 0]);
-		}else if(Math.abs(currentaxesrightvert) == 0.0){
-			// do nothing
-		}else if(currentaxesrightvert < -0.1){
-			zoompaddirection(0, [1, 0, 0, 0]);
-		}
-	}
-
-	const updategamepadaxes = () => {
-		if(document.getElementsByTagName("video")[0]){
-			const myGamepad = navigator.getGamepads()[0]; // use the first gamepad
-			// console.log(`Left stick at (${myGamepad.axes[0]}, ${myGamepad.axes[1]})` );
-			// console.log(`Right stick at (${myGamepad.axes[2]}, ${myGamepad.axes[3]})` );
-			if(myGamepad != null){
-				// left stick
-				if(gpleftstick == 0){
-					actionzoominout(myGamepad, 1);
-				}else if(gpleftstick == 1){
-					actionzoompad(myGamepad, 0, 1);
-				}
-
-				// right stick
-				if(gprightstick == 0){
-					actionzoominout(myGamepad, 3);
-				}else if(gprightstick == 1){
-					actionzoompad(myGamepad, 2, 3);
-				}
-			}
-		}
-		window.requestAnimationFrame(updategamepadaxes);
-	};
-
-	function shortname(name){
-		var shortname;
-		if(name.includes("PLAYSTATION")){
-			shortname = "PlayStation Controller";
-		}else if(name.includes("Xbox")){
-			shortname = "Xbox Controller";
-		}else{
-			shortname = "Game Controller";
-		}
-		return shortname;
-	}
-
-	var i18ntitelgpconnect = chrome.i18n.getMessage("titelgpconnect");
-	var i18ntitelgpdisconnect = chrome.i18n.getMessage("titelgpdisconnect");
-
-	function statusremotebadge(name, status){
-		var div = document.createElement("div");
-		div.setAttribute("id", "stefanvdremoteadd");
-		div.className = "stefanvdremote";
-		document.body.appendChild(div);
-
-		var h3 = document.createElement("h3");
-		h3.innerText = shortname(name);
-		div.appendChild(h3);
-
-		var p = document.createElement("p");
-		if(status == "add"){
-			p.innerText = i18ntitelgpconnect;
-		}else{
-			p.innerText = i18ntitelgpdisconnect;
-		}
-		div.appendChild(p);
-
-		window.setTimeout(function(){
-			var element = document.getElementById("stefanvdremoteadd");
-			element.parentNode.removeChild(element);
-		}, 4000);
-	}
 
 	function playnext(){
 		var nextButton = document.getElementsByClassName("ytp-next-button")[0];
@@ -2591,6 +2300,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			nextButton.click();
 		}
 	}
+	window.playnext = playnext;
 
 	function playprev(){
 		var prevButton = document.getElementsByClassName("ytp-prev-button")[0];
@@ -2598,6 +2308,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			prevButton.click();
 		}
 	}
+	window.playprev = playprev;
 
 	var cdv = 0;
 	function changevolume(a){
@@ -2634,6 +2345,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			}, 750);
 		}
 	}
+	window.changevolume = changevolume;
 
 	function exitzoom(a){
 		var onevideo = $("stefanvdzoomcanvas" + a);
@@ -2647,6 +2359,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 		if($("stefanvdzoomexit" + a)){ $("stefanvdzoomexit" + a).style.setProperty("display", "none", "important"); }
 		if($("stefanvdzoompanel" + a)){ $("stefanvdzoompanel" + a).style.display = "none"; }
 	}
+	window.exitzoom = exitzoom;
 
 	function resetzoom(a){
 		if($("stefanvdzoomstage" + a)){ $("stefanvdzoomstage" + a).style.display = "block"; }
@@ -2659,6 +2372,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 		onevideo.style.left = 0 + "px";
 		onevideo.style["transform"] = "scale(" + vzoom[a] + ") rotate(" + vrotate[a] + "deg)";
 	}
+	window.resetzoom = resetzoom;
 
 	function initialdrawframezoom(a){
 		var onevideo = document.getElementsByTagName("video")[a];
@@ -2714,6 +2428,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 		// start zoom canvas animation
 		window.requestAnimationFrame(function(){ drawframezoom(a); });
 	}
+	window.camerazoomrotate = camerazoomrotate;
 
 	// b: [top, left, bottom, right]
 	function zoompaddirection(a, b){
@@ -2733,17 +2448,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 		// start zoom canvas animation
 		window.requestAnimationFrame(function(){ drawframezoom(a); });
 	}
-
-	function gamepadplaypause(){
-		var videoPlayer = document.getElementsByTagName("video")[0];
-		if(videoPlayer){
-			if(videoPlayer.paused == true){
-				videoPlayer.play();
-			}else{
-				videoPlayer.pause();
-			}
-		}
-	}
+	window.zoompaddirection = zoompaddirection;
 
 	function seek(secs){
 		var videoPlayer = document.getElementsByTagName("video")[0];
@@ -2755,6 +2460,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			videoPlayer.currentTime = time;
 		}
 	}
+	window.seek = seek;
 
 	// YouTube embed iframe
 	if(customqualityyoutube == true){
@@ -3090,6 +2796,34 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 		gorefreshvideonumber: function(){
 			adddatavideo();
 		},
+		gamepadplaypause: function(){
+			var videoPlayer = document.getElementsByTagName("video")[0];
+			if(videoPlayer){
+				if(videoPlayer.paused == true){
+					videoPlayer.play();
+				}else{
+					videoPlayer.pause();
+				}
+			}
+		},
+		playnext: function(){
+			var nextButton = document.getElementsByClassName("ytp-next-button")[0];
+			if(nextButton){
+				nextButton.click();
+			}
+		},
+		playprev: function(){
+			var prevButton = document.getElementsByClassName("ytp-prev-button")[0];
+			if(prevButton){
+				prevButton.click();
+			}
+		},
+		changevolume: function(request){
+			changevolume(request.value);
+		},
+		seek: function(request){
+			seek(request.value);
+		},
 		gorefreshvideotoolbar: function(){
 			chrome.storage.sync.get(["videotool", "videotoolonly", "videotoolDomains", "videotoolchecklistwhite", "videotoolchecklistblack", "speedtoolbar", "videozoom", "visopacity", "videotoolcolor"], function(items){
 				videotool = items["videotool"];
@@ -3320,43 +3054,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 					removepipvisual();
 				});
 			}
-		},
-		gorefreshgamepad: function(){
-			chrome.storage.sync.get(["gamepad", "gpleftstick", "gprightstick", "gpbtnx", "gpbtno", "gpbtnsquare", "gpbtntriangle", "gpbtnlb", "gpbtnrb", "gpbtnlt", "gpbtnrt", "gpbtnshare", "gpbtnmenu", "gpbtnrightstick", "gpbtnleftstick", "gpbtndirup", "gpbtndirdown", "gpbtndirleft", "gpbtndirright", "gpbtnlogo", "gamepadonly", "gamepadDomains", "gamepadchecklistwhite", "gamepadchecklistblack"], function(items){
-				gamepad = items["gamepad"];
-				gpleftstick = items["gpleftstick"];
-				gprightstick = items["gprightstick"];
-				gpbtnx = items["gpbtnx"];
-				gpbtno = items["gpbtno"];
-				gpbtnsquare = items["gpbtnsquare"];
-				gpbtntriangle = items["gpbtntriangle"];
-				gpbtnlb = items["gpbtnlb"];
-				gpbtnrb = items["gpbtnrb"];
-				gpbtnlt = items["gpbtnlt"];
-				gpbtnrt = items["gpbtnrt"];
-				gpbtnshare = items["gpbtnshare"];
-				gpbtnmenu = items["gpbtnmenu"];
-				gpbtnrightstick = items["gpbtnrightstick"];
-				gpbtnleftstick = items["gpbtnleftstick"];
-				gpbtndirup = items["gpbtndirup"];
-				gpbtndirdown = items["gpbtndirdown"];
-				gpbtndirleft = items["gpbtndirleft"];
-				gpbtndirright = items["gpbtndirright"];
-				gpbtnlogo = items["gpbtnlogo"];
-				gamepadonly = items["gamepadonly"];
-				gamepadDomains = items["gamepadDomains"];
-				gamepadchecklistwhite = items["gamepadchecklistwhite"];
-				gamepadchecklistblack = items["gamepadchecklistblack"];
-
-				window.cancelAnimationFrame(updategamepadbuttons);
-				window.cancelAnimationFrame(updategamepadaxes);
-				window.removeEventListener("gamepadconnected", gpstartconnnected);
-				window.removeEventListener("gamepaddisconnected", gpdisconnected);
-
-				if(gamepad == true){
-					rungamepadcheck();
-				}
-			});
 		},
 		gotoggleautodim: function(){
 			showToggleNotification("titelautodim", "autodimDomains");

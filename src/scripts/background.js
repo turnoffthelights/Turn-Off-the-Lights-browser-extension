@@ -228,7 +228,8 @@ const SCRIPT_IDS = {
 	fps: "fpsScript",
 	reflection: "reflectionScript",
 	autodim: "autodimScript",
-	atmosphere: "atmosphereScript"
+	atmosphere: "atmosphereScript",
+	gamepad: "gamepadScript"
 };
 
 // Configuration for content scripts
@@ -263,6 +264,12 @@ const CONTENT_SCRIPTS = {
 	atmosphere: {
 		id: SCRIPT_IDS.atmosphere,
 		js: ["scripts/atmosphere.js"],
+		matches: ["<all_urls>"],
+		runAt: "document_end"
+	},
+	gamepad: {
+		id: SCRIPT_IDS.gamepad,
+		js: ["scripts/gamepad.js"],
 		matches: ["<all_urls>"],
 		runAt: "document_end"
 	}
@@ -310,6 +317,7 @@ manageContentScript("autostop", CONTENT_SCRIPTS.autostop);
 manageContentScript("block60fps", CONTENT_SCRIPTS.fps);
 manageContentScript("reflection", CONTENT_SCRIPTS.reflection);
 manageContentScript("ambilight", CONTENT_SCRIPTS.atmosphere);
+manageContentScript("gamepad", CONTENT_SCRIPTS.gamepad);
 //---
 
 async function restcontent(path, name, sendertab){
@@ -913,6 +921,31 @@ chrome.storage.onChanged.addListener(async function(changes){
 				manageContentScript("block60fps", CONTENT_SCRIPTS.fps);
 			}else{
 				unregisterContentScript(SCRIPT_IDS.fps);
+			}
+		}
+
+		// Handle gamepad content script registration
+		if(changes["gamepad"]){
+			if(changes["gamepad"].newValue === true){
+				manageContentScript("gamepad", CONTENT_SCRIPTS.gamepad);
+				// Inject script into existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.startsWith("http://") || tab.url.startsWith("https://"))){
+						try{
+							await chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/gamepad.js"]
+							});
+						}catch(error){
+							// Ignore errors for tabs where script can't be injected
+						}
+					}
+				}
+			}else{
+				unregisterContentScript(SCRIPT_IDS.gamepad);
+				// Stop gamepad in existing tabs
+				chromerefreshalltabs("gorefreshgamepad");
 			}
 		}
 
