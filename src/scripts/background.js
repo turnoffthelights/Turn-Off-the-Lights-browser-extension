@@ -227,7 +227,8 @@ const SCRIPT_IDS = {
 	autostop: "autostopScript",
 	fps: "fpsScript",
 	reflection: "reflectionScript",
-	autodim: "autodimScript"
+	autodim: "autodimScript",
+	atmosphere: "atmosphereScript"
 };
 
 // Configuration for content scripts
@@ -256,6 +257,12 @@ const CONTENT_SCRIPTS = {
 	autodim: {
 		id: SCRIPT_IDS.autodim,
 		js: ["scripts/autodim.js"],
+		matches: ["<all_urls>"],
+		runAt: "document_end"
+	},
+	atmosphere: {
+		id: SCRIPT_IDS.atmosphere,
+		js: ["scripts/atmosphere.js"],
 		matches: ["<all_urls>"],
 		runAt: "document_end"
 	}
@@ -302,6 +309,7 @@ async function manageContentScript(settingKey, scriptConfig){
 manageContentScript("autostop", CONTENT_SCRIPTS.autostop);
 manageContentScript("block60fps", CONTENT_SCRIPTS.fps);
 manageContentScript("reflection", CONTENT_SCRIPTS.reflection);
+manageContentScript("ambilight", CONTENT_SCRIPTS.atmosphere);
 //---
 
 async function restcontent(path, name, sendertab){
@@ -905,6 +913,31 @@ chrome.storage.onChanged.addListener(async function(changes){
 				manageContentScript("block60fps", CONTENT_SCRIPTS.fps);
 			}else{
 				unregisterContentScript(SCRIPT_IDS.fps);
+			}
+		}
+
+		// Handle ambilight content script registration
+		if(changes["ambilight"]){
+			if(changes["ambilight"].newValue === true){
+				manageContentScript("ambilight", CONTENT_SCRIPTS.atmosphere);
+				// Inject script into existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.startsWith("http://") || tab.url.startsWith("https://"))){
+						try{
+							await chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/atmosphere.js"]
+							});
+						}catch(error){
+							// Ignore errors for tabs where script can't be injected
+						}
+					}
+				}
+			}else{
+				unregisterContentScript(SCRIPT_IDS.atmosphere);
+				// Stop atmosphere in existing tabs
+				chromerefreshalltabs("goenableatmos");
 			}
 		}
 		if(changes["icon"]){
