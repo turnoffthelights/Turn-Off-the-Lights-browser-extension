@@ -74,7 +74,7 @@ chrome.storage.sync.get(["autostop", "autostoponly", "autostopDomains", "autosto
 		return Array.from(videos);
 	}
 
-	function getPosition(el){
+	function getBlockPosition(el){
 		if(!el || typeof el.getBoundingClientRect !== "function"){
 			return{x: 0, y: 0};
 		}
@@ -97,7 +97,7 @@ chrome.storage.sync.get(["autostop", "autostoponly", "autostopDomains", "autosto
 		}else if(window.getComputedStyle){
 			st = document.defaultView.getComputedStyle(myElement, null); d = st.getPropertyValue("display"); w = st.getPropertyValue("width"); h = st.getPropertyValue("height"); t = st.getPropertyValue("top");
 		}
-		var visposition = getPosition(myElement);
+		var visposition = getBlockPosition(myElement);
 		// YouTube if previous path is none, then hide it too
 		var path = [];
 		var current = myElement; // start from your element
