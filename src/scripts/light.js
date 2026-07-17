@@ -1082,8 +1082,8 @@ function createView(id, left, top, width, height){
 	var view = $(id);
 	if(view){
 		view.className = "stefanvdlightareoff";
-		view.style.left = left + "px";
-		view.style.top = top + "px";
+		view.style.left = `${left}px`;
+		view.style.top = `${top}px`;
 		view.style.width = width;
 		view.style.height = height;
 		view.style.visibility = "visible";
@@ -1177,7 +1177,7 @@ function moveSpot(e){
 		spotx = e.clientX; spoty = e.clientY;
 		oldspotx = spotx; oldspoty = spoty;
 	}
-	mousespotlightstyle = "radial-gradient(circle at " + spotx + "px " + spoty + "px, transparent " + borderspotlightsize + "px, " + lightcolor + " " + fullspotlightsize + "px)";
+	mousespotlightstyle = `radial-gradient(circle at ${spotx}px ${spoty}px, transparent ${borderspotlightsize}px, ${lightcolor} ${fullspotlightsize}px)`;
 	spot.style.opacity = default_opacity / 100;
 	spot.style.backgroundImage = mousespotlightstyle;
 }
@@ -1190,7 +1190,7 @@ function spotmousedown(){
 			mathfullsizeup = Math.abs(mathfullsizeup) + Math.abs(1);
 			mathbordersizeup = Math.abs(mathbordersizeup) + Math.abs(1);
 			spotx = oldspotx; spoty = oldspoty;
-			mousespotlightstyle = "radial-gradient(circle at " + spotx + "px " + spoty + "px, transparent " + mathbordersizeup + "px, " + lightcolor + " " + mathfullsizeup + "px)";
+			mousespotlightstyle = `radial-gradient(circle at ${spotx}px ${spoty}px, transparent ${mathbordersizeup}px, ${lightcolor} ${mathfullsizeup}px)`;
 			spot.style.backgroundImage = mousespotlightstyle;
 		}, 5);
 
@@ -1199,7 +1199,7 @@ function spotmousedown(){
 
 function spotmouseup(){
 	window.clearInterval(countupsizetimer); window.clearTimeout(presstimer);
-	mousespotlightstyle = "radial-gradient(circle at " + spotx + "px " + spoty + "px, transparent " + borderspotlightsize + "px, " + lightcolor + " " + fullspotlightsize + "px)";
+	mousespotlightstyle = `radial-gradient(circle at ${spotx}px ${spoty}px, transparent ${borderspotlightsize}px, ${lightcolor} ${fullspotlightsize}px)`;
 	spot.style.backgroundImage = mousespotlightstyle;
 	mathfullsizeup = fullspotlightsize;
 	mathbordersizeup = borderspotlightsize;
@@ -1259,24 +1259,24 @@ function dragBorder(arg, delta){
 	if(stretchable){
 		switch(arg){
 		case"right":
-			rect.style.width = (width + delta) + "px";
-			$("stefanvdlightareoff3").style.width = (parseInt($("stefanvdlightareoff3").style.width) + delta) + "px"; $("stefanvdlightareoff3").style.left = (parseInt($("stefanvdlightareoff3").style.left) + delta) + "px";
+			rect.style.width = `${width + delta}px`;
+			$("stefanvdlightareoff3").style.width = `${parseInt($("stefanvdlightareoff3").style.width) + delta}px`; $("stefanvdlightareoff3").style.left = `${parseInt($("stefanvdlightareoff3").style.left) + delta}px`;
 			break;
 		case"left":
-			rect.style.width = (width - delta) + "px"; rect.style.left = (parseInt(rect.style.left) + delta) + "px";
-			$("stefanvdlightareoff2").style.width = (parseInt($("stefanvdlightareoff2").style.width) + delta) + "px";
+			rect.style.width = `${width - delta}px`; rect.style.left = `${parseInt(rect.style.left) + delta}px`;
+			$("stefanvdlightareoff2").style.width = `${parseInt($("stefanvdlightareoff2").style.width) + delta}px`;
 			break;
 		case"bottom":
-			rect.style.height = (height + delta) + "px";
-			$("stefanvdlightareoff4").style.height = (parseInt($("stefanvdlightareoff4").style.height) - delta) + "px"; $("stefanvdlightareoff4").style.top = (parseInt($("stefanvdlightareoff4").style.top) + delta) + "px";
-			$("stefanvdlightareoff2").style.height = (parseInt($("stefanvdlightareoff2").style.height) + delta) + "px";
-			$("stefanvdlightareoff3").style.height = (parseInt($("stefanvdlightareoff3").style.height) + delta) + "px";
+			rect.style.height = `${height + delta}px`;
+			$("stefanvdlightareoff4").style.height = `${parseInt($("stefanvdlightareoff4").style.height) - delta}px`; $("stefanvdlightareoff4").style.top = `${parseInt($("stefanvdlightareoff4").style.top) + delta}px`;
+			$("stefanvdlightareoff2").style.height = `${parseInt($("stefanvdlightareoff2").style.height) + delta}px`;
+			$("stefanvdlightareoff3").style.height = `${parseInt($("stefanvdlightareoff3").style.height) + delta}px`;
 			break;
 		case"top":
-			rect.style.height = (height - delta) + "px"; rect.style.top = (parseInt(rect.style.top) + delta) + "px";
-			$("stefanvdlightareoff1").style.height = (parseInt($("stefanvdlightareoff1").style.height) + delta) + "px";
-			$("stefanvdlightareoff2").style.height = (parseInt($("stefanvdlightareoff2").style.height) - delta) + "px"; $("stefanvdlightareoff2").style.top = (parseInt($("stefanvdlightareoff2").style.top) + delta) + "px";
-			$("stefanvdlightareoff3").style.height = (parseInt($("stefanvdlightareoff3").style.height) - delta) + "px"; $("stefanvdlightareoff3").style.top = (parseInt($("stefanvdlightareoff3").style.top) + delta) + "px";
+			rect.style.height = `${height - delta}px`; rect.style.top = `${parseInt(rect.style.top) + delta}px`;
+			$("stefanvdlightareoff1").style.height = `${parseInt($("stefanvdlightareoff1").style.height) + delta}px`;
+			$("stefanvdlightareoff2").style.height = `${parseInt($("stefanvdlightareoff2").style.height) - delta}px`; $("stefanvdlightareoff2").style.top = `${parseInt($("stefanvdlightareoff2").style.top) + delta}px`;
+			$("stefanvdlightareoff3").style.height = `${parseInt($("stefanvdlightareoff3").style.height) - delta}px`; $("stefanvdlightareoff3").style.top = `${parseInt($("stefanvdlightareoff3").style.top) + delta}px`;
 			break;
 		}
 	}
@@ -1299,15 +1299,15 @@ function getMouse(obj, e){
 		beginxcordinate = posx; beginycordinate = posy;
 		try{
 			customview = $("stefanvdlightareoffcustom");
-			customview.style.left = initx + "px"; customview.style.top = inity + "px";
+			customview.style.left = `${initx}px`; customview.style.top = `${inity}px`;
 			document.body.appendChild(customview);
 		}catch(e){ console.log(e); }
 	});
 	obj.addEventListener("pointerup", function(){ initx = false; inity = false; });
 	if(initx){
-		customview.style.width = Math.abs(posx - initx) + "px"; customview.style.height = Math.abs(posy - inity) + "px";
-		customview.style.left = posx - initx < 0 ? posx + "px" : initx + "px";
-		customview.style.top = posy - inity < 0 ? posy + "px" : inity + "px";
+		customview.style.width = `${Math.abs(posx - initx)}px`; customview.style.height = `${Math.abs(posy - inity)}px`;
+		customview.style.left = posx - initx < 0 ? `${posx}px` : `${initx}px`;
+		customview.style.top = posy - inity < 0 ? `${posy}px` : `${inity}px`;
 
 		endxcordinate = posx; endycordinate = posy;
 		// remove help div
@@ -1328,38 +1328,38 @@ function getMouse(obj, e){
 		$("stefanvdlightcorner").addEventListener("pointerup", stretchout, false);
 		$("stefanvdlightcorner").addEventListener("pointerout", stretchout, false);
 
-		setAttributes($("stefanvdlightcorner"), {"top": parseInt(document.getElementById("stefanvdlightareoff1").style.height) - 10 + "px", "height": parseInt(document.getElementById("stefanvdlightareoff2").style.height) - 20 + "px", "left": parseInt(document.getElementById("stefanvdlightareoff2").style.width) - 10 + "px", "width": parseInt(document.getElementById("stefanvdlightareoff3").style.left) - parseInt(document.getElementById("stefanvdlightareoff2").style.width) - 20 + "px"});
+		setAttributes($("stefanvdlightcorner"), {"top": `${parseInt(document.getElementById("stefanvdlightareoff1").style.height) - 10}px`, "height": `${parseInt(document.getElementById("stefanvdlightareoff2").style.height) - 20}px`, "left": `${parseInt(document.getElementById("stefanvdlightareoff2").style.width) - 10}px`, "width": `${parseInt(document.getElementById("stefanvdlightareoff3").style.left) - parseInt(document.getElementById("stefanvdlightareoff2").style.width) - 20}px`});
 
 	}else{ return false; }
 	var viewpartheight = customview.style.height;
 
-	createView("stefanvdlightareoff1", 0, 0, "100%", beginycordinate + "px");
-	createView("stefanvdlightareoff2", 0, beginycordinate, beginxcordinate + "px", viewpartheight);
-	createView("stefanvdlightareoff3", endxcordinate, beginycordinate, (window.innerWidth - beginxcordinate) + "px", viewpartheight);
-	createView("stefanvdlightareoff4", 0, endycordinate, "100%", (window.innerHeight - endycordinate) + "px");
+	createView("stefanvdlightareoff1", 0, 0, "100%", `${beginycordinate}px`);
+	createView("stefanvdlightareoff2", 0, beginycordinate, `${beginxcordinate}px`, viewpartheight);
+	createView("stefanvdlightareoff3", endxcordinate, beginycordinate, `${window.innerWidth - beginxcordinate}px`, viewpartheight);
+	createView("stefanvdlightareoff4", 0, endycordinate, "100%", `${window.innerHeight - endycordinate}px`);
 
 	var calcpartx = endxcordinate - beginxcordinate;
 	var calcparty = endycordinate - beginycordinate;
 	if((calcpartx < 0) && ! (calcparty < 0)){ // X as automatic change view
-		createView("stefanvdlightareoff1", 0, 0, "100%", beginycordinate + "px");
-		createView("stefanvdlightareoff2", 0, beginycordinate, endxcordinate + "px", viewpartheight);
-		createView("stefanvdlightareoff3", beginxcordinate, beginycordinate, (window.innerWidth - beginxcordinate) + "px", viewpartheight);
-		createView("stefanvdlightareoff4", 0, endycordinate, "100%", (window.innerHeight - endycordinate) + "px");
+		createView("stefanvdlightareoff1", 0, 0, "100%", `${beginycordinate}px`);
+		createView("stefanvdlightareoff2", 0, beginycordinate, `${endxcordinate}px`, viewpartheight);
+		createView("stefanvdlightareoff3", beginxcordinate, beginycordinate, `${window.innerWidth - beginxcordinate}px`, viewpartheight);
+		createView("stefanvdlightareoff4", 0, endycordinate, "100%", `${window.innerHeight - endycordinate}px`);
 	}else if((calcparty < 0) && ! (calcpartx < 0)){ // Y as automatic change view
 		if(endycordinate < 0){ endycordinate = 0; }
-		let view2height = (endycordinate == 0) ? beginycordinate + "px" : viewpartheight;
-		let view3height = (endycordinate == 0) ? beginycordinate + "px" : viewpartheight;
-		createView("stefanvdlightareoff1", 0, 0, "100%", endycordinate + "px");
-		createView("stefanvdlightareoff2", 0, endycordinate, beginxcordinate + "px", view2height);
-		createView("stefanvdlightareoff3", endxcordinate, endycordinate, (window.innerWidth - beginxcordinate) + "px", view3height);
-		createView("stefanvdlightareoff4", 0, beginycordinate, "100%", (window.innerHeight - endycordinate) + "px");
+		let view2height = (endycordinate == 0) ? `${beginycordinate}px` : viewpartheight;
+		let view3height = (endycordinate == 0) ? `${beginycordinate}px` : viewpartheight;
+		createView("stefanvdlightareoff1", 0, 0, "100%", `${endycordinate}px`);
+		createView("stefanvdlightareoff2", 0, endycordinate, `${beginxcordinate}px`, view2height);
+		createView("stefanvdlightareoff3", endxcordinate, endycordinate, `${window.innerWidth - beginxcordinate}px`, view3height);
+		createView("stefanvdlightareoff4", 0, beginycordinate, "100%", `${window.innerHeight - endycordinate}px`);
 	}else if((calcpartx < 0) && (calcparty < 0)){ // X en Y as automatic change view
 		if(endycordinate < 0){ endycordinate = 0; }
-		let view2height = (endycordinate == 0) ? beginycordinate + "px" : viewpartheight;
-		let view3height = (endycordinate == 0) ? beginycordinate + "px" : viewpartheight;
-		createView("stefanvdlightareoff1", 0, 0, "100%", endycordinate + "px");
-		createView("stefanvdlightareoff2", 0, endycordinate, endxcordinate + "px", view2height);
-		createView("stefanvdlightareoff3", beginxcordinate, endycordinate, (window.innerWidth - beginxcordinate) + "px", view3height);
+		let view2height = (endycordinate == 0) ? `${beginycordinate}px` : viewpartheight;
+		let view3height = (endycordinate == 0) ? `${beginycordinate}px` : viewpartheight;
+		createView("stefanvdlightareoff1", 0, 0, "100%", `${endycordinate}px`);
+		createView("stefanvdlightareoff2", 0, endycordinate, `${endxcordinate}px`, view2height);
+		createView("stefanvdlightareoff3", beginxcordinate, endycordinate, `${window.innerWidth - beginxcordinate}px`, view3height);
 		createView("stefanvdlightareoff4", 0, beginycordinate, "100%", (window.innerHeight - beginycordinate) + "px");
 	}
 }
@@ -1651,8 +1651,8 @@ function drop(){
 		ctx.beginPath();
 
 		var drip = ctx.createLinearGradient(0, 0, 0, this.l);
-		drip.addColorStop(0, "rgba(" + rain_color + ", 0)");
-		drip.addColorStop(1, "rgba(" + rain_color + ", " + this.opacity + ")");
+		drip.addColorStop(0, `rgba(${rain_color}, 0)`);
+		drip.addColorStop(1, `rgba(${rain_color}, ${this.opacity})`);
 		ctx.fillStyle = drip;
 
 		// sky.rect(this.x, this.y, this.r, this.l);
@@ -1758,7 +1758,7 @@ function trianglerun(){
 						polygon.setAttribute("points", bottomLeftX + "," + bottomLeftY + " " + topRightX + "," + topRightY + " " + bottomRightX + "," + bottomRightY);
 					}
 				}
-				polygon.setAttribute("fill", "rgba(0,0,0," + (Math.random() / 3) + ")");
+				polygon.setAttribute("fill", `rgba(0,0,0,${Math.random() / 3})`);
 				var animate = document.createElementNS("http://www.w3.org/2000/svg", "animate");
 				setAttributes(animate, {"fill": "freeze", "attributeName": "points", "dur": refreshDuration + "ms", "calcMode": "linear"});
 				polygon.appendChild(animate);
@@ -1820,7 +1820,7 @@ function newconvertHex(hex, opacity){
 	result_green = fg_green * alpha + 255 * (1 - alpha);
 	result_blue = fg_blue * alpha + 255 * (1 - alpha);
 
-	result = "rgb(" + result_red + "," + result_green + "," + result_blue + ")";
+	result = `rgb(${result_red},${result_green},${result_blue})`;
 	return result;
 }
 
@@ -2039,7 +2039,7 @@ function lightsgoonoroff(){
 			}
 
 			// if image background, load it then
-			if(lightimagea == true){ newdiv.style.background = "url('" + lightimage + "')"; newdiv.style.backgroundSize = "100% 100%"; }else if(lightimagelin == true){ newdiv.style.background = "linear-gradient(to " + linearsq + ", " + colora + " " + intervallina + "%," + colorb + " " + intervallinb + "%)"; }else{ newdiv.style.background = lightcolor; }
+			if(lightimagea == true){ newdiv.style.background = `url('${lightimage}')`; newdiv.style.backgroundSize = "100% 100%"; }else if(lightimagelin == true){ newdiv.style.background = `linear-gradient(to ${linearsq}, ${colora} ${intervallina}%,${colorb} ${intervallinb}%)`; }else{ newdiv.style.background = lightcolor; }
 			//---
 			newdiv.style.opacity = 0;
 			newdiv.style.zIndex = 999;
@@ -2165,27 +2165,6 @@ function lightsgoonoroff(){
 				for(rainrighti = 16; rainrighti < 31; rainrighti++){ var newdynrainb = document.createElement("div"); newdynrainb.setAttribute("class", "stefanvddynamicbackgroundraindrups b" + rainrighti + ""); newdynrainright.appendChild(newdynrainb); }
 			}else if(dynamic4 == true){
 				var newdynworld = document.createElement("div"); newdynworld.setAttribute("id", "stefanvdworld"); newdynmaster.appendChild(newdynworld);
-				(function(){
-					var lastTime = 0;
-					var vendors = ["ms", "moz", "webkit", "o"];
-					var x;
-					var vl = vendors.length;
-					for(x = 0; x < vl && !window.requestAnimationFrame; ++x){
-						window.requestAnimationFrame = window[vendors[x] + "RequestAnimationFrame"];
-						window.cancelRequestAnimationFrame = window[vendors[x] + "CancelRequestAnimationFrame"];
-					}
-					if(!window.requestAnimationFrame)
-						window.requestAnimationFrame = function(callback){
-							var currTime = new Date().getTime();
-							var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-							var id = window.setTimeout(function(){ callback(currTime + timeToCall); }, timeToCall);
-							lastTime = currTime + timeToCall;
-							return id;
-						};
-
-					if(!window.cancelAnimationFrame)window.cancelAnimationFrame = function(id){ window.clearTimeout(id); };
-				}());
-
 				var p = 400;
 				newdynmaster.style.webkitPerspective = p; newdynmaster.style.MozPerspective = p; newdynmaster.style.oPerspective = p;
 				generate();
