@@ -893,7 +893,7 @@ chrome.storage.onChanged.addListener(async function(changes){
 						try{
 							await chrome.scripting.executeScript({
 								target: {tabId: tab.id},
-								files: ["scripts/content.js", "scripts/autodim.js"]
+								files: ["scripts/autodim.js"]
 							});
 						}catch(error){
 							// Ignore errors for tabs where script can't be injected
