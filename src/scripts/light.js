@@ -94,6 +94,21 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 		return(" " + a.className + " ").indexOf(" " + b + " ") > -1;
 	}
 
+	// Helper function to detect YouTube dark mode
+	function isYouTubeDarkMode(){
+		return document.documentElement.hasAttribute("dark");
+	}
+
+	// Helper function to get appropriate background color based on YouTube theme
+	function getYouTubeBackgroundColor(){
+		return isYouTubeDarkMode() ? "#1f1f1f" : "#ffffff";
+	}
+
+	// Helper function to get appropriate secondary background color
+	function getYouTubeSecondaryBackgroundColor(){
+		return isYouTubeDarkMode() ? "#282828" : "#f2f2f2";
+	}
+
 	// search video path function
 	function searchvideopath(thatvideo){
 		var el = thatvideo;
@@ -406,7 +421,7 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 				if(secondary){ secondary.style.viewTransitionName = "inherit"; }
 
 				let ytmaterialsuggestions = document.querySelector("ytd-watch-next-secondary-results-renderer");
-				if(ytmaterialsuggestions){ ytmaterialsuggestions.classList.add("stefanvditemtop"); ytmaterialsuggestions.style.background = "white"; }
+				if(ytmaterialsuggestions){ ytmaterialsuggestions.classList.add("stefanvditemtop"); ytmaterialsuggestions.style.background = getYouTubeBackgroundColor(); }
 			}
 
 			// Shows YouTube playlist
@@ -443,7 +458,7 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 				var owner = document.querySelector("#owner");
 				if(owner){
 					owner.classList.add("stefanvditemtop");
-					owner.style.background = "#ffffff";
+					owner.style.background = getYouTubeBackgroundColor();
 				}
 			}
 
@@ -456,7 +471,7 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 				var bottomrow = document.querySelector("#description-inner");
 				if(bottomrow){
 					bottomrow.classList.add("stefanvditemtop");
-					bottomrow.style.background = "#f2f2f2";
+					bottomrow.style.background = getYouTubeSecondaryBackgroundColor();
 				}
 			}
 
@@ -469,7 +484,7 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 				var segmentlikedislike = document.querySelector("segmented-like-dislike-button-view-model");
 				if(segmentlikedislike){
 					segmentlikedislike.classList.add("stefanvditemtop");
-					segmentlikedislike.style.background = "white";
+					segmentlikedislike.style.background = getYouTubeBackgroundColor();
 				}
 			}
 
@@ -487,7 +502,7 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 					if(ytgetaddobject != null){
 						var ytgetaddstring = ytgetaddobject.getAttribute("aria-label");
 						if(ytgetaddstring != null){
-							if(ytgetaddstring.substring(0, 5) == "Share"){ ytgetaddobject.classList.add("stefanvditemtop"); ytgetaddobject.style.background = "white"; }
+							if(ytgetaddstring.substring(0, 5) == "Share"){ ytgetaddobject.classList.add("stefanvditemtop"); ytgetaddobject.style.background = getYouTubeBackgroundColor(); }
 						}
 					}
 				}
@@ -507,7 +522,7 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 					if(ytgetaddobject != null){
 						let ytgetaddstring = ytgetaddobject.getAttribute("aria-label");
 						if(ytgetaddstring != null){
-							if(ytgetaddstring.substring(0, 4) == "Save"){ ytgetaddobject.classList.add("stefanvditemtop"); ytgetaddobject.style.background = "white"; }
+							if(ytgetaddstring.substring(0, 4) == "Save"){ ytgetaddobject.classList.add("stefanvditemtop"); ytgetaddobject.style.background = getYouTubeBackgroundColor(); }
 						}
 					}
 				}
