@@ -48,7 +48,9 @@ function drawReflection(reflectionid){
 			}
 			return false;
 		}
-	}catch(e){ console.log(e); }
+	}catch{
+		// Ignore errors
+	}
 
 	try{
 		if(window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
@@ -58,7 +60,9 @@ function drawReflection(reflectionid){
 		}else{
 			reflectionid.style.webkitBoxReflect = "below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(black),color-stop(" + calcreflection + ", transparent))";
 		}
-	}catch(e){ console.log(e); }
+	}catch{
+		// Ignore errors
+	}
 }
 
 function runreflectioncheck(){
@@ -72,7 +76,9 @@ function runreflectioncheck(){
 				for(refk = 0; refk < l; refk++){
 					if(reflectionplayer[refk].play){ reflectionid = reflectionplayer[refk]; drawReflection(reflectionid); }
 				}
-			}catch(e){ console.log(e); }
+			}catch{
+				// Ignore errors
+			}
 		}, 20); // 20 refreshing it
 	}
 }

@@ -339,8 +339,7 @@ function runreal(){
 				setatmosplayer(totlshowtime, [textcountC, textcountB, textcountA], [hex1, hex2, hex3, hex4]);
 			}
 		}
-	}catch(e){
-		console.log(e);
+	}catch{
 		rundefault();
 	}
 }
@@ -432,7 +431,9 @@ function drawAtmos(playerid, item, totlmode){
 						if(typeof downhex1 != "undefined" || typeof downhex2 != "undefined" || typeof downhex3 != "undefined" || typeof downhex4 != "undefined"){
 							try{
 								setatmosplayer(youtubewindow, [textcountC, textcountB, textcountA], [downhex1, downhex2, downhex3, downhex4]);
-							}catch(e){ console.error(e); }
+							}catch{ 
+								// Ignore errors
+							}
 						}else{
 							setatmosplayer(youtubewindow, [textcountC, textcountB, textcountA], [ambilightcolorhex, ambilightcolorhex, ambilightcolorhex, ambilightcolorhex]);
 						}

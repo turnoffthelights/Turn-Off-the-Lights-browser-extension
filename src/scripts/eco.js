@@ -135,8 +135,8 @@ function endlayer(){
 				totalSeconds = 0;
 			}
 		});
-	}catch(e){
-		console.log(e);
+	}catch{
+		// Ignore errors
 	}
 }
 
