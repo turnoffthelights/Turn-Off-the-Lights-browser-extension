@@ -90,9 +90,6 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 	}
 	removeId("stefanvdtest");
 
-
-
-
 	function hasClass(a, b){
 		return(" " + a.className + " ").indexOf(" " + b + " ") > -1;
 	}
