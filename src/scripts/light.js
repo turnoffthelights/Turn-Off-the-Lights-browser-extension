@@ -2551,26 +2551,11 @@ function reduceOpacity(){
 // Clear all timers on page unload to prevent memory leaks
 window.addEventListener("beforeunload", function(){
 	// Clear mouse spotlight timers
-	if(presstimer){
-		window.clearTimeout(presstimer);
-		presstimer = null;
-	}
-	if(countupsizetimer){
-		window.clearInterval(countupsizetimer);
-		countupsizetimer = null;
-	}
+	if(presstimer){ window.clearTimeout(presstimer); presstimer = null; }
+	if(countupsizetimer){ window.clearInterval(countupsizetimer); countupsizetimer = null; }
 	// Clear triangle animation timer
-	if(refreshTimeout){
-		window.clearTimeout(refreshTimeout);
-		refreshTimeout = null;
-	}
+	if(refreshTimeout){ window.clearTimeout(refreshTimeout); refreshTimeout = null; }
 	// Clear fish and jellyfish animation timers
-	if(fishinterval){
-		window.clearInterval(fishinterval);
-		fishinterval = null;
-	}
-	if(jellyinterval){
-		window.clearInterval(jellyinterval);
-		jellyinterval = null;
-	}
+	if(fishinterval){ window.clearInterval(fishinterval); fishinterval = null; }
+	if(jellyinterval){ window.clearInterval(jellyinterval); jellyinterval = null; }
 });
