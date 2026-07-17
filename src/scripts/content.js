@@ -372,8 +372,8 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 				}, 3000);
 			}
 		}
-
 	}, false);
+
 	window.addEventListener("keypress", function(e){
 		// press the key t
 		if(e.key == "t"){
@@ -1518,7 +1518,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			var videolist = document.body;
 			observervideotoolbar = new MutationObserver(function(mutations){
 				mutations.forEach(function(mutation){
-
 					if(mutation.target.tagName == "VIDEO"){
 						if(mutation.attributeName === "src" && mutation.target.currentSrc != ""){
 							if(videotool == true){
@@ -1544,9 +1543,8 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 					// detect change style - this for floating box in div detection
 					if(mutation.attributeName == "style" && mutation.target.tagName == "VIDEO"){
 						if(mutation.target.hasAttribute("data-video")){
-						// data is available
-						// update the style
-
+							// data is available
+							// update the style
 							// video toolbar update location
 							var potvis = mutation.target.getAttribute("data-video");
 							var visposition = getPosition(mutation.target);
@@ -1579,14 +1577,12 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 							}
 							// zoom stage location
 							updatepanelsize("stefanvdzoomstage" + potvis, mutation, visposition);
-
 						}else{
 							// there is no data
 							// create everything again
 							myListenervideotoolbar();
 						}
 					}
-
 				});
 			});
 
@@ -1596,7 +1592,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 				characterData: false, // include textContent changes
 				attributes: true // include changes to attributes within the subtree
 			});
-
 		}
 		//---
 
@@ -1615,7 +1610,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	}
 	runplayratecheck();
 
-	// easter eggs
 	function gogotheater(){
 		if(eastereggs == true){
 			// here the easter egg => movie theater
@@ -1631,7 +1625,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 					document.body.appendChild(newimg);
 				}
 			}
-		} // end easter eggs
+		} 
 	}
 
 	// Video hover
@@ -1899,7 +1893,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	if(window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
 		if(document.getElementById("content")){ // from youtube website
 			observeDOM(document.getElementById("content"), function(){
-
 				// for the no360 live update
 				if(no360youtube == true){
 					var ytfullvideo = document.getElementsByTagName("video");
@@ -1911,11 +1904,9 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 					var ytwl = ytwebgl.length;
 					for(ytwi = 0; ytwi < ytwl; ytwi++){ ytwebgl[ytwi].style.display = "none"; }
 				}
-
 			});
 		}
 	}
-
 
 	// Mouse Volume Scroll
 	var myListenerWithContextvolume;
@@ -1951,7 +1942,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	//---
 
 	var doscroll = function(e){
-
 		if(videovolumealt == true){
 			window.addEventListener("keydown", onKeyDown, true);
 			window.addEventListener("keyup", onKeyUp, true);
@@ -2182,7 +2172,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 					document.body.removeEventListener("pointermove", myListener, false);
 				}, false);
 			}
-
 		}
 	}
 
@@ -2292,7 +2281,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 		}
 		addvolume();
 	}
-
 
 	function playnext(){
 		var nextButton = document.getElementsByClassName("ytp-next-button")[0];
@@ -2686,7 +2674,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 				pipbctx2.beginPath();
 
 				let i;
-				// let j = analyser[0].wave.length;
 				let a;
 				let r;
 				for(i = (data.length / 2) - 1; i >= 0; i--){
