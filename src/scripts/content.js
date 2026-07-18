@@ -2792,10 +2792,10 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 				}
 
 				window.removeEventListener("resize", myListenerWithContext);
-			if(myFullscreenListener){
-				document.removeEventListener("fullscreenchange", myFullscreenListener);
-				myFullscreenListener = null;
-			}
+				if(myFullscreenListener){
+					document.removeEventListener("fullscreenchange", myFullscreenListener);
+					myFullscreenListener = null;
+				}
 
 				removevideotool();
 
