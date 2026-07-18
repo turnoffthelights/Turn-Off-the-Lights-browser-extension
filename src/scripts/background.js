@@ -318,6 +318,7 @@ manageContentScript("block60fps", CONTENT_SCRIPTS.fps);
 manageContentScript("reflection", CONTENT_SCRIPTS.reflection);
 manageContentScript("ambilight", CONTENT_SCRIPTS.atmosphere);
 manageContentScript("gamepad", CONTENT_SCRIPTS.gamepad);
+manageContentScript("autodim", CONTENT_SCRIPTS.autodim);
 //---
 
 async function restcontent(path, name, sendertab){
