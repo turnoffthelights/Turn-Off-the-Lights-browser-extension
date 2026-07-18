@@ -1121,7 +1121,7 @@ if(typeof chrome.omnibox !== "undefined"){
 				omnidaynightmode(1);
 			}else if(onmniresult == i18nomnidaymode){
 				omnidaynightmode(0);
-			}else if(onmniresult == i18nomnilightoff || text == i18nomnilighton){
+			}else if(onmniresult == i18nomnilightoff || onmniresult == i18nomnilighton){
 				const thattab = await getCurrentTab();
 				chrome.scripting.executeScript({
 					target: {tabId: thattab.id},
