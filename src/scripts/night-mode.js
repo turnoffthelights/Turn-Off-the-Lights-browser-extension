@@ -2103,7 +2103,7 @@ const afterBodyReady = () => {
 
 		function runnightmodegesturecheck(){
 			if(nightmodegesture == true){
-				var nightblurcss = ".stefanvdnightblur{animation:0.8s nightblind}@-webkit-keyframes nightblind{0%,20%{filter:blur(0)}100%{filter:blur(10px)}}@keyframes nightblind{0%,20%{filter:blur(0)}100%{filter:blur(10px)}}.stefanvdlongpress{animation:0.8s longpress}@-webkit-keyframes longpress{0%,20%{background:" + window.getComputedStyle(document.body, null).getPropertyValue("background-color") + "}100%{background:" + nightmodebck + "}}@keyframes longpress{0%,20%{background:" + window.getComputedStyle(document.body, null).getPropertyValue("background-color") + "}100%{background:" + nightmodebck + "}}";
+				var nightblurcss = ".stefanvdnightblur{animation:0.8s nightblind}@keyframes nightblind{0%,20%{filter:blur(0)}100%{filter:blur(10px)}}.stefanvdlongpress{animation:0.8s longpress}@keyframes longpress{0%,20%{background:" + window.getComputedStyle(document.body, null).getPropertyValue("background-color") + "}100%{background:" + nightmodebck + "}}";
 
 				addcsstext("totlnightgesturestyle", nightblurcss);
 
