@@ -1048,15 +1048,6 @@ chrome.storage.onChanged.addListener(async function(changes){
 			chromerefreshalltabs("gorefreshgamepad");
 		}
 
-		if(changes["autostop"]){
-			manageContentScript("autostop", CONTENT_SCRIPTS.autostop);
-		}
-
-		// Check if "block60fps" setting has changed
-		if(changes["block60fps"]){
-			manageContentScript("block60fps", CONTENT_SCRIPTS.fps);
-		}
-
 		var changenameshake = ["mouseshake", "mouseshakesensitivity"];
 		if(changenameshake.includes(key)){
 			chromerefreshalltabs("gorefreshmouseshake");
