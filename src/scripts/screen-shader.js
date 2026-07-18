@@ -82,7 +82,7 @@ function setmetatheme(a){
 		}
 	}
 
-	const x = document.querySelector('meta[name="theme-color"]');
+	const x = document.querySelector("meta[name=\"theme-color\"]");
 	if(x === null){
 		// create one theme-color
 		const newmeta = document.createElement("meta");
