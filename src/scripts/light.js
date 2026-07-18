@@ -950,6 +950,7 @@ function reader(){
 	spotResizeCorner = null;
 	spotListenersAttached = false;
 	spotDragDistance = 0;
+	if(spotCornerTimer){ window.clearTimeout(spotCornerTimer); spotCornerTimer = null; }
 
 	// Set everything back to the default YouTube theme
 	if(window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
@@ -1228,6 +1229,23 @@ var spotHandles = {};
 var spotFixedX = 0, spotFixedY = 0;
 var spotResizeCorner = null;
 var spotListenersAttached = false;
+var spotCornerTimer = null;
+
+function showCornerHandles(){
+	var keys = ["tl", "tr", "bl", "br"];
+	for(var i = 0; i < keys.length; i++){
+		if(spotHandles[keys[i]]) spotHandles[keys[i]].style.opacity = "1";
+	}
+	if(spotCornerTimer) window.clearTimeout(spotCornerTimer);
+	spotCornerTimer = window.setTimeout(hideCornerHandles, 3000);
+}
+
+function hideCornerHandles(){
+	var keys = ["tl", "tr", "bl", "br"];
+	for(var i = 0; i < keys.length; i++){
+		if(spotHandles[keys[i]]) spotHandles[keys[i]].style.opacity = "0";
+	}
+}
 
 function updateDarkLayers(x1, y1, x2, y2){
 	var left = Math.min(x1, x2);
@@ -1346,6 +1364,10 @@ function initCustomSpotlight(){
 			spotCurrentX = e.clientX; spotCurrentY = e.clientY;
 			updateDarkLayers(spotFixedX, spotFixedY, spotCurrentX, spotCurrentY);
 			positionCornerHandles(spotFixedX, spotFixedY, spotCurrentX, spotCurrentY);
+		}else if(spotlightState === "idle"){
+			if(spotHandles.tl || spotHandles.tr || spotHandles.bl || spotHandles.br){
+				showCornerHandles();
+			}
 		}
 	});
 
@@ -1356,15 +1378,17 @@ function initCustomSpotlight(){
 			document.body.style.cursor = "default";
 			var preview = $("stefanvdlightareoffcustom");
 			if(preview) preview.style.display = "none";
-			if(spotDragDistance > 5){
+		if(spotDragDistance > 5){
 				createCornerHandles();
 				positionCornerHandles(spotStartX, spotStartY, spotCurrentX, spotCurrentY);
+				showCornerHandles();
 			}
 		}else if(spotlightState === "resizing"){
 			spotStartX = spotFixedX; spotStartY = spotFixedY;
 			spotlightState = "idle";
 			spotResizeCorner = null;
 			document.body.style.cursor = "default";
+			showCornerHandles();
 		}
 	});
 
