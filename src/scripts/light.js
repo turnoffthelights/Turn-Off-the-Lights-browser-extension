@@ -1328,7 +1328,10 @@ function getMouse(obj, e){
 		$("stefanvdlightcorner").addEventListener("pointerup", stretchout, false);
 		$("stefanvdlightcorner").addEventListener("pointerout", stretchout, false);
 
-		setAttributes($("stefanvdlightcorner"), {"top": `${parseInt(document.getElementById("stefanvdlightareoff1").style.height) - 10}px`, "height": `${parseInt(document.getElementById("stefanvdlightareoff2").style.height) - 20}px`, "left": `${parseInt(document.getElementById("stefanvdlightareoff2").style.width) - 10}px`, "width": `${parseInt(document.getElementById("stefanvdlightareoff3").style.left) - parseInt(document.getElementById("stefanvdlightareoff2").style.width) - 20}px`});
+		rect.style.top = `${Math.min(beginycordinate, endycordinate) - 10}px`;
+		rect.style.height = `${Math.abs(endycordinate - beginycordinate) + 20}px`;
+		rect.style.left = `${Math.min(beginxcordinate, endxcordinate) - 10}px`;
+		rect.style.width = `${Math.abs(endxcordinate - beginxcordinate) + 20}px`;
 
 	}else{ return false; }
 	var viewpartheight = customview.style.height;
