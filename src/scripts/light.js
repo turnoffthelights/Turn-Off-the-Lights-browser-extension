@@ -1257,48 +1257,28 @@ function watchMouse(e){
 
 function dragBorder(arg, delta){
 	if(stretchable){
-		// Update rectangle dimensions first
 		switch(arg){
 		case"right":
-			rect.style.width = `${width + delta}px`;
+			rect.style.width = (width + delta) + "px";
+			$("stefanvdlightareoff3").style.width = (parseInt($("stefanvdlightareoff3").style.width) + delta) + "px"; $("stefanvdlightareoff3").style.left = (parseInt($("stefanvdlightareoff3").style.left) + delta) + "px";
 			break;
 		case"left":
-			rect.style.width = `${width - delta}px`; rect.style.left = `${parseInt(rect.style.left) + delta}px`;
+			rect.style.width = (width - delta) + "px"; rect.style.left = (parseInt(rect.style.left) + delta) + "px";
+			$("stefanvdlightareoff2").style.width = (parseInt($("stefanvdlightareoff2").style.width) + delta) + "px";
 			break;
 		case"bottom":
-			rect.style.height = `${height + delta}px`;
+			rect.style.height = (height + delta) + "px";
+			$("stefanvdlightareoff4").style.height = (parseInt($("stefanvdlightareoff4").style.height) - delta) + "px"; $("stefanvdlightareoff4").style.top = (parseInt($("stefanvdlightareoff4").style.top) + delta) + "px";
+			$("stefanvdlightareoff2").style.height = (parseInt($("stefanvdlightareoff2").style.height) + delta) + "px";
+			$("stefanvdlightareoff3").style.height = (parseInt($("stefanvdlightareoff3").style.height) + delta) + "px";
 			break;
 		case"top":
-			rect.style.height = `${height - delta}px`; rect.style.top = `${parseInt(rect.style.top) + delta}px`;
+			rect.style.height = (height - delta) + "px"; rect.style.top = (parseInt(rect.style.top) + delta) + "px";
+			$("stefanvdlightareoff1").style.height = (parseInt($("stefanvdlightareoff1").style.height) + delta) + "px";
+			$("stefanvdlightareoff2").style.height = (parseInt($("stefanvdlightareoff2").style.height) - delta) + "px"; $("stefanvdlightareoff2").style.top = (parseInt($("stefanvdlightareoff2").style.top) + delta) + "px";
+			$("stefanvdlightareoff3").style.height = (parseInt($("stefanvdlightareoff3").style.height) - delta) + "px"; $("stefanvdlightareoff3").style.top = (parseInt($("stefanvdlightareoff3").style.top) + delta) + "px";
 			break;
 		}
-
-		// Recalculate all overlay divs based on new rectangle position
-		var rectLeft = parseInt(rect.style.left) + 10;
-		var rectTop = parseInt(rect.style.top) + 10;
-		var rectRight = rectLeft + parseInt(rect.style.width) - 20;
-		var rectBottom = rectTop + parseInt(rect.style.height) - 20;
-		var rectHeight = parseInt(rect.style.height) - 20;
-
-		// Top overlay (above rectangle)
-		$("stefanvdlightareoff1").style.height = `${rectTop}px`;
-		$("stefanvdlightareoff1").style.top = "0px";
-
-		// Left overlay (left of rectangle)
-		$("stefanvdlightareoff2").style.left = "0px";
-		$("stefanvdlightareoff2").style.top = `${rectTop}px`;
-		$("stefanvdlightareoff2").style.width = `${rectLeft}px`;
-		$("stefanvdlightareoff2").style.height = `${rectHeight}px`;
-
-		// Right overlay (right of rectangle)
-		$("stefanvdlightareoff3").style.left = `${rectRight}px`;
-		$("stefanvdlightareoff3").style.top = `${rectTop}px`;
-		$("stefanvdlightareoff3").style.width = `${window.innerWidth - rectRight}px`;
-		$("stefanvdlightareoff3").style.height = `${rectHeight}px`;
-
-		// Bottom overlay (below rectangle)
-		$("stefanvdlightareoff4").style.top = `${rectBottom}px`;
-		$("stefanvdlightareoff4").style.height = `${window.innerHeight - rectBottom}px`;
 	}
 }
 
