@@ -27,39 +27,37 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 */
 //================================================
 
-var mousespotlights = null, screenshader = null, lightcolor = null, interval = null;
+let mousespotlights = null, screenshader = null, lightcolor = null, interval = null;
 
 function setAttributes(el, attrs){
-	for(var key in attrs){
-		el.setAttribute(key, attrs[key]);
+	for(const [key, value] of Object.entries(attrs)){
+		el.setAttribute(key, value);
 	}
 }
 
-var fg_red, fg_green, fg_blue, result_red, result_green, result_blue, result;
 function newconvertHex(hex, opacity){
 	hex = hex.replace("#", "");
-	var alpha = opacity / 100;
-	fg_red = parseInt(hex.substring(0, 2), 16);
-	fg_green = parseInt(hex.substring(2, 4), 16);
-	fg_blue = parseInt(hex.substring(4, 6), 16);
+	const alpha = opacity / 100;
+	const fgRed = parseInt(hex.substring(0, 2), 16);
+	const fgGreen = parseInt(hex.substring(2, 4), 16);
+	const fgBlue = parseInt(hex.substring(4, 6), 16);
 
-	result_red = fg_red * alpha + 255 * (1 - alpha);
-	result_green = fg_green * alpha + 255 * (1 - alpha);
-	result_blue = fg_blue * alpha + 255 * (1 - alpha);
+	const resultRed = fgRed * alpha + 255 * (1 - alpha);
+	const resultGreen = fgGreen * alpha + 255 * (1 - alpha);
+	const resultBlue = fgBlue * alpha + 255 * (1 - alpha);
 
-	result = "rgb(" + result_red + "," + result_green + "," + result_blue + ")";
-	return result;
+	return `rgb(${resultRed},${resultGreen},${resultBlue})`;
 }
 
-var currentwebthemedark;
-var currentwebthemelight;
+let currentwebthemedark;
+let currentwebthemelight;
 function setmetatheme(a){
 	const metas = document.getElementsByTagName("meta");
-	var darktheme;
-	var lighttheme;
+	let darktheme;
+	let lighttheme;
 
-	var newlightoffcolor = newconvertHex(lightcolor, interval);
-	if(a == true){
+	const newlightoffcolor = newconvertHex(lightcolor, interval);
+	if(a === true){
 		// light is off
 		darktheme = currentwebthemedark;
 		lighttheme = currentwebthemelight;
@@ -69,52 +67,51 @@ function setmetatheme(a){
 		lighttheme = newlightoffcolor;
 	}
 
-	let i, l = metas.length;
-	for(i = 0; i < l; i++){
-		if(metas[i].getAttribute("name") == "theme-color"){
-			if(metas[i].getAttribute("media")){
-				if(metas[i].getAttribute("media") == "(prefers-color-scheme: light)"){
-					metas[i].setAttribute("content", lighttheme);
-				}else if(metas[i].getAttribute("media") == "(prefers-color-scheme: dark)"){
-					metas[i].setAttribute("content", darktheme);
+	for(const meta of metas){
+		if(meta.getAttribute("name") === "theme-color"){
+			const media = meta.getAttribute("media");
+			if(media){
+				if(media === "(prefers-color-scheme: light)"){
+					meta.setAttribute("content", lighttheme);
+				}else if(media === "(prefers-color-scheme: dark)"){
+					meta.setAttribute("content", darktheme);
 				}
 			}else{
-				metas[i].setAttribute("content", lighttheme);
+				meta.setAttribute("content", lighttheme);
 			}
 		}
 	}
 
-	var x = document.querySelector("meta[name=\"theme-color\"]");
-	if(x == null){
+	const x = document.querySelector('meta[name="theme-color"]');
+	if(x === null){
 		// create one theme-color
-		var newmeta = document.createElement("meta");
+		const newmeta = document.createElement("meta");
 		newmeta.name = "theme-color";
 		newmeta.setAttribute("content", lighttheme);
 		document.getElementsByTagName("head")[0].appendChild(newmeta);
 	}
 }
 
-const afterBodyReadyScreenshader = () => {
-	chrome.storage.sync.get(["mousespotlights", "screenshader", "lightcolor", "interval"], function(response){
-		// screenshader
-		mousespotlights = response["mousespotlights"];
-		screenshader = response["screenshader"];
-		lightcolor = response["lightcolor"]; if(lightcolor)lightcolor = response["lightcolor"]; else lightcolor = "#000000"; // default color black
-		interval = response["interval"]; if(interval == null)interval = 80; // default interval 80%
-		if(mousespotlights == true){
-			if(screenshader == true){
-				if(document.documentElement){
-					var newscreenshader = document.createElement("div");
-					setAttributes(newscreenshader, {"id": "stefanvdscreenshader", "class": "stefanvdscreenshader"});
-					newscreenshader.style.background = lightcolor;
-					newscreenshader.style.mixBlendMode = "multiply";
-					newscreenshader.style.opacity = interval / 100;
-					document.documentElement.insertBefore(newscreenshader, document.documentElement.firstChild);
-					setmetatheme(false);
-				}
+const afterBodyReadyScreenshader = async () => {
+	const response = await chrome.storage.sync.get(["mousespotlights", "screenshader", "lightcolor", "interval"]);
+	// screenshader
+	mousespotlights = response["mousespotlights"];
+	screenshader = response["screenshader"];
+	lightcolor = response["lightcolor"] || "#000000"; // default color black
+	interval = response["interval"] ?? 80; // default interval 80%
+	if(mousespotlights === true){
+		if(screenshader === true){
+			if(document.documentElement){
+				const newscreenshader = document.createElement("div");
+				setAttributes(newscreenshader, {"id": "stefanvdscreenshader", "class": "stefanvdscreenshader"});
+				newscreenshader.style.background = lightcolor;
+				newscreenshader.style.mixBlendMode = "multiply";
+				newscreenshader.style.opacity = interval / 100;
+				document.documentElement.insertBefore(newscreenshader, document.documentElement.firstChild);
+				setmetatheme(false);
 			}
 		}
-	});
+	}
 }; // afterbody
 
 if(document.body){
