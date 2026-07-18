@@ -80,7 +80,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 .stefanvdlightcorner{position:fixed;width:20px;height:20px;z-index:5000;background:rgba(0,122,255,0.3);border:2px solid rgba(0,122,255,0.6);border-radius:3px;transition:opacity 0.3s;opacity:0}
 .stefanvdlightcorner:hover{background:rgba(0,122,255,0.5);border-color:rgba(0,122,255,0.8)}
 /* Custom spotlight preview */
-#stefanvdlightareoffcustom{position:fixed;z-index:5001;border:2px dashed rgba(0,122,255,0.5);background:transparent;pointer-events:none}
+#stefanvdlightareoffcustom{position:fixed;z-index:5001;background:transparent;pointer-events:none}
 /* Theater */
 #stefanvdtheater{position:fixed!important;top:0!important;left:0!important;width:100%!important;height:100%!important;margin:0!important;z-index:998!important}
 /* Eye div */

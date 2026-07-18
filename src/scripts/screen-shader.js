@@ -27,7 +27,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 */
 //================================================
 
-let mousespotlights = null, screenshader = null, lightcolor = null, interval = null;
+var mousespotlights = null, screenshader = null, lightcolor = null, interval = null;
 
 function setAttributes(el, attrs){
 	for(const[key, value]of Object.entries(attrs)){
@@ -49,8 +49,8 @@ function newconvertHex(hex, opacity){
 	return`rgb(${resultRed},${resultGreen},${resultBlue})`;
 }
 
-let currentwebthemedark;
-let currentwebthemelight;
+var currentwebthemedark;
+var currentwebthemelight;
 function setmetatheme(a){
 	const metas = document.getElementsByTagName("meta");
 	let darktheme;
