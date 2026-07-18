@@ -2,9 +2,8 @@
   "name": "turn-off-the-lights-browser-extension",
   "version": "4.6.8",
   "description": "Browser extension",
-  "homepage": "https://wwww.turnoffthelights.com",
+  "homepage": "https://www.turnoffthelights.com",
   "author": "Stefan Van Damme",
-  "main": "index.js",
   "license": "GPL-2.0",
   "devDependencies": {
     "eslint": "^9.39.4",

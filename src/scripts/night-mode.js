@@ -148,9 +148,10 @@ function checkregdomaininside(thaturl, websiteurl){
 
 function isDarkMode(){
 	const bg = getComputedStyle(document.body || document.documentElement).backgroundColor;
-	const rgb = bg.match(/\d+/g).map(Number);
-	const brightness = 0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2];
-	return brightness < 128; // true = dark, false = light
+    const rgb = bg.match(/\d+/g);
+    if(!rgb) return false; 
+    const [r, g, b] = rgb.map(Number);
+    return (0.299 * r + 0.587 * g + 0.114 * b) < 128; // true = dark, false = light
 }
 
 function generateNightModeCSS(){
