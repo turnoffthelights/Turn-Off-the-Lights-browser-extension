@@ -938,6 +938,19 @@ function reader(){
 	}
 	window.onpointermove = null;
 
+	// remove corner handles
+	removeId("stefanvdlightcornertl");
+	removeId("stefanvdlightcornertr");
+	removeId("stefanvdlightcornerbl");
+	removeId("stefanvdlightcornerbr");
+
+	// reset custom spotlight state
+	spotlightState = "idle";
+	spotHandles = {};
+	spotResizeCorner = null;
+	spotListenersAttached = false;
+	spotDragDistance = 0;
+
 	// Set everything back to the default YouTube theme
 	if(window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
 		// update YouTube material 6 August 2017
@@ -1094,7 +1107,7 @@ function createView(id, left, top, width, height){
 
 function removenewframe(){
 	// remove dark layers
-	var removedarklayerid = ["stefanvdlightareoff1", "stefanvdlightareoff2", "stefanvdlightareoff3", "stefanvdlightareoff4", "stefanvdtheater", "stefanvdblurimage", "stefanvdlightcorner", "stefanvdtheme"];
+	var removedarklayerid = ["stefanvdlightareoff1", "stefanvdlightareoff2", "stefanvdlightareoff3", "stefanvdlightareoff4", "stefanvdtheater", "stefanvdblurimage", "stefanvdlightcornertl", "stefanvdlightcornertr", "stefanvdlightcornerbl", "stefanvdlightcornerbr", "stefanvdtheme"];
 	removedarklayerid.forEach(removeId);
 
 	var csstotlpseudo = $("csstotlpseudo");
@@ -1205,266 +1218,164 @@ function spotmouseup(){
 	mathbordersizeup = borderspotlightsize;
 }
 //---
-// Rectangle
-// change size corner
-var rect; var stretchable = false;
-var width, height, xpos, ypos;
-var mouseX, mouseY, rX, rY;
-var rand = 20;
+// Rectangle Spotlight (mousespotlightc)
+// State machine: "idle" | "drawing" | "resizing"
+var spotlightState = "idle";
+var spotStartX = 0, spotStartY = 0;
+var spotCurrentX = 0, spotCurrentY = 0;
+var spotDragDistance = 0;
+var spotHandles = {};
+var spotFixedX = 0, spotFixedY = 0;
+var spotResizeCorner = null;
+var spotListenersAttached = false;
 
-var beginxcordinate = null; var beginycordinate = null; var endxcordinate = null; var endycordinate = null;
-var customview; var posx; var posy; var initx = false; var inity = false;
-function watchMouse(e){
-	width = parseInt(rect.style.width); height = parseInt(rect.style.height);
-	xpos = parseInt(rect.style.left); ypos = parseInt(rect.style.top);
+function updateDarkLayers(x1, y1, x2, y2){
+	var left = Math.min(x1, x2);
+	var top = Math.min(y1, y2);
+	var right = Math.max(x1, x2);
+	var bottom = Math.max(y1, y2);
+	var rectH = bottom - top;
 
-	// Include possible scroll values
-	var sx = window.scrollX || document.documentElement.scrollLeft || 0;
-	var sy = window.scrollY || document.documentElement.scrollTop || 0;
+	var v1 = $("stefanvdlightareoff1");
+	var v2 = $("stefanvdlightareoff2");
+	var v3 = $("stefanvdlightareoff3");
+	var v4 = $("stefanvdlightareoff4");
+	if(!v1 || !v2 || !v3 || !v4) return;
 
-	if(!e) e = window.event;
+	// Top bar
+	v1.style.left = "0px"; v1.style.top = "0px";
+	v1.style.width = "100%"; v1.style.height = top + "px";
+	v1.style.visibility = "visible";
 
-	mouseX = e.clientX + sx;
-	mouseY = e.clientY + sy;
+	// Left bar
+	v2.style.left = "0px"; v2.style.top = top + "px";
+	v2.style.width = left + "px"; v2.style.height = rectH + "px";
+	v2.style.visibility = "visible";
 
-	/* Direction of mouse movement
-		deltaX: -1 for left, 1 for right
-		deltaY: -1 for up, 1 for down
-	*/
-	var deltaX = mouseX - rX;
-	var deltaY = mouseY - rY;
-	// Store difference in global variables
-	rX = mouseX;
-	rY = mouseY;
+	// Right bar
+	v3.style.left = right + "px"; v3.style.top = top + "px";
+	v3.style.width = (window.innerWidth - right) + "px"; v3.style.height = rectH + "px";
+	v3.style.visibility = "visible";
 
-	if(mouseX <= xpos + rand && mouseX > xpos){
-		// left
-		dragBorder("left", deltaX); document.body.style.cursor = "w-resize";
-	}else if(mouseX >= xpos + width + rand && mouseX < xpos + width + 2 * rand){
-		// right
-		dragBorder("right", deltaX); document.body.style.cursor = "e-resize";
-	}else if(mouseY <= ypos + rand && mouseY > ypos){
-		// top
-		dragBorder("top", deltaY); document.body.style.cursor = "n-resize";
-	}else if(mouseY >= ypos + height + rand && mouseY < ypos + height + 2 * rand){
-		// bottom
-		dragBorder("bottom", deltaY); document.body.style.cursor = "s-resize";
-	}else{
-		// normal use
-		document.body.style.cursor = "auto";
-	}
+	// Bottom bar
+	v4.style.left = "0px"; v4.style.top = bottom + "px";
+	v4.style.width = "100%"; v4.style.height = (window.innerHeight - bottom) + "px";
+	v4.style.visibility = "visible";
 }
 
-function dragBorder(arg, delta){
-	if(stretchable){
-		switch(arg){
-		case"right":
-			rect.style.width = (width + delta) + "px";
-			$("stefanvdlightareoff3").style.width = (parseInt($("stefanvdlightareoff3").style.width) + delta) + "px"; $("stefanvdlightareoff3").style.left = (parseInt($("stefanvdlightareoff3").style.left) + delta) + "px";
-			break;
-		case"left":
-			rect.style.width = (width - delta) + "px"; rect.style.left = (parseInt(rect.style.left) + delta) + "px";
-			$("stefanvdlightareoff2").style.width = (parseInt($("stefanvdlightareoff2").style.width) + delta) + "px";
-			break;
-		case"bottom":
-			rect.style.height = (height + delta) + "px";
-			$("stefanvdlightareoff4").style.height = (parseInt($("stefanvdlightareoff4").style.height) - delta) + "px"; $("stefanvdlightareoff4").style.top = (parseInt($("stefanvdlightareoff4").style.top) + delta) + "px";
-			$("stefanvdlightareoff2").style.height = (parseInt($("stefanvdlightareoff2").style.height) + delta) + "px";
-			$("stefanvdlightareoff3").style.height = (parseInt($("stefanvdlightareoff3").style.height) + delta) + "px";
-			break;
-		case"top":
-			rect.style.height = (height - delta) + "px"; rect.style.top = (parseInt(rect.style.top) + delta) + "px";
-			$("stefanvdlightareoff1").style.height = (parseInt($("stefanvdlightareoff1").style.height) + delta) + "px";
-			$("stefanvdlightareoff2").style.height = (parseInt($("stefanvdlightareoff2").style.height) - delta) + "px"; $("stefanvdlightareoff2").style.top = (parseInt($("stefanvdlightareoff2").style.top) + delta) + "px";
-			$("stefanvdlightareoff3").style.height = (parseInt($("stefanvdlightareoff3").style.height) - delta) + "px"; $("stefanvdlightareoff3").style.top = (parseInt($("stefanvdlightareoff3").style.top) + delta) + "px";
-			break;
-		}
-	}
+function positionCornerHandles(x1, y1, x2, y2){
+	var left = Math.min(x1, x2);
+	var top = Math.min(y1, y2);
+	var right = Math.max(x1, x2);
+	var bottom = Math.max(y1, y2);
+	if(spotHandles.tl){ spotHandles.tl.style.left = (left - 10) + "px"; spotHandles.tl.style.top = (top - 10) + "px"; }
+	if(spotHandles.tr){ spotHandles.tr.style.left = (right - 10) + "px"; spotHandles.tr.style.top = (top - 10) + "px"; }
+	if(spotHandles.bl){ spotHandles.bl.style.left = (left - 10) + "px"; spotHandles.bl.style.top = (bottom - 10) + "px"; }
+	if(spotHandles.br){ spotHandles.br.style.left = (right - 10) + "px"; spotHandles.br.style.top = (bottom - 10) + "px"; }
 }
 
-function stretchout(){
-	stretchable = false; document.body.style.cursor = "auto";
-}
-
-var view1; var view2; var view3; var view4;
-function getMouse(obj, e){
-	posx = 0; posy = 0;
-	var ev = (!e) ? window.event : e;
-	if(ev.clientX){
-		posx = ev.clientX;
-		posy = ev.clientY;
-	}else{ return 0; }
-
-	obj.addEventListener("pointerdown", function(){
-		initx = posx; inity = posy;
-		beginxcordinate = posx; beginycordinate = posy;
-		try{
-			customview = $("stefanvdlightareoffcustom");
-			customview.style.left = initx + "px"; customview.style.top = inity + "px";
-			document.body.appendChild(customview);
-		}catch(e){ console.log(e); }
+function createCornerHandles(){
+	var corners = [
+		{key: "tl", id: "stefanvdlightcornertl", cursor: "nwse-resize"},
+		{key: "tr", id: "stefanvdlightcornertr", cursor: "nesw-resize"},
+		{key: "bl", id: "stefanvdlightcornerbl", cursor: "nesw-resize"},
+		{key: "br", id: "stefanvdlightcornerbr", cursor: "nwse-resize"}
+	];
+	corners.forEach(function(c){
+		if(spotHandles[c.key]) return;
+		var el = document.createElement("div");
+		el.setAttribute("id", c.id);
+		el.className = "stefanvdlightcorner";
+		el.style.cursor = c.cursor;
+		document.body.appendChild(el);
+		el.addEventListener("pointerdown", function(e){
+			e.stopPropagation();
+			spotlightState = "resizing";
+			spotResizeCorner = c.key;
+			var left = Math.min(spotStartX, spotCurrentX);
+			var top = Math.min(spotStartY, spotCurrentY);
+			var right = Math.max(spotStartX, spotCurrentX);
+			var bottom = Math.max(spotStartY, spotCurrentY);
+			if(c.key === "tl"){ spotFixedX = right; spotFixedY = bottom; }
+			else if(c.key === "tr"){ spotFixedX = left; spotFixedY = bottom; }
+			else if(c.key === "bl"){ spotFixedX = right; spotFixedY = top; }
+			else if(c.key === "br"){ spotFixedX = left; spotFixedY = top; }
+			document.body.style.cursor = c.cursor;
+		});
+		spotHandles[c.key] = el;
 	});
-	obj.addEventListener("pointerup", function(){ initx = false; inity = false; });
-	if(initx){
-		customview.style.width = Math.abs(posx - initx) + "px"; customview.style.height = Math.abs(posy - inity) + "px";
-		customview.style.left = posx - initx < 0 ? posx + "px" : initx + "px";
-		customview.style.top = posy - inity < 0 ? posy + "px" : inity + "px";
+}
 
-		endxcordinate = posx; endycordinate = posy;
-		// remove help div
-		var stefanvdlightareoffcustom = $("stefanvdlightareoffcustom");
-		if(stefanvdlightareoffcustom){ document.body.removeChild(stefanvdlightareoffcustom); }
-		document.body.style.cursor = "default";
+function initCustomSpotlight(){
+	if(spotListenersAttached) return;
+	spotListenersAttached = true;
 
-		// create corner
-		var cornerison = $("stefanvdlightcorner");
-		if(cornerison == null){
-			var newcornerdiv = document.createElement("div");
-			newcornerdiv.setAttribute("id", "stefanvdlightcorner");
-			document.body.appendChild(newcornerdiv);
+	// pointerdown: start drawing when idle (not clicking the handle)
+	document.addEventListener("pointerdown", function(e){
+		if(spotlightState !== "idle") return;
+		if(e.target && e.target.className && e.target.className.indexOf("stefanvdlightcorner") !== -1) return;
+		spotlightState = "drawing";
+		spotStartX = e.clientX; spotStartY = e.clientY;
+		spotCurrentX = e.clientX; spotCurrentY = e.clientY;
+		spotDragDistance = 0;
+		document.body.style.cursor = "crosshair";
+		var preview = $("stefanvdlightareoffcustom");
+		if(preview){
+			preview.style.left = spotStartX + "px";
+			preview.style.top = spotStartY + "px";
+			preview.style.width = "0px";
+			preview.style.height = "0px";
+			preview.style.display = "block";
 		}
+	});
 
-		rect = $("stefanvdlightcorner"); rect.onpointermove = watchMouse;
-		$("stefanvdlightcorner").addEventListener("pointerdown", function(){ stretchable = true; }, false);
-		$("stefanvdlightcorner").addEventListener("pointerup", stretchout, false);
-		$("stefanvdlightcorner").addEventListener("pointerout", stretchout, false);
+	// pointermove: update drawing or resizing
+	document.addEventListener("pointermove", function(e){
+		if(spotlightState === "drawing"){
+			spotCurrentX = e.clientX; spotCurrentY = e.clientY;
+			spotDragDistance = Math.abs(spotCurrentX - spotStartX) + Math.abs(spotCurrentY - spotStartY);
+			var preview = $("stefanvdlightareoffcustom");
+			if(preview){
+				preview.style.left = Math.min(spotStartX, spotCurrentX) + "px";
+				preview.style.top = Math.min(spotStartY, spotCurrentY) + "px";
+				preview.style.width = Math.abs(spotCurrentX - spotStartX) + "px";
+				preview.style.height = Math.abs(spotCurrentY - spotStartY) + "px";
+			}
+			updateDarkLayers(spotStartX, spotStartY, spotCurrentX, spotCurrentY);
+		}else if(spotlightState === "resizing"){
+			spotCurrentX = e.clientX; spotCurrentY = e.clientY;
+			updateDarkLayers(spotFixedX, spotFixedY, spotCurrentX, spotCurrentY);
+			positionCornerHandles(spotFixedX, spotFixedY, spotCurrentX, spotCurrentY);
+		}
+	});
 
-		rect.style.top = parseInt(document.getElementById("stefanvdlightareoff1").style.height) - 10 + "px";
-		rect.style.height = parseInt(document.getElementById("stefanvdlightareoff2").style.height) - 20 + "px";
-		rect.style.left = parseInt(document.getElementById("stefanvdlightareoff2").style.width) - 10 + "px";
-		rect.style.width = parseInt(document.getElementById("stefanvdlightareoff3").style.left) - parseInt(document.getElementById("stefanvdlightareoff2").style.width) - 20 + "px";
-	}else{ return false; }
-	var viewpartheight = customview.style.height;
+	// pointerup: finish drawing or resizing
+	document.addEventListener("pointerup", function(){
+		if(spotlightState === "drawing"){
+			spotlightState = "idle";
+			document.body.style.cursor = "default";
+			var preview = $("stefanvdlightareoffcustom");
+			if(preview) preview.style.display = "none";
+			if(spotDragDistance > 5){
+				createCornerHandles();
+				positionCornerHandles(spotStartX, spotStartY, spotCurrentX, spotCurrentY);
+			}
+		}else if(spotlightState === "resizing"){
+			spotStartX = spotFixedX; spotStartY = spotFixedY;
+			spotlightState = "idle";
+			spotResizeCorner = null;
+			document.body.style.cursor = "default";
+		}
+	});
 
-	view1 = $("stefanvdlightareoff1");
-	view1.className = "stefanvdlightareoff";
-	view1.style.left = 0 + "px"; view1.style.top = 0 + "px";
-	view1.style.width = "100%"; view1.style.height = beginycordinate + "px";
-	view1.style.visibility = "visible";
-	document.body.appendChild(view1);
-
-	view2 = $("stefanvdlightareoff2");
-	view2.className = "stefanvdlightareoff";
-	view2.style.left = 0 + "px"; view2.style.top = beginycordinate + "px";
-	view2.style.width = beginxcordinate + "px"; view2.style.height = viewpartheight;
-	view2.style.visibility = "visible";
-	document.body.appendChild(view2);
-
-	view3 = $("stefanvdlightareoff3");
-	var viewcall3awidth = window.innerWidth - beginxcordinate; // calc width
-	view3.className = "stefanvdlightareoff";
-	view3.style.left = endxcordinate + "px"; view3.style.top = beginycordinate + "px";
-	view3.style.width = viewcall3awidth + "px"; view3.style.height = viewpartheight;
-	view3.style.visibility = "visible";
-	document.body.appendChild(view3);
-
-	view4 = $("stefanvdlightareoff4");
-	var viewcall4aheight = window.innerHeight - endycordinate; // calc height
-	view4.className = "stefanvdlightareoff";
-	view4.style.left = 0 + "px"; view4.style.top = endycordinate + "px";
-	view4.style.width = "100%"; view4.style.height = viewcall4aheight + "px";
-	view4.style.visibility = "visible";
-	document.body.appendChild(view4);
-
-	var calcpartx = endxcordinate - beginxcordinate;
-	var calcparty = endycordinate - beginycordinate;
-	if((calcpartx < 0) && ! (calcparty < 0)){ // X as automatic change view
-		view1 = $("stefanvdlightareoff1");
-		view1.className = "stefanvdlightareoff";
-		view1.style.left = 0 + "px"; view1.style.top = 0 + "px";
-		view1.style.width = "100%"; view1.style.height = beginycordinate + "px";
-		view1.style.visibility = "visible";
-		document.body.appendChild(view1);
-
-		view2 = $("stefanvdlightareoff2");
-		view2.className = "stefanvdlightareoff";
-		view2.style.left = 0 + "px"; view2.style.top = beginycordinate + "px";
-		view2.style.width = endxcordinate + "px"; view2.style.height = viewpartheight;
-		view2.style.visibility = "visible";
-		document.body.appendChild(view2);
-
-		view3 = $("stefanvdlightareoff3");
-		var viewcall3bwidth = window.innerWidth - beginxcordinate; // calc width
-		view3.className = "stefanvdlightareoff";
-		view3.style.left = beginxcordinate + "px"; view3.style.top = beginycordinate + "px";
-		view3.style.width = viewcall3bwidth + "px"; view3.style.height = viewpartheight;
-		view3.style.visibility = "visible";
-		document.body.appendChild(view3);
-
-		view4 = $("stefanvdlightareoff4");
-		var viewcall4bheight = window.innerHeight - endycordinate; // calc height
-		view4.className = "stefanvdlightareoff";
-		view4.style.left = 0 + "px"; view4.style.top = endycordinate + "px";
-		view4.style.width = "100%"; view4.style.height = viewcall4bheight + "px";
-		view4.style.visibility = "visible";
-		document.body.appendChild(view4);
-	}else if((calcparty < 0) && ! (calcpartx < 0)){ // Y as automatic change view
-		view1 = $("stefanvdlightareoff1");
-		view1.className = "stefanvdlightareoff";
-		view1.style.left = 0 + "px"; view1.style.top = 0 + "px";
-		if(endycordinate < 0){ endycordinate = 0; }
-		view1.style.width = "100%"; view1.style.height = endycordinate + "px";
-		view1.style.visibility = "visible";
-		document.body.appendChild(view1);
-
-		view2 = $("stefanvdlightareoff2");
-		view2.className = "stefanvdlightareoff";
-		view2.style.left = 0 + "px"; view2.style.top = endycordinate + "px";
-		view2.style.width = beginxcordinate + "px";
-		if(endycordinate == 0){ view2.style.height = beginycordinate + "px"; }else{ view2.style.height = viewpartheight; }
-		view2.style.visibility = "visible";
-		document.body.appendChild(view2);
-
-		view3 = $("stefanvdlightareoff3");
-		var viewcall3cwidth = window.innerWidth - beginxcordinate; // calc width
-		view3.className = "stefanvdlightareoff";
-		view3.style.left = endxcordinate + "px"; view3.style.top = endycordinate + "px";
-		view3.style.width = viewcall3cwidth + "px";
-		if(endycordinate == 0){ view3.style.height = beginycordinate + "px"; }else{ view3.style.height = viewpartheight; }
-		view3.style.visibility = "visible";
-		document.body.appendChild(view3);
-
-		view4 = $("stefanvdlightareoff4");
-		var viewcall4cheight = window.innerHeight - endycordinate; // calc height
-		view4.className = "stefanvdlightareoff";
-		view4.style.left = 0 + "px"; view4.style.top = beginycordinate + "px";
-		view4.style.width = "100%"; view4.style.height = viewcall4cheight + "px";
-		view4.style.visibility = "visible";
-		document.body.appendChild(view4);
-	}else if((calcpartx < 0) && (calcparty < 0)){ // X en Y as automatic change view
-		view1 = $("stefanvdlightareoff1");
-		view1.className = "stefanvdlightareoff";
-		view1.style.left = 0 + "px"; view1.style.top = 0 + "px";
-		if(endycordinate < 0){ endycordinate = 0; }
-		view1.style.width = "100%"; view1.style.height = endycordinate + "px";
-		view1.style.visibility = "visible";
-		document.body.appendChild(view1);
-
-		view2 = $("stefanvdlightareoff2");
-		view2.className = "stefanvdlightareoff";
-		view2.style.left = 0 + "px"; view2.style.top = endycordinate + "px";
-		view2.style.width = endxcordinate + "px";
-		if(endycordinate == 0){ view2.style.height = beginycordinate + "px"; }else{ view2.style.height = viewpartheight; }
-		view2.style.visibility = "visible";
-		document.body.appendChild(view2);
-
-		view3 = $("stefanvdlightareoff3");
-		var viewcall3dwidth = window.innerWidth - beginxcordinate; // calc width
-		view3.className = "stefanvdlightareoff";
-		view3.style.left = beginxcordinate + "px"; view3.style.top = endycordinate + "px";
-		view3.style.width = viewcall3dwidth + "px";
-		if(endycordinate == 0){ view3.style.height = beginycordinate + "px"; }else{ view3.style.height = viewpartheight; }
-		view3.style.visibility = "visible";
-		document.body.appendChild(view3);
-
-		view4 = $("stefanvdlightareoff4");
-		var viewcall4dheight = window.innerHeight - beginycordinate; // calc height
-		view4.className = "stefanvdlightareoff";
-		view4.style.left = 0 + "px"; view4.style.top = beginycordinate + "px";
-		view4.style.width = "100%"; view4.style.height = viewcall4dheight + "px";
-		view4.style.visibility = "visible";
-		document.body.appendChild(view4);
-	}
+	// Suppress click on dark layers after drawing (prevents accidental lockscreen)
+	document.addEventListener("click", function(e){
+		if(spotDragDistance > 5){
+			e.stopPropagation();
+			e.preventDefault();
+			spotDragDistance = 0;
+		}
+	}, true);
 }
 //---
 // script readerbar
@@ -2083,10 +1994,6 @@ function lightsgoonoroff(){
 			document.addEventListener("pointerdown", function(){ spotmousedown(); });
 			document.addEventListener("pointerup", function(){ spotmouseup(); });
 		}else if(mousespotlightc == true){
-			window.onpointermove = function(event){
-				try{ getMouse(window, event); }catch(e){ console.log(e); }
-			};
-
 			var newframe1 = document.createElement("div");
 			var newframe2 = document.createElement("div");
 			var newframe3 = document.createElement("div");
@@ -2104,6 +2011,7 @@ function lightsgoonoroff(){
 			newframe2.style.visibility = "hidden";
 			newframe3.style.visibility = "hidden";
 			newframe4.style.visibility = "hidden";
+			newframe5.style.display = "none";
 			document.body.appendChild(newframe1);
 			document.body.appendChild(newframe2);
 			document.body.appendChild(newframe3);
@@ -2116,6 +2024,9 @@ function lightsgoonoroff(){
 
 			// fade in effect
 			if(fadein == true){ fader("show"); }else{ newframe1.style.opacity = default_opacity / 100; newframe2.style.opacity = default_opacity / 100; newframe3.style.opacity = default_opacity / 100; newframe4.style.opacity = default_opacity / 100; } // no fade effect
+
+			// initialize the custom spotlight state machine
+			initCustomSpotlight();
 		}else{ // Begin normal lights off
 			var newdiv = document.createElement("div");
 			setAttributes(newdiv, {"id": "stefanvdlightareoff1", "class": "stefanvdlightareoff"});
