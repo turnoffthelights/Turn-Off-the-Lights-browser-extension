@@ -27,14 +27,12 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 */
 //================================================
 
-var totlCinema;
-(totlCinema = {
+const totlCinema = {
 	players: {objs: [], active: 0},
 	messageEvent: new Event("stefanvdcinemamessage"),
 	playerStateChange: function(stateId){
-		var message = document.getElementById("stefanvdcinemamessage"),
-			stateIO = "playerStateChange:".concat(stateId);
-		// console.log("Debug " + message.textContent + " " + stateIO);
+		const message = document.getElementById("stefanvdcinemamessage"),
+			stateIO = `playerStateChange:${stateId}`;
 		if(message && message.textContent !== stateIO){
 			message.textContent = stateIO;
 			message.dispatchEvent(totlCinema.messageEvent);
@@ -42,38 +40,35 @@ var totlCinema;
 	},
 	initialize: function(){
 		this.initvideoinject();
-		var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-		if(MutationObserver){
-			var videolist = document.querySelector("body"),
-				observer = new MutationObserver(function(mutations){
-					mutations.forEach(function(mutation){
-						if(
-							mutation.target.tagName === "VIDEO" ||
-                            Array.from(mutation.addedNodes).some((node) => node.tagName === "VIDEO") ||
-                            Array.from(mutation.removedNodes).some((node) => node.tagName === "VIDEO")
-						){
-							totlCinema.initvideoinject();
-						}
+		const videolist = document.querySelector("body"),
+			observer = new MutationObserver(function(mutations){
+				mutations.forEach(function(mutation){
+					if(
+						mutation.target.tagName === "VIDEO" ||
+						Array.from(mutation.addedNodes).some((node) => node.tagName === "VIDEO") ||
+						Array.from(mutation.removedNodes).some((node) => node.tagName === "VIDEO")
+					){
+						totlCinema.initvideoinject();
+					}
 
-						// Check for attribute changes in video elements
-						if(mutation.type === "attributes" && mutation.attributeName === "src"){
-							var video = mutation.target;
-							if(video.tagName === "VIDEO" && !video.src){
-								totlCinema.handleVideoRemoval(video);
-							}
+					// Check for attribute changes in video elements
+					if(mutation.type === "attributes" && mutation.attributeName === "src"){
+						const video = mutation.target;
+						if(video.tagName === "VIDEO" && !video.src){
+							totlCinema.handleVideoRemoval(video);
 						}
-					});
+					}
 				});
-			observer.observe(videolist, {
-				subtree: true, // observe the subtree rooted at videolist
-				childList: true, // include childNode insertion/removals
-				attributes: true // include changes to attributes within the subtree
 			});
-		}
+		observer.observe(videolist, {
+			subtree: true, // observe the subtree rooted at videolist
+			childList: true, // include childNode insertion/removals
+			attributes: true // include changes to attributes within the subtree
+		});
 	},
 	initvideoinject: function(){
-		var htmlplayers = document.getElementsByTagName("video");
-		var existingPlayers = Array.from(htmlplayers);
+		const htmlplayers = document.getElementsByTagName("video");
+		const existingPlayers = Array.from(htmlplayers);
 
 		// Remove event listeners and clean up removed videos
 		totlCinema.players.objs = totlCinema.players.objs.filter(function(video){
@@ -82,7 +77,6 @@ var totlCinema;
 				video.removeEventListener("play", video._events.play);
 				video.removeEventListener("ended", video._events.ended);
 				totlCinema.players.active -= video._events.isActive ? 1 : 0;
-				console.log("Video removed", video);
 				return false;
 			}
 			return true;
@@ -142,4 +136,5 @@ var totlCinema;
 			}
 		}
 	}
-}).initialize();
+};
+totlCinema.initialize();
