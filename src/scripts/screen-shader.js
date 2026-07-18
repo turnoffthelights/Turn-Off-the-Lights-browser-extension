@@ -30,7 +30,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 let mousespotlights = null, screenshader = null, lightcolor = null, interval = null;
 
 function setAttributes(el, attrs){
-	for(const [key, value] of Object.entries(attrs)){
+	for(const[key, value]of Object.entries(attrs)){
 		el.setAttribute(key, value);
 	}
 }
@@ -46,7 +46,7 @@ function newconvertHex(hex, opacity){
 	const resultGreen = fgGreen * alpha + 255 * (1 - alpha);
 	const resultBlue = fgBlue * alpha + 255 * (1 - alpha);
 
-	return `rgb(${resultRed},${resultGreen},${resultBlue})`;
+	return`rgb(${resultRed},${resultGreen},${resultBlue})`;
 }
 
 let currentwebthemedark;
@@ -92,7 +92,7 @@ function setmetatheme(a){
 	}
 }
 
-const afterBodyReadyScreenshader = async () => {
+const afterBodyReadyScreenshader = async() => {
 	const response = await chrome.storage.sync.get(["mousespotlights", "screenshader", "lightcolor", "interval"]);
 	// screenshader
 	mousespotlights = response["mousespotlights"];

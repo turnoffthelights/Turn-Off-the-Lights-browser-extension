@@ -947,7 +947,6 @@ function reader(){
 	// reset custom spotlight state
 	spotlightState = "idle";
 	spotHandles = {};
-	spotResizeCorner = null;
 	spotListenersAttached = false;
 	spotDragDistance = 0;
 	if(spotCornerTimer){ window.clearTimeout(spotCornerTimer); spotCornerTimer = null; }
@@ -1092,20 +1091,6 @@ function removeClass(classelement){
 	}
 }
 
-function createView(id, left, top, width, height){
-	var view = $(id);
-	if(view){
-		view.className = "stefanvdlightareoff";
-		view.style.left = `${left}px`;
-		view.style.top = `${top}px`;
-		view.style.width = width;
-		view.style.height = height;
-		view.style.visibility = "visible";
-		document.body.appendChild(view);
-	}
-	return view;
-}
-
 function removenewframe(){
 	// remove dark layers
 	var removedarklayerid = ["stefanvdlightareoff1", "stefanvdlightareoff2", "stefanvdlightareoff3", "stefanvdlightareoff4", "stefanvdtheater", "stefanvdblurimage", "stefanvdlightcornertl", "stefanvdlightcornertr", "stefanvdlightcornerbl", "stefanvdlightcornerbr", "stefanvdtheme"];
@@ -1227,7 +1212,6 @@ var spotCurrentX = 0, spotCurrentY = 0;
 var spotDragDistance = 0;
 var spotHandles = {};
 var spotFixedX = 0, spotFixedY = 0;
-var spotResizeCorner = null;
 var spotListenersAttached = false;
 var spotCornerTimer = null;
 
@@ -1258,7 +1242,7 @@ function updateDarkLayers(x1, y1, x2, y2){
 	var v2 = $("stefanvdlightareoff2");
 	var v3 = $("stefanvdlightareoff3");
 	var v4 = $("stefanvdlightareoff4");
-	if(!v1 || !v2 || !v3 || !v4) return;
+	if(!v1 || !v2 || !v3 || !v4)return;
 
 	// Top bar
 	v1.style.left = "0px"; v1.style.top = "0px";
@@ -1300,7 +1284,7 @@ function createCornerHandles(){
 		{key: "br", id: "stefanvdlightcornerbr", cursor: "nwse-resize"}
 	];
 	corners.forEach(function(c){
-		if(spotHandles[c.key]) return;
+		if(spotHandles[c.key])return;
 		var el = document.createElement("div");
 		el.setAttribute("id", c.id);
 		el.className = "stefanvdlightcorner";
@@ -1309,15 +1293,19 @@ function createCornerHandles(){
 		el.addEventListener("pointerdown", function(e){
 			e.stopPropagation();
 			spotlightState = "resizing";
-			spotResizeCorner = c.key;
 			var left = Math.min(spotStartX, spotCurrentX);
 			var top = Math.min(spotStartY, spotCurrentY);
 			var right = Math.max(spotStartX, spotCurrentX);
 			var bottom = Math.max(spotStartY, spotCurrentY);
-			if(c.key === "tl"){ spotFixedX = right; spotFixedY = bottom; }
-			else if(c.key === "tr"){ spotFixedX = left; spotFixedY = bottom; }
-			else if(c.key === "bl"){ spotFixedX = right; spotFixedY = top; }
-			else if(c.key === "br"){ spotFixedX = left; spotFixedY = top; }
+			if(c.key === "tl"){
+				spotFixedX = right; spotFixedY = bottom;
+			}else if(c.key === "tr"){
+				spotFixedX = left; spotFixedY = bottom;
+			}else if(c.key === "bl"){
+				spotFixedX = right; spotFixedY = top;
+			}else if(c.key === "br"){
+				spotFixedX = left; spotFixedY = top;
+			}
 			document.body.style.cursor = c.cursor;
 		});
 		spotHandles[c.key] = el;
@@ -1325,13 +1313,13 @@ function createCornerHandles(){
 }
 
 function initCustomSpotlight(){
-	if(spotListenersAttached) return;
+	if(spotListenersAttached)return;
 	spotListenersAttached = true;
 
 	// pointerdown: start drawing when idle (not clicking the handle)
 	document.addEventListener("pointerdown", function(e){
-		if(spotlightState !== "idle") return;
-		if(e.target && e.target.className && e.target.className.indexOf("stefanvdlightcorner") !== -1) return;
+		if(spotlightState !== "idle")return;
+		if(e.target && e.target.className && e.target.className.indexOf("stefanvdlightcorner") !== -1)return;
 		spotlightState = "drawing";
 		spotStartX = e.clientX; spotStartY = e.clientY;
 		spotCurrentX = e.clientX; spotCurrentY = e.clientY;
@@ -1378,7 +1366,7 @@ function initCustomSpotlight(){
 			document.body.style.cursor = "default";
 			var preview = $("stefanvdlightareoffcustom");
 			if(preview) preview.style.display = "none";
-		if(spotDragDistance > 5){
+			if(spotDragDistance > 5){
 				createCornerHandles();
 				positionCornerHandles(spotStartX, spotStartY, spotCurrentX, spotCurrentY);
 				showCornerHandles();
@@ -1386,7 +1374,6 @@ function initCustomSpotlight(){
 		}else if(spotlightState === "resizing"){
 			spotStartX = spotFixedX; spotStartY = spotFixedY;
 			spotlightState = "idle";
-			spotResizeCorner = null;
 			document.body.style.cursor = "default";
 			showCornerHandles();
 		}

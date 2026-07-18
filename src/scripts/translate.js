@@ -29,11 +29,11 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 
 // Search for data and translate it to current use language
 const items = document.querySelectorAll("[data-i18n]");
-for (const item of items) {
-    const translation = chrome.i18n.getMessage(item.getAttribute("data-i18n"));
-    if (item.value === "i18n") {
-        item.value = translation;
-    } else {
-        item.textContent = translation;
-    }
+for(const item of items){
+	const translation = chrome.i18n.getMessage(item.getAttribute("data-i18n"));
+	if(item.value === "i18n"){
+		item.value = translation;
+	}else{
+		item.textContent = translation;
+	}
 }
