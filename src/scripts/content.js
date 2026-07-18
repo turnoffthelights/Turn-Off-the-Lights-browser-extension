@@ -457,6 +457,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	var visualnumber = [];
 
 	var myListenerWithContext;
+	var myFullscreenListener;
 	var observervideotoolbar;
 	function videotoolfunction(){
 		// HTML5 video visualization
@@ -1460,7 +1461,11 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			}
 		}
 		if(videozoom == true){
-			document.addEventListener("fullscreenchange", onFullscreenChange);
+			if(myFullscreenListener){
+				document.removeEventListener("fullscreenchange", myFullscreenListener);
+			}
+			myFullscreenListener = onFullscreenChange;
+			document.addEventListener("fullscreenchange", myFullscreenListener);
 		}
 
 		function updatepanelsize(a, b, c){
@@ -2787,6 +2792,10 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 				}
 
 				window.removeEventListener("resize", myListenerWithContext);
+			if(myFullscreenListener){
+				document.removeEventListener("fullscreenchange", myFullscreenListener);
+				myFullscreenListener = null;
+			}
 
 				removevideotool();
 
