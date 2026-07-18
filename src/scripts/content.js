@@ -191,19 +191,16 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 		});
 	}
 
-	var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
 	// observeDOM - dynamic check
 	var observeDOM = (function(){
 		return function(obj, callback){
-			if(MutationObserver){
-				// define a new observer
-				var obs = new MutationObserver(function(mutations){
-					if(mutations[0].addedNodes.length || mutations[0].removedNodes.length)
-						callback();
-				});
-				// have the observer observe foo for changes in children
-				obs.observe(obj, {childList:true, subtree:true});
-			}
+			// define a new observer
+			var obs = new MutationObserver(function(mutations){
+				if(mutations[0].addedNodes.length || mutations[0].removedNodes.length)
+					callback();
+			});
+			// have the observer observe foo for changes in children
+			obs.observe(obj, {childList:true, subtree:true});
 		};
 	})();
 
@@ -454,11 +451,10 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	}
 	runvideotoolbarcheck();
 
-	var audiocontext = [];
+	var audioCtx = [];
 	var analyser = [];
 	var vissources = [];
 	var visualnumber = [];
-	var AudioContext = window.AudioContext || window.webkitAudioContext;
 
 	var myListenerWithContext;
 	var observervideotoolbar;
@@ -477,26 +473,26 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 				visualnumber[tempvis] = 1;
 			}
 
-			if(typeof audiocontext[vis] == "undefined"){
+			if(typeof audioCtx[vis] == "undefined"){
 			// I am new now
-				audiocontext = new AudioContext();
-				audiocontext[vis] = audiocontext;
-				analyser[vis] = audiocontext[vis].createAnalyser();
+				audioCtx = new AudioContext();
+				audioCtx[vis] = audioCtx;
+				analyser[vis] = audioCtx[vis].createAnalyser();
 			}
 			var myElement = document.getElementsByTagName("video")[tempvis];
 
 			// Fix Chrome 71
-			audiocontext[vis].resume().then(() =>{
+			audioCtx[vis].resume().then(() =>{
 			// console.log("Turn Off the Lights - Visualization resumed successfully");
 			// refresh the visualization
-				if(typeof audiocontext[tempvis] != "undefined"){
+				if(typeof audioCtx[tempvis] != "undefined"){
 					if(vissources[tempvis] == undefined){
 						try{
-							vissources[tempvis] = audiocontext[tempvis].createMediaElementSource(myElement);
+							vissources[tempvis] = audioCtx[tempvis].createMediaElementSource(myElement);
 							vissources[tempvis].connect(analyser[tempvis]);
 						}catch(e){ console.error(e); }
 					}
-					analyser[tempvis].connect(audiocontext[tempvis].destination);
+					analyser[tempvis].connect(audioCtx[tempvis].destination);
 				}
 			});
 
@@ -509,7 +505,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			}else{
 				document.getElementById("stefanvdvisualizationcanvas" + tempvis).style.display = "none";
 				// analyser.disconnect();
-				// source.disconnect(audiocontext.destination);
+				// source.disconnect(audioCtx.destination);
 				// source = null;
 				window.cancelAnimationFrame(requestvideovisualloop[vis]);
 				window.clearInterval(timeloop);
@@ -710,7 +706,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			var brownvis = this.getAttribute("data-video");
 			var onevideo = document.getElementsByTagName("video")[brownvis];
 			var gsvtrange = document.getElementById("stefanvdvideotoolrange" + brownvis).value;
-			if(filtertype == "grayscale"){ onevideo.style.webkitFilter = "" + filtertype + "(" + gsvtrange + ")"; }else if(filtertype == "sepia"){ onevideo.style.webkitFilter = "" + filtertype + "(" + gsvtrange + ")"; }else if(filtertype == "invert"){ onevideo.style.webkitFilter = "" + filtertype + "(" + gsvtrange + ")"; }else if(filtertype == "contrast"){ onevideo.style.webkitFilter = "" + filtertype + "(" + gsvtrange + ")"; }else if(filtertype == "saturate"){ onevideo.style.webkitFilter = "" + filtertype + "(" + gsvtrange + ")"; }else if(filtertype == "hue-rotate"){ onevideo.style.webkitFilter = "" + filtertype + "(" + gsvtrange + "deg)"; }else if(filtertype == "brightness"){ onevideo.style.webkitFilter = "" + filtertype + "(" + gsvtrange + ")"; }
+			if(filtertype == "grayscale"){ onevideo.style.filter = "" + filtertype + "(" + gsvtrange + ")"; }else if(filtertype == "sepia"){ onevideo.style.filter = "" + filtertype + "(" + gsvtrange + ")"; }else if(filtertype == "invert"){ onevideo.style.filter = "" + filtertype + "(" + gsvtrange + ")"; }else if(filtertype == "contrast"){ onevideo.style.filter = "" + filtertype + "(" + gsvtrange + ")"; }else if(filtertype == "saturate"){ onevideo.style.filter = "" + filtertype + "(" + gsvtrange + ")"; }else if(filtertype == "hue-rotate"){ onevideo.style.filter = "" + filtertype + "(" + gsvtrange + "deg)"; }else if(filtertype == "brightness"){ onevideo.style.filter = "" + filtertype + "(" + gsvtrange + ")"; }
 		}
 
 		function hideshowdiv(a, b){
@@ -1094,7 +1090,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 								if(config){
 									filtertype = config.type;
 									settoolbarrange(getstefanvdvideotoolrange, config.range, config.reset || false);
-									onevideo.style.webkitFilter = config.type === "normal" ? "" : `${config.type}(${config.value})`;
+									onevideo.style.filter = config.type === "normal" ? "" : `${config.type}(${config.value})`;
 									currentvideostepfilter = config.reset ? 0 : currentvideostepfilter + 1;
 									currentVideoFilters[yellowvis] = {
 										type: filtertype,
@@ -1286,7 +1282,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 		function setTime(){ ++t; }
 
 		function analamp(hz, v){
-			let l = hz / audiocontext[v].sampleRate * analyser[v].freq.length | 0;
+			let l = hz / audioCtx[v].sampleRate * analyser[v].freq.length | 0;
 			let sum;
 			let i;
 			for(sum = 0, i = 0; i < l;) sum += analyser[v].freq[i++];
@@ -1483,7 +1479,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 		// Observe a specific DOM element
 		// New Mutation Summary API Reference
 		if(MutationObserver){
-		// setup MutationSummary observer
+		// Setup MutationSummary observer
 			var videolist = document.body;
 			observervideotoolbar = new MutationObserver(function(mutations){
 				mutations.forEach(function(mutation){
@@ -2529,7 +2525,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	function pipsetTime(){ ++g; }
 
 	function pipanalamp(hz){
-		let l = hz / audiocontext[0].sampleRate * analyser[0].freq.length | 0;
+		let l = hz / audioCtx[0].sampleRate * analyser[0].freq.length | 0;
 		let sum;
 		let i;
 		for(sum = 0, i = 0; i < l;) sum += analyser[0].freq[i++];
@@ -2965,24 +2961,24 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 					document.body.appendChild(pipvideo);
 				}
 
-				if(typeof audiocontext[0] == "undefined"){
-					audiocontext[0] = new AudioContext();
-					analyser[0] = audiocontext[0].createAnalyser();
+				if(typeof audioCtx[0] == "undefined"){
+					audioCtx[0] = new AudioContext();
+					analyser[0] = audioCtx[0].createAnalyser();
 				}
 				var myElement = document.getElementsByTagName("video")[0];
 
 				// Fix Chrome 71
-				audiocontext[0].resume().then(() =>{
+				audioCtx[0].resume().then(() =>{
 				// console.log("Turn Off the Lights - Visualization resumed successfully");
 				// refresh the visualization
-					if(typeof audiocontext[0] != "undefined"){
+					if(typeof audioCtx[0] != "undefined"){
 						if(vissources[0] == undefined){
 							try{
-								vissources[0] = audiocontext[0].createMediaElementSource(myElement);
+								vissources[0] = audioCtx[0].createMediaElementSource(myElement);
 								vissources[0].connect(analyser[0]);
 							}catch(e){ console.error(e); }
 						}
-						analyser[0].connect(audiocontext[0].destination);
+						analyser[0].connect(audioCtx[0].destination);
 					}
 				});
 				analyser[0].wave = new Uint8Array(analyser[0].frequencyBinCount * 2);

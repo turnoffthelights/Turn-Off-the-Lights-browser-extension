@@ -85,18 +85,14 @@ chrome.storage.sync.get(["analytics", "siteengagement", "seeanalytics"], functio
 
 // observeDOM - dynamic check
 var observeDOM = (function(){
-	var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
-
 	return function(obj, callback){
-		if(MutationObserver){
-			// define a new observer
-			var obs = new MutationObserver(function(mutations){
-				if(mutations[0].addedNodes.length || mutations[0].removedNodes.length)
-					callback();
-			});
-			// have the observer observe foo for changes in children
-			obs.observe(obj, {childList:true, subtree:true});
-		}
+		// define a new observer
+		var obs = new MutationObserver(function(mutations){
+			if(mutations[0].addedNodes.length || mutations[0].removedNodes.length)
+				callback();
+		});
+		// have the observer observe foo for changes in children
+		obs.observe(obj, {childList:true, subtree:true});
 	};
 })();
 

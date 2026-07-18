@@ -797,8 +797,7 @@ function drawAtmos(){
 					var tempwidthvideo = showtime.offsetWidth;
 					var tempheightvideo = showtime.offsetHeight;
 					var newvivid = $("stefanvdvivideffect1");
-					newvivid.style.webkitTransform = "scale(" + 1.1 + ")";
-					newvivid.style.webkitFilter = "blur(" + 30 + "px)";
+					newvivid.style.transform = "scale(" + 1.1 + ")";
 					newvivid.style.top = 0;
 					newvivid.style.bottom = 0;
 					newvivid.style.right = 0;
@@ -1908,27 +1907,6 @@ function dynamictest(){
 		}else if($("dynamic4").checked == true){
 			var clouds = document.createElement("div"); clouds.setAttribute("id", "clouds"); newdynmaster.appendChild(clouds);
 			var newdynworld = document.createElement("div"); newdynworld.setAttribute("id", "stefanvdworld"); clouds.appendChild(newdynworld);
-			(function(){
-				var lastTime = 0;
-				var vendors = ["ms", "moz", "webkit", "o"];
-				var x;
-				var lvendor = vendors.length;
-				for(x = 0; x < lvendor && !window.requestAnimationFrame; ++x){
-					window.requestAnimationFrame = window[vendors[x] + "RequestAnimationFrame"];
-					window.cancelRequestAnimationFrame = window[vendors[x] + "CancelRequestAnimationFrame"];
-				}
-				if(!window.requestAnimationFrame)
-					window.requestAnimationFrame = function(callback){
-						var currTime = new Date().getTime();
-						var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-						var id = window.setTimeout(function(){ callback(currTime + timeToCall); }, timeToCall);
-						lastTime = currTime + timeToCall;
-						return id;
-					};
-
-				if(!window.cancelAnimationFrame)window.cancelAnimationFrame = function(id){ window.clearTimeout(id); };
-			}());
-
 			var p = 400;
 			newdynmaster.style.webkitPerspective = p; newdynmaster.style.MozPerspective = p; newdynmaster.style.oPerspective = p;
 			generate();
@@ -2162,9 +2140,7 @@ function yearnow(){
 function setappearancemode(a, b, c){
 	$("dropmenu").className = a;
 	document.body.className = b;
-	$("headlamp").style.webkitFilter = c;
 	$("headlamp").style.filter = c;
-	$("loadinglamp").style.webkitFilter = c;
 	$("loadinglamp").style.filter = c;
 }
 
@@ -3380,7 +3356,6 @@ function domcontentloaded(){
 		};
 	}
 
-	var AudioContext = window.AudioContext || window.webkitAudioContext;
 	var gameaudiocontext;
 	function updateGameArea(){
 		if(myGameArea.stopped){ return; }

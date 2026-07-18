@@ -150,82 +150,78 @@ chrome.storage.sync.get(["autostop", "autostoponly", "autostopDomains", "autosto
 	}
 
 	function autostopfunction(){
-		// A regular on first run
+		// Regular on first run
 		autostopdetectionstart();
-		// B New Mutation Summary API Reference
-		var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-		if(MutationObserver){
-			// setup MutationSummary observer
-			// Removed videolist = document since it's not used by the observer
-			var observer = new MutationObserver(function(mutations){
-				mutations.forEach(function(mutation){
-					// Detect video src changes
-					if(mutation.target.tagName === "VIDEO" && mutation.attributeName === "src" && mutation.target.currentSrc !== ""){
+		// Setup MutationSummary observer
+		// Removed videolist = document since it's not used by the observer
+		var observer = new MutationObserver(function(mutations){
+			mutations.forEach(function(mutation){
+				// Detect video src changes
+				if(mutation.target.tagName === "VIDEO" && mutation.attributeName === "src" && mutation.target.currentSrc !== ""){
+					autostopdetectionstart();
+				}
+
+				// Detect added/removed nodes
+				if(mutation.type === "childList"){
+					let needsRefresh = false;
+
+					mutation.addedNodes.forEach((node) => {
+						if(!node)return;
+
+						// Direct <video> added
+						if(node.tagName === "VIDEO"){
+							needsRefresh = true;
+						}
+
+						// Recursive check inside new shadow roots
+						function traverseShadow(n){
+							if(!n)return;
+
+							// If element has open shadow root
+							if(n.shadowRoot && n.shadowRoot.mode === "open"){
+								const shadowVideos = n.shadowRoot.querySelectorAll("video");
+								if(shadowVideos.length > 0){
+									needsRefresh = true;
+								}
+								// Traverse deeper inside the shadow DOM
+								n.shadowRoot.querySelectorAll("*").forEach(traverseShadow);
+							}
+
+							// Also traverse normal children
+							if(n.children && n.children.length){
+								Array.from(n.children).forEach(traverseShadow);
+							}
+						}
+
+						traverseShadow(node);
+					});
+
+					mutation.removedNodes.forEach((node) => {
+						if(node.tagName === "VIDEO"){
+							needsRefresh = true;
+						}
+					});
+
+					if(needsRefresh){
 						autostopdetectionstart();
 					}
+				}
 
-					// Detect added/removed nodes
-					if(mutation.type === "childList"){
-						let needsRefresh = false;
-
-						mutation.addedNodes.forEach((node) => {
-							if(!node)return;
-
-							// Direct <video> added
-							if(node.tagName === "VIDEO"){
-								needsRefresh = true;
-							}
-
-							// Recursive check inside new shadow roots
-							function traverseShadow(n){
-								if(!n)return;
-
-								// If element has open shadow root
-								if(n.shadowRoot && n.shadowRoot.mode === "open"){
-									const shadowVideos = n.shadowRoot.querySelectorAll("video");
-									if(shadowVideos.length > 0){
-										needsRefresh = true;
-									}
-									// Traverse deeper inside the shadow DOM
-									n.shadowRoot.querySelectorAll("*").forEach(traverseShadow);
-								}
-
-								// Also traverse normal children
-								if(n.children && n.children.length){
-									Array.from(n.children).forEach(traverseShadow);
-								}
-							}
-
-							traverseShadow(node);
-						});
-
-						mutation.removedNodes.forEach((node) => {
-							if(node.tagName === "VIDEO"){
-								needsRefresh = true;
-							}
-						});
-
-						if(needsRefresh){
-							autostopdetectionstart();
-						}
+				// Detect style changes for floating boxes
+				if(mutation.attributeName === "style"){
+					if(mutation.target.className !== "stefanvdautostop"){
+						refreshsize();
 					}
-
-					// Detect style changes for floating boxes
-					if(mutation.attributeName === "style"){
-						if(mutation.target.className !== "stefanvdautostop"){
-							refreshsize();
-						}
-					}
-				});
+				}
 			});
+		});
 
-			observer.observe(document.body, {
-				subtree: true,
-				childList: true,
-				characterData: false,
-				attributes: true
-			});
-		}
+		observer.observe(document.body, {
+			subtree: true,
+			childList: true,
+			characterData: false,
+			attributes: true
+		});
 	}
 
 	function autostopdetectionstart(){

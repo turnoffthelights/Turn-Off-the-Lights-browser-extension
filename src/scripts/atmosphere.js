@@ -272,7 +272,6 @@ function runreal(){
 					newvivid.setAttribute("data-video", totlshowtime.getAttribute("data-video"));
 					newvivid.setAttribute("class", "stefanvdvivideffect");
 					newvivid.style.transform = "scale3d(0,0,0)";
-					newvivid.style.webkitFilter = "blur(" + ambilightrangeblurradius + "px)";
 					newvivid.style.filter = "blur(" + ambilightrangeblurradius + "px)";
 					newvivid.style.top = newpositionvivid.y + "px"; // with NO    +tempvisscrolltop
 					newvivid.style.left = newpositionvivid.x + "px"; // with NO    +tempvisscrollleft
@@ -551,7 +550,7 @@ function ambilightfunction(){
 	// Observe a specific DOM element
 	// New MutationSummary API Reference
 	if(MutationObserver){
-	// setup MutationSummary observer
+	// Setup MutationSummary observer
 		var videolist = document.body;
 		var observer = new MutationObserver(function(mutations){
 			mutations.forEach(function(mutation){
