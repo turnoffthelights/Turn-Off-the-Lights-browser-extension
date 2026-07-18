@@ -122,6 +122,7 @@ exports.opera = () => buildExtension("opera");
 exports.edge = () => buildExtension("edge");
 exports.safari = () => buildExtension("safari");
 exports.whale = () => buildExtension("whale");
+exports.yandex = () => buildExtension("yandex");
 exports.samsung = () => buildExtension("samsung");
 
 // Zipping tasks for each browser
@@ -130,6 +131,7 @@ exports["firefox-zip"] = runZipCommand("firefox");
 exports["opera-zip"] = runZipCommand("opera");
 exports["edge-zip"] = runZipCommand("edge");
 exports["whale-zip"] = runZipCommand("whale");
+exports["yandex-zip"] = runZipCommand("yandex");
 exports["samsung-zip"] = runZipCommand("samsung");
 
 // Main task to build and zip all browsers sequentially
@@ -144,6 +146,8 @@ exports.browserzip = series(
 	exports["edge-zip"],
 	exports.whale,
 	exports["whale-zip"],
+	exports.yandex,
+	exports["yandex-zip"],
 	exports.samsung,
 	exports["samsung-zip"],
 	exports.safari

@@ -1439,11 +1439,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 		window.addEventListener("resize", myListenerWithContext);
 
 		function getFullscreenElement(){
-			return document.fullscreenElement ||
-			document.webkitFullscreenElement ||
-			document.mozFullScreenElement ||
-			document.msFullscreenElement ||
-			null;
+			return document.fullscreenElement;
 		}
 
 		// Fullscreen change handler
