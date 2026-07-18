@@ -37,7 +37,6 @@
     "matches": ["<all_urls>"],
     "use_dynamic_url": false
   }],
-  "offline_enabled": true,
   "minimum_chrome_version": "116",
   "storage": {
     "managed_schema": "schema.json"
