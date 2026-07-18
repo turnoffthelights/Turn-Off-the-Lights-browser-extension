@@ -1574,7 +1574,7 @@ function createCloud(){
 	var div = document.createElement("div"); div.className = "stefanvdcloudBase";
 	var x = 256 - (Math.random() * 512); var y = 256 - (Math.random() * 512); var z = 256 - (Math.random() * 512);
 	var t = "translateX(" + x + "px) translateY(" + y + "px) translateZ(" + z + "px)";
-	div.style.webkitTransform = t; div.style.MozTransform = t; div.style.oTransform = t;
+	div.style.transform = t;
 	world.appendChild(div);
 
 	var j, l = 5 + Math.round(Math.random() * 10);
@@ -1591,7 +1591,7 @@ function createCloud(){
 		x *= .2; y *= .2;
 		cloud.data = {x: cloudx, y: cloudy, z: cloudz, a: clouda, s: clouds, speed: .1 * Math.random()};
 		var cloudt = "translateX(" + cloudx + "px) translateY(" + cloudy + "px) translateZ(" + cloudz + "px) rotateZ(" + clouda + "deg) scale(" + clouds + ")";
-		cloud.style.webkitTransform = cloudt; cloud.style.MozTransform = cloudt; cloud.style.oTransform = cloudt;
+		cloud.style.transform = cloudt;
 		div.appendChild(cloud);
 		layers.push(cloud);
 	}
@@ -1616,7 +1616,7 @@ function cloudupdate(){
 		var layer = layers[j];
 		layer.data.a += layer.data.speed;
 		var t = "translateX(" + layer.data.x + "px) translateY(" + layer.data.y + "px) translateZ(" + layer.data.z + "px) rotateY(" + (- worldYAngle) + "deg) rotateX(" + (- worldXAngle) + "deg) rotateZ(" + layer.data.a + "deg) scale(" + layer.data.s + ")";
-		layer.style.webkitTransform = t; layer.style.MozTransform = t; layer.style.oTransform = t;
+		layer.style.transform = t;
 	}
 	requestAnimationFrame(cloudupdate);
 }
