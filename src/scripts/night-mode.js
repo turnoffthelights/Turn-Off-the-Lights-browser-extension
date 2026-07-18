@@ -657,8 +657,8 @@ const afterBodyReady = () => {
 						document.body.style.color = nightmodetxt;
 						document.querySelector("html").style.backgroundColor = nightmodebck;
 
-						if($("logo-container")){ $("logo-container").style.cssText = "-webkit-filter: grayscale(100%) brightness(100%) contrast(100%);"; }
-						if($("watch7-action-buttons")){ $("watch7-action-buttons").style.cssText = "-webkit-filter: grayscale(0%) brightness(100%) contrast(0%);"; }
+						if($("logo-container")){ $("logo-container").style.cssText = "filter: grayscale(100%) brightness(100%) contrast(100%);"; }
+						if($("watch7-action-buttons")){ $("watch7-action-buttons").style.cssText = "filter: grayscale(0%) brightness(100%) contrast(0%);"; }
 						if($("watch7-content")){ $("watch7-content").style.background = nightmodebck; } // #fff
 						if($("yt-masthead-container")){ $("yt-masthead-container").style.background = nightmodebck; } // #f1f1f1
 						if($("watch7-sidebar")){ $("watch7-sidebar").style.background = nightmodebck; } // #fff
@@ -773,7 +773,7 @@ const afterBodyReady = () => {
 						var ytironicon = document.querySelectorAll("iron-icon");
 						var ytrioni;
 						var ytrionl = ytironicon.length;
-						for(ytrioni = 0; ytrioni < ytrionl; ytrioni++){ ytironicon[ytrioni].style.cssText = "-webkit-filter: grayscale(0%) brightness(0%) contrast(0%);"; }
+						for(ytrioni = 0; ytrioni < ytrionl; ytrioni++){ ytironicon[ytrioni].style.cssText = "filter: grayscale(0%) brightness(0%) contrast(0%);"; }
 						if($("masthead")){ $("masthead").style.background = nightmodebck; }
 						if($("contents")){ $("contents").style.color = nightmodetxt; }
 						var yth3ytd = document.querySelectorAll("h3.ytd-compact-video-renderer");
@@ -876,9 +876,9 @@ const afterBodyReady = () => {
 						var ytdtopbarlogorenderer = document.querySelectorAll("ytd-topbar-logo-renderer");
 						var ytdtoi;
 						var ytdtol = ytdtopbarlogorenderer.length;
-						for(ytdtoi = 0; ytdtoi < ytdtol; ytdtoi++){ ytdtopbarlogorenderer[ytdtoi].style.cssText = "-webkit-filter: invert(1) grayscale(1);"; }
-						if($("guide-button")){ $("guide-button").style.cssText = "-webkit-filter: invert(1) grayscale(1);"; }
-						if($("buttons")){ $("buttons").style.cssText = "-webkit-filter: invert(1) grayscale(1);"; }
+						for(ytdtoi = 0; ytdtoi < ytdtol; ytdtoi++){ ytdtopbarlogorenderer[ytdtoi].style.cssText = "filter: invert(1) grayscale(1);"; }
+						if($("guide-button")){ $("guide-button").style.cssText = "filter: invert(1) grayscale(1);"; }
+						if($("buttons")){ $("buttons").style.cssText = "filter: invert(1) grayscale(1);"; }
 						if($("guide-content")){ $("guide-content").style.color = nightmodetxt; $("guide-content").style.backgroundColor = nightmodebck; }
 						// var ytdguidenentry = document.querySelectorAll(".ytd-guide-entry-renderer");
 						// var ytdguidei;
@@ -891,7 +891,7 @@ const afterBodyReady = () => {
 						// var ytdbuttonrenderer = document.querySelectorAll("yt-icon");
 						// var ytdbuti;
 						// var ytdbutl = ytdbuttonrenderer.length;
-						// for(ytdbuti = 0; ytdbuti < ytdbutl; ytdbuti++){ ytdbuttonrenderer[ytdbuti].style.cssText = "-webkit-filter: invert(1) grayscale(1) contrast(0);"; }
+						// for(ytdbuti = 0; ytdbuti < ytdbutl; ytdbuti++){ ytdbuttonrenderer[ytdbuti].style.cssText = "filter: invert(1) grayscale(1) contrast(0);"; }
 						var paperbutton = document.querySelectorAll("paper-button");
 						var papi;
 						var papl = paperbutton.length;
@@ -1609,7 +1609,7 @@ const afterBodyReady = () => {
 						document.getElementById("stefanvdnightpdf").style.display = "block";
 					}else{
 						var pdfcover = document.createElement("div");
-						let css = "position: fixed; pointer-events: none; top: 0; left: 0; width: 100vw; height: 100vh; background-color: " + nightmodebck + "; -webkit-filter: invert(1);filter: invert(1);mix-blend-mode: difference;";
+						let css = "position: fixed; pointer-events: none; top: 0; left: 0; width: 100vw; height: 100vh; background-color: " + nightmodebck + "; filter: invert(1);mix-blend-mode: difference;";
 						pdfcover.setAttribute("style", css);
 						pdfcover.id = "stefanvdnightpdf";
 						document.body.appendChild(pdfcover);
@@ -2103,7 +2103,7 @@ const afterBodyReady = () => {
 
 		function runnightmodegesturecheck(){
 			if(nightmodegesture == true){
-				var nightblurcss = ".stefanvdnightblur{-webkit-animation:0.8s nightblind;animation:0.8s nightblind}@-webkit-keyframes nightblind{0%,20%{filter:blur(0);-webkit-filter:blur(0)}100%{filter:blur(10px);-webkit-filter:blur(10px)}}@keyframes nightblind{0%,20%{filter:blur(0);-webkit-filter:blur(0)}100%{filter:blur(10px);-webkit-filter:blur(10px)}}.stefanvdlongpress{-webkit-animation:0.8s longpress;animation:0.8s longpress}@-webkit-keyframes longpress{0%,20%{background:" + window.getComputedStyle(document.body, null).getPropertyValue("background-color") + "}100%{background:" + nightmodebck + "}}@keyframes longpress{0%,20%{background:" + window.getComputedStyle(document.body, null).getPropertyValue("background-color") + "}100%{background:" + nightmodebck + "}}";
+				var nightblurcss = ".stefanvdnightblur{animation:0.8s nightblind}@-webkit-keyframes nightblind{0%,20%{filter:blur(0)}100%{filter:blur(10px)}}@keyframes nightblind{0%,20%{filter:blur(0)}100%{filter:blur(10px)}}.stefanvdlongpress{animation:0.8s longpress}@-webkit-keyframes longpress{0%,20%{background:" + window.getComputedStyle(document.body, null).getPropertyValue("background-color") + "}100%{background:" + nightmodebck + "}}@keyframes longpress{0%,20%{background:" + window.getComputedStyle(document.body, null).getPropertyValue("background-color") + "}100%{background:" + nightmodebck + "}}";
 
 				addcsstext("totlnightgesturestyle", nightblurcss);
 
