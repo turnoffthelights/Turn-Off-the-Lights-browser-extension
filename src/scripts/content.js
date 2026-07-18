@@ -2477,7 +2477,9 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 
 	window.removeElement = function(elementId){
 		var element = document.getElementById(elementId);
-		element.parentNode.removeChild(element);
+		if(element){
+			element.parentNode.removeChild(element);
+		}
 	};
 
 	function removevideotool(){
