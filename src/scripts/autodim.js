@@ -69,10 +69,10 @@ function dispatch(data){
 		case"playerStateChange":
 			// console.log("received playerStateChange", data[1]);
 			if(data[1] === "2" || data[1] === "0" || data[1] === "-1" || data[1] === "5"){
-				if((data[1] === "2" && apause == true) || (data[1] === "0" && astop == true)){ shadesOff(this.player); }
+				if((data[1] === "2" && apause == true) || (data[1] === "0" && astop == true)){ shadesOff(); }
 			}else{
 				// play action is active
-				if(aplay == true){ shadesOn(this.player); }
+				if(aplay == true){ shadesOn(); }
 			}
 			break;
 		default:
@@ -82,31 +82,27 @@ function dispatch(data){
 	}
 }
 
-function shadesOff(player){
-	if(player !== null){
-		var blackon = document.getElementById("stefanvdlightareoff1");
-		if(autodimsize === false || checkActiveVideosHeight()){
-			if(autodimdelay == true){
-				var delaytime = autodimdelaytime * 1000;
-				godelay = window.setTimeout(function(){
-					if(blackon){ chrome.runtime.sendMessage({name: "automatic"}); }
-					window.clearTimeout(godelay);
-				}, delaytime);
-			}else{
+function shadesOff(){
+	var blackon = document.getElementById("stefanvdlightareoff1");
+	if(autodimsize === false || checkActiveVideosHeight()){
+		if(autodimdelay == true){
+			var delaytime = autodimdelaytime * 1000;
+			godelay = window.setTimeout(function(){
 				if(blackon){ chrome.runtime.sendMessage({name: "automatic"}); }
-			}
+				window.clearTimeout(godelay);
+			}, delaytime);
+		}else{
+			if(blackon){ chrome.runtime.sendMessage({name: "automatic"}); }
 		}
 	}
 }
 
-function shadesOn(player){
-	if(player !== null){
-		var blackon = document.getElementById("stefanvdlightareoff1");
-		if(autodimsize === false || checkActiveVideosHeight()){
-			if(blackon == null){ chrome.runtime.sendMessage({name: "automatic"}); }
-			if(autodimdelay == true){
-				try{ window.clearTimeout(godelay); }catch(e){ console.error(e); }
-			}
+function shadesOn(){
+	var blackon = document.getElementById("stefanvdlightareoff1");
+	if(autodimsize === false || checkActiveVideosHeight()){
+		if(blackon == null){ chrome.runtime.sendMessage({name: "automatic"}); }
+		if(autodimdelay == true){
+			try{ window.clearTimeout(godelay); }catch(e){ console.error(e); }
 		}
 	}
 }
