@@ -199,20 +199,19 @@ if(exbrowser != "safari"){
 
 // screen-shader.js = Screen Shader
 // night-mode.js = Night Mode
-const scriptList = ["scripts/screen-shader.js", "scripts/night-mode.js"];
-const injectScriptsTo = async (tabId, url) => {
+const injectScriptsTo = async(tabId, url) => {
 	if(url.match(/^http/i) || url.match(/^file/i)){
 		// Check if screenshader is enabled before injecting
 		const response = await chrome.storage.sync.get(["mousespotlights", "screenshader"]);
 		const mousespotlights = response["mousespotlights"];
 		const screenshader = response["screenshader"];
-		
+
 		// Build script list based on enabled features
 		const scriptsToInject = ["scripts/night-mode.js"]; // Always inject night-mode.js
 		if(mousespotlights === true && screenshader === true){
 			scriptsToInject.push("scripts/screen-shader.js");
 		}
-		
+
 		if(exbrowser != "safari"){
 			scriptsToInject.forEach((script) => {
 				chrome.scripting.executeScript({
