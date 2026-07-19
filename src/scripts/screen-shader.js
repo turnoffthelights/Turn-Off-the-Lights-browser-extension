@@ -99,17 +99,15 @@ const afterBodyReadyScreenshader = async() => {
 	screenshader = response["screenshader"];
 	lightcolor = response["lightcolor"] || "#000000"; // default color black
 	interval = response["interval"] ?? 80; // default interval 80%
-	if(mousespotlights === true){
-		if(screenshader === true){
-			if(document.documentElement){
-				const newscreenshader = document.createElement("div");
-				setAttributes(newscreenshader, {"id": "stefanvdscreenshader", "class": "stefanvdscreenshader"});
-				newscreenshader.style.background = lightcolor;
-				newscreenshader.style.mixBlendMode = "multiply";
-				newscreenshader.style.opacity = interval / 100;
-				document.documentElement.insertBefore(newscreenshader, document.documentElement.firstChild);
-				setmetatheme(false);
-			}
+	if(mousespotlights === true && screenshader === true){
+		if(document.documentElement){
+			const newscreenshader = document.createElement("div");
+			setAttributes(newscreenshader, {"id": "stefanvdscreenshader", "class": "stefanvdscreenshader"});
+			newscreenshader.style.background = lightcolor;
+			newscreenshader.style.mixBlendMode = "multiply";
+			newscreenshader.style.opacity = interval / 100;
+			document.documentElement.insertBefore(newscreenshader, document.documentElement.firstChild);
+			setmetatheme(false);
 		}
 	}
 }; // afterbody

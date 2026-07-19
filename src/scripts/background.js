@@ -200,10 +200,21 @@ if(exbrowser != "safari"){
 // screen-shader.js = Screen Shader
 // night-mode.js = Night Mode
 const scriptList = ["scripts/screen-shader.js", "scripts/night-mode.js"];
-const injectScriptsTo = (tabId, url) => {
+const injectScriptsTo = async (tabId, url) => {
 	if(url.match(/^http/i) || url.match(/^file/i)){
+		// Check if screenshader is enabled before injecting
+		const response = await chrome.storage.sync.get(["mousespotlights", "screenshader"]);
+		const mousespotlights = response["mousespotlights"];
+		const screenshader = response["screenshader"];
+		
+		// Build script list based on enabled features
+		const scriptsToInject = ["scripts/night-mode.js"]; // Always inject night-mode.js
+		if(mousespotlights === true && screenshader === true){
+			scriptsToInject.push("scripts/screen-shader.js");
+		}
+		
 		if(exbrowser != "safari"){
-			scriptList.forEach((script) => {
+			scriptsToInject.forEach((script) => {
 				chrome.scripting.executeScript({
 					target: {tabId: tabId},
 					files: [`${script}`],
@@ -211,7 +222,7 @@ const injectScriptsTo = (tabId, url) => {
 				}, () => void chrome.runtime.lastError);
 			});
 		}else{
-			scriptList.forEach((script) => {
+			scriptsToInject.forEach((script) => {
 				chrome.scripting.executeScript({
 					target: {tabId: tabId},
 					files: [`${script}`]
@@ -1051,6 +1062,34 @@ chrome.storage.onChanged.addListener(async function(changes){
 		var changenameshake = ["mouseshake", "mouseshakesensitivity"];
 		if(changenameshake.includes(key)){
 			chromerefreshalltabs("gorefreshmouseshake");
+		}
+
+		// Handle screenshader feature changes
+		if(changes["mousespotlights"] || changes["screenshader"]){
+			const response = await chrome.storage.sync.get(["mousespotlights", "screenshader"]);
+			if(response["mousespotlights"] === true && response["screenshader"] === true){
+				// Inject screen-shader.js into all existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.match(/^http/i) || tab.url.match(/^file/i))){
+						if(exbrowser != "safari"){
+							chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/screen-shader.js"],
+								injectImmediately: true
+							}, () => void chrome.runtime.lastError);
+						}else{
+							chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/screen-shader.js"]
+							}, () => void chrome.runtime.lastError);
+						}
+					}
+				}
+			}else{
+				// Remove screenshader from all existing tabs
+				chromerefreshalltabs("goclearscreenshader");
+			}
 		}
 
 		// Group Policy
