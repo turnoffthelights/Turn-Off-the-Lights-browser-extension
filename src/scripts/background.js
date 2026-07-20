@@ -87,6 +87,12 @@ chrome.runtime.onMessage.addListener(async function request(request, sender, sen
 		}
 		break;
 	}
+	case"injeceasteregg":
+		chrome.scripting.executeScript({
+			target: {tabId: sender.tab.id},
+			files: ["scripts/easter-egg.js"]
+		});
+		break;
 	case"eyesaveme":
 		if(request.value == true){ chrome.storage.sync.set({"eyea": true, "eyen": false}); chromerefreshalltabs("gorefresheyedark"); }else{ chrome.storage.sync.set({"eyea": false, "eyen": true}); chromerefreshalltabs("gorefresheyelight"); }
 		break;
