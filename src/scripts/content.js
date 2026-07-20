@@ -707,7 +707,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			var brownvis = this.getAttribute("data-video");
 			var onevideo = document.getElementsByTagName("video")[brownvis];
 			var gsvtrange = document.getElementById("stefanvdvideotoolrange" + brownvis).value;
-			if(filtertype == "grayscale"){ onevideo.style.filter = "" + filtertype + "(" + gsvtrange + ")"; }else if(filtertype == "sepia"){ onevideo.style.filter = "" + filtertype + "(" + gsvtrange + ")"; }else if(filtertype == "invert"){ onevideo.style.filter = "" + filtertype + "(" + gsvtrange + ")"; }else if(filtertype == "contrast"){ onevideo.style.filter = "" + filtertype + "(" + gsvtrange + ")"; }else if(filtertype == "saturate"){ onevideo.style.filter = "" + filtertype + "(" + gsvtrange + ")"; }else if(filtertype == "hue-rotate"){ onevideo.style.filter = "" + filtertype + "(" + gsvtrange + "deg)"; }else if(filtertype == "brightness"){ onevideo.style.filter = "" + filtertype + "(" + gsvtrange + ")"; }
+			if(filtertype == "grayscale"){ onevideo.style.filter = `${filtertype}(${gsvtrange})`; }else if(filtertype == "sepia"){ onevideo.style.filter = `${filtertype}(${gsvtrange})`; }else if(filtertype == "invert"){ onevideo.style.filter = `${filtertype}(${gsvtrange})`; }else if(filtertype == "contrast"){ onevideo.style.filter = `${filtertype}(${gsvtrange})`; }else if(filtertype == "saturate"){ onevideo.style.filter = `${filtertype}(${gsvtrange})`; }else if(filtertype == "hue-rotate"){ onevideo.style.filter = "" + filtertype + "(" + gsvtrange + "deg)"; }else if(filtertype == "brightness"){ onevideo.style.filter = `${filtertype}(${gsvtrange})`; }
 		}
 
 		function hideshowdiv(a, b){
@@ -2707,16 +2707,16 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 		},
 		gorefresheyelight: function(){
 			chrome.storage.sync.get(["eyea", "eyen"], function(items){
-				if(items["eyea"]){ eyea = items["eyea"]; }else{ eyea = items["eyea"]; }
-				if(items["eyen"]){ eyen = items["eyen"]; }else{ eyen = items["eyen"]; }
+				eyea = items["eyea"];
+				eyen = items["eyen"];
 			});
 			var blackon = $("stefanvdlightareoff1");
 			if(blackon){ chrome.runtime.sendMessage({name: "automatic"}); }
 		},
 		gorefresheyedark: function(){
 			chrome.storage.sync.get(["eyea", "eyen"], function(items){
-				if(items["eyea"]){ eyea = items["eyea"]; }else{ eyea = items["eyea"]; }
-				if(items["eyen"]){ eyen = items["eyen"]; }else{ eyen = items["eyen"]; }
+				eyea = items["eyea"];
+				eyen = items["eyen"];
 				gonighttime();
 			});
 		},
