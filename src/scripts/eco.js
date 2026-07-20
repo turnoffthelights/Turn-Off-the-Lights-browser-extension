@@ -28,14 +28,8 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 //================================================
 
 // date today
-var currenttoday = new Date();
-var dd = currenttoday.getDate();
-var mm = currenttoday.getMonth() + 1; // January is 0!
-
-var yyyy = currenttoday.getFullYear();
-if(dd < 10){ dd = "0" + dd; }
-if(mm < 10){ mm = "0" + mm; }
-var today = dd + "/" + mm + "/" + yyyy;
+var d = new Date();
+var today = `${String(d.getDate()).padStart(2,"0")}/${String(d.getMonth()+1).padStart(2,"0")}/${d.getFullYear()}`;
 
 function search(nameKey, myArray){
 	var item = myArray.find((item) => item.name === nameKey);
@@ -83,19 +77,6 @@ chrome.storage.sync.get(["analytics", "siteengagement", "seeanalytics"], functio
 	}
 });
 
-// observeDOM - dynamic check
-var observeDOM = (function(){
-	return function(obj, callback){
-		// define a new observer
-		var obs = new MutationObserver(function(mutations){
-			if(mutations[0].addedNodes.length || mutations[0].removedNodes.length)
-				callback();
-		});
-		// have the observer observe foo for changes in children
-		obs.observe(obj, {childList:true, subtree:true});
-	};
-})();
-
 function setTime(){
 	if(document.visibilityState === "visible"){
 		++totalSeconds;
@@ -115,18 +96,17 @@ function endlayer(){
 				window.clearInterval(refreshIntervalId);
 				analytics = items["analytics"];
 				resultObject = search(today, analytics);
-				var over = JSON.stringify(resultObject["details"]["time"]);
-				currentseconds = parseInt(over); currentseconds += totalSeconds;
+				currentseconds = resultObject.details.time || 0; currentseconds += totalSeconds;
 				resultObject["details"]["time"] = currentseconds;
-				chrome.storage.sync.set({"analytics":analytics});
 				siteengagement = items["siteengagement"];
 				resultObject = search(today, siteengagement);
-				var mes = JSON.stringify(resultObject["'" + window.location.href + "'"]);
-				if(typeof mes == "undefined"){ mes = 0; }
-				currentseconds = parseInt(mes); currentseconds += totalSeconds; mes = currentseconds;
+				var mes = resultObject[window.location.href] || 0;
+				mes += totalSeconds;
 				if(mes > 0){
-					resultObject["'" + window.location.href + "'"] = mes;
-					chrome.storage.sync.set({"siteengagement":siteengagement});
+					resultObject[window.location.href] = mes;
+					chrome.storage.sync.set({"analytics":analytics, "siteengagement":siteengagement});
+				}else{
+					chrome.storage.sync.set({"analytics":analytics});
 				}
 				totalSeconds = 0;
 			}
@@ -137,44 +117,44 @@ function endlayer(){
 }
 
 var resultObject;
-observeDOM(document.body, function(){
-	if(document.getElementById("stefanvdlightareoff1")){
-		if(!in_dom){
-			try{
-				chrome.storage.sync.get(["analytics", "seeanalytics"], function(items){
-					seeanalytics = items["seeanalytics"]; if(seeanalytics == null)seeanalytics = true;
-					if(seeanalytics == true){
-						if(items["analytics"]){
-							analytics = items["analytics"];
-							resultObject = search(today, analytics);
-							var rest = JSON.stringify(resultObject["details"]["active"]);
-							var currentnumber = parseInt(rest);
-							currentnumber += 1;
-							resultObject["details"]["active"] = currentnumber;
-							// what hour the light are off
-							var n = new Date().getHours();
-							var thatime = resultObject["details"]["day"][n];
-							var timenumber = parseInt(thatime);
-							timenumber += 1;
-							resultObject["details"]["day"][n] = timenumber;
-							// save
-							chrome.storage.sync.set({"analytics":analytics}, function(){
-								chrome.runtime.sendMessage({name: "badgeon"});
-							});
-							startcount();
-						}
-					}
-				});
-			}catch(e){
-				console.log(e);
-			}
-		}
+var targetId = "stefanvdlightareoff1";
+var lightObserver = new MutationObserver(function(){
+	var nowIn = !!document.getElementById(targetId);
+	if(nowIn && !in_dom){
 		in_dom = true;
-	}else if(in_dom){
+		try{
+			chrome.storage.sync.get(["analytics", "seeanalytics"], function(items){
+				seeanalytics = items["seeanalytics"]; if(seeanalytics == null)seeanalytics = true;
+				if(seeanalytics == true){
+					if(items["analytics"]){
+						analytics = items["analytics"];
+						resultObject = search(today, analytics);
+						var currentnumber = resultObject["details"]["active"] || 0;
+						currentnumber += 1;
+						resultObject["details"]["active"] = currentnumber;
+						// what hour the light are off
+						var n = new Date().getHours();
+						var timenumber = resultObject["details"]["day"][n] || 0;
+						timenumber += 1;
+						resultObject["details"]["day"][n] = timenumber;
+						// save
+						chrome.storage.sync.set({"analytics":analytics}, function(){
+							chrome.runtime.sendMessage({name: "badgeon"});
+						});
+						startcount();
+					}
+				}
+			});
+		}catch(e){
+			console.log(e);
+		}
+	}
+	if(!nowIn && in_dom){
 		in_dom = false;
 		endlayer();
 	}
 });
+lightObserver.observe(document.body, {childList:true});
 
 function startcount(){
 	refreshIntervalId = window.setInterval(setTime, 1000);
