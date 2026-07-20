@@ -39,6 +39,11 @@ function isMacintosh(){
 	return navigator.platform.indexOf("Mac") > -1;
 }
 
+function removeAllByClass(className){
+	const elements = document.getElementsByClassName(className);
+	while(elements.length > 0) elements[0].parentNode.removeChild(elements[0]);
+}
+
 function createVideoButton(config){
 	var button = document.createElement("div");
 	button.textContent = config.text;
@@ -2154,10 +2159,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			addvolume();
 
 			var myListenervolume = function(){
-				var elements = document.getElementsByClassName("totlmousewheelvideo");
-				while(elements.length > 0){
-					elements[0].parentNode.removeChild(elements[0]);
-				}
+				removeAllByClass("totlmousewheelvideo");
 				addvolume();
 			};
 			myListenerWithContextvolume = myListenervolume.bind(this);
@@ -2226,10 +2228,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	function refreshvolume(){
 		adddatavideo(); // recheck remove and add video ID
 
-		var elements = document.getElementsByClassName("totlmousewheelvideo");
-		while(elements.length > 0){
-			elements[0].parentNode.removeChild(elements[0]);
-		}
+		removeAllByClass("totlmousewheelvideo");
 		addvolume();
 	}
 
@@ -2478,11 +2477,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	};
 
 	function removevideotool(){
-		const removeElementsByClass = function(className){
-			const elements = document.getElementsByClassName(className);
-			while(elements.length > 0) elements[0].parentNode.removeChild(elements[0]);
-		};
-		["stefanvdspeed", "stefanvdzoomstage", "stefanvdzoom", "stefanvdvisualization", "stefanvdvis"].forEach(removeElementsByClass);
+		["stefanvdspeed", "stefanvdzoomstage", "stefanvdzoom", "stefanvdvisualization", "stefanvdvis"].forEach(removeAllByClass);
 	}
 
 	// PIP
@@ -2821,10 +2816,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 					element.parentNode.removeChild(element);
 				}
 
-				var elements = document.getElementsByClassName("totlmousewheelvideo");
-				while(elements.length > 0){
-					elements[0].parentNode.removeChild(elements[0]);
-				}
+				removeAllByClass("totlmousewheelvideo");
 
 				if(videovolume == true){
 					runvideovolumecheck();
