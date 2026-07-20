@@ -805,8 +805,8 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 					newzoomcanvas.style.position = "absolute";
 					newzoomcanvas.style.width = tempwidthvideo + "px";
 					newzoomcanvas.style.height = tempheightvideo + "px";
-					newzoomcanvas.style.top = 0 + "px";
-					newzoomcanvas.style.left = 0 + "px";
+					newzoomcanvas.style.top = "0px";
+					newzoomcanvas.style.left = "0px";
 					newzoomcanvas.width = tempwidthvideo;
 					newzoomcanvas.height = tempheightvideo;
 					newzoomstage.appendChild(newzoomcanvas);
@@ -2297,8 +2297,8 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 		onevideo.setAttribute("data-zoom", "false");
 		vzoom[a] = 1;
 		vrotate[a] = 0;
-		onevideo.style.top = 0 + "px";
-		onevideo.style.left = 0 + "px";
+		onevideo.style.top = "0px";
+		onevideo.style.left = "0px";
 		onevideo.style["transform"] = "scale(" + vzoom[a] + ") rotate(" + vrotate[a] + "deg)";
 		if($("stefanvdzoomstage" + a)){ $("stefanvdzoomstage" + a).style.display = "none"; }
 		if($("stefanvdzoomexit" + a)){ $("stefanvdzoomexit" + a).style.setProperty("display", "none", "important"); }
@@ -2313,8 +2313,8 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 		onevideo.setAttribute("data-zoom", "true");
 		vzoom[a] = 1;
 		vrotate[a] = 0;
-		onevideo.style.top = 0 + "px";
-		onevideo.style.left = 0 + "px";
+		onevideo.style.top = "0px";
+		onevideo.style.left = "0px";
 		onevideo.style["transform"] = "scale(" + vzoom[a] + ") rotate(" + vrotate[a] + "deg)";
 	}
 	window.resetzoom = resetzoom;
