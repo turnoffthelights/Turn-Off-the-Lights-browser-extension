@@ -2484,26 +2484,11 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	};
 
 	function removevideotool(){
-		var removespeedelement = document.getElementsByClassName("stefanvdspeed");
-		while(removespeedelement.length > 0){
-			removespeedelement[0].parentNode.removeChild(removespeedelement[0]);
-		}
-		var removezoomstageelement = document.getElementsByClassName("stefanvdzoomstage");
-		while(removezoomstageelement.length > 0){
-			removezoomstageelement[0].parentNode.removeChild(removezoomstageelement[0]);
-		}
-		var removezoomelement = document.getElementsByClassName("stefanvdzoom");
-		while(removezoomelement.length > 0){
-			removezoomelement[0].parentNode.removeChild(removezoomelement[0]);
-		}
-		var removevisualizationelement = document.getElementsByClassName("stefanvdvisualization");
-		while(removevisualizationelement.length > 0){
-			removevisualizationelement[0].parentNode.removeChild(removevisualizationelement[0]);
-		}
-		var removeviselement = document.getElementsByClassName("stefanvdvis");
-		while(removeviselement.length > 0){
-			removeviselement[0].parentNode.removeChild(removeviselement[0]);
-		}
+		const removeElementsByClass = function(className){
+			const elements = document.getElementsByClassName(className);
+			while(elements.length > 0) elements[0].parentNode.removeChild(elements[0]);
+		};
+		["stefanvdspeed", "stefanvdzoomstage", "stefanvdzoom", "stefanvdvisualization", "stefanvdvis"].forEach(removeElementsByClass);
 	}
 
 	// PIP
