@@ -2296,9 +2296,8 @@ if(document.body){
 	const bodyObserver = new MutationObserver((recordList, observer) => {
 		// Wait for 'document.body' get the definition
 		if(!document.body)return;
-
-		afterBodyReady();
 		observer.disconnect();
+		afterBodyReady();
 	});
 	bodyObserver.observe(document.documentElement, {childList: true});
 }
