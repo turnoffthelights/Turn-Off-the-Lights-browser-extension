@@ -2421,8 +2421,8 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 				if(match && match[7].length == 11){
 					var video_id = ytembedurl.split("embed/")[1];
 					if(video_id.indexOf("vq=") != -1){
-						if(video_id.indexOf("vq=highres")){ video_id.replace("vq=highres", "vq=" + maxquality + ""); }else if(video_id.indexOf("vq=hd4320")){ video_id.replace("vq=hd4320", "vq=" + maxquality + ""); }else if(video_id.indexOf("vq=hd2160")){ video_id.replace("vq=hd2160", "vq=" + maxquality + ""); }else if(video_id.indexOf("vq=hd1440")){ video_id.replace("vq=hd1440", "vq=" + maxquality + ""); }else if(video_id.indexOf("vq=hd1080")){ video_id.replace("vq=hd1080", "vq=" + maxquality + ""); }else if(video_id.indexOf("vq=hd720")){ video_id.replace("vq=hd720", "vq=" + maxquality + ""); }else if(video_id.indexOf("vq=large")){ video_id.replace("vq=large", "vq=" + maxquality + ""); }else if(video_id.indexOf("vq=medium")){ video_id.replace("vq=medium", "vq=" + maxquality + ""); }else if(video_id.indexOf("vq=small")){ video_id.replace("vq=small", "vq=" + maxquality + ""); }else if(video_id.indexOf("vq=tiny")){ video_id.replace("vq=tiny", "vq=" + maxquality + ""); }else if(video_id.indexOf("vq=default")){ video_id.replace("vq=default", "vq=" + maxquality + ""); }
-						newvideoid = video_id + "&vq=" + maxquality + "";
+						video_id = video_id.replace(/vq=(highres|hd4320|hd2160|hd1440|hd1080|hd720|large|medium|small|tiny|default)/, "vq=" + maxquality);
+						newvideoid = video_id + "&vq=" + maxquality;
 					}else{
 						if(video_id.indexOf("?") != -1){ newvideoid = video_id + "&vq=" + maxquality + ""; }else{ newvideoid = video_id + "?vq=" + maxquality + ""; }
 					}
