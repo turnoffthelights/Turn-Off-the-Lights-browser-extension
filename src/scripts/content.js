@@ -699,8 +699,9 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			if(onevideo.paused)onevideo.play();
 		}
 
-		function stefanvdblockstatus(a, b, c){
-			document.getElementById(a + b).style.display = c;
+		function setElementDisplay(id, display){
+			const el = document.getElementById(id);
+			if(el) el.style.display = display;
 		}
 
 		function changevideotoolbarrange(){
@@ -708,12 +709,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			var onevideo = document.getElementsByTagName("video")[brownvis];
 			var gsvtrange = document.getElementById("stefanvdvideotoolrange" + brownvis).value;
 			onevideo.style.filter = filtertype === "hue-rotate" ? `${filtertype}(${gsvtrange}deg)` : `${filtertype}(${gsvtrange})`;
-		}
-
-		function hideshowdiv(a, b){
-			if(document.getElementById(a)){
-				document.getElementById(a).style.display = b;
-			}
 		}
 
 		function videoframestep(){
@@ -742,20 +737,20 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 
 				myElement.addEventListener("pointerover", function(){
 					rock = this.getAttribute("data-video");
-					hideshowdiv("stefanvdvispanel" + rock, "block");
+					setElementDisplay("stefanvdvispanel" + rock, "block");
 					if(this.classList.contains("stefanvdvideowindow")){
-						hideshowdiv("stefanvdzoompanel" + rock, "none");
-						hideshowdiv("stefanvdspeedpanel" + rock, "none");
+						setElementDisplay("stefanvdzoompanel" + rock, "none");
+						setElementDisplay("stefanvdspeedpanel" + rock, "none");
 					}else{
-						hideshowdiv("stefanvdzoompanel" + rock, "block");
-						hideshowdiv("stefanvdspeedpanel" + rock, "block");
+						setElementDisplay("stefanvdzoompanel" + rock, "block");
+						setElementDisplay("stefanvdspeedpanel" + rock, "block");
 					}
 				}, false);
 
 				myElement.addEventListener("pointerout", function(){
-					hideshowdiv("stefanvdvispanel" + rock, "none");
-					hideshowdiv("stefanvdzoompanel" + rock, "none");
-					hideshowdiv("stefanvdspeedpanel" + rock, "none");
+					setElementDisplay("stefanvdvispanel" + rock, "none");
+					setElementDisplay("stefanvdzoompanel" + rock, "none");
+					setElementDisplay("stefanvdspeedpanel" + rock, "none");
 				}, false);
 
 				// var tempvisscrollleft = window.pageXOffset || document.documentElement.scrollLeft;
@@ -776,10 +771,10 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 					newzoompanel.style.height = tempheightvideo - 40 + "px";
 					newzoompanel.style.paddingTop = "40px";
 					newzoompanel.addEventListener("pointerover", function(){
-						stefanvdblockstatus("stefanvdzoompanel", rock, "block");
+						setElementDisplay("stefanvdzoompanel" + rock, "block");
 					}, false);
 					newzoompanel.addEventListener("pointerout", function(){
-						stefanvdblockstatus("stefanvdzoompanel", rock, "none");
+						setElementDisplay("stefanvdzoompanel" + rock, "none");
 					}, false);
 					document.body.appendChild(newzoompanel);
 				}
@@ -916,10 +911,10 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 					newspeedpanel.style.height = tempheightvideo - 40 + "px";
 					newspeedpanel.style.paddingTop = "40px";
 					newspeedpanel.addEventListener("pointerover", function(){
-						stefanvdblockstatus("stefanvdspeedpanel", rock, "block");
+						setElementDisplay("stefanvdspeedpanel" + rock, "block");
 					}, false);
 					newspeedpanel.addEventListener("pointerout", function(){
-						stefanvdblockstatus("stefanvdspeedpanel", rock, "none");
+						setElementDisplay("stefanvdspeedpanel" + rock, "none");
 					}, false);
 					document.body.appendChild(newspeedpanel);
 
@@ -997,10 +992,10 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 						newonvispanel.style.width = tempwidthvideo + "px";
 						newonvispanel.style.height = 36 + "px";
 						newonvispanel.addEventListener("pointerover", function(){
-							stefanvdblockstatus("stefanvdvispanel", rock, "block");
+							setElementDisplay("stefanvdvispanel" + rock, "block");
 						}, false);
 						newonvispanel.addEventListener("pointerout", function(){
-							stefanvdblockstatus("stefanvdvispanel", rock, "none");
+							setElementDisplay("stefanvdvispanel" + rock, "none");
 						}, false);
 						document.body.appendChild(newonvispanel);
 
