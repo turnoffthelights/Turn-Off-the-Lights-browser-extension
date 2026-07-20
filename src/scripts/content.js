@@ -1940,7 +1940,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 						}
 					}
 				}
-
 				// Clean it up
 				var i = 0, il = stack.length;
 				for(; i < il; i += 1){
