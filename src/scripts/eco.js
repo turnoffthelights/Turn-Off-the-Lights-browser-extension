@@ -143,6 +143,8 @@ var lightObserver = new MutationObserver(function(){
 						});
 						startcount();
 					}
+				}else{
+					lightObserver.disconnect();
 				}
 			});
 		}catch(e){
