@@ -28,158 +28,117 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 //================================================
 
 // date today
-var d = new Date();
-var today = `${String(d.getDate()).padStart(2,"0")}/${String(d.getMonth()+1).padStart(2,"0")}/${d.getFullYear()}`;
+const d = new Date();
+const today = `${String(d.getDate()).padStart(2,"0")}/${String(d.getMonth()+1).padStart(2,"0")}/${d.getFullYear()}`;
+const targetId = "stefanvdlightareoff1";
 
-function search(nameKey, myArray){
-	var item = myArray.find((item) => item.name === nameKey);
-	return item;
+let inDom = false;
+let startTime = null;
+let seeanalytics = true;
+
+const getStore = (keys) => new Promise(r => chrome.storage.sync.get(keys, r));
+const setStore = (obj) => new Promise(r => chrome.storage.sync.set(obj, r));
+
+function newDayEntry(){
+	return {name:today, details:{active:0, time:0, day:Object.fromEntries(Array.from({length:24}, (_,i) => [i, 0]))}};
 }
 
-function autoanalyticscleanup(){
-	// autoclean up to the last 7 days
-	if(analytics.length > 7 && siteengagement.length > 7){
-		chrome.storage.sync.set({"analytics":analytics.slice(-7), "siteengagement":siteengagement.slice(-7)});
-	}
-}
-
-function logbytesanalytics(bytes){
-	// cleanup the big files
-	// item limit in Google Chrome => 8192
-	if(bytes >= 5000){
-		autoanalyticscleanup();
-	}
-}
-
-var analytics;
-var siteengagement;
-var seeanalytics;
-var emptyarray = [{name:today, details:{active:0, time:0, day:{0:0, 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0, 11:0, 12:0, 13:0, 14:0, 15:0, 16:0, 17:0, 18:0, 19:0, 20:0, 21:0, 22:0, 23:0}}}];
-var todaysite = [{name:today}];
-chrome.storage.sync.get(["analytics", "siteengagement", "seeanalytics"], function(items){
-	seeanalytics = items["seeanalytics"]; if(seeanalytics == null)seeanalytics = true;
-	if(seeanalytics == true){
-		if(items["analytics"] && items["siteengagement"]){
-			analytics = items["analytics"];
-			siteengagement = items["siteengagement"];
-
-			chrome.storage.sync.getBytesInUse(["analytics"], logbytesanalytics);
-			chrome.storage.sync.getBytesInUse(["siteengagement"], logbytesanalytics);
-			chrome.storage.sync.set({"analytics":analytics.concat(emptyarray), "siteengagement":siteengagement.concat(todaysite)}, function(){
-				if(chrome.runtime.lastError == "QUOTA_BYTES" || chrome.runtime.lastError == "QUOTA_BYTES_PER_ITEM" || chrome.runtime.lastError == "MAX_ITEMS"){
-					autoanalyticscleanup();
-				}
-			});
-		}else{
-			// if empty, create this empty day
-			chrome.storage.sync.set({"analytics":emptyarray, "siteengagement":todaysite});
-		}
-	}
-});
-
-function setTime(){
-	if(document.visibilityState === "visible"){
-		++totalSeconds;
-	}
-}
-
-var in_dom = false;
-var totalSeconds = 0;
-var refreshIntervalId;
-var currentseconds;
-
-function endlayer(){
+async function saveTime(){
+	if(!startTime) return;
+	const elapsed = Math.round((Date.now() - startTime) / 1000);
+	startTime = null;
+	if(elapsed <= 0) return;
 	try{
-		chrome.storage.sync.get(["analytics", "siteengagement", "seeanalytics"], function(items){
-			seeanalytics = items["seeanalytics"]; if(seeanalytics == null)seeanalytics = true;
-			if(seeanalytics == true){
-				window.clearInterval(refreshIntervalId);
-				analytics = items["analytics"];
-				resultObject = search(today, analytics);
-				currentseconds = resultObject.details.time || 0; currentseconds += totalSeconds;
-				resultObject["details"]["time"] = currentseconds;
-				siteengagement = items["siteengagement"];
-				resultObject = search(today, siteengagement);
-				var mes = resultObject[window.location.href] || 0;
-				mes += totalSeconds;
-				if(mes > 0){
-					resultObject[window.location.href] = mes;
-					chrome.storage.sync.set({"analytics":analytics, "siteengagement":siteengagement});
-				}else{
-					chrome.storage.sync.set({"analytics":analytics});
-				}
-				totalSeconds = 0;
-			}
-		});
-	}catch{
-		// Ignore errors
+		const items = await getStore(["analytics", "siteengagement", "seeanalytics"]);
+		seeanalytics = items.seeanalytics ?? true;
+		if(!seeanalytics) return;
+		const analytics = items.analytics;
+		const siteengagement = items.siteengagement;
+		if(!analytics || !siteengagement) return;
+		const aEntry = analytics.find(i => i.name === today);
+		if(aEntry) aEntry.details.time = (aEntry.details.time || 0) + elapsed;
+		const sEntry = siteengagement.find(i => i.name === today);
+		if(sEntry) sEntry[window.location.href] = (sEntry[window.location.href] || 0) + elapsed;
+		await setStore({"analytics":analytics, "siteengagement":siteengagement});
+	}catch{ /* Ignore */ }
+}
+
+async function trackActive(){
+	try{
+		const items = await getStore(["analytics", "seeanalytics"]);
+		seeanalytics = items.seeanalytics ?? true;
+		if(!seeanalytics){ lightObserver.disconnect(); return; }
+		if(!items.analytics) return;
+		const analytics = items.analytics;
+		const entry = analytics.find(i => i.name === today);
+		if(!entry) return;
+		entry.details.active = (entry.details.active || 0) + 1;
+		const h = new Date().getHours();
+		entry.details.day[h] = (entry.details.day[h] || 0) + 1;
+		await setStore({"analytics":analytics});
+		chrome.runtime.sendMessage({name:"badgeon"});
+	}catch(e){
+		console.log(e);
 	}
 }
 
-var resultObject;
-var targetId = "stefanvdlightareoff1";
-var lightObserver = new MutationObserver(function(){
-	var nowIn = !!document.getElementById(targetId);
-	if(nowIn && !in_dom){
-		in_dom = true;
-		try{
-			chrome.storage.sync.get(["analytics", "seeanalytics"], function(items){
-				seeanalytics = items["seeanalytics"]; if(seeanalytics == null)seeanalytics = true;
-				if(seeanalytics == true){
-					if(items["analytics"]){
-						analytics = items["analytics"];
-						resultObject = search(today, analytics);
-						var currentnumber = resultObject["details"]["active"] || 0;
-						currentnumber += 1;
-						resultObject["details"]["active"] = currentnumber;
-						// what hour the light are off
-						var n = new Date().getHours();
-						var timenumber = resultObject["details"]["day"][n] || 0;
-						timenumber += 1;
-						resultObject["details"]["day"][n] = timenumber;
-						// save
-						chrome.storage.sync.set({"analytics":analytics}, function(){
-							chrome.runtime.sendMessage({name: "badgeon"});
-						});
-						startcount();
-					}
-				}else{
-					lightObserver.disconnect();
+// Initialize today's entry
+(async () => {
+	try{
+		const items = await getStore(["analytics", "siteengagement", "seeanalytics"]);
+		seeanalytics = items.seeanalytics ?? true;
+		if(!seeanalytics) return;
+		if(items.analytics && items.siteengagement){
+			const analytics = items.analytics;
+			const siteengagement = items.siteengagement;
+			if(!analytics.some(i => i.name === today)){
+				analytics.push(newDayEntry());
+				siteengagement.push({name:today});
+				await setStore({"analytics":analytics, "siteengagement":siteengagement});
+			}
+			// Cleanup if storage is large
+			// item limit in Google Chrome => 8192
+			if(chrome.storage.sync.getBytesInUse){
+				const bytes = await chrome.storage.sync.getBytesInUse(["analytics", "siteengagement"]);
+				if(bytes >= 5000 && analytics.length > 7 && siteengagement.length > 7){
+					await setStore({"analytics":analytics.slice(-7), "siteengagement":siteengagement.slice(-7)});
 				}
-			});
-		}catch(e){
-			console.log(e);
+			}
+		}else{
+			await setStore({"analytics":[newDayEntry()], "siteengagement":[{name:today}]});
 		}
-	}
-	if(!nowIn && in_dom){
-		in_dom = false;
-		endlayer();
-	}
+	}catch{ /* Ignore */ }
+})();
+
+// Debounced MutationObserver — avoids excessive getElementById calls on busy pages
+let obsTimer;
+const lightObserver = new MutationObserver(() => {
+	clearTimeout(obsTimer);
+	obsTimer = setTimeout(() => {
+		const nowIn = !!document.getElementById(targetId);
+		if(nowIn && !inDom){
+			inDom = true;
+			startTime = Date.now();
+			trackActive();
+		}else if(!nowIn && inDom){
+			inDom = false;
+			saveTime();
+		}
+	}, 50);
 });
 lightObserver.observe(document.body, {childList:true});
 
-function startcount(){
-	refreshIntervalId = window.setInterval(setTime, 1000);
-}
-
-// Event listener for visibility change
-document.addEventListener("visibilitychange", function(){
-	if(in_dom == true){
-		if(document.visibilityState === "hidden"){
-			endlayer();
-		}else if(document.visibilityState === "visible"){
-			refreshIntervalId = null;
-			totalSeconds = 0;
-			currentseconds = null;
-			startcount();
-		}
+// Save time when tab is hidden, resume when visible
+document.addEventListener("visibilitychange", () => {
+	if(!inDom) return;
+	if(document.visibilityState === "hidden"){
+		saveTime();
+	}else if(document.visibilityState === "visible"){
+		startTime = Date.now();
 	}
 });
 
-// Clear interval on page unload to prevent memory leaks
-window.addEventListener("beforeunload", function(){
-	if(refreshIntervalId){
-		window.clearInterval(refreshIntervalId);
-		refreshIntervalId = null;
-	}
+// Best-effort save on page hide
+window.addEventListener("pagehide", () => {
+	if(startTime) saveTime();
 });
