@@ -707,7 +707,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			var brownvis = this.getAttribute("data-video");
 			var onevideo = document.getElementsByTagName("video")[brownvis];
 			var gsvtrange = document.getElementById("stefanvdvideotoolrange" + brownvis).value;
-			if(filtertype == "grayscale"){ onevideo.style.filter = `${filtertype}(${gsvtrange})`; }else if(filtertype == "sepia"){ onevideo.style.filter = `${filtertype}(${gsvtrange})`; }else if(filtertype == "invert"){ onevideo.style.filter = `${filtertype}(${gsvtrange})`; }else if(filtertype == "contrast"){ onevideo.style.filter = `${filtertype}(${gsvtrange})`; }else if(filtertype == "saturate"){ onevideo.style.filter = `${filtertype}(${gsvtrange})`; }else if(filtertype == "hue-rotate"){ onevideo.style.filter = "" + filtertype + "(" + gsvtrange + "deg)"; }else if(filtertype == "brightness"){ onevideo.style.filter = `${filtertype}(${gsvtrange})`; }
+			onevideo.style.filter = filtertype === "hue-rotate" ? `${filtertype}(${gsvtrange}deg)` : `${filtertype}(${gsvtrange})`;
 		}
 
 		function hideshowdiv(a, b){
