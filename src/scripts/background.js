@@ -410,38 +410,37 @@ if(exbrowser != "safari"){
 				chrome.action.setPopup({tabId: tab.id, popup:"popup.html"});
 			}else{
 				clickbutton += 1;
-				timer = setTimeout(function(){
-					getPopupOpenLength().then((thatpanellength) => {
-						if(thatpanellength != 0){
-							// console.log("Doubleclick");
-							// console.log("yes popup open")
-							clickbutton = 0;
-							clearTimeout(timer);
-						}else{
-							// console.log("no popup open")
-							if(clickbutton == 1){
-								chrome.storage.sync.get(["alllightsoff", "mousespotlights"], function(chromeset){
-									if((chromeset["mousespotlights"] != true)){ // regular lamp
-										if((chromeset["alllightsoff"] != true)){
-											chrome.scripting.executeScript({
-												target: {tabId: tab.id},
-												files: ["scripts/light.js"]
-											});
-										}else{
-											chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
-										}
-									}else{ // all tabs
-										// Night Mode profile
-										// Eye Protection profile
+				timer = setTimeout(async function(){
+					const thatpanellength = await getPopupOpenLength();
+					if(thatpanellength != 0){
+						// console.log("Doubleclick");
+						// console.log("yes popup open")
+						clickbutton = 0;
+						clearTimeout(timer);
+					}else{
+						// console.log("no popup open")
+						if(clickbutton == 1){
+							chrome.storage.sync.get(["alllightsoff", "mousespotlights"], function(chromeset){
+								if((chromeset["mousespotlights"] != true)){ // regular lamp
+									if((chromeset["alllightsoff"] != true)){
+										chrome.scripting.executeScript({
+											target: {tabId: tab.id},
+											files: ["scripts/light.js"]
+										});
+									}else{
 										chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
 									}
-								});
-							}
-							clickbutton = 0;
-							// Clear all timers
-							clearTimeout(timer);
+								}else{ // all tabs
+									// Night Mode profile
+									// Eye Protection profile
+									chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
+								}
+							});
 						}
-					});
+						clickbutton = 0;
+						// Clear all timers
+						clearTimeout(timer);
+					}
 					chrome.action.setPopup({tabId: tab.id, popup:""});
 				}, 250);
 				chrome.action.setPopup({tabId: tab.id, popup:"palette.html"});
