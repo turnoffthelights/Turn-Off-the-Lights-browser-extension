@@ -245,7 +245,8 @@ const SCRIPT_IDS = {
 	reflection: "reflectionScript",
 	autodim: "autodimScript",
 	atmosphere: "atmosphereScript",
-	gamepad: "gamepadScript"
+	gamepad: "gamepadScript",
+	youtubeTweaks: "youtubeTweaksScript"
 };
 
 // Configuration for content scripts
@@ -288,6 +289,12 @@ const CONTENT_SCRIPTS = {
 		js: ["scripts/gamepad.js"],
 		matches: ["<all_urls>"],
 		runAt: "document_end"
+	},
+	youtubeTweaks: {
+		id: SCRIPT_IDS.youtubeTweaks,
+		js: ["scripts/youtube-tweaks.js"],
+		matches: ["*://*.youtube.com/*"],
+		runAt: "document_end"
 	}
 };
 
@@ -312,19 +319,20 @@ async function unregisterContentScript(scriptId){
 	}
 }
 
-// Function to manage content script based on storage setting
+// Function to manage content script based on one or more storage settings
 async function manageContentScript(settingKey, scriptConfig){
 	try{
 		const data = await chrome.storage.sync.get(settingKey);
-		if(data[settingKey]){
+		const enabled = Array.isArray(settingKey) ? settingKey.some((key) => data[key]) : data[settingKey];
+		if(enabled){
 			await registerContentScript(scriptConfig);
-			// console.log(`Registered script for ${settingKey}`);
+			// console.log(`Registered script for ${Array.isArray(settingKey) ? settingKey.join(",") : settingKey}`);
 		}else{
 			await unregisterContentScript(scriptConfig.id);
-			// console.log(`Unregistered script for ${settingKey}`);
+			// console.log(`Unregistered script for ${Array.isArray(settingKey) ? settingKey.join(",") : settingKey}`);
 		}
 	}catch(error){
-		console.error(`Error managing script for ${settingKey}:`, error);
+		console.error(`Error managing script for ${Array.isArray(settingKey) ? settingKey.join(",") : settingKey}:`, error);
 	}
 }
 
@@ -335,6 +343,7 @@ manageContentScript("reflection", CONTENT_SCRIPTS.reflection);
 manageContentScript("ambilight", CONTENT_SCRIPTS.atmosphere);
 manageContentScript("gamepad", CONTENT_SCRIPTS.gamepad);
 manageContentScript("autodim", CONTENT_SCRIPTS.autodim);
+manageContentScript(["no360youtube", "autowidthyoutube", "customqualityyoutube"], CONTENT_SCRIPTS.youtubeTweaks);
 //---
 
 async function restcontent(path, name, sendertab){
@@ -874,6 +883,11 @@ chrome.storage.onChanged.addListener(async function(changes){
 			}else{
 				unregisterContentScript(SCRIPT_IDS.autostop);
 			}
+		}
+
+		// Handle youtube tweaks content script registration
+		if(changes["no360youtube"] || changes["autowidthyoutube"] || changes["customqualityyoutube"]){
+			manageContentScript(["no360youtube", "autowidthyoutube", "customqualityyoutube"], CONTENT_SCRIPTS.youtubeTweaks);
 		}
 
 		// Handle reflection content script registration

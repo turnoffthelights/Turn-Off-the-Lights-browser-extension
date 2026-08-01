@@ -131,9 +131,9 @@ document.addEventListener("click", function(event){
 });
 
 // settings
-var eastereggs = null, shortcutlight = null, eyen = null, eyea = null, eyealist = null, excludedDomains = null, nighttime = null, begintime = null, endtime = null, ecosaver = null, ecosavertime = null, interval = null, autowidthyoutube = null, customqualityyoutube = null, maxquality = null, eyechecklistwhite = null, eyechecklistblack = null, no360youtube = null, videotool = null, videotoolonly = null, videotoolDomains = null, videotoolchecklistwhite = null, videotoolchecklistblack = null, videovolume = null, videovolumecolor = null, videovolumesteps = null, videovolumelabel = null, visopacity = null, videotoolcolor = null, hovervideo = null, hovervideoamount = null, mouseshake = null, mouseshakesensitivity = null, videozoom = null, playrate = null, playrateamount = null, speedtoolbar = null, videovolumeposa = null, videovolumeposb = null, videovolumeposc = null, videovolumehold = null, videovolumealt = null, videovolumeonly = null, videovolumeDomains = null, videovolumechecklistwhite = null, videovolumechecklistblack = null, videovolumescrolla = null, videovolumescrollb = null, videovolumescrollc = null, videovolumeposd = null, videovolumepose = null, pipvisualtype = null, gamepad = null, videofilled = null;
+var eastereggs = null, shortcutlight = null, eyen = null, eyea = null, eyealist = null, excludedDomains = null, nighttime = null, begintime = null, endtime = null, ecosaver = null, ecosavertime = null, interval = null, customqualityyoutube = null, maxquality = null, eyechecklistwhite = null, eyechecklistblack = null, videotool = null, videotoolonly = null, videotoolDomains = null, videotoolchecklistwhite = null, videotoolchecklistblack = null, videovolume = null, videovolumecolor = null, videovolumesteps = null, videovolumelabel = null, visopacity = null, videotoolcolor = null, hovervideo = null, hovervideoamount = null, mouseshake = null, mouseshakesensitivity = null, videozoom = null, playrate = null, playrateamount = null, speedtoolbar = null, videovolumeposa = null, videovolumeposb = null, videovolumeposc = null, videovolumehold = null, videovolumealt = null, videovolumeonly = null, videovolumeDomains = null, videovolumechecklistwhite = null, videovolumechecklistblack = null, videovolumescrolla = null, videovolumescrollb = null, videovolumescrollc = null, videovolumeposd = null, videovolumepose = null, pipvisualtype = null, gamepad = null, videofilled = null;
 /* -------------------------------------------------- */
-chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealist", "excludedDomains", "nighttime", "begintime", "endtime", "ecosaver", "ecosavertime", "interval", "maxquality", "autowidthyoutube", "customqualityyoutube", "eyechecklistwhite", "eyechecklistblack", "no360youtube", "videotool", "videotoolonly", "videotoolDomains", "videotoolchecklistwhite", "videotoolchecklistblack", "videovolume", "videovolumecolor", "videovolumesteps", "videovolumelabel", "visopacity", "videotoolcolor", "hovervideo", "hovervideoamount", "mouseshake", "mouseshakesensitivity", "videozoom", "playrate", "playrateamount", "speedtoolbar", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumehold", "videovolumealt", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose", "pipvisualtype", "gamepad", "videofilled"], function(items){
+chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealist", "excludedDomains", "nighttime", "begintime", "endtime", "ecosaver", "ecosavertime", "interval", "maxquality", "customqualityyoutube", "eyechecklistwhite", "eyechecklistblack", "videotool", "videotoolonly", "videotoolDomains", "videotoolchecklistwhite", "videotoolchecklistblack", "videovolume", "videovolumecolor", "videovolumesteps", "videovolumelabel", "visopacity", "videotoolcolor", "hovervideo", "hovervideoamount", "mouseshake", "mouseshakesensitivity", "videozoom", "playrate", "playrateamount", "speedtoolbar", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumehold", "videovolumealt", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose", "pipvisualtype", "gamepad", "videofilled"], function(items){
 	eastereggs = items["eastereggs"];
 	shortcutlight = items["shortcutlight"];
 	eyen = items["eyen"];
@@ -147,11 +147,9 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	ecosavertime = items["ecosavertime"];
 	interval = items["interval"];
 	maxquality = items["maxquality"];
-	autowidthyoutube = items["autowidthyoutube"];
 	customqualityyoutube = items["customqualityyoutube"];
 	eyechecklistwhite = items["eyechecklistwhite"];
 	eyechecklistblack = items["eyechecklistblack"];
-	no360youtube = items["no360youtube"];
 	videotool = items["videotool"];
 	videotoolonly = items["videotoolonly"];
 	videotoolDomains = items["videotoolDomains"];
@@ -195,19 +193,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			window.addEventListener("mousemove", detectMouseShake);
 		});
 	}
-
-	// observeDOM - dynamic check
-	var observeDOM = (function(){
-		return function(obj, callback){
-			// define a new observer
-			var obs = new MutationObserver(function(mutations){
-				if(mutations[0].addedNodes.length || mutations[0].removedNodes.length)
-					callback();
-			});
-			// have the observer observe foo for changes in children
-			obs.observe(obj, {childList:true, subtree:true});
-		};
-	})();
 
 	function hexToRGB(hex, alpha){
 		var r = parseInt(hex.slice(1, 3), 16),
@@ -1851,24 +1836,7 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	}
 	gonighttime();
 
-	// Observe a specific DOM element:
-	if(window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
-		if(document.getElementById("content")){ // from youtube website
-			observeDOM(document.getElementById("content"), function(){
-				// for the no360 live update
-				if(no360youtube == true){
-					var ytfullvideo = document.getElementsByTagName("video");
-					var ytfui;
-					var ytful = ytfullvideo.length;
-					for(ytfui = 0; ytfui < ytful; ytfui++){ ytfullvideo[ytfui].classList.add("stefanvdvideotop"); }
-					var ytwebgl = document.getElementsByClassName("webgl");
-					var ytwi;
-					var ytwl = ytwebgl.length;
-					for(ytwi = 0; ytwi < ytwl; ytwi++){ ytwebgl[ytwi].style.display = "none"; }
-				}
-			});
-		}
-	}
+
 
 	// Mouse Volume Scroll
 	var myListenerWithContextvolume;
@@ -2424,50 +2392,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			}
 		}
 	}
-
-	// YouTube auto width the video player content
-	// URL control for YouTube only
-	if(window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
-		if(no360youtube == true){
-			var ytfullvideo = document.getElementsByTagName("video");
-			var ytfulli;
-			var ytfulll = ytfullvideo.length;
-			for(ytfulli = 0; ytfulli < ytfulll; ytfulli++){
-				ytfullvideo[ytfulli].classList.add("stefanvdvideotop");
-			}
-			var ytwebgl = document.getElementsByClassName("webgl");
-			var ytgli;
-			var ytgll = ytwebgl.length;
-			for(ytgli = 0; ytgli < ytgll; ytgli++){ ytwebgl[ytgli].style.display = "none"; }
-		}
-
-		// new YouTube october 2013
-		var appbarguidemenu = $("appbar-guide-menu");
-		if(appbarguidemenu){ $("appbar-guide-menu").style.zIndex = "10"; }
-
-		var appbarguideiframemask = $("appbar-guide-iframe-mask");
-		if(appbarguideiframemask){ $("appbar-guide-iframe-mask").style.zIndex = "-1"; }
-
-		// fix self YouTube.com outline to none
-		var fixselfyoutubeplayeroutline = $("movie_player");
-		if(fixselfyoutubeplayeroutline){ $("movie_player").style.outline = "none"; }
-
-		if(autowidthyoutube == true){
-			var yt = yt;
-			yt = yt || {};
-			yt.playerConfig = {"player_wide": 1};
-			document.cookie = "wide=1; domain=.youtube.com; expires=31536e3; path=/";
-
-			// with playlist hide
-			if($("watch7-container")){ $("watch7-container").className = "watch-wide watch-playlist-collapsed"; }
-			// YouTube wide June 2015
-			if($("page")){ $("page").className = "  watch clearfix watch-stage-mode watch-wide"; }
-		}
-
-		if(customqualityyoutube == true){
-			var script = document.createElement("script"); script.type = "text/javascript"; script.setAttribute("data-maxquality", maxquality); script.src = chrome.runtime.getURL("scripts/hd-quality.js"); document.getElementsByTagName("head")[0].appendChild(script);
-		}
-	} // end check youtube.com website
 
 	window.removeElement = function(elementId){
 		var element = document.getElementById(elementId);
