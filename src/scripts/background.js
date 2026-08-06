@@ -87,12 +87,6 @@ chrome.runtime.onMessage.addListener(async function request(request, sender, sen
 		}
 		break;
 	}
-	case"injeceasteregg":
-		chrome.scripting.executeScript({
-			target: {tabId: sender.tab.id},
-			files: ["scripts/easter-egg.js"]
-		});
-		break;
 	case"eyesaveme":
 		if(request.value == true){ chrome.storage.sync.set({"eyea": true, "eyen": false}); chromerefreshalltabs("gorefresheyedark"); }else{ chrome.storage.sync.set({"eyea": false, "eyen": true}); chromerefreshalltabs("gorefresheyelight"); }
 		break;
@@ -916,12 +910,52 @@ chrome.storage.onChanged.addListener(async function(changes){
 
 		// Handle keyboard shortcuts content script registration
 		if(changes["shortcutlight"]){
-			manageContentScript("shortcutlight", CONTENT_SCRIPTS.keyboardshortcuts);
+			if(changes["shortcutlight"].newValue === true){
+				manageContentScript("shortcutlight", CONTENT_SCRIPTS.keyboardshortcuts);
+				// Inject script into existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.startsWith("http://") || tab.url.startsWith("https://"))){
+						try{
+							await chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/keyboard-shortcuts.js"]
+							});
+						}catch{
+							// Ignore errors for tabs where script can't be injected
+						}
+					}
+				}
+			}else{
+				unregisterContentScript(SCRIPT_IDS.keyboardshortcuts);
+				// Stop keyboard shortcuts in existing tabs
+				chromerefreshalltabs("gorefreshshortcut");
+			}
 		}
 
 		// Handle eastereggs content script registration
 		if(changes["eastereggs"]){
-			manageContentScript("eastereggs", CONTENT_SCRIPTS.eastereggs);
+			if(changes["eastereggs"].newValue === true){
+				manageContentScript("eastereggs", CONTENT_SCRIPTS.eastereggs);
+				// Inject script into existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.startsWith("http://") || tab.url.startsWith("https://"))){
+						try{
+							await chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/easter-egg.js"]
+							});
+						}catch{
+							// Ignore errors for tabs where script can't be injected
+						}
+					}
+				}
+			}else{
+				unregisterContentScript(SCRIPT_IDS.eastereggs);
+				// Stop eastereggs in existing tabs
+				chromerefreshalltabs("gorefresheastereggs");
+			}
 		}
 
 		// Handle reflection content script registration

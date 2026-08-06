@@ -31,13 +31,11 @@ function $(id){ return document.getElementById(id); }
 
 // Load settings from storage
 var shortcutlight, interval, eyea;
-chrome.storage.sync.get(["shortcutlight", "interval", "eyea"], function(items){
-	shortcutlight = items["shortcutlight"];
-	interval = items["interval"];
-	eyea = items["eyea"];
+var keydownListener;
 
+function addKeyboardListener(){
 	// Keyboard shortcuts for Alt key combinations
-	window.addEventListener("keydown", function(e){
+	keydownListener = function(e){
 		if(e.key == "F8" && !e.ctrlKey && !e.shiftKey && e.altKey){
 			// Run code for Alt+F8
 			// Shortcutlight
@@ -148,5 +146,37 @@ chrome.storage.sync.get(["shortcutlight", "interval", "eyea"], function(items){
 				}, 3000);
 			}
 		}
-	}, false);
+	};
+	window.addEventListener("keydown", keydownListener, false);
+}
+
+function removeKeyboardListener(){
+	if(keydownListener){
+		window.removeEventListener("keydown", keydownListener, false);
+		keydownListener = null;
+	}
+}
+
+// Listen for settings changes from options page (register immediately)
+chrome.runtime.onMessage.addListener(function(request){
+	if(request.action === "gorefreshshortcut"){
+		chrome.storage.sync.get(["shortcutlight"], function(items){
+			shortcutlight = items["shortcutlight"];
+			removeKeyboardListener();
+			if(shortcutlight == true){
+				addKeyboardListener();
+			}
+		});
+	}
+});
+
+// Load settings from storage
+chrome.storage.sync.get(["shortcutlight", "interval", "eyea"], function(items){
+	shortcutlight = items["shortcutlight"];
+	interval = items["interval"];
+	eyea = items["eyea"];
+
+	if(shortcutlight == true){
+		addKeyboardListener();
+	}
 });
