@@ -1065,10 +1065,33 @@ chrome.storage.onChanged.addListener(async function(changes){
 			chromerefreshalltabs("gorefreshvideofilled");
 		}
 
-		var changenamevolume = ["videovolume", "videovolumealt", "videovolumehold", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumecolor", "videovolumelabel", "videovolumesteps", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose"];
+		// Handle mouse volume scroll content script registration
+		if(changes["videovolume"]){
+			if(changes["videovolume"].newValue === true){
+				manageContentScript("videovolume", CONTENT_SCRIPTS.mousevolumescroll);
+				// Inject script into existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.startsWith("http://") || tab.url.startsWith("https://"))){
+						try{
+							await chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/mouse-volume-scroll.js"]
+							});
+						}catch{
+							// Ignore errors for tabs where script can't be injected
+						}
+					}
+				}
+			}else{
+				unregisterContentScript(SCRIPT_IDS.mousevolumescroll);
+				// Stop mouse volume scroll in existing tabs
+				chromerefreshalltabs("gorefreshmousescroll");
+			}
+		}
+
+		var changenamevolume = ["videovolumealt", "videovolumehold", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumecolor", "videovolumelabel", "videovolumesteps", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose"];
 		if(changenamevolume.includes(key)){
-			// Re-register/unregister the mouse volume scroll script based on videovolume setting
-			manageContentScript("videovolume", CONTENT_SCRIPTS.mousevolumescroll);
 			// Refresh existing tabs with the new settings
 			chromerefreshalltabs("gorefreshmousescroll");
 		}
