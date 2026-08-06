@@ -246,7 +246,9 @@ const SCRIPT_IDS = {
 	autodim: "autodimScript",
 	atmosphere: "atmosphereScript",
 	gamepad: "gamepadScript",
-	youtubeTweaks: "youtubeTweaksScript"
+	youtubeTweaks: "youtubeTweaksScript",
+	keyboardShortcuts: "keyboardShortcutsScript",
+	eastereggs: "eastereggsScript"
 };
 
 // Configuration for content scripts
@@ -294,6 +296,18 @@ const CONTENT_SCRIPTS = {
 		id: SCRIPT_IDS.youtubeTweaks,
 		js: ["scripts/youtube-tweaks.js"],
 		matches: ["*://*.youtube.com/*"],
+		runAt: "document_end"
+	},
+	keyboardShortcuts: {
+		id: SCRIPT_IDS.keyboardShortcuts,
+		js: ["scripts/keyboard-shortcuts.js"],
+		matches: ["<all_urls>"],
+		runAt: "document_end"
+	},
+	eastereggs: {
+		id: "eastereggsScript",
+		js: ["scripts/easter-egg.js"],
+		matches: ["<all_urls>"],
 		runAt: "document_end"
 	}
 };
@@ -344,6 +358,8 @@ manageContentScript("ambilight", CONTENT_SCRIPTS.atmosphere);
 manageContentScript("gamepad", CONTENT_SCRIPTS.gamepad);
 manageContentScript("autodim", CONTENT_SCRIPTS.autodim);
 manageContentScript(["no360youtube", "autowidthyoutube", "customqualityyoutube"], CONTENT_SCRIPTS.youtubeTweaks);
+manageContentScript("shortcutlight", CONTENT_SCRIPTS.keyboardShortcuts);
+manageContentScript("eastereggs", CONTENT_SCRIPTS.eastereggs);
 //---
 
 async function restcontent(path, name, sendertab){
@@ -888,6 +904,16 @@ chrome.storage.onChanged.addListener(async function(changes){
 		// Handle youtube tweaks content script registration
 		if(changes["no360youtube"] || changes["autowidthyoutube"] || changes["customqualityyoutube"]){
 			manageContentScript(["no360youtube", "autowidthyoutube", "customqualityyoutube"], CONTENT_SCRIPTS.youtubeTweaks);
+		}
+
+		// Handle keyboard shortcuts content script registration
+		if(changes["shortcutlight"]){
+			manageContentScript("shortcutlight", CONTENT_SCRIPTS.keyboardShortcuts);
+		}
+
+		// Handle eastereggs content script registration
+		if(changes["eastereggs"]){
+			manageContentScript("eastereggs", CONTENT_SCRIPTS.eastereggs);
 		}
 
 		// Handle reflection content script registration

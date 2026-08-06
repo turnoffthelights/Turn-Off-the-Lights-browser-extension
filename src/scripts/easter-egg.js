@@ -26,7 +26,39 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 
 */
 //================================================
-// 
+
+// Helper function to get element by ID
+function $(id){ return document.getElementById(id); }
+
+// Load eastereggs setting from storage
+var eastereggs;
+chrome.storage.sync.get(["eastereggs"], function(items){
+	eastereggs = items["eastereggs"];
+
+	// Theater mode keyboard shortcut (t key)
+	if(eastereggs == true){
+		window.addEventListener("keypress", function(e){
+			if(e.key == "t"){ // press the key t
+				gogotheater();
+			}
+		}, false);
+	}
+});
+
+// gogotheater function for theater mode easter egg
+function gogotheater(){
+	if(eastereggs == true){
+		// here the easter egg => movie theater
+		var lightareoff = $("stefanvdlightareoff1");
+		if(lightareoff != null){
+			// shortcut key T
+			if($("stefanvdtheater") == null){
+				window.alert(chrome.i18n.getMessage("eastereggsquestion"));
+				chrome.runtime.sendMessage({name: "injeceasteregg"});
+			}
+		}
+	}
+}
 
 var newimg = document.createElement("img");
 newimg.setAttribute("id", "stefanvdtheater");

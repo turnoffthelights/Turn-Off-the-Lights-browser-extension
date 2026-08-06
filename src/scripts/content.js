@@ -131,11 +131,9 @@ document.addEventListener("click", function(event){
 });
 
 // settings
-var eastereggs = null, shortcutlight = null, eyen = null, eyea = null, eyealist = null, excludedDomains = null, nighttime = null, begintime = null, endtime = null, ecosaver = null, ecosavertime = null, interval = null, customqualityyoutube = null, maxquality = null, eyechecklistwhite = null, eyechecklistblack = null, videotool = null, videotoolonly = null, videotoolDomains = null, videotoolchecklistwhite = null, videotoolchecklistblack = null, videovolume = null, videovolumecolor = null, videovolumesteps = null, videovolumelabel = null, visopacity = null, videotoolcolor = null, hovervideo = null, hovervideoamount = null, mouseshake = null, mouseshakesensitivity = null, videozoom = null, playrate = null, playrateamount = null, speedtoolbar = null, videovolumeposa = null, videovolumeposb = null, videovolumeposc = null, videovolumehold = null, videovolumealt = null, videovolumeonly = null, videovolumeDomains = null, videovolumechecklistwhite = null, videovolumechecklistblack = null, videovolumescrolla = null, videovolumescrollb = null, videovolumescrollc = null, videovolumeposd = null, videovolumepose = null, pipvisualtype = null, gamepad = null, videofilled = null;
+var eyen = null, eyea = null, eyealist = null, excludedDomains = null, nighttime = null, begintime = null, endtime = null, ecosaver = null, ecosavertime = null, customqualityyoutube = null, maxquality = null, eyechecklistwhite = null, eyechecklistblack = null, videotool = null, videotoolonly = null, videotoolDomains = null, videotoolchecklistwhite = null, videotoolchecklistblack = null, videovolume = null, videovolumecolor = null, videovolumesteps = null, videovolumelabel = null, visopacity = null, videotoolcolor = null, hovervideo = null, hovervideoamount = null, mouseshake = null, mouseshakesensitivity = null, videozoom = null, playrate = null, playrateamount = null, speedtoolbar = null, videovolumeposa = null, videovolumeposb = null, videovolumeposc = null, videovolumehold = null, videovolumealt = null, videovolumeonly = null, videovolumeDomains = null, videovolumechecklistwhite = null, videovolumechecklistblack = null, videovolumescrolla = null, videovolumescrollb = null, videovolumescrollc = null, videovolumeposd = null, videovolumepose = null, pipvisualtype = null, gamepad = null, videofilled = null;
 /* -------------------------------------------------- */
-chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealist", "excludedDomains", "nighttime", "begintime", "endtime", "ecosaver", "ecosavertime", "interval", "maxquality", "customqualityyoutube", "eyechecklistwhite", "eyechecklistblack", "videotool", "videotoolonly", "videotoolDomains", "videotoolchecklistwhite", "videotoolchecklistblack", "videovolume", "videovolumecolor", "videovolumesteps", "videovolumelabel", "visopacity", "videotoolcolor", "hovervideo", "hovervideoamount", "mouseshake", "mouseshakesensitivity", "videozoom", "playrate", "playrateamount", "speedtoolbar", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumehold", "videovolumealt", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose", "pipvisualtype", "gamepad", "videofilled"], function(items){
-	eastereggs = items["eastereggs"];
-	shortcutlight = items["shortcutlight"];
+chrome.storage.sync.get(["eyen", "eyea", "eyealist", "excludedDomains", "nighttime", "begintime", "endtime", "ecosaver", "ecosavertime", "maxquality", "customqualityyoutube", "eyechecklistwhite", "eyechecklistblack", "videotool", "videotoolonly", "videotoolDomains", "videotoolchecklistwhite", "videotoolchecklistblack", "videovolume", "videovolumecolor", "videovolumesteps", "videovolumelabel", "visopacity", "videotoolcolor", "hovervideo", "hovervideoamount", "mouseshake", "mouseshakesensitivity", "videozoom", "playrate", "playrateamount", "speedtoolbar", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumehold", "videovolumealt", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose", "pipvisualtype", "gamepad", "videofilled"], function(items){
 	eyen = items["eyen"];
 	eyea = items["eyea"];
 	eyealist = items["eyealist"];
@@ -145,7 +143,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 	endtime = items["endtime"];
 	ecosaver = items["ecosaver"];
 	ecosavertime = items["ecosavertime"];
-	interval = items["interval"];
 	maxquality = items["maxquality"];
 	customqualityyoutube = items["customqualityyoutube"];
 	eyechecklistwhite = items["eyechecklistwhite"];
@@ -216,126 +213,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 			$("disallowpermission").className = "hidden";
 		}
 	}
-
-	// Shortcutlight
-	window.addEventListener("keydown", function(e){
-		if(e.key == "F8" && !e.ctrlKey && !e.shiftKey && e.altKey){
-			// Run code for Alt+F8
-			// Shortcutlight
-			if(shortcutlight == true){
-				if($("stefanvdlightareoff1")){
-					// control opacity for all <div>
-					var div = document.querySelectorAll("div.stefanvdlightareoff");
-					var i;
-					var l = div.length;
-					for(i = 0; i < l; i++){ div[i].style.opacity = interval / 100; }
-				}
-			}
-		}
-
-		if(e.key == "F9" && !e.ctrlKey && !e.shiftKey && e.altKey){
-			// Run code for Alt+F9
-			// Shortcutlight
-			if(shortcutlight == true){
-				if($("stefanvdlightareoff1")){
-					var F9saving = Math.round(($("stefanvdlightareoff1").style.opacity) * 100);
-					chrome.runtime.sendMessage({name: "readersaveme", value: F9saving});
-				}
-			}
-		}
-
-		if(e.key == "ArrowUp" && !e.ctrlKey && !e.shiftKey && e.altKey){
-			// Run code for Alt+arrow up
-			// Shortcutlight
-			if(shortcutlight == true){
-				if($("stefanvdlightareoff1")){
-					var shorcutcurrentopacity = $("stefanvdlightareoff1").style.opacity;
-					shorcutcurrentopacity = (shorcutcurrentopacity * 100 + 1) / 100;
-					// if higher then 1, stay 1
-					if(shorcutcurrentopacity >= 1){ shorcutcurrentopacity = 1; }
-					// control opacity for all <div>
-					var divlightoff = document.querySelectorAll("div.stefanvdlightareoff");
-					var lightoffi;
-					var lightoffl = divlightoff.length;
-					for(lightoffi = 0; lightoffi < lightoffl; lightoffi++){ divlightoff[lightoffi].style.opacity = shorcutcurrentopacity; }
-				}
-			}
-		}
-
-		if(e.key == "ArrowDown" && !e.ctrlKey && !e.shiftKey && e.altKey){
-			// Run code for Alt+arrow down
-			// Shortcutlight
-			if(shortcutlight == true){
-				if($("stefanvdlightareoff1")){
-					let shorcutcurrentopacity = $("stefanvdlightareoff1").style.opacity;
-					shorcutcurrentopacity -= 0.01;
-					// if zero
-					if(shorcutcurrentopacity <= 0){
-						var sli;
-						for(sli = 1; sli < 5; sli++){
-							var lightelement = document.getElementById("stefanvdlightareoff" + sli);
-							if(lightelement){ lightelement.parentNode.removeChild(lightelement); }
-						}
-					}else{
-						// control opacity for all <div>
-						let div = document.querySelectorAll("div.stefanvdlightareoff");
-						let i, l = div.length;
-						for(i = 0; i < l; i++){ div[i].style.opacity = shorcutcurrentopacity; }
-					}
-				}
-			}
-		}
-
-		if(e.key == "*" && !e.ctrlKey && !e.shiftKey && e.altKey){
-			// Run code for Alt+*
-			// Shortcutlight
-			if(shortcutlight == true){
-			// all tabs lights off
-				chrome.runtime.sendMessage({name: "emergencyalf"});
-			}
-		}
-
-		if(e.key == "F10" && !e.ctrlKey && !e.shiftKey && e.altKey){
-			// Run code for Alt+F10
-			// Shortcutlight
-			if(shortcutlight == true){
-				var i18neyedivoff = chrome.i18n.getMessage("eyedivoff");
-				var i18neyedivon = chrome.i18n.getMessage("eyedivon");
-				var i18ntiteleye = chrome.i18n.getMessage("titeleye");
-				var eyestatus;
-
-				// enable/disable the "Eye Protection" feature
-				var stefanvdlightseye = $("stefanvdlightseye");
-				if(stefanvdlightseye){ document.body.removeChild(stefanvdlightseye); } // remove it
-				// create div on top page, and say this is OFF
-				var neweyediv = document.createElement("div");
-				neweyediv.setAttribute("id", "stefanvdlightseye");
-				if(eyea == true){
-					neweyediv.textContent = "" + i18ntiteleye + " " + i18neyedivoff + "";
-					eyestatus = false;
-				}else{
-					neweyediv.textContent = "" + i18ntiteleye + " " + i18neyedivon + "";
-					eyestatus = true;
-				}
-				chrome.runtime.sendMessage({name: "eyesaveme", value: eyestatus});
-
-				document.body.appendChild(neweyediv);
-
-				// remove div after 3s
-				var myVar = window.setInterval(function(){
-					var stefanvdlightseye = $("stefanvdlightseye");
-					if(stefanvdlightseye){ document.body.removeChild(stefanvdlightseye); } // remove it
-					window.clearInterval(myVar);
-				}, 3000);
-			}
-		}
-	}, false);
-
-	window.addEventListener("keypress", function(e){
-		if(e.key == "t"){ // press the key t
-			gogotheater();
-		}
-	}, false);
 
 	window.checkregdomaininside = function(thaturl, websiteurl){
 		var rxUrlSplit = /((?:http|ftp)s?):\/\/([^/]+)(\/.*)?/;
@@ -1560,20 +1437,6 @@ chrome.storage.sync.get(["eastereggs", "shortcutlight", "eyen", "eyea", "eyealis
 		}
 	}
 	runplayratecheck();
-
-	function gogotheater(){
-		if(eastereggs == true){
-			// here the easter egg => movie theater
-			var lightareoff = $("stefanvdlightareoff1");
-			if(lightareoff != null){
-				// shortcut key T
-				if($("stefanvdtheater") == null){
-					window.alert(chrome.i18n.getMessage("eastereggsquestion"));
-					chrome.runtime.sendMessage({name: "injeceasteregg"});
-				}
-			}
-		}
-	}
 
 	// Video hover
 	var htimer;
