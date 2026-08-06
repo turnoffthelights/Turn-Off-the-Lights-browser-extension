@@ -246,9 +246,10 @@ const SCRIPT_IDS = {
 	autodim: "autodimScript",
 	atmosphere: "atmosphereScript",
 	gamepad: "gamepadScript",
-	youtubeTweaks: "youtubeTweaksScript",
-	keyboardShortcuts: "keyboardShortcutsScript",
-	eastereggs: "eastereggsScript"
+	youtubetweaks: "youtubetweaksScript",
+	keyboardshortcuts: "keyboardshortcutsScript",
+	eastereggs: "eastereggsScript",
+	mousevolumescroll: "mousevolumescrollScript"
 };
 
 // Configuration for content scripts
@@ -292,21 +293,27 @@ const CONTENT_SCRIPTS = {
 		matches: ["<all_urls>"],
 		runAt: "document_end"
 	},
-	youtubeTweaks: {
-		id: SCRIPT_IDS.youtubeTweaks,
+	youtubetweaks: {
+		id: SCRIPT_IDS.youtubetweaks,
 		js: ["scripts/youtube-tweaks.js"],
 		matches: ["*://*.youtube.com/*"],
 		runAt: "document_end"
 	},
-	keyboardShortcuts: {
-		id: SCRIPT_IDS.keyboardShortcuts,
+	keyboardshortcuts: {
+		id: SCRIPT_IDS.keyboardshortcuts,
 		js: ["scripts/keyboard-shortcuts.js"],
 		matches: ["<all_urls>"],
 		runAt: "document_end"
 	},
 	eastereggs: {
-		id: "eastereggsScript",
+		id: SCRIPT_IDS.eastereggs,
 		js: ["scripts/easter-egg.js"],
+		matches: ["<all_urls>"],
+		runAt: "document_end"
+	},
+	mousevolumescroll: {
+		id: SCRIPT_IDS.mousevolumescroll,
+		js: ["scripts/mouse-volume-scroll.js"],
 		matches: ["<all_urls>"],
 		runAt: "document_end"
 	}
@@ -357,9 +364,10 @@ manageContentScript("reflection", CONTENT_SCRIPTS.reflection);
 manageContentScript("ambilight", CONTENT_SCRIPTS.atmosphere);
 manageContentScript("gamepad", CONTENT_SCRIPTS.gamepad);
 manageContentScript("autodim", CONTENT_SCRIPTS.autodim);
-manageContentScript(["no360youtube", "autowidthyoutube", "customqualityyoutube"], CONTENT_SCRIPTS.youtubeTweaks);
-manageContentScript("shortcutlight", CONTENT_SCRIPTS.keyboardShortcuts);
+manageContentScript(["no360youtube", "autowidthyoutube", "customqualityyoutube"], CONTENT_SCRIPTS.youtubetweaks);
+manageContentScript("shortcutlight", CONTENT_SCRIPTS.keyboardshortcuts);
 manageContentScript("eastereggs", CONTENT_SCRIPTS.eastereggs);
+manageContentScript("videovolume", CONTENT_SCRIPTS.mousevolumescroll);
 //---
 
 async function restcontent(path, name, sendertab){
@@ -903,12 +911,12 @@ chrome.storage.onChanged.addListener(async function(changes){
 
 		// Handle youtube tweaks content script registration
 		if(changes["no360youtube"] || changes["autowidthyoutube"] || changes["customqualityyoutube"]){
-			manageContentScript(["no360youtube", "autowidthyoutube", "customqualityyoutube"], CONTENT_SCRIPTS.youtubeTweaks);
+			manageContentScript(["no360youtube", "autowidthyoutube", "customqualityyoutube"], CONTENT_SCRIPTS.youtubetweaks);
 		}
 
 		// Handle keyboard shortcuts content script registration
 		if(changes["shortcutlight"]){
-			manageContentScript("shortcutlight", CONTENT_SCRIPTS.keyboardShortcuts);
+			manageContentScript("shortcutlight", CONTENT_SCRIPTS.keyboardshortcuts);
 		}
 
 		// Handle eastereggs content script registration
@@ -1059,6 +1067,9 @@ chrome.storage.onChanged.addListener(async function(changes){
 
 		var changenamevolume = ["videovolume", "videovolumealt", "videovolumehold", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumecolor", "videovolumelabel", "videovolumesteps", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose"];
 		if(changenamevolume.includes(key)){
+			// Re-register/unregister the mouse volume scroll script based on videovolume setting
+			manageContentScript("videovolume", CONTENT_SCRIPTS.mousevolumescroll);
+			// Refresh existing tabs with the new settings
 			chromerefreshalltabs("gorefreshmousescroll");
 		}
 

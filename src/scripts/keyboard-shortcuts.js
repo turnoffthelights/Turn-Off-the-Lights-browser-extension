@@ -27,11 +27,6 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 */
 //================================================
 
-// Keyboard Shortcuts Module
-// This module handles all keyboard shortcuts for the extension
-// Load settings directly from chrome.storage
-
-// Helper function to get element by ID
 function $(id){ return document.getElementById(id); }
 
 // Load settings from storage
