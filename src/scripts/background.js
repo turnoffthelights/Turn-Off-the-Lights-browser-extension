@@ -240,6 +240,7 @@ const SCRIPT_IDS = {
 	autodim: "autodimScript",
 	atmosphere: "atmosphereScript",
 	gamepad: "gamepadScript",
+	videotoolbar: "videotoolbarScript",
 	youtubetweaks: "youtubetweaksScript",
 	keyboardshortcuts: "keyboardshortcutsScript",
 	eastereggs: "eastereggsScript",
@@ -284,6 +285,12 @@ const CONTENT_SCRIPTS = {
 	gamepad: {
 		id: SCRIPT_IDS.gamepad,
 		js: ["scripts/gamepad.js"],
+		matches: ["<all_urls>"],
+		runAt: "document_end"
+	},
+	videotoolbar: {
+		id: SCRIPT_IDS.videotoolbar,
+		js: ["scripts/video-toolbar.js"],
 		matches: ["<all_urls>"],
 		runAt: "document_end"
 	},
@@ -357,6 +364,7 @@ manageContentScript("block60fps", CONTENT_SCRIPTS.fps);
 manageContentScript("reflection", CONTENT_SCRIPTS.reflection);
 manageContentScript("ambilight", CONTENT_SCRIPTS.atmosphere);
 manageContentScript("gamepad", CONTENT_SCRIPTS.gamepad);
+manageContentScript(["videotool", "gamepad"], CONTENT_SCRIPTS.videotoolbar);
 manageContentScript("autodim", CONTENT_SCRIPTS.autodim);
 manageContentScript(["no360youtube", "autowidthyoutube", "customqualityyoutube"], CONTENT_SCRIPTS.youtubetweaks);
 manageContentScript("shortcutlight", CONTENT_SCRIPTS.keyboardshortcuts);
@@ -1039,6 +1047,28 @@ chrome.storage.onChanged.addListener(async function(changes){
 				unregisterContentScript(SCRIPT_IDS.gamepad);
 				// Stop gamepad in existing tabs
 				chromerefreshalltabs("gorefreshgamepad");
+			}
+		}
+
+		// Handle video toolbar content script registration
+		if(changes["videotool"] || changes["gamepad"]){
+			await manageContentScript(["videotool", "gamepad"], CONTENT_SCRIPTS.videotoolbar);
+			const videotoolbarenabled = (changes["videotool"] && changes["videotool"].newValue === true) || (changes["gamepad"] && changes["gamepad"].newValue === true);
+			if(videotoolbarenabled){
+				// Inject script into existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.startsWith("http://") || tab.url.startsWith("https://"))){
+						try{
+							await chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/video-toolbar.js"]
+							});
+						}catch{
+							// Ignore errors for tabs where script can't be injected
+						}
+					}
+				}
 			}
 		}
 
