@@ -107,7 +107,7 @@ function videotoolfunction(){
 	var blockarray, bars, barx, barwidth, barheight;
 
 	var vis; var tempvis = 0;
-	var dovisenable = function(){
+	var dovisenable = async function(){
 		vis = this.getAttribute("data-video");
 		tempvis = parseInt(vis);
 
@@ -123,19 +123,18 @@ function videotoolfunction(){
 		var myElement = document.getElementsByTagName("video")[tempvis];
 
 		// Fix Chrome 71
-		audioCtx[vis].resume().then(() =>{
+		await audioCtx[vis].resume();
 		// console.log("Turn Off the Lights - Visualization resumed successfully");
 		// refresh the visualization
-			if(typeof audioCtx[tempvis] != "undefined"){
-				if(vissources[tempvis] == undefined){
-					try{
-						vissources[tempvis] = audioCtx[tempvis].createMediaElementSource(myElement);
-						vissources[tempvis].connect(analyser[tempvis]);
-					}catch(e){ console.error(e); }
-				}
-				analyser[tempvis].connect(audioCtx[tempvis].destination);
+		if(typeof audioCtx[tempvis] != "undefined"){
+			if(vissources[tempvis] == undefined){
+				try{
+					vissources[tempvis] = audioCtx[tempvis].createMediaElementSource(myElement);
+					vissources[tempvis].connect(analyser[tempvis]);
+				}catch(e){ console.error(e); }
 			}
-		});
+			analyser[tempvis].connect(audioCtx[tempvis].destination);
+		}
 
 		if(document.getElementById("stefanvdvisualizationcanvas" + tempvis).style.display == "none"){
 			document.getElementById("stefanvdvisualizationcanvas" + tempvis).style.display = "block";
