@@ -1355,6 +1355,75 @@ function readgrouppolicy(items){
 		setsavegroup(items.MouseVolumeScroll, "videovolume");
 		setsavegroup(items.VideoToolbar, "videotool");
 
+		// Default dimmed layer color
+		if(items.DefaultDimColor){ savinggroup["lightcolor"] = items.DefaultDimColor; }
+
+		// Default opacity
+		if(items.DefaultOpacity != null){ savinggroup["interval"] = items.DefaultOpacity; }
+
+		// Night mode scope
+		if(items.NightModeScope == "domainlist"){
+			savinggroup["nightonly"] = true;
+		}else if(items.NightModeScope == "all"){
+			savinggroup["nightonly"] = false;
+		}
+
+		// Night mode filter type
+		if(items.NightModeFilterType == "whitelist"){
+			savinggroup["nightmodechecklistwhite"] = true;
+			savinggroup["nightmodechecklistblack"] = false;
+		}else if(items.NightModeFilterType == "blacklist"){
+			savinggroup["nightmodechecklistwhite"] = false;
+			savinggroup["nightmodechecklistblack"] = true;
+		}
+
+		// Night mode domain list
+		if(items.NightModeDomainList){
+			savinggroup["nightDomains"] = JSON.stringify(items.NightModeDomainList);
+		}
+
+		// Night mode engine
+		if(items.NightModeEngine == "standard"){
+			savinggroup["nightmodestandard"] = true;
+			savinggroup["nightmodepersonalized"] = false;
+		}else if(items.NightModeEngine == "personalized"){
+			savinggroup["nightmodestandard"] = false;
+			savinggroup["nightmodepersonalized"] = true;
+		}
+
+		// Night mode colors
+		if(items.NightModeBackgroundColor){ savinggroup["nightmodebck"] = items.NightModeBackgroundColor; }
+		if(items.NightModeTextColor){ savinggroup["nightmodetxt"] = items.NightModeTextColor; }
+		if(items.NightModeHyperlinkColor){ savinggroup["nightmodehyperlink"] = items.NightModeHyperlinkColor; }
+		if(items.NightModeButtonColor){ savinggroup["nightmodebutton"] = items.NightModeButtonColor; }
+		if(items.NightModeBorderColor){ savinggroup["nightmodeborder"] = items.NightModeBorderColor; }
+
+		// Eye protection
+		setsavegroup(items.EyeProtection, "eyen");
+
+		// Eye protection scope
+		if(items.EyeProtectionScope == "all"){
+			savinggroup["eyea"] = true;
+			savinggroup["eyealist"] = false;
+		}else if(items.EyeProtectionScope == "domainlist"){
+			savinggroup["eyea"] = false;
+			savinggroup["eyealist"] = true;
+		}
+
+		// Eye protection filter type
+		if(items.EyeProtectionFilterType == "whitelist"){
+			savinggroup["eyechecklistwhite"] = true;
+			savinggroup["eyechecklistblack"] = false;
+		}else if(items.EyeProtectionFilterType == "blacklist"){
+			savinggroup["eyechecklistwhite"] = false;
+			savinggroup["eyechecklistblack"] = true;
+		}
+
+		// Eye protection domain list
+		if(items.EyeProtectionDomainList){
+			savinggroup["excludedDomains"] = JSON.stringify(items.EyeProtectionDomainList);
+		}
+
 		// save total group policy
 		chrome.storage.sync.set(savinggroup);
 	}
@@ -1394,6 +1463,101 @@ if(chrome.storage.managed){
 		}
 		if(changes["VideoToolbar"]){
 			updatesavinggroup["videotool"] = changes["VideoToolbar"].newValue;
+		}
+
+		// Default dimmed layer color
+		if(changes["DefaultDimColor"]){
+			updatesavinggroup["lightcolor"] = changes["DefaultDimColor"].newValue;
+		}
+
+		// Default opacity
+		if(changes["DefaultOpacity"]){
+			updatesavinggroup["interval"] = changes["DefaultOpacity"].newValue;
+		}
+
+		// Night mode scope
+		if(changes["NightModeScope"]){
+			if(changes["NightModeScope"].newValue == "domainlist"){
+				updatesavinggroup["nightonly"] = true;
+			}else{
+				updatesavinggroup["nightonly"] = false;
+			}
+		}
+
+		// Night mode filter type
+		if(changes["NightModeFilterType"]){
+			if(changes["NightModeFilterType"].newValue == "whitelist"){
+				updatesavinggroup["nightmodechecklistwhite"] = true;
+				updatesavinggroup["nightmodechecklistblack"] = false;
+			}else{
+				updatesavinggroup["nightmodechecklistwhite"] = false;
+				updatesavinggroup["nightmodechecklistblack"] = true;
+			}
+		}
+
+		// Night mode domain list
+		if(changes["NightModeDomainList"]){
+			updatesavinggroup["nightDomains"] = JSON.stringify(changes["NightModeDomainList"].newValue);
+		}
+
+		// Night mode engine
+		if(changes["NightModeEngine"]){
+			if(changes["NightModeEngine"].newValue == "standard"){
+				updatesavinggroup["nightmodestandard"] = true;
+				updatesavinggroup["nightmodepersonalized"] = false;
+			}else{
+				updatesavinggroup["nightmodestandard"] = false;
+				updatesavinggroup["nightmodepersonalized"] = true;
+			}
+		}
+
+		// Night mode colors
+		if(changes["NightModeBackgroundColor"]){
+			updatesavinggroup["nightmodebck"] = changes["NightModeBackgroundColor"].newValue;
+		}
+		if(changes["NightModeTextColor"]){
+			updatesavinggroup["nightmodetxt"] = changes["NightModeTextColor"].newValue;
+		}
+		if(changes["NightModeHyperlinkColor"]){
+			updatesavinggroup["nightmodehyperlink"] = changes["NightModeHyperlinkColor"].newValue;
+		}
+		if(changes["NightModeButtonColor"]){
+			updatesavinggroup["nightmodebutton"] = changes["NightModeButtonColor"].newValue;
+		}
+		if(changes["NightModeBorderColor"]){
+			updatesavinggroup["nightmodeborder"] = changes["NightModeBorderColor"].newValue;
+		}
+
+		// Eye protection
+		if(changes["EyeProtection"]){
+			updatesavinggroup["eyen"] = changes["EyeProtection"].newValue;
+		}
+
+		// Eye protection scope
+		if(changes["EyeProtectionScope"]){
+			if(changes["EyeProtectionScope"].newValue == "all"){
+				updatesavinggroup["eyea"] = true;
+				updatesavinggroup["eyealist"] = false;
+			}else{
+				updatesavinggroup["eyea"] = false;
+				updatesavinggroup["eyealist"] = true;
+			}
+		}
+
+		// Eye protection filter type
+		if(changes["EyeProtectionFilterType"]){
+			if(changes["EyeProtectionFilterType"].newValue == "whitelist"){
+				updatesavinggroup["eyechecklistwhite"] = true;
+				updatesavinggroup["eyechecklistblack"] = false;
+			}else{
+				updatesavinggroup["eyechecklistwhite"] = false;
+				updatesavinggroup["eyechecklistblack"] = true;
+			}
+		}
+
+		// Eye protection domain list
+		if(changes["EyeProtectionDomainList"]){
+			updatesavinggroup["excludedDomains"] = JSON.stringify(changes["EyeProtectionDomainList"].newValue);
 		}
 
 		// update save total group policy
