@@ -566,6 +566,66 @@ chrome.storage.sync.get(["autodim", "eastereggs", "shortcutlight", "eyen", "eyea
 	if(autodim == true){
 		addautodimfile();
 		runautodimcheck();
+		
+		// Handle browser navigation (back/forward buttons, swipe gestures)
+		window.addEventListener("popstate", function(){
+			// Re-check AutoDim for the new URL
+			chrome.storage.sync.get(["autodim", "mousespotlights", "autodimDomains", "autodimchecklistwhite", "autodimchecklistblack", "autodimonly"], function(items){
+				autodim = items["autodim"];
+				mousespotlights = items["mousespotlights"];
+				autodimDomains = items["autodimDomains"];
+				autodimchecklistwhite = items["autodimchecklistwhite"];
+				autodimchecklistblack = items["autodimchecklistblack"];
+				autodimonly = items["autodimonly"];
+
+				// Clean up existing messaging element
+				if(document.getElementById("stefanvdcinemamessage")){
+					removeElement("stefanvdcinemamessage");
+				}
+
+				// Remove any existing dark layer
+				var blackon = document.getElementById("stefanvdlightareoff1");
+				if(blackon){
+					chrome.runtime.sendMessage({name: "automatic"});
+				}
+
+				// Reinitialize AutoDim if enabled
+				if(autodim == true && mousespotlights != true){
+					addautodimfile();
+					runautodimcheck();
+				}
+			});
+		});
+
+		// Override pushState and replaceState to detect programmatic navigation
+		const originalPushState = history.pushState;
+		const originalReplaceState = history.replaceState;
+
+		history.pushState = function(){
+			originalPushState.apply(this, arguments);
+			window.dispatchEvent(new Event("popstate"));
+		};
+
+		history.replaceState = function(){
+			originalReplaceState.apply(this, arguments);
+			window.dispatchEvent(new Event("popstate"));
+		};
+
+		// Also listen for URL changes via MutationObserver (for SPA navigation)
+		var lastUrl = location.href;
+		new MutationObserver(function(){
+			if(location.href !== lastUrl){
+				lastUrl = location.href;
+				window.dispatchEvent(new Event("popstate"));
+			}
+		}).observe(document, {subtree: true, childList: true});
+
+		// Listen for hash changes
+		window.addEventListener("hashchange", function(){
+			window.dispatchEvent(new Event("popstate"));
+		});
+
+		// Keep existing navigatesuccess listener for Chrome Navigation API
 		navigation.addEventListener("navigatesuccess", () => {
 			// console.log("new url" ,e.destination.url);
 			if(document.getElementById("stefanvdcinemamessage")){
