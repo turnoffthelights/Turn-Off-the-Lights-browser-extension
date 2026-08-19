@@ -14,7 +14,9 @@ struct LicensesView: View {
                 Section(header: Text("Browser Extension"))
                 {
                     Button(action: {
-                        StefanFunctions().openURL(URL(string: "https://www.gnu.org/licenses/")!)
+                        if let url = URL(string: "https://www.gnu.org/licenses/") {
+                            StefanFunctions().openURL(url)
+                        }
                     }) {
                         Text("GPL 2.0")
                     }

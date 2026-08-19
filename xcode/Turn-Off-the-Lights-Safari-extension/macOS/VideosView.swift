@@ -34,7 +34,10 @@ struct VideosView: View {
           VideoApp(appName: "🔵How to enable the Audio Visualizer on YouTube? (and other HTML5 video websites)", appDownloadLink: "V5uDBWCzrEQ"),
       ]
     
-    private let player = AVPlayer(url: Bundle.main.url(forResource: "forest", withExtension: "mov")!)
+    private let player: AVPlayer? = {
+        guard let url = Bundle.main.url(forResource: "forest", withExtension: "mov") else { return nil }
+        return AVPlayer(url: url)
+    }()
     
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.colorScheme) private var colorScheme
@@ -127,7 +130,9 @@ struct VideosView: View {
                         LazyVGrid(columns: columns, alignment: .leading, spacing: 16) {
                             ForEach(videoProducts, id: \.appName) { video in
                                 Button {
-                                    StefanLinks().openURL(video.youtubeURL)
+                                    if let url = video.youtubeURL {
+                                        StefanLinks().openURL(url)
+                                    }
                                 } label: {
                                     VideoCard(video: video)
                                 }
@@ -166,6 +171,7 @@ struct VideosView: View {
     }
     
     private func startLoopingVideo() {
+        guard let player = player else { return }
         player.isMuted = true
         player.actionAtItemEnd = .none
         player.play()
@@ -173,19 +179,19 @@ struct VideosView: View {
             forName: .AVPlayerItemDidPlayToEndTime,
             object: player.currentItem,
             queue: nil
-        ) { _ in
-            player.seek(to: .zero)
-            player.play()
+        ) { [weak player] _ in
+            player?.seek(to: .zero)
+            player?.play()
         }
     }
 
     private func stopVideo() {
-        player.pause()
+        player?.pause()
     }
 }
 
 struct VideoPlayerView: NSViewRepresentable {
-    let player: AVPlayer
+    let player: AVPlayer?
     let showsPlaybackControls: Bool
 
     func makeNSView(context: Context) -> AVPlayerView {
@@ -193,8 +199,8 @@ struct VideoPlayerView: NSViewRepresentable {
         playerView.controlsStyle = showsPlaybackControls ? .default : .none
         playerView.player = player
         playerView.videoGravity = .resizeAspectFill
-        player.isMuted = true
-        player.actionAtItemEnd = .none
+        player?.isMuted = true
+        player?.actionAtItemEnd = .none
         return playerView
     }
 
@@ -305,8 +311,8 @@ struct VideoApp {
     let appName: String
     let appDownloadLink: String
 
-    var youtubeURL: URL {
-        return URL(string: "https://www.youtube.com/watch?v=\(appDownloadLink)")!
+    var youtubeURL: URL? {
+        URL(string: "https://www.youtube.com/watch?v=\(appDownloadLink)")
     }
 }
 

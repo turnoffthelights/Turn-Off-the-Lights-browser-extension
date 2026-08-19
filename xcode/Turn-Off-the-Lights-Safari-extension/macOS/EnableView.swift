@@ -20,7 +20,15 @@ struct EnableView: View {
     @State private var isEnabled: Bool?
     @State private var errorMessage: String?
     @State private var timer: Publishers.Autoconnect<Timer.TimerPublisher> = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
-    @State private var player = AVPlayer(url: Bundle.main.url(forResource: "DaringInfantileDachshund", withExtension: "mp4")!)
+    @State private var player: AVPlayer?
+
+    init() {
+        if let url = Bundle.main.url(forResource: "DaringInfantileDachshund", withExtension: "mp4") {
+            _player = State(initialValue: AVPlayer(url: url))
+        } else {
+            _player = State(initialValue: nil)
+        }
+    }
 
     var body: some View {
         Form {
@@ -121,7 +129,9 @@ struct EnableView: View {
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
                 Button(action: {
-                    StefanFunctions().openURL(URL(string: StefanLinks().linkredirectionoptions())!)
+                    if let url = URL(string: StefanLinks().linkredirectionoptions()) {
+                        StefanFunctions().openURL(url)
+                    }
                 }) {
                     Label("Options", systemImage: "gear")
                         .labelStyle(.titleOnly)
@@ -130,7 +140,7 @@ struct EnableView: View {
 
             ToolbarItemGroup(placement: .primaryAction) {
                 ShareLink("",
-                          item: URL(string: StefanLinks().linkappstore())!,
+                          item: appStoreURL,
                           subject: Text("FREE Turn Off the Lights Safari extension"),
                           message: Text("Download the free Turn Off the Lights Safari extension to get Dark Mode on all websites. Try it yourself! via @TurnOfftheLight  \(StefanLinks().linkdeveloperwebsite())"))
             }
@@ -151,6 +161,11 @@ struct EnableView: View {
         case .some(false): return "Enable in Safari…"
         default:           return "Open Safari Extensions Preferences…"
         }
+    }
+
+    private var appStoreURL: URL {
+        URL(string: StefanLinks().linkappstore())
+            ?? URL(string: "https://apps.apple.com/app/id1273998507")!
     }
 
     @ViewBuilder
@@ -185,6 +200,7 @@ struct EnableView: View {
     }
 
     private func startLoopingVideo() {
+        guard let player = player else { return }
         player.isMuted = true
         player.actionAtItemEnd = .none
         player.play()
@@ -192,14 +208,14 @@ struct EnableView: View {
             forName: .AVPlayerItemDidPlayToEndTime,
             object: player.currentItem,
             queue: nil
-        ) { _ in
-            player.seek(to: .zero)
-            player.play()
+        ) { [weak player] _ in
+            player?.seek(to: .zero)
+            player?.play()
         }
     }
 
     private func stopVideo() {
-        player.pause()
+        player?.pause()
     }
 
     private func refreshExtensionState(initial: Bool) {
