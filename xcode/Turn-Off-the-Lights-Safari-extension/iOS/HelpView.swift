@@ -31,6 +31,14 @@ struct HelpView: View {
     
     @State private var showGuide = false
     
+    private var currentYear: String {
+        String(Calendar.current.component(.year, from: Date()))
+    }
+    
+    private var copyrightText: String {
+        "© \(currentYear) Stefan vd"
+    }
+    
     var body: some View {
         NavigationStack{
             Form{
@@ -60,7 +68,7 @@ struct HelpView: View {
                     
                     HStack{
                         Text("Copyright")
-                        Text("© 2025 Stefan vd")
+                        Text(copyrightText)
                     }
                     .accessibilityElement(children: .combine)
                     
