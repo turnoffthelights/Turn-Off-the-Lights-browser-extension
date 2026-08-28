@@ -38,29 +38,28 @@ function eventFunc(selector, event, callback){
 	});
 }
 
-var darkmode;
-document.addEventListener("DOMContentLoaded", function(){
+let darkmode;
+document.addEventListener("DOMContentLoaded", async function(){
 	// disable context menu
 	document.addEventListener("contextmenu", function(e){
 		e.preventDefault();
 	}, false);
 
-	chrome.storage.sync.get(["darkmode"], function(items){
-		darkmode = items["darkmode"]; if(darkmode == null)darkmode = 2; // default Operating System
+	const result = await chrome.storage.sync.get(["darkmode"]);
+	darkmode = result["darkmode"]; if(darkmode == null)darkmode = 2; // default Operating System
 
-		// dark mode
-		if(darkmode == 1){
+	// dark mode
+	if(darkmode == 1){
+		document.body.className = "dark";
+	}else if(darkmode == 0){
+		document.body.className = "light";
+	}else if(darkmode == 2){
+		if(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches){
 			document.body.className = "dark";
-		}else if(darkmode == 0){
+		}else{
 			document.body.className = "light";
-		}else if(darkmode == 2){
-			if(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches){
-				document.body.className = "dark";
-			}else{
-				document.body.className = "light";
-			}
 		}
-	});
+	}
 
 	eventFunc("opentrywebsite", "click", action1);
 	eventFunc("openoptions", "click", action2);
