@@ -1398,7 +1398,14 @@ function showValue(newValue){
 
 function settotlreaderstyle(a, b){
 	var totlreader = $("stefanvdreaderbar"); var totlreadermin = $("stefanvdreaderbartop");
-	totlreader.style.width = a; totlreader.style.height = a; totlreadermin.style.opacity = b;
+	totlreader.style.width = a; totlreader.style.height = a;
+	if(b == 0){
+		totlreader.classList.add("stefanvdsmallreader");
+		totlreadermin.classList.add("stefanvdsmallreader");
+	}else{
+		totlreader.classList.remove("stefanvdsmallreader");
+		totlreadermin.classList.remove("stefanvdsmallreader");
+	}
 }
 
 function toggle_small(){
@@ -2104,29 +2111,43 @@ function lightsgoonoroff(){
 		if(readera == true){
 			var stefanvdreaderbar = document.createElement("div");
 			stefanvdreaderbar.setAttribute("id", "stefanvdreaderbar");
+			stefanvdreaderbar.setAttribute("role", "region");
+			stefanvdreaderbar.setAttribute("aria-label", chrome.i18n.getMessage("ariareaderbar"));
 			document.body.appendChild(stefanvdreaderbar);
 			var stefanvdreaderbardiv1 = document.createElement("div");
 			stefanvdreaderbardiv1.setAttribute("id", "stefanvdreaderbarinnerbox");
 			stefanvdreaderbar.appendChild(stefanvdreaderbardiv1);
 
-			// if false then use small view
-			if(readerlargestyle == false){ stefanvdreaderbar.style.width = "30px"; stefanvdreaderbar.style.height = "30px"; }
-
 			// top
-			var stefanvdreaderbartop = document.createElement("div");
+			var stefanvdreaderbartop = document.createElement("button");
 			stefanvdreaderbartop.setAttribute("id", "stefanvdreaderbartop");
 			stefanvdreaderbartop.setAttribute("class", "stefanvdreaderbartop");
+			stefanvdreaderbartop.setAttribute("type", "button");
+			stefanvdreaderbartop.setAttribute("aria-label", chrome.i18n.getMessage("ariareadertop"));
 			stefanvdreaderbartop.addEventListener("click", function(){ toggle_small(); }, true);
 			stefanvdreaderbardiv1.appendChild(stefanvdreaderbartop);
 
 			// if false then use small view
-			if(readerlargestyle == false){ stefanvdreaderbartop.style.opacity = 0; }
+			if(readerlargestyle == false){ stefanvdreaderbar.style.width = "30px"; stefanvdreaderbar.style.height = "30px"; stefanvdreaderbar.classList.add("stefanvdsmallreader"); stefanvdreaderbartop.classList.add("stefanvdsmallreader"); }
+
+			var stefanvdreaderbarsvg = '<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 400.19 508.49"><rect x="120" y="484" width="160" height="24" fill="#666" stroke-width="0"/><rect x="96" y="464" width="208" height="20" fill="#666" stroke-width="0"/><rect x="96" y="416" width="208" height="20" fill="#666" stroke-width="0"/><rect x="96" y="372" width="208" height="20" fill="#666" stroke-width="0"/><ellipse cx="200" cy="176" rx="200" ry="176" fill="#666" stroke-width="0"/><rect x="140" y="202" width="24" height="170" fill="#fff" stroke-width="0"/><rect x="236" y="202" width="24" height="170" fill="#fff" stroke-width="0"/><rect x="164" y="352" width="72" height="20" fill="#fff" stroke-width="0"/><path d="m182,160h36c23.18,0,42,18.82,42,42v147h-120v-147c0-23.18,18.82-42,42-42Z" fill="#fff" stroke-width="0"/><path d="m182,183.84h36c9.93,0,18,8.07,18,18v147.32h-72v-147.32c0-9.93,8.07-18,18-18Z" fill="#666" stroke-width="0"/></svg>';
+			var stefanvdreaderbarlogo = (new DOMParser()).parseFromString(stefanvdreaderbarsvg, "image/svg+xml").documentElement;
+			stefanvdreaderbarlogo.id = "stefanvdreaderbarlogo";
+			stefanvdreaderbarlogo.setAttribute("aria-hidden", "true");
+			stefanvdreaderbarlogo.setAttribute("focusable", "false");
 
 			var stefanvdreaderbartxt1 = document.createTextNode("Turn Off the Lights");
-			stefanvdreaderbartop.appendChild(stefanvdreaderbartxt1);
 
-			var stefanvdreaderbarmin = document.createElement("div");
+			var stefanvdreaderbartitle = document.createElement("span");
+			stefanvdreaderbartitle.id = "stefanvdreaderbartitle";
+			stefanvdreaderbartitle.appendChild(stefanvdreaderbarlogo);
+			stefanvdreaderbartitle.appendChild(stefanvdreaderbartxt1);
+			stefanvdreaderbartop.appendChild(stefanvdreaderbartitle);
+
+			var stefanvdreaderbarmin = document.createElement("button");
 			stefanvdreaderbarmin.setAttribute("id", "stefanvdreaderbarmin");
+			stefanvdreaderbarmin.setAttribute("type", "button");
+			stefanvdreaderbarmin.setAttribute("aria-label", chrome.i18n.getMessage("ariareaderminimize"));
 			stefanvdreaderbarmin.innerText = "⎯";
 			stefanvdreaderbartop.appendChild(stefanvdreaderbarmin);
 
@@ -2136,7 +2157,7 @@ function lightsgoonoroff(){
 			stefanvdreaderbardiv1.appendChild(stefanvdreaderbaroa);
 
 			var stefanvdreaderinput1 = document.createElement("input");
-			setAttributes(stefanvdreaderinput1, {"type": "range", "id": "totlrange", "min": "0", "max": "100", "step": "1", "value": "0"});
+			setAttributes(stefanvdreaderinput1, {"type": "range", "id": "totlrange", "min": "0", "max": "100", "step": "1", "value": "0", "aria-label": chrome.i18n.getMessage("ariadimmeropacity")});
 			stefanvdreaderinput1.addEventListener("change", function(){ showValue(this.value); }, true);
 			stefanvdreaderinput1.addEventListener("input", function(){ showValue(this.value); }, true);
 			stefanvdreaderbaroa.appendChild(stefanvdreaderinput1);
@@ -2146,7 +2167,7 @@ function lightsgoonoroff(){
 			stefanvdreaderbardiv1.appendChild(stefanvdreaderbaran);
 
 			var stefanvdreaderinput2 = document.createElement("input");
-			setAttributes(stefanvdreaderinput2, {"id": "totlgammaVal", "maxlength": "3", "size": "3", "type": "text", "value": "0"});
+			setAttributes(stefanvdreaderinput2, {"id": "totlgammaVal", "maxlength": "3", "size": "3", "type": "text", "value": "0", "aria-label": chrome.i18n.getMessage("ariadimmervalue")});
 			stefanvdreaderinput2.addEventListener("change", function(){ showValue(this.value); }, true);
 			stefanvdreaderbaran.appendChild(stefanvdreaderinput2);
 

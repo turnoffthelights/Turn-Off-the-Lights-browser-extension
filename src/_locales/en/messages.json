@@ -553,5 +553,10 @@
 "domainexist": {"message": "Domain already exists in the list."},
 "titelmouseshake":{"message":"Mouse Shake"},
 "desmouseshake":{"message":"Shake your mouse to dim the screen"},
-"desmouseshakesensitivity":{"message":"Sensitivity:"}
+"desmouseshakesensitivity":{"message":"Sensitivity:"},
+"ariareaderbar":{"message":"Turn Off the Lights reader controls"},
+"ariareadertop":{"message":"Turn Off the Lights"},
+"ariareaderminimize":{"message":"Minimize reader controls"},
+"ariadimmeropacity":{"message":"Dimmer opacity"},
+"ariadimmervalue":{"message":"Dimmer value"}
 }
