@@ -558,5 +558,7 @@
 "ariareadertop":{"message":"Turn Off the Lights"},
 "ariareaderminimize":{"message":"Minimize reader controls"},
 "ariadimmeropacity":{"message":"Dimmer opacity"},
-"ariadimmervalue":{"message":"Dimmer value"}
+"ariadimmervalue":{"message":"Dimmer value"},
+"ariadimmeron":{"message":"Lights dimmed. Video highlighted."},
+"ariadimmeroff":{"message":"Lights restored."}
 }

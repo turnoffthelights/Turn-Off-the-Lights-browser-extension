@@ -34,6 +34,7 @@ var default_opacity = null, suggestions = null, playlist = null, videoheadline =
 var div = null, video = null;
 // block lights
 var activatelightsoff = true;
+var totlAnnouncer = null;
 
 // On message listener for the light and dynamic CSS
 function onMessageHandler(request){
@@ -1091,7 +1092,26 @@ function removeClass(classelement){
 	}
 }
 
+function announceLampState(isOn){
+	if(!totlAnnouncer || !document.body.contains(totlAnnouncer)){
+		totlAnnouncer = document.createElement("div");
+		totlAnnouncer.id = "stefanvd-aria-announcer";
+		totlAnnouncer.setAttribute("aria-live", "polite");
+		totlAnnouncer.setAttribute("aria-atomic", "true");
+		totlAnnouncer.style.position = "absolute";
+		totlAnnouncer.style.left = "-10000px";
+		totlAnnouncer.style.width = "1px";
+		totlAnnouncer.style.height = "1px";
+		totlAnnouncer.style.overflow = "hidden";
+		document.body.appendChild(totlAnnouncer);
+	}
+	totlAnnouncer.textContent = isOn ? chrome.i18n.getMessage("ariadimmeron") : chrome.i18n.getMessage("ariadimmeroff");
+}
+
 function removenewframe(){
+	// announce lights restored
+	announceLampState(false);
+
 	// remove dark layers
 	var removedarklayerid = ["stefanvdlightareoff1", "stefanvdlightareoff2", "stefanvdlightareoff3", "stefanvdlightareoff4", "stefanvdtheater", "stefanvdblurimage", "stefanvdlightcornertl", "stefanvdlightcornertr", "stefanvdlightcornerbl", "stefanvdlightcornerbr", "stefanvdtheme"];
 	removedarklayerid.forEach(removeId);
@@ -1112,6 +1132,12 @@ function removenewframe(){
 			for(k = 0; k < m; k++){ rootdiv[k].classList.remove("stefanvdotherdown"); }
 		}
 	}
+
+	// remove announcer after screen reader has time to speak
+	setTimeout(function(){
+		removeId("stefanvd-aria-announcer");
+		totlAnnouncer = null;
+	}, 1000);
 }
 
 function removenewdynamic(){
@@ -2367,6 +2393,8 @@ function lightsgoonoroff(){
 				newdynmaster.appendChild(fireworksDiv);
 			}
 		} // end dynamic
+
+		announceLampState(true);
 	}
 }
 
