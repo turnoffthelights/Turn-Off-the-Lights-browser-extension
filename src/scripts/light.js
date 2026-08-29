@@ -36,6 +36,29 @@ var div = null, video = null;
 var activatelightsoff = true;
 var totlAnnouncer = null;
 
+function ensureAnnouncer(){
+	if(!totlAnnouncer){
+		totlAnnouncer = document.getElementById("stefanvd-aria-announcer");
+	}
+	if(!totlAnnouncer){
+		totlAnnouncer = document.createElement("div");
+		totlAnnouncer.id = "stefanvd-aria-announcer";
+		totlAnnouncer.setAttribute("role", "status");
+		totlAnnouncer.setAttribute("aria-live", "polite");
+		totlAnnouncer.setAttribute("aria-atomic", "true");
+		totlAnnouncer.style.position = "absolute";
+		totlAnnouncer.style.left = "-10000px";
+		totlAnnouncer.style.width = "1px";
+		totlAnnouncer.style.height = "1px";
+		totlAnnouncer.style.overflow = "hidden";
+		totlAnnouncer.textContent = "";
+		document.body.appendChild(totlAnnouncer);
+	}
+}
+if(document.body){
+	ensureAnnouncer();
+}
+
 // On message listener for the light and dynamic CSS
 function onMessageHandler(request){
 	if(request.name === "injectlightcss"){
@@ -1093,18 +1116,7 @@ function removeClass(classelement){
 }
 
 function announceLampState(isOn){
-	if(!totlAnnouncer || !document.body.contains(totlAnnouncer)){
-		totlAnnouncer = document.createElement("div");
-		totlAnnouncer.id = "stefanvd-aria-announcer";
-		totlAnnouncer.setAttribute("aria-live", "polite");
-		totlAnnouncer.setAttribute("aria-atomic", "true");
-		totlAnnouncer.style.position = "absolute";
-		totlAnnouncer.style.left = "-10000px";
-		totlAnnouncer.style.width = "1px";
-		totlAnnouncer.style.height = "1px";
-		totlAnnouncer.style.overflow = "hidden";
-		document.body.appendChild(totlAnnouncer);
-	}
+	ensureAnnouncer();
 	totlAnnouncer.textContent = isOn ? chrome.i18n.getMessage("ariadimmeron") : chrome.i18n.getMessage("ariadimmeroff");
 }
 
@@ -1138,6 +1150,7 @@ function removenewframe(){
 		removeId("stefanvd-aria-announcer");
 		totlAnnouncer = null;
 	}, 1000);
+
 }
 
 function removenewdynamic(){
