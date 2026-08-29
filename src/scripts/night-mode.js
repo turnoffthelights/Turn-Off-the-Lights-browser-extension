@@ -1613,6 +1613,7 @@ const afterBodyReady = () => {
 						let css = "position: fixed; pointer-events: none; top: 0; left: 0; width: 100vw; height: 100vh; background-color: " + nightmodebck + "; filter: invert(1);mix-blend-mode: difference;";
 						pdfcover.setAttribute("style", css);
 						pdfcover.id = "stefanvdnightpdf";
+						pdfcover.setAttribute("aria-hidden", "true");
 						document.body.appendChild(pdfcover);
 					}
 				}
@@ -1741,20 +1742,22 @@ const afterBodyReady = () => {
 				var newnightinput = document.createElement("input");
 				newnightinput.setAttribute("type", "checkbox");
 				newnightinput.setAttribute("id", "stefanvdnightthemecheckbox");
+				newnightinput.setAttribute("aria-label", chrome.i18n.getMessage("arianightmodeswitch"));
 				if(nightenabletheme == true){
 					if(nightmodeos == true){
 						if(window.matchMedia && windark.matches){
 							// dark mode
-							newnightinput.setAttribute("checked", false);
+							newnightinput.checked = false;
 						}
 					}else{
-						newnightinput.setAttribute("checked", true);
+						newnightinput.checked = true;
 					}
 				}
 				newnight.appendChild(newnightinput);
 
 				var newnightspan = document.createElement("span");
 				newnightspan.setAttribute("id", "stefanvdnightthemeslider");
+				newnightspan.setAttribute("aria-hidden", "true");
 				newnight.appendChild(newnightspan);
 
 				var newnightspansun = document.createElement("span");

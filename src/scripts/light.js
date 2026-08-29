@@ -2149,14 +2149,13 @@ function lightsgoonoroff(){
 			stefanvdreaderbartop.setAttribute("id", "stefanvdreaderbartop");
 			stefanvdreaderbartop.setAttribute("class", "stefanvdreaderbartop");
 			stefanvdreaderbartop.setAttribute("type", "button");
-			stefanvdreaderbartop.setAttribute("aria-label", chrome.i18n.getMessage("ariareadertop"));
 			stefanvdreaderbartop.addEventListener("click", function(){ toggle_small(); }, true);
 			stefanvdreaderbardiv1.appendChild(stefanvdreaderbartop);
 
 			// if false then use small view
 			if(readerlargestyle == false){ stefanvdreaderbar.style.width = "30px"; stefanvdreaderbar.style.height = "30px"; stefanvdreaderbar.classList.add("stefanvdsmallreader"); stefanvdreaderbartop.classList.add("stefanvdsmallreader"); }
 
-			var stefanvdreaderbarsvg = '<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 400.19 508.49"><rect x="120" y="484" width="160" height="24" fill="#666" stroke-width="0"/><rect x="96" y="464" width="208" height="20" fill="#666" stroke-width="0"/><rect x="96" y="416" width="208" height="20" fill="#666" stroke-width="0"/><rect x="96" y="372" width="208" height="20" fill="#666" stroke-width="0"/><ellipse cx="200" cy="176" rx="200" ry="176" fill="#666" stroke-width="0"/><rect x="140" y="202" width="24" height="170" fill="#fff" stroke-width="0"/><rect x="236" y="202" width="24" height="170" fill="#fff" stroke-width="0"/><rect x="164" y="352" width="72" height="20" fill="#fff" stroke-width="0"/><path d="m182,160h36c23.18,0,42,18.82,42,42v147h-120v-147c0-23.18,18.82-42,42-42Z" fill="#fff" stroke-width="0"/><path d="m182,183.84h36c9.93,0,18,8.07,18,18v147.32h-72v-147.32c0-9.93,8.07-18,18-18Z" fill="#666" stroke-width="0"/></svg>';
+			var stefanvdreaderbarsvg = "<svg xmlns='http://www.w3.org/2000/svg' id='Layer_1' viewBox='0 0 400.19 508.49'><rect x='120' y='484' width='160' height='24' fill='#666' stroke-width='0'/><rect x='96' y='464' width='208' height='20' fill='#666' stroke-width='0'/><rect x='96' y='416' width='208' height='20' fill='#666' stroke-width='0'/><rect x='96' y='372' width='208' height='20' fill='#666' stroke-width='0'/><ellipse cx='200' cy='176' rx='200' ry='176' fill='#666' stroke-width='0'/><rect x='140' y='202' width='24' height='170' fill='#fff' stroke-width='0'/><rect x='236' y='202' width='24' height='170' fill='#fff' stroke-width='0'/><rect x='164' y='352' width='72' height='20' fill='#fff' stroke-width='0'/><path d='m182,160h36c23.18,0,42,18.82,42,42v147h-120v-147c0-23.18,18.82-42,42-42Z' fill='#fff' stroke-width='0'/><path d='m182,183.84h36c9.93,0,18,8.07,18,18v147.32h-72v-147.32c0-9.93,8.07-18,18-18Z' fill='#666' stroke-width='0'/></svg>";
 			var stefanvdreaderbarlogo = (new DOMParser()).parseFromString(stefanvdreaderbarsvg, "image/svg+xml").documentElement;
 			stefanvdreaderbarlogo.id = "stefanvdreaderbarlogo";
 			stefanvdreaderbarlogo.setAttribute("aria-hidden", "true");
