@@ -174,7 +174,7 @@ struct EnableView: View {
             statusPill(
                 icon: "checkmark.circle.fill",
                 iconColor: .green,
-                text: "Safari extension is Enabled",
+                text: String(localized: "Safari extension is Enabled"),
                 tint: .green,
                 showsProgress: false
             )
@@ -183,7 +183,7 @@ struct EnableView: View {
             statusPill(
                 icon: "xmark.circle.fill",
                 iconColor: .red,
-                text: "Safari extension is Disabled",
+                text: String(localized: "Safari extension is Disabled"),
                 tint: .red,
                 showsProgress: false
             )
@@ -192,7 +192,7 @@ struct EnableView: View {
             statusPill(
                 icon: nil,
                 iconColor: .secondary,
-                text: "Checking extension status…",
+                text: String(localized: "Checking extension status…"),
                 tint: nil,
                 showsProgress: true
             )

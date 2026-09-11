@@ -41,7 +41,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : ""
           }
         },
@@ -1658,7 +1658,6 @@
       }
     },
     "Checking extension status…" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -14736,7 +14735,6 @@
       }
     },
     "Safari extension is Disabled" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -14921,7 +14919,6 @@
       }
     },
     "Safari extension is Enabled" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
