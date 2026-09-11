@@ -11,28 +11,7 @@ import AVFoundation
 import AVKit
 
 struct VideosView: View {
-    let videoProducts: [VideoApp] =  [
-        // general videos
-        VideoApp(appName: "How to enable Atmosphere Lighting Vivid Mode", appDownloadLink: "3xo2y4fFpV0"),
-        VideoApp(appName: "How to Dim All Open Tabs (Dark EVERYTHING!)", appDownloadLink: "ZlIkUB8_RwE"),
-        VideoApp(appName: "How to Enable the YouTube Video Filters", appDownloadLink: "jIsS0fypXgI"),
-        VideoApp(appName: "Explore All 12 Dynamic Background Effects", appDownloadLink: "SwjK_qAOQ1A"),
-        VideoApp(appName: "Click through the dimmed dark layer", appDownloadLink: "NxbpQaciN4M"),
-        VideoApp(appName: "How to Boost YouTube Performance by Blocking 60FPS", appDownloadLink: "TRDP6a9D2g4"),
-        VideoApp(appName: "How to enable the YouTube Video Zoom In/Out button", appDownloadLink: "zndSApclxV4"),
-        VideoApp(appName: "How to Open the Extension Options page (in 3 Ways)", appDownloadLink: "NNMURORIieQ"),
-        VideoApp(appName: "How to Watch YouTube in 4K (No More Potato Quality!)", appDownloadLink: "HhKqhSkBY_0"),
-        VideoApp(appName: "How to change Night Mode Switch Position", appDownloadLink: "K6cbVuv-U-s"),
-        VideoApp(appName: "How to set Multiple Opacity for Each Website", appDownloadLink: "OjVJcjdLNk8"),
-        VideoApp(appName: "Secret Custom color picker for Night Mode on all websites", appDownloadLink: "vx2FfB57NRA"),
-        // previous campaign videos
-          VideoApp(appName: "🌿Turn Off the Lights Browser Extension Version 4 - The Ultimate and Valuable Tool!", appDownloadLink: "oWg0rMvCJng"),
-          VideoApp(appName: "🎁Double Click - Will make you see the useful HIDDEN Menu!", appDownloadLink: "nsmGfOAgcoE"),
-          VideoApp(appName: "🕯How enable the Night Mode feature?", appDownloadLink: "mbO37Ac5ny8"),
-          VideoApp(appName: "🔵How to enable the water reflection feature in the Turn Off the Lights browser extension?", appDownloadLink: "klMYXTbFzok"),
-          VideoApp(appName: "🔵How to enable the Atmosphere Lighting Vivid Mode in the Turn Off the Lights browser extension?", appDownloadLink: "GOARYksUcEM"),
-          VideoApp(appName: "🔵How to enable the Audio Visualizer on YouTube? (and other HTML5 video websites)", appDownloadLink: "V5uDBWCzrEQ"),
-      ]
+    @State private var videoProducts: [VideoApp] = VideoService.fallbackVideos()
     
     private let player: AVPlayer? = {
         guard let url = Bundle.main.url(forResource: "forest", withExtension: "mov") else { return nil }
@@ -128,11 +107,9 @@ struct VideosView: View {
                     ScrollView {
                         let columns = Array(repeating: GridItem(.flexible(), spacing: 16, alignment: .top), count: 3)
                         LazyVGrid(columns: columns, alignment: .leading, spacing: 16) {
-                            ForEach(videoProducts, id: \.appName) { video in
+                            ForEach(videoProducts) { video in
                                 Button {
-                                    if let url = video.youtubeURL {
-                                        StefanLinks().openURL(url)
-                                    }
+                                    StefanFunctions().openyoutubevideo(youtubeId: video.appDownloadLink)
                                 } label: {
                                     VideoCard(video: video)
                                 }
@@ -166,7 +143,15 @@ struct VideosView: View {
             }
             .formStyle(.grouped)
             .navigationTitle("Videos")
-            
+        }
+        .onAppear {
+            loadLatestVideos()
+        }
+    }
+    
+    private func loadLatestVideos() {
+        VideoService.shared.fetchLatestVideos { [self] videos in
+            videoProducts = videos
         }
     }
     
@@ -247,7 +232,7 @@ struct VideoRow: View {
     }
 
     private func fetchThumbnail() {
-        let url = URL(string: "https://img.youtube.com/vi/\(video.appDownloadLink)/maxresdefault.jpg")!
+        let url = video.thumbnailURL ?? URL(string: "https://img.youtube.com/vi/\(video.appDownloadLink)/maxresdefault.jpg")!
 
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
@@ -297,22 +282,13 @@ struct VideoCard: View {
     }
 
     private func fetchThumbnail() {
-        let url = URL(string: "https://img.youtube.com/vi/\(video.appDownloadLink)/maxresdefault.jpg")!
+        let url = video.thumbnailURL ?? URL(string: "https://img.youtube.com/vi/\(video.appDownloadLink)/maxresdefault.jpg")!
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else { return }
             DispatchQueue.main.async {
                 self.thumbnailImage = NSImage(data: data)
             }
         }.resume()
-    }
-}
-
-struct VideoApp {
-    let appName: String
-    let appDownloadLink: String
-
-    var youtubeURL: URL? {
-        URL(string: "https://www.youtube.com/watch?v=\(appDownloadLink)")
     }
 }
 

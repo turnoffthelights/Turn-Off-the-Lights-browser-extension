@@ -58,7 +58,7 @@ struct EnableView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                         
                         VideoPlayerView(player: player, showsPlaybackControls: false)
-                            .frame(width: 242, height: 136)
+                            .frame(width: 260, height: 146)
                             .clipped()
                             .allowsHitTesting(false)
                             .onAppear {
@@ -76,8 +76,8 @@ struct EnableView: View {
                                 }
                             }
                             .cornerRadius(4)
-                            .padding(.bottom, 20)
-                            .padding(.trailing, 116)
+                            .padding(.bottom, 26)
+                            .padding(.trailing, 106)
                         }
                     }
                 }

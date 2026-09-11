@@ -68,6 +68,8 @@
 		1ED6EFFA2E944A1E00D14A70 /* StefanLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC7D05C2CECFC6000819365 /* StefanLinks.swift */; };
 		1EFE80902FDEDA3B0004A9F8 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 1EFE808F2FDEDA3B0004A9F8 /* AppIcon.icon */; };
 		1EFE80912FDEDA3B0004A9F8 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 1EFE808F2FDEDA3B0004A9F8 /* AppIcon.icon */; };
+		6B4207DD4CE0D1E8F2D2C0EC /* VideoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1611CFE659C6FF360EFA0906 /* VideoService.swift */; };
+		9BE4FD61D89610D09147F351 /* VideoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1611CFE659C6FF360EFA0906 /* VideoService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1611CFE659C6FF360EFA0906 /* VideoService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VideoService.swift; sourceTree = "<group>"; };
 		1E014E222DCB8C64002C83CB /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		1E35544D2EB55BCC00603EEA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E4CB20A268CC77900015282 /* TOtL-iOS-UITest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TOtL-iOS-UITest.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,6 +267,7 @@
 				1E7AC7C92E35652D000AD93D /* StefanFunctions.swift */,
 				1EC7D05C2CECFC6000819365 /* StefanLinks.swift */,
 				1E70C9F026726F380064A939 /* Assets.xcassets */,
+				1611CFE659C6FF360EFA0906 /* VideoService.swift */,
 			);
 			path = "Shared (App)";
 			sourceTree = "<group>";
@@ -453,8 +457,6 @@
 				1E9AC2E62EA3C57600C41F8D /* PBXTargetDependency */,
 			);
 			name = "Turn Off the Lights for Safari iOS";
-			packageProductDependencies = (
-			);
 			productName = "Turn Off the Lights";
 			productReference = 1E7AC6BB2E34E103000AD93D /* Turn Off the Lights for Safari iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -474,8 +476,6 @@
 				1E9AC2E92EA3C58D00C41F8D /* PBXTargetDependency */,
 			);
 			name = "Turn Off the Lights for Safari macOS";
-			packageProductDependencies = (
-			);
 			productName = "Turn Off the Lights for Safari macOS";
 			productReference = 1E9C58582E9419730018DFB0 /* Turn Off the Lights for Safari.app */;
 			productType = "com.apple.product-type.application";
@@ -690,6 +690,7 @@
 				1E9AC31A2EA3D8DF00C41F8D /* VideosView.swift in Sources */,
 				1E9AC31B2EA3D8DF00C41F8D /* GuideView.swift in Sources */,
 				1E9AC31C2EA3D8DF00C41F8D /* ContentView.swift in Sources */,
+				6B4207DD4CE0D1E8F2D2C0EC /* VideoService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +709,7 @@
 				1EBC1ECC2E9549E10073BBFD /* StefanFunctions.swift in Sources */,
 				1ED6EFFA2E944A1E00D14A70 /* StefanLinks.swift in Sources */,
 				1E35544C2EB550B500603EEA /* FeedParser.swift in Sources */,
+				9BE4FD61D89610D09147F351 /* VideoService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
