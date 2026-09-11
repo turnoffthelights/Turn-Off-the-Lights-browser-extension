@@ -62,11 +62,11 @@ struct ContentView: View {
         .onReceive(pollTimer) { _ in
             refreshExtensionState()
         }
-        .onChange(of: scenePhase, perform: { newPhase in
+        .onChange(of: scenePhase) { _, newPhase in
             if newPhase == .active {
                 refreshExtensionState()
             }
-        })
+        }
     }
 
     private func detailView(for item: SidebarItem) -> AnyView {

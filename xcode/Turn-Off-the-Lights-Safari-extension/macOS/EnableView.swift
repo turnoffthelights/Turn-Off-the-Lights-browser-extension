@@ -68,13 +68,13 @@ struct EnableView: View {
                                     stopVideo()
                                 }
                             }
-                            .onChange(of: reduceMotion, perform: { newValue in
+                            .onChange(of: reduceMotion) { _, newValue in
                                 if newValue == false {
                                     startLoopingVideo()
                                 } else {
                                     stopVideo()
                                 }
-                            })
+                            }
                             .cornerRadius(4)
                             .padding(.bottom, 26)
                             .padding(.trailing, 106)
