@@ -282,7 +282,7 @@ struct VideoCard: View {
     }
 
     private func fetchThumbnail() {
-        let url = video.thumbnailURL ?? URL(string: "https://img.youtube.com/vi/\(video.appDownloadLink)/maxresdefault.jpg")!
+        let url = URL(string: "https://img.youtube.com/vi/\(video.appDownloadLink)/maxresdefault.jpg")!
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else { return }
             DispatchQueue.main.async {
