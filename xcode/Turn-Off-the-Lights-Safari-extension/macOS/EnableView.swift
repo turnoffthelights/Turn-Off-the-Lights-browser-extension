@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  EnableView.swift
 //  Turn Off the Lights for Safari macOS
 //
 //  Created by Stefan Van Damme on 06/10/2025.
@@ -50,12 +50,12 @@ struct EnableView: View {
 
                 ZStack{
                     // Replace the plain image with a 3D-tilting version
-                    Tilt3D(maxRotation: 10, maxTranslation: 8, maxScale: 1.03, shadowOffset: 12, cornerRadius: 8) {
+                    Tilt3D(maxRotation: 10, maxTranslation: 8, maxScale: 1.03, shadowOffset: 12, cornerRadius: 12) {
                         ZStack{
                         Image("safariWebBrowser")
                             .resizable()
                             .frame(width: 400, height: 250)
-                            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                         
                         VideoPlayerView(player: player, showsPlaybackControls: false)
                             .frame(width: 260, height: 146)
@@ -68,13 +68,13 @@ struct EnableView: View {
                                     stopVideo()
                                 }
                             }
-                            .onChange(of: reduceMotion) { _, newValue in
+                            .onChange(of: reduceMotion, perform: { newValue in
                                 if newValue == false {
                                     startLoopingVideo()
                                 } else {
                                     stopVideo()
                                 }
-                            }
+                            })
                             .cornerRadius(4)
                             .padding(.bottom, 26)
                             .padding(.trailing, 106)
@@ -84,7 +84,7 @@ struct EnableView: View {
                 .frame(width: 400, height: 250)
                 
                 statusView
-                    .frame(height: 22)
+                    .frame(height: 34)
                     .padding(.bottom, 12)
                 
                 VStack(spacing: 0) {
@@ -99,7 +99,7 @@ struct EnableView: View {
                     .keyboardShortcut(.defaultAction)
 
                     Group {
-                        if let errorMessage {
+                        if let errorMessage = errorMessage {
                             Text(errorMessage)
                                 .font(.footnote)
                                 .foregroundStyle(.red)
@@ -171,32 +171,61 @@ struct EnableView: View {
     @ViewBuilder
     private var statusView: some View {
         ZStack {
-            Label {
-                Text("Safari extension is Enabled")
-                    .font(.headline)
-            } icon: {
-                Image(systemName: "checkmark.circle.fill")
-                    .foregroundStyle(.green)
-            }
+            statusPill(
+                icon: "checkmark.circle.fill",
+                iconColor: .green,
+                text: "Safari extension is Enabled",
+                tint: .green,
+                showsProgress: false
+            )
             .opacity(isEnabled == true ? 1 : 0)
 
-            Label {
-                Text("Safari extension is Disabled")
-                    .font(.headline)
-            } icon: {
-                Image(systemName: "xmark.circle.fill")
-                    .foregroundStyle(.red)
-            }
+            statusPill(
+                icon: "xmark.circle.fill",
+                iconColor: .red,
+                text: "Safari extension is Disabled",
+                tint: .red,
+                showsProgress: false
+            )
             .opacity(isEnabled == false ? 1 : 0)
 
-            HStack(spacing: 10) {
-                ProgressView()
-                Text("Checking extension status…")
-                    .font(.headline)
-            }
+            statusPill(
+                icon: nil,
+                iconColor: .secondary,
+                text: "Checking extension status…",
+                tint: nil,
+                showsProgress: true
+            )
             .opacity(isEnabled == nil ? 1 : 0)
         }
         .animation(.easeInOut(duration: 0.2), value: isEnabled)
+    }
+
+    @ViewBuilder
+    private func statusPill(
+        icon: String?,
+        iconColor: Color,
+        text: String,
+        tint: Color?,
+        showsProgress: Bool = false
+    ) -> some View {
+        HStack(spacing: 8) {
+            if showsProgress {
+                ProgressView()
+                    .controlSize(.small)
+            } else if let icon = icon {
+                Image(systemName: icon)
+                    .foregroundStyle(iconColor)
+            }
+            Text(text)
+                .font(.headline)
+        }
+        .padding(.horizontal, 14)
+        .padding(.vertical, 8)
+        .background(
+            Capsule()
+                .fill(tint?.opacity(0.12) ?? Color.gray.opacity(0.15))
+        )
     }
 
     private func startLoopingVideo() {
@@ -221,7 +250,7 @@ struct EnableView: View {
     private func refreshExtensionState(initial: Bool) {
         SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: extensionBundleIdentifier) { state, error in
             DispatchQueue.main.async {
-                if let error {
+                if let error = error {
                     // print("refreshExtensionState error:", error.localizedDescription)
                     self.errorMessage = error.localizedDescription
                     self.isEnabled = nil
@@ -237,7 +266,7 @@ struct EnableView: View {
 
     private func openSafariExtensionPreferences() {
         SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
-            if let error {
+            if let error = error {
                 DispatchQueue.main.async {
                     print("showPreferencesForExtension error:", error.localizedDescription)
                     self.errorMessage = error.localizedDescription
@@ -333,7 +362,7 @@ private struct MouseTracker: ViewModifier {
 
         override func updateTrackingAreas() {
             super.updateTrackingAreas()
-            if let trackingArea { removeTrackingArea(trackingArea) }
+            if let trackingArea = trackingArea { removeTrackingArea(trackingArea) }
             let options: NSTrackingArea.Options = [
                 .mouseMoved, .mouseEnteredAndExited, .activeInKeyWindow, .inVisibleRect
             ]

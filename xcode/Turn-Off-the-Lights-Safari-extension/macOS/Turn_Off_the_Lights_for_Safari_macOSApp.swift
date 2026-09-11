@@ -12,8 +12,8 @@ struct Turn_Off_the_Lights_for_Safari_macOSApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .frame(minWidth: 800, minHeight: 440)
+                .frame(minWidth: 800, minHeight: 466)
         }
-        .defaultSize(width: 800, height: 440)
+        .defaultSize(width: 800, height: 466)
     }
 }

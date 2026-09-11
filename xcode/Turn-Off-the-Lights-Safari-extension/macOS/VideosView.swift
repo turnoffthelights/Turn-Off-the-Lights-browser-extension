@@ -39,13 +39,13 @@ struct VideosView: View {
                                         stopVideo()
                                     }
                                 }
-                                .onChange(of: reduceMotion) { _, newValue in
+                                .onChange(of: reduceMotion, perform: { newValue in
                                     if newValue == false {
                                         startLoopingVideo()
                                     } else {
                                         stopVideo()
                                     }
-                                }
+                                })
                                 .overlay(alignment: .bottomLeading) {
                                     Group {
                                         if reduceTransparency {
