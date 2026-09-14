@@ -30,24 +30,16 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 function $(id){ return document.getElementById(id); }
 var nighttheme = null, nightonly = null, nightDomains = null, nightenabletheme = null, nighthover = null, nmbegintime = null, nmendtime = null, nightmodechecklistblack = null, nightmodechecklistwhite = null, nmtopleft = null, nmtopright = null, nmbottomright = null, nmbottomleft = null, nmcustom = null, nmcustomx = null, nmcustomy = null, nightmodebck = null, nightmodetxt = null, nightmodehyperlink = null, nightmodebydomain = null, nightmodebypage = null, nightmodegesture = null, nightactivetime = null, nightmodeswitchhide = null, nightmodeswitchhidetime = null, nightmodebutton = null, nightmodeos = null, nightmodeborder = null, nmautobegintime = null, nmautoendtime = null, nmautoclock = null, nightmodeimage = null, nmimagedark = null, nmimagegray = null, nightmodestandard = null, nightmodepersonalized = null, nightdarkmodeactive = null, swnightmodeborder = null, swnightmodebutton = null, swnightmodehyperlink = null, swnightmodebck = null, swnightmodetxt = null, nightskipcolor = null;
 
-var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
 // observeDOM - dynamic check
 var observeDOM = (function(){
-	var eventListenerSupported = window.addEventListener;
-
 	return function(obj, callback){
-		if(MutationObserver){
-			// define a new observer
-			var obs = new MutationObserver(function(mutations){
-				if(mutations[0].addedNodes.length || mutations[0].removedNodes.length)
-					callback();
-			});
-			// have the observer observe foo for changes in children
-			obs.observe(obj, {childList:true, subtree:true});
-		}else if(eventListenerSupported){
-			obj.addEventListener("DOMNodeInserted", callback, false);
-			obj.addEventListener("DOMNodeRemoved", callback, false);
-		}
+		// define a new observer
+		var obs = new MutationObserver(function(mutations){
+			if(mutations[0].addedNodes.length || mutations[0].removedNodes.length)
+				callback();
+		});
+		// have the observer observe foo for changes in children
+		obs.observe(obj, {childList:true, subtree:true});
 	};
 })();
 
@@ -124,31 +116,42 @@ function returntimetoseconds(a){
 }
 
 function checkregdomaininside(thaturl, websiteurl){
-	// regex test
 	var rxUrlSplit = /((?:http|ftp)s?):\/\/([^/]+)(\/.*)?/;
-	var prepUrl = ""; var m;
+	var prepUrl = "";
+	var m;
+
 	if((m = thaturl.match(rxUrlSplit)) !== null){
-		prepUrl = m[1] + "://" + m[2].replace(/[?()[\]\\.+^$|]/g, "\\$&").replace(/\*\\./g, "(?:[^/]*\\.)*").replace(/\*$/, "[^/]*");
-		if(m[3]){
-			prepUrl += m[3].replace(/[?()[\]\\.+^$|]/g, "\\$&").replace(/\/\*(?=$|\/)/g, "(?:/[^]*)?");
-		}
+		// 1. Combine the full URL parts
+		var fullPath = m[1] + "://" + m[2] + (m[3] || "");
+
+		// 2. Escape regex special characters (except the asterisk for now)
+		// We escape: . ? ( ) [ ] \ + ^ $ |
+		prepUrl = fullPath.replace(/[?()[\]\\.+^$|]/g, "\\$&");
+
+		// 3. Handle the asterisk:
+		// In the previous step, '*' was NOT escaped, or if it was,
+		// we now convert it to '.*'
+		prepUrl = prepUrl.replace(/\*/g, ".*");
+
+		// 4. Finally, escape all forward slashes to get the \/ format
+		prepUrl = prepUrl.replace(/\//g, "\\/");
 	}
+
 	if(prepUrl){
-		// console.log(prepUrl); // ^http://(?:[^/]*\.)*google\.com(?:/[^]*)?$
-		if(websiteurl.match(RegExp("^" + prepUrl + "$", "i"))){
-			return true;
-		}else{
-			return false;
-		}
+		// Output will be: https:\/\/www\.youtube\.com\/watch.*
+		// console.log("Generated Pattern:", prepUrl);
+		var finalRegex = new RegExp("^" + prepUrl + "$", "i");
+		return finalRegex.test(websiteurl);
 	}
 	return false;
 }
 
 function isDarkMode(){
 	const bg = getComputedStyle(document.body || document.documentElement).backgroundColor;
-	const rgb = bg.match(/\d+/g).map(Number);
-	const brightness = 0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2];
-	return brightness < 128; // true = dark, false = light
+	const rgb = bg.match(/\d+/g);
+	if(!rgb)return false;
+	const[r, g, b] = rgb.map(Number);
+	return(0.299 * r + 0.587 * g + 0.114 * b) < 128; // true = dark, false = light
 }
 
 function generateNightModeCSS(){
@@ -655,8 +658,8 @@ const afterBodyReady = () => {
 						document.body.style.color = nightmodetxt;
 						document.querySelector("html").style.backgroundColor = nightmodebck;
 
-						if($("logo-container")){ $("logo-container").style.cssText = "-webkit-filter: grayscale(100%) brightness(100%) contrast(100%);"; }
-						if($("watch7-action-buttons")){ $("watch7-action-buttons").style.cssText = "-webkit-filter: grayscale(0%) brightness(100%) contrast(0%);"; }
+						if($("logo-container")){ $("logo-container").style.cssText = "filter: grayscale(100%) brightness(100%) contrast(100%);"; }
+						if($("watch7-action-buttons")){ $("watch7-action-buttons").style.cssText = "filter: grayscale(0%) brightness(100%) contrast(0%);"; }
 						if($("watch7-content")){ $("watch7-content").style.background = nightmodebck; } // #fff
 						if($("yt-masthead-container")){ $("yt-masthead-container").style.background = nightmodebck; } // #f1f1f1
 						if($("watch7-sidebar")){ $("watch7-sidebar").style.background = nightmodebck; } // #fff
@@ -771,7 +774,7 @@ const afterBodyReady = () => {
 						var ytironicon = document.querySelectorAll("iron-icon");
 						var ytrioni;
 						var ytrionl = ytironicon.length;
-						for(ytrioni = 0; ytrioni < ytrionl; ytrioni++){ ytironicon[ytrioni].style.cssText = "-webkit-filter: grayscale(0%) brightness(0%) contrast(0%);"; }
+						for(ytrioni = 0; ytrioni < ytrionl; ytrioni++){ ytironicon[ytrioni].style.cssText = "filter: grayscale(0%) brightness(0%) contrast(0%);"; }
 						if($("masthead")){ $("masthead").style.background = nightmodebck; }
 						if($("contents")){ $("contents").style.color = nightmodetxt; }
 						var yth3ytd = document.querySelectorAll("h3.ytd-compact-video-renderer");
@@ -874,9 +877,9 @@ const afterBodyReady = () => {
 						var ytdtopbarlogorenderer = document.querySelectorAll("ytd-topbar-logo-renderer");
 						var ytdtoi;
 						var ytdtol = ytdtopbarlogorenderer.length;
-						for(ytdtoi = 0; ytdtoi < ytdtol; ytdtoi++){ ytdtopbarlogorenderer[ytdtoi].style.cssText = "-webkit-filter: invert(1) grayscale(1);"; }
-						if($("guide-button")){ $("guide-button").style.cssText = "-webkit-filter: invert(1) grayscale(1);"; }
-						if($("buttons")){ $("buttons").style.cssText = "-webkit-filter: invert(1) grayscale(1);"; }
+						for(ytdtoi = 0; ytdtoi < ytdtol; ytdtoi++){ ytdtopbarlogorenderer[ytdtoi].style.cssText = "filter: invert(1) grayscale(1);"; }
+						if($("guide-button")){ $("guide-button").style.cssText = "filter: invert(1) grayscale(1);"; }
+						if($("buttons")){ $("buttons").style.cssText = "filter: invert(1) grayscale(1);"; }
 						if($("guide-content")){ $("guide-content").style.color = nightmodetxt; $("guide-content").style.backgroundColor = nightmodebck; }
 						// var ytdguidenentry = document.querySelectorAll(".ytd-guide-entry-renderer");
 						// var ytdguidei;
@@ -889,7 +892,7 @@ const afterBodyReady = () => {
 						// var ytdbuttonrenderer = document.querySelectorAll("yt-icon");
 						// var ytdbuti;
 						// var ytdbutl = ytdbuttonrenderer.length;
-						// for(ytdbuti = 0; ytdbuti < ytdbutl; ytdbuti++){ ytdbuttonrenderer[ytdbuti].style.cssText = "-webkit-filter: invert(1) grayscale(1) contrast(0);"; }
+						// for(ytdbuti = 0; ytdbuti < ytdbutl; ytdbuti++){ ytdbuttonrenderer[ytdbuti].style.cssText = "filter: invert(1) grayscale(1) contrast(0);"; }
 						var paperbutton = document.querySelectorAll("paper-button");
 						var papi;
 						var papl = paperbutton.length;
@@ -1607,9 +1610,10 @@ const afterBodyReady = () => {
 						document.getElementById("stefanvdnightpdf").style.display = "block";
 					}else{
 						var pdfcover = document.createElement("div");
-						let css = "position: fixed; pointer-events: none; top: 0; left: 0; width: 100vw; height: 100vh; background-color: " + nightmodebck + "; -webkit-filter: invert(1);filter: invert(1);mix-blend-mode: difference;";
+						let css = "position: fixed; pointer-events: none; top: 0; left: 0; width: 100vw; height: 100vh; background-color: " + nightmodebck + "; filter: invert(1);mix-blend-mode: difference;";
 						pdfcover.setAttribute("style", css);
 						pdfcover.id = "stefanvdnightpdf";
+						pdfcover.setAttribute("aria-hidden", "true");
 						document.body.appendChild(pdfcover);
 					}
 				}
@@ -1617,7 +1621,7 @@ const afterBodyReady = () => {
 		}
 
 		// gogo night mode
-		function gogonightmode(){
+		async function gogonightmode(){
 			// Add the check here, before any night mode changes are made
 			if(nightdarkmodeactive == true){
 				if(isDarkMode() == true){
@@ -1656,18 +1660,17 @@ const afterBodyReady = () => {
 
 				getdefaultnightmetatheme();
 				//---
-				webgonightmode().then(function(){
-					// this function is executed after function
-					if(sun == false){
-						isitdark = true;
-						setnightmetatheme(false);
-						// Start mutation observer
-						nightobserver.observe(targetNode, observerConfig);
-					}else{
-						isitdark = false;
-						setnightmetatheme(true);
-					}
-				});
+				await webgonightmode();
+				// this function is executed after function
+				if(sun == false){
+					isitdark = true;
+					setnightmetatheme(false);
+					// Start mutation observer
+					nightobserver.observe(targetNode, observerConfig);
+				}else{
+					isitdark = false;
+					setnightmetatheme(true);
+				}
 			}
 		}
 
@@ -1739,20 +1742,22 @@ const afterBodyReady = () => {
 				var newnightinput = document.createElement("input");
 				newnightinput.setAttribute("type", "checkbox");
 				newnightinput.setAttribute("id", "stefanvdnightthemecheckbox");
+				newnightinput.setAttribute("aria-label", chrome.i18n.getMessage("arianightmodeswitch"));
 				if(nightenabletheme == true){
 					if(nightmodeos == true){
 						if(window.matchMedia && windark.matches){
 							// dark mode
-							newnightinput.setAttribute("checked", false);
+							newnightinput.checked = false;
 						}
 					}else{
-						newnightinput.setAttribute("checked", true);
+						newnightinput.checked = true;
 					}
 				}
 				newnight.appendChild(newnightinput);
 
 				var newnightspan = document.createElement("span");
 				newnightspan.setAttribute("id", "stefanvdnightthemeslider");
+				newnightspan.setAttribute("aria-hidden", "true");
 				newnight.appendChild(newnightspan);
 
 				var newnightspansun = document.createElement("span");
@@ -2102,7 +2107,7 @@ const afterBodyReady = () => {
 
 		function runnightmodegesturecheck(){
 			if(nightmodegesture == true){
-				var nightblurcss = ".stefanvdnightblur{-webkit-animation:0.8s nightblind;animation:0.8s nightblind}@-webkit-keyframes nightblind{0%,20%{filter:blur(0);-webkit-filter:blur(0)}100%{filter:blur(10px);-webkit-filter:blur(10px)}}@keyframes nightblind{0%,20%{filter:blur(0);-webkit-filter:blur(0)}100%{filter:blur(10px);-webkit-filter:blur(10px)}}.stefanvdlongpress{-webkit-animation:0.8s longpress;animation:0.8s longpress}@-webkit-keyframes longpress{0%,20%{background:" + window.getComputedStyle(document.body, null).getPropertyValue("background-color") + "}100%{background:" + nightmodebck + "}}@keyframes longpress{0%,20%{background:" + window.getComputedStyle(document.body, null).getPropertyValue("background-color") + "}100%{background:" + nightmodebck + "}}";
+				var nightblurcss = ".stefanvdnightblur{animation:0.8s nightblind}@keyframes nightblind{0%,20%{filter:blur(0)}100%{filter:blur(10px)}}.stefanvdlongpress{animation:0.8s longpress}@keyframes longpress{0%,20%{background:" + window.getComputedStyle(document.body, null).getPropertyValue("background-color") + "}100%{background:" + nightmodebck + "}}";
 
 				addcsstext("totlnightgesturestyle", nightblurcss);
 
@@ -2294,9 +2299,8 @@ if(document.body){
 	const bodyObserver = new MutationObserver((recordList, observer) => {
 		// Wait for 'document.body' get the definition
 		if(!document.body)return;
-
-		afterBodyReady();
 		observer.disconnect();
+		afterBodyReady();
 	});
 	bodyObserver.observe(document.documentElement, {childList: true});
 }

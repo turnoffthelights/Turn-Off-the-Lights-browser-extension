@@ -21,5 +21,5 @@ const linkauroraplayerapp = "https://www.stefanvd.net/project/aurora-player/app/
 const linktotlmobileapp = "https://www.turnoffthelights.com/mobile/";
 const linkgamepad = "https://www.turnoffthelights.com/game-controller/";
 const linknightmodeapp = "https://www.turnoffthelights.com/browser/extension/night-mode/";
-const devmode = true;
+const devmode = false;
 const devdonate = false;

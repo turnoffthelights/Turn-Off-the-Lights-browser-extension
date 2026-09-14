@@ -74,7 +74,7 @@ chrome.storage.sync.get(["autostop", "autostoponly", "autostopDomains", "autosto
 		return Array.from(videos);
 	}
 
-	function getPosition(el){
+	function getBlockPosition(el){
 		if(!el || typeof el.getBoundingClientRect !== "function"){
 			return{x: 0, y: 0};
 		}
@@ -97,7 +97,7 @@ chrome.storage.sync.get(["autostop", "autostoponly", "autostopDomains", "autosto
 		}else if(window.getComputedStyle){
 			st = document.defaultView.getComputedStyle(myElement, null); d = st.getPropertyValue("display"); w = st.getPropertyValue("width"); h = st.getPropertyValue("height"); t = st.getPropertyValue("top");
 		}
-		var visposition = getPosition(myElement);
+		var visposition = getBlockPosition(myElement);
 		// YouTube if previous path is none, then hide it too
 		var path = [];
 		var current = myElement; // start from your element
@@ -150,82 +150,78 @@ chrome.storage.sync.get(["autostop", "autostoponly", "autostopDomains", "autosto
 	}
 
 	function autostopfunction(){
-		// A regular on first run
+		// Regular on first run
 		autostopdetectionstart();
-		// B New Mutation Summary API Reference
-		var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-		if(MutationObserver){
-			// setup MutationSummary observer
-			// Removed videolist = document since it's not used by the observer
-			var observer = new MutationObserver(function(mutations){
-				mutations.forEach(function(mutation){
-					// Detect video src changes
-					if(mutation.target.tagName === "VIDEO" && mutation.attributeName === "src" && mutation.target.currentSrc !== ""){
+		// Setup MutationSummary observer
+		// Removed videolist = document since it's not used by the observer
+		var observer = new MutationObserver(function(mutations){
+			mutations.forEach(function(mutation){
+				// Detect video src changes
+				if(mutation.target.tagName === "VIDEO" && mutation.attributeName === "src" && mutation.target.currentSrc !== ""){
+					autostopdetectionstart();
+				}
+
+				// Detect added/removed nodes
+				if(mutation.type === "childList"){
+					let needsRefresh = false;
+
+					mutation.addedNodes.forEach((node) => {
+						if(!node)return;
+
+						// Direct <video> added
+						if(node.tagName === "VIDEO"){
+							needsRefresh = true;
+						}
+
+						// Recursive check inside new shadow roots
+						function traverseShadow(n){
+							if(!n)return;
+
+							// If element has open shadow root
+							if(n.shadowRoot && n.shadowRoot.mode === "open"){
+								const shadowVideos = n.shadowRoot.querySelectorAll("video");
+								if(shadowVideos.length > 0){
+									needsRefresh = true;
+								}
+								// Traverse deeper inside the shadow DOM
+								n.shadowRoot.querySelectorAll("*").forEach(traverseShadow);
+							}
+
+							// Also traverse normal children
+							if(n.children && n.children.length){
+								Array.from(n.children).forEach(traverseShadow);
+							}
+						}
+
+						traverseShadow(node);
+					});
+
+					mutation.removedNodes.forEach((node) => {
+						if(node.tagName === "VIDEO"){
+							needsRefresh = true;
+						}
+					});
+
+					if(needsRefresh){
 						autostopdetectionstart();
 					}
+				}
 
-					// Detect added/removed nodes
-					if(mutation.type === "childList"){
-						let needsRefresh = false;
-
-						mutation.addedNodes.forEach((node) => {
-							if(!node)return;
-
-							// Direct <video> added
-							if(node.tagName === "VIDEO"){
-								needsRefresh = true;
-							}
-
-							// Recursive check inside new shadow roots
-							function traverseShadow(n){
-								if(!n)return;
-
-								// If element has open shadow root
-								if(n.shadowRoot && n.shadowRoot.mode === "open"){
-									const shadowVideos = n.shadowRoot.querySelectorAll("video");
-									if(shadowVideos.length > 0){
-										needsRefresh = true;
-									}
-									// Traverse deeper inside the shadow DOM
-									n.shadowRoot.querySelectorAll("*").forEach(traverseShadow);
-								}
-
-								// Also traverse normal children
-								if(n.children && n.children.length){
-									Array.from(n.children).forEach(traverseShadow);
-								}
-							}
-
-							traverseShadow(node);
-						});
-
-						mutation.removedNodes.forEach((node) => {
-							if(node.tagName === "VIDEO"){
-								needsRefresh = true;
-							}
-						});
-
-						if(needsRefresh){
-							autostopdetectionstart();
-						}
+				// Detect style changes for floating boxes
+				if(mutation.attributeName === "style"){
+					if(mutation.target.className !== "stefanvdautostop"){
+						refreshsize();
 					}
-
-					// Detect style changes for floating boxes
-					if(mutation.attributeName === "style"){
-						if(mutation.target.className !== "stefanvdautostop"){
-							refreshsize();
-						}
-					}
-				});
+				}
 			});
+		});
 
-			observer.observe(document.body, {
-				subtree: true,
-				childList: true,
-				characterData: false,
-				attributes: true
-			});
-		}
+		observer.observe(document.body, {
+			subtree: true,
+			childList: true,
+			characterData: false,
+			attributes: true
+		});
 	}
 
 	function autostopdetectionstart(){
@@ -332,7 +328,7 @@ chrome.storage.sync.get(["autostop", "autostoponly", "autostopDomains", "autosto
 				}
 			}
 			refreshdesign(newautostoppanel, selectedvideo);
-			newautostoppanel.addEventListener("click", function(event){
+			newautostoppanel.addEventListener("click", async function(event){
 				var templearn = event.target.id;
 				templearn = templearn.substr(0, 26);
 				if(templearn != "stefanvdautostoppanellearn"){
@@ -343,15 +339,12 @@ chrome.storage.sync.get(["autostop", "autostoponly", "autostopDomains", "autosto
 						this.style.display = "none";
 						thisVideo.setAttribute("data-stopvideo", "false");
 
-						var playPromise = thisVideo.play();
-						if(playPromise !== undefined){
-							playPromise.then(() => {
-								// Automatic playback started!
-							})
-								.catch((e) => {
-									// Auto-play was prevented
-									console.log(e);
-								});
+						try{
+							await thisVideo.play();
+							// Automatic playback started!
+						}catch(e){
+							// Auto-play was prevented
+							console.log(e);
 						}
 					}
 				}
@@ -428,6 +421,7 @@ chrome.storage.sync.get(["autostop", "autostoponly", "autostopDomains", "autosto
 	if(autostop == true){
 		if(autostoponly == true){
 			var currenturl = window.location.protocol + "//" + window.location.host;
+			var currentfullurl = window.location.href;
 			var stoprabbit = false;
 			if(typeof autostopDomains == "string"){
 				autostopDomains = JSON.parse(autostopDomains);
@@ -438,9 +432,22 @@ chrome.storage.sync.get(["autostop", "autostoponly", "autostopDomains", "autosto
 				var i, l = atbuf.length;
 				for(i = 0; i < l; i++){
 					if(autostopchecklistwhite == true){
-						if(currenturl == atbuf[i]){ safeAutostopStart(); }
+						if(atbuf[i].includes("*")){
+							if(window.checkregdomaininside(atbuf[i], currentfullurl) == true){
+								safeAutostopStart();
+								return;
+							}
+						}else{
+							if(currenturl == atbuf[i]){ safeAutostopStart(); }
+						}
 					}else if(autostopchecklistblack == true){
-						if(currenturl == atbuf[i]){ stoprabbit = true; }
+						if(atbuf[i].includes("*")){
+							if(window.checkregdomaininside(atbuf[i], currentfullurl) == true){
+								stoprabbit = true;
+							}
+						}else{
+							if(currenturl == atbuf[i]){ stoprabbit = true; }
+						}
 					}
 				}
 			}

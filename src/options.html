@@ -34,10 +34,8 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 -->
 <title data-i18n="optionpagetitle"></title>
 <link rel="stylesheet" type="text/css" href="styles/options.css">
-<link rel="stylesheet" type="text/css" href="styles/chart.min.css">
 <script type="text/javascript" src="scripts/constants.js"></script>
 <script type="text/javascript" src="scripts/options.js"></script>
-<script type="text/javascript" src="scripts/chart.js"></script>
 <script type="text/javascript" src="scripts/eco-preview.js"></script>
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -51,7 +49,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 <div id="loading">
 <div id="loadingcenter">
 <div id="productwelcomeimageload">
-	<div class="icon"><img id="loadinglamp" loading="lazy" alt="Browser Lamp Icon" width="16" height="16" src="images/icon16.png" srcset="images/icon16.png 1x, images/icon16@2x.png 2x">Turn Off the Lights™</div>
+	<div class="icon"><img id="loadinglamp" alt="Browser Lamp Icon" width="16" height="16" src="images/icon16.png" srcset="images/icon16.png 1x, images/icon16@2x.png 2x">Turn Off the Lights™</div>
 </div>
 <div id="progressbar"><div id="progress"><div id="pbaranim"></div></div></div>
 </div>
@@ -162,10 +160,6 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 						</div>
 						<div class="youtuberating">
 							<div id="sampleview" class="youtubeviewnumbers" aria-disabled="true">4,301,189</div>
-							<div id="samplelikebar" class="youtubewidthbar">
-								<div class="youtuberatingsparkbarlikes"></div>
-								<div class="youtuberatingsparkbardislikes"></div>
-							</div>
 						</div>
 						<br>
 						<div id="sampledislikebutton" class="youtubelikebar" aria-disabled="true">
@@ -714,15 +708,6 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 								<div class="md-checkbox">
 									<input id="viewcount" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="viewcount">
 									<label for="viewcount"><div><span data-i18n="desviewcount"></span></div></label>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td><span class="item" data-i18n="titellikebar"></span></td>
-							<td>
-								<div class="md-checkbox">
-									<input id="likebar" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="likebar">
-									<label for="likebar"><div><span data-i18n="deslikebar"></span></div></label>
 								</div>
 							</td>
 						</tr>
@@ -1599,6 +1584,25 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 					<div class="md-radio">
 						<input id="mousespotlights" type="radio" name="mousespotlight" value="custom" role="radio" aria-labelledby="titelmouse">
 						<label for="mousespotlights"><div><span data-i18n="desmousespotlights"></span></div></label>
+					</div>
+				</div>
+				</section>
+				<section>
+				<h3 data-i18n="titelmouseshake"></h3>
+				<div>
+					<div class="md-checkbox">
+						<input id="mouseshake" type="checkbox" role="checkbox" aria-checked="false" aria-labelledby="mouseshake">
+						<label for="mouseshake"><div><span data-i18n="desmouseshake"></span></div></label>
+					</div>
+					<div class="shakerangebox">
+						<div class="attitle"><span class="item" data-i18n="desmouseshakesensitivity"></span></div>
+						<div class="atrest">
+							<div class="oan">
+								<div class="sliderlabel">0</div>
+								<input id="mouseshakesensitivity" type="range" min="1" max="7" step="1" value="4" aria-label="Shake sensitivity slider" aria-valuemin="1" aria-valuemax="7" aria-valuenow="4">
+							</div>
+						</div>
+						<div class="atrest"><input type="number" min="1" max="7" step="1" value="1" name="mouseshakesensitivitynum" id="mouseshakesensitivitynum" maxlength="1" size="3"></div>
 					</div>
 				</div>
 				</section>

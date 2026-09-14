@@ -7,7 +7,8 @@
     "default_icon": {
       "19": "images/iconstick19.png",
       "38": "images/iconstick38.png"
-    }
+    },
+    "default_area": "navbar"
   },
   "background": {
     "scripts": ["scripts/constants.js","scripts/background.js"]

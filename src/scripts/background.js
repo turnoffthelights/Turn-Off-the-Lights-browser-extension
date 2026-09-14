@@ -34,80 +34,79 @@ if(typeof importScripts !== "undefined"){
 	importScripts("constants.js");
 }
 
-chrome.runtime.onMessage.addListener(function request(request, sender){
+chrome.runtime.onMessage.addListener(async function request(request, sender, sendResponse){
 	// eye protection & autodim & shortcut
 	switch(request.name){
 	case"bckreload":
 		installation();
 		break;
-	case"redirectionoptions":
-		chrome.tabs.query({active:true, currentWindow:true}, function(tabs){
-			chrome.tabs.remove(tabs[0].id);
-			chrome.runtime.openOptionsPage();
-		});
+	case"redirectionoptions": {
+		const[tab] = await chrome.tabs.query({active: true, currentWindow: true});
+		await chrome.tabs.remove(tab.id);
+		await chrome.runtime.openOptionsPage();
 		break;
-	case"redirectionoptionsnewtab":
-		chrome.tabs.query({active:true, currentWindow:true}, function(){
-			var optionsnewtab = chrome.runtime.getURL("options.html?tab=" + request.value);
-			chrome.tabs.create({url: optionsnewtab, active:true});
-		});
+	}
+	case"redirectionoptionsnewtab": {
+		await chrome.tabs.query({active:true, currentWindow:true});
+		var optionsnewtab = chrome.runtime.getURL("options.html?tab=" + request.value);
+		chrome.tabs.create({url: optionsnewtab, active:true});
 		break;
+	}
 	case"automatic":
 		chrome.scripting.executeScript({
 			target: {tabId: sender.tab.id},
 			files: ["scripts/light.js"]
 		});
 		break;
-	case"screenshot":
-		var checkcapturewebsite = linkcapturescreenshot;
-		chrome.tabs.create({url: checkcapturewebsite}, function(tab){
-			var currenttabid = tab.id;
-			chrome.tabs.onUpdated.addListener(function(tabId, changeInfo){
-				if(changeInfo.status == "complete"){
-					chrome.tabs.sendMessage(currenttabid, {action: "receivescreenshot", value: request.value});
-				}
-			});
-		});
+	case"screenshot": {
+		const checkcapturewebsite = linkcapturescreenshot;
+		const tab = await chrome.tabs.create({url: checkcapturewebsite});
+		const currenttabid = tab.id;
+		const listener = function(tabId, changeInfo){
+			if(tabId === currenttabid && changeInfo.status == "complete"){
+				chrome.tabs.onUpdated.removeListener(listener);
+				chrome.tabs.sendMessage(currenttabid, {action: "receivescreenshot", value: request.value});
+			}
+		};
+		chrome.tabs.onUpdated.addListener(listener);
 		break;
+	}
 	case"sendlightcss":
 		restcontent("/styles/light.css", "injectlightcss", sender.tab.id);
 		break;
 	case"senddynamiccss":
 		restcontent("/styles/dynamic.css", "injectdynamiccss", sender.tab.id);
 		break;
-	case"emergencyalf":
-		chrome.tabs.query({}, function(tabs){
-			var i, l = tabs.length;
-			for(i = 0; i < l; i++){
-				chrome.scripting.executeScript({
-					target: {tabId: tabs[i].id},
-					files: ["scripts/light.js"]
-				});
-			}
+	case"emergencyalf": {
+		const allTabs = await chrome.tabs.query({});
+		for(const tab of allTabs){
+			chrome.scripting.executeScript({
+				target: {tabId: tab.id},
+				files: ["scripts/light.js"]
+			});
 		}
-		);
 		break;
+	}
 	case"eyesaveme":
 		if(request.value == true){ chrome.storage.sync.set({"eyea": true, "eyen": false}); chromerefreshalltabs("gorefresheyedark"); }else{ chrome.storage.sync.set({"eyea": false, "eyen": true}); chromerefreshalltabs("gorefresheyelight"); }
 		break;
 	case"nmcustomvalues":
 		if(request.valuex && request.valuey){ chrome.storage.sync.set({"nmcustomx": request.valuex, "nmcustomy": request.valuey}); }
 		break;
-	case"mastertabnight":
+	case"mastertabnight": {
 		// Night Owl profile
-		var nightowlprofile, nightenabletheme;
-		chrome.storage.sync.get(["nightowlprofile", "nightenabletheme"], function(response){
-			nightowlprofile = response["nightowlprofile"];
-			nightenabletheme = response["nightenabletheme"];
-			if(nightowlprofile == true && nightenabletheme == true){
-				chrome.storage.sync.set({"nightowlprofile": false});
-				chrome.storage.sync.set({"nightenabletheme": false});
-			}else{
-				chrome.storage.sync.set({"nightowlprofile": true});
-				chrome.storage.sync.set({"nightenabletheme": true});
-			}
-		});
+		const response = await chrome.storage.sync.get(["nightowlprofile", "nightenabletheme"]);
+		const nightowlprofile = response["nightowlprofile"];
+		const nightenabletheme = response["nightenabletheme"];
+		if(nightowlprofile == true && nightenabletheme == true){
+			await chrome.storage.sync.set({"nightowlprofile": false});
+			await chrome.storage.sync.set({"nightenabletheme": false});
+		}else{
+			await chrome.storage.sync.set({"nightowlprofile": true});
+			await chrome.storage.sync.set({"nightenabletheme": true});
+		}
 		break;
+	}
 	case"mastertabdark":
 		if(request.value == true){
 			chromerefreshalltabs("goremovelightoff");
@@ -140,12 +139,10 @@ chrome.runtime.onMessage.addListener(function request(request, sender){
 				}
 			}
 			// set white icon
-			chrome.tabs.query({}, function(tabs){
-				var i, l = tabs.length;
-				for(i = 0; i < l; i++){
-					chrome.action.setIcon({tabId : tabs[i].id, path : {"19": "/images/iconwhite19.png", "38": "/images/iconwhite38.png"}});
-				}
-			});
+			const allTabs = await chrome.tabs.query({});
+			for(const tab of allTabs){
+				chrome.action.setIcon({tabId : tab.id, path : {"19": "/images/iconwhite19.png", "38": "/images/iconwhite38.png"}});
+			}
 		}else{
 			if(typeof browser !== "undefined"){
 				var qtestbrowsertheme = browser.theme.update;
@@ -154,21 +151,19 @@ chrome.runtime.onMessage.addListener(function request(request, sender){
 				}
 			}
 			// return default icon
-			chrome.storage.sync.get(["icon"], function(items){
-				if(items["icon"] == undefined){
-					if(exbrowser == "safari"){
-						items["icon"] = "/images/iconstick38safari.png";
-					}else{
-						items["icon"] = "/images/iconstick38.png";
-					}
+			const items = await chrome.storage.sync.get(["icon"]);
+			let iconPath = items["icon"];
+			if(iconPath == undefined){
+				if(exbrowser == "safari"){
+					iconPath = "/images/iconstick38safari.png";
+				}else{
+					iconPath = "/images/iconstick38.png";
 				}
-				chrome.tabs.query({}, function(tabs){
-					var i, l = tabs.length;
-					for(i = 0; i < l; i++){
-						chrome.action.setIcon({tabId : tabs[i].id, path : {"19": items["icon"], "38": items["icon"]}});
-					}
-				});
-			});
+			}
+			const allTabs = await chrome.tabs.query({});
+			for(const tab of allTabs){
+				chrome.action.setIcon({tabId : tab.id, path : {"19": iconPath, "38": iconPath}});
+			}
 		}
 		break;
 	case"sendnightmodeindark":
@@ -178,15 +173,12 @@ chrome.runtime.onMessage.addListener(function request(request, sender){
 		chrome.storage.sync.set({"screenshader": false});
 		chromerefreshalltabs("goclearscreenshader");
 		break;
-	case"getallpermissions":
-		var result = "";
-		chrome.permissions.getAll(function(permissions){
-			result = permissions.permissions;
-			chrome.tabs.sendMessage(sender.tab.id, {text: "receiveallpermissions", value: result});
-		});
-		break;
+	case"getallpermissions": {
+		const permissions = await chrome.permissions.getAll();
+		sendResponse(permissions.permissions);
+		return true;
 	}
-	return true;
+	}
 });
 
 // Not for Safari web browser, it use the content script way in the manifest.json file
@@ -207,11 +199,21 @@ if(exbrowser != "safari"){
 
 // screen-shader.js = Screen Shader
 // night-mode.js = Night Mode
-const scriptList = ["scripts/screen-shader.js", "scripts/night-mode.js"];
-const injectScriptsTo = (tabId, url) => {
+const injectScriptsTo = async(tabId, url) => {
 	if(url.match(/^http/i) || url.match(/^file/i)){
+		// Check if screenshader is enabled before injecting
+		const response = await chrome.storage.sync.get(["mousespotlights", "screenshader"]);
+		const mousespotlights = response["mousespotlights"];
+		const screenshader = response["screenshader"];
+
+		// Build script list based on enabled features
+		const scriptsToInject = ["scripts/night-mode.js"]; // Always inject night-mode.js
+		if(mousespotlights === true && screenshader === true){
+			scriptsToInject.push("scripts/screen-shader.js");
+		}
+
 		if(exbrowser != "safari"){
-			scriptList.forEach((script) => {
+			scriptsToInject.forEach((script) => {
 				chrome.scripting.executeScript({
 					target: {tabId: tabId},
 					files: [`${script}`],
@@ -219,7 +221,7 @@ const injectScriptsTo = (tabId, url) => {
 				}, () => void chrome.runtime.lastError);
 			});
 		}else{
-			scriptList.forEach((script) => {
+			scriptsToInject.forEach((script) => {
 				chrome.scripting.executeScript({
 					target: {tabId: tabId},
 					files: [`${script}`]
@@ -233,7 +235,16 @@ const injectScriptsTo = (tabId, url) => {
 // Constants for script IDs
 const SCRIPT_IDS = {
 	autostop: "autostopScript",
-	fps: "fpsScript"
+	fps: "fpsScript",
+	reflection: "reflectionScript",
+	autodim: "autodimScript",
+	atmosphere: "atmosphereScript",
+	gamepad: "gamepadScript",
+	videotoolbar: "videotoolbarScript",
+	youtubetweaks: "youtubetweaksScript",
+	keyboardshortcuts: "keyboardshortcutsScript",
+	eastereggs: "eastereggsScript",
+	mousevolumescroll: "mousevolumescrollScript"
 };
 
 // Configuration for content scripts
@@ -252,6 +263,60 @@ const CONTENT_SCRIPTS = {
 		matches: ["*://*.youtube.com/*"],
 		runAt: "document_start",
 		allFrames: true
+	},
+	reflection: {
+		id: SCRIPT_IDS.reflection,
+		js: ["scripts/reflection.js"],
+		matches: ["<all_urls>"],
+		runAt: "document_end"
+	},
+	autodim: {
+		id: SCRIPT_IDS.autodim,
+		js: ["scripts/autodim.js"],
+		matches: ["<all_urls>"],
+		runAt: "document_end"
+	},
+	atmosphere: {
+		id: SCRIPT_IDS.atmosphere,
+		js: ["scripts/atmosphere.js"],
+		matches: ["<all_urls>"],
+		runAt: "document_end"
+	},
+	gamepad: {
+		id: SCRIPT_IDS.gamepad,
+		js: ["scripts/gamepad.js"],
+		matches: ["<all_urls>"],
+		runAt: "document_end"
+	},
+	videotoolbar: {
+		id: SCRIPT_IDS.videotoolbar,
+		js: ["scripts/video-toolbar.js"],
+		matches: ["<all_urls>"],
+		runAt: "document_end"
+	},
+	youtubetweaks: {
+		id: SCRIPT_IDS.youtubetweaks,
+		js: ["scripts/youtube-tweaks.js"],
+		matches: ["*://*.youtube.com/*"],
+		runAt: "document_end"
+	},
+	keyboardshortcuts: {
+		id: SCRIPT_IDS.keyboardshortcuts,
+		js: ["scripts/keyboard-shortcuts.js"],
+		matches: ["<all_urls>"],
+		runAt: "document_end"
+	},
+	eastereggs: {
+		id: SCRIPT_IDS.eastereggs,
+		js: ["scripts/easter-egg.js"],
+		matches: ["<all_urls>"],
+		runAt: "document_end"
+	},
+	mousevolumescroll: {
+		id: SCRIPT_IDS.mousevolumescroll,
+		js: ["scripts/mouse-volume-scroll.js"],
+		matches: ["<all_urls>"],
+		runAt: "document_end"
 	}
 };
 
@@ -276,76 +341,84 @@ async function unregisterContentScript(scriptId){
 	}
 }
 
-// Function to manage content script based on storage setting
+// Function to manage content script based on one or more storage settings
 async function manageContentScript(settingKey, scriptConfig){
 	try{
 		const data = await chrome.storage.sync.get(settingKey);
-		if(data[settingKey]){
+		const enabled = Array.isArray(settingKey) ? settingKey.some((key) => data[key]) : data[settingKey];
+		if(enabled){
 			await registerContentScript(scriptConfig);
-			// console.log(`Registered script for ${settingKey}`);
+			// console.log(`Registered script for ${Array.isArray(settingKey) ? settingKey.join(",") : settingKey}`);
 		}else{
 			await unregisterContentScript(scriptConfig.id);
-			// console.log(`Unregistered script for ${settingKey}`);
+			// console.log(`Unregistered script for ${Array.isArray(settingKey) ? settingKey.join(",") : settingKey}`);
 		}
 	}catch(error){
-		console.error(`Error managing script for ${settingKey}:`, error);
+		console.error(`Error managing script for ${Array.isArray(settingKey) ? settingKey.join(",") : settingKey}:`, error);
 	}
 }
 
 // check and apply settings for each script
 manageContentScript("autostop", CONTENT_SCRIPTS.autostop);
 manageContentScript("block60fps", CONTENT_SCRIPTS.fps);
+manageContentScript("reflection", CONTENT_SCRIPTS.reflection);
+manageContentScript("ambilight", CONTENT_SCRIPTS.atmosphere);
+manageContentScript("gamepad", CONTENT_SCRIPTS.gamepad);
+manageContentScript(["videotool", "gamepad"], CONTENT_SCRIPTS.videotoolbar);
+manageContentScript("autodim", CONTENT_SCRIPTS.autodim);
+manageContentScript(["no360youtube", "autowidthyoutube", "customqualityyoutube"], CONTENT_SCRIPTS.youtubetweaks);
+manageContentScript("shortcutlight", CONTENT_SCRIPTS.keyboardshortcuts);
+manageContentScript("eastereggs", CONTENT_SCRIPTS.eastereggs);
+manageContentScript("videovolume", CONTENT_SCRIPTS.mousevolumescroll);
 //---
 
-function restcontent(path, name, sendertab){
-	fetch(path)
-		.then(function(response){
-			return response.text();
-		})
-		.then(function(text){
-			// console.log("The content = " + text);
-			chrome.tabs.sendMessage(sendertab, {name: name, message: text});
-		})
-		.catch(function(error){
-			console.error("Error fetching content:", error);
-		});
+async function restcontent(path, name, sendertab){
+	try{
+		const response = await fetch(path);
+		const text = await response.text();
+		// console.log("The content = " + text);
+		chrome.tabs.sendMessage(sendertab, {name: name, message: text});
+	}catch(error){
+		console.error("Error fetching content:", error);
+	}
 }
 
-chrome.storage.sync.get(["icon"], function(items){
-	if(items["icon"] == undefined){
+(async function(){
+	const items = await chrome.storage.sync.get(["icon"]);
+	let iconPath = items["icon"];
+	if(iconPath == undefined){
 		if(exbrowser == "safari"){
-			items["icon"] = "/images/iconstick38safari.png";
+			iconPath = "/images/iconstick38safari.png";
 		}else{
-			items["icon"] = "/images/iconstick38.png";
+			iconPath = "/images/iconstick38.png";
 		}
 	}
 	chrome.action.setIcon({
 		path : {
-			"19": items["icon"],
-			"38": items["icon"]
+			"19": iconPath,
+			"38": iconPath
 		}
 	});
-});
+})();
 
-chrome.tabs.onUpdated.addListener(function(){
-	getCurrentTab().then((thattab) => {
-		if(thattab.status == "complete"){
-			if(thattab.url.match(/^http/i)){
-				chrome.tabs.sendMessage(thattab.id, {action: "gorefreshvideonumber"});
-			}
+chrome.tabs.onUpdated.addListener(async function(){
+	const thattab = await getCurrentTab();
+	if(thattab.status == "complete"){
+		if(thattab.url.match(/^http/i)){
+			chrome.tabs.sendMessage(thattab.id, {action: "gorefreshvideonumber"});
 		}
+	}
 
-		chrome.storage.sync.get(["icon"], function(items){
-			if(items["icon"] == undefined){
-				if(exbrowser == "safari"){
-					items["icon"] = "/images/iconstick38safari.png";
-				}else{
-					items["icon"] = "/images/iconstick38.png";
-				}
-			}
-			chrome.action.setIcon({tabId : thattab.id, path : {"19": items["icon"], "38": items["icon"]}});
-		});
-	});
+	const items = await chrome.storage.sync.get(["icon"]);
+	let iconPath = items["icon"];
+	if(iconPath == undefined){
+		if(exbrowser == "safari"){
+			iconPath = "/images/iconstick38safari.png";
+		}else{
+			iconPath = "/images/iconstick38.png";
+		}
+	}
+	chrome.action.setIcon({tabId : thattab.id, path : {"19": iconPath, "38": iconPath}});
 });
 
 async function getCurrentTab(){
@@ -359,9 +432,10 @@ async function getPopupOpenLength(){
 	return total;
 }
 
-// Set click to zero at beginning
+// Transient state for double-click detection (250ms window)
+// Intentionally not persisted - resets on service worker termination
+// This is acceptable as it only affects click detection timing
 let clickbutton = 0;
-// Declare a timer variable
 let timer;
 
 if(exbrowser != "safari"){
@@ -371,38 +445,37 @@ if(exbrowser != "safari"){
 				chrome.action.setPopup({tabId: tab.id, popup:"popup.html"});
 			}else{
 				clickbutton += 1;
-				timer = setTimeout(function(){
-					getPopupOpenLength().then((thatpanellength) => {
-						if(thatpanellength != 0){
-							// console.log("Doubleclick");
-							// console.log("yes popup open")
-							clickbutton = 0;
-							clearTimeout(timer);
-						}else{
-							// console.log("no popup open")
-							if(clickbutton == 1){
-								chrome.storage.sync.get(["alllightsoff", "mousespotlights"], function(chromeset){
-									if((chromeset["mousespotlights"] != true)){ // regular lamp
-										if((chromeset["alllightsoff"] != true)){
-											chrome.scripting.executeScript({
-												target: {tabId: tab.id},
-												files: ["scripts/light.js"]
-											});
-										}else{
-											chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
-										}
-									}else{ // all tabs
-										// Night Mode profile
-										// Eye Protection profile
+				timer = setTimeout(async function(){
+					const thatpanellength = await getPopupOpenLength();
+					if(thatpanellength != 0){
+						// console.log("Doubleclick");
+						// console.log("yes popup open")
+						clickbutton = 0;
+						clearTimeout(timer);
+					}else{
+						// console.log("no popup open")
+						if(clickbutton == 1){
+							chrome.storage.sync.get(["alllightsoff", "mousespotlights"], function(chromeset){
+								if((chromeset["mousespotlights"] != true)){ // regular lamp
+									if((chromeset["alllightsoff"] != true)){
+										chrome.scripting.executeScript({
+											target: {tabId: tab.id},
+											files: ["scripts/light.js"]
+										});
+									}else{
 										chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
 									}
-								});
-							}
-							clickbutton = 0;
-							// Clear all timers
-							clearTimeout(timer);
+								}else{ // all tabs
+									// Night Mode profile
+									// Eye Protection profile
+									chrome.tabs.sendMessage(tab.id, {action: "masterclick"});
+								}
+							});
 						}
-					});
+						clickbutton = 0;
+						// Clear all timers
+						clearTimeout(timer);
+					}
 					chrome.action.setPopup({tabId: tab.id, popup:""});
 				}, 250);
 				chrome.action.setPopup({tabId: tab.id, popup:"palette.html"});
@@ -472,27 +545,25 @@ var lampandnightmode;
 // keyboard shortcuts only for desktop web browser
 // and not for Firefox Android mobile web browser
 if(chrome.commands && chrome.commands.onCommand){
-	chrome.commands.onCommand.addListener(function(command){
+	chrome.commands.onCommand.addListener(async function(command){
 		if(command == "toggle-feature-nightmode"){
-			chrome.storage.sync.get(["lampandnightmode"], function(response){
-				lampandnightmode = response["lampandnightmode"];
-				if(lampandnightmode == true){
-					chrome.runtime.sendMessage({name: "mastertabnight"});
-				}else{
-					getCurrentTab().then((thattab) => {
-						chrome.scripting.executeScript({
-							target: {tabId: thattab.id},
-							func: codenight
-						});
-					});
-				}
-			});
+			const response = await chrome.storage.sync.get(["lampandnightmode"]);
+			lampandnightmode = response["lampandnightmode"];
+			if(lampandnightmode == true){
+				chrome.runtime.sendMessage({name: "mastertabnight"});
+			}else{
+				const thattab = await getCurrentTab();
+				chrome.scripting.executeScript({
+					target: {tabId: thattab.id},
+					func: codenight
+				});
+			}
 		}
 	});
 }
 
 // contextMenus
-function onClickHandler(info, tab){
+async function onClickHandler(info, tab){
 	var str = info.menuItemId;
 	switch(true){
 	case(str.includes("totlvideo") || str.includes("totlpage")):
@@ -501,72 +572,72 @@ function onClickHandler(info, tab){
 			files: ["scripts/light.js"]
 		});
 		break;
-	case(str.includes("autodimpage")):
-		chrome.storage.sync.get(["autodimDomains"], function(items){
-			var autodimDomains = items["autodimDomains"];
-			// Check website is in the list
-			// then add it or remove it
-			var thaturl = new URL(tab.url);
-			var currenttoggledomain = thaturl.protocol + "//" + thaturl.hostname;
-			autodimDomains = JSON.parse(autodimDomains);
-			if(autodimDomains[currenttoggledomain]){
-				// If it is in the list, remove it
-				delete autodimDomains[currenttoggledomain];
-			}else{
-				// If it is not in the list, add it
-				autodimDomains[currenttoggledomain] = true;
-			}
-			autodimDomains = JSON.stringify(autodimDomains);
-			// enable the autodimonly feature because you are going to whitelist/blacklist this feature now
-			chrome.storage.sync.set({"autodim": true, "autodimonly": true, "autodimDomains": autodimDomains});
-			// send notification message to the user
-			chromerefreshalltabs("gotoggleautodim");
-		});
+	case(str.includes("autodimpage")): {
+		const items = await chrome.storage.sync.get(["autodimDomains"]);
+		var autodimDomains = items["autodimDomains"];
+		// Check website is in the list
+		// then add it or remove it
+		var thaturldim = new URL(tab.url);
+		var currenttoggledomain = thaturldim.protocol + "//" + thaturldim.hostname;
+		autodimDomains = JSON.parse(autodimDomains);
+		if(autodimDomains[currenttoggledomain]){
+			// If it is in the list, remove it
+			delete autodimDomains[currenttoggledomain];
+		}else{
+			// If it is not in the list, add it
+			autodimDomains[currenttoggledomain] = true;
+		}
+		autodimDomains = JSON.stringify(autodimDomains);
+		// enable the autodimonly feature because you are going to whitelist/blacklist this feature now
+		await chrome.storage.sync.set({"autodim": true, "autodimonly": true, "autodimDomains": autodimDomains});
+		// send notification message to the user
+		chromerefreshalltabs("gotoggleautodim");
 		break;
-	case(str.includes("autostoppage")):
-		chrome.storage.sync.get(["autostopDomains"], function(items){
-			var autostopDomains = items["autostopDomains"];
-			// Check website is in the list
-			// then add it or remove it
-			var thaturl = new URL(tab.url);
-			var currenttoggledomain = thaturl.protocol + "//" + thaturl.hostname;
-			autostopDomains = JSON.parse(autostopDomains);
-			if(autostopDomains[currenttoggledomain]){
-				// If it is in the list, remove it
-				delete autostopDomains[currenttoggledomain];
-			}else{
-				// If it is not in the list, add it
-				autostopDomains[currenttoggledomain] = true;
-			}
-			autostopDomains = JSON.stringify(autostopDomains);
-			// enable the autostoponly feature because you are going to whitelist/blacklist this feature now
-			chrome.storage.sync.set({"autostop": true, "autostoponly": true, "autostopDomains": autostopDomains});
-			// send notification message to the user
-			chromerefreshalltabs("gotoggleautostop");
-		});
+	}
+	case(str.includes("autostoppage")): {
+		const items = await chrome.storage.sync.get(["autostopDomains"]);
+		var autostopDomains = items["autostopDomains"];
+		// Check website is in the list
+		// then add it or remove it
+		var thaturlstop = new URL(tab.url);
+		var currenttoggledomainstop = thaturlstop.protocol + "//" + thaturlstop.hostname;
+		autostopDomains = JSON.parse(autostopDomains);
+		if(autostopDomains[currenttoggledomainstop]){
+			// If it is in the list, remove it
+			delete autostopDomains[currenttoggledomainstop];
+		}else{
+			// If it is not in the list, add it
+			autostopDomains[currenttoggledomainstop] = true;
+		}
+		autostopDomains = JSON.stringify(autostopDomains);
+		// enable the autostoponly feature because you are going to whitelist/blacklist this feature now
+		await chrome.storage.sync.set({"autostop": true, "autostoponly": true, "autostopDomains": autostopDomains});
+		// send notification message to the user
+		chromerefreshalltabs("gotoggleautostop");
 		break;
-	case(str.includes("nightmodepage")):
-		chrome.storage.sync.get(["nightDomains"], function(items){
-			var nightDomains = items["nightDomains"];
-			// Check website is in the list
-			// then add it or remove it
-			var thaturl = new URL(tab.url);
-			var currenttoggledomain = thaturl.protocol + "//" + thaturl.hostname;
-			nightDomains = JSON.parse(nightDomains);
-			if(nightDomains[currenttoggledomain]){
-				// If it is in the list, remove it
-				delete nightDomains[currenttoggledomain];
-			}else{
-				// If it is not in the list, add it
-				nightDomains[currenttoggledomain] = true;
-			}
-			nightDomains = JSON.stringify(nightDomains);
-			// enable the nightonly feature because you are going to whitelist/blacklist this feature now
-			chrome.storage.sync.set({"nightonly": true, "nightDomains": nightDomains});
-			// send notification message to the user
-			chromerefreshalltabs("gotogglenightmode");
-		});
+	}
+	case(str.includes("nightmodepage")): {
+		const items = await chrome.storage.sync.get(["nightDomains"]);
+		var nightDomains = items["nightDomains"];
+		// Check website is in the list
+		// then add it or remove it
+		var thaturlnight = new URL(tab.url);
+		var currenttoggledomainnight = thaturlnight.protocol + "//" + thaturlnight.hostname;
+		nightDomains = JSON.parse(nightDomains);
+		if(nightDomains[currenttoggledomainnight]){
+			// If it is in the list, remove it
+			delete nightDomains[currenttoggledomainnight];
+		}else{
+			// If it is not in the list, add it
+			nightDomains[currenttoggledomainnight] = true;
+		}
+		nightDomains = JSON.stringify(nightDomains);
+		// enable the nightonly feature because you are going to whitelist/blacklist this feature now
+		await chrome.storage.sync.set({"nightonly": true, "nightDomains": nightDomains});
+		// send notification message to the user
+		chromerefreshalltabs("gotogglenightmode");
 		break;
+	}
 	case(str.includes("totlguideemenu")): chrome.tabs.create({url: linkguide, active:true});
 		break;
 	case(str.includes("totldevelopmenu")): chrome.tabs.create({url: linkdonate, active:true});
@@ -609,10 +680,8 @@ var sharemenuwelcomeguidetitle = chrome.i18n.getMessage("sharemenuwelcomeguideti
 var sharemenutellafriend = chrome.i18n.getMessage("sharemenutellafriend");
 var sharemenusendapost = chrome.i18n.getMessage("sharemenusendapost");
 var sharemenupostonfacebook = chrome.i18n.getMessage("sharemenupostonfacebook");
-// var sharemenuratetitle = chrome.i18n.getMessage("sharemenuratetitle");
 var sharemenudonatetitle = chrome.i18n.getMessage("sharemenudonatetitle");
 var sharemenusupporttitle = chrome.i18n.getMessage("reportbug");
-// var sharemenusubscribetitle = chrome.i18n.getMessage("desremyoutube");
 var sharemenupostonweibo = chrome.i18n.getMessage("sharemenupostonweibo");
 var sharemenupostonvkontakte = chrome.i18n.getMessage("sharemenupostonvkontakte");
 var sharemenupostonwhatsapp = chrome.i18n.getMessage("sharemenupostonwhatsapp");
@@ -632,7 +701,8 @@ function browsercontext(a, b, c, d){
 		// try show web browsers that do support "icons"
 		// Firefox, Opera, Microsoft Edge
 		return chrome.contextMenus.create(newitem);
-	}catch(e){
+	}catch{
+		// console.log(e);
 		// catch web browsers that do NOT show the icon
 		// Google Chrome
 		return chrome.contextMenus.create(item);
@@ -651,7 +721,6 @@ if(chrome.contextMenus){
 		}else{
 			browsercontext(sharemenudonatetitle, "totldevelopmenu", {"16": "images/IconDonate.png", "32": "images/IconDonate@2x.png"});
 		}
-		// browsercontext(sharemenuratetitle, "totlratemenu", {"16": "images/IconStar.png", "32": "images/IconStar@2x.png"});
 
 		// Create a parent item and two children.
 		var parent = null;
@@ -676,8 +745,6 @@ if(chrome.contextMenus){
 			browsercontext(sharemenupostonwhatsapp, "totlsharewhatsapp", {"16": "images/IconWhatsApp.png", "32": "images/IconWhatsApp@2x.png"}, parent);
 			browsercontext(sharemenusendapost, "totlsharex", {"16": "images/IconX.png", "32": "images/IconX@2x.png"}, parent);
 		}
-
-		// browsercontext(sharemenusubscribetitle, "totlsubscribe", {"16": "images/IconYouTube.png", "32": "images/IconYouTube@2x.png"});
 
 		if(exbrowser == "safari" || exbrowser == "firefox"){
 			chrome.contextMenus.create({"title": "", "type":"separator", "id": "totlsepartor", "contexts": contexts});
@@ -816,7 +883,7 @@ function removepagenightmode(){
 function checkreturnpolicyvalues(a, b, c){
 	if(a[b] && Object.prototype.hasOwnProperty.call(policygrouparray, c)){
 		if(a[b].newValue != policygrouparray[c]){
-			chrome.storage.sync.set({b: policygrouparray[c]});
+			chrome.storage.sync.set({[b]: policygrouparray[c]});
 		}
 	}
 }
@@ -828,26 +895,218 @@ function onchangestorage(a, b, c, d){
 }
 
 var key;
-chrome.storage.onChanged.addListener(function(changes){
+chrome.storage.onChanged.addListener(async function(changes){
 	for(key in changes){
 		onchangestorage(changes, "contextmenus", checkcontextmenus, removecontexmenus);
 		onchangestorage(changes, "pageautodim", checkpageautodim, removepageautodim);
 		onchangestorage(changes, "pageautostop", checkpageautostop, removepageautostop);
 		onchangestorage(changes, "pagenightmode", checkpagenightmode, removepagenightmode);
-		if(changes["icon"]){
-			if(changes["icon"].newValue){
-				chrome.tabs.query({}, function(tabs){
-					var i, l = tabs.length;
-					for(i = 0; i < l; i++){
-						chrome.action.setIcon({tabId : tabs[i].id,
-							path : {
-								"19": changes["icon"].newValue,
-								"38": changes["icon"].newValue
-							}
-						});
+
+		// Handle autostop content script registration
+		if(changes["autostop"]){
+			if(changes["autostop"].newValue === true){
+				manageContentScript("autostop", CONTENT_SCRIPTS.autostop);
+			}else{
+				unregisterContentScript(SCRIPT_IDS.autostop);
+			}
+		}
+
+		// Handle youtube tweaks content script registration
+		if(changes["no360youtube"] || changes["autowidthyoutube"] || changes["customqualityyoutube"]){
+			manageContentScript(["no360youtube", "autowidthyoutube", "customqualityyoutube"], CONTENT_SCRIPTS.youtubetweaks);
+		}
+
+		// Handle keyboard shortcuts content script registration
+		if(changes["shortcutlight"]){
+			if(changes["shortcutlight"].newValue === true){
+				manageContentScript("shortcutlight", CONTENT_SCRIPTS.keyboardshortcuts);
+				// Inject script into existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.startsWith("http://") || tab.url.startsWith("https://"))){
+						try{
+							await chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/keyboard-shortcuts.js"]
+							});
+						}catch{
+							// Ignore errors for tabs where script can't be injected
+						}
 					}
 				}
-				);
+			}else{
+				unregisterContentScript(SCRIPT_IDS.keyboardshortcuts);
+				// Stop keyboard shortcuts in existing tabs
+				chromerefreshalltabs("gorefreshshortcut");
+			}
+		}
+
+		// Handle eastereggs content script registration
+		if(changes["eastereggs"]){
+			if(changes["eastereggs"].newValue === true){
+				manageContentScript("eastereggs", CONTENT_SCRIPTS.eastereggs);
+				// Inject script into existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.startsWith("http://") || tab.url.startsWith("https://"))){
+						try{
+							await chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/easter-egg.js"]
+							});
+						}catch{
+							// Ignore errors for tabs where script can't be injected
+						}
+					}
+				}
+			}else{
+				unregisterContentScript(SCRIPT_IDS.eastereggs);
+				// Stop eastereggs in existing tabs
+				chromerefreshalltabs("gorefresheastereggs");
+			}
+		}
+
+		// Handle reflection content script registration
+		if(changes["reflection"]){
+			if(changes["reflection"].newValue === true){
+				manageContentScript("reflection", CONTENT_SCRIPTS.reflection);
+				// Inject script into existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.startsWith("http://") || tab.url.startsWith("https://"))){
+						try{
+							await chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/reflection.js"]
+							});
+						}catch{
+							// Ignore errors for tabs where script can't be injected
+						}
+					}
+				}
+			}else{
+				unregisterContentScript(SCRIPT_IDS.reflection);
+				// Stop reflection in existing tabs
+				chromerefreshalltabs("gorefreshreflection");
+			}
+		}
+
+		// Handle autodim content script registration
+		if(changes["autodim"]){
+			if(changes["autodim"].newValue === true){
+				manageContentScript("autodim", CONTENT_SCRIPTS.autodim);
+				// Inject script into existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.startsWith("http://") || tab.url.startsWith("https://"))){
+						try{
+							await chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/autodim.js"]
+							});
+						}catch{
+							// Ignore errors for tabs where script can't be injected
+						}
+					}
+				}
+			}else{
+				unregisterContentScript(SCRIPT_IDS.autodim);
+				// Stop autodim in existing tabs
+				chromerefreshalltabs("gorefreshautodim");
+			}
+		}
+
+		// Handle block60fps content script registration
+		if(changes["block60fps"]){
+			if(changes["block60fps"].newValue === true){
+				manageContentScript("block60fps", CONTENT_SCRIPTS.fps);
+			}else{
+				unregisterContentScript(SCRIPT_IDS.fps);
+			}
+		}
+
+		// Handle gamepad content script registration
+		if(changes["gamepad"]){
+			if(changes["gamepad"].newValue === true){
+				manageContentScript("gamepad", CONTENT_SCRIPTS.gamepad);
+				// Inject script into existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.startsWith("http://") || tab.url.startsWith("https://"))){
+						try{
+							await chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/gamepad.js"]
+							});
+						}catch{
+							// Ignore errors for tabs where script can't be injected
+						}
+					}
+				}
+			}else{
+				unregisterContentScript(SCRIPT_IDS.gamepad);
+				// Stop gamepad in existing tabs
+				chromerefreshalltabs("gorefreshgamepad");
+			}
+		}
+
+		// Handle video toolbar content script registration
+		if(changes["videotool"] || changes["gamepad"]){
+			await manageContentScript(["videotool", "gamepad"], CONTENT_SCRIPTS.videotoolbar);
+			const videotoolbarenabled = (changes["videotool"] && changes["videotool"].newValue === true) || (changes["gamepad"] && changes["gamepad"].newValue === true);
+			if(videotoolbarenabled){
+				// Inject script into existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.startsWith("http://") || tab.url.startsWith("https://"))){
+						try{
+							await chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/video-toolbar.js"]
+							});
+						}catch{
+							// Ignore errors for tabs where script can't be injected
+						}
+					}
+				}
+			}
+		}
+
+		// Handle ambilight content script registration
+		if(changes["ambilight"]){
+			if(changes["ambilight"].newValue === true){
+				manageContentScript("ambilight", CONTENT_SCRIPTS.atmosphere);
+				// Inject script into existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.startsWith("http://") || tab.url.startsWith("https://"))){
+						try{
+							await chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/atmosphere.js"]
+							});
+						}catch{
+							// Ignore errors for tabs where script can't be injected
+						}
+					}
+				}
+			}else{
+				unregisterContentScript(SCRIPT_IDS.atmosphere);
+				// Stop atmosphere in existing tabs
+				chromerefreshalltabs("goenableatmos");
+			}
+		}
+		if(changes["icon"]){
+			if(changes["icon"].newValue){
+				const allTabs = await chrome.tabs.query({});
+				for(const tab of allTabs){
+					chrome.action.setIcon({tabId : tab.id,
+						path : {
+							"19": changes["icon"].newValue,
+							"38": changes["icon"].newValue
+						}
+					});
+				}
 			}
 		}
 		if(changes["ecosaver"]){
@@ -870,8 +1129,34 @@ chrome.storage.onChanged.addListener(function(changes){
 			chromerefreshalltabs("gorefreshvideofilled");
 		}
 
-		var changenamevolume = ["videovolume", "videovolumealt", "videovolumehold", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumecolor", "videovolumelabel", "videovolumesteps", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose"];
+		// Handle mouse volume scroll content script registration
+		if(changes["videovolume"]){
+			if(changes["videovolume"].newValue === true){
+				manageContentScript("videovolume", CONTENT_SCRIPTS.mousevolumescroll);
+				// Inject script into existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.startsWith("http://") || tab.url.startsWith("https://"))){
+						try{
+							await chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/mouse-volume-scroll.js"]
+							});
+						}catch{
+							// Ignore errors for tabs where script can't be injected
+						}
+					}
+				}
+			}else{
+				unregisterContentScript(SCRIPT_IDS.mousevolumescroll);
+				// Stop mouse volume scroll in existing tabs
+				chromerefreshalltabs("gorefreshmousescroll");
+			}
+		}
+
+		var changenamevolume = ["videovolumealt", "videovolumehold", "videovolumeposa", "videovolumeposb", "videovolumeposc", "videovolumecolor", "videovolumelabel", "videovolumesteps", "videovolumeonly", "videovolumeDomains", "videovolumechecklistwhite", "videovolumechecklistblack", "videovolumescrolla", "videovolumescrollb", "videovolumescrollc", "videovolumeposd", "videovolumepose"];
 		if(changenamevolume.includes(key)){
+			// Refresh existing tabs with the new settings
 			chromerefreshalltabs("gorefreshmousescroll");
 		}
 
@@ -916,13 +1201,37 @@ chrome.storage.onChanged.addListener(function(changes){
 			chromerefreshalltabs("gorefreshgamepad");
 		}
 
-		if(changes["autostop"]){
-			manageContentScript("autostop", CONTENT_SCRIPTS.autostop);
+		var changenameshake = ["mouseshake", "mouseshakesensitivity"];
+		if(changenameshake.includes(key)){
+			chromerefreshalltabs("gorefreshmouseshake");
 		}
 
-		// Check if "block60fps" setting has changed
-		if(changes["block60fps"]){
-			manageContentScript("block60fps", CONTENT_SCRIPTS.fps);
+		// Handle screenshader feature changes
+		if(changes["mousespotlights"] || changes["screenshader"]){
+			const response = await chrome.storage.sync.get(["mousespotlights", "screenshader"]);
+			if(response["mousespotlights"] === true && response["screenshader"] === true){
+				// Inject screen-shader.js into all existing tabs
+				const tabs = await chrome.tabs.query({});
+				for(const tab of tabs){
+					if(tab.url && (tab.url.match(/^http/i) || tab.url.match(/^file/i))){
+						if(exbrowser != "safari"){
+							chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/screen-shader.js"],
+								injectImmediately: true
+							}, () => void chrome.runtime.lastError);
+						}else{
+							chrome.scripting.executeScript({
+								target: {tabId: tab.id},
+								files: ["scripts/screen-shader.js"]
+							}, () => void chrome.runtime.lastError);
+						}
+					}
+				}
+			}else{
+				// Remove screenshader from all existing tabs
+				chromerefreshalltabs("goclearscreenshader");
+			}
 		}
 
 		// Group Policy
@@ -938,25 +1247,24 @@ chrome.storage.onChanged.addListener(function(changes){
 	}
 });
 
-function chromerefreshalltabs(name){
-	chrome.tabs.query({}, function(tabs){
-		var i, l = tabs.length;
-		for(i = 0; i < l; i++){
-			var protocol = tabs[i].url.split(":")[0];
-			if(protocol == "http" || protocol == "https"){
-				// chrome.tabs.sendMessage(tabs[i].id, {action: name});
-				let rtnPromise = chrome.tabs.sendMessage(tabs[i].id, {action: name});
-				rtnPromise.then(()=> {
-					// Callback Function Processes
-					// console.log(response);
-				}).catch(()=> {
-					// Error Handling Processes
-					// This will hide the message when the browser extension is reloaded and the chrome.runtime.onMessage.addListener is not connected with this browser extension
-					// console.log(error);
-				});
+async function chromerefreshalltabs(name){
+	const tabs = await chrome.tabs.query({});
+	var i, l = tabs.length;
+	for(i = 0; i < l; i++){
+		var protocol = tabs[i].url.split(":")[0];
+		if(protocol == "http" || protocol == "https"){
+			// chrome.tabs.sendMessage(tabs[i].id, {action: name});
+			try{
+				await chrome.tabs.sendMessage(tabs[i].id, {action: name});
+				// Callback Function Processes
+				// console.log(response);
+			}catch{
+				// Error Handling Processes
+				// This will hide the message when the browser extension is reloaded and the chrome.runtime.onMessage.addListener is not connected with this browser extension
+				// console.log(error);
 			}
 		}
-	});
+	}
 }
 
 // omnibox
@@ -980,33 +1288,30 @@ if(typeof chrome.omnibox !== "undefined"){
 		});
 
 	chrome.omnibox.onInputEntered.addListener(
-		function(text){
+		async function(text){
 			var onmniresult = text.toLowerCase();
 			if(onmniresult == i18nomninightmode){
 				omnidaynightmode(1);
 			}else if(onmniresult == i18nomnidaymode){
 				omnidaynightmode(0);
-			}else if(onmniresult == i18nomnilightoff || text == i18nomnilighton){
-				getCurrentTab().then((thattab) => {
-					chrome.scripting.executeScript({
-						target: {tabId: thattab.id},
-						files: ["scripts/light.js"]
-					});
+			}else if(onmniresult == i18nomnilightoff || onmniresult == i18nomnilighton){
+				const thattab = await getCurrentTab();
+				chrome.scripting.executeScript({
+					target: {tabId: thattab.id},
+					files: ["scripts/light.js"]
 				});
 			}else if(onmniresult == i18nomnihelp){
-				getCurrentTab().then((thattab) => {
-					chrome.tabs.update(thattab.id, {url: linksupport});
-				});
+				const thattab = await getCurrentTab();
+				chrome.tabs.update(thattab.id, {url: linksupport});
 			}
 		});
 }
 
-function omnidaynightmode(a){
+async function omnidaynightmode(a){
 	var result = "";
 	if(a == 0){ result = "day"; }else{ result = "night"; }
-	getCurrentTab().then((thattab) => {
-		chrome.tabs.sendMessage(thattab.id, {action: "goinnightmode", value:result});
-	});
+	const thattab = await getCurrentTab();
+	chrome.tabs.sendMessage(thattab.id, {action: "goinnightmode", value:result});
 }
 
 function initwelcome(){
@@ -1050,6 +1355,75 @@ function readgrouppolicy(items){
 		setsavegroup(items.MouseVolumeScroll, "videovolume");
 		setsavegroup(items.VideoToolbar, "videotool");
 
+		// Default dimmed layer color
+		if(items.DefaultDimColor){ savinggroup["lightcolor"] = items.DefaultDimColor; }
+
+		// Default opacity
+		if(items.DefaultOpacity != null){ savinggroup["interval"] = items.DefaultOpacity; }
+
+		// Night mode scope
+		if(items.NightModeScope == "domainlist"){
+			savinggroup["nightonly"] = true;
+		}else if(items.NightModeScope == "all"){
+			savinggroup["nightonly"] = false;
+		}
+
+		// Night mode filter type
+		if(items.NightModeFilterType == "whitelist"){
+			savinggroup["nightmodechecklistwhite"] = true;
+			savinggroup["nightmodechecklistblack"] = false;
+		}else if(items.NightModeFilterType == "blacklist"){
+			savinggroup["nightmodechecklistwhite"] = false;
+			savinggroup["nightmodechecklistblack"] = true;
+		}
+
+		// Night mode domain list
+		if(items.NightModeDomainList){
+			savinggroup["nightDomains"] = JSON.stringify(items.NightModeDomainList);
+		}
+
+		// Night mode engine
+		if(items.NightModeEngine == "standard"){
+			savinggroup["nightmodestandard"] = true;
+			savinggroup["nightmodepersonalized"] = false;
+		}else if(items.NightModeEngine == "personalized"){
+			savinggroup["nightmodestandard"] = false;
+			savinggroup["nightmodepersonalized"] = true;
+		}
+
+		// Night mode colors
+		if(items.NightModeBackgroundColor){ savinggroup["nightmodebck"] = items.NightModeBackgroundColor; }
+		if(items.NightModeTextColor){ savinggroup["nightmodetxt"] = items.NightModeTextColor; }
+		if(items.NightModeHyperlinkColor){ savinggroup["nightmodehyperlink"] = items.NightModeHyperlinkColor; }
+		if(items.NightModeButtonColor){ savinggroup["nightmodebutton"] = items.NightModeButtonColor; }
+		if(items.NightModeBorderColor){ savinggroup["nightmodeborder"] = items.NightModeBorderColor; }
+
+		// Eye protection
+		setsavegroup(items.EyeProtection, "eyen");
+
+		// Eye protection scope
+		if(items.EyeProtectionScope == "all"){
+			savinggroup["eyea"] = true;
+			savinggroup["eyealist"] = false;
+		}else if(items.EyeProtectionScope == "domainlist"){
+			savinggroup["eyea"] = false;
+			savinggroup["eyealist"] = true;
+		}
+
+		// Eye protection filter type
+		if(items.EyeProtectionFilterType == "whitelist"){
+			savinggroup["eyechecklistwhite"] = true;
+			savinggroup["eyechecklistblack"] = false;
+		}else if(items.EyeProtectionFilterType == "blacklist"){
+			savinggroup["eyechecklistwhite"] = false;
+			savinggroup["eyechecklistblack"] = true;
+		}
+
+		// Eye protection domain list
+		if(items.EyeProtectionDomainList){
+			savinggroup["excludedDomains"] = JSON.stringify(items.EyeProtectionDomainList);
+		}
+
 		// save total group policy
 		chrome.storage.sync.set(savinggroup);
 	}
@@ -1089,6 +1463,101 @@ if(chrome.storage.managed){
 		}
 		if(changes["VideoToolbar"]){
 			updatesavinggroup["videotool"] = changes["VideoToolbar"].newValue;
+		}
+
+		// Default dimmed layer color
+		if(changes["DefaultDimColor"]){
+			updatesavinggroup["lightcolor"] = changes["DefaultDimColor"].newValue;
+		}
+
+		// Default opacity
+		if(changes["DefaultOpacity"]){
+			updatesavinggroup["interval"] = changes["DefaultOpacity"].newValue;
+		}
+
+		// Night mode scope
+		if(changes["NightModeScope"]){
+			if(changes["NightModeScope"].newValue == "domainlist"){
+				updatesavinggroup["nightonly"] = true;
+			}else{
+				updatesavinggroup["nightonly"] = false;
+			}
+		}
+
+		// Night mode filter type
+		if(changes["NightModeFilterType"]){
+			if(changes["NightModeFilterType"].newValue == "whitelist"){
+				updatesavinggroup["nightmodechecklistwhite"] = true;
+				updatesavinggroup["nightmodechecklistblack"] = false;
+			}else{
+				updatesavinggroup["nightmodechecklistwhite"] = false;
+				updatesavinggroup["nightmodechecklistblack"] = true;
+			}
+		}
+
+		// Night mode domain list
+		if(changes["NightModeDomainList"]){
+			updatesavinggroup["nightDomains"] = JSON.stringify(changes["NightModeDomainList"].newValue);
+		}
+
+		// Night mode engine
+		if(changes["NightModeEngine"]){
+			if(changes["NightModeEngine"].newValue == "standard"){
+				updatesavinggroup["nightmodestandard"] = true;
+				updatesavinggroup["nightmodepersonalized"] = false;
+			}else{
+				updatesavinggroup["nightmodestandard"] = false;
+				updatesavinggroup["nightmodepersonalized"] = true;
+			}
+		}
+
+		// Night mode colors
+		if(changes["NightModeBackgroundColor"]){
+			updatesavinggroup["nightmodebck"] = changes["NightModeBackgroundColor"].newValue;
+		}
+		if(changes["NightModeTextColor"]){
+			updatesavinggroup["nightmodetxt"] = changes["NightModeTextColor"].newValue;
+		}
+		if(changes["NightModeHyperlinkColor"]){
+			updatesavinggroup["nightmodehyperlink"] = changes["NightModeHyperlinkColor"].newValue;
+		}
+		if(changes["NightModeButtonColor"]){
+			updatesavinggroup["nightmodebutton"] = changes["NightModeButtonColor"].newValue;
+		}
+		if(changes["NightModeBorderColor"]){
+			updatesavinggroup["nightmodeborder"] = changes["NightModeBorderColor"].newValue;
+		}
+
+		// Eye protection
+		if(changes["EyeProtection"]){
+			updatesavinggroup["eyen"] = changes["EyeProtection"].newValue;
+		}
+
+		// Eye protection scope
+		if(changes["EyeProtectionScope"]){
+			if(changes["EyeProtectionScope"].newValue == "all"){
+				updatesavinggroup["eyea"] = true;
+				updatesavinggroup["eyealist"] = false;
+			}else{
+				updatesavinggroup["eyea"] = false;
+				updatesavinggroup["eyealist"] = true;
+			}
+		}
+
+		// Eye protection filter type
+		if(changes["EyeProtectionFilterType"]){
+			if(changes["EyeProtectionFilterType"].newValue == "whitelist"){
+				updatesavinggroup["eyechecklistwhite"] = true;
+				updatesavinggroup["eyechecklistblack"] = false;
+			}else{
+				updatesavinggroup["eyechecklistwhite"] = false;
+				updatesavinggroup["eyechecklistblack"] = true;
+			}
+		}
+
+		// Eye protection domain list
+		if(changes["EyeProtectionDomainList"]){
+			updatesavinggroup["excludedDomains"] = JSON.stringify(changes["EyeProtectionDomainList"].newValue);
 		}
 
 		// update save total group policy

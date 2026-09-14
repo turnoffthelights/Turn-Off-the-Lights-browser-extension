@@ -3,7 +3,7 @@ import SwiftUI
 struct MenuItem: Identifiable {
     let id = UUID()
     let titleKey: LocalizedStringKey
-    let url: URL
+    let url: URL?
 }
 
 struct AboutView: View {
@@ -11,15 +11,23 @@ struct AboutView: View {
     @State private var isShareSheetPresented = false
     
     let helpItems: [MenuItem] = [
-        MenuItem(titleKey: "Developer Website", url: URL(string: StefanLinks().linkdeveloperwebsite())!),
-        MenuItem(titleKey: "Privacy Policy", url: URL(string: StefanLinks().linkprivacy())!),
-        MenuItem(titleKey: "Support", url: URL(string: StefanLinks().linksupport())!)
+        MenuItem(titleKey: "Developer Website", url: URL(string: StefanLinks().linkdeveloperwebsite())),
+        MenuItem(titleKey: "Privacy Policy", url: URL(string: StefanLinks().linkprivacy())),
+        MenuItem(titleKey: "Support", url: URL(string: StefanLinks().linksupport()))
     ]
     
     private var versionNumber: String {
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
         let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "?"
         return "\(appVersion) (\(buildNumber))"
+    }
+    
+    private var currentYear: String {
+        String(Calendar.current.component(.year, from: Date()))
+    }
+    
+    private var copyrightText: String {
+        "© \(currentYear) Stefan vd"
     }
     
     var body: some View {
@@ -51,7 +59,7 @@ struct AboutView: View {
                     
                     HStack{
                         Text("Copyright")
-                        Text("© 2025 Stefan vd")
+                        Text(copyrightText)
                     }
                     .accessibilityElement(children: .combine)
                     
@@ -66,7 +74,9 @@ struct AboutView: View {
                 Section("Help") {
                     ForEach(helpItems) { menuItem in
                         Button(action: {
-                            StefanLinks().openURL(menuItem.url)
+                            if let url = menuItem.url {
+                                StefanLinks().openURL(url)
+                            }
                         }) {
                             Text(menuItem.titleKey)
                         }
@@ -77,14 +87,18 @@ struct AboutView: View {
                 Section(header: Text("Contribute & Develop"))
                 {
                     Button(action: {
-                        StefanFunctions().openURL(URL(string: StefanLinks().linktranslate())!)
+                        if let url = URL(string: StefanLinks().linktranslate()) {
+                            StefanFunctions().openURL(url)
+                        }
                     }) {
                         Text("Help Translate Browser Extension")
                     }
                     .accessibilityHint(Text("Opens in your web browser"))
                     
                     Button(action: {
-                        StefanFunctions().openURL(URL(string: StefanLinks().linksourcecode())!)
+                        if let url = URL(string: StefanLinks().linksourcecode()) {
+                            StefanFunctions().openURL(url)
+                        }
                     }) {
                         Text("View Open-Source Code")
                     }
@@ -128,7 +142,10 @@ struct AboutView: View {
         }
     }
     
-    var productURL = URL(string: StefanLinks().webappturnoffthelights())!
+    var productURL: URL {
+        URL(string: StefanLinks().webappturnoffthelights())
+            ?? URL(string: "https://apps.apple.com/app/id1273998507")!
+    }
     
     func openreview() {
         var components = URLComponents(url: productURL, resolvingAgainstBaseURL: false)

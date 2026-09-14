@@ -29,11 +29,35 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 
 function $(id){ return document.getElementById(id); }
 // settings
-var default_opacity = null, suggestions = null, playlist = null, videoheadline = null, flash = null, head = null, infobar = null, likebutton = null, sharebutton = null, viewcount = null, addvideobutton = null, likebar = null, mousespotlighto = null, mousespotlightc = null, mousespotlighta = null, lightcolor = null, lightimagea = null, lightimage = null, interval = null, fadein = null, fadeout = null, readera = null, readerlargestyle = null, mousespotlightt = null, password = null, enterpassword = null, hardflash = null, dynamic = null, dynamic1 = null, dynamic2 = null, dynamic3 = null, dynamic4 = null, dynamic5 = null, dynamic6 = null, dynamic7 = null, dynamic8 = null, dynamic9 = null, dynamic10 = null, dynamic11 = null, dynamic12 = null, hoveroptiondyn5 = null, hoveroptiondyn11 = null, blur = null, cinemaontop = null, spotlightradius = null, slideeffect = null, lightimagelin = null, linearsq = null, colora = null, intervallina = null, colorb = null, intervallinb = null, no360youtube = null, mousespotlights = null, titleinvertcolor = null, darkbrowsertheme = null, multiopacall = null, multiopacsel = null, multiopacityDomains = null, lampandnightmode = null;
+var default_opacity = null, suggestions = null, playlist = null, videoheadline = null, flash = null, head = null, infobar = null, likebutton = null, sharebutton = null, viewcount = null, addvideobutton = null, mousespotlighto = null, mousespotlightc = null, mousespotlighta = null, lightcolor = null, lightimagea = null, lightimage = null, interval = null, fadein = null, fadeout = null, readera = null, readerlargestyle = null, mousespotlightt = null, password = null, enterpassword = null, hardflash = null, dynamic = null, dynamic1 = null, dynamic2 = null, dynamic3 = null, dynamic4 = null, dynamic5 = null, dynamic6 = null, dynamic7 = null, dynamic8 = null, dynamic9 = null, dynamic10 = null, dynamic11 = null, dynamic12 = null, hoveroptiondyn5 = null, hoveroptiondyn11 = null, blur = null, cinemaontop = null, spotlightradius = null, slideeffect = null, lightimagelin = null, linearsq = null, colora = null, intervallina = null, colorb = null, intervallinb = null, no360youtube = null, mousespotlights = null, titleinvertcolor = null, darkbrowsertheme = null, multiopacall = null, multiopacsel = null, multiopacityDomains = null, lampandnightmode = null;
 // html elements used
 var div = null, video = null;
 // block lights
 var activatelightsoff = true;
+var totlAnnouncer = null;
+
+function ensureAnnouncer(){
+	if(!totlAnnouncer){
+		totlAnnouncer = document.getElementById("stefanvd-aria-announcer");
+	}
+	if(!totlAnnouncer){
+		totlAnnouncer = document.createElement("div");
+		totlAnnouncer.id = "stefanvd-aria-announcer";
+		totlAnnouncer.setAttribute("role", "status");
+		totlAnnouncer.setAttribute("aria-live", "polite");
+		totlAnnouncer.setAttribute("aria-atomic", "true");
+		totlAnnouncer.style.position = "absolute";
+		totlAnnouncer.style.left = "-10000px";
+		totlAnnouncer.style.width = "1px";
+		totlAnnouncer.style.height = "1px";
+		totlAnnouncer.style.overflow = "hidden";
+		totlAnnouncer.textContent = "";
+		document.body.appendChild(totlAnnouncer);
+	}
+}
+if(document.body){
+	ensureAnnouncer();
+}
 
 // On message listener for the light and dynamic CSS
 function onMessageHandler(request){
@@ -63,7 +87,7 @@ function addOnMessageListener(){
 //---
 
 // Option page settings
-chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "infobar", "likebutton", "sharebutton", "viewcount", "addvideobutton", "likebar", "flash", "hardflash", "no360youtube", "mousespotlights", "titleinvertcolor"], function(response){
+chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "infobar", "likebutton", "sharebutton", "viewcount", "addvideobutton", "flash", "hardflash", "no360youtube", "mousespotlights", "titleinvertcolor"], function(response){
 	suggestions = response["suggestions"];
 	playlist = response["playlist"];
 	videoheadline = response["videoheadline"];
@@ -73,7 +97,6 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 	sharebutton = response["sharebutton"];
 	viewcount = response["viewcount"];
 	addvideobutton = response["addvideobutton"];
-	likebar = response["likebar"];
 	flash = response["flash"];
 	hardflash = response["hardflash"];
 	no360youtube = response["no360youtube"];
@@ -91,11 +114,23 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 	}
 	removeId("stefanvdtest");
 
-
-
-
 	function hasClass(a, b){
 		return(" " + a.className + " ").indexOf(" " + b + " ") > -1;
+	}
+
+	// Helper function to detect YouTube dark mode
+	function isYouTubeDarkMode(){
+		return document.documentElement.hasAttribute("dark");
+	}
+
+	// Helper function to get appropriate background color based on YouTube theme
+	function getYouTubeBackgroundColor(){
+		return isYouTubeDarkMode() ? "#1f1f1f" : "#ffffff";
+	}
+
+	// Helper function to get appropriate secondary background color
+	function getYouTubeSecondaryBackgroundColor(){
+		return isYouTubeDarkMode() ? "#282828" : "#f2f2f2";
 	}
 
 	// search video path function
@@ -410,7 +445,7 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 				if(secondary){ secondary.style.viewTransitionName = "inherit"; }
 
 				let ytmaterialsuggestions = document.querySelector("ytd-watch-next-secondary-results-renderer");
-				if(ytmaterialsuggestions){ ytmaterialsuggestions.classList.add("stefanvditemtop"); ytmaterialsuggestions.style.background = "white"; }
+				if(ytmaterialsuggestions){ ytmaterialsuggestions.classList.add("stefanvditemtop"); ytmaterialsuggestions.style.background = getYouTubeBackgroundColor(); }
 			}
 
 			// Shows YouTube playlist
@@ -447,7 +482,7 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 				var owner = document.querySelector("#owner");
 				if(owner){
 					owner.classList.add("stefanvditemtop");
-					owner.style.background = "#ffffff";
+					owner.style.background = getYouTubeBackgroundColor();
 				}
 			}
 
@@ -460,7 +495,7 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 				var bottomrow = document.querySelector("#description-inner");
 				if(bottomrow){
 					bottomrow.classList.add("stefanvditemtop");
-					bottomrow.style.background = "#f2f2f2";
+					bottomrow.style.background = getYouTubeSecondaryBackgroundColor();
 				}
 			}
 
@@ -473,7 +508,7 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 				var segmentlikedislike = document.querySelector("segmented-like-dislike-button-view-model");
 				if(segmentlikedislike){
 					segmentlikedislike.classList.add("stefanvditemtop");
-					segmentlikedislike.style.background = "white";
+					segmentlikedislike.style.background = getYouTubeBackgroundColor();
 				}
 			}
 
@@ -491,7 +526,7 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 					if(ytgetaddobject != null){
 						var ytgetaddstring = ytgetaddobject.getAttribute("aria-label");
 						if(ytgetaddstring != null){
-							if(ytgetaddstring.substring(0, 5) == "Share"){ ytgetaddobject.classList.add("stefanvditemtop"); ytgetaddobject.style.background = "white"; }
+							if(ytgetaddstring.substring(0, 5) == "Share"){ ytgetaddobject.classList.add("stefanvditemtop"); ytgetaddobject.style.background = getYouTubeBackgroundColor(); }
 						}
 					}
 				}
@@ -511,7 +546,7 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 					if(ytgetaddobject != null){
 						let ytgetaddstring = ytgetaddobject.getAttribute("aria-label");
 						if(ytgetaddstring != null){
-							if(ytgetaddstring.substring(0, 4) == "Save"){ ytgetaddobject.classList.add("stefanvditemtop"); ytgetaddobject.style.background = "white"; }
+							if(ytgetaddstring.substring(0, 4) == "Save"){ ytgetaddobject.classList.add("stefanvditemtop"); ytgetaddobject.style.background = getYouTubeBackgroundColor(); }
 						}
 					}
 				}
@@ -525,13 +560,6 @@ chrome.storage.sync.get(["suggestions", "playlist", "videoheadline", "head", "in
 					var ytgetformat = ytmaterialviewcount.querySelector(".view-count");
 					if(ytgetformat != null){ ytgetformat.classList.add("stefanvditemtop"); ytgetformat.style.color = "white"; }
 				}
-			}
-
-			// Shows like/dislike bar
-			if(likebar == true){
-				// update YouTube material 21 march 2017
-				var ytmateriallikebar = document.querySelector("ytd-sentiment-bar-renderer");
-				if(ytmateriallikebar){ ytmateriallikebar.classList.add("stefanvditemtop"); }
 			}
 
 			// MAC & WINDOWS & LINUX
@@ -934,6 +962,19 @@ function reader(){
 	}
 	window.onpointermove = null;
 
+	// remove corner handles
+	removeId("stefanvdlightcornertl");
+	removeId("stefanvdlightcornertr");
+	removeId("stefanvdlightcornerbl");
+	removeId("stefanvdlightcornerbr");
+
+	// reset custom spotlight state
+	spotlightState = "idle";
+	spotHandles = {};
+	spotListenersAttached = false;
+	spotDragDistance = 0;
+	if(spotCornerTimer){ window.clearTimeout(spotCornerTimer); spotCornerTimer = null; }
+
 	// Set everything back to the default YouTube theme
 	if(window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
 		// update YouTube material 6 August 2017
@@ -1074,9 +1115,17 @@ function removeClass(classelement){
 	}
 }
 
+function announceLampState(isOn){
+	ensureAnnouncer();
+	totlAnnouncer.textContent = isOn ? chrome.i18n.getMessage("ariadimmeron") : chrome.i18n.getMessage("ariadimmeroff");
+}
+
 function removenewframe(){
+	// announce lights restored
+	announceLampState(false);
+
 	// remove dark layers
-	var removedarklayerid = ["stefanvdlightareoff1", "stefanvdlightareoff2", "stefanvdlightareoff3", "stefanvdlightareoff4", "stefanvdtheater", "stefanvdblurimage", "stefanvdlightcorner", "stefanvdtheme"];
+	var removedarklayerid = ["stefanvdlightareoff1", "stefanvdlightareoff2", "stefanvdlightareoff3", "stefanvdlightareoff4", "stefanvdtheater", "stefanvdblurimage", "stefanvdlightcornertl", "stefanvdlightcornertr", "stefanvdlightcornerbl", "stefanvdlightcornerbr", "stefanvdtheme"];
 	removedarklayerid.forEach(removeId);
 
 	var csstotlpseudo = $("csstotlpseudo");
@@ -1095,6 +1144,13 @@ function removenewframe(){
 			for(k = 0; k < m; k++){ rootdiv[k].classList.remove("stefanvdotherdown"); }
 		}
 	}
+
+	// remove announcer after screen reader has time to speak
+	setTimeout(function(){
+		removeId("stefanvd-aria-announcer");
+		totlAnnouncer = null;
+	}, 1000);
+
 }
 
 function removenewdynamic(){
@@ -1159,7 +1215,7 @@ function moveSpot(e){
 		spotx = e.clientX; spoty = e.clientY;
 		oldspotx = spotx; oldspoty = spoty;
 	}
-	mousespotlightstyle = "radial-gradient(circle at " + spotx + "px " + spoty + "px, transparent " + borderspotlightsize + "px, " + lightcolor + " " + fullspotlightsize + "px)";
+	mousespotlightstyle = `radial-gradient(circle at ${spotx}px ${spoty}px, transparent ${borderspotlightsize}px, ${lightcolor} ${fullspotlightsize}px)`;
 	spot.style.opacity = default_opacity / 100;
 	spot.style.backgroundImage = mousespotlightstyle;
 }
@@ -1172,7 +1228,7 @@ function spotmousedown(){
 			mathfullsizeup = Math.abs(mathfullsizeup) + Math.abs(1);
 			mathbordersizeup = Math.abs(mathbordersizeup) + Math.abs(1);
 			spotx = oldspotx; spoty = oldspoty;
-			mousespotlightstyle = "radial-gradient(circle at " + spotx + "px " + spoty + "px, transparent " + mathbordersizeup + "px, " + lightcolor + " " + mathfullsizeup + "px)";
+			mousespotlightstyle = `radial-gradient(circle at ${spotx}px ${spoty}px, transparent ${mathbordersizeup}px, ${lightcolor} ${mathfullsizeup}px)`;
 			spot.style.backgroundImage = mousespotlightstyle;
 		}, 5);
 
@@ -1181,271 +1237,195 @@ function spotmousedown(){
 
 function spotmouseup(){
 	window.clearInterval(countupsizetimer); window.clearTimeout(presstimer);
-	mousespotlightstyle = "radial-gradient(circle at " + spotx + "px " + spoty + "px, transparent " + borderspotlightsize + "px, " + lightcolor + " " + fullspotlightsize + "px)";
+	mousespotlightstyle = `radial-gradient(circle at ${spotx}px ${spoty}px, transparent ${borderspotlightsize}px, ${lightcolor} ${fullspotlightsize}px)`;
 	spot.style.backgroundImage = mousespotlightstyle;
 	mathfullsizeup = fullspotlightsize;
 	mathbordersizeup = borderspotlightsize;
 }
 //---
-// Rectangle
-// change size corner
-var rect; var stretchable = false;
-var width, height, xpos, ypos;
-var mouseX, mouseY, rX, rY;
-var rand = 20;
+// Rectangle Spotlight (mousespotlightc)
+// State machine: "idle" | "drawing" | "resizing"
+var spotlightState = "idle";
+var spotStartX = 0, spotStartY = 0;
+var spotCurrentX = 0, spotCurrentY = 0;
+var spotDragDistance = 0;
+var spotHandles = {};
+var spotFixedX = 0, spotFixedY = 0;
+var spotListenersAttached = false;
+var spotCornerTimer = null;
 
-var beginxcordinate = null; var beginycordinate = null; var endxcordinate = null; var endycordinate = null;
-var customview; var posx; var posy; var initx = false; var inity = false;
-function watchMouse(e){
-	width = parseInt(rect.style.width); height = parseInt(rect.style.height);
-	xpos = parseInt(rect.style.left); ypos = parseInt(rect.style.top);
+function showCornerHandles(){
+	var keys = ["tl", "tr", "bl", "br"];
+	for(var i = 0; i < keys.length; i++){
+		if(spotHandles[keys[i]]) spotHandles[keys[i]].style.opacity = "1";
+	}
+	if(spotCornerTimer) window.clearTimeout(spotCornerTimer);
+	spotCornerTimer = window.setTimeout(hideCornerHandles, 3000);
+}
 
-	// Include possible scroll values
-	var sx = window.scrollX || document.documentElement.scrollLeft || 0;
-	var sy = window.scrollY || document.documentElement.scrollTop || 0;
-
-	if(!e) e = window.event;
-
-	mouseX = e.clientX + sx;
-	mouseY = e.clientY + sy;
-
-	/* Direction of mouse movement
-		deltaX: -1 for left, 1 for right
-		deltaY: -1 for up, 1 for down
-	*/
-	var deltaX = mouseX - rX;
-	var deltaY = mouseY - rY;
-	// Store difference in global variables
-	rX = mouseX;
-	rY = mouseY;
-
-	if(mouseX <= xpos + rand && mouseX > xpos){
-		// left
-		dragBorder("left", deltaX); document.body.style.cursor = "w-resize";
-	}else if(mouseX >= xpos + width + rand && mouseX < xpos + width + 2 * rand){
-		// right
-		dragBorder("right", deltaX); document.body.style.cursor = "e-resize";
-	}else if(mouseY <= ypos + rand && mouseY > ypos){
-		// top
-		dragBorder("top", deltaY); document.body.style.cursor = "n-resize";
-	}else if(mouseY >= ypos + height + rand && mouseY < ypos + height + 2 * rand){
-		// bottom
-		dragBorder("bottom", deltaY); document.body.style.cursor = "s-resize";
-	}else{
-		// normal use
-		document.body.style.cursor = "auto";
+function hideCornerHandles(){
+	var keys = ["tl", "tr", "bl", "br"];
+	for(var i = 0; i < keys.length; i++){
+		if(spotHandles[keys[i]]) spotHandles[keys[i]].style.opacity = "0";
 	}
 }
 
-function dragBorder(arg, delta){
-	if(stretchable){
-		switch(arg){
-		case"right":
-			rect.style.width = (width + delta) + "px";
-			$("stefanvdlightareoff3").style.width = (parseInt($("stefanvdlightareoff3").style.width) + delta) + "px"; $("stefanvdlightareoff3").style.left = (parseInt($("stefanvdlightareoff3").style.left) + delta) + "px";
-			break;
-		case"left":
-			rect.style.width = (width - delta) + "px"; rect.style.left = (parseInt(rect.style.left) + delta) + "px";
-			$("stefanvdlightareoff2").style.width = (parseInt($("stefanvdlightareoff2").style.width) + delta) + "px";
-			break;
-		case"bottom":
-			rect.style.height = (height + delta) + "px";
-			$("stefanvdlightareoff4").style.height = (parseInt($("stefanvdlightareoff4").style.height) - delta) + "px"; $("stefanvdlightareoff4").style.top = (parseInt($("stefanvdlightareoff4").style.top) + delta) + "px";
-			$("stefanvdlightareoff2").style.height = (parseInt($("stefanvdlightareoff2").style.height) + delta) + "px";
-			$("stefanvdlightareoff3").style.height = (parseInt($("stefanvdlightareoff3").style.height) + delta) + "px";
-			break;
-		case"top":
-			rect.style.height = (height - delta) + "px"; rect.style.top = (parseInt(rect.style.top) + delta) + "px";
-			$("stefanvdlightareoff1").style.height = (parseInt($("stefanvdlightareoff1").style.height) + delta) + "px";
-			$("stefanvdlightareoff2").style.height = (parseInt($("stefanvdlightareoff2").style.height) - delta) + "px"; $("stefanvdlightareoff2").style.top = (parseInt($("stefanvdlightareoff2").style.top) + delta) + "px";
-			$("stefanvdlightareoff3").style.height = (parseInt($("stefanvdlightareoff3").style.height) - delta) + "px"; $("stefanvdlightareoff3").style.top = (parseInt($("stefanvdlightareoff3").style.top) + delta) + "px";
-			break;
-		}
-	}
+function updateDarkLayers(x1, y1, x2, y2){
+	var left = Math.min(x1, x2);
+	var top = Math.min(y1, y2);
+	var right = Math.max(x1, x2);
+	var bottom = Math.max(y1, y2);
+	var rectH = bottom - top;
+
+	var v1 = $("stefanvdlightareoff1");
+	var v2 = $("stefanvdlightareoff2");
+	var v3 = $("stefanvdlightareoff3");
+	var v4 = $("stefanvdlightareoff4");
+	if(!v1 || !v2 || !v3 || !v4)return;
+
+	// Top bar
+	v1.style.left = "0px"; v1.style.top = "0px";
+	v1.style.width = "100%"; v1.style.height = top + "px";
+	v1.style.visibility = "visible";
+
+	// Left bar
+	v2.style.left = "0px"; v2.style.top = top + "px";
+	v2.style.width = left + "px"; v2.style.height = rectH + "px";
+	v2.style.visibility = "visible";
+
+	// Right bar
+	v3.style.left = right + "px"; v3.style.top = top + "px";
+	v3.style.width = (window.innerWidth - right) + "px"; v3.style.height = rectH + "px";
+	v3.style.visibility = "visible";
+
+	// Bottom bar
+	v4.style.left = "0px"; v4.style.top = bottom + "px";
+	v4.style.width = "100%"; v4.style.height = (window.innerHeight - bottom) + "px";
+	v4.style.visibility = "visible";
 }
 
-function stretchout(){
-	stretchable = false; document.body.style.cursor = "auto";
+function positionCornerHandles(x1, y1, x2, y2){
+	var left = Math.min(x1, x2);
+	var top = Math.min(y1, y2);
+	var right = Math.max(x1, x2);
+	var bottom = Math.max(y1, y2);
+	if(spotHandles.tl){ spotHandles.tl.style.left = (left - 10) + "px"; spotHandles.tl.style.top = (top - 10) + "px"; }
+	if(spotHandles.tr){ spotHandles.tr.style.left = (right - 10) + "px"; spotHandles.tr.style.top = (top - 10) + "px"; }
+	if(spotHandles.bl){ spotHandles.bl.style.left = (left - 10) + "px"; spotHandles.bl.style.top = (bottom - 10) + "px"; }
+	if(spotHandles.br){ spotHandles.br.style.left = (right - 10) + "px"; spotHandles.br.style.top = (bottom - 10) + "px"; }
 }
 
-var view1; var view2; var view3; var view4;
-function getMouse(obj, e){
-	posx = 0; posy = 0;
-	var ev = (!e) ? window.event : e;
-	if(ev.clientX){
-		posx = ev.clientX;
-		posy = ev.clientY;
-	}else{ return 0; }
-
-	obj.addEventListener("pointerdown", function(){
-		initx = posx; inity = posy;
-		beginxcordinate = posx; beginycordinate = posy;
-		try{
-			customview = $("stefanvdlightareoffcustom");
-			customview.style.left = initx + "px"; customview.style.top = inity + "px";
-			document.body.appendChild(customview);
-		}catch(e){ console.log(e); }
+function createCornerHandles(){
+	var corners = [
+		{key: "tl", id: "stefanvdlightcornertl", cursor: "nwse-resize"},
+		{key: "tr", id: "stefanvdlightcornertr", cursor: "nesw-resize"},
+		{key: "bl", id: "stefanvdlightcornerbl", cursor: "nesw-resize"},
+		{key: "br", id: "stefanvdlightcornerbr", cursor: "nwse-resize"}
+	];
+	corners.forEach(function(c){
+		if(spotHandles[c.key])return;
+		var el = document.createElement("div");
+		el.setAttribute("id", c.id);
+		el.className = "stefanvdlightcorner";
+		el.style.cursor = c.cursor;
+		document.body.appendChild(el);
+		el.addEventListener("pointerdown", function(e){
+			e.stopPropagation();
+			spotlightState = "resizing";
+			var left = Math.min(spotStartX, spotCurrentX);
+			var top = Math.min(spotStartY, spotCurrentY);
+			var right = Math.max(spotStartX, spotCurrentX);
+			var bottom = Math.max(spotStartY, spotCurrentY);
+			if(c.key === "tl"){
+				spotFixedX = right; spotFixedY = bottom;
+			}else if(c.key === "tr"){
+				spotFixedX = left; spotFixedY = bottom;
+			}else if(c.key === "bl"){
+				spotFixedX = right; spotFixedY = top;
+			}else if(c.key === "br"){
+				spotFixedX = left; spotFixedY = top;
+			}
+			document.body.style.cursor = c.cursor;
+		});
+		spotHandles[c.key] = el;
 	});
-	obj.addEventListener("pointerup", function(){ initx = false; inity = false; });
-	if(initx){
-		customview.style.width = Math.abs(posx - initx) + "px"; customview.style.height = Math.abs(posy - inity) + "px";
-		customview.style.left = posx - initx < 0 ? posx + "px" : initx + "px";
-		customview.style.top = posy - inity < 0 ? posy + "px" : inity + "px";
+}
 
-		endxcordinate = posx; endycordinate = posy;
-		// remove help div
-		var stefanvdlightareoffcustom = $("stefanvdlightareoffcustom");
-		if(stefanvdlightareoffcustom){ document.body.removeChild(stefanvdlightareoffcustom); }
-		document.body.style.cursor = "default";
+function initCustomSpotlight(){
+	if(spotListenersAttached)return;
+	spotListenersAttached = true;
 
-		// create corner
-		var cornerison = $("stefanvdlightcorner");
-		if(cornerison == null){
-			var newcornerdiv = document.createElement("div");
-			newcornerdiv.setAttribute("id", "stefanvdlightcorner");
-			document.body.appendChild(newcornerdiv);
+	// pointerdown: start drawing when idle (not clicking the handle)
+	document.addEventListener("pointerdown", function(e){
+		if(spotlightState !== "idle")return;
+		if(e.target && e.target.className && e.target.className.indexOf("stefanvdlightcorner") !== -1)return;
+		spotlightState = "drawing";
+		spotStartX = e.clientX; spotStartY = e.clientY;
+		spotCurrentX = e.clientX; spotCurrentY = e.clientY;
+		spotDragDistance = 0;
+		document.body.style.cursor = "crosshair";
+		var preview = $("stefanvdlightareoffcustom");
+		if(preview){
+			preview.style.left = spotStartX + "px";
+			preview.style.top = spotStartY + "px";
+			preview.style.width = "0px";
+			preview.style.height = "0px";
+			preview.style.display = "block";
 		}
+	});
 
-		rect = $("stefanvdlightcorner"); rect.onpointermove = watchMouse;
-		$("stefanvdlightcorner").addEventListener("pointerdown", function(){ stretchable = true; }, false);
-		$("stefanvdlightcorner").addEventListener("pointerup", stretchout, false);
-		$("stefanvdlightcorner").addEventListener("pointerout", stretchout, false);
+	// pointermove: update drawing or resizing
+	document.addEventListener("pointermove", function(e){
+		if(spotlightState === "drawing"){
+			spotCurrentX = e.clientX; spotCurrentY = e.clientY;
+			spotDragDistance = Math.abs(spotCurrentX - spotStartX) + Math.abs(spotCurrentY - spotStartY);
+			var preview = $("stefanvdlightareoffcustom");
+			if(preview){
+				preview.style.left = Math.min(spotStartX, spotCurrentX) + "px";
+				preview.style.top = Math.min(spotStartY, spotCurrentY) + "px";
+				preview.style.width = Math.abs(spotCurrentX - spotStartX) + "px";
+				preview.style.height = Math.abs(spotCurrentY - spotStartY) + "px";
+			}
+			updateDarkLayers(spotStartX, spotStartY, spotCurrentX, spotCurrentY);
+		}else if(spotlightState === "resizing"){
+			spotCurrentX = e.clientX; spotCurrentY = e.clientY;
+			updateDarkLayers(spotFixedX, spotFixedY, spotCurrentX, spotCurrentY);
+			positionCornerHandles(spotFixedX, spotFixedY, spotCurrentX, spotCurrentY);
+		}else if(spotlightState === "idle"){
+			if(spotHandles.tl || spotHandles.tr || spotHandles.bl || spotHandles.br){
+				showCornerHandles();
+			}
+		}
+	});
 
-		setAttributes($("stefanvdlightcorner"), {"top": parseInt(document.getElementById("stefanvdlightareoff1").style.height) - 10 + "px", "height": parseInt(document.getElementById("stefanvdlightareoff2").style.height) - 20 + "px", "left": parseInt(document.getElementById("stefanvdlightareoff2").style.width) - 10 + "px", "width": parseInt(document.getElementById("stefanvdlightareoff3").style.left) - parseInt(document.getElementById("stefanvdlightareoff2").style.width) - 20 + "px"});
+	// pointerup: finish drawing or resizing
+	document.addEventListener("pointerup", function(){
+		if(spotlightState === "drawing"){
+			spotlightState = "idle";
+			document.body.style.cursor = "default";
+			var preview = $("stefanvdlightareoffcustom");
+			if(preview) preview.style.display = "none";
+			if(spotDragDistance > 5){
+				createCornerHandles();
+				positionCornerHandles(spotStartX, spotStartY, spotCurrentX, spotCurrentY);
+				showCornerHandles();
+			}
+		}else if(spotlightState === "resizing"){
+			spotStartX = spotFixedX; spotStartY = spotFixedY;
+			spotlightState = "idle";
+			document.body.style.cursor = "default";
+			showCornerHandles();
+		}
+	});
 
-	}else{ return false; }
-	// var viewpartwidth = customview.style.width;
-	var viewpartheight = customview.style.height;
-
-	view1 = $("stefanvdlightareoff1");
-	view1.className = "stefanvdlightareoff";
-	view1.style.left = 0 + "px"; view1.style.top = 0 + "px";
-	view1.style.width = "100%"; view1.style.height = beginycordinate + "px";
-	view1.style.visibility = "visible";
-	document.body.appendChild(view1);
-
-	view2 = $("stefanvdlightareoff2");
-	view2.className = "stefanvdlightareoff";
-	view2.style.left = 0 + "px"; view2.style.top = beginycordinate + "px";
-	view2.style.width = beginxcordinate + "px"; view2.style.height = viewpartheight;
-	view2.style.visibility = "visible";
-	document.body.appendChild(view2);
-
-	view3 = $("stefanvdlightareoff3");
-	var viewcall3awidth = window.innerWidth - beginxcordinate; // calc width
-	view3.className = "stefanvdlightareoff";
-	view3.style.left = endxcordinate + "px"; view3.style.top = beginycordinate + "px";
-	view3.style.width = viewcall3awidth + "px"; view3.style.height = viewpartheight;
-	view3.style.visibility = "visible";
-	document.body.appendChild(view3);
-
-	view4 = $("stefanvdlightareoff4");
-	var viewcall4aheight = window.innerHeight - endycordinate; // calc height
-	view4.className = "stefanvdlightareoff";
-	view4.style.left = 0 + "px"; view4.style.top = endycordinate + "px";
-	view4.style.width = "100%"; view4.style.height = viewcall4aheight + "px";
-	view4.style.visibility = "visible";
-	document.body.appendChild(view4);
-
-	var calcpartx = endxcordinate - beginxcordinate;
-	var calcparty = endycordinate - beginycordinate;
-	if((calcpartx < 0) && ! (calcparty < 0)){ // X as automatic change view
-		view1 = $("stefanvdlightareoff1");
-		view1.className = "stefanvdlightareoff";
-		view1.style.left = 0 + "px"; view1.style.top = 0 + "px";
-		view1.style.width = "100%"; view1.style.height = beginycordinate + "px";
-		view1.style.visibility = "visible";
-		document.body.appendChild(view1);
-
-		view2 = $("stefanvdlightareoff2");
-		view2.className = "stefanvdlightareoff";
-		view2.style.left = 0 + "px"; view2.style.top = beginycordinate + "px";
-		view2.style.width = endxcordinate + "px"; view2.style.height = viewpartheight;
-		view2.style.visibility = "visible";
-		document.body.appendChild(view2);
-
-		view3 = $("stefanvdlightareoff3");
-		var viewcall3bwidth = window.innerWidth - beginxcordinate; // calc width
-		view3.className = "stefanvdlightareoff";
-		view3.style.left = beginxcordinate + "px"; view3.style.top = beginycordinate + "px";
-		view3.style.width = viewcall3bwidth + "px"; view3.style.height = viewpartheight;
-		view3.style.visibility = "visible";
-		document.body.appendChild(view3);
-
-		view4 = $("stefanvdlightareoff4");
-		var viewcall4bheight = window.innerHeight - endycordinate; // calc height
-		view4.className = "stefanvdlightareoff";
-		view4.style.left = 0 + "px"; view4.style.top = endycordinate + "px";
-		view4.style.width = "100%"; view4.style.height = viewcall4bheight + "px";
-		view4.style.visibility = "visible";
-		document.body.appendChild(view4);
-	}else if((calcparty < 0) && ! (calcpartx < 0)){ // Y as automatic change view
-		view1 = $("stefanvdlightareoff1");
-		view1.className = "stefanvdlightareoff";
-		view1.style.left = 0 + "px"; view1.style.top = 0 + "px";
-		if(endycordinate < 0){ endycordinate = 0; }
-		view1.style.width = "100%"; view1.style.height = endycordinate + "px";
-		view1.style.visibility = "visible";
-		document.body.appendChild(view1);
-
-		view2 = $("stefanvdlightareoff2");
-		view2.className = "stefanvdlightareoff";
-		view2.style.left = 0 + "px"; view2.style.top = endycordinate + "px";
-		view2.style.width = beginxcordinate + "px";
-		if(endycordinate == 0){ view2.style.height = beginycordinate + "px"; }else{ view2.style.height = viewpartheight; }
-		view2.style.visibility = "visible";
-		document.body.appendChild(view2);
-
-		view3 = $("stefanvdlightareoff3");
-		var viewcall3cwidth = window.innerWidth - beginxcordinate; // calc width
-		view3.className = "stefanvdlightareoff";
-		view3.style.left = endxcordinate + "px"; view3.style.top = endycordinate + "px";
-		view3.style.width = viewcall3cwidth + "px";
-		if(endycordinate == 0){ view3.style.height = beginycordinate + "px"; }else{ view3.style.height = viewpartheight; }
-		view3.style.visibility = "visible";
-		document.body.appendChild(view3);
-
-		view4 = $("stefanvdlightareoff4");
-		var viewcall4cheight = window.innerHeight - endycordinate; // calc height
-		view4.className = "stefanvdlightareoff";
-		view4.style.left = 0 + "px"; view4.style.top = beginycordinate + "px";
-		view4.style.width = "100%"; view4.style.height = viewcall4cheight + "px";
-		view4.style.visibility = "visible";
-		document.body.appendChild(view4);
-	}else if((calcpartx < 0) && (calcparty < 0)){ // X en Y as automatic change view
-		view1 = $("stefanvdlightareoff1");
-		view1.className = "stefanvdlightareoff";
-		view1.style.left = 0 + "px"; view1.style.top = 0 + "px";
-		if(endycordinate < 0){ endycordinate = 0; }
-		view1.style.width = "100%"; view1.style.height = endycordinate + "px";
-		view1.style.visibility = "visible";
-		document.body.appendChild(view1);
-
-		view2 = $("stefanvdlightareoff2");
-		view2.className = "stefanvdlightareoff";
-		view2.style.left = 0 + "px"; view2.style.top = endycordinate + "px";
-		view2.style.width = endxcordinate + "px";
-		if(endycordinate == 0){ view2.style.height = beginycordinate + "px"; }else{ view2.style.height = viewpartheight; }
-		view2.style.visibility = "visible";
-		document.body.appendChild(view2);
-
-		view3 = $("stefanvdlightareoff3");
-		var viewcall3dwidth = window.innerWidth - beginxcordinate; // calc width
-		view3.className = "stefanvdlightareoff";
-		view3.style.left = beginxcordinate + "px"; view3.style.top = endycordinate + "px";
-		view3.style.width = viewcall3dwidth + "px";
-		if(endycordinate == 0){ view3.style.height = beginycordinate + "px"; }else{ view3.style.height = viewpartheight; }
-		view3.style.visibility = "visible";
-		document.body.appendChild(view3);
-
-		view4 = $("stefanvdlightareoff4");
-		var viewcall4dheight = window.innerHeight - beginycordinate; // calc height
-		view4.className = "stefanvdlightareoff";
-		view4.style.left = 0 + "px"; view4.style.top = beginycordinate + "px";
-		view4.style.width = "100%"; view4.style.height = viewcall4dheight + "px";
-		view4.style.visibility = "visible";
-		document.body.appendChild(view4);
-	}
+	// Suppress click on dark layers after drawing (prevents accidental lockscreen)
+	document.addEventListener("click", function(e){
+		if(spotDragDistance > 5){
+			e.stopPropagation();
+			e.preventDefault();
+			spotDragDistance = 0;
+		}
+	}, true);
 }
 //---
 // script readerbar
@@ -1457,7 +1437,14 @@ function showValue(newValue){
 
 function settotlreaderstyle(a, b){
 	var totlreader = $("stefanvdreaderbar"); var totlreadermin = $("stefanvdreaderbartop");
-	totlreader.style.width = a; totlreader.style.height = a; totlreadermin.style.opacity = b;
+	totlreader.style.width = a; totlreader.style.height = a;
+	if(b == 0){
+		totlreader.classList.add("stefanvdsmallreader");
+		totlreadermin.classList.add("stefanvdsmallreader");
+	}else{
+		totlreader.classList.remove("stefanvdsmallreader");
+		totlreadermin.classList.remove("stefanvdsmallreader");
+	}
 }
 
 function toggle_small(){
@@ -1615,7 +1602,7 @@ function createCloud(){
 	var y = 256 - (Math.random() * 512);
 	var z = 256 - (Math.random() * 512);
 	var t = "translateX(" + x + "px) translateY(" + y + "px) translateZ(" + z + "px)";
-	div.style.webkitTransform = t; div.style.MozTransform = t; div.style.oTransform = t;
+	div.style.transform = t;
 	world.appendChild(div);
 
 	var j;
@@ -1632,7 +1619,7 @@ function createCloud(){
 		cloudx *= .2; cloudy *= .2;
 		cloud.data = {x: cloudx, y: cloudy, z: cloudz, a: clouda, s: clouds, speed: .1 * Math.random()};
 		var cloudt = "translateX(" + cloudx + "px) translateY(" + cloudy + "px) translateZ(" + cloudz + "px) rotateZ(" + clouda + "deg) scale(" + clouds + ")";
-		cloud.style.webkitTransform = cloudt; cloud.style.MozTransform = cloudt; cloud.style.oTransform = cloudt;
+		cloud.style.transform = cloudt;
 		div.appendChild(cloud);
 		layers.push(cloud);
 	}
@@ -1655,7 +1642,7 @@ function cloudupdate(){
 		var layer = layers[j];
 		layer.data.a += layer.data.speed;
 		var t = "translateX(" + layer.data.x + "px) translateY(" + layer.data.y + "px) translateZ(" + layer.data.z + "px) rotateY(" + (- worldYAngle) + "deg) rotateX(" + (- worldXAngle) + "deg) rotateZ(" + layer.data.a + "deg) scale(" + layer.data.s + ")";
-		layer.style.webkitTransform = t; layer.style.MozTransform = t; layer.style.oTransform = t;
+		layer.style.transform = t;
 	}
 	requestAnimationFrame(cloudupdate);
 }
@@ -1710,7 +1697,7 @@ function rain(){
 		drop.draw();
 	}
 
-	window.requestAnimFrame(rain);
+	window.requestAnimationFrame(rain);
 }
 
 function drop(){
@@ -1735,8 +1722,8 @@ function drop(){
 		ctx.beginPath();
 
 		var drip = ctx.createLinearGradient(0, 0, 0, this.l);
-		drip.addColorStop(0, "rgba(" + rain_color + ", 0)");
-		drip.addColorStop(1, "rgba(" + rain_color + ", " + this.opacity + ")");
+		drip.addColorStop(0, `rgba(${rain_color}, 0)`);
+		drip.addColorStop(1, `rgba(${rain_color}, ${this.opacity})`);
 		ctx.fillStyle = drip;
 
 		// sky.rect(this.x, this.y, this.r, this.l);
@@ -1842,7 +1829,7 @@ function trianglerun(){
 						polygon.setAttribute("points", bottomLeftX + "," + bottomLeftY + " " + topRightX + "," + topRightY + " " + bottomRightX + "," + bottomRightY);
 					}
 				}
-				polygon.setAttribute("fill", "rgba(0,0,0," + (Math.random() / 3) + ")");
+				polygon.setAttribute("fill", `rgba(0,0,0,${Math.random() / 3})`);
 				var animate = document.createElementNS("http://www.w3.org/2000/svg", "animate");
 				setAttributes(animate, {"fill": "freeze", "attributeName": "points", "dur": refreshDuration + "ms", "calcMode": "linear"});
 				polygon.appendChild(animate);
@@ -1904,7 +1891,7 @@ function newconvertHex(hex, opacity){
 	result_green = fg_green * alpha + 255 * (1 - alpha);
 	result_blue = fg_blue * alpha + 255 * (1 - alpha);
 
-	result = "rgb(" + result_red + "," + result_green + "," + result_blue + ")";
+	result = `rgb(${result_red},${result_green},${result_blue})`;
 	return result;
 }
 
@@ -2064,10 +2051,6 @@ function lightsgoonoroff(){
 			document.addEventListener("pointerdown", function(){ spotmousedown(); });
 			document.addEventListener("pointerup", function(){ spotmouseup(); });
 		}else if(mousespotlightc == true){
-			window.onpointermove = function(event){
-				try{ getMouse(window, event); }catch(e){ console.log(e); }
-			};
-
 			var newframe1 = document.createElement("div");
 			var newframe2 = document.createElement("div");
 			var newframe3 = document.createElement("div");
@@ -2085,6 +2068,7 @@ function lightsgoonoroff(){
 			newframe2.style.visibility = "hidden";
 			newframe3.style.visibility = "hidden";
 			newframe4.style.visibility = "hidden";
+			newframe5.style.display = "none";
 			document.body.appendChild(newframe1);
 			document.body.appendChild(newframe2);
 			document.body.appendChild(newframe3);
@@ -2097,6 +2081,9 @@ function lightsgoonoroff(){
 
 			// fade in effect
 			if(fadein == true){ fader("show"); }else{ newframe1.style.opacity = default_opacity / 100; newframe2.style.opacity = default_opacity / 100; newframe3.style.opacity = default_opacity / 100; newframe4.style.opacity = default_opacity / 100; } // no fade effect
+
+			// initialize the custom spotlight state machine
+			initCustomSpotlight();
 		}else{ // Begin normal lights off
 			var newdiv = document.createElement("div");
 			setAttributes(newdiv, {"id": "stefanvdlightareoff1", "class": "stefanvdlightareoff"});
@@ -2123,15 +2110,14 @@ function lightsgoonoroff(){
 			}
 
 			// if image background, load it then
-			if(lightimagea == true){ newdiv.style.background = "url('" + lightimage + "')"; newdiv.style.backgroundSize = "100% 100%"; }else if(lightimagelin == true){ newdiv.style.background = "linear-gradient(to " + linearsq + ", " + colora + " " + intervallina + "%," + colorb + " " + intervallinb + "%)"; }else{ newdiv.style.background = lightcolor; }
+			if(lightimagea == true){ newdiv.style.background = `url('${lightimage}')`; newdiv.style.backgroundSize = "100% 100%"; }else if(lightimagelin == true){ newdiv.style.background = `linear-gradient(to ${linearsq}, ${colora} ${intervallina}%,${colorb} ${intervallinb}%)`; }else{ newdiv.style.background = lightcolor; }
 			//---
 			newdiv.style.opacity = 0;
 			newdiv.style.zIndex = 999;
 
 			// Motion fall down effect
 			if(slideeffect == true){
-				// -webkit-animation: totlbounceInDown 1.5s 0.0s linear 1;
-				newdiv.style.WebkitAnimation = "totlbounceInDown 1.5s 0.0s linear 1";
+				newdiv.style.animation = "totlbounceInDown 1.5s 0.0s linear 1";
 				slideeffect = false;
 				chrome.storage.sync.set({"slideeffect": false});
 			}
@@ -2149,7 +2135,6 @@ function lightsgoonoroff(){
 			if($("stefanvdblurimage") == null){
 				var newblur = document.createElement("div");
 				newblur.setAttribute("id", "stefanvdblurimage");
-				newblur.style.webkitBackdropFilter = "blur(6px)";
 				newblur.style.backdropFilter = "blur(6px)";
 				newblur.style.width = "100%";
 				newblur.style.height = "100%";
@@ -2165,29 +2150,42 @@ function lightsgoonoroff(){
 		if(readera == true){
 			var stefanvdreaderbar = document.createElement("div");
 			stefanvdreaderbar.setAttribute("id", "stefanvdreaderbar");
+			stefanvdreaderbar.setAttribute("role", "region");
+			stefanvdreaderbar.setAttribute("aria-label", chrome.i18n.getMessage("ariareaderbar"));
 			document.body.appendChild(stefanvdreaderbar);
 			var stefanvdreaderbardiv1 = document.createElement("div");
 			stefanvdreaderbardiv1.setAttribute("id", "stefanvdreaderbarinnerbox");
 			stefanvdreaderbar.appendChild(stefanvdreaderbardiv1);
 
-			// if false then use small view
-			if(readerlargestyle == false){ stefanvdreaderbar.style.width = "30px"; stefanvdreaderbar.style.height = "30px"; }
-
 			// top
-			var stefanvdreaderbartop = document.createElement("div");
+			var stefanvdreaderbartop = document.createElement("button");
 			stefanvdreaderbartop.setAttribute("id", "stefanvdreaderbartop");
 			stefanvdreaderbartop.setAttribute("class", "stefanvdreaderbartop");
+			stefanvdreaderbartop.setAttribute("type", "button");
 			stefanvdreaderbartop.addEventListener("click", function(){ toggle_small(); }, true);
 			stefanvdreaderbardiv1.appendChild(stefanvdreaderbartop);
 
 			// if false then use small view
-			if(readerlargestyle == false){ stefanvdreaderbartop.style.opacity = 0; }
+			if(readerlargestyle == false){ stefanvdreaderbar.style.width = "30px"; stefanvdreaderbar.style.height = "30px"; stefanvdreaderbar.classList.add("stefanvdsmallreader"); stefanvdreaderbartop.classList.add("stefanvdsmallreader"); }
+
+			var stefanvdreaderbarsvg = "<svg xmlns='http://www.w3.org/2000/svg' id='Layer_1' viewBox='0 0 400.19 508.49'><rect x='120' y='484' width='160' height='24' fill='#666' stroke-width='0'/><rect x='96' y='464' width='208' height='20' fill='#666' stroke-width='0'/><rect x='96' y='416' width='208' height='20' fill='#666' stroke-width='0'/><rect x='96' y='372' width='208' height='20' fill='#666' stroke-width='0'/><ellipse cx='200' cy='176' rx='200' ry='176' fill='#666' stroke-width='0'/><rect x='140' y='202' width='24' height='170' fill='#fff' stroke-width='0'/><rect x='236' y='202' width='24' height='170' fill='#fff' stroke-width='0'/><rect x='164' y='352' width='72' height='20' fill='#fff' stroke-width='0'/><path d='m182,160h36c23.18,0,42,18.82,42,42v147h-120v-147c0-23.18,18.82-42,42-42Z' fill='#fff' stroke-width='0'/><path d='m182,183.84h36c9.93,0,18,8.07,18,18v147.32h-72v-147.32c0-9.93,8.07-18,18-18Z' fill='#666' stroke-width='0'/></svg>";
+			var stefanvdreaderbarlogo = (new DOMParser()).parseFromString(stefanvdreaderbarsvg, "image/svg+xml").documentElement;
+			stefanvdreaderbarlogo.id = "stefanvdreaderbarlogo";
+			stefanvdreaderbarlogo.setAttribute("aria-hidden", "true");
+			stefanvdreaderbarlogo.setAttribute("focusable", "false");
 
 			var stefanvdreaderbartxt1 = document.createTextNode("Turn Off the Lights");
-			stefanvdreaderbartop.appendChild(stefanvdreaderbartxt1);
 
-			var stefanvdreaderbarmin = document.createElement("div");
+			var stefanvdreaderbartitle = document.createElement("span");
+			stefanvdreaderbartitle.id = "stefanvdreaderbartitle";
+			stefanvdreaderbartitle.appendChild(stefanvdreaderbarlogo);
+			stefanvdreaderbartitle.appendChild(stefanvdreaderbartxt1);
+			stefanvdreaderbartop.appendChild(stefanvdreaderbartitle);
+
+			var stefanvdreaderbarmin = document.createElement("button");
 			stefanvdreaderbarmin.setAttribute("id", "stefanvdreaderbarmin");
+			stefanvdreaderbarmin.setAttribute("type", "button");
+			stefanvdreaderbarmin.setAttribute("aria-label", chrome.i18n.getMessage("ariareaderminimize"));
 			stefanvdreaderbarmin.innerText = "⎯";
 			stefanvdreaderbartop.appendChild(stefanvdreaderbarmin);
 
@@ -2197,7 +2195,7 @@ function lightsgoonoroff(){
 			stefanvdreaderbardiv1.appendChild(stefanvdreaderbaroa);
 
 			var stefanvdreaderinput1 = document.createElement("input");
-			setAttributes(stefanvdreaderinput1, {"type": "range", "id": "totlrange", "min": "0", "max": "100", "step": "1", "value": "0"});
+			setAttributes(stefanvdreaderinput1, {"type": "range", "id": "totlrange", "min": "0", "max": "100", "step": "1", "value": "0", "aria-label": chrome.i18n.getMessage("ariadimmeropacity")});
 			stefanvdreaderinput1.addEventListener("change", function(){ showValue(this.value); }, true);
 			stefanvdreaderinput1.addEventListener("input", function(){ showValue(this.value); }, true);
 			stefanvdreaderbaroa.appendChild(stefanvdreaderinput1);
@@ -2207,7 +2205,7 @@ function lightsgoonoroff(){
 			stefanvdreaderbardiv1.appendChild(stefanvdreaderbaran);
 
 			var stefanvdreaderinput2 = document.createElement("input");
-			setAttributes(stefanvdreaderinput2, {"id": "totlgammaVal", "maxlength": "3", "size": "3", "type": "text", "value": "0"});
+			setAttributes(stefanvdreaderinput2, {"id": "totlgammaVal", "maxlength": "3", "size": "3", "type": "text", "value": "0", "aria-label": chrome.i18n.getMessage("ariadimmervalue")});
 			stefanvdreaderinput2.addEventListener("change", function(){ showValue(this.value); }, true);
 			stefanvdreaderbaran.appendChild(stefanvdreaderinput2);
 
@@ -2250,27 +2248,6 @@ function lightsgoonoroff(){
 				for(rainrighti = 16; rainrighti < 31; rainrighti++){ var newdynrainb = document.createElement("div"); newdynrainb.setAttribute("class", "stefanvddynamicbackgroundraindrups b" + rainrighti + ""); newdynrainright.appendChild(newdynrainb); }
 			}else if(dynamic4 == true){
 				var newdynworld = document.createElement("div"); newdynworld.setAttribute("id", "stefanvdworld"); newdynmaster.appendChild(newdynworld);
-				(function(){
-					var lastTime = 0;
-					var vendors = ["ms", "moz", "webkit", "o"];
-					var x;
-					var vl = vendors.length;
-					for(x = 0; x < vl && !window.requestAnimationFrame; ++x){
-						window.requestAnimationFrame = window[vendors[x] + "RequestAnimationFrame"];
-						window.cancelRequestAnimationFrame = window[vendors[x] + "CancelRequestAnimationFrame"];
-					}
-					if(!window.requestAnimationFrame)
-						window.requestAnimationFrame = function(callback){
-							var currTime = new Date().getTime();
-							var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-							var id = window.setTimeout(function(){ callback(currTime + timeToCall); }, timeToCall);
-							lastTime = currTime + timeToCall;
-							return id;
-						};
-
-					if(!window.cancelAnimationFrame)window.cancelAnimationFrame = function(id){ window.clearTimeout(id); };
-				}());
-
 				var p = 400;
 				newdynmaster.style.webkitPerspective = p; newdynmaster.style.MozPerspective = p; newdynmaster.style.oPerspective = p;
 				generate();
@@ -2428,6 +2405,8 @@ function lightsgoonoroff(){
 				newdynmaster.appendChild(fireworksDiv);
 			}
 		} // end dynamic
+
+		announceLampState(true);
 	}
 }
 
@@ -2587,14 +2566,6 @@ chrome.storage.sync.get(["mousespotlighto", "mousespotlightc", "mousespotlighta"
 });
 
 // /////////
-// animation browser engine
-window.requestAnimFrame = function(){
-	return(
-		window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
-        function(/* function */ callback){ window.setTimeout(callback, 1000 / 60); }
-	);
-}();
-
 // Fade engine
 // Variable for the fade in and out effect
 var opacity = 0;
@@ -2620,7 +2591,7 @@ function increaseOpacity(){
 	if((opacity < default_opacity) && (ReducingFinished == true)){
 		(opacity > (default_opacity - 10)) ? opacity += (default_opacity - opacity) : opacity += OpacityLevelIncrement;
 		DIVElementById.style.opacity = opacity / 100;
-		window.requestAnimFrame(increaseOpacity);
+		window.requestAnimationFrame(increaseOpacity);
 	}else{ ReducingFinished = false; }
 	setallopacity(opacity);
 }
@@ -2631,7 +2602,7 @@ function reduceOpacity(){
 	if((opacity > 0) && (ReducingFinished == false)){
 		opacity -= OpacityLevelIncrement;
 		DIVElementById.style.opacity = opacity / 100;
-		window.requestAnimFrame(reduceOpacity);
+		window.requestAnimationFrame(reduceOpacity);
 	}else{
 		ReducingFinished = true;
 		// When finished, make sure the DIVElementById is set to remove element
@@ -2639,3 +2610,15 @@ function reduceOpacity(){
 	}
 	setallopacity(opacity);
 }
+
+// Clear all timers on page unload to prevent memory leaks
+window.addEventListener("beforeunload", function(){
+	// Clear mouse spotlight timers
+	if(presstimer){ window.clearTimeout(presstimer); presstimer = null; }
+	if(countupsizetimer){ window.clearInterval(countupsizetimer); countupsizetimer = null; }
+	// Clear triangle animation timer
+	if(refreshTimeout){ window.clearTimeout(refreshTimeout); refreshTimeout = null; }
+	// Clear fish and jellyfish animation timers
+	if(fishinterval){ window.clearInterval(fishinterval); fishinterval = null; }
+	if(jellyinterval){ window.clearInterval(jellyinterval); jellyinterval = null; }
+});

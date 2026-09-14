@@ -278,9 +278,6 @@ section>div:only-of-type{-webkit-box-flex:1}
 .youtubesharebutton{display:block;float:right;margin-top:5px;min-height:18px;padding:4px 10px}
 .youtubesharebutton span{font-size:12px;color:#333;padding:8px;background:#fff}
 .youtuberating{padding-left:75px;display:inline-flex;width:140px;padding-top:16px;line-height:1;height:0;justify-items:center;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-content:flex-end}
-.youtuberatingsparkbarlikes{background-color:#2793e6;width:100%}
-.youtuberatingsparkbardislikes{background:#C00;width:0%;display:block;float:right;margin-top:-7px}
-.youtuberatingsparkbarlikes,.youtuberatingsparkbardislikes{height:5px}
 .youtubeviewnumbers{padding-bottom:7px;padding-left:80px;width:50px;display:inline-block;font-size:13px;font-weight:700}
 .youtube_container_head{display:inline-block}
 .youtubewidthbar{width:100%}
@@ -739,6 +736,9 @@ to{transform: translateY(200px);opacity:0}
 .atmosrangebox .attitle{padding:0 20px 0px 0px;display:flex;align-items:center;height:48px}
 .atmosrangebox .atrest{display:flex;align-items:center;padding:0 20px}
 .atmosbox{display:flex;height:480px;width:100%}
+.shakerangebox{display:flex;height:48px}
+.shakerangebox .attitle{padding:0 20px 0px 0px;display:flex;align-items:center;height:48px}
+.shakerangebox .atrest{display:flex;align-items:center;padding:0 20px}
 #beeld{position:relative;z-index:101;margin:auto;width:487px;aspect-ratio:16/9;content-visibility:auto}
 .warning{font-weight:700}
 .warningambilight{border-radius:2px;background-color:var(--totl-donation-bar);color:black;margin-top:7px;margin-bottom:10px;padding:10px;line-height:25px}
@@ -919,10 +919,10 @@ input[type=checkbox]:checked ~ div #expandprofileaicon,input[type=checkbox]:chec
 .canvaschart:first-child{width:calc(50% - 42px);display:inline-block;margin:auto 10px 0px 0px;box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);padding:15px}
 .canvaschart:nth-child(2){width:calc(50% - 42px);display:inline-block;margin:auto 0px 0px 10px;box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);padding:15px}
 .canvasavgday{position:relative;box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);padding:15px}
-#myChart{width:400px;height:132px;content-visibility:auto}
-#myChartfour{width:400px;height:132px;content-visibility:auto}
-#myCharttwo{width:100px;height:100px;content-visibility:auto}
-#myChartthree{width:100px;height:100px;content-visibility:auto}
+#myChart{width:100%;height:100%;content-visibility:auto}
+#myChartfour{width:100%;height:100%;;content-visibility:auto}
+#myCharttwo{width:100%;height:100%;content-visibility:auto}
+#myChartthree{width:100%;height:100%;content-visibility:auto}
 .threecanvasgroup{width:100%}
 .tabledatalist{border-spacing:0;width:100%;table-layout:fixed;overflow:hidden}
 .tabledatalist tr:first-child{background:var(--totl-table-first-background);color:var(--totl-table-first-color)}
@@ -1152,7 +1152,7 @@ only screen and (max-device-width:480px){
   .videopreview{width:100%;padding-right:0}
   .videopreview iframe{width:100%;height:auto;aspect-ratio:16/9}
   .youtubesuggpanel{display:none}
-  #samplelikebar,#sampledislikebutton,#samplesharebutton,#sampleaddbutton{display:none}
+  #sampledislikebutton,#samplesharebutton,#sampleaddbutton{display:none}
   #autodimwhitelist,#atmospherewhitelist,#nightwhitelist,#autostopwhitelist,#videotoolwhitelist,#videovolumewhitelist,#gamepadwhitelist{margin-left:25px}
   #autodimwhitelist input[type=url],#atmospherewhitelist input[type=url],#nightwhitelist input[type=url],#autostopwhitelist input[type=url],#videotoolwhitelist input[type=url],#EyeWhitelist input[type=url],#videovolumewhitelist input[type=url],#gamepadwhitelist input[type=url]{width:100%;float:left}
   #autodimwhitelist select,#atmospherewhitelist select,#nightwhitelist select,#autostopwhitelist select,#videotoolwhitelist select,#EyeWhitelist select,#videovolumewhitelist select,#gamepadwhitelist select{width:100%;margin-right:0px}

@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "light@1x.png",
+      "filename" : "safari-preview-light1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "dark@1x.png",
+      "filename" : "safari-preview-dark1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "light@2x.png",
+      "filename" : "safari-preview-light2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,12 +28,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "dark@2x.png",
+      "filename" : "safari-preview-dark2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "light@3x.png",
+      "filename" : "safari-preview-light3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -44,7 +44,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "dark@3x.png",
+      "filename" : "safari-preview-dark3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

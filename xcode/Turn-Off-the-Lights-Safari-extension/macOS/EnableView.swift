@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  EnableView.swift
 //  Turn Off the Lights for Safari macOS
 //
 //  Created by Stefan Van Damme on 06/10/2025.
@@ -20,7 +20,15 @@ struct EnableView: View {
     @State private var isEnabled: Bool?
     @State private var errorMessage: String?
     @State private var timer: Publishers.Autoconnect<Timer.TimerPublisher> = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
-    @State private var player = AVPlayer(url: Bundle.main.url(forResource: "DaringInfantileDachshund", withExtension: "mp4")!)
+    @State private var player: AVPlayer?
+
+    init() {
+        if let url = Bundle.main.url(forResource: "DaringInfantileDachshund", withExtension: "mp4") {
+            _player = State(initialValue: AVPlayer(url: url))
+        } else {
+            _player = State(initialValue: nil)
+        }
+    }
 
     var body: some View {
         Form {
@@ -42,15 +50,15 @@ struct EnableView: View {
 
                 ZStack{
                     // Replace the plain image with a 3D-tilting version
-                    Tilt3D(maxRotation: 10, maxTranslation: 8, maxScale: 1.03, shadowOffset: 12, cornerRadius: 8) {
+                    Tilt3D(maxRotation: 10, maxTranslation: 8, maxScale: 1.03, shadowOffset: 12, cornerRadius: 12) {
                         ZStack{
                         Image("safariWebBrowser")
                             .resizable()
                             .frame(width: 400, height: 250)
-                            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                         
                         VideoPlayerView(player: player, showsPlaybackControls: false)
-                            .frame(width: 242, height: 136)
+                            .frame(width: 260, height: 146)
                             .clipped()
                             .allowsHitTesting(false)
                             .onAppear {
@@ -68,15 +76,15 @@ struct EnableView: View {
                                 }
                             }
                             .cornerRadius(4)
-                            .padding(.bottom, 20)
-                            .padding(.trailing, 116)
+                            .padding(.bottom, 26)
+                            .padding(.trailing, 106)
                         }
                     }
                 }
                 .frame(width: 400, height: 250)
                 
                 statusView
-                    .frame(height: 22)
+                    .frame(height: 34)
                     .padding(.bottom, 12)
                 
                 VStack(spacing: 0) {
@@ -91,7 +99,7 @@ struct EnableView: View {
                     .keyboardShortcut(.defaultAction)
 
                     Group {
-                        if let errorMessage {
+                        if let errorMessage = errorMessage {
                             Text(errorMessage)
                                 .font(.footnote)
                                 .foregroundStyle(.red)
@@ -121,7 +129,9 @@ struct EnableView: View {
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
                 Button(action: {
-                    StefanFunctions().openURL(URL(string: StefanLinks().linkredirectionoptions())!)
+                    if let url = URL(string: StefanLinks().linkredirectionoptions()) {
+                        StefanFunctions().openURL(url)
+                    }
                 }) {
                     Label("Options", systemImage: "gear")
                         .labelStyle(.titleOnly)
@@ -130,7 +140,7 @@ struct EnableView: View {
 
             ToolbarItemGroup(placement: .primaryAction) {
                 ShareLink("",
-                          item: URL(string: StefanLinks().linkappstore())!,
+                          item: appStoreURL,
                           subject: Text("FREE Turn Off the Lights Safari extension"),
                           message: Text("Download the free Turn Off the Lights Safari extension to get Dark Mode on all websites. Try it yourself! via @TurnOfftheLight  \(StefanLinks().linkdeveloperwebsite())"))
             }
@@ -153,38 +163,73 @@ struct EnableView: View {
         }
     }
 
+    private var appStoreURL: URL {
+        URL(string: StefanLinks().linkappstore())
+            ?? URL(string: "https://apps.apple.com/app/id1273998507")!
+    }
+
     @ViewBuilder
     private var statusView: some View {
         ZStack {
-            Label {
-                Text("Safari extension is Enabled")
-                    .font(.headline)
-            } icon: {
-                Image(systemName: "checkmark.circle.fill")
-                    .foregroundStyle(.green)
-            }
+            statusPill(
+                icon: "checkmark.circle.fill",
+                iconColor: .green,
+                text: String(localized: "Safari extension is Enabled"),
+                tint: .green,
+                showsProgress: false
+            )
             .opacity(isEnabled == true ? 1 : 0)
 
-            Label {
-                Text("Safari extension is Disabled")
-                    .font(.headline)
-            } icon: {
-                Image(systemName: "xmark.circle.fill")
-                    .foregroundStyle(.red)
-            }
+            statusPill(
+                icon: "xmark.circle.fill",
+                iconColor: .red,
+                text: String(localized: "Safari extension is Disabled"),
+                tint: .red,
+                showsProgress: false
+            )
             .opacity(isEnabled == false ? 1 : 0)
 
-            HStack(spacing: 10) {
-                ProgressView()
-                Text("Checking extension status…")
-                    .font(.headline)
-            }
+            statusPill(
+                icon: nil,
+                iconColor: .secondary,
+                text: String(localized: "Checking extension status…"),
+                tint: nil,
+                showsProgress: true
+            )
             .opacity(isEnabled == nil ? 1 : 0)
         }
         .animation(.easeInOut(duration: 0.2), value: isEnabled)
     }
 
+    @ViewBuilder
+    private func statusPill(
+        icon: String?,
+        iconColor: Color,
+        text: String,
+        tint: Color?,
+        showsProgress: Bool = false
+    ) -> some View {
+        HStack(spacing: 8) {
+            if showsProgress {
+                ProgressView()
+                    .controlSize(.small)
+            } else if let icon = icon {
+                Image(systemName: icon)
+                    .foregroundStyle(iconColor)
+            }
+            Text(text)
+                .font(.headline)
+        }
+        .padding(.horizontal, 14)
+        .padding(.vertical, 8)
+        .background(
+            Capsule()
+                .fill(tint?.opacity(0.12) ?? Color.gray.opacity(0.15))
+        )
+    }
+
     private func startLoopingVideo() {
+        guard let player = player else { return }
         player.isMuted = true
         player.actionAtItemEnd = .none
         player.play()
@@ -192,20 +237,20 @@ struct EnableView: View {
             forName: .AVPlayerItemDidPlayToEndTime,
             object: player.currentItem,
             queue: nil
-        ) { _ in
-            player.seek(to: .zero)
-            player.play()
+        ) { [weak player] _ in
+            player?.seek(to: .zero)
+            player?.play()
         }
     }
 
     private func stopVideo() {
-        player.pause()
+        player?.pause()
     }
 
     private func refreshExtensionState(initial: Bool) {
         SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: extensionBundleIdentifier) { state, error in
             DispatchQueue.main.async {
-                if let error {
+                if let error = error {
                     // print("refreshExtensionState error:", error.localizedDescription)
                     self.errorMessage = error.localizedDescription
                     self.isEnabled = nil
@@ -221,7 +266,7 @@ struct EnableView: View {
 
     private func openSafariExtensionPreferences() {
         SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
-            if let error {
+            if let error = error {
                 DispatchQueue.main.async {
                     print("showPreferencesForExtension error:", error.localizedDescription)
                     self.errorMessage = error.localizedDescription
@@ -317,7 +362,7 @@ private struct MouseTracker: ViewModifier {
 
         override func updateTrackingAreas() {
             super.updateTrackingAreas()
-            if let trackingArea { removeTrackingArea(trackingArea) }
+            if let trackingArea = trackingArea { removeTrackingArea(trackingArea) }
             let options: NSTrackingArea.Options = [
                 .mouseMoved, .mouseEnteredAndExited, .activeInKeyWindow, .inVisibleRect
             ]

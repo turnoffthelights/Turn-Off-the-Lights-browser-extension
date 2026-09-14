@@ -39,55 +39,48 @@ struct ContentView: View {
     @State private var pollTimer: Publishers.Autoconnect<Timer.TimerPublisher> = Timer.publish(every: 1.5, on: .main, in: .common).autoconnect()
 
     var body: some View {
-        ZStack {
-            NavigationSplitView(columnVisibility: $columnVisibility) {
-                List(sidebarItems, selection: $selection) { item in
-                    Label(item.name, systemImage: item.systemImage)
-                        .tag(item)
-                }
-                .navigationTitle("Sidebar")
-            } detail: {
-                if let item = selection {
-                    detailView(for: item)
-                } else {
-                    ContentPlaceholderView()
-                }
+        NavigationSplitView(columnVisibility: $columnVisibility) {
+            List(sidebarItems, selection: $selection) { item in
+                Label(item.name, systemImage: item.systemImage)
+                    .tag(item)
             }
-            .navigationSplitViewColumnWidth(min: 200, ideal: 240, max: 320)
-            .onAppear {
-                if selection == nil {
-                    selection = sidebarItems.first
-                }
+            .navigationTitle("Sidebar")
+        } detail: {
+            if let item = selection {
+                AnyView(detailView(for: item))
+            } else {
+                AnyView(ContentPlaceholderView())
+            }
+        }
+        .navigationSplitViewColumnWidth(min: 200, ideal: 240, max: 320)
+        .onAppear {
+            if selection == nil {
+                selection = sidebarItems.first
+            }
+            refreshExtensionState()
+        }
+        .onReceive(pollTimer) { _ in
+            refreshExtensionState()
+        }
+        .onChange(of: scenePhase) { _, newPhase in
+            if newPhase == .active {
                 refreshExtensionState()
-            }
-            .onReceive(pollTimer) { _ in
-                refreshExtensionState()
-            }
-            .onChange(of: scenePhase) { _, newPhase in
-                if newPhase == .active {
-                    refreshExtensionState()
-                }
             }
         }
     }
 
-    @ViewBuilder
-    private func detailView(for item: SidebarItem) -> some View {
+    private func detailView(for item: SidebarItem) -> AnyView {
         switch item.name {
         case "Home":
-            EnableView()
-                .navigationTitle("Home")
+            return AnyView(EnableView().navigationTitle("Home"))
         case "Videos":
-            VideosView()
-                .navigationTitle("Videos")
+            return AnyView(VideosView().navigationTitle("Videos"))
         case "News":
-            NewsView()
-                .navigationTitle("News")
+            return AnyView(NewsView().navigationTitle("News"))
         case "About":
-            AboutView()
-                .navigationTitle("About")
+            return AnyView(AboutView().navigationTitle("About"))
         default:
-            EmptyView()
+            return AnyView(EmptyView())
         }
     }
 
@@ -120,24 +113,28 @@ private struct DetailView: View {
 private struct ContentPlaceholderView: View {
     var body: some View {
         if #available(macOS 14.0, *) {
-            ContentUnavailableView(
-                "Select an item",
-                systemImage: "sidebar.left",
-                description: Text("Choose something from the sidebar to get started.")
+            AnyView(
+                ContentUnavailableView(
+                    "Select an item",
+                    systemImage: "sidebar.left",
+                    description: Text("Choose something from the sidebar to get started.")
+                )
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             )
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
-            VStack(spacing: 12) {
-                Image(systemName: "sidebar.left")
-                    .font(.system(size: 48))
-                    .foregroundStyle(.secondary)
-                Text("Select an item")
-                    .font(.title2)
-                    .foregroundStyle(.secondary)
-                Text("Choose something from the sidebar to get started.")
-                    .foregroundStyle(.secondary)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            AnyView(
+                VStack(spacing: 12) {
+                    Image(systemName: "sidebar.left")
+                        .font(.system(size: 48))
+                        .foregroundStyle(.secondary)
+                    Text("Select an item")
+                        .font(.title2)
+                        .foregroundStyle(.secondary)
+                    Text("Choose something from the sidebar to get started.")
+                        .foregroundStyle(.secondary)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            )
         }
     }
 }

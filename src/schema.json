@@ -2,31 +2,135 @@
   "type": "object",
   "properties": {
     "SuppressWelcomePage": {
+      "title": "Suppress Welcome Page",
+      "description": "Suppress the welcome and guide pages from opening automatically on first install.",
       "type": "boolean"
     },
     "AutoDim": {
+      "title": "AutoDim",
+      "description": "Automatically dim the background when you click the play button and vice versa.",
       "type": "boolean"
     },
     "AutoStop": {
+      "title": "AutoStop",
+      "description": "Stop playing the video automatically when I open a web page.",
       "type": "boolean"
     },
     "AutoHD": {
+      "title": "YouTube AutoHD",
+      "description": "Automatically set YouTube videos to the configured HD quality.",
       "type": "boolean"
     },
     "AutoHDQuality": {
+      "title": "YouTube video quality",
+      "description": "The YouTube video quality to enforce. Valid values: 'highres', 'hd4320', 'hd2880', 'hd2160', 'hd1440', 'hd1080', 'hd720', 'large', 'medium', 'small', 'tiny', 'default'.",
       "type": "string"
     },
     "Block60FPS": {
+      "title": "Block 60FPS",
+      "description": "Block 60FPS video playback on YouTube to reduce bandwidth and CPU usage.",
       "type": "boolean"
     },
     "NightModeSwitch": {
+      "title": "Night Mode",
+      "description": "Show the night mode switch on the web page to allow users to switch the page to a dark mode theme.",
       "type": "boolean"
     },
     "MouseVolumeScroll": {
+      "title": "Mouse Volume Scroll",
+      "description": "Enable volume control via mouse scroll wheel on HTML5 videos.",
       "type": "boolean"
     },
     "VideoToolbar": {
+      "title": "Video Toolbar",
+      "description": "Show the video toolbar with playback controls on HTML5 videos.",
       "type": "boolean"
+    },
+    "DefaultDimColor": {
+      "title": "Default Dimmed Layer Color",
+      "description": "The default color of the dimmed layer as a hex color (e.g., '#000000').",
+      "type": "string"
+    },
+    "DefaultOpacity": {
+      "title": "Default Opacity",
+      "description": "The default dim opacity percentage from 0 to 100 (default: 80).",
+      "type": "integer"
+    },
+    "NightModeScope": {
+      "title": "Night Mode Scope",
+      "description": "Whether night mode applies to all websites or only the configured domain list. Valid values: 'all', 'domainlist'.",
+      "type": "string",
+      "enum": ["all", "domainlist"]
+    },
+    "NightModeFilterType": {
+      "title": "Night Mode Filter Type",
+      "description": "Whether the night mode domain list acts as a whitelist (only listed domains get night mode) or a blacklist (all domains except listed get night mode). Valid values: 'whitelist', 'blacklist'.",
+      "type": "string",
+      "enum": ["whitelist", "blacklist"]
+    },
+    "NightModeDomainList": {
+      "title": "Night Mode Domain List",
+      "description": "A list of domains for night mode filtering. Each key is a domain URL and the value is true. Example: {\"https://www.youtube.com\": true, \"https://www.nytimes.com\": true}.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
+    "NightModeEngine": {
+      "title": "Night Mode Engine",
+      "description": "The night mode engine type. 'standard' uses basic color inversion, 'personalized' uses advanced customization with individual color settings.",
+      "type": "string",
+      "enum": ["standard", "personalized"]
+    },
+    "NightModeBackgroundColor": {
+      "title": "Night Mode Background Color",
+      "description": "The background color for night mode as a hex color (e.g., '#1e1e1e').",
+      "type": "string"
+    },
+    "NightModeTextColor": {
+      "title": "Night Mode Text Color",
+      "description": "The text color for night mode as a hex color (e.g., '#ffffff').",
+      "type": "string"
+    },
+    "NightModeHyperlinkColor": {
+      "title": "Night Mode Hyperlink Color",
+      "description": "The hyperlink color for night mode as a hex color (e.g., '#ffffff').",
+      "type": "string"
+    },
+    "NightModeButtonColor": {
+      "title": "Night Mode Button Color",
+      "description": "The button color for night mode as a hex color (e.g., '#353535').",
+      "type": "string"
+    },
+    "NightModeBorderColor": {
+      "title": "Night Mode Border Color",
+      "description": "The border color for night mode as a hex color (e.g., '#545454').",
+      "type": "string"
+    },
+    "EyeProtection": {
+      "title": "Eye Protection",
+      "description": "Enable the eye protection feature that automatically dims the screen for eye strain prevention. When false, the extension operates in regular video mode.",
+      "type": "boolean"
+    },
+    "EyeProtectionScope": {
+      "title": "Eye Protection Scope",
+      "description": "Whether eye protection applies to all websites or only the configured domain list. Valid values: 'all', 'domainlist'.",
+      "type": "string",
+      "enum": ["all", "domainlist"]
+    },
+    "EyeProtectionFilterType": {
+      "title": "Eye Protection Filter Type",
+      "description": "Whether the eye protection domain list acts as a whitelist (only listed domains get eye protection) or a blacklist (all domains except listed get eye protection). Valid values: 'whitelist', 'blacklist'.",
+      "type": "string",
+      "enum": ["whitelist", "blacklist"]
+    },
+    "EyeProtectionDomainList": {
+      "title": "Eye Protection Domain List",
+      "description": "A list of domains for eye protection filtering. Each key is a domain URL and the value is true. Example: {\"https://www.youtube.com\": true, \"https://vimeo.com\": true}.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
     }
   }
 }
