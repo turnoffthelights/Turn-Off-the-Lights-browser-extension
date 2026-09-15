@@ -138,6 +138,32 @@ function autodimfunction(){
 			trigger(eventData);
 		};
 		document.getElementById(message.id).addEventListener(message.id, cinemahandler, false);
+		messagediv = message;
+	}
+
+	messagediv.textContent = "";
+
+	// If a video is already playing on this page, turn on the dark layer; otherwise turn it off
+	if(autodim == true && mousespotlights != true){
+		var videos = document.getElementsByTagName("video");
+		var i;
+		var playing = false;
+		for(i = 0; i < videos.length; i++){
+			if(!videos[i].paused && !videos[i].ended){
+				playing = true;
+				break;
+			}
+		}
+		if(playing){
+			if(aplay == true){ shadesOn(); }
+		}else{
+			// No video is playing on this page, remove the dark layer immediately
+			var blackon = document.getElementById("stefanvdlightareoff1");
+			if(blackon){
+				window.clearTimeout(godelay);
+				chrome.runtime.sendMessage({name: "automatic"});
+			}
+		}
 	}
 }
 
@@ -185,7 +211,11 @@ chrome.runtime.onMessage.addListener(function(request){
 });
 
 // Handle browser navigation (back/forward buttons, swipe gestures)
-window.addEventListener("popstate", function(){
+function reinitAutoDimForUrlChange(){
+	// Reset state from the previous page so the new page's video events are treated as new
+	lastEvent = null;
+	window.clearTimeout(timeout);
+	window.clearTimeout(godelay);
 	// Re-check AutoDim for the new URL
 	chrome.storage.sync.get(["autodim", "mousespotlights", "autodimDomains", "autodimchecklistwhite", "autodimchecklistblack", "autodimonly"], function(items){
 		autodim = items["autodim"];
@@ -195,26 +225,44 @@ window.addEventListener("popstate", function(){
 		autodimchecklistblack = items["autodimchecklistblack"];
 		autodimonly = items["autodimonly"];
 
-		// Clean up existing messaging element (but keep video tracking script)
-		if(document.getElementById("stefanvdcinemamessage")){
-			window.removeElement("stefanvdcinemamessage");
-		}
-
-		// Remove any existing dark layer
-		var blackon = document.getElementById("stefanvdlightareoff1");
-		if(blackon){
-			chrome.runtime.sendMessage({name: "automatic"});
-		}
-
 		// Reinitialize AutoDim if enabled
 		if(autodim == true && mousespotlights != true){
 			// Ensure video player status script is injected globally
 			setupGlobalVideoTracking();
+
 			// Run domain check to set up messaging listener only for whitelisted domains
-			runautodimcheck();
+			var allowed = false;
+			window.checkDomainFeature(autodim == true && mousespotlights != true, autodimDomains, autodimchecklistwhite, autodimchecklistblack, autodimonly, function(){
+				allowed = true;
+				autodimfunction();
+			});
+
+			// If the new URL is not whitelisted, remove the messaging listener and dark layer
+			if(!allowed){
+				if(document.getElementById("stefanvdcinemamessage")){
+					window.removeElement("stefanvdcinemamessage");
+				}
+				var blackon = document.getElementById("stefanvdlightareoff1");
+				if(blackon){
+					chrome.runtime.sendMessage({name: "automatic"});
+				}
+			}
+		}else{
+			// AutoDim is disabled or mouse spotlights are on
+			if(document.getElementById("stefanvdcinemamessage")){
+				window.removeElement("stefanvdcinemamessage");
+			}
+			var blackon = document.getElementById("stefanvdlightareoff1");
+			if(blackon){
+				chrome.runtime.sendMessage({name: "automatic"});
+			}
 		}
 	});
-});
+}
+
+// Listen for real browser navigation and for the internal SPA URL-change event
+window.addEventListener("popstate", reinitAutoDimForUrlChange);
+window.addEventListener("totl-urlchange", reinitAutoDimForUrlChange);
 
 // Override pushState and replaceState to detect programmatic navigation
 const originalPushState = history.pushState;
@@ -222,12 +270,12 @@ const originalReplaceState = history.replaceState;
 
 history.pushState = function(){
 	originalPushState.apply(this, arguments);
-	window.dispatchEvent(new Event("popstate"));
+	window.dispatchEvent(new Event("totl-urlchange"));
 };
 
 history.replaceState = function(){
 	originalReplaceState.apply(this, arguments);
-	window.dispatchEvent(new Event("popstate"));
+	window.dispatchEvent(new Event("totl-urlchange"));
 };
 
 // Also listen for URL changes via MutationObserver (for SPA navigation)
@@ -235,13 +283,13 @@ var lastUrl = location.href;
 new MutationObserver(function(){
 	if(location.href !== lastUrl){
 		lastUrl = location.href;
-		window.dispatchEvent(new Event("popstate"));
+		window.dispatchEvent(new Event("totl-urlchange"));
 	}
 }).observe(document, {subtree: true, childList: true});
 
 // Listen for hash changes
 window.addEventListener("hashchange", function(){
-	window.dispatchEvent(new Event("popstate"));
+	window.dispatchEvent(new Event("totl-urlchange"));
 });
 
 // Load settings and start
