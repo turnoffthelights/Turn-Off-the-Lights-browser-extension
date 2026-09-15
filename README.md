@@ -60,14 +60,68 @@ Using Turn Off the Lights to dims the web page and reduces the eye strain caused
 * Option to stop YouTube and HTML5 videos from automatically playing.
 
 ## Installation
-#### Loading it in Chrome:
-1. Open your Google Chrome web browser, browse to [chrome://extensions](chrome://extensions)
-1. If you have already Turn Off the Lights Chrome extension installed, disable it
-1. Check **Developer mode** at the top of the Extensions page
-1. Click **Load unpacked extension...**
-1. Choose the sub-directory **src** (where manifest.json resides)
 
-#### STABLE Channel:
+### Create package
+
+1. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Build the extension for the browser you want to test:
+
+   ```bash
+   npm run chrome     # creates dist/chrome
+   npm run firefox    # creates dist/firefox
+   npm run opera      # creates dist/opera
+   npm run edge       # creates dist/edge
+   npm run whale      # creates dist/whale
+   npm run yandex     # creates dist/yandex
+   npm run samsung    # creates dist/samsung (submit this to the Galaxy Store)
+   ```
+
+   Or build and package all supported browsers at once:
+
+   ```bash
+   npm run browserzip
+   ```
+
+   For Safari, use:
+
+   ```bash
+   npm run safari     # builds the Safari extension resources for Xcode
+   ```
+
+### Load the unpacked extension
+
+#### Google Chrome / Microsoft Edge / Opera / Brave / Vivaldi / Yandex / Naver Whale
+
+1. Open your browser's extensions page:
+   - Chrome, Brave, Vivaldi: `chrome://extensions`
+   - Edge: `edge://extensions`
+   - Opera: `opera://extensions`
+   - Yandex: `browser://extensions`
+   - Whale: `whale://extensions`
+2. If you already have Turn Off the Lights installed, disable it
+3. Check **Developer mode** at the top of the Extensions page
+4. Click **Load unpacked** (or **Load unpacked extension...**)
+5. Choose the generated `dist/<browser>` folder (for example `dist/chrome` for Google Chrome)
+
+#### Firefox
+
+1. Open `about:debugging#/runtime/this-firefox`
+2. Click **Load Temporary Add-on…**
+3. Select the `manifest.json` file inside `dist/firefox`
+
+#### Safari
+
+1. Run `npm run safari` to build the extension resources
+2. Open the `xcode/Turn-Off-the-Lights-Safari-extension` project in Xcode
+3. Build and run the extension target following Apple's Safari extension development instructions
+
+### STABLE Channel
+
 The browser extension is available in the following stores:
 * [Google Chrome in the Chrome web store](https://chromewebstore.google.com/detail/turn-off-the-lights/bfbmjmiodbnnpllbbbfblcplfjjepjdn)
 * [Opera in the Opera Extension gallery](https://addons.opera.com/extensions/details/turn-off-the-lights/)
@@ -79,5 +133,6 @@ The browser extension is available in the following stores:
 * [Naver Whale in the Whale Store](https://store.whale.naver.com/detail/oplanocjcpankemphfllmlhglnloaolj)
 * [Samsung Internet in the Samsung Galaxy Store](https://galaxystore.samsung.com/detail/com.stefanvd.turnoffthelightssamsung)
 
-#### BETA Channel:
+### BETA Channel
+
 * [Google Chrome in the Chrome web store](https://chromewebstore.google.com/detail/turn-off-the-lights/jfmfcimcjckbdhbbbbdemfaaphhgljgo)
