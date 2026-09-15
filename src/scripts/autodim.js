@@ -143,7 +143,10 @@ function autodimfunction(){
 
 	messagediv.textContent = "";
 
-	// If a video is already playing on this page, turn on the dark layer; otherwise turn it off
+	reapplyAutoDim();
+}
+
+function reapplyAutoDim(){
 	if(autodim == true && mousespotlights != true){
 		var videos = document.getElementsByTagName("video");
 		var i;
