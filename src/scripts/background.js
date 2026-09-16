@@ -272,7 +272,7 @@ const CONTENT_SCRIPTS = {
 	},
 	autodim: {
 		id: SCRIPT_IDS.autodim,
-		js: ["scripts/autodim.js"],
+		js: ["scripts/autodim.js", "scripts/video-player-status.js"],
 		matches: ["<all_urls>"],
 		runAt: "document_end"
 	},
@@ -1002,7 +1002,7 @@ chrome.storage.onChanged.addListener(async function(changes){
 						try{
 							await chrome.scripting.executeScript({
 								target: {tabId: tab.id},
-								files: ["scripts/autodim.js"]
+								files: ["scripts/autodim.js", "scripts/video-player-status.js"]
 							});
 						}catch{
 							// Ignore errors for tabs where script can't be injected

@@ -27,114 +27,120 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 */
 //================================================
 
-const totlCinema = {
-	players: {objs: [], active: 0},
-	messageEvent: new Event("stefanvdcinemamessage"),
-	playerStateChange: function(stateId){
-		const message = document.getElementById("stefanvdcinemamessage"),
-			stateIO = `playerStateChange:${stateId}`;
-		if(message && message.textContent !== stateIO){
-			message.textContent = stateIO;
-			message.dispatchEvent(totlCinema.messageEvent);
-		}
-	},
-	initialize: function(){
-		this.initvideoinject();
-		const videolist = document.querySelector("body"),
-			observer = new MutationObserver(function(mutations){
-				mutations.forEach(function(mutation){
-					if(
-						mutation.target.tagName === "VIDEO" ||
-						Array.from(mutation.addedNodes).some((node) => node.tagName === "VIDEO") ||
-						Array.from(mutation.removedNodes).some((node) => node.tagName === "VIDEO")
-					){
-						totlCinema.initvideoinject();
-					}
-
-					// Check for attribute changes in video elements
-					if(mutation.type === "attributes" && mutation.attributeName === "src"){
-						const video = mutation.target;
-						if(video.tagName === "VIDEO" && !video.src){
-							totlCinema.handleVideoRemoval(video);
-						}
-					}
-				});
-			});
-		observer.observe(videolist, {
-			subtree: true, // observe the subtree rooted at videolist
-			childList: true, // include childNode insertion/removals
-			attributes: true // include changes to attributes within the subtree
-		});
-	},
-	initvideoinject: function(){
-		const htmlplayers = document.getElementsByTagName("video");
-		const existingPlayers = Array.from(htmlplayers);
-
-		// Remove event listeners and clean up removed videos
-		totlCinema.players.objs = totlCinema.players.objs.filter(function(video){
-			if(!existingPlayers.includes(video)){
-				video.removeEventListener("pause", video._events.pause);
-				video.removeEventListener("play", video._events.play);
-				video.removeEventListener("ended", video._events.ended);
-				totlCinema.players.active -= video._events.isActive ? 1 : 0;
-				return false;
+// Runs in the isolated content-script world; guard against re-injection
+if(window.totlCinema == undefined){
+	const totlCinema = {
+		players: {objs: [], active: 0},
+		messageEvent: new Event("stefanvdcinemamessage"),
+		playerStateChange: function(stateId){
+			const message = document.getElementById("stefanvdcinemamessage"),
+				stateIO = `playerStateChange:${stateId}`;
+			if(message && message.textContent !== stateIO){
+				message.textContent = stateIO;
+				message.dispatchEvent(totlCinema.messageEvent);
 			}
-			return true;
-		});
+		},
+		initialize: function(){
+			this.initvideoinject();
+			const videolist = document.querySelector("body"),
+				observer = new MutationObserver(function(mutations){
+					mutations.forEach(function(mutation){
+						if(
+							mutation.target.tagName === "VIDEO" ||
+							Array.from(mutation.addedNodes).some((node) => node.tagName === "VIDEO") ||
+							Array.from(mutation.removedNodes).some((node) => node.tagName === "VIDEO")
+						){
+							totlCinema.initvideoinject();
+						}
 
-		// Add event listeners to new videos
-		for(let i = 0; i < htmlplayers.length; i++){
-			let video = htmlplayers[i];
-			if(!totlCinema.players.objs.includes(video)){
-				let ev = {
-					isActive: false,
-					pause: function(){
-						if(!video.ended){
+						// Check for attribute changes in video elements
+						if(mutation.type === "attributes" && mutation.attributeName === "src"){
+							const video = mutation.target;
+							if(video.tagName === "VIDEO" && !video.src){
+								totlCinema.handleVideoRemoval(video);
+							}
+						}
+					});
+				});
+			if(videolist){
+				observer.observe(videolist, {
+					subtree: true, // observe the subtree rooted at videolist
+					childList: true, // include childNode insertion/removals
+					attributes: true // include changes to attributes within the subtree
+				});
+			}
+		},
+		initvideoinject: function(){
+			const htmlplayers = document.getElementsByTagName("video");
+			const existingPlayers = Array.from(htmlplayers);
+
+			// Remove event listeners and clean up removed videos
+			totlCinema.players.objs = totlCinema.players.objs.filter(function(video){
+				if(!existingPlayers.includes(video)){
+					video.removeEventListener("pause", video._events.pause);
+					video.removeEventListener("play", video._events.play);
+					video.removeEventListener("ended", video._events.ended);
+					totlCinema.players.active -= video._events.isActive ? 1 : 0;
+					return false;
+				}
+				return true;
+			});
+
+			// Add event listeners to new videos
+			for(let i = 0; i < htmlplayers.length; i++){
+				let video = htmlplayers[i];
+				if(!totlCinema.players.objs.includes(video)){
+					let ev = {
+						isActive: false,
+						pause: function(){
+							if(!video.ended){
+								totlCinema.players.active -= 1;
+								ev.isActive = false;
+							}
+							if(totlCinema.players.active < 1){
+								totlCinema.players.active = 0; // Ensure active count doesn't go negative
+								totlCinema.playerStateChange(2);
+							}
+						},
+						play: function(){
+							if(!ev.isActive){
+								totlCinema.players.active += 1;
+								ev.isActive = true;
+							}
+							totlCinema.playerStateChange(1);
+						},
+						ended: function(){
 							totlCinema.players.active -= 1;
 							ev.isActive = false;
+							if(totlCinema.players.active < 1){
+								totlCinema.players.active = 0; // Ensure active count doesn't go negative
+								totlCinema.playerStateChange(0);
+							}
 						}
-						if(totlCinema.players.active < 1){
-							totlCinema.players.active = 0; // Ensure active count doesn't go negative
-							totlCinema.playerStateChange(2);
-						}
-					},
-					play: function(){
-						if(!ev.isActive){
-							totlCinema.players.active += 1;
-							ev.isActive = true;
-						}
-						totlCinema.playerStateChange(1);
-					},
-					ended: function(){
-						totlCinema.players.active -= 1;
-						ev.isActive = false;
-						if(totlCinema.players.active < 1){
-							totlCinema.players.active = 0; // Ensure active count doesn't go negative
-							totlCinema.playerStateChange(0);
-						}
-					}
-				};
-				video._events = ev; // Store event handlers to the video element
-				video.addEventListener("pause", ev.pause);
-				video.addEventListener("play", ev.play);
-				video.addEventListener("ended", ev.ended);
-				totlCinema.players.objs.push(video);
+					};
+					video._events = ev; // Store event handlers to the video element
+					video.addEventListener("pause", ev.pause);
+					video.addEventListener("play", ev.play);
+					video.addEventListener("ended", ev.ended);
+					totlCinema.players.objs.push(video);
 
-				// Trigger the play event if the video is already playing (autoplay case)
-				if(!video.paused && !video.ended){
-					ev.play();
+					// Trigger the play event if the video is already playing (autoplay case)
+					if(!video.paused && !video.ended){
+						ev.play();
+					}
+				}
+			}
+		},
+		handleVideoRemoval: function(video){
+			if(video._events && video._events.isActive){
+				totlCinema.players.active -= 1;
+				if(totlCinema.players.active < 1){
+					totlCinema.players.active = 0; // Ensure active count doesn't go negative
+					totlCinema.playerStateChange(2);
 				}
 			}
 		}
-	},
-	handleVideoRemoval: function(video){
-		if(video._events && video._events.isActive){
-			totlCinema.players.active -= 1;
-			if(totlCinema.players.active < 1){
-				totlCinema.players.active = 0; // Ensure active count doesn't go negative
-				totlCinema.playerStateChange(2);
-			}
-		}
-	}
-};
-totlCinema.initialize();
+	};
+	window.totlCinema = totlCinema;
+	totlCinema.initialize();
+}

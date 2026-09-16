@@ -45,15 +45,6 @@ var mousespotlights = null;
 var godelay;
 var gracePeriod = 250, lastEvent = null, timeout = null;
 
-// Ensure video player status script is injected globally when AutoDim is enabled
-function setupGlobalVideoTracking(){
-	if(autodim == true && mousespotlights != true){
-		if(!document.getElementById("totlautodim")){
-			var script = document.createElement("script"); script.id = "totlautodim"; script.type = "text/javascript"; script.src = chrome.runtime.getURL("scripts/video-player-status.js"); document.getElementsByTagName("head")[0].appendChild(script);
-		}
-	}
-}
-
 function trigger(data){
 	if(gracePeriod > 0 && (lastEvent === null || String(lastEvent).split(":")[0] === String(data).split(":")[0])){
 		window.clearTimeout(timeout);
@@ -199,15 +190,8 @@ chrome.runtime.onMessage.addListener(function(request){
 			}
 
 			if(autodim == true){
-				// Ensure video player status script is injected globally
-				setupGlobalVideoTracking();
 				// Run domain check to set up messaging listener only for whitelisted domains
 				runautodimcheck();
-			}else{
-				// Remove video tracking script if AutoDim is disabled
-				if(document.getElementById("totlautodim")){
-					window.removeElement("totlautodim");
-				}
 			}
 		});
 	}
@@ -230,9 +214,6 @@ function reinitAutoDimForUrlChange(){
 
 		// Reinitialize AutoDim if enabled
 		if(autodim == true && mousespotlights != true){
-			// Ensure video player status script is injected globally
-			setupGlobalVideoTracking();
-
 			// Run domain check to set up messaging listener only for whitelisted domains
 			var allowed = false;
 			window.checkDomainFeature(autodim == true && mousespotlights != true, autodimDomains, autodimchecklistwhite, autodimchecklistblack, autodimonly, function(){
@@ -255,8 +236,8 @@ function reinitAutoDimForUrlChange(){
 			if(document.getElementById("stefanvdcinemamessage")){
 				window.removeElement("stefanvdcinemamessage");
 			}
-			var blackon = document.getElementById("stefanvdlightareoff1");
-			if(blackon){
+			var blackonAutoDimdisabled = document.getElementById("stefanvdlightareoff1");
+			if(blackonAutoDimdisabled){
 				chrome.runtime.sendMessage({name: "automatic"});
 			}
 		}
@@ -311,9 +292,6 @@ chrome.storage.sync.get(["autodim", "mousespotlights", "autodimDomains", "autodi
 	autodimsize = items["autodimsize"];
 	autodimsizepixelheight = items["autodimsizepixelheight"]; if(autodimsizepixelheight == null)autodimsizepixelheight = 220;
 	autodimsizepixelwidth = items["autodimsizepixelwidth"]; if(autodimsizepixelwidth == null)autodimsizepixelwidth = 250;
-
-	// Always inject video player status script globally when AutoDim is enabled
-	setupGlobalVideoTracking();
 
 	// Run domain check to set up messaging listener only for whitelisted domains
 	runautodimcheck();
