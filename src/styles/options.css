@@ -1133,12 +1133,10 @@ button[disabled],input[type=button][disabled],input[type=submit][disabled],butto
 .pslogo{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:var(--totl-svg-fill-color);stroke-miterlimit:10}
 .xb3{fill:none;stroke:var(--totl-svg-fill-color);stroke-miterlimit:10}
 /* mobile */
-@media only screen and (max-width:982px),
-only screen and (max-device-width:982px){
+@media only screen and (max-width:982px){
   #sampleinforbar{display:none}
 }
-@media only screen and (max-width:480px),
-only screen and (max-device-width:480px){
+@media only screen and (max-width:480px){
   .search{display:none}
   #navbar-container{z-index:401;box-shadow:0 0 16px rgba(0,0,0,.28);animation:slide-out 0.5s ease;animation-fill-mode:forwards}
   body{min-width:auto;min-height:auto}
@@ -1194,7 +1192,6 @@ only screen and (max-device-width:480px){
 @media only screen and (max-height:330px){
   #navbar-container{overflow:scroll}
 }
-@media only screen and (max-width:480px),
-only screen and (max-device-width:480px) and (orientation:portrait){
+@media only screen and (max-width:480px){
   #dont-turn-off-the-lights{width:100%;height:auto;aspect-ratio:16/9}
 }
