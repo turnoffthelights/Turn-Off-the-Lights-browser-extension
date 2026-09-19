@@ -6,277 +6,53 @@
 //
 
 import SwiftUI
-import SafariServices
-import AppKit
-
-extension String: @retroactive Identifiable {
-    public var id: Self { self }
-}
 
 struct OtherAppsView: View {
+    /// This app's own entry id in apps.json, so it never promotes itself.
+    var selfID = "turn-off-the-lights"
+
+    @StateObject private var store = OtherAppsStore()
+
     var body: some View {
         NavigationStack {
             Form {
                 Section(header: Text("Explore")) {
-                    Button {
-                        if let url = URL(string: StefanLinks().webappmychristmastree()) {
-                            StefanLinks().openURL(url)
+                    ForEach(store.visibleApps(excluding: selfID)) { app in
+                        Button {
+                            if let url = URL(string: app.url) {
+                                StefanLinks().openURL(url)
+                            }
+                        } label: {
+                            HStack(spacing:10) {
+                                iconView(for: app)
+                                Text(app.name)
+                            }
                         }
-                    } label: {
-                        HStack(spacing:10) {
-                            
-                            Image(nsImage: NSImage(named: "AppMyChristmasTree")!)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(10)
-                                .accessibilityHidden(true)
-                            Text("My Christmas Tree")
-                        }
+                        .buttonStyle(.link)
+                        .accessibilityLabel(Text("Open app page: \(app.name)"))
+                        .accessibilityHint(Text("Opens in your web browser"))
                     }
-                    .buttonStyle(.link)
-                    .accessibilityLabel(Text("Open app page: My Christmas Tree"))
-                    .accessibilityHint(Text("Opens in your web browser"))
-                    
-                    Button(action: {
-                        if let url = URL(string: StefanLinks().webappmylunarnewyear()) {
-                            StefanLinks().openURL(url)
-                        }
-                    }) {
-                        HStack(spacing:10) {
-                            Image(nsImage: NSImage(named: "AppMyLunarNewYear")!)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(10)
-                                .accessibilityHidden(true)
-                            Text("My Lunar New Year")
-                        }
-                    }
-                    .buttonStyle(.link)
-                    .accessibilityLabel(Text("Open app page: My Lunar New Year"))
-                    .accessibilityHint(Text("Opens in your web browser"))
-                    
-                    Button(action: {
-                        if let url = URL(string: StefanLinks().webapptrafficblinker()) {
-                            StefanLinks().openURL(url)
-                        }
-                    }) {
-                        HStack(spacing:10) {
-                            Image(nsImage: NSImage(named: "AppTrafficBlinker")!)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(10)
-                                .accessibilityHidden(true)
-                            Text("Traffic Blinker")
-                        }
-                    }
-                    .buttonStyle(.link)
-                    .accessibilityLabel(Text("Open app page: Traffic Blinker"))
-                    .accessibilityHint(Text("Opens in your web browser"))
-                    
-                    Button(action: {
-                        if let url = URL(string: StefanLinks().webappsunrise()) {
-                            StefanLinks().openURL(url)
-                        }
-                    }) {
-                        HStack(spacing:10) {
-                            Image(nsImage: NSImage(named: "AppSunrise")!)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(10)
-                                .accessibilityHidden(true)
-                            Text("Sunrise")
-                        }
-                    }
-                    .buttonStyle(.link)
-                    .accessibilityLabel(Text("Open app page: Sunrise"))
-                    .accessibilityHint(Text("Opens in your web browser"))
-                    
-                    Button(action: {
-                        if let url = URL(string: StefanLinks().webappharddisk()) {
-                            StefanLinks().openURL(url)
-                        }
-                    }) {
-                        HStack(spacing:10) {
-                            Image(nsImage: NSImage(named: "AppHardDisk")!)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(10)
-                                .accessibilityHidden(true)
-                            Text("Hard Disk")
-                        }
-                    }
-                    .buttonStyle(.link)
-                    .accessibilityLabel(Text("Open app page: Hard Disk"))
-                    .accessibilityHint(Text("Opens in your web browser"))
-                    
-                    Button(action: {
-                        if let url = URL(string: StefanLinks().webappdatetoday()) {
-                            StefanLinks().openURL(url)
-                        }
-                    }) {
-                        HStack(spacing:10) {
-                            Image(nsImage: NSImage(named: "AppDateToday")!)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(10)
-                                .accessibilityHidden(true)
-                            Text("Date Today")
-                        }
-                    }
-                    .buttonStyle(.link)
-                    .accessibilityLabel(Text("Open app page: Date Today"))
-                    .accessibilityHint(Text("Opens in your web browser"))
-                    
-                    Button(action: {
-                        if let url = URL(string: StefanLinks().webapphometab()) {
-                            StefanLinks().openURL(url)
-                        }
-                    }) {
-                        HStack(spacing:10) {
-                            Image(nsImage: NSImage(named: "AppHomeTab")!)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(10)
-                                .accessibilityHidden(true)
-                            Text("Home Tab for Safari")
-                        }
-                    }
-                    .buttonStyle(.link)
-                    .accessibilityLabel(Text("Open app page: Home Tab for Safari"))
-                    .accessibilityHint(Text("Opens in your web browser"))
-                    
-                    Button(action: {
-                        if let url = URL(string: StefanLinks().webappzoom()) {
-                            StefanLinks().openURL(url)
-                        }
-                    }) {
-                        HStack(spacing:10) {
-                            Image(nsImage: NSImage(named: "AppZoom")!)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(10)
-                                .accessibilityHidden(true)
-                            Text("Zoom for Safari")
-                        }
-                    }
-                    .buttonStyle(.link)
-                    .accessibilityLabel(Text("Open app page: Zoom for Safari"))
-                    .accessibilityHint(Text("Opens in your web browser"))
-                    
-                    Button(action: {
-                        if let url = URL(string: StefanLinks().webappfullscreen()) {
-                            StefanLinks().openURL(url)
-                        }
-                    }) {
-                        HStack(spacing:10) {
-                            Image(nsImage: NSImage(named: "AppFullScreen")!)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(10)
-                                .accessibilityHidden(true)
-                            Text("Full Screen for Safari")
-                        }
-                    }
-                    .buttonStyle(.link)
-                    .accessibilityLabel(Text("Open app page: Full Screen for Safari"))
-                    .accessibilityHint(Text("Opens in your web browser"))
-                    
-                    Button(action: {
-                        if let url = URL(string: StefanLinks().webappsnow()) {
-                            StefanLinks().openURL(url)
-                        }
-                    }) {
-                        HStack(spacing:10) {
-                            Image(nsImage: NSImage(named: "AppSnow")!)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(10)
-                                .accessibilityHidden(true)
-                            Text("Snow for Safari")
-                        }
-                    }
-                    .buttonStyle(.link)
-                    .accessibilityLabel(Text("Open app page: Snow for Safari"))
-                    .accessibilityHint(Text("Opens in your web browser"))
-                    
-                    Button(action: {
-                        if let url = URL(string: StefanLinks().webappfontsizeincrease()) {
-                            StefanLinks().openURL(url)
-                        }
-                    }) {
-                        HStack(spacing:10) {
-                            Image(nsImage: NSImage(named: "AppFontSizeIncrease")!)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(10)
-                                .accessibilityHidden(true)
-                            Text("Font Size Increase for Safari")
-                        }
-                    }
-                    .buttonStyle(.link)
-                    .accessibilityLabel(Text("Open app page: Font Size Increase for Safari"))
-                    .accessibilityHint(Text("Opens in your web browser"))
-                    
-                    Button(action: {
-                        if let url = URL(string: StefanLinks().webappfontsizedecrease()) {
-                            StefanLinks().openURL(url)
-                        }
-                    }) {
-                        HStack(spacing:10) {
-                            Image(nsImage: NSImage(named: "AppFontSizeDecrease")!)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(10)
-                                .accessibilityHidden(true)
-                            Text("Font Size Decrease for Safari")
-                        }
-                    }
-                    .buttonStyle(.link)
-                    .accessibilityLabel(Text("Open app page: Font Size Decrease for Safari"))
-                    .accessibilityHint(Text("Opens in your web browser"))
-                    
-                    Button(action: {
-                        if let url = URL(string: StefanLinks().webappcanadarace()) {
-                            StefanLinks().openURL(url)
-                        }
-                    }) {
-                        HStack(spacing:10) {
-                            Image(nsImage: NSImage(named: "AppTheCanadaRace")!)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(10)
-                                .accessibilityHidden(true)
-                            Text("The Canada Race")
-                        }
-                    }
-                    .buttonStyle(.link)
-                    .accessibilityLabel(Text("Open app page: The Canada Race"))
-                    .accessibilityHint(Text("Opens in your web browser"))
-                    
-                    Button(action: {
-                        if let url = URL(string: StefanLinks().webapphellooffice()) {
-                            StefanLinks().openURL(url)
-                        }
-                    }) {
-                        HStack(spacing:10) {
-                            Image(nsImage: NSImage(named: "AppHelloOffice")!)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(10)
-                                .accessibilityHidden(true)
-                            Text("Hello Office")
-                        }
-                    }
-                    .buttonStyle(.link)
-                    .accessibilityLabel(Text("Open app page: Hello Office"))
-                    .accessibilityHint(Text("Opens in your web browser"))
-                    
                 }
-                
             }
             .formStyle(.grouped)
             .navigationTitle("Other Apps")
         }
+        .onAppear { store.load() }
+    }
+
+    @ViewBuilder
+    private func iconView(for app: OtherApp) -> some View {
+        AsyncImage(url: store.iconURL(for: app)) { phase in
+            switch phase {
+            case .success(let image):
+                image.resizable().scaledToFit()
+            default:
+                Color.secondary.opacity(0.2)
+            }
+        }
+        .frame(width: 50, height: 50)
+        .cornerRadius(10)
+        .accessibilityHidden(true)
     }
 }
 

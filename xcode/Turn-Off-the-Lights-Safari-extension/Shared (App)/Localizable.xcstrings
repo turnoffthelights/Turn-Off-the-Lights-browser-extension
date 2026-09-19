@@ -2762,6 +2762,7 @@
       }
     },
     "Date Today" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -4235,6 +4236,7 @@
       }
     },
     "Font Size Decrease for Safari" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -4420,6 +4422,7 @@
       "shouldTranslate" : false
     },
     "Font Size Increase for Safari" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -4789,6 +4792,7 @@
       }
     },
     "Full Screen for Safari" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -5528,6 +5532,7 @@
       }
     },
     "Hard Disk" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -5713,6 +5718,7 @@
       "shouldTranslate" : false
     },
     "Hello Office" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -6450,6 +6456,7 @@
       }
     },
     "Home Tab for Safari" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -7925,6 +7932,7 @@
       }
     },
     "My Christmas Tree" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -8110,6 +8118,7 @@
       "shouldTranslate" : false
     },
     "My Lunar New Year" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -9214,7 +9223,11 @@
         }
       }
     },
+    "Open app page: %@" : {
+
+    },
     "Open app page: Date Today" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -9399,6 +9412,7 @@
       }
     },
     "Open app page: Font Size Decrease for Safari" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -9583,6 +9597,7 @@
       }
     },
     "Open app page: Font Size Increase for Safari" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -9767,6 +9782,7 @@
       }
     },
     "Open app page: Full Screen for Safari" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -9951,6 +9967,7 @@
       }
     },
     "Open app page: Hard Disk" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -10135,6 +10152,7 @@
       }
     },
     "Open app page: Hello Office" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -10319,6 +10337,7 @@
       }
     },
     "Open app page: Home Tab for Safari" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -10503,6 +10522,7 @@
       }
     },
     "Open app page: My Christmas Tree" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -10687,6 +10707,7 @@
       }
     },
     "Open app page: My Lunar New Year" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -10871,6 +10892,7 @@
       }
     },
     "Open app page: Snow for Safari" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -11055,6 +11077,7 @@
       }
     },
     "Open app page: Sunrise" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -11239,6 +11262,7 @@
       }
     },
     "Open app page: The Canada Race" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -11423,6 +11447,7 @@
       }
     },
     "Open app page: Traffic Blinker" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -11607,6 +11632,7 @@
       }
     },
     "Open app page: Zoom for Safari" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -16759,6 +16785,7 @@
       }
     },
     "Snow for Safari" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -17128,6 +17155,7 @@
       }
     },
     "Sunrise" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -17681,6 +17709,7 @@
       }
     },
     "The Canada Race" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -18418,6 +18447,7 @@
       }
     },
     "Traffic Blinker" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -21181,6 +21211,7 @@
       }
     },
     "Zoom for Safari" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
