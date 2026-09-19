@@ -164,43 +164,36 @@ struct NewsView: View {
     private func gridCard(for item: (title: String, description: String, pubDate: String, link: String, imageURL: String?)) -> some View {
         VStack {
             VStack(alignment: .leading, spacing: 8) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(Color.gray.opacity(0.22))
-                        .frame(height: 160)
-                    if let urlString = item.imageURL, let url = URL(string: urlString) {
-                        AsyncImage(url: url) { phase in
-                            switch phase {
-                            case .success(let image):
-                                image
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(height: 160)
-                                    .frame(maxWidth: .infinity)
-                                    .clipped()
-                                    .cornerRadius(12)
-                            case .failure(_):
-                                placeholderThumb
-                                    .frame(height: 160)
-                                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                            case .empty:
-                                placeholderThumb
-                                    .redacted(reason: .placeholder)
-                                    .frame(height: 160)
-                                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                            @unknown default:
-                                placeholderThumb
-                                    .frame(height: 160)
-                                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.gray.opacity(0.22))
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 160)
+                    .overlay {
+                        if let urlString = item.imageURL, let url = URL(string: urlString) {
+                            GeometryReader { proxy in
+                                AsyncImage(url: url) { phase in
+                                    switch phase {
+                                    case .success(let image):
+                                        image
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: proxy.size.width, height: proxy.size.height)
+                                            .clipped()
+                                    case .failure(_):
+                                        placeholderThumb
+                                    case .empty:
+                                        placeholderThumb
+                                            .redacted(reason: .placeholder)
+                                    @unknown default:
+                                        placeholderThumb
+                                    }
+                                }
                             }
+                        } else {
+                            placeholderThumb
                         }
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                    } else {
-                        placeholderThumb
-                            .frame(height: 160)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
-                }
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
 
                 Text(item.title)
                     .font(.headline)
@@ -224,8 +217,7 @@ struct NewsView: View {
             .padding(12)
             .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .frame(maxWidth: .infinity)
-        .frame(height: 340)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(backgroundView)
     }
 
