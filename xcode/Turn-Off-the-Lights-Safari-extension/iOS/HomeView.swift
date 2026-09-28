@@ -64,41 +64,17 @@ struct HomeView: View {
                     .accessibilityHidden(true)
 #endif
                     
-                GeometryReader { geometry in
-                    // Determine number of columns based on screen width
-                    let isWideScreen = geometry.size.width > 600
-                    if isWideScreen {
-                        // iPad / visionOS layout (2-column grid)
-                        let columns = Array(repeating: GridItem(.flexible(), spacing: 16), count: isWideScreen ? 2 : 1)
-                        
-                        ScrollView {
-                            Text("Safari Extension")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.horizontal)
-                            
-                            LazyVGrid(columns: columns, spacing: 20) {
-                                ForEach(mainSectionItems, id: \.appName) { item in
-                                    CellView(item: item)
-                                }
-                            }
-                            .padding()
-                        }
-                    }else{
-                        ScrollView {
-                            Text("Safari Extension")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.horizontal)
-                            
-                            let columns = Array(repeating: GridItem(.flexible(), spacing: 16), count: isWideScreen ? 2 : 1)
-                            
-                            LazyVGrid(columns: columns, spacing: 20) {
-                                ForEach(mainSectionItems, id: \.appName) { item in
-                                    CellView(item: item)
-                                }
-                            }
-                            .padding()
+                ScrollView {
+                    Text("Safari Extension")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
+
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(mainSectionItems, id: \.appName) { item in
+                            CellView(item: item)
                         }
                     }
+                    .padding()
                 }
             }
             .navigationTitle("Turn Off the Lights")

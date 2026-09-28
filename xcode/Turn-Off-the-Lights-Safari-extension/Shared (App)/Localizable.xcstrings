@@ -1841,6 +1841,12 @@
         }
       }
     },
+    "Choose a story from the list to read it here." : {
+
+    },
+    "Choose a video from the list to watch it here." : {
+
+    },
     "Choose something from the sidebar to get started." : {
       "localizations" : {
         "ar" : {
@@ -11816,6 +11822,9 @@
         }
       }
     },
+    "Open in Safari" : {
+
+    },
     "Open the **\"Settings\"** app on your device" : {
       "localizations" : {
         "ar" : {
@@ -12001,6 +12010,7 @@
       }
     },
     "Open video: %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -12183,6 +12193,9 @@
           }
         }
       }
+    },
+    "Opens in the YouTube app or your web browser" : {
+
     },
     "Opens in your web browser" : {
       "localizations" : {
@@ -13656,6 +13669,12 @@
         }
       }
     },
+    "Play video: %@" : {
+
+    },
+    "Plays the video in the detail pane" : {
+
+    },
     "Please check your network settings and try again." : {
       "localizations" : {
         "ar" : {
@@ -14575,6 +14594,9 @@
           }
         }
       }
+    },
+    "Reads the article in the detail pane" : {
+
     },
     "Safari Extension" : {
       "localizations" : {
@@ -15679,6 +15701,12 @@
           }
         }
       }
+    },
+    "Select a Video" : {
+
+    },
+    "Select an Article" : {
+
     },
     "Select an item" : {
       "localizations" : {
@@ -19738,6 +19766,9 @@
         }
       }
     },
+    "Video player: %@" : {
+
+    },
     "Videos" : {
       "localizations" : {
         "ar" : {
@@ -20105,6 +20136,9 @@
           }
         }
       }
+    },
+    "Watch on YouTube" : {
+
     },
     "Watch Video" : {
       "localizations" : {

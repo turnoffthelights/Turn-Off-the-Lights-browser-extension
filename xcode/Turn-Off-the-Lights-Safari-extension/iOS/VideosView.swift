@@ -9,118 +9,113 @@ import SwiftUI
 import SafariServices
 import AVFoundation
 import AVKit
+import WebKit
 
 struct VideosView: View {
     @State private var videoProducts: [VideoApp] = VideoService.fallbackVideos()
+    @State private var selectedVideoID: VideoApp.ID?
+
+    private var selectedVideo: VideoApp? {
+        videoProducts.first { $0.id == selectedVideoID }
+    }
 
     var body: some View {
-        NavigationStack {
-            Group {
-                GeometryReader { geometry in
-                    // Determine number of columns based on screen width
-                    let isWideScreen = geometry.size.width > 600
-                    if isWideScreen {
-                        // iPad / visionOS layout (3-column grid)
-                        let columns = Array(repeating: GridItem(.flexible(), spacing: 16), count: isWideScreen ? 3 : 1)
-                        
-                        Form {
-                            Section {
-                                VideoHeader()
-                            }
+        NavigationSplitView {
+            List(selection: $selectedVideoID) {
+                Section {
+                    VideoHeader()
+                }
+                .listSectionSeparator(.hidden, edges: .top)
 
-                            VStack{
-                                Section {
-                                    LazyVGrid(columns: columns, spacing: 16) {
-                                        ForEach(videoProducts) { video in
-                                            Button {
-                                                StefanFunctions().openyoutubevideo(youtubeId: video.appDownloadLink)
-                                            } label: {
-                                                VideoCard(video: video)
-                                            }
-                                            .buttonStyle(.plain)
-                                            .buttonBorderShape(.roundedRectangle(radius: 12))
-                                        }
-                                    }
-                                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                                    .listRowBackground(Color.clear)
-                                }
-                                .padding(.bottom, 16)
-                                
-                                Section {
-                                    Button {
-                                        if let url = URL(string: "https://www.youtube.com/@turnoffthelights/videos") {
-                                            StefanFunctions().openURL(url)
-                                        }
-                                    } label: {
-                                        HStack {
-                                            Image(systemName: "play.rectangle.on.rectangle")
-                                            Text("See more videos")
-                                        }
-                                        .frame(maxWidth: .infinity, alignment: .center)
-                                    }
-                                    .buttonStyle(.borderedProminent)
-                                    .accessibilityHint(Text("Opens in your web browser"))
-                                }
-                                .padding(.bottom, 16)
-                            }
-                            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                            .listRowBackground(Color.clear)
-                        }
-                        .formStyle(.grouped)
-                    }else{
-                        // iPhone: keep list/form style
-                        Form {
-                            Section {
-                                VideoHeader()
-                            }
-                            
-                            Section {
-                                List(videoProducts) { video in
-                                    Button {
-                                        StefanFunctions().openyoutubevideo(youtubeId: video.appDownloadLink)
-                                    } label: {
-                                        VideoRow(video: video)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                    }
-                                    .buttonStyle(.plain)
-                                    .buttonBorderShape(.roundedRectangle(radius: 12))
-                                    .accessibilityLabel(Text("Open video: \(video.appName)"))
-                                    .accessibilityHint(Text("Opens in your web browser"))
-                                }
-                            }
-                            
-                            Section {
-                                Button {
-                                    if let url = URL(string: "https://www.youtube.com/@turnoffthelights/videos") {
-                                        StefanFunctions().openURL(url)
-                                    }
-                                } label: {
-                                    HStack {
-                                        Image(systemName: "play.rectangle.on.rectangle")
-                                        Text("See more videos")
-                                    }
-                                    .frame(maxWidth: .infinity, alignment: .center)
-                                }
-                                .buttonStyle(.borderedProminent)
-                                .accessibilityHint(Text("Opens in your web browser"))
-                            }
-                            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                            .listRowBackground(Color.clear)
-                        }
-                        .formStyle(.grouped)
+                Section {
+                    ForEach(videoProducts) { video in
+                        VideoRow(video: video)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .tag(video.id)
+                            .listRowSeparator(.visible)
+                            .listRowSeparatorTint(Color(uiColor: .separator))
+                            .accessibilityLabel(Text("Play video: \(video.appName)"))
+                            .accessibilityHint(Text("Plays the video in the detail pane"))
                     }
                 }
+                .listSectionSeparator(.hidden, edges: [.top, .bottom])
+
+                Section {
+                    Button {
+                        if let url = URL(string: "https://www.youtube.com/@turnoffthelights/videos") {
+                            StefanFunctions().openURL(url)
+                        }
+                    } label: {
+                        HStack {
+                            Image(systemName: "play.rectangle.on.rectangle")
+                            Text("See more videos")
+                        }
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .accessibilityHint(Text("Opens in your web browser"))
+                }
+                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                .listRowBackground(Color.clear)
+                .listSectionSeparator(.hidden)
             }
             .navigationTitle("Videos")
+        } detail: {
+            if let video = selectedVideo {
+                VideoDetailView(video: video)
+            } else {
+                ContentUnavailableView {
+                    Label("Select a Video", systemImage: "play.rectangle")
+                } description: {
+                    Text("Choose a video from the list to watch it here.")
+                }
+            }
         }
         .onAppear {
             loadLatestVideos()
         }
     }
-    
+
     private func loadLatestVideos() {
         VideoService.shared.fetchLatestVideos { [self] videos in
             videoProducts = videos
+        }
+    }
+}
+
+struct VideoDetailView: View {
+    let video: VideoApp
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
+                YouTubeEmbedView(videoID: video.appDownloadLink)
+                    .aspectRatio(16.0 / 9.0, contentMode: .fit)
+                    .cornerRadius(12)
+                    .accessibilityLabel(Text("Video player: \(video.appName)"))
+
+                Text(video.appName)
+                    .font(.title2)
+                    .fontWeight(.bold)
+
+                Button {
+                    StefanFunctions().openyoutubevideo(youtubeId: video.appDownloadLink)
+                } label: {
+                    Label("Watch on YouTube", systemImage: "play.rectangle.on.rectangle")
+                }
+                .buttonStyle(.borderedProminent)
+                .accessibilityHint(Text("Opens in the YouTube app or your web browser"))
+
+                Spacer(minLength: 0)
+            }
+            .padding()
+        }
+        .navigationTitle(video.appName)
+        .toolbarTitleDisplayMode(.inline)
+        .toolbar {
+            if let url = video.youtubeURL {
+                ShareLink(item: url)
+            }
         }
     }
 }
@@ -278,81 +273,83 @@ struct VideoRow: View {
     }
 }
 
-struct VideoCard: View {
-    @State private var thumbnailImage: UIImage?
-    let video: VideoApp
+struct YouTubeEmbedView: UIViewRepresentable {
+    let videoID: String
 
-    private let cardHeight: CGFloat = 260
-
-    @Environment(\.colorScheme) private var colorScheme
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            ZStack {
-                Rectangle()
-                    .fill(Color.secondary.opacity(0.15))
-                    .aspectRatio(16/9, contentMode: .fit)
-                    .overlay(
-                        Group {
-                            if let image = thumbnailImage {
-                                Image(uiImage: image)
-                                    .resizable()
-                                    .scaledToFill()
-                            } else {
-                                Image(systemName: "photo")
-                                    .font(.system(size: 40))
-                                    .foregroundColor(.secondary)
-                            }
-                        }
-                    )
-                    .clipped()
-                    .accessibilityHidden(true)
-            }
-            .frame(maxWidth: .infinity)
-            .cornerRadius(10)
-
-            Text(video.appName)
-                .font(.headline)
-                .multilineTextAlignment(.leading)
-                .lineLimit(nil)
-                .fixedSize(horizontal: false, vertical: true)
-
-            Spacer(minLength: 0)
-        }
-        .padding(12)
-        .frame(maxWidth: .infinity)
-        .frame(height: cardHeight)
-        .background(backgroundView)
-        .onAppear {
-            fetchThumbnail()
-        }
-        .accessibilityElement(children: .ignore)
-        .accessibilityLabel(Text(video.appName))
-    }
-    
-    private var backgroundView: some View {
-    #if os(visionOS)
-            // visionOS uses glass-like material
-            RoundedRectangle(cornerRadius: 14)
-                .fill(.regularMaterial)
-    #else
-            // iOS 16–26 keeps the custom design
-            RoundedRectangle(cornerRadius: 14)
-                .fill(Color(colorScheme == .dark ? Color(uiColor: .secondarySystemBackground) : .white))
-                .shadow(color: .black.opacity(colorScheme == .dark ? 0.4 : 0.08),
-                        radius: 6, x: 0, y: 2)
-    #endif
+    func makeCoordinator() -> Coordinator {
+        Coordinator()
     }
 
-    private func fetchThumbnail() {
-        let url = URL(string: "https://img.youtube.com/vi/\(video.appDownloadLink)/maxresdefault.jpg")!
-        URLSession.shared.dataTask(with: url) { data, _, _ in
-            if let data = data {
-                DispatchQueue.main.async {
-                    self.thumbnailImage = UIImage(data: data)
-                }
-            }
-        }.resume()
+    func makeUIView(context: Context) -> WKWebView {
+        let configuration = WKWebViewConfiguration()
+        configuration.allowsInlineMediaPlayback = true
+        let webView = WKWebView(frame: .zero, configuration: configuration)
+        context.coordinator.load(webView, videoID: videoID)
+        return webView
+    }
+
+    func updateUIView(_ webView: WKWebView, context: Context) {
+        context.coordinator.load(webView, videoID: videoID)
+    }
+
+    class Coordinator {
+        var loadedVideoID: String?
+
+        // Loading the embed URL directly in WKWebView makes YouTube fail with
+        // "Error 153: video player configuration error" because no Referer is
+        // sent. Wrapping it in an iframe with a baseURL gives the embed a
+        // proper origin, which is what YouTube's player expects.
+        func load(_ webView: WKWebView, videoID: String) {
+            guard loadedVideoID != videoID else { return }
+            loadedVideoID = videoID
+            let safeID = videoID.filter { $0.isLetter || $0.isNumber || $0 == "-" || $0 == "_" }
+            let html = """
+            <!DOCTYPE html>
+            <html>
+            <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+            html, body { margin: 0; padding: 0; height: 100%; background: #000; }
+            iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; }
+            </style>
+            </head>
+            <body>
+            <iframe src="https://www.youtube.com/embed/\(safeID)?playsinline=1&rel=0&origin=https%3A%2F%2Fwww.turnoffthelights.com"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; encrypted-media; picture-in-picture"
+                    allowfullscreen></iframe>
+            </body>
+            </html>
+            """
+            webView.loadHTMLString(html, baseURL: URL(string: "https://www.turnoffthelights.com"))
+        }
+    }
+}
+
+struct WebView: UIViewRepresentable {
+    let url: URL
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator()
+    }
+
+    func makeUIView(context: Context) -> WKWebView {
+        let configuration = WKWebViewConfiguration()
+        configuration.allowsInlineMediaPlayback = true
+        let webView = WKWebView(frame: .zero, configuration: configuration)
+        webView.load(URLRequest(url: url))
+        context.coordinator.lastRequestedURL = url
+        return webView
+    }
+
+    func updateUIView(_ webView: WKWebView, context: Context) {
+        guard context.coordinator.lastRequestedURL != url else { return }
+        context.coordinator.lastRequestedURL = url
+        webView.load(URLRequest(url: url))
+    }
+
+    class Coordinator {
+        var lastRequestedURL: URL?
     }
 }
 
