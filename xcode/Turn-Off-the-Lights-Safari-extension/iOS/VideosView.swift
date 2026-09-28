@@ -238,30 +238,29 @@ struct VideoRow: View {
     let video: VideoApp
 
     var body: some View {
-        HStack(alignment: .top, spacing: 0) {
-            Text("")
-            HStack(alignment: .top, spacing: 12){
-                if let thumbnailImage = thumbnailImage {
-                    Image(uiImage: thumbnailImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: 280, maxHeight: 157)
-                        .cornerRadius(8)
-                        .accessibilityHidden(true)
-                } else {
-                    Image(systemName: "photo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: 280, maxHeight: 157)
-                        .cornerRadius(8)
-                        .accessibilityHidden(true)
-                }
-                Text(video.appName)
-                    .font(.headline)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+        HStack(alignment: .top, spacing: 12) {
+            if let thumbnailImage = thumbnailImage {
+                Image(uiImage: thumbnailImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 280, maxHeight: 157)
+                    .cornerRadius(8)
+                    .accessibilityHidden(true)
+            } else {
+                Image(systemName: "photo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 280, maxHeight: 157)
+                    .cornerRadius(8)
+                    .accessibilityHidden(true)
             }
+            Text(video.appName)
+                .font(.headline)
+                .multilineTextAlignment(.leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
+        .alignmentGuide(.listRowSeparatorLeading) { $0[.leading] }
+        .alignmentGuide(.listRowSeparatorTrailing) { $0[.trailing] }
         .onAppear {
             fetchThumbnail()
         }
