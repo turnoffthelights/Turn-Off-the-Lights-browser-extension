@@ -139,7 +139,7 @@ struct EnableView: View {
             }
 
             ToolbarItemGroup(placement: .primaryAction) {
-                ShareLink("",
+                ShareLink("Share App",
                           item: appStoreURL,
                           subject: Text("FREE Turn Off the Lights Safari extension"),
                           message: Text("Download the free Turn Off the Lights Safari extension to get Dark Mode on all websites. Try it yourself! via @TurnOfftheLight  \(StefanLinks().linkdeveloperwebsite())"))
