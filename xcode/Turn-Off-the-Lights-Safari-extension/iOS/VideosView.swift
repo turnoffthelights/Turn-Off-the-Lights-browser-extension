@@ -69,6 +69,8 @@ struct VideosView: View {
                 } description: {
                     Text("Choose a video from the list to watch it here.")
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color(uiColor: .systemGroupedBackground))
             }
         }
         .onAppear {
@@ -87,29 +89,38 @@ struct VideoDetailView: View {
     let video: VideoApp
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
+        Form {
+            Section {
                 YouTubeEmbedView(videoID: video.appDownloadLink)
                     .aspectRatio(16.0 / 9.0, contentMode: .fit)
                     .cornerRadius(12)
                     .accessibilityLabel(Text("Video player: \(video.appName)"))
-
-                Text(video.appName)
-                    .font(.title2)
-                    .fontWeight(.bold)
-
-                Button {
-                    StefanFunctions().openyoutubevideo(youtubeId: video.appDownloadLink)
-                } label: {
-                    Label("Watch on YouTube", systemImage: "play.rectangle.on.rectangle")
-                }
-                .buttonStyle(.borderedProminent)
-                .accessibilityHint(Text("Opens in the YouTube app or your web browser"))
-
-                Spacer(minLength: 0)
             }
-            .padding()
+            .listRowInsets(EdgeInsets())
+            .listRowBackground(Color.clear)
+
+            Section() {
+                VStack(alignment: .leading){
+                    Text(video.appName)
+                        .font(.headline)
+                        .listRowSeparator(.hidden)
+                        .accessibilityHeading(.h1)
+                    
+                    Button {
+                        StefanFunctions().openyoutubevideo(youtubeId: video.appDownloadLink)
+                    } label: {
+                        HStack {
+                            Image(systemName: "play.rectangle.on.rectangle")
+                            Text("Watch on YouTube")
+                        }
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .accessibilityHint(Text("Opens in the YouTube app or your web browser"))
+                }
+            }
         }
+        .formStyle(.grouped)
         .navigationTitle(video.appName)
         .toolbarTitleDisplayMode(.inline)
         .toolbar {
@@ -337,6 +348,9 @@ struct WebView: UIViewRepresentable {
         let configuration = WKWebViewConfiguration()
         configuration.allowsInlineMediaPlayback = true
         let webView = WKWebView(frame: .zero, configuration: configuration)
+        webView.isOpaque = false
+        webView.backgroundColor = .systemGroupedBackground
+        webView.scrollView.backgroundColor = .systemGroupedBackground
         webView.load(URLRequest(url: url))
         context.coordinator.lastRequestedURL = url
         return webView

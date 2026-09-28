@@ -75,6 +75,8 @@ struct NewsView: View {
                 } description: {
                     Text("Choose a story from the list to read it here.")
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color(uiColor: .systemGroupedBackground))
             }
         }
         .onAppear(perform: loadData)
@@ -166,6 +168,7 @@ private struct ArticleView: View {
 
     var body: some View {
         WebView(url: url)
+            .background(Color(uiColor: .systemGroupedBackground))
             .navigationTitle(title)
             .toolbarTitleDisplayMode(.inline)
             .toolbar {
