@@ -200,32 +200,31 @@ struct VideoRow: View {
     let video: VideoApp
 
     var body: some View {
-        HStack(alignment: .top, spacing: 0) {
-            Text("")
-            HStack(alignment: .top, spacing: 12){
-                ZStack {
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(Color.gray.opacity(0.25))
+        HStack(alignment: .top, spacing: 12) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color.gray.opacity(0.25))
+                    .frame(width: 280, height: 157)
+                if let thumbnailImage = thumbnailImage {
+                    Image(nsImage: thumbnailImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
                         .frame(width: 280, height: 157)
-                    if let thumbnailImage = thumbnailImage {
-                        Image(nsImage: thumbnailImage)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 280, height: 157)
-                            .cornerRadius(8)
-                    } else {
-                        Image(systemName: "photo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 64, height: 64)
-                            .foregroundStyle(.secondary)
-                    }
+                        .cornerRadius(8)
+                } else {
+                    Image(systemName: "photo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 64, height: 64)
+                        .foregroundStyle(.secondary)
                 }
-                Text(video.appName)
-                    .font(.headline)
-                    .foregroundStyle(.primary)
             }
+            Text(video.appName)
+                .font(.headline)
+                .foregroundStyle(.primary)
         }
+        .alignmentGuide(.listRowSeparatorLeading) { $0[.leading] }
+        .alignmentGuide(.listRowSeparatorTrailing) { $0[.trailing] }
         .onAppear {
             fetchThumbnail()
         }
