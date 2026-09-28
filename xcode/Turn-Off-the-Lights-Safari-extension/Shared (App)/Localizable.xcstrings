@@ -1,190 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        }
-      }
-    },
     "%@" : {
       "localizations" : {
         "ar" : {
@@ -14037,151 +13853,151 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zhasněte světla™"
+            "value" : ""
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sluk lyset™."
+            "value" : ""
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Schalten Sie die Lichter aus™"
+            "value" : ""
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Σβήστε τα φώτα™"
+            "value" : ""
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Turn Off the Lights™"
+            "value" : ""
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Apaga las luces™."
+            "value" : ""
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Apaga las luces™."
+            "value" : ""
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sammuta valot™"
+            "value" : ""
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Éteindre les lumières™"
+            "value" : ""
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Turn Off the Lights™"
+            "value" : ""
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kapcsolja le a fényeket™"
+            "value" : ""
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Matikan Lampu™"
+            "value" : ""
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spegnere le luci"
+            "value" : ""
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "消灯"
+            "value" : ""
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "불을 끄세요™"
+            "value" : ""
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Slå av lysene™"
+            "value" : ""
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Turn Off the Lights™"
+            "value" : ""
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Turn Off the Lights™"
+            "value" : ""
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Turn Off the Lights™ (Desligue as luzes)"
+            "value" : ""
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Desligar as luzes™"
+            "value" : ""
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stingeți luminile™"
+            "value" : ""
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Выключите свет™"
+            "value" : ""
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Släck lamporna™"
+            "value" : ""
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Işıkları Kapatın™"
+            "value" : ""
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Вимкніть світло™ (Turn Off the Lights)"
+            "value" : ""
           }
         },
         "vi" : {
@@ -14193,13 +14009,13 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "关灯"
+            "value" : ""
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "关灯"
+            "value" : ""
           }
         }
       },

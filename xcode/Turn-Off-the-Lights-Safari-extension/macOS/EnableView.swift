@@ -146,7 +146,7 @@ struct EnableView: View {
             }
         }
         .formStyle(.grouped)
-        .navigationTitle("")
+        .navigationTitle(Text(verbatim: ""))
         .onAppear {
             refreshExtensionState(initial: true)
         }
