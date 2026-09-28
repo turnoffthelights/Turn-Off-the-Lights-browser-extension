@@ -63,6 +63,7 @@ struct NewsView: View {
                         .listRowBackground(Color.clear)
                         .listSectionSeparator(.hidden)
                     }
+                    .listStyle(.insetGrouped)
                 }
             }
             .navigationTitle("News")

@@ -59,6 +59,7 @@ struct VideosView: View {
                 .listRowBackground(Color.clear)
                 .listSectionSeparator(.hidden)
             }
+            .listStyle(.insetGrouped)
             .navigationTitle("Videos")
         } detail: {
             if let video = selectedVideo {
