@@ -168,6 +168,7 @@ private struct ArticleView: View {
 
     var body: some View {
         WebView(url: url)
+            .ignoresSafeArea(edges: .all)
             .background(Color(uiColor: .systemGroupedBackground))
             .navigationTitle(title)
             .toolbarTitleDisplayMode(.inline)
