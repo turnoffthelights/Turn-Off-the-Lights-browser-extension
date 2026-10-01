@@ -31,7 +31,9 @@ struct HelpView: View {
     }
     
     @State private var showGuide = false
-    @State private var selectedDetail: MoreDetailItem? = .licenses
+    @State private var selectedDetail: MoreDetailItem?
+    @State private var showingOtherApps = false
+    @State private var compactColumn: NavigationSplitViewColumn = .sidebar
 
     enum MoreDetailItem: Hashable {
         case welcome, licenses, guide, help, contribute, explore
@@ -46,26 +48,24 @@ struct HelpView: View {
     }
     
     var body: some View {
-        Group {
-            if horizontalSizeClass == .regular {
-                NavigationSplitView {
-                    sidebarView
-                } detail: {
-                    detailView
+        NavigationSplitView(preferredCompactColumn: $compactColumn) {
+            sidebarView
+        } detail: {
+            detailView
+        }
+        .navigationSplitViewStyle(.balanced)
+        .onAppear {
+            if selectedDetail == nil && horizontalSizeClass == .regular {
+                selectedDetail = .licenses
+            }
+        }
+        .onChange(of: horizontalSizeClass) { _, newSizeClass in
+            if newSizeClass == .regular {
+                if selectedDetail == nil {
+                    selectedDetail = .licenses
                 }
-                .navigationSplitViewStyle(.balanced)
             } else {
-                NavigationStack{
-                    Form {
-                        aboutSection
-                        guideSection
-                        helpSection
-                        contributeSection
-                        exploreSection
-                    }
-                    .formStyle(.grouped)
-                    .navigationTitle("More")
-                }
+                compactColumn = (selectedDetail != nil || showingOtherApps) ? .detail : .sidebar
             }
         }
         .sheet(isPresented: $showGuide) {
@@ -105,32 +105,27 @@ struct HelpView: View {
         case .welcome:
             detailPlaceholder
         case .licenses:
-            NavigationStack {
-                LicensesView()
-            }
+            LicensesView()
         case .guide:
-            NavigationStack {
-                Form { guideSection }
-                    .formStyle(.grouped)
-                    .navigationTitle("Guide")
-            }
+            Form { guideSection }
+                .formStyle(.grouped)
+                .navigationTitle("Guide")
         case .help:
-            NavigationStack {
-                Form { helpSection }
-                    .formStyle(.grouped)
-                    .navigationTitle("Help")
-            }
+            Form { helpSection }
+                .formStyle(.grouped)
+                .navigationTitle("Help")
         case .contribute:
-            NavigationStack {
-                Form { contributeSection }
-                    .formStyle(.grouped)
-                    .navigationTitle("Contribute & Develop")
-            }
+            Form { contributeSection }
+                .formStyle(.grouped)
+                .navigationTitle("Contribute & Develop")
         case .explore:
             NavigationStack {
                 Form { exploreSection }
                     .formStyle(.grouped)
                     .navigationTitle("Explore & Connect")
+                    .navigationDestination(isPresented: $showingOtherApps) {
+                        OtherAppsView()
+                    }
             }
         }
     }
@@ -183,19 +178,6 @@ struct HelpView: View {
             Text(copyrightText)
         }
         .accessibilityElement(children: .combine)
-    }
-
-    private var aboutSection: some View {
-        Section(header: Text("About")){
-            aboutInfoRows
-
-            NavigationLink {
-                LicensesView()
-            } label: {
-                Text("Licenses")
-            }
-            .accessibilityHint(Text("Shows licenses used in this app"))
-        }
     }
 
     private var guideSection: some View {
@@ -251,8 +233,9 @@ struct HelpView: View {
     private var exploreSection: some View {
         Section(header: Text("Explore & Connect"))
         {
-            NavigationLink {
-                OtherAppsView()
+            Button {
+                selectedDetail = .explore
+                showingOtherApps = true
             } label: {
                 Text("Other Apps")
             }
