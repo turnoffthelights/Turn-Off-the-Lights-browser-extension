@@ -11,29 +11,38 @@ struct ContentView: View {
     @StateObject private var networkMonitor = NetworkMonitor()
     @AppStorage("hasSeenWelcome") private var hasSeenWelcome: Bool = false
     @State private var showingWelcomeGuide = false
-    
+    @State private var selectedTab: AppTab = .home
+
+    enum AppTab: Hashable {
+        case home, videos, news, more
+    }
+
     var body: some View {
         ZStack{
-            TabView {
+            TabView(selection: $selectedTab) {
                 HomeView()
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
-            
+                .tag(AppTab.home)
+
                 VideosView()
                 .tabItem {
                     Label("Videos", systemImage: "movieclapper")
                 }
-                
+                .tag(AppTab.videos)
+
                 NewsView()
                 .tabItem {
                     Label("News", systemImage: "newspaper")
                 }
-                
+                .tag(AppTab.news)
+
                 HelpView()
                 .tabItem {
                     Label("More", systemImage: "ellipsis")
                 }
+                .tag(AppTab.more)
             }
             .accessibilityHidden(!networkMonitor.isConnected)
             
