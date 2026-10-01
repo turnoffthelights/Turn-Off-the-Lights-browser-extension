@@ -74,6 +74,8 @@ struct VideosView: View {
                 .background(Color(uiColor: .systemGroupedBackground))
             }
         }
+        .ignoresSafeArea(.container, edges: .top)
+        .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea())
         .onAppear {
             loadLatestVideos()
         }

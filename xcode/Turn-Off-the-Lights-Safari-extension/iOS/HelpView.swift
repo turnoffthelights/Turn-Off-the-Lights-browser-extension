@@ -66,6 +66,8 @@ struct HelpView: View {
             }
         }
         .navigationSplitViewStyle(.balanced)
+        .ignoresSafeArea(.container, edges: .top)
+        .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea())
         .onAppear {
             if selectedDetail == nil && horizontalSizeClass == .regular {
                 selectedDetail = .licenses
