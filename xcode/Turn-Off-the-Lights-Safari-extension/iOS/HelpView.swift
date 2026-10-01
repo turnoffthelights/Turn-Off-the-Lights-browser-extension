@@ -32,10 +32,15 @@ struct HelpView: View {
     
     @State private var showGuide = false
     @State private var selectedDetail: MoreDetailItem?
-    @State private var showingOtherApps = false
+    @State private var preferredColumn: NavigationSplitViewColumn = .sidebar
+    @State private var detailPath = NavigationPath()
 
     enum MoreDetailItem: Hashable {
         case welcome, licenses, guide, help, contribute, explore
+    }
+
+    enum MoreRoute: Hashable {
+        case otherApps
     }
     
     private var currentYear: String {
@@ -47,13 +52,16 @@ struct HelpView: View {
     }
     
     var body: some View {
-        NavigationSplitView {
+        NavigationSplitView(preferredCompactColumn: $preferredColumn) {
             sidebarView
         } detail: {
-            NavigationStack {
+            NavigationStack(path: $detailPath) {
                 detailView
-                    .navigationDestination(isPresented: $showingOtherApps) {
-                        OtherAppsView()
+                    .navigationDestination(for: MoreRoute.self) { route in
+                        switch route {
+                        case .otherApps:
+                            OtherAppsView()
+                        }
                     }
             }
         }
@@ -64,22 +72,14 @@ struct HelpView: View {
             }
         }
         .onChange(of: selectedDetail) { _, newSelection in
-            if let newSelection, newSelection != .explore {
-                showingOtherApps = false
+            detailPath = NavigationPath()
+            if newSelection != nil {
+                preferredColumn = .detail
             }
         }
         .onChange(of: horizontalSizeClass) { _, newSizeClass in
-            if newSizeClass == .regular {
-                if selectedDetail == nil {
-                    selectedDetail = .licenses
-                }
-            } else if let selection = selectedDetail {
-                let otherApps = showingOtherApps
-                selectedDetail = nil
-                DispatchQueue.main.async {
-                    selectedDetail = selection
-                    showingOtherApps = otherApps
-                }
+            if newSizeClass == .regular && selectedDetail == nil {
+                selectedDetail = .licenses
             }
         }
         .sheet(isPresented: $showGuide) {
@@ -111,11 +111,6 @@ struct HelpView: View {
         }
         .listStyle(.sidebar)
         .navigationTitle("More")
-        .onAppear {
-            if horizontalSizeClass == .compact {
-                selectedDetail = nil
-            }
-        }
     }
 
     @ViewBuilder
@@ -247,10 +242,7 @@ struct HelpView: View {
     private var exploreSection: some View {
         Section(header: Text("Explore & Connect"))
         {
-            Button {
-                selectedDetail = .explore
-                showingOtherApps = true
-            } label: {
+            NavigationLink(value: MoreRoute.otherApps) {
                 Text("Other Apps")
             }
             .accessibilityHint(Text("Shows other apps"))
