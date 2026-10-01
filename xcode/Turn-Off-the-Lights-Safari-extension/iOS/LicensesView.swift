@@ -9,20 +9,18 @@ import SwiftUI
 
 struct LicensesView: View {
     var body: some View {
-        NavigationStack {
-            Form{
-                Section(header: Text("Browser Extension"))
-                {
-                    Button(action: {
-                        StefanFunctions().openURL(URL(string: "https://www.gnu.org/licenses/")!)
-                    }) {
-                        Text("GPL 2.0")
-                    }
+        Form{
+            Section(header: Text("Browser Extension"))
+            {
+                Button(action: {
+                    StefanFunctions().openURL(URL(string: "https://www.gnu.org/licenses/")!)
+                }) {
+                    Text("GPL 2.0")
                 }
             }
-            .formStyle(.grouped)
-            .navigationTitle("Licenses")
         }
+        .formStyle(.grouped)
+        .navigationTitle("Licenses")
     }
 }
 

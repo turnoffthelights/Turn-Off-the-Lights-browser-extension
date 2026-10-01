@@ -14,28 +14,26 @@ struct OtherAppsView: View {
     @StateObject private var store = OtherAppsStore()
 
     var body: some View {
-        NavigationStack {
-            Form{
-                Section(header: Text("Explore")) {
-                    ForEach(store.visibleApps(excluding: selfID)) { app in
-                        Button {
-                            if let url = URL(string: app.url) {
-                                StefanFunctions().openURL(url)
-                            }
-                        } label: {
-                            HStack(spacing:10) {
-                                iconView(for: app)
-                                Text(app.name)
-                            }.frame(maxWidth:.infinity, alignment: .leading)
+        Form{
+            Section(header: Text("Explore")) {
+                ForEach(store.visibleApps(excluding: selfID)) { app in
+                    Button {
+                        if let url = URL(string: app.url) {
+                            StefanFunctions().openURL(url)
                         }
-                        .accessibilityLabel(Text("Open app page: \(app.name)"))
-                        .accessibilityHint(Text("Opens in your web browser"))
+                    } label: {
+                        HStack(spacing:10) {
+                            iconView(for: app)
+                            Text(app.name)
+                        }.frame(maxWidth:.infinity, alignment: .leading)
                     }
+                    .accessibilityLabel(Text("Open app page: \(app.name)"))
+                    .accessibilityHint(Text("Opens in your web browser"))
                 }
             }
-            .formStyle(.grouped)
-            .navigationTitle("Other Apps")
         }
+        .formStyle(.grouped)
+        .navigationTitle("Other Apps")
         .onAppear { store.load() }
     }
 

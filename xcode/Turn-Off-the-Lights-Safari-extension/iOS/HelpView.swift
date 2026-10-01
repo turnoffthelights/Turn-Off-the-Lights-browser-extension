@@ -33,7 +33,6 @@ struct HelpView: View {
     @State private var showGuide = false
     @State private var selectedDetail: MoreDetailItem?
     @State private var showingOtherApps = false
-    @State private var compactColumn: NavigationSplitViewColumn = .sidebar
 
     enum MoreDetailItem: Hashable {
         case welcome, licenses, guide, help, contribute, explore
@@ -48,10 +47,15 @@ struct HelpView: View {
     }
     
     var body: some View {
-        NavigationSplitView(preferredCompactColumn: $compactColumn) {
+        NavigationSplitView {
             sidebarView
         } detail: {
-            detailView
+            NavigationStack {
+                detailView
+                    .navigationDestination(isPresented: $showingOtherApps) {
+                        OtherAppsView()
+                    }
+            }
         }
         .navigationSplitViewStyle(.balanced)
         .onAppear {
@@ -59,13 +63,14 @@ struct HelpView: View {
                 selectedDetail = .licenses
             }
         }
+        .onChange(of: selectedDetail) { _, newSelection in
+            if newSelection != .explore {
+                showingOtherApps = false
+            }
+        }
         .onChange(of: horizontalSizeClass) { _, newSizeClass in
-            if newSizeClass == .regular {
-                if selectedDetail == nil {
-                    selectedDetail = .licenses
-                }
-            } else {
-                compactColumn = (selectedDetail != nil || showingOtherApps) ? .detail : .sidebar
+            if newSizeClass == .regular && selectedDetail == nil {
+                selectedDetail = .licenses
             }
         }
         .sheet(isPresented: $showGuide) {
@@ -97,6 +102,11 @@ struct HelpView: View {
         }
         .listStyle(.sidebar)
         .navigationTitle("More")
+        .onAppear {
+            if horizontalSizeClass == .compact {
+                selectedDetail = nil
+            }
+        }
     }
 
     @ViewBuilder
@@ -119,14 +129,9 @@ struct HelpView: View {
                 .formStyle(.grouped)
                 .navigationTitle("Contribute & Develop")
         case .explore:
-            NavigationStack {
-                Form { exploreSection }
-                    .formStyle(.grouped)
-                    .navigationTitle("Explore & Connect")
-                    .navigationDestination(isPresented: $showingOtherApps) {
-                        OtherAppsView()
-                    }
-            }
+            Form { exploreSection }
+                .formStyle(.grouped)
+                .navigationTitle("Explore & Connect")
         }
     }
 
