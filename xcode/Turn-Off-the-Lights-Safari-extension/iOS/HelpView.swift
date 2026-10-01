@@ -64,13 +64,22 @@ struct HelpView: View {
             }
         }
         .onChange(of: selectedDetail) { _, newSelection in
-            if newSelection != .explore {
+            if let newSelection, newSelection != .explore {
                 showingOtherApps = false
             }
         }
         .onChange(of: horizontalSizeClass) { _, newSizeClass in
-            if newSizeClass == .regular && selectedDetail == nil {
-                selectedDetail = .licenses
+            if newSizeClass == .regular {
+                if selectedDetail == nil {
+                    selectedDetail = .licenses
+                }
+            } else if let selection = selectedDetail {
+                let otherApps = showingOtherApps
+                selectedDetail = nil
+                DispatchQueue.main.async {
+                    selectedDetail = selection
+                    showingOtherApps = otherApps
+                }
             }
         }
         .sheet(isPresented: $showGuide) {
