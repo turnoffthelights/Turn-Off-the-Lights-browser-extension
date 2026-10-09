@@ -75,7 +75,7 @@ class StefanLinks {
     
     // Other apps
     func webapphellooffice() -> String{
-        return "https://apps.apple.com/app/id1569818870"
+        return "https://apps.apple.com/app/id6797568013"
     }
     
     func webappcanadarace() -> String{
@@ -241,7 +241,7 @@ class OtherAppsStore: ObservableObject {
     {"id":"turn-off-the-lights-desktop","name":"Turn Off the Lights - Desktop","url":"https://apps.apple.com/app/id1043732024","icon":"icons/turn-off-the-lights-desktop.png","platforms":["macos"]},
     {"id":"fast-shutdown","name":"Fast Shutdown","url":"https://apps.apple.com/app/id1043724056","icon":"icons/fast-shutdown.png","platforms":["macos"]},
     {"id":"my-recent-documents","name":"My Recent Documents","url":"https://apps.apple.com/app/id1252412682","icon":"icons/my-recent-documents.png","platforms":["macos"]},
-    {"id":"hello-office","name":"Hello Office","url":"https://apps.apple.com/app/id1569818870","icon":"icons/hello-office.png","hidden":true}
+    {"id":"hello-office","name":"Hello Office","url":"https://apps.apple.com/app/id6797568013","icon":"icons/hello-office.png","hidden":true}
     ]}
     """
 
