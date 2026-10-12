@@ -148,10 +148,33 @@ class StefanLinks {
 struct OtherApp: Codable, Identifiable {
     let id: String
     let name: String
-    let url: String
     let icon: String
     let hidden: Bool?
     let platforms: [String]?
+    /// Per-platform store links, e.g. {"apple": "...", "android": "..."}.
+    /// "apple" covers every Apple platform; a specific key like "ios" or
+    /// "macos" can override it for a platform-exclusive listing.
+    let urls: [String: String]
+
+    /// Store listing for the current platform. Falls back to the shared
+    /// "apple" link and then to any platform's link so a tap never dead-ends.
+    var storeURL: URL? {
+    #if os(macOS)
+        let preferred = ["macos", "apple"]
+    #elseif os(visionOS)
+        let preferred = ["visionos", "apple"]
+    #elseif os(watchOS)
+        let preferred = ["watchos", "apple"]
+    #elseif os(tvOS)
+        let preferred = ["tvos", "apple"]
+    #else
+        let preferred = ["ios", "apple"]
+    #endif
+        for key in preferred {
+            if let url = urls[key].flatMap(URL.init(string:)) { return url }
+        }
+        return urls.values.lazy.compactMap { URL(string: $0) }.first
+    }
 }
 
 /// Fetches the shared "Other Apps" list from a remote JSON file so every app
@@ -160,7 +183,7 @@ struct OtherApp: Codable, Identifiable {
 class OtherAppsStore: ObservableObject {
     @Published private(set) var apps: [OtherApp] = []
 
-    private let remoteURL = URL(string: "https://www.stefanvd.net/apps/apps.json")!
+    private let remoteURL = URL(string: "https://www.stefanvd.net/apps/index.json")!
 
     private var cacheFileURL: URL {
         FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
@@ -207,41 +230,41 @@ class OtherAppsStore: ObservableObject {
         let apps: [OtherApp]
     }
 
-    // Offline snapshot — keep in sync with the hosted apps.json
+    // Offline snapshot — keep in sync with the hosted index.json
     private static let bundledJSON = """
-    {"version":2,"apps":[
-    {"id":"turn-off-the-lights","name":"Turn Off the Lights for Safari","url":"https://apps.apple.com/app/id1273998507","icon":"icons/turn-off-the-lights.png"},
-    {"id":"turn-off-the-lights-mobile","name":"Turn Off the Lights for Mobile","url":"https://apps.apple.com/app/id1044081431","icon":"icons/turn-off-the-lights-mobile.png","platforms":["ios"]},
-    {"id":"my-christmas-tree","name":"My Christmas Tree","url":"https://apps.apple.com/app/id1062397646","icon":"icons/my-christmas-tree.png"},
-    {"id":"my-halloween","name":"My Halloween","url":"https://apps.apple.com/app/id6755063458","icon":"icons/my-halloween.png"},
-    {"id":"my-easter-bunny","name":"My Easter Bunny","url":"https://apps.apple.com/app/id6738970939","icon":"icons/my-easter-bunny.png"},
-    {"id":"my-lunar-new-year","name":"My Lunar New Year","url":"https://apps.apple.com/app/id1596469569","icon":"icons/my-lunar-new-year.png"},
-    {"id":"sunrise","name":"Sunrise","url":"https://apps.apple.com/app/id1530008755","icon":"icons/sunrise.png"},
-    {"id":"hard-disk","name":"Hard Disk","url":"https://apps.apple.com/app/id1043842695","icon":"icons/hard-disk.png"},
-    {"id":"date-today","name":"Date Today","url":"https://apps.apple.com/app/id1523093827","icon":"icons/date-today.png"},
-    {"id":"date-today-for-safari","name":"Date Today for Safari","url":"https://apps.apple.com/app/id1526278803","icon":"icons/date-today-for-safari.png"},
-    {"id":"traffic-blinker","name":"Traffic Blinker","url":"https://apps.apple.com/app/id1073990483","icon":"icons/traffic-blinker.png","platforms":["ios"]},
-    {"id":"home-tab","name":"Home Tab for Safari","url":"https://apps.apple.com/app/id1585512140","icon":"icons/home-tab.png"},
-    {"id":"aerial-view-tab","name":"Aerial View Tab for Safari","url":"https://apps.apple.com/app/id1434326741","icon":"icons/aerial-view-tab.png"},
-    {"id":"proper-menubar","name":"Proper Menubar for Safari","url":"https://apps.apple.com/app/id6756031331","icon":"icons/proper-menubar.png"},
-    {"id":"zoom","name":"Zoom for Safari","url":"https://apps.apple.com/app/id1423085875","icon":"icons/zoom.png"},
-    {"id":"full-screen","name":"Full Screen for Safari","url":"https://apps.apple.com/app/id1462623715","icon":"icons/full-screen.png"},
-    {"id":"snow","name":"Snow for Safari","url":"https://apps.apple.com/app/id6755977850","icon":"icons/snow.png"},
-    {"id":"ambient-aurea","name":"Ambient Aurea for Safari","url":"https://apps.apple.com/app/id1549194944","icon":"icons/ambient-aurea.png"},
-    {"id":"font-size-increase","name":"Font Size Increase for Safari","url":"https://apps.apple.com/app/id6756031354","icon":"icons/font-size-increase.png"},
-    {"id":"font-size-decrease","name":"Font Size Decrease for Safari","url":"https://apps.apple.com/app/id6756031162","icon":"icons/font-size-decrease.png"},
-    {"id":"rotate-that-video-player","name":"Rotate that Video Player","url":"https://apps.apple.com/app/id6756031106","icon":"icons/rotate-that-video-player.png"},
-    {"id":"print","name":"Print for Safari","url":"https://apps.apple.com/app/id6475040701","icon":"icons/print.png"},
-    {"id":"aurora-player","name":"Aurora Player","url":"https://apps.apple.com/app/id1043744348","icon":"icons/aurora-player.png","platforms":["macos"]},
-    {"id":"headly","name":"Headly","url":"https://apps.apple.com/app/id6759742272","icon":"icons/headly.png"},
-    {"id":"the-canada-race","name":"The Canada Race","url":"https://apps.apple.com/app/id1416358359","icon":"icons/the-canada-race.png"},
-    {"id":"finance-toolbar","name":"Finance Toolbar","url":"https://apps.apple.com/app/id1044095759","icon":"icons/finance-toolbar.png","platforms":["macos"]},
-    {"id":"cpu-check","name":"CPU Check","url":"https://apps.apple.com/app/id1043840644","icon":"icons/cpu-check.png","platforms":["macos"]},
-    {"id":"memory-check","name":"Memory Check","url":"https://apps.apple.com/app/id1462188561","icon":"icons/memory-check.png","platforms":["macos"]},
-    {"id":"turn-off-the-lights-desktop","name":"Turn Off the Lights - Desktop","url":"https://apps.apple.com/app/id1043732024","icon":"icons/turn-off-the-lights-desktop.png","platforms":["macos"]},
-    {"id":"fast-shutdown","name":"Fast Shutdown","url":"https://apps.apple.com/app/id1043724056","icon":"icons/fast-shutdown.png","platforms":["macos"]},
-    {"id":"my-recent-documents","name":"My Recent Documents","url":"https://apps.apple.com/app/id1252412682","icon":"icons/my-recent-documents.png","platforms":["macos"]},
-    {"id":"hello-office","name":"Hello Office","url":"https://apps.apple.com/app/id6797568013","icon":"icons/hello-office.png","hidden":true}
+    {"version":1,"apps":[
+    {"id":"turn-off-the-lights","name":"Turn Off the Lights for Safari","icon":"icons/turn-off-the-lights.png","urls":{"apple":"https://apps.apple.com/app/id1273998507"}},
+    {"id":"turn-off-the-lights-mobile","name":"Turn Off the Lights for Mobile","icon":"icons/turn-off-the-lights-mobile.png","platforms":["ios"],"urls":{"apple":"https://apps.apple.com/app/id1044081431"}},
+    {"id":"my-christmas-tree","name":"My Christmas Tree","icon":"icons/my-christmas-tree.png","urls":{"apple":"https://apps.apple.com/app/id1062397646"}},
+    {"id":"my-halloween","name":"My Halloween","icon":"icons/my-halloween.png","urls":{"apple":"https://apps.apple.com/app/id6755063458"}},
+    {"id":"my-easter-bunny","name":"My Easter Bunny","icon":"icons/my-easter-bunny.png","urls":{"apple":"https://apps.apple.com/app/id6738970939"}},
+    {"id":"my-lunar-new-year","name":"My Lunar New Year","icon":"icons/my-lunar-new-year.png","urls":{"apple":"https://apps.apple.com/app/id1596469569"}},
+    {"id":"sunrise","name":"Sunrise","icon":"icons/sunrise.png","urls":{"apple":"https://apps.apple.com/app/id1530008755"}},
+    {"id":"hard-disk","name":"Hard Disk","icon":"icons/hard-disk.png","urls":{"apple":"https://apps.apple.com/app/id1043842695"}},
+    {"id":"date-today","name":"Date Today","icon":"icons/date-today.png","urls":{"apple":"https://apps.apple.com/app/id1523093827"}},
+    {"id":"date-today-for-safari","name":"Date Today for Safari","icon":"icons/date-today-for-safari.png","urls":{"apple":"https://apps.apple.com/app/id1526278803"}},
+    {"id":"traffic-blinker","name":"Traffic Blinker","icon":"icons/traffic-blinker.png","platforms":["ios"],"urls":{"apple":"https://apps.apple.com/app/id1073990483"}},
+    {"id":"home-tab","name":"Home Tab for Safari","icon":"icons/home-tab.png","urls":{"apple":"https://apps.apple.com/app/id1585512140"}},
+    {"id":"aerial-view-tab","name":"Aerial View Tab for Safari","icon":"icons/aerial-view-tab.png","urls":{"apple":"https://apps.apple.com/app/id1434326741"}},
+    {"id":"proper-menubar","name":"Proper Menubar for Safari","icon":"icons/proper-menubar.png","urls":{"apple":"https://apps.apple.com/app/id6756031331"}},
+    {"id":"zoom","name":"Zoom for Safari","icon":"icons/zoom.png","urls":{"apple":"https://apps.apple.com/app/id1423085875"}},
+    {"id":"full-screen","name":"Full Screen for Safari","icon":"icons/full-screen.png","urls":{"apple":"https://apps.apple.com/app/id1462623715"}},
+    {"id":"snow","name":"Snow for Safari","icon":"icons/snow.png","urls":{"apple":"https://apps.apple.com/app/id6755977850"}},
+    {"id":"ambient-aurea","name":"Ambient Aurea for Safari","icon":"icons/ambient-aurea.png","urls":{"apple":"https://apps.apple.com/app/id1549194944"}},
+    {"id":"font-size-increase","name":"Font Size Increase for Safari","icon":"icons/font-size-increase.png","urls":{"apple":"https://apps.apple.com/app/id6756031354"}},
+    {"id":"font-size-decrease","name":"Font Size Decrease for Safari","icon":"icons/font-size-decrease.png","urls":{"apple":"https://apps.apple.com/app/id6756031162"}},
+    {"id":"rotate-that-video-player","name":"Rotate that Video Player","icon":"icons/rotate-that-video-player.png","urls":{"apple":"https://apps.apple.com/app/id6756031106"}},
+    {"id":"print","name":"Print for Safari","icon":"icons/print.png","urls":{"apple":"https://apps.apple.com/app/id6475040701"}},
+    {"id":"aurora-player","name":"Aurora Player","icon":"icons/aurora-player.png","platforms":["macos"],"urls":{"apple":"https://apps.apple.com/app/id1043744348"}},
+    {"id":"headly","name":"Headly","icon":"icons/headly.png","urls":{"apple":"https://apps.apple.com/app/id6759742272"}},
+    {"id":"the-canada-race","name":"The Canada Race","icon":"icons/the-canada-race.png","urls":{"apple":"https://apps.apple.com/app/id1416358359"}},
+    {"id":"finance-toolbar","name":"Finance Toolbar","icon":"icons/finance-toolbar.png","platforms":["macos"],"urls":{"apple":"https://apps.apple.com/app/id1044095759"}},
+    {"id":"cpu-check","name":"CPU Check","icon":"icons/cpu-check.png","platforms":["macos"],"urls":{"apple":"https://apps.apple.com/app/id1043840644"}},
+    {"id":"memory-check","name":"Memory Check","icon":"icons/memory-check.png","platforms":["macos"],"urls":{"apple":"https://apps.apple.com/app/id1462188561"}},
+    {"id":"turn-off-the-lights-desktop","name":"Turn Off the Lights - Desktop","icon":"icons/turn-off-the-lights-desktop.png","platforms":["macos"],"urls":{"apple":"https://apps.apple.com/app/id1043732024"}},
+    {"id":"fast-shutdown","name":"Fast Shutdown","icon":"icons/fast-shutdown.png","platforms":["macos"],"urls":{"apple":"https://apps.apple.com/app/id1043724056"}},
+    {"id":"my-recent-documents","name":"My Recent Documents","icon":"icons/my-recent-documents.png","platforms":["macos"],"urls":{"apple":"https://apps.apple.com/app/id1252412682"}},
+    {"id":"hello-office","name":"Hello Office","icon":"icons/hello-office.png","hidden":true,"urls":{"apple":"https://apps.apple.com/app/id6797568013"}}
     ]}
     """
 

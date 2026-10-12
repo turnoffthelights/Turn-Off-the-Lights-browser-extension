@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OtherAppsView: View {
-    /// This app's own entry id in apps.json, so it never promotes itself.
+    /// This app's own entry id in index.json, so it never promotes itself.
     var selfID = "turn-off-the-lights"
 
     @StateObject private var store = OtherAppsStore()
@@ -18,7 +18,7 @@ struct OtherAppsView: View {
             Section(header: Text("Explore")) {
                 ForEach(store.visibleApps(excluding: selfID)) { app in
                     Button {
-                        if let url = URL(string: app.url) {
+                        if let url = app.storeURL {
                             StefanFunctions().openURL(url)
                         }
                     } label: {
