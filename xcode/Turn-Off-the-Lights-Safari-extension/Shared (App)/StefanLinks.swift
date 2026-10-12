@@ -264,7 +264,7 @@ class OtherAppsStore: ObservableObject {
     {"id":"turn-off-the-lights-desktop","name":"Turn Off the Lights - Desktop","icon":"icons/turn-off-the-lights-desktop.png","platforms":["macos"],"urls":{"apple":"https://apps.apple.com/app/id1043732024"}},
     {"id":"fast-shutdown","name":"Fast Shutdown","icon":"icons/fast-shutdown.png","platforms":["macos"],"urls":{"apple":"https://apps.apple.com/app/id1043724056"}},
     {"id":"my-recent-documents","name":"My Recent Documents","icon":"icons/my-recent-documents.png","platforms":["macos"],"urls":{"apple":"https://apps.apple.com/app/id1252412682"}},
-    {"id":"hello-office","name":"Hello Office","icon":"icons/hello-office.png","hidden":true,"urls":{"apple":"https://apps.apple.com/app/id6797568013"}}
+    {"id":"hello-office","name":"Hello Office","icon":"icons/hello-office.png","urls":{"apple":"https://apps.apple.com/app/id6797568013","android":"https://play.google.com/store/apps/details?id=com.stefanvd.helloofficegame"}}
     ]}
     """
 
