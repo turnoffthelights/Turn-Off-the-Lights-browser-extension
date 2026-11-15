@@ -369,6 +369,9 @@
         }
       }
     },
+    "A knock-knock reaction game" : {
+
+    },
     "About" : {
       "localizations" : {
         "ar" : {
@@ -1472,6 +1475,9 @@
           }
         }
       }
+    },
+    "Celebrate the new year" : {
+
     },
     "Checking extension status…" : {
       "localizations" : {
@@ -2582,6 +2588,9 @@
           }
         }
       }
+    },
+    "Decorate a tree for the holidays" : {
+
     },
     "Developer Website" : {
       "localizations" : {
@@ -3871,6 +3880,9 @@
         }
       }
     },
+    "Featured" : {
+
+    },
     "FREE Turn Off the Lights Safari extension" : {
       "localizations" : {
         "ar" : {
@@ -4054,6 +4066,9 @@
           }
         }
       }
+    },
+    "Games" : {
+
     },
     "GitHub" : {
       "localizations" : {
@@ -7002,6 +7017,9 @@
           }
         }
       }
+    },
+    "No apps match “%@”" : {
+
     },
     "No Internet Connection" : {
       "localizations" : {
@@ -10517,6 +10535,9 @@
         }
       }
     },
+    "Safari Extensions" : {
+
+    },
     "Scroll down and tap **\"Apps\"**" : {
       "localizations" : {
         "ar" : {
@@ -10700,6 +10721,12 @@
           }
         }
       }
+    },
+    "Search apps" : {
+
+    },
+    "Seasonal" : {
+
     },
     "See more videos" : {
       "localizations" : {
@@ -12178,6 +12205,9 @@
           }
         }
       }
+    },
+    "Something spooky for the season" : {
+
     },
     "Subscribe" : {
       "localizations" : {
@@ -14020,6 +14050,9 @@
         }
       },
       "shouldTranslate" : false
+    },
+    "Utilities" : {
+
     },
     "Version" : {
       "localizations" : {
