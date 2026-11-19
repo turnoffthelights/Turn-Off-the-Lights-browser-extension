@@ -3008,6 +3008,64 @@ function domcontentloaded(){
 	// Reset settings
 	$("resettotl").addEventListener("click", function(){ chrome.storage.sync.clear(); chrome.runtime.sendMessage({name: "bckreload"}); location.reload(); });
 
+	// Export and Import settings
+	var devicelocalkeys = ["firstRun", "firstDate", "version", "firstsawrate", "firstsawyoutube", "firstsawnumber", "countremember", "reviewedlastonversion", "screenshader", "analytics", "siteengagement"];
+
+	$("exporttotl").addEventListener("click", function(){
+		chrome.storage.sync.get(null, function(items){
+			devicelocalkeys.forEach(function(k){ delete items[k]; });
+			var payload = {
+				"app": "turnoffthelights",
+				"formatVersion": 1,
+				"extensionVersion": chrome.runtime.getManifest().version,
+				"browser": exbrowser,
+				"exportedAt": new Date().toISOString(),
+				"settings": items
+			};
+			var blob = new Blob([JSON.stringify(payload, null, 2)], {type: "application/json"});
+			var downloadlink = document.createElement("a");
+			downloadlink.href = URL.createObjectURL(blob);
+			downloadlink.download = "turn-off-the-lights-settings.json";
+			document.body.appendChild(downloadlink);
+			downloadlink.click();
+			downloadlink.remove();
+			window.setTimeout(function(){ URL.revokeObjectURL(downloadlink.href); }, 1000);
+		});
+	});
+
+	var importtotlfile = $("importtotlfile");
+	$("importtotl").addEventListener("click", function(){ importtotlfile.click(); });
+	importtotlfile.addEventListener("change", function(){
+		var file = importtotlfile.files[0];
+		importtotlfile.value = "";
+		if(!file){ return; }
+		var reader = new FileReader();
+		reader.onload = function(){
+			try{
+				var data = JSON.parse(reader.result);
+				if(data == null || data.app != "turnoffthelights" || data.settings == null || typeof data.settings != "object"){
+					throw new Error("invalidsettingsfile");
+				}
+				var clean = {};
+				Object.keys(data.settings).forEach(function(k){
+					if(devicelocalkeys.indexOf(k) === -1){ clean[k] = data.settings[k]; }
+				});
+				chrome.storage.sync.set(clean, function(){
+					if(chrome.runtime.lastError){
+						window.alert(chrome.i18n.getMessage("optionimporterror"));
+					}else{
+						window.alert(chrome.i18n.getMessage("optionimportdone"));
+						chrome.runtime.sendMessage({name: "bckreload"});
+						location.reload();
+					}
+				});
+			}catch{
+				window.alert(chrome.i18n.getMessage("optionimporterror"));
+			}
+		};
+		reader.readAsText(file);
+	});
+
 	// linearsq
 	$("linearsq").addEventListener("click", function(){ test(); ariacheck(); save_options(); });
 	$("linearsq").addEventListener("change", function(){ test(); ariacheck(); save_options(); });

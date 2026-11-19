@@ -560,5 +560,9 @@
 "ariadimmervalue":{"message":"Dimmer value"},
 "ariadimmeron":{"message":"Lights dimmed."},
 "ariadimmeroff":{"message":"Lights restored."},
-"arianightmodeswitch":{"message":"Night Mode"}
+"arianightmodeswitch":{"message":"Night Mode"},
+"exporttotl":{"message":"Export settings"},
+"importtotl":{"message":"Import settings"},
+"optionimportdone":{"message":"Settings imported successfully!"},
+"optionimporterror":{"message":"The settings file could not be imported."}
 }

@@ -1125,6 +1125,7 @@ button[disabled],input[type=button][disabled],input[type=submit][disabled],butto
 #materialModalRateButtonWriteOK:hover,#materialModalButtonSupportOK:hover{opacity:.7}
 /* About */
 .aboutbuttons button{margin:15px 10px 0 0;display:inline-block}
+.syncbuttons button{margin:15px 10px 0 0;display:inline-block}
 #permullist{padding-inline-start:15px}
 @keyframes slide-in{from{left:calc(-280px - env(safe-area-inset-left))}to{left:0}}
 @keyframes slide-out{from{left:0}to{left:calc(-280px - env(safe-area-inset-left))}}
