@@ -317,6 +317,48 @@ function videotoolfunction(){
 	var i18ntitelvideotoolfullwindow = chrome.i18n.getMessage("titelvideotoolfullwindow");
 	var i18ntitelvideotoolscreenshot = chrome.i18n.getMessage("titelvideotoolscreenshot");
 
+	var filterConfigs = [
+		{type: "grayscale", range: ["0.1", "0", "1", "1"], value: "1", i18n: i18ntitelvideotoolgrayscale},
+		{type: "sepia", range: ["0.1", "0", "1", "1"], value: "1", i18n: i18ntitelvideotoolsepia},
+		{type: "invert", range: ["0.1", "0", "1", "1"], value: "1", i18n: i18ntitelvideotoolinvert},
+		{type: "contrast", range: ["0.1", "0", "10", "10"], value: "10", i18n: i18ntitelvideotoolcontrast},
+		{type: "saturate", range: ["0.1", "0", "10", "10"], value: "10", i18n: i18ntitelvideotoolsaturate},
+		{type: "hue-rotate", range: ["30", "0", "360", "90"], value: "90deg", i18n: i18ntitelvideotoolhueroration},
+		{type: "brightness", range: ["0.1", "0", "10", "0.5"], value: "1.5", i18n: i18ntitelvideotoolbrightness},
+		{type: "normal", range: ["0.1", "0", "10", "1"], value: "", i18n: i18ntitelvideotoolnormal, reset: true}
+	];
+
+	function applyvideofilterstep(v, step){
+		var getstefanvdvideotoolrange = document.getElementById("stefanvdvideotoolrange" + v);
+		var getstefanvdfilterbutton = document.getElementById("stefanvdfilterbutton" + v);
+		var getstefanvdvideofiltername = document.getElementById("stefanvdvideofiltername" + v);
+		var getstefanvdvideofilterselect = document.getElementById("stefanvdvideofilterselect" + v);
+		var onevideo;
+		if(document.getElementById("stefanvdvideowindow")){
+			onevideo = document.getElementById("stefanvdvideowindow");
+		}else{
+			onevideo = document.getElementsByTagName("video")[v];
+		}
+		if(onevideo){
+			var config = filterConfigs[step];
+			if(config){
+				filtertype = config.type;
+				settoolbarrange(getstefanvdvideotoolrange, config.range, config.reset || false);
+				onevideo.style.filter = config.type === "normal" ? "" : `${config.type}(${config.value})`;
+				currentvideostepfilter = config.reset ? 0 : step + 1;
+				currentVideoFilters[v] = {type: filtertype, name: config.i18n};
+				if(getstefanvdvideofiltername){
+					getstefanvdvideofiltername.textContent = config.i18n;
+					getstefanvdvideofiltername.setAttribute("aria-label", i18ntitelvideotoolfilter + ": " + config.i18n);
+					getstefanvdvideofiltername.innerText = filtertype;
+				}
+				if(getstefanvdvideotoolrange){ getstefanvdvideotoolrange.setAttribute("aria-label", i18ntitelvideotoolfilter + ": " + config.i18n); }
+				if(getstefanvdfilterbutton){ getstefanvdfilterbutton.setAttribute("aria-pressed", filtertype !== "normal"); }
+				if(getstefanvdvideofilterselect){ getstefanvdvideofilterselect.value = step; }
+			}
+		}
+	}
+
 	function settoolbarrange(item, array, status){
 		item.step = array[0];
 		item.min = array[1];
@@ -719,50 +761,32 @@ function videotoolfunction(){
 					newonfilterbutton.setAttribute("id", "stefanvdfilterbutton" + i);
 					newonfilterbutton.setAttribute("data-video", i);
 					newonfilterbutton.addEventListener("click", function(){
-						var yellowvis = this.getAttribute("data-video");
-						var getstefanvdvideotoolrange = document.getElementById("stefanvdvideotoolrange" + yellowvis);
-						var onevideo;
-						if(document.getElementById("stefanvdvideowindow")){
-							onevideo = document.getElementById("stefanvdvideowindow");
-						}else{
-							onevideo = document.getElementsByTagName("video")[yellowvis];
-						}
-
-						if(onevideo){
-							const filterConfigs = [
-								{type: "grayscale", range: ["0.1", "0", "1", "1"], value: "1", i18n: i18ntitelvideotoolgrayscale},
-								{type: "sepia", range: ["0.1", "0", "1", "1"], value: "1", i18n: i18ntitelvideotoolsepia},
-								{type: "invert", range: ["0.1", "0", "1", "1"], value: "1", i18n: i18ntitelvideotoolinvert},
-								{type: "contrast", range: ["0.1", "0", "10", "10"], value: "10", i18n: i18ntitelvideotoolcontrast},
-								{type: "saturate", range: ["0.1", "0", "10", "10"], value: "10", i18n: i18ntitelvideotoolsaturate},
-								{type: "hue-rotate", range: ["30", "0", "360", "90"], value: "90deg", i18n: i18ntitelvideotoolhueroration},
-								{type: "brightness", range: ["0.1", "0", "10", "0.5"], value: "1.5", i18n: i18ntitelvideotoolbrightness},
-								{type: "normal", range: ["0.1", "0", "10", "1"], value: "", i18n: i18ntitelvideotoolnormal, reset: true}
-							];
-
-							const config = filterConfigs[currentvideostepfilter];
-							if(config){
-								filtertype = config.type;
-								settoolbarrange(getstefanvdvideotoolrange, config.range, config.reset || false);
-								onevideo.style.filter = config.type === "normal" ? "" : `${config.type}(${config.value})`;
-								currentvideostepfilter = config.reset ? 0 : currentvideostepfilter + 1;
-								currentVideoFilters[yellowvis] = {
-									type: filtertype,
-									name: config.i18n
-								};
-								newvcpartiaspan.textContent = config.i18n;
-								newvcpartiaspan.setAttribute("aria-label", i18ntitelvideotoolfilter + ": " + config.i18n);
-								newvcpartiarange.setAttribute("aria-label", i18ntitelvideotoolfilter + ": " + config.i18n);
-								newonfilterbutton.setAttribute("aria-pressed", filtertype !== "normal");
-							}
-							document.getElementById("stefanvdvideofiltername" + yellowvis).innerText = filtertype;
-						}
+						applyvideofilterstep(this.getAttribute("data-video"), currentvideostepfilter);
 					}, false);
 					newonfilterbutton.style.background = "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAC80lEQVRoQ+1Z23EUMRDsjgAywEQAjgATATgC7AiACIAIgAg4R2ATASYC7AxMBkcEQ7WRKNWedvXaFWzVTtV9nE+P6Xn1jEx0EDN7D+AdgB3J8yWu5BKHDs80M/N/I7nInYscGgGyA/AKwFeSL5cwXhcgSyg+PHMRIGb2FMCe5F0PELpjdiBm9gbARwfgmORNDzBNQJzlvdJeX3njofsij+R65YKkcqlKWoGcAPhWdfPhpg8kVaarZAMis5nZEYAz93nkTHmREU7ap3Is+SmiBHBN8rrKHXMlu5lJgWdOiecphcwsDMnvJPW9SZpCy9+8Afljic0jYSxuoRVaI5UjZiaCfALgluR+tcluZj8AiPHvSD5eM5A9gAfyouaRNQPRDKJmUhPibrVAhky3AZng/uby6yqSkln9k6S0RVGbr7lFeVQtcwC5BBDO4clhys0xAu/liuRpNYrWpjF45vE6vCX5KUehwSSpLf9mHhkkrBQpfiExsysALwLgybAcM1JVaLk5RKHhR9pbACelce7ySyOAWF+iPFFo5o7Hf3HVAvFMrYN+ORBVjwwuXwTmnjAB3JA8zgnPcE0xEDP74iZCf855y6OBDjEzTZk610vx02oRkMiFCoUqT0QsHr6+6OciA2UDcSGgFxOfF6XeL10vIyn5swyVBSRCeqVK1a4XCIFJkmUukCHp6V8DxZUlE406hDBfssgyCaSF9DIVP1gWIcsk0U4CmYP0GsAUkeUokEheVJFeAxAVlZAs76fLYmaPlNpkM1ir9Ni+SHM5WpKnPBK69jNJTXjdxczUhL52F+vFXuR5IFNAwmfQps60Bf2g2Iw+5q3NI6Md9hSQsP8pYtkWD4R7I91EVY6oaoj0fFcqMHr+F9suRYYeh0hRvZeM6VsiddlHYyyf4hGNsGL1/0FOSaoARSWH2QVGnvCe6Q1KnjibAiGFkkC0yJGjAOnTs/uVB9RrzdM09nZBzX1ZHqk5uPeeDUhvi6fu2zySslDv338DROiFQsyzoMoAAAAASUVORK5CYII=)";
 					newonfilterbutton.title = i18ntitelvideotoolfilter;
 					setupAccessibleButton(newonfilterbutton, i18ntitelvideotoolfilter);
 					newonfilterbutton.setAttribute("aria-pressed", "false");
 					newtoolbar.appendChild(newonfilterbutton);
+
+					var newvcfilterselect = document.createElement("select");
+					newvcfilterselect.setAttribute("id", "stefanvdvideofilterselect" + i);
+					newvcfilterselect.setAttribute("data-video", i);
+					newvcfilterselect.setAttribute("aria-label", i18ntitelvideotoolfilter);
+					filterConfigs.forEach(function(cfg, idx){
+						var opt = document.createElement("option");
+						opt.value = idx;
+						opt.textContent = cfg.i18n;
+						newvcfilterselect.appendChild(opt);
+					});
+					newvcfilterselect.value = filterConfigs.length - 1;
+					newvcfilterselect.title = i18ntitelvideotoolfilter;
+					newvcfilterselect.style.cssText = "color:#ffffff;background:" + hexToRGB(videotoolcolor, 0.4) + ";border:1px solid rgba(255,255,255,.4);border-radius:4px;outline:none;box-shadow:none;max-width:120px;height:24px;margin:auto 8px auto 0px;cursor:pointer";
+					newvcfilterselect.addEventListener("change", function(){
+						applyvideofilterstep(this.getAttribute("data-video"), parseInt(this.value, 10));
+					}, false);
+					if(tempwidthvideo <= 360){ newvcfilterselect.style.cssText += ";display:none!important"; }
+					newtoolbar.appendChild(newvcfilterselect);
 
 					// Modify the video filter name span creation
 					var newvcpartiaspan = document.createElement("div");
@@ -774,7 +798,7 @@ function videotoolfunction(){
 						var orangevis = this.getAttribute("data-video");
 						document.getElementById("stefanvdfilterbutton" + orangevis).click();
 					}, false);
-					if(tempwidthvideo <= 360){ newvcpartiaspan.style.cssText = "display:none!important"; }
+					newvcpartiaspan.style.cssText = "display:none!important";
 					newtoolbar.appendChild(newvcpartiaspan);
 
 					var newvcpartiarange = document.createElement("input");

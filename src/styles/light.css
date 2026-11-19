@@ -46,8 +46,9 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 .stefanvdvis{z-index:100000000!important;position:absolute!important;color:rgba(255,255,255,0.8)!important;-webkit-user-select:none!important;-moz-user-select:none!important;user-select:none!important;overflow:hidden!important}
 .stefanvdvistoolbar{display:flex!important}
 .stefanvdvis .stefanvdvistoolbar div{line-height:normal!important;padding:10px 15px!important;font-size:14px!important;-webkit-user-select:none!important;-moz-user-select:none!important;user-select:none!important;cursor:pointer!important;height:36px!important;opacity:.8!important;box-sizing:border-box!important}
-.stefanvdvistoolbar div:nth-child(1),.stefanvdvistoolbar div:nth-child(3),.stefanvdvistoolbar div:nth-child(4),.stefanvdvistoolbar div:nth-child(5),.stefanvdvistoolbar div:nth-child(6),.stefanvdvistoolbar div:nth-child(9),.stefanvdvistoolbar div:nth-child(10),.stefanvdvistoolbar div:nth-child(11){background-size:50% 50%!important;background-repeat:no-repeat!important;background-position:50% 50%!important;width:36px!important}
-.stefanvdvistoolbar div:nth-child(9){margin-left:auto!important}
+.stefanvdvistoolbar div:nth-child(1),.stefanvdvistoolbar div:nth-child(3),.stefanvdvistoolbar div:nth-child(4),.stefanvdvistoolbar div:nth-child(5),.stefanvdvistoolbar div:nth-child(6),.stefanvdvistoolbar div:nth-child(10),.stefanvdvistoolbar div:nth-child(11){background-size:50% 50%!important;background-repeat:no-repeat!important;background-position:50% 50%!important;width:36px!important}
+.stefanvdvistoolbar div:nth-child(10){margin-left:auto!important}
+.stefanvdvistoolbar select{height:24px!important;margin:auto 8px auto 0px!important;max-width:120px!important;border:1px solid rgba(255,255,255,.4)!important;border-radius:4px!important;outline:none!important;box-shadow:none!important;cursor:pointer!important;align-self:center!important}
 .stefanvdvis div:hover{color:rgba(255,255,255,1)!important;opacity:1!important}
 /* Video Zoom */
 .stefanvdzoom{z-index:200000000!important;position:absolute!important;color:rgba(255,255,255,0.8)!important;-webkit-user-select:none!important;-moz-user-select:none!important;user-select:none!important}
