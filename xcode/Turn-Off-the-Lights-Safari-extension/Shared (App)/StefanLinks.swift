@@ -79,7 +79,7 @@ class StefanLinks {
     }
     
     func webappcanadarace() -> String{
-        return "https://apps.apple.com/app/id1416358359"
+        return "https://apps.apple.com/app/id6797328986"
     }
     
     func webapphometab() -> String{
@@ -261,7 +261,7 @@ class OtherAppsStore: ObservableObject {
     {"id":"print","name":"Print for Safari","icon":"icons/print.png","category":"safari","urls":{"apple":"https://apps.apple.com/app/id6475040701"}},
     {"id":"aurora-player","name":"Aurora Player","icon":"icons/aurora-player.png","platforms":["macos"],"category":"utilities","urls":{"apple":"https://apps.apple.com/app/id1043744348"}},
     {"id":"headly","name":"Headly","icon":"icons/headly.png","category":"utilities","urls":{"apple":"https://apps.apple.com/app/id6759742272"}},
-    {"id":"the-canada-race","name":"The Canada Race","icon":"icons/the-canada-race.png","category":"games","hidden":true,"urls":{"apple":"https://apps.apple.com/app/id1416358359"}},
+    {"id":"the-canada-race","name":"The Canada Race","icon":"icons/the-canada-race.png","category":"games","hidden":true,"urls":{"apple":"https://apps.apple.com/app/id6797328986"}},
     {"id":"finance-toolbar","name":"Finance Toolbar","icon":"icons/finance-toolbar.png","platforms":["macos"],"category":"utilities","urls":{"apple":"https://apps.apple.com/app/id1044095759"}},
     {"id":"cpu-check","name":"CPU Check","icon":"icons/cpu-check.png","platforms":["macos"],"category":"utilities","urls":{"apple":"https://apps.apple.com/app/id1043840644"}},
     {"id":"memory-check","name":"Memory Check","icon":"icons/memory-check.png","platforms":["macos"],"category":"utilities","urls":{"apple":"https://apps.apple.com/app/id1462188561"}},
