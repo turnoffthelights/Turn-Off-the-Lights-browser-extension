@@ -199,7 +199,12 @@ chrome.runtime.onMessage.addListener(async function request(request, sender, sen
 		}
 		break;
 	case"sendnightmodeindark":
-		chrome.tabs.sendMessage(sender.tab.id, {action: "goinnightmode", value:request.value});
+		await injectNightModeScript(sender.tab.id);
+		try{
+			await chrome.tabs.sendMessage(sender.tab.id, {action: "goinnightmode", value:request.value});
+		}catch{
+			// Cannot message on this tab
+		}
 		break;
 	case"sendclearscreenshader":
 		chrome.storage.sync.set({"screenshader": false});
@@ -231,15 +236,19 @@ if(exbrowser != "safari"){
 
 // screen-shader.js = Screen Shader
 // night-mode.js = Night Mode
+const NIGHT_MODE_SETTINGS_KEYS = ["nighttheme", "nightenabletheme", "nightmodeos", "nightmodegesture", "nightonly"];
 const injectScriptsTo = async(tabId, url) => {
 	if(url.match(/^http/i) || url.match(/^file/i)){
-		// Check if screenshader is enabled before injecting
-		const response = await chrome.storage.sync.get(["mousespotlights", "screenshader"]);
+		// Check which features are enabled before injecting
+		const response = await chrome.storage.sync.get(["mousespotlights", "screenshader", ...NIGHT_MODE_SETTINGS_KEYS]);
 		const mousespotlights = response["mousespotlights"];
 		const screenshader = response["screenshader"];
 
 		// Build script list based on enabled features
-		const scriptsToInject = ["scripts/night-mode.js"]; // Always inject night-mode.js
+		const scriptsToInject = [];
+		if(isNightModeNeeded(response)){
+			scriptsToInject.push("scripts/night-mode.js");
+		}
 		if(mousespotlights === true && screenshader === true){
 			scriptsToInject.push("scripts/screen-shader.js");
 		}
@@ -262,6 +271,69 @@ const injectScriptsTo = async(tabId, url) => {
 		}
 	}
 };
+//---
+
+// Night Mode injection check
+// The script is only injected when the feature can be active. The domain
+// list and time checks stay inside scripts/night-mode.js, which decides
+// per page whether it should start.
+function isNightModeNeeded(response){
+	return response["nighttheme"] === true || response["nightenabletheme"] === true || response["nightmodeos"] === true || response["nightmodegesture"] === true || response["nightonly"] === true;
+}
+
+// True when night-mode.js is already running in the tab's main frame.
+// The script sets this flag synchronously in the same isolated world.
+async function isNightModeLoaded(tabId){
+	try{
+		const result = await chrome.scripting.executeScript({
+			target: {tabId: tabId},
+			func: () => window.stefanvdnightmodeinjected === true
+		});
+		return result && result[0] && result[0].result === true;
+	}catch{
+		return false;
+	}
+}
+
+// In-flight injections, so overlapping triggers do not inject twice
+const nightModeTabsInjecting = new Set();
+
+async function injectNightModeScript(tabId){
+	if(nightModeTabsInjecting.has(tabId)){ return; }
+	nightModeTabsInjecting.add(tabId);
+	try{
+		if(await isNightModeLoaded(tabId)){ return; }
+		if(exbrowser != "safari"){
+			await chrome.scripting.executeScript({
+				target: {tabId: tabId},
+				files: ["scripts/night-mode.js"],
+				injectImmediately: true
+			});
+		}else{
+			await chrome.scripting.executeScript({
+				target: {tabId: tabId},
+				files: ["scripts/night-mode.js"]
+			});
+		}
+	}catch{
+		// Cannot inject on this tab (restricted page or no permission)
+	}finally{
+		nightModeTabsInjecting.delete(tabId);
+	}
+}
+
+// Inject night-mode.js into already open tabs where the feature can act
+async function injectNightModeIntoOpenTabs(){
+	const response = await chrome.storage.sync.get(NIGHT_MODE_SETTINGS_KEYS);
+	const tabs = await chrome.tabs.query({});
+	for(const tab of tabs){
+		if(tab.url && (tab.url.match(/^http/i) || tab.url.match(/^file/i))){
+			if(isNightModeNeeded(response)){
+				injectNightModeScript(tab.id);
+			}
+		}
+	}
+}
 //---
 
 // Constants for script IDs
@@ -1215,6 +1287,12 @@ chrome.storage.onChanged.addListener(async function(changes){
 			chromerefreshalltabs("goenablenightmode");
 		}
 
+		// Inject night-mode.js into already open tabs when a setting
+		// that can activate the feature changes
+		if(NIGHT_MODE_SETTINGS_KEYS.includes(key)){
+			injectNightModeIntoOpenTabs();
+		}
+
 		if(changes["nightmodegesture"]){
 			chromerefreshalltabs("gorefreshnightmodegesture");
 		}
@@ -1343,7 +1421,12 @@ async function omnidaynightmode(a){
 	var result = "";
 	if(a == 0){ result = "day"; }else{ result = "night"; }
 	const thattab = await getCurrentTab();
-	chrome.tabs.sendMessage(thattab.id, {action: "goinnightmode", value:result});
+	await injectNightModeScript(thattab.id);
+	try{
+		await chrome.tabs.sendMessage(thattab.id, {action: "goinnightmode", value:result});
+	}catch{
+		// Cannot message on this tab
+	}
 }
 
 function initwelcome(){

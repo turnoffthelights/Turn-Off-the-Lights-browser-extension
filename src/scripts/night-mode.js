@@ -28,6 +28,16 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 //================================================
 
 function $(id){ return document.getElementById(id); }
+window.stefanvdnightmodeinjected = true;
+// The message listener is attached synchronously so messages sent right
+// after injection are not lost. Messages that arrive before the settings
+// are loaded are queued in "pendingnightaction" and replayed once
+// "nightMessageHandler" is assigned inside afterBodyReady.
+var nightMessageHandler = null;
+var pendingnightaction = null;
+chrome.runtime.onMessage.addListener(function(request){
+	if(nightMessageHandler){ nightMessageHandler(request); }else{ pendingnightaction = request; }
+});
 var nighttheme = null, nightonly = null, nightDomains = null, nightenabletheme = null, nighthover = null, nmbegintime = null, nmendtime = null, nightmodechecklistblack = null, nightmodechecklistwhite = null, nmtopleft = null, nmtopright = null, nmbottomright = null, nmbottomleft = null, nmcustom = null, nmcustomx = null, nmcustomy = null, nightmodebck = null, nightmodetxt = null, nightmodehyperlink = null, nightmodebydomain = null, nightmodebypage = null, nightmodegesture = null, nightactivetime = null, nightmodeswitchhide = null, nightmodeswitchhidetime = null, nightmodebutton = null, nightmodeos = null, nightmodeborder = null, nmautobegintime = null, nmautoendtime = null, nmautoclock = null, nightmodeimage = null, nmimagedark = null, nmimagegray = null, nightmodestandard = null, nightmodepersonalized = null, nightdarkmodeactive = null, swnightmodeborder = null, swnightmodebutton = null, swnightmodehyperlink = null, swnightmodebck = null, swnightmodetxt = null, nightskipcolor = null;
 
 // observeDOM - dynamic check
@@ -2120,7 +2130,7 @@ const afterBodyReady = () => {
 		}
 		runnightmodegesturecheck();
 
-		chrome.runtime.onMessage.addListener(function(request){
+		nightMessageHandler = function(request){
 			if(request.action == "goinnightmode"){
 				if(request.value == "day"){
 					sun = false; gogonightmode(); // sun go up
@@ -2287,7 +2297,14 @@ const afterBodyReady = () => {
 					}
 				});
 			}
-		});
+		};
+
+		// handle a queued message that arrived before the settings were loaded
+		if(pendingnightaction){
+			var thataction = pendingnightaction;
+			pendingnightaction = null;
+			nightMessageHandler(thataction);
+		}
 
 	});
 
