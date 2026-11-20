@@ -367,6 +367,10 @@ function videotoolfunction(){
 		item.disabled = status;
 	}
 
+	function videotoolrangewidth(videowidth){
+		return Math.min(300, Math.max(100, Math.round(videowidth * 0.2)));
+	}
+
 	var intervalRewind;
 	function rewind(rewindSpeed, v){
 		var onevideo = document.getElementsByTagName("video")[v];
@@ -815,6 +819,7 @@ function videotoolfunction(){
 					newvcpartiarange.addEventListener("change", changevideotoolbarrange, false);
 					newvcpartiarange.addEventListener("input", changevideotoolbarrange, false);
 					if(tempwidthvideo <= 360){ newvcpartiarange.style.cssText = "display:none!important"; }
+					newvcpartiarange.style.setProperty("width", videotoolrangewidth(tempwidthvideo) + "px", "important");
 					newtoolbar.appendChild(newvcpartiarange);
 
 					var newscreenshotbutton = document.createElement("div");
@@ -1217,6 +1222,9 @@ function videotoolfunction(){
 							document.getElementById("stefanvdvispanel" + potvis).style.width = mutation.target.offsetWidth + "px";
 							document.getElementById("stefanvdvispanel" + potvis).style.top = visposition.y + "px";
 							document.getElementById("stefanvdvispanel" + potvis).style.left = visposition.x + "px";
+						}
+						if(document.getElementById("stefanvdvideotoolrange" + potvis)){
+							document.getElementById("stefanvdvideotoolrange" + potvis).style.setProperty("width", videotoolrangewidth(mutation.target.offsetWidth) + "px", "important");
 						}
 						// canvas update location
 						updatepanelsize("stefanvdvisualizationcanvas" + potvis, mutation, visposition);
