@@ -83,6 +83,7 @@ var default_arangespread = 20;
 var default_mouseshakesensitivity = 4;
 var youtubeembed = "https://www.turnoffthelights.com/browser/extension/embed/?vid=PLF155F53B3D8D07CB";
 var darkmode = false;
+var passwordmask = "••••••••";
 
 // Hash password function
 async function hashPassword(password){
@@ -491,6 +492,9 @@ function read_options(){
 				chrome.storage.sync.set({"enterpassword": hashedPassword});
 			});
 		}
+
+		// show a masked value so the user knows a password is already saved
+		if(items["enterpassword"]){ $("enterpassword").value = passwordmask; $("enterpassword").setAttribute("data-masked", "true"); }
 
 		if(items["icon"]){ $("btnpreview").src = items["icon"]; $("btnpreview").setAttribute("data-icon", items["icon"]); }
 
@@ -2720,11 +2724,27 @@ function domcontentloaded(){
 		$("enterpassword").type = "password";
 	});
 
+	// typing in the masked password field keeps only the new characters
+	$("enterpassword").addEventListener("input", function(){
+		if(this.getAttribute("data-masked") == "true"){
+			this.value = this.value.replace(/•/g, "");
+			this.setAttribute("data-masked", "false");
+		}
+	});
+
 	// Save password
 	$("confirmpassword").addEventListener("click", async function(){
-		if($("enterpassword").value == ""){ return; }
+		// unchanged masked value keeps the saved password
+		if($("enterpassword").getAttribute("data-masked") == "true"){ return; }
+		if($("enterpassword").value == ""){
+			// an empty box removes the saved password
+			chrome.storage.sync.remove("enterpassword");
+			return;
+		}
 		const hashedPassword = await hashPassword($("enterpassword").value);
 		chrome.storage.sync.set({"enterpassword": hashedPassword});
+		$("enterpassword").value = passwordmask;
+		$("enterpassword").setAttribute("data-masked", "true");
 		var optionpastemp = chrome.i18n.getMessage("optionpasswordsaved"); window.alert(optionpastemp);
 	});
 
