@@ -298,46 +298,104 @@ const afterBodyReady = () => {
 			}
 		});
 
+		// Batched night-mode conversion: the mutation callback only
+		// collects the affected nodes. The expensive convertwebnight()
+		// work runs once per animation frame, so fast DOM changes on
+		// heavy pages do not force a style recalculation for every
+		// single mutation record.
+		var nightqueuedeep = new Set(); // added nodes: convert the node and its descendants
+		var nightqueueshallow = new Set(); // attribute changes: convert the node only
+		var nightflushscheduled = false;
+
+		function stopnightobserver(){
+			nightobserver.disconnect();
+			nightqueuedeep.clear();
+			nightqueueshallow.clear();
+		}
+
+		function flushnightnodes(){
+			nightflushscheduled = false;
+			if(nightqueuedeep.size == 0 && nightqueueshallow.size == 0)return;
+			// night mode was disabled while this pass was queued
+			if(isitdark != true){
+				nightqueuedeep.clear();
+				nightqueueshallow.clear();
+				return;
+			}
+			// Pause observing while converting: the classList.add() calls
+			// inside convertwebnight() must not queue new mutation records
+			// that would retrigger this pass.
+			nightobserver.disconnect();
+			nightqueuedeep.forEach(function(node){
+				// skip nodes already covered by a queued ancestor
+				var parentcheck = node.parentElement;
+				while(parentcheck){
+					if(nightqueuedeep.has(parentcheck))return;
+					parentcheck = parentcheck.parentElement;
+				}
+				if(node.isConnected == false)return;
+				convertwebnight(node);
+				var aninside = node.getElementsByTagName("*");
+				var k;
+				var l = aninside.length;
+				for(k = 0; k < l; k++){
+					convertwebnight(aninside[k]);
+				}
+			});
+			nightqueueshallow.forEach(function(node){
+				if(node.isConnected == false)return;
+				// skip nodes already covered by a queued subtree scan
+				var parentcheck = node;
+				while(parentcheck){
+					if(nightqueuedeep.has(parentcheck))return;
+					parentcheck = parentcheck.parentElement;
+				}
+				convertwebnight(node);
+				// a class or style change here can also restyle descendants
+				// through the cascade: re-check elements that are not converted
+				var unconverted = node.querySelectorAll(":not(.stefanvdnightbck)");
+				var k;
+				var l = unconverted.length;
+				for(k = 0; k < l; k++){
+					convertwebnight(unconverted[k]);
+				}
+			});
+			nightqueuedeep.clear();
+			nightqueueshallow.clear();
+			// resume observing
+			nightobserver.observe(targetNode, observerConfig);
+		}
+
+		// Pages can also restyle elements without producing any mutation
+		// records under document.body (for example via CSSOM insertRule).
+		// A throttled re-scan on scroll keeps those elements dark as well.
+		var scrollrescan = function(){
+			if(isitdark != true)return;
+			nightqueueshallow.add(document.body);
+			if(nightflushscheduled == false){
+				nightflushscheduled = true;
+				requestAnimationFrame(flushnightnodes);
+			}
+		};
+
 		var nightobserver = new MutationObserver(function(mutations){
 			mutations.forEach(function(mutation){
-
-				// console.log('Mutation type: ' + mutation.type);
 				if(mutation.type == "childList"){
-					if(mutation.addedNodes.length >= 1){
-						mutation.addedNodes.forEach(function(node){
-							if(typeof node.getElementsByTagName !== "function"){
-								return;
-							}
-							// parent node
-							convertwebnight(node);
-							// childs node
-							var aninside = node.getElementsByTagName("*");
-							var k;
-							var l = aninside.length;
-							for(k = 0; k < l; k++){
-								convertwebnight(aninside[k]);
-							}
-						});
-					}
-				}else if(mutation.type == "attributes"){
-					// only for class and style, disable temporally the mutation observer and then enable it back
-					var attributeValue = mutation.target.getAttribute(mutation.attributeName);
-					if(attributeValue != null){
-						// End mutation observer
-						nightobserver.disconnect();
-						if(mutation.attributeName === "class"){
-							convertwebnight(mutation.target);
+					mutation.addedNodes.forEach(function(node){
+						if(typeof node.getElementsByTagName === "function"){
+							nightqueuedeep.add(node);
 						}
-						// Start mutation observer
-						nightobserver.observe(targetNode, observerConfig);
-					}
-					// night mode style changed
-					if(mutation.attributeName == "style"){
-						convertwebnight(mutation.target);
-					}
+					});
+				}else if(mutation.type == "attributes"){
+					// class or style changed (attributeFilter limits this to those
+					// two): re-evaluate the target and its descendants
+					nightqueueshallow.add(mutation.target);
 				}
-
 			});
+			if(nightflushscheduled == false){
+				nightflushscheduled = true;
+				requestAnimationFrame(flushnightnodes);
+			}
 		});
 
 		var observerConfig = {
@@ -425,17 +483,11 @@ const afterBodyReady = () => {
 			// Only apply text color changes if the text is dark/black when nightskipcolor is true
 			const shouldApplyText = shouldApplyNightMode(node);
 
-			if(swnightmodebck && thatbckishere){
-				node.classList.add("stefanvdnightbck");
-			}
 			if(swnightmodetxt && shouldApplyText){
 				node.classList.add("stefanvdnight");
 			}
 			if(swnightmodebutton && node.tagName == "BUTTON" && shouldApplyText){
 				node.classList.add("stefanvdnightbutton");
-			}
-			if(swnightmodeborder && x !== null){
-				node.classList.add("stefanvdnightborder");
 			}
 
 			var parent = document.getElementById("stefanvdnighttheme");
@@ -1099,7 +1151,7 @@ const afterBodyReady = () => {
 				//-----
 				}else{
 					// End mutation observer
-					nightobserver.disconnect();
+					stopnightobserver();
 
 					sun = true;
 					if($("stefanvdnightin")){
@@ -1677,9 +1729,11 @@ const afterBodyReady = () => {
 					setnightmetatheme(false);
 					// Start mutation observer
 					nightobserver.observe(targetNode, observerConfig);
+					document.addEventListener("scroll", scrollrescan, {passive: true});
 				}else{
 					isitdark = false;
 					setnightmetatheme(true);
+					document.removeEventListener("scroll", scrollrescan);
 				}
 			}
 		}
@@ -2191,13 +2245,14 @@ const afterBodyReady = () => {
 					swnightmodetxt = items["swnightmodetxt"]; if(swnightmodetxt == null)swnightmodetxt = true;
 					nightskipcolor = items["nightskipcolor"];
 
-					nightobserver.disconnect();
+					stopnightobserver();
 					setnightmetatheme(true);
 
 					// remove
 					window.clearTimeout(timernightswitch);
 					document.removeEventListener("pointermove", mousemoveswitchhide);
 					document.removeEventListener("fullscreenchange", fullscreenswitch);
+					document.removeEventListener("scroll", scrollrescan);
 					windark.removeEventListener("change", osdarkmodecheck);
 
 					const existingStyle = document.getElementById("night-mode-standard-theme");
