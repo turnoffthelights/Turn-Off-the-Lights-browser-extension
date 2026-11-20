@@ -1173,13 +1173,21 @@ function lockscreen(){
 	var pwon2 = $("stefanvdlightareoffpw");
 	if(pwon2){
 		var entername = window.prompt(i18nlockentername, "");
-		if(enterpassword == entername){
-			document.body.removeChild(pwon2);
-			if(fadeout == true){ ReducingFinished = false; fader("hide"); reader(); removenewdynamic(); }else{ removenewframe(); reader(); removenewdynamic(); }
-			if(darkbrowsertheme == true){
-				chrome.runtime.sendMessage({name: "browsertheme", value: "light"});
-			}
-		}else{ window.alert(i18nlockwrongpassword); }
+		if(entername != null){
+			var pwresultlock = function(request){
+				if(request.name != "passwordresult"){ return; }
+				chrome.runtime.onMessage.removeListener(pwresultlock);
+				if(request.value == true){
+					document.body.removeChild(pwon2);
+					if(fadeout == true){ ReducingFinished = false; fader("hide"); reader(); removenewdynamic(); }else{ removenewframe(); reader(); removenewdynamic(); }
+					if(darkbrowsertheme == true){
+						chrome.runtime.sendMessage({name: "browsertheme", value: "light"});
+					}
+				}else{ window.alert(i18nlockwrongpassword); }
+			};
+			chrome.runtime.onMessage.addListener(pwresultlock);
+			chrome.runtime.sendMessage({name: "checkpassword", value: entername});
+		}
 	}else{
 		if(fadeout == true){ ReducingFinished = false; fader("hide"); reader(); removenewdynamic(); }else{ removenewframe(); reader(); removenewdynamic(); }
 		if(darkbrowsertheme == true){
@@ -2547,10 +2555,18 @@ chrome.storage.sync.get(["mousespotlighto", "mousespotlightc", "mousespotlighta"
 		if(activatelightsoff == true){
 			// Password enable
 			var pwon = $("stefanvdlightareoffpw");
-			if(password == true){
+			if(password == true && enterpassword){
 				if(pwon){
 					var entername = window.prompt(i18nlockentername, "");
-					if(enterpassword == entername){ document.body.removeChild(pwon); lightsgoonoroff(); }else{ window.alert(i18nlockwrongpassword); }
+					if(entername != null){
+						var pwresultlamp = function(request){
+							if(request.name != "passwordresult"){ return; }
+							chrome.runtime.onMessage.removeListener(pwresultlamp);
+							if(request.value == true){ document.body.removeChild(pwon); lightsgoonoroff(); }else{ window.alert(i18nlockwrongpassword); }
+						};
+						chrome.runtime.onMessage.addListener(pwresultlamp);
+						chrome.runtime.sendMessage({name: "checkpassword", value: entername});
+					}
 				}else{
 					lightsgoonoroff();
 					var newpw = document.createElement("div");

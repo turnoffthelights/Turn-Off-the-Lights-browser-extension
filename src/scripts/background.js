@@ -34,9 +34,41 @@ if(typeof importScripts !== "undefined"){
 	importScripts("constants.js");
 }
 
+// Hash password function
+async function hashPassword(password){
+	const encoder = new TextEncoder();
+	const data = encoder.encode(password);
+	const hash = await crypto.subtle.digest("SHA-256", data);
+	return Array.from(new Uint8Array(hash)).map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+// Verify the entered password against the stored SHA-256 hash.
+// This runs in the background worker because crypto.subtle is not
+// available on insecure (http) web pages where the content script runs.
+// A legacy plain-text password is still accepted once and then
+// upgraded to a hash in storage.
+async function checkpassword(entered){
+	const items = await chrome.storage.sync.get(["enterpassword"]);
+	const enterpassword = items["enterpassword"];
+	if(enterpassword == null){ return false; }
+	if(/^[0-9a-f]{64}$/.test(enterpassword)){
+		const enteredhash = await hashPassword(entered);
+		return enteredhash == enterpassword;
+	}
+	if(enterpassword == entered){
+		await chrome.storage.sync.set({"enterpassword": await hashPassword(entered)});
+		return true;
+	}
+	return false;
+}
+
 chrome.runtime.onMessage.addListener(async function request(request, sender, sendResponse){
 	// eye protection & autodim & shortcut
 	switch(request.name){
+	case"checkpassword": {
+		chrome.tabs.sendMessage(sender.tab.id, {name: "passwordresult", value: await checkpassword(request.value)}, {frameId: sender.frameId});
+		break;
+	}
 	case"bckreload":
 		installation();
 		break;
