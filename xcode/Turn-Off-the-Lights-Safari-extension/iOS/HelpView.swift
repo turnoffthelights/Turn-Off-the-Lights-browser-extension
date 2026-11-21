@@ -48,7 +48,7 @@ struct HelpView: View {
     }
     
     private var copyrightText: String {
-        "© \(currentYear) Stefan vd"
+        "Copyright © \(currentYear) Stefan vd"
     }
     
     var body: some View {
@@ -94,8 +94,28 @@ struct HelpView: View {
     private var sidebarView: some View {
         List(selection: $selectedDetail) {
             Section(header: Text("About")){
-                aboutInfoRows
-
+                HStack(spacing: 12) {
+                    Image("about-logo")
+                        .resizable()
+                        .frame(width: 56, height: 56)
+                        .accessibilityHidden(true)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Turn Off the Lights for Safari")
+                            .font(.headline)
+                        Text("Version \(versionNumber)")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                        Text(copyrightText)
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                    }
+                    Spacer()
+                }
+                .padding(.vertical, 4)
+                .accessibilityElement(children: .combine)
+                
+            }
+            Section{
                 Label {
                     Text("Licenses")
                 } icon: {
