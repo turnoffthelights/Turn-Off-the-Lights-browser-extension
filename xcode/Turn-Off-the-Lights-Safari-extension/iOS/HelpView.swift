@@ -96,19 +96,42 @@ struct HelpView: View {
             Section(header: Text("About")){
                 aboutInfoRows
 
-                Label("Licenses", systemImage: "doc.text")
-                    .tag(MoreDetailItem.licenses)
+                Label {
+                    Text("Licenses")
+                } icon: {
+                    sidebarIcon("doc.text", tint: .gray)
+                }
+                .tag(MoreDetailItem.licenses)
             }
 
             Section(header: Text("More")){
-                Label("Welcome Guide", systemImage: "book")
-                    .tag(MoreDetailItem.guide)
-                Label("Help", systemImage: "questionmark.circle")
-                    .tag(MoreDetailItem.help)
-                Label("Contribute & Develop", systemImage: "chevron.left.forwardslash.chevron.right")
-                    .tag(MoreDetailItem.contribute)
-                Label("Explore & Connect", systemImage: "globe")
-                    .tag(MoreDetailItem.explore)
+                Label {
+                    Text("Welcome Guide")
+                } icon: {
+                    sidebarIcon("book", tint: .blue)
+                }
+                .tag(MoreDetailItem.guide)
+
+                Label {
+                    Text("Help")
+                } icon: {
+                    sidebarIcon("questionmark.circle", tint: .blue)
+                }
+                .tag(MoreDetailItem.help)
+
+                Label {
+                    Text("Contribute & Develop")
+                } icon: {
+                    sidebarIcon("chevron.left.forwardslash.chevron.right", tint: .black)
+                }
+                .tag(MoreDetailItem.contribute)
+
+                Label {
+                    Text("Explore & Connect")
+                } icon: {
+                    sidebarIcon("globe", tint: .blue)
+                }
+                .tag(MoreDetailItem.explore)
             }
         }
         .listStyle(.sidebar)
@@ -157,6 +180,17 @@ struct HelpView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(uiColor: .systemGroupedBackground))
+    }
+
+    private func sidebarIcon(_ systemName: String, tint: Color) -> some View {
+        Image(systemName: systemName)
+            .resizable()
+            .scaledToFit()
+            .fontWeight(.medium)
+            .frame(width: 18, height: 18)
+            .foregroundStyle(.white)
+            .frame(width: 29, height: 29)
+            .background(tint.gradient, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
     }
 
     @ViewBuilder
