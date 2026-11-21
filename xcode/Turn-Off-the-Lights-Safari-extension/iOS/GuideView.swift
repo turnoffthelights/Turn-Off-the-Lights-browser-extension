@@ -662,55 +662,8 @@ struct GuideView: View {
                 .tabViewStyle(.page)
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
 #endif
-                
-                // Manual Close Button
-#if os(visionOS)
-//                Button(action: {
-//                    dismiss()
-//                }) {
-//                    Label("Close", systemImage: "xmark")
-//                        .labelStyle(.iconOnly)
-//                }
-//                .padding(16)
-#elseif os(iOS)
-                //            Button(action: {
-                //                dismiss()
-                //            }) {
-                //                if #available(iOS 26.0, *) {
-                //                    Image(systemName: "xmark")
-                //                        .font(.system(size: 16, weight: .bold))
-                //                        .frame(width: 36, height: 36)
-                //                        .foregroundStyle(.primary)
-                //                        .background(.ultraThinMaterial, in: Circle())
-                //                        .glassEffect()
-                //                } else {
-                //                    // Fallback on earlier versions
-                //                    Image(systemName: "xmark")
-                //                        .font(.system(size: 16, weight: .bold))
-                //                        .frame(width: 36, height: 36)
-                //                        .foregroundStyle(.primary)
-                //                        .background(.ultraThinMaterial, in: Circle())
-                //                }
-                //            }
-                //            .padding(16)
-                //            .accessibilityLabel("Close")
-                //            #else
-                //            // macOS close button (simple fallback)
-                //            Button(action: {
-                //                dismiss()
-                //            }) {
-                //                Image(systemName: "xmark")
-                //                    .font(.system(size: 14, weight: .bold))
-                //                    .frame(width: 28, height: 28)
-                //                    .foregroundStyle(.primary)
-                //                    .background(.thinMaterial, in: Circle())
-                //            }
-                //            .buttonStyle(.plain)
-                //            .padding(16)
-                //            .accessibilityLabel("Close")
-#endif
             }
-            
+            //.navigationTitle("Welcome Guide")
             .toolbar {
                 if #available(iOS 26.0, *) {
                     Button(role: .close) {
