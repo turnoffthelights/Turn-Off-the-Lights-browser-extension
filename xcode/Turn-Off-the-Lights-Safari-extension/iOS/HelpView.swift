@@ -96,18 +96,18 @@ struct HelpView: View {
             Section(header: Text("About")){
                 aboutInfoRows
 
-                Text("Licenses")
+                Label("Licenses", systemImage: "doc.text")
                     .tag(MoreDetailItem.licenses)
             }
 
             Section(header: Text("More")){
-                Text("Welcome Guide")
+                Label("Welcome Guide", systemImage: "book")
                     .tag(MoreDetailItem.guide)
-                Text("Help")
+                Label("Help", systemImage: "questionmark.circle")
                     .tag(MoreDetailItem.help)
-                Text("Contribute & Develop")
+                Label("Contribute & Develop", systemImage: "chevron.left.forwardslash.chevron.right")
                     .tag(MoreDetailItem.contribute)
-                Text("Explore & Connect")
+                Label("Explore & Connect", systemImage: "globe")
                     .tag(MoreDetailItem.explore)
             }
         }
