@@ -50,7 +50,6 @@ struct ContentView: View {
                 offlineFullScreenPanel
                     .transition(.opacity)
                    .animation(.easeInOut, value: networkMonitor.isConnected)
-                   .edgesIgnoringSafeArea(.all)
                    .zIndex(1)
             }
         }
@@ -89,7 +88,7 @@ struct ContentView: View {
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(.background)
+            .background(Color(uiColor: .systemBackground).ignoresSafeArea())
             .accessibilityElement(children: .combine)
             .accessibilityLabel(Text("No Internet Connection. Please check your network settings and try again."))
             .accessibilityHint(Text("The main content is unavailable while offline."))
