@@ -208,7 +208,7 @@
       "id": "turn-off-the-lights-desktop",
       "name": "Turn Off the Lights - Desktop",
       "icon": "icons/turn-off-the-lights-desktop.png",
-      "category": "safari",
+      "category": "utilities",
       "platforms": ["macos"],
       "urls": { "apple": "https://apps.apple.com/app/id1043732024" }
     },

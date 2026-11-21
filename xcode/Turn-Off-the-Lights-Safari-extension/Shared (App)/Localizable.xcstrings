@@ -3329,6 +3329,7 @@
       }
     },
     "Explore" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
