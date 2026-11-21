@@ -177,8 +177,7 @@
       "name": "The Canada Race",
       "icon": "icons/the-canada-race.png",
       "category": "games",
-      "hidden": true,
-      "urls": { "apple": "https://apps.apple.com/app/id1416358359" }
+      "urls": { "apple": "https://apps.apple.com/app/id6797328986" }
     },
     {
       "id": "finance-toolbar",
@@ -233,7 +232,6 @@
       "name": "Hello Office",
       "icon": "icons/hello-office.png",
       "category": "games",
-      "hidden": true,
       "urls": { "apple": "https://apps.apple.com/app/id6797568013", "android": "https://play.google.com/store/apps/details?id=com.stefanvd.helloofficegame" }
     },
     {

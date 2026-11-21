@@ -262,14 +262,14 @@ class OtherAppsStore: ObservableObject {
     {"id":"print","name":"Print for Safari","icon":"icons/print.png","category":"safari","urls":{"apple":"https://apps.apple.com/app/id6475040701"}},
     {"id":"aurora-player","name":"Aurora Player","icon":"icons/aurora-player.png","platforms":["macos"],"category":"utilities","urls":{"apple":"https://apps.apple.com/app/id1043744348"}},
     {"id":"headly","name":"Headly","icon":"icons/headly.png","category":"utilities","urls":{"apple":"https://apps.apple.com/app/id6759742272"}},
-    {"id":"the-canada-race","name":"The Canada Race","icon":"icons/the-canada-race.png","category":"games","hidden":true,"urls":{"apple":"https://apps.apple.com/app/id6797328986"}},
+    {"id":"the-canada-race","name":"The Canada Race","icon":"icons/the-canada-race.png","category":"games","urls":{"apple":"https://apps.apple.com/app/id6797328986"}},
     {"id":"finance-toolbar","name":"Finance Toolbar","icon":"icons/finance-toolbar.png","platforms":["macos"],"category":"utilities","urls":{"apple":"https://apps.apple.com/app/id1044095759"}},
     {"id":"cpu-check","name":"CPU Check","icon":"icons/cpu-check.png","platforms":["macos"],"category":"utilities","urls":{"apple":"https://apps.apple.com/app/id1043840644"}},
     {"id":"memory-check","name":"Memory Check","icon":"icons/memory-check.png","platforms":["macos"],"category":"utilities","urls":{"apple":"https://apps.apple.com/app/id1462188561"}},
     {"id":"turn-off-the-lights-desktop","name":"Turn Off the Lights - Desktop","icon":"icons/turn-off-the-lights-desktop.png","platforms":["macos"],"category":"utilities","urls":{"apple":"https://apps.apple.com/app/id1043732024"}},
     {"id":"fast-shutdown","name":"Fast Shutdown","icon":"icons/fast-shutdown.png","platforms":["macos"],"category":"utilities","urls":{"apple":"https://apps.apple.com/app/id1043724056"}},
     {"id":"my-recent-documents","name":"My Recent Documents","icon":"icons/my-recent-documents.png","platforms":["macos"],"category":"utilities","urls":{"apple":"https://apps.apple.com/app/id1252412682"}},
-    {"id":"hello-office","name":"Hello Office","icon":"icons/hello-office.png","hidden":true,"category":"games","urls":{"apple":"https://apps.apple.com/app/id6797568013","android":"https://play.google.com/store/apps/details?id=com.stefanvd.helloofficegame"}},
+    {"id":"hello-office","name":"Hello Office","icon":"icons/hello-office.png","category":"games","urls":{"apple":"https://apps.apple.com/app/id6797568013","android":"https://play.google.com/store/apps/details?id=com.stefanvd.helloofficegame"}},
     {"id":"whosatthedoor","name":"Who's at the Door?","icon":"icons/whosatthedoor.png","category":"games","platforms":["ios"],"urls":{"apple":"https://apps.apple.com/app/id6818487128"}}
     ]}
     """
