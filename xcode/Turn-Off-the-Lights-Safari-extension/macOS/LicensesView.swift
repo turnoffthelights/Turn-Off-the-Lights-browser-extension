@@ -11,6 +11,12 @@ struct LicensesView: View {
     var body: some View {
         NavigationStack {
             Form{
+                Section {
+                    Text("This page provides information about the licenses governing the software and its components.")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                }
+                
                 Section(header: Text("Browser Extension"))
                 {
                     Text("Turn Off the Lights for Safari is free and open source software, released under the GNU General Public License v2.0. You are free to use, study, and modify the source code.")
