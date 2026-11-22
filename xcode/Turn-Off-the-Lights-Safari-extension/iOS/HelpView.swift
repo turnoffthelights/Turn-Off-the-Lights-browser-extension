@@ -246,7 +246,7 @@ struct HelpView: View {
     }
 
     private var guideSection: some View {
-        Section(header: Text("Guide")) {
+        Section{
             Button("Welcome Guide") {
                 showGuide = true
             }
@@ -255,8 +255,7 @@ struct HelpView: View {
     }
 
     private var helpSection: some View {
-        Section(header: Text("Help"))
-        {
+        Section{
             ForEach(HelpItems) { menuItem in  Button(action: {
                 StefanFunctions().openURL(menuItem.url)
             }) {
@@ -268,8 +267,7 @@ struct HelpView: View {
     }
 
     private var contributeSection: some View {
-        Section(header: Text("Contribute & Develop"))
-        {
+        Section{
             Button(action: {
                 StefanFunctions().openURL(URL(string: StefanLinks().linktranslate())!)
             }) {
@@ -296,8 +294,7 @@ struct HelpView: View {
     }
 
     private var exploreSection: some View {
-        Section(header: Text("Explore & Connect"))
-        {
+        Section{
             NavigationLink(value: MoreRoute.otherApps) {
                 Text("Other Apps")
             }
