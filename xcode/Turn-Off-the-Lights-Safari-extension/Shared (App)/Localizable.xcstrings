@@ -4256,7 +4256,11 @@
       },
       "shouldTranslate" : false
     },
+    "GNU General Public License v2.0" : {
+
+    },
     "GPL 2.0" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -13314,6 +13318,9 @@
         }
       }
     },
+    "This page provides information about the licenses governing the software and its components." : {
+
+    },
     "Turn Off the Lights" : {
       "localizations" : {
         "ar" : {
@@ -13866,6 +13873,9 @@
           }
         }
       }
+    },
+    "Turn Off the Lights Safari Extension is free and Open Source software" : {
+
     },
     "Turn Off the Lights™" : {
       "localizations" : {
