@@ -3049,7 +3049,7 @@ function domcontentloaded(){
 	$("resettotl").addEventListener("click", function(){ chrome.storage.sync.clear(); chrome.runtime.sendMessage({name: "bckreload"}); location.reload(); });
 
 	// Export and Import settings
-	var devicelocalkeys = ["firstRun", "firstDate", "version", "firstsawrate", "firstsawyoutube", "firstsawnumber", "countremember", "reviewedlastonversion", "screenshader", "analytics", "siteengagement"];
+	var devicelocalkeys = ["firstRun", "firstDate", "version", "firstsawrate", "firstsawyoutube", "firstsawnumber", "countremember", "reviewedlastonversion", "screenshader", "analytics", "siteengagement", "enterpassword"];
 
 	$("exporttotl").addEventListener("click", function(){
 		chrome.storage.sync.get(null, function(items){
