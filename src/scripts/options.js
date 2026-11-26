@@ -2737,8 +2737,12 @@ function domcontentloaded(){
 		// unchanged masked value keeps the saved password
 		if($("enterpassword").getAttribute("data-masked") == "true"){ return; }
 		if($("enterpassword").value == ""){
-			// an empty box removes the saved password
+			// an empty box removes the saved password and disables the lock
 			chrome.storage.sync.remove("enterpassword");
+			chrome.storage.sync.set({"password": false});
+			$("password").checked = false;
+			test(); ariacheck();
+			var optionpasrem = chrome.i18n.getMessage("optionpasswordremoved"); window.alert(optionpasrem);
 			return;
 		}
 		const hashedPassword = await hashPassword($("enterpassword").value);
@@ -3090,14 +3094,19 @@ function domcontentloaded(){
 				Object.keys(data.settings).forEach(function(k){
 					if(devicelocalkeys.indexOf(k) === -1){ clean[k] = data.settings[k]; }
 				});
-				chrome.storage.sync.set(clean, function(){
-					if(chrome.runtime.lastError){
-						window.alert(chrome.i18n.getMessage("optionimporterror"));
-					}else{
-						window.alert(chrome.i18n.getMessage("optionimportdone"));
-						chrome.runtime.sendMessage({name: "bckreload"});
-						location.reload();
-					}
+				chrome.storage.sync.get("enterpassword", function(items){
+					// the exported file never carries the password, so an enabled
+					// lock without a stored password would silently do nothing
+					if(clean["password"] == true && items["enterpassword"] == null){ clean["password"] = false; }
+					chrome.storage.sync.set(clean, function(){
+						if(chrome.runtime.lastError){
+							window.alert(chrome.i18n.getMessage("optionimporterror"));
+						}else{
+							window.alert(chrome.i18n.getMessage("optionimportdone"));
+							chrome.runtime.sendMessage({name: "bckreload"});
+							location.reload();
+						}
+					});
 				});
 			}catch{
 				window.alert(chrome.i18n.getMessage("optionimporterror"));

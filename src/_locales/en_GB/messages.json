@@ -35,6 +35,7 @@
 "changelog":{"message":"Changelog"},
 "optionpagetitle":{"message":"Turn Off the Lights - Options"},
 "optionpasswordsaved":{"message":"Password is saved successfully!"},
+"optionpasswordremoved":{"message":"Password removed. The lock is now disabled."},
 "desdynamicspace":{"message":"Space"},
 "deseastereggs":{"message":"Pressing the T key adds a theatre curtain to the dark layer"},
 "settings":{"message":"Settings"},
